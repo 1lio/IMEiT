@@ -59,8 +59,8 @@ public class TabFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
 
-                TextView ps1= (TextView)getView().findViewById(R.id.p1);
-                TextView p1p1= (TextView)getView().findViewById(R.id.p1p1);
+                TextView ps1 = (TextView)getView().findViewById(R.id.p1);
+                TextView p1p1 = (TextView)getView().findViewById(R.id.p1p1);
 
 
                 switch (position) {

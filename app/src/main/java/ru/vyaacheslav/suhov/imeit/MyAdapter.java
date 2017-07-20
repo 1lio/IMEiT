@@ -8,10 +8,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
 
 
-public class MyAdapter  extends FragmentPagerAdapter {
+ class MyAdapter  extends FragmentPagerAdapter {
 
 
-    public MyAdapter(FragmentManager fm)
+    MyAdapter(FragmentManager fm)
     {
         super(fm);
     }
