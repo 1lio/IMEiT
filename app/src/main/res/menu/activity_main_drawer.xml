@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/main_tab"
+            android:icon="@drawable/tab1"
+            android:title="@string/ras" />
+        <item
+            android:id="@+id/you_tab"
+            android:icon="@drawable/tab2"
+            android:title="@string/ras2" />
+
+    </group>
+
+
+
+</menu>

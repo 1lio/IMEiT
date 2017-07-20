@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ИМЕиТ</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="ras">Расписание</string>
+    <string name="ras2">Настр. расписание</string>
+
+
+    <string-array name="bak_groops">
+        <item>МФ-11</item>
+        <item>МИ-11</item>
+        <item>ИСиТ-11</item>
+        <item>ИиВТ-11</item>
+    </string-array>
+
+</resources>
