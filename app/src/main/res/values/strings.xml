@@ -5,6 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="ras">Расписание</string>
     <string name="ras2">Настр. расписание</string>
+    <string name="groope">Группа:</string>
 
 
     <string-array name="bak_groops">

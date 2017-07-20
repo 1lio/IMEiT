@@ -1,22 +1,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@drawable/side_nav_bar"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <!-- TODO: Update blank fragment layout -->
+    android:background="@drawable/side_nav_bar"
+    android:orientation="vertical">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"
-        app:tabGravity="fill"
-        app:tabMode="fixed"
-        android:background="#181818"
-        app:tabIndicatorColor="#6c0000"
-        app:tabSelectedTextColor="#6c0000"
-        app:tabTextColor="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#181818"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#6c0000"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#6c0000"
+        app:tabTextColor="#ffffff">
     </android.support.design.widget.TabLayout>
 
     <LinearLayout
@@ -30,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Группа:"
+            android:text="@string/groope"
             android:textColor="@android:color/darker_gray" />
 
         <Spinner
@@ -40,8 +38,7 @@
             android:layout_marginRight="24dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/background_light"
-            android:entries="@array/bak_groops"
-          />
+            android:entries="@array/bak_groops"/>
 
     </LinearLayout>
 
@@ -49,7 +46,6 @@
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </android.support.v4.view.ViewPager>
 
 </LinearLayout>

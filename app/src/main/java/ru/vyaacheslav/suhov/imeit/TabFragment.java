@@ -20,14 +20,11 @@ public class TabFragment extends Fragment {
     public  static ViewPager viewPager;
     public  static int int_items= 5;
 
-    Object value;
     int yourInt = 0;
-
-
+    String[] data = {"one", "two", "three", "four", "five"};
     public TabFragment() {
         // Required empty public constructor
     }
-    String[] data = {"one", "two", "three", "four", "five"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
