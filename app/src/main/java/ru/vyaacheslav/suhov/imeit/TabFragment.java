@@ -19,9 +19,7 @@ public class TabFragment extends Fragment {
     public  static TabLayout tabLayout;
     public  static ViewPager viewPager;
     public  static int int_items= 5;
-
-    int yourInt = 0;
-    String[] data = {"one", "two", "three", "four", "five"};
+    Spinner spinner;
     public TabFragment() {
         // Required empty public constructor
     }
@@ -49,7 +47,7 @@ public class TabFragment extends Fragment {
                 ArrayAdapter.createFromResource(getContext(), R.array.bak_groops, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        Spinner spinner = (Spinner) v.findViewById(R.id.spinner);
+        spinner = (Spinner) v.findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
 
 
@@ -65,7 +63,6 @@ public class TabFragment extends Fragment {
 
                 switch (position) {
                     case 0:
-                        yourInt = 1;
 
                         ps1.setText("Математика");
                         p1p1.setText("ме О.Н.");
@@ -73,7 +70,6 @@ public class TabFragment extends Fragment {
                         break;
 
                     case 1:
-                        yourInt = 2;
 
                         ps1.setText("История");
                         p1p1.setText("Новикова Л.Б");

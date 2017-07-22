@@ -11,8 +11,92 @@
     <string-array name="bak_groops">
         <item>МФ-11</item>
         <item>МИ-11</item>
-        <item>ИСиТ-11</item>
+        <item>ПМ-11</item>
+        <item>БИ-11</item>
+        <item>НЭ-11</item>
         <item>ИиВТ-11</item>
+        <item>ИСиТ-11</item>
+        <item>Мф-21</item>
+        <item>ПМ-21</item>
+        <item>ИиВТ-21</item>
+        <item>НЭ-21</item>
+        <item>М-31</item>
+        <item>ПМ-31</item>
+        <item>ИиВТ-31</item>
+        <item>НЭ-31</item>
+        <item>М-41</item>
+        <item>ФМ-41</item>
+        <item>ПМ-41</item>
+        <item>ИиВТ-41</item>
+        <item>НЭ-41</item>
+        <item>ИБ-41</item>
     </string-array>
-
+   // Базовая часть ИСиТ
+    <string name="filosofia">Философия</string>
+    <string name="history">Философия</string>
+    <string name="inlang">Иностранный язык</string>
+    // Математика
+    <string name="algebra_a_geo">Алгебра и геометрия</string>
+    <string name="m_analis">Математический анализ</string>
+    <string name="disckret">Дискретная математика</string>
+    <string name="matlogic">Математическая логика и теория алгоритмов</string>
+    <string name="chismet">Численные метод</string>
+    <string name="veroyat">Теория вероятностей и математическая статистика</string>
+    //
+    <string name="informat">Информатика</string>
+    <string name="physics">Физика</string>
+    <string name="chemistry">Химия</string>
+    <string name="eco">Экология</string>
+    <string name="inf_sys">Теория информационных процессов и систем</string>
+    <string name="inf_tex">Информационные технологии</string>
+    <string name="arx_sys">Архитектура информационных систем</string>
+    <string name="tex_pr">Технологии программирования</string>
+    <string name="u_bd">Управление данными</string>
+    <string name="tex_in">Технологии обработки информации</string>
+    <string name="int_sys">Интеллектуальные системы и технологии</string>
+    <string name="inst_sys">Инструментальные средства информационных систем</string>
+    <string name="in_sys_seti">Инфокоммуникационные системы и сети</string>
+    <string name="met_sys">Методы и средства проектирования информационных систем и технологий</string>
+    <string name="fk">Физическая культура и спорт</string>
+    <string name="bjd">Безопасность жизнедеятельности</string>
+    //
+    <string name="econ">Экономика</string>
+    <string name="pravo">Правоведение</string>
+    <string name="oop">Объектно-ориентированное программирование</string>
+    <string name="teo_game">Исследование операций и теория игр</string>
+    <string name="el_ec">Электротехника, электроника и схемотехника</string>
+    <string name="metrologia">Метрология, стандартизация и сертификация</string>
+    <string name="or_ibm">Организация ЭВМ и систем</string>
+    <string name="os">Операционные системы</string>
+    <string name="in_bez">Информационная безопасность и защита информации</string>
+    <string name="md_pr_sys">Моделирование процессов и систем</string>
+    <string name="up_bd_sys">Управление безопасностью информационных систем</string>
+    <string name="pr_web">Программирование Web-приложений</string>
+    <string name="ad_os">Администрирование операционных и информационных систем</string>
+    <string name="ob_bd">Распределенная обработка данных</string>
+    <string name="cach_sys">Качество и надежность информационных систем</string>
+    <string name="pr_sys_up">Проектирование информационных систем управления</string>
+    <string name="pr_bez">Правовое обеспечение информационной безопасности</string>
+    <string name="russian_lang">Русский язык и культура речи</string>
+    //
+    <string name="mat_pra">Математический практикум</string>
+    <string name="mat_zad">Решение нестандартных математических задач</string>
+    <string name="elc_doc">Электронный документооборот</string>
+    <string name="off_tex">Офисные технологии</string>
+    <string name="log_pro">Логическое программирование</string>
+    <string name="fun_pro">Функциональное программирование</string>
+    <string name="com_tip">Компьютерная типография</string>
+    <string name="izd_sys">Издательские системы</string>
+    <string name="za_ob_d">Защита и обработка конфиденциальных документов</string>
+    <string name="crip_za">Криптографические методы защиты информации</string>
+    <string name="met_opt">Методы оптимизации</string>
+    <string name="me_op_r">Методы принятия оптимальных решений</string>
+    <string name="tex_v_c">Технологии высокоскоростных сетей</string>
+    <string name="pos_set">Построение коммутируемых сетей</string>
+    <string name="par_sys">Параллельные вычислительные системы</string>
+    <string name="vis_tex">Высокопроизводительные вычислительные технологии</string>
+    <string name="geo_gra">Компьютерная геометрия и графика</string>
+    <string name="teo_obr">Теория распознавания образов</string>
+    <string name="teo_obs">Теория массового обслуживания</string>
+    <string name="imt_mod">Имитационное моделирование</string>
 </resources>

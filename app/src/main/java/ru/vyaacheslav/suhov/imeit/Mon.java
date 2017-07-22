@@ -11,15 +11,15 @@ import android.view.ViewGroup;
 public class Mon extends Fragment {
 
 
-    public Mon() {
-        // Required empty public constructor
-    }
+    View v;
 
+    public Mon() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.mon,container,false);
+         v = inflater.inflate(R.layout.mon,container,false);
+
         return v;
     }
 

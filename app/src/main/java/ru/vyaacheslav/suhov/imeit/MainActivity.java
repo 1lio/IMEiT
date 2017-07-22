@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager FM;
     FragmentTransaction FT;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView= (NavigationView) findViewById(R.id.shitstuff);
-
-
 
         FM= getSupportFragmentManager();
         FT= FM.beginTransaction();
@@ -54,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.app_name,R.string.app_name);
