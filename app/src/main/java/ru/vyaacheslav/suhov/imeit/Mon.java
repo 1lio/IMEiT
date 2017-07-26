@@ -19,8 +19,6 @@ public class Mon extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
          v = inflater.inflate(R.layout.mon,container,false);
-
         return v;
     }
-
 }

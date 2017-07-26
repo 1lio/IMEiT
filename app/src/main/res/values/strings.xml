@@ -99,4 +99,13 @@
     <string name="teo_obr">Теория распознавания образов</string>
     <string name="teo_obs">Теория массового обслуживания</string>
     <string name="imt_mod">Имитационное моделирование</string>
+
+    <string name="name_p">Название предмета</string>
+    <string name="name_te">Имя преподователя</string>
+    <string name="pz">ПЗ</string>
+    <string name="uk_4_24">УК4 24</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="tree">3</string>
+    <string name="four">4</string>
 </resources>

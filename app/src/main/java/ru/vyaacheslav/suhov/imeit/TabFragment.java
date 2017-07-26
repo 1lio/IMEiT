@@ -7,10 +7,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 
 
 
@@ -20,8 +19,11 @@ public class TabFragment extends Fragment {
     public  static ViewPager viewPager;
     public  static int int_items= 5;
     Spinner spinner;
+    TextView  p1t;
+
+
     public TabFragment() {
-        // Required empty public constructor
+       // Required empty public constructor
     }
 
     @Override
@@ -34,6 +36,7 @@ public class TabFragment extends Fragment {
         viewPager = (ViewPager)v.findViewById(R.id.viewpager);
 
 
+
         viewPager.setAdapter(new MyAdapter( getChildFragmentManager()));
 
         tabLayout.post(new Runnable() {
@@ -42,44 +45,10 @@ public class TabFragment extends Fragment {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
-
-        ArrayAdapter<?> adapter =
-                ArrayAdapter.createFromResource(getContext(), R.array.bak_groops, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner = (Spinner) v.findViewById(R.id.spinner);
-        spinner.setAdapter(adapter);
-
-
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-
-                TextView ps1 = getView().findViewById(R.id.p1);
-                TextView p1p1 = getView().findViewById(R.id.p1p1);
-
-
-                switch (position) {
-                    case 0:
-                        ps1.setText("Математика");
-                        p1p1.setText("ме О.Н.");
-                        break;
-
-                    case 1:
-                        ps1.setText("История");
-                        p1p1.setText("Новикова Л.Б");
-                        break;
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-            }
-        });
-
         return v;
 
+
     }
+
 
 }

@@ -13,11 +13,14 @@ public class Tue extends Fragment {
     public Tue() {
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.mon,container,false);
+        View v = inflater.inflate(R.layout.tue,container,false);
+        View row1 = inflater.inflate(R.layout.fragment_tab, null);
+
+
+
         return v;
     }
 

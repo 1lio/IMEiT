@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
 
-
  class MyAdapter  extends FragmentPagerAdapter {
 
 
@@ -15,6 +14,7 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
     {
         super(fm);
     }
+
     @Override
     public Fragment getItem(int position) {
         switch (position){
@@ -29,17 +29,12 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
                 return new Mon();
             case 4:
                 return new Mon();
-
-
-
         }
         return null;
     }
 
     @Override
     public int getCount() {
-
-
         return int_items;
     }
 
@@ -55,7 +50,6 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
                 return "Чт";
             case 4:
                 return "Пт";
-
 
         }
 
