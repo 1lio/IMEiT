@@ -16,10 +16,7 @@ public class Tue extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.tue,container,false);
-        View row1 = inflater.inflate(R.layout.fragment_tab, null);
-
-
+        View v = inflater.inflate(R.layout.tue, container, false);
 
         return v;
     }

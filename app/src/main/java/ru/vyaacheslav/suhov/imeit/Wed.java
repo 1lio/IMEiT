@@ -7,17 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+public class Wed extends Fragment {
 
-public class Mon extends Fragment {
 
-
-    public Mon() {
+    public Wed() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.mon, container, false);
+        View v = inflater.inflate(R.layout.wed, container, false);
         return v;
     }
 }

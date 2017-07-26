@@ -96,14 +96,17 @@
     <string name="par_sys">Параллельные вычислительные системы</string>
     <string name="vis_tex">Высокопроизводительные вычислительные технологии</string>
     <string name="geo_gra">Компьютерная геометрия и графика</string>
+    <string name="geometry">Геометрия</string>
     <string name="teo_obr">Теория распознавания образов</string>
     <string name="teo_obs">Теория массового обслуживания</string>
     <string name="imt_mod">Имитационное моделирование</string>
 
     <string name="pcixol">Психология (общая психология)</string>
     <string name="pedagogic">Педагогика (Введение в пед. деят. Общие основы педагогики)</string>
+    <string name="chkm">Практикум по шк.курсу математики</string>
+    <string name="omoi">Основы математической обработки информации</string>
 
-
+    <string name="fok">ФОК</string>
     <string name="name_p">Название предмета</string>
     <string name="name_te">Имя преподователя</string>
     <string name="pz">ПЗ</string>
@@ -115,10 +118,17 @@
 
     <string name="uk">УК </string>
     <string name="lk">ЛК</string>
+    <string name="gk">ГК</string>
+    <string name="lb">ЛБ</string>
 
     /// PREPOD
 
     <string name="belix">Белых О.Н.</string>
     <string name="okuneva">Окунева С.Е.</string>
     <string name="zaharova">Захарова М.А.</string>
+    <string name="ivanov">Иванов А. М.</string>
+    <string name="prokuratova">Прокуратова О.Н.</string>
+    <string name="chernousova">Черноусова Н.В.</string>
+    <string name="tarov">Таров Д.А.</string>
+    <string name="turtaeva">Туртаева А.Ю.</string>
 </resources>
