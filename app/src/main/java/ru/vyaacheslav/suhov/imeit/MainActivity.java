@@ -79,8 +79,16 @@ public class MainActivity extends AppCompatActivity {
 
         spinner.setAdapter(adapter);
 
-        final TextView  p1 = (TextView)findViewById(R.id.p1);
-        final TextView  p1t = (TextView)findViewById(R.id.p1t);
+        final TextView  p1 = (TextView)findViewById(R.id.m_p1);
+        final TextView  p1a = (TextView)findViewById(R.id.m_p1_a);
+        final TextView  m_p1_t = (TextView)findViewById(R.id.m_p1_t);
+        final TextView  m_p1_k = (TextView)findViewById(R.id.m_p1_k);
+        final TextView  p1z = (TextView)findViewById(R.id.m_p1z);
+        final TextView  p1az = (TextView)findViewById(R.id.m_p1_az);
+        final TextView  m_p1_tz = (TextView)findViewById(R.id.m_p1_tz);
+        final TextView  m_p1_kz = (TextView)findViewById(R.id.m_p1_kz);
+
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -90,12 +98,26 @@ public class MainActivity extends AppCompatActivity {
 
                     // MF11
                     case 0:
+                        //Пн первая пара числитель/ далее знаменатель (z)
+                        p1.setText(getResources().getString(R.string.pcixol));
+                        p1a.setText(getResources().getString(R.string.okuneva));
+                        m_p1_t.setText(getResources().getString(R.string.pz));
+                        m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-24");
 
-                        p1.setText("alpha");
-                        p1t.setText("beta");
+                        p1z.setText(getResources().getString(R.string.pedagogic));
+                        p1az.setText(getResources().getString(R.string.zaharova));
+                        m_p1_tz.setText(getResources().getString(R.string.lk));
+                        m_p1_kz.setText(getResources().getString(R.string.uk)+ " 4-24");
+
+
                         break;
                     // MI11
                     case 1:
+                        p1.setText(getResources().getString(R.string.in_bez));
+                        p1a.setText(getResources().getString(R.string.belix));
+                        m_p1_t.setText(getResources().getString(R.string.pz));
+                        m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-24");
+
 
                         break;
                     // PM11
@@ -103,6 +125,35 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                     case 3:
+
+                        break;
+                    case 4:
+
+                        break;
+                    case 5:
+
+                        break;
+
+                    case 6: //ИСиТ-11, епт ведь мы уже ..-21
+                        p1.setText(getResources().getString(R.string.pcixol));
+                        p1a.setText(getResources().getString(R.string.okuneva));
+                        m_p1_t.setText(getResources().getString(R.string.pz));
+                        m_p1_k.setText(getResources().getString(R.string.uk)+ "4-24");
+
+                        break;
+                    case 7:
+
+                        break;
+                    case 8:
+
+                        break;
+                    case 9:
+
+                        break;
+                    case 10:
+
+                        break;
+                    case 11:
 
                         break;
                     default:
@@ -117,8 +168,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         return true;
+
     }
+
+
 }
