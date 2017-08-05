@@ -21,14 +21,56 @@
                 android:background="@color/colorPrimaryF"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView"
+                <LinearLayout
                     android:layout_width="60dp"
-                    android:layout_height="130dp"
+                    android:layout_height="120dp"
                     android:gravity="center"
-                    android:text="@string/one"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="right|center"
+                            android:text="08"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="top"
+                            android:paddingTop="1dp"
+                            android:text="30"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="10:05"
+                            android:textColor="@color/colorTextSub"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -55,7 +97,7 @@
                                 android:id="@+id/w1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_p"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
@@ -65,10 +107,10 @@
                                 android:id="@+id/w_p1_a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_te"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="12sp" />
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -85,7 +127,7 @@
                                 android:gravity="center"
                                 android:text="@string/pz"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -97,7 +139,13 @@
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
-
+                    <LinearLayout
+                        android:id="@+id/w_l1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/side_nav_bar"
+                        android:orientation="vertical"
+                        />
                     <LinearLayout
                         android:id="@+id/w_l_1z"
                         android:layout_width="match_parent"
@@ -119,7 +167,7 @@
                                 android:id="@+id/w_p1z"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_p"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
@@ -129,10 +177,10 @@
                                 android:id="@+id/w_p1_az"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_te"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="12sp" />
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -149,7 +197,7 @@
                                 android:gravity="center"
                                 android:text="@string/pz"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -171,13 +219,57 @@
                 android:background="@color/colorPrimaryS"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="60dp"
-                    android:layout_height="130dp"
+                    android:layout_height="120dp"
                     android:gravity="center"
-                    android:text="@string/two"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="right|center"
+                            android:text="10"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="top"
+                            android:paddingTop="1dp"
+                            android:text="15"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="11:50"
+                            android:textColor="@color/colorTextSub"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -204,7 +296,7 @@
                                 android:id="@+id/w_p2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_p"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
@@ -214,10 +306,10 @@
                                 android:id="@+id/w_p2_a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_te"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="12sp" />
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -234,7 +326,7 @@
                                 android:gravity="center"
                                 android:text="@string/pz"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -246,7 +338,13 @@
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
-
+                    <LinearLayout
+                        android:id="@+id/w_l2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/side_nav_bar"
+                        android:orientation="vertical"
+                        />
                     <LinearLayout
                         android:id="@+id/w_l_2z"
                         android:layout_width="match_parent"
@@ -268,7 +366,7 @@
                                 android:id="@+id/w_p2z"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_p"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
@@ -278,10 +376,10 @@
                                 android:id="@+id/w_p2_az"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_te"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="12sp" />
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -298,7 +396,7 @@
                                 android:gravity="center"
                                 android:text="@string/pz"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -320,14 +418,57 @@
                 android:background="@color/colorPrimaryF"
                 android:orientation="horizontal">
 
-                <TextView
-
+                <LinearLayout
                     android:layout_width="60dp"
-                    android:layout_height="130dp"
+                    android:layout_height="120dp"
                     android:gravity="center"
-                    android:text="@string/tree"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="right|center"
+                            android:text="12"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="top"
+                            android:paddingTop="1dp"
+                            android:text="30"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="14:05"
+                            android:textColor="@color/colorTextSub"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -355,7 +496,7 @@
                                 android:id="@+id/w_p3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_p"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
@@ -365,10 +506,10 @@
                                 android:id="@+id/w_p3_a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_te"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="12sp" />
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -385,7 +526,7 @@
                                 android:gravity="center"
                                 android:text="@string/pz"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -397,7 +538,13 @@
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
-
+                    <LinearLayout
+                        android:id="@+id/w_l3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/side_nav_bar"
+                        android:orientation="vertical"
+                        />
                     <LinearLayout
                         android:id="@+id/w_l_3z"
                         android:layout_width="match_parent"
@@ -419,7 +566,7 @@
                                 android:id="@+id/w_p3z"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_p"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
@@ -429,10 +576,10 @@
                                 android:id="@+id/w_p3_az"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_te"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="12sp" />
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -449,7 +596,7 @@
                                 android:gravity="center"
                                 android:text="@string/pz"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -471,13 +618,58 @@
                 android:background="@color/colorPrimaryS"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="60dp"
-                    android:layout_height="130dp"
+                    android:layout_height="120dp"
                     android:gravity="center"
-                    android:text="@string/four"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="right|center"
+                            android:text="14"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="top"
+                            android:paddingTop="1dp"
+                            android:text="15"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="15:50"
+                            android:textColor="@color/colorTextSub"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -505,7 +697,7 @@
                                 android:id="@+id/w_p4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_p"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
@@ -515,10 +707,10 @@
                                 android:id="@+id/w_p4_a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_te"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="12sp" />
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -535,7 +727,7 @@
                                 android:gravity="center"
                                 android:text="@string/pz"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -547,7 +739,13 @@
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
-
+                    <LinearLayout
+                        android:id="@+id/w_l4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/side_nav_bar"
+                        android:orientation="vertical"
+                        />
                     <LinearLayout
                         android:id="@+id/w_l_4z"
                         android:layout_width="match_parent"
@@ -569,7 +767,7 @@
                                 android:id="@+id/w_p4z"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_p"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
@@ -579,10 +777,10 @@
                                 android:id="@+id/w_p4_az"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
+                                android:gravity="left|center"
                                 android:text="@string/name_te"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="12sp" />
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -599,7 +797,7 @@
                                 android:gravity="center"
                                 android:text="@string/pz"
                                 android:textColor="@android:color/background_light"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <TextView

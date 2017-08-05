@@ -24,11 +24,12 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
             case 1:
                 return new Tue();
             case 2:
-                return new Thu();
-            case 3:
                 return new Wed();
+            case 3:
+                return new Thu();
             case 4:
                 return new Fri();
+
         }
         return null;
     }

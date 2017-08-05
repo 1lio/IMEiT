@@ -5,7 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="ras">Расписание</string>
     <string name="ras2">Настр. расписание</string>
-    <string name="groope">Группа:</string>
+    <string name="groope">Ваша группа:</string>
 
 
     <string-array name="bak_groops">
@@ -31,7 +31,7 @@
         <item>НЭ-41</item>
         <item>ИБ-41</item>
     </string-array>
-   // Базовая часть ИСиТ
+    // Базовая часть ИСиТ
     <string name="filosofia">Философия</string>
     <string name="history">Философия</string>
     <string name="inlang">Иностранный язык</string>
@@ -102,7 +102,7 @@
     <string name="imt_mod">Имитационное моделирование</string>
 
     <string name="pcixol">Психология (общая психология)</string>
-    <string name="pedagogic">Педагогика (Введение в пед. деят. Общие основы педагогики)</string>
+    <string name="pedagogic">Педагогика (Введение в педагогическую деятельность. Общие основы педагогики)</string>
     <string name="chkm">Практикум по шк.курсу математики</string>
     <string name="omoi">Основы математической обработки информации</string>
 
@@ -130,5 +130,6 @@
     <string name="prokuratova">Прокуратова О.Н.</string>
     <string name="chernousova">Черноусова Н.В.</string>
     <string name="tarov">Таров Д.А.</string>
-    <string name="turtaeva">Туртаева А.Ю.</string>
+    <string name="turtaeva">Туртаева А.Ю.0</string>
+    <string name="settings">Настройки</string>
 </resources>
