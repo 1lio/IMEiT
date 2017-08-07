@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit;
+package ru.vyaacheslav.suhov.imeit.Days;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import ru.vyaacheslav.suhov.imeit.R;
 
 
 public class Mon extends Fragment {
@@ -28,6 +30,7 @@ public class Mon extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.mon, container, false);
         spinner = getActivity().findViewById(R.id.spinner);
+
         m_l_1z = v.findViewById(R.id.m_l_1z);
         m_l_2z = v.findViewById(R.id.m_l_2z);
         m_l_3z = v.findViewById(R.id.m_l_3z);
@@ -57,23 +60,23 @@ public class Mon extends Fragment {
         m_p2_kz = v.findViewById(R.id.m_p2_kz);
         m_l2.setVisibility(View.GONE);
 
-        p3 = (TextView)v.findViewById(R.id.m_p3);
-        p3a = (TextView)v.findViewById(R.id.m_p3_a);
-        m_p3_t = (TextView)v.findViewById(R.id.m_p3_t);
-        m_p3_k = (TextView)v.findViewById(R.id.m_p3_k);
-        p3z = (TextView)v.findViewById(R.id.m_p3z);
-        p3az = (TextView)v.findViewById(R.id.m_p3_az);
-        m_p3_tz = (TextView)v.findViewById(R.id.m_p3_tz);
-        m_p3_kz = (TextView)v.findViewById(R.id.m_p3_kz);
+        p3 = v.findViewById(R.id.m_p3);
+        p3a = v.findViewById(R.id.m_p3_a);
+        m_p3_t = v.findViewById(R.id.m_p3_t);
+        m_p3_k = v.findViewById(R.id.m_p3_k);
+        p3z = v.findViewById(R.id.m_p3z);
+        p3az = v.findViewById(R.id.m_p3_az);
+        m_p3_tz = v.findViewById(R.id.m_p3_tz);
+        m_p3_kz = v.findViewById(R.id.m_p3_kz);
 
-        p4 = (TextView)v.findViewById(R.id.m_p4);
-        p4a = (TextView)v.findViewById(R.id.m_p4_a);
-        m_p4_t = (TextView)v.findViewById(R.id.m_p4_t);
-        m_p4_k = (TextView)v.findViewById(R.id.m_p4_k);
-        p4z = (TextView)v.findViewById(R.id.m_p4z);
-        p4az = (TextView)v.findViewById(R.id.m_p4_az);
-        m_p4_tz = (TextView)v.findViewById(R.id.m_p4_tz);
-        m_p4_kz = (TextView)v.findViewById(R.id.m_p4_kz);
+        p4 = v.findViewById(R.id.m_p4);
+        p4a = v.findViewById(R.id.m_p4_a);
+        m_p4_t = v.findViewById(R.id.m_p4_t);
+        m_p4_k = v.findViewById(R.id.m_p4_k);
+        p4z = v.findViewById(R.id.m_p4z);
+        p4az = v.findViewById(R.id.m_p4_az);
+        m_p4_tz = v.findViewById(R.id.m_p4_tz);
+        m_p4_kz = v.findViewById(R.id.m_p4_kz);
 
         loadMethod();
         return v;

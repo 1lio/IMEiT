@@ -5,6 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import ru.vyaacheslav.suhov.imeit.Days.Fri;
+import ru.vyaacheslav.suhov.imeit.Days.Mon;
+import ru.vyaacheslav.suhov.imeit.Days.Thu;
+import ru.vyaacheslav.suhov.imeit.Days.Tue;
+import ru.vyaacheslav.suhov.imeit.Days.Wed;
+
 import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
 
  class MyAdapter  extends FragmentPagerAdapter {

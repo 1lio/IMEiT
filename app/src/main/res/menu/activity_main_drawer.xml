@@ -8,8 +8,12 @@
             android:title="@string/ras" />
         <item
             android:id="@+id/you_tab"
-            android:icon="@drawable/tab2"
-            android:title="@string/ras2" />
+            android:icon="@drawable/ic_access_time"
+            android:title="@string/time_zvonok" />
+        <item
+            android:id="@+id/news"
+            android:icon="@drawable/newspaper"
+            android:title="@string/news" />
 
     </group>
 

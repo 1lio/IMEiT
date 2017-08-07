@@ -15,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
+import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -47,13 +49,21 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.closeDrawers();
 
                 if (item.getItemId() == R.id.main_tab) {
+                    loadName();
                     FragmentTransaction fragmentTransaction = FM.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
                 }
 
                 if (item.getItemId() == R.id.you_tab) {
+                    MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                    fragmentTransaction1.replace(R.id.containerView, new TabFragment()).commit();
+                    fragmentTransaction1.replace(R.id.containerView, new TimeClock()).commit();
+
+                }
+                if (item.getItemId() == R.id.news) {
+                    MainActivity.this.getSupportActionBar().setSubtitle("Новости");
+                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+                    fragmentTransaction1.replace(R.id.containerView, new NewsFragment()).commit();
 
                 }
                 return false;
@@ -85,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }

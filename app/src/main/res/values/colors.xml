@@ -2,12 +2,15 @@
 <resources>
     <color name="colorPrimary">#121212</color>
     <color name="colorTextSub">#b9b9b9</color>
-    <color name="colorPrimaryS">#be0a0a0a</color>
-    <color name="colorPrimaryF">#be101010</color>
+    <color name="colorPrimaryS">#ab181818</color>
+    <color name="colorPrimaryF">#a82b2b2b</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#a42321</color>
     <color name="colorDe">#15659c</color>
     <color name="colorLe">#159c19</color>
     <color name="colorTe">#086457</color>
     <color name="colorBl">#8e5d08</color>
+    <color name="colorNewstitle">#FF020202</color>
+    <color name="colorNewsSummary">#F68B8686</color>
+    <color name="colorWhite">#00F9F6F6</color>
 </resources>

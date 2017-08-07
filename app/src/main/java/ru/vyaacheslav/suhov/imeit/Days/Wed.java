@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit;
+package ru.vyaacheslav.suhov.imeit.Days;
 
 
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import ru.vyaacheslav.suhov.imeit.R;
 
 public class Wed extends Fragment {
 
