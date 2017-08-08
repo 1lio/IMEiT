@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -25,7 +24,6 @@ public class NewsFragment extends Fragment {
 
 
     public volatile List<News> newsList;
- public    TextView ioi;
     Thread trKurdpress;
     RecyclerView recyclerView;
     public NewsFragment() {
@@ -38,7 +36,6 @@ public class NewsFragment extends Fragment {
         View v = inflater.inflate(R.layout.news, container, false);
 
         recyclerView = v.findViewById(R.id.recyclerNews);
-        ioi = v.findViewById(R.id.ioi);
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

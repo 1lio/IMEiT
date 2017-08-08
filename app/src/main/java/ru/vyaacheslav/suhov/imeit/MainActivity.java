@@ -1,7 +1,10 @@
 package ru.vyaacheslav.suhov.imeit;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -14,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     FragmentManager FM;
     FragmentTransaction FT;
+    Toast toast;
 
     public MainActivity() {
     }
@@ -61,9 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 if (item.getItemId() == R.id.news) {
-                    MainActivity.this.getSupportActionBar().setSubtitle("Новости");
-                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                    fragmentTransaction1.replace(R.id.containerView, new NewsFragment()).commit();
+                  isNetworkConnected();
 
                 }
                 return false;
@@ -171,4 +174,20 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo ni = cm.getActiveNetworkInfo();
+        if (ni == null) {
+            toast = Toast.makeText(getApplicationContext(),"Проверте интернет соединение", Toast.LENGTH_SHORT);
+            toast.show();
+            return false;
+        } else
+            MainActivity.this.getSupportActionBar().setSubtitle("Новости");
+            FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+            fragmentTransaction1.replace(R.id.containerView, new NewsFragment()).commit();
+
+            return true;
+    }
 }
+
