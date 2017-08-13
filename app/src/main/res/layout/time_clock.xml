@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Пара"
+                    android:text="@string/para"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -61,11 +61,10 @@
                     android:padding="6dp">
 
                     <TextView
-                        android:id="@+id/m_p1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Занятие"
+                        android:text="@string/zan"
                         android:textColor="@android:color/background_light"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -80,11 +79,10 @@
                     android:padding="6dp">
 
                     <TextView
-                        android:id="@+id/m_p1_t"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Перерыв"
+                        android:text="@string/pereriv"
                         android:textColor="@android:color/background_light"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -131,7 +129,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="1"
+                            android:text="@string/one"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -183,7 +181,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="5 минут"
+                                android:text="@string/min_5"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -238,7 +236,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="10 минут"
+                                android:text="@string/min_10"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -551,8 +549,6 @@
                         android:orientation="horizontal">
 
                         <TextView
-
-                            android:id="@+id/textView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -586,7 +582,6 @@
                             android:padding="6dp">
 
                             <TextView
-                                android:id="@+id/m_p4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
@@ -605,7 +600,6 @@
                             android:padding="6dp">
 
                             <TextView
-                                android:id="@+id/m_p4_t"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
@@ -618,14 +612,12 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/m_l4"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/side_nav_bar"
                         android:orientation="vertical" />
 
                     <LinearLayout
-                        android:id="@+id/m_l_4z"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_weight="1"
@@ -641,7 +633,6 @@
                             android:padding="6dp">
 
                             <TextView
-                                android:id="@+id/m_p4z"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
@@ -749,7 +740,6 @@
                             android:padding="6dp">
 
                             <TextView
-                                android:id="@+id/m_p4_t"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
@@ -786,7 +776,6 @@
                             android:padding="6dp">
 
                             <TextView
-                                android:id="@+id/m_p4z"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
@@ -805,7 +794,6 @@
                             android:padding="6dp">
 
                             <TextView
-                                android:id="@+id/m_p4_tz"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
@@ -840,8 +828,6 @@
                         android:orientation="horizontal">
 
                         <TextView
-
-                            android:id="@+id/textView4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -875,7 +861,6 @@
                             android:padding="6dp">
 
                             <TextView
-                                android:id="@+id/m_p4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
@@ -898,7 +883,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="5 минут"
+                                android:text="@string/min_5"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -907,14 +892,12 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/m_l4"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/side_nav_bar"
                         android:orientation="vertical" />
 
                     <LinearLayout
-                        android:id="@+id/m_l_4z"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_weight="1"
@@ -949,11 +932,10 @@
                             android:padding="6dp">
 
                             <TextView
-                                android:id="@+id/m_p4_tz"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="10 минут"
+                                android:text="@string/min_10"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />

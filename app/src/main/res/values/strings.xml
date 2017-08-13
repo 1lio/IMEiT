@@ -145,4 +145,20 @@
     <string name="exam_a_z">Зачеты и экзамены</string>
     <string name="others">Прочее</string>
     <string name="maps">Карта корпусов</string>
+    <string name="num_tel">+7 (47467) 2-24-26</string>
+    <string name="tel">Телефон</string>
+    <string name="adres_86">г. Елец, ул. Ленина, д. 86</string>
+    <string name="adres">Адрес</string>
+    <string name="website">Сайт</string>
+    <string name="imet_elsu_ru">IMET.ELSU.RU</string>
+    <string name="groupe_vk">Группа Вконтакте</string>
+    <string name="vk_adres">vk.com/imet.elsu</string>
+    <string name="e_mail">E-mail</string>
+    <string name="dek_f_mail_ru">DEK_F@MAIL.RU</string>
+    <string name="autor">Сухов Вячеслав 2017г.</string>
+    <string name="para">Пара</string>
+    <string name="zan">Занятие</string>
+    <string name="pereriv">Перерыв</string>
+    <string name="min_10">10 минут</string>
+    <string name="min_5">5 минут</string>
 </resources>

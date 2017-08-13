@@ -61,7 +61,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Адрес"
+                            android:text="@string/adres"
                             android:textColor="@android:color/background_light"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -98,7 +98,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="г. Елец, ул. Ленина, д. 86 "
+                            android:text="@string/adres_86"
                             android:textColor="@android:color/background_light"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -171,7 +171,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="Телефон"
+                                android:text="@string/tel"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -207,7 +207,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="+7 (47467) 2-24-26"
+                                android:text="@string/num_tel"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -275,7 +275,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="Сайт"
+                                android:text="@string/website"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -311,7 +311,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="IMET.ELSU.RU"
+                                android:text="@string/imet_elsu_ru"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -379,7 +379,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="Группа Вконтакте"
+                                android:text="@string/groupe_vk"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -416,7 +416,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="vk.com/imet.elsu"
+                                android:text="@string/vk_adres"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -484,7 +484,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="E-mail"
+                                android:text="@string/e_mail"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -521,7 +521,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="DEK_F@MAIL.RU"
+                                android:text="@string/dek_f_mail_ru"
                                 android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
