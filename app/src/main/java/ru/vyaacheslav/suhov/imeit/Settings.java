@@ -54,7 +54,7 @@ public class Settings extends AppCompatActivity {
                 saveSpinnerPosition(spinnerPosition);
                 saveSpinnerPositionName(spinnerPosition);
                 Toast toast = Toast.makeText(getApplicationContext(),
-                         "Сохранено", Toast.LENGTH_SHORT);
+                         "Настройки обновлены", Toast.LENGTH_SHORT);
                 toast.show();
 
             }

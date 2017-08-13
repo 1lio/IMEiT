@@ -38,5 +38,14 @@
     <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">12sp</item>
     </style>
+    /// Color subTitleItemMenu
+    <style name="TextAppearance44">
+        <item name="android:textColor">@color/colorTextSub</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="TextAppearance45">
+        <item name="android:textColor">@color/colorTextSub</item>
+        <item name="android:textSize">10sp</item>
+    </style>
 
 </resources>

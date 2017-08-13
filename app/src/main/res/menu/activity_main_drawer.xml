@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/main_tab"
@@ -10,11 +9,38 @@
             android:id="@+id/you_tab"
             android:icon="@drawable/ic_access_time"
             android:title="@string/time_zvonok" />
-        <item
-            android:id="@+id/news"
-            android:icon="@drawable/newspaper"
-            android:title="@string/news" />
 
     </group>
+    <item android:id="@+id/tools"
+        android:title="@string/exam_a_z">
+        <menu>
+    <group  android:checkableBehavior="single" >
+        <item
+            android:id="@+id/examen"
+            android:icon="@drawable/ic_check_black_24dp"
+            android:title="@string/exam" />
+    </group>
+        </menu>
+    </item>
 
+    <item android:id="@+id/tools2"
+        android:title="@string/others">
+        <menu>
+    <group  android:checkableBehavior="single">
+        <item
+            android:id="@+id/news"
+            android:icon="@drawable/ic_rss_feed_black_24dp"
+            android:title="@string/news" />
+   <!--     <item
+            android:id="@+id/map"
+            android:icon="@drawable/ic_map_black_24dp"
+            android:title="@string/maps" />-->
+        <item
+            android:id="@+id/info"
+            android:icon="@drawable/ic_school_black_24dp"
+            android:title="@string/inf" />
+
+    </group>
+        </menu>
+    </item>
 </menu>

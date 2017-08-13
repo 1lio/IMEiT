@@ -15,11 +15,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.style.TextAppearanceSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
+import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 
@@ -44,6 +47,17 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView = (NavigationView) findViewById(R.id.shitstuff);
 
+        Menu menu = navigationView.getMenu();
+        MenuItem tools= menu.findItem(R.id.tools);
+
+        MenuItem tools2= menu.findItem(R.id.tools2);
+        SpannableString s = new SpannableString(tools.getTitle());
+        SpannableString b = new SpannableString(tools2.getTitle());
+        s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);
+        b.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance45), 0, b.length(), 0);
+        tools.setTitle(s);
+        tools2.setTitle(b);
+
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
         FT.replace(R.id.containerView, new TabFragment()).commit();
@@ -67,6 +81,19 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (item.getItemId() == R.id.news) {
                   isNetworkConnected();
+
+                }
+
+                if (item.getItemId() == R.id.info) {
+                    MainActivity.this.getSupportActionBar().setSubtitle("Основные сведения");
+                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+                    fragmentTransaction1.replace(R.id.containerView, new Info()).commit();
+
+                }
+                if (item.getItemId() == R.id.examen) {
+                    loadName();
+                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+                    fragmentTransaction1.replace(R.id.containerView, new Exam()).commit();
 
                 }
                 return false;

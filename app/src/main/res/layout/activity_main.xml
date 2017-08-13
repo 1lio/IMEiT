@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimarySS"
         android:fitsSystemWindows="true"
         app:itemIconTint="@android:color/background_light"
         app:itemTextColor="@android:color/background_light"

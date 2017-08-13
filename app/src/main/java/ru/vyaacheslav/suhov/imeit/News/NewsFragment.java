@@ -24,7 +24,7 @@ public class NewsFragment extends Fragment {
 
 
     public volatile List<News> newsList;
-    Thread trKurdpress;
+    Thread trImeitNews;
     RecyclerView recyclerView;
     public NewsFragment() {
     }
@@ -43,27 +43,24 @@ public class NewsFragment extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         EventBus bus = EventBus.getDefault();
         bus.register(this);
-        newsList=new ArrayList<>();
+        newsList = new ArrayList<>();
 
-        ImeitNews imeitNews =new ImeitNews(newsList);
+        ImeitNews imeitNews = new ImeitNews(newsList);
 
-        trKurdpress=new Thread(imeitNews);
+        trImeitNews =new Thread(imeitNews);
 
-        trKurdpress.start();
+        trImeitNews.start();
 
         try {
-            trKurdpress.join();
+            trImeitNews.join();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-
-
         fillRecycler();
         return v;
     }
-
 
 
     public void fillRecycler(){
@@ -72,16 +69,17 @@ public class NewsFragment extends Fragment {
         recyclerView.setAdapter(newsAdapter);
         newsAdapter.notifyDataSetChanged();
 
+
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
 
     public void doAction(News news)  {
-
-        String newsUrl =news.getNewsUrl();
+        String newsUrl = news.getNewsUrl();
 
         Log.e("url is=,",newsUrl);
-        Intent i=new Intent(getActivity(),CompleteNewsActivity.class);
+        Intent i = new Intent(getActivity(),CompleteNewsActivity.class);
         i.putExtra("newsURL",newsUrl);
         startActivity(i);
     }
