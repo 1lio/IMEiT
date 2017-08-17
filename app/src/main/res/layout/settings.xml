@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:text="@string/ras"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -40,7 +40,8 @@
             android:layout_alignParentTop="true"
             android:gravity="left|center"
             android:text="@string/groope"
-            android:textColor="@color/colorTextSub" />
+            android:textColor="@color/colorTextSub"
+            android:textSize="14sp" />
 
         <Spinner
             android:id="@+id/spinner"

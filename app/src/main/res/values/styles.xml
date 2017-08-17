@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -25,9 +24,7 @@
         <item name="android:popupBackground">#DFFFFFFF</item>
     </style>
 
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="ToolbarTitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
@@ -40,10 +37,6 @@
     </style>
     /// Color subTitleItemMenu
     <style name="TextAppearance44">
-        <item name="android:textColor">@color/colorTextSub</item>
-        <item name="android:textSize">10sp</item>
-    </style>
-    <style name="TextAppearance45">
         <item name="android:textColor">@color/colorTextSub</item>
         <item name="android:textSize">10sp</item>
     </style>

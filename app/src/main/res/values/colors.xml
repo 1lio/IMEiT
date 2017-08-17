@@ -6,7 +6,7 @@
     <color name="colorPrimarySS">#181818</color>
     <color name="colorPrimaryF">#050505</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#a42321</color>
+    <color name="colorAccent">#2160a4</color> <!-- a42321  Accent v. 1.0.0-->
     <color name="colorDe">#15659c</color>
     <color name="colorLe">#159c19</color>
     <color name="colorTe">#086457</color>

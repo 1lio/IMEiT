@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+           xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryS"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView20"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="Главный корпус"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView22"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|left"
+                        android:text="ул. Коммунаров, д.28"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryF"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView23"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="1-й"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView24"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|left"
+                        android:text="ул. Ленина, д. 91"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryS"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="2-й"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView25"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|left|center"
+                        android:text="ул. Коммунаров, д. 15"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryF"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView26"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="3-й"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView27"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="ул. 9 Декабря, д.72;"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryS"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView21"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="4-й"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView28"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="ул. Ленина, д. 86"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryF"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView29"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="7-й"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView30"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="ул. 9 Декабря, д. 13а"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryS"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView31"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:text="11-й | ФОК"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView32"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|left"
+                        android:text="ул. Коммунаров, д. 37"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryF"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView33"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="12-й"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView34"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="top|left"
+                        android:text="ул. Допризывников, д. 1"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryS"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView36"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="14-й "
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView37"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="ул. Орджоникидзе, д.78"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryF"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView39"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="15-й"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView40"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="ул. Коммунаров, д. 39"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/side_nav_bar"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/colorPrimaryS"
+                    android:orientation="vertical"
+                    android:paddingLeft="12dp">
+
+                    <TextView
+
+                        android:id="@+id/textView41"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|left"
+                        android:text="16-й"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/textView42"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text=" ул. Коммунаров, д. 28"
+                        android:textColor="@color/colorTextSub"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>

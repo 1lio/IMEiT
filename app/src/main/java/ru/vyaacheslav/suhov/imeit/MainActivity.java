@@ -21,10 +21,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager FM;
     FragmentTransaction FT;
     Toast toast;
-
-    public MainActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
         Menu menu = navigationView.getMenu();
         MenuItem tools= menu.findItem(R.id.tools);
-
         MenuItem tools2= menu.findItem(R.id.tools2);
         SpannableString s = new SpannableString(tools.getTitle());
         SpannableString b = new SpannableString(tools2.getTitle());
         s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);
-        b.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance45), 0, b.length(), 0);
+        b.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, b.length(), 0);
         tools.setTitle(s);
         tools2.setTitle(b);
 
@@ -95,6 +91,13 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                     fragmentTransaction1.replace(R.id.containerView, new Exam()).commit();
 
+
+                }
+
+                if (item.getItemId() == R.id.map) {
+                    MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
+                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+                    fragmentTransaction1.replace(R.id.containerView, new MapsFragment()).commit();
                 }
                 return false;
             }
