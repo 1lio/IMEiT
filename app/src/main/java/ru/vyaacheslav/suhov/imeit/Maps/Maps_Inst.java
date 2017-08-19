@@ -9,10 +9,7 @@ import android.view.ViewGroup;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class Maps_Inst extends Fragment {
+public class Maps_Inst extends Fragment implements View.OnClickListener{
 
 
     public Maps_Inst() {
@@ -23,8 +20,14 @@ public class Maps_Inst extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_maps__inst, container, false);
+        View v = inflater.inflate(R.layout.fragment_maps__inst, container, false);
+
+        return v;
     }
 
+
+    @Override
+    public void onClick(View view) {
+
+    }
 }

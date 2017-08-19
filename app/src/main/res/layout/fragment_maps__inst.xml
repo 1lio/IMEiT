@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
@@ -7,18 +7,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+        android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -35,10 +28,8 @@
                         android:padding="12dp">
 
                         <ImageView
-                            android:id="@+id/imageView3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:gravity="center"
                             android:padding="2dp"
                             android:src="@drawable/ic_agr" />
@@ -52,26 +43,20 @@
                         android:orientation="vertical">
 
                         <TextView
-
-                            android:id="@+id/textView38"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Агропромышленный институт"
-                            android:textColor="@android:color/background_light"
-                            android:textSize="12sp"
+                            android:text="@string/agronom_in"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
-
-                            android:id="@+id/textView14"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Адрес: ул. Допризывников, д. 1"
+                            android:text="@string/agr_i_1"
                             android:textColor="@color/colorTextSub"
-                            android:textSize="10sp" />
-
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -89,10 +74,8 @@
                         android:padding="12dp">
 
                         <ImageView
-                            android:id="@+id/imageView4"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:gravity="center"
                             android:padding="2dp"
                             android:src="@drawable/ic_his" />
                     </LinearLayout>
@@ -104,25 +87,20 @@
                         android:orientation="vertical">
 
                         <TextView
-
-                            android:id="@+id/textView44"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Институт истории и культуры"
-                            android:textColor="@android:color/background_light"
-                            android:textSize="12sp"
+                            android:text="@string/his_in"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
-
-                            android:id="@+id/textView47"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Адрес: ул. Коммунаров, д. 28"
+                            android:text="@string/his_ins"
                             android:textColor="@color/colorTextSub"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -141,11 +119,8 @@
                         android:padding="10dp">
 
                         <ImageView
-                            android:id="@+id/imageView5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
                             android:padding="2dp"
                             android:src="@drawable/ic_mat" />
 
@@ -158,25 +133,21 @@
                         android:orientation="vertical">
 
                         <TextView
-
-                            android:id="@+id/textView15"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Институт математики, естествознания и техники"
-                            android:textColor="@android:color/background_light"
-                            android:textSize="12sp"
+                            android:text="@string/imeit_i"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
-
                             android:id="@+id/textView50"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Адрес: ул. Ленина, д. 86"
+                            android:text="@string/imeit_in"
                             android:textColor="@color/colorTextSub"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -198,8 +169,6 @@
                             android:id="@+id/imageView6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
                             android:padding="2dp"
                             android:src="@drawable/ic_pravo" />
 
@@ -212,14 +181,11 @@
                         android:orientation="vertical">
 
                         <TextView
-
-                            android:id="@+id/textView53"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Институт права и экономики"
-                            android:textColor="@android:color/background_light"
-                            android:textSize="12sp"
+                            android:text="@string/pravo_in"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -228,9 +194,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Адрес: ул. Коммунаров, д. 28"
+                            android:text="@string/pravo_ins_"
                             android:textColor="@color/colorTextSub"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -254,13 +220,10 @@
                             android:gravity="center"
                             android:orientation="horizontal">
 
-
                             <ImageView
                                 android:id="@+id/imageView7"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
                                 android:padding="2dp"
                                 android:src="@drawable/ic_psi" />
                         </LinearLayout>
@@ -273,25 +236,20 @@
                         android:orientation="vertical">
 
                         <TextView
-
-                            android:id="@+id/textView55"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Институт психологии и педагогики"
-                            android:textColor="@android:color/background_light"
-                            android:textSize="12sp"
+                            android:text="@string/peagog_in"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
-
-                            android:id="@+id/textView56"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Адрес: ул. Коммунаров, д. 15"
+                            android:text="@string/ped_inst"
                             android:textColor="@color/colorTextSub"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -315,13 +273,9 @@
                             android:gravity="center"
                             android:orientation="horizontal">
 
-
                             <ImageView
-                                android:id="@+id/imageView8"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
                                 android:padding="2dp"
                                 android:src="@drawable/ic_fk" />
                         </LinearLayout>
@@ -334,25 +288,20 @@
                         android:orientation="vertical">
 
                         <TextView
-
-                            android:id="@+id/textView17"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Институт физической культуры, спорта и БЖ"
-                            android:textColor="@android:color/background_light"
-                            android:textSize="12sp"
+                            android:text="@string/fk_ins"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
-
-                            android:id="@+id/textView58"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Адрес: ул. Допризывников, д. 1а"
+                            android:text="@string/fk_ins_adr"
                             android:textColor="@color/colorTextSub"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -376,12 +325,10 @@
                             android:gravity="center"
                             android:orientation="horizontal">
 
-
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:gravity="center"
                                 android:padding="2dp"
                                 android:src="@drawable/ic_fil" />
                         </LinearLayout>
@@ -399,9 +346,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Институт филологии"
-                            android:textColor="@android:color/background_light"
-                            android:textSize="12sp"
+                            android:text="@string/filol_ins"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -410,9 +356,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
-                            android:text="Адрес: ул. Коммунаров, д. 39"
+                            android:text="@string/filol_adr"
                             android:textColor="@color/colorTextSub"
-                            android:textSize="10sp" />
+                            android:textSize="12sp" />
 
                     </LinearLayout>
 
@@ -437,14 +383,9 @@
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:padding="10dp">
-
-
                             <ImageView
-                                android:id="@+id/imageView9"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
                                 android:src="@drawable/ic_spo" />
                         </LinearLayout>
                     </LinearLayout>
@@ -456,32 +397,24 @@
                         android:orientation="vertical">
 
                         <TextView
-
-                            android:id="@+id/textView62"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Центр СПО"
-                            android:textColor="@android:color/background_light"
-                            android:textSize="12sp"
+                            android:text="@string/spo"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
 
                         <TextView
-
-                            android:id="@+id/textView61"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="left"
-                            android:text="Адрес: ул. Допризывников, д. 1а"
+                            android:text="@string/spo_adr"
                             android:textColor="@color/colorTextSub"
-                            android:textSize="10sp" />
-
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
     </ScrollView>
-
-</RelativeLayout>
+</LinearLayout>

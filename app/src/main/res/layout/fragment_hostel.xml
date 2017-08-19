@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:orientation="vertical">
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -26,35 +20,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"
+                    android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView19"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="Научная библиотека"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/library"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView35"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="left"
-                        android:text="ул. Коммунаров, д. 28"
+                        android:text="@string/komunarov_28"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/side_nav_bar"
@@ -64,76 +51,60 @@
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryF"
+                    android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView43"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="Общежития"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/hostels"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="left"
-                        android:text="ул. Ленина, д. 88  |  ул. Октябрьская, д. 122"
+                        android:text="@string/lenina_88_122"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/side_nav_bar"
-                    android:orientation="vertical">
-
-                </LinearLayout>
+                    android:orientation="vertical"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"
+                    android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView45"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="Санаторий-профилакторий "
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/sanatory"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView46"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="left"
-                        android:text="ул. Допризывников, д.1"
+                        android:text="@string/dopriziv_1"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/side_nav_bar"
@@ -143,36 +114,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryF"
+                    android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="Учебно-спортивная база"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/foc_base"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView48"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:gravity="left"
-                        android:text="Липецкая обл., Задонский район"
+                        android:text="@string/turbase"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
-
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

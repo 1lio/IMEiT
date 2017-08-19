@@ -24,31 +24,25 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView20"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="Главный корпус"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/gk_l"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView22"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="top|left"
-                        android:text="ул. Коммунаров, д.28"
+                        android:text="@string/ad1"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/side_nav_bar"
@@ -64,27 +58,22 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView23"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="1-й"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k1"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView24"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="top|left"
-                        android:text="ул. Ленина, д. 91"
+                        android:text="@string/ad2"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -104,31 +93,25 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView13"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="2-й"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k2"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView25"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="top|left|center"
-                        android:text="ул. Коммунаров, д. 15"
+                        android:text="@string/ad3"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/side_nav_bar"
@@ -142,15 +125,12 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView26"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="3-й"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k3"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -160,13 +140,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="left"
-                        android:text="ул. 9 Декабря, д.72;"
+                        android:text="@string/ad4"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/side_nav_bar"
@@ -178,17 +157,13 @@
                     android:background="@color/colorPrimaryS"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
-
                     <TextView
-
-                        android:id="@+id/textView21"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="4-й"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k4"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -198,13 +173,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="left"
-                        android:text="ул. Ленина, д. 86"
+                        android:text="@string/ad5"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/side_nav_bar"
@@ -220,27 +194,24 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
                         android:id="@+id/textView29"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="7-й"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k7"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
                         android:id="@+id/textView30"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="left"
-                        android:text="ул. 9 Декабря, д. 13а"
+                        android:text="@string/k6"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -258,31 +229,25 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView31"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom"
-                        android:text="11-й | ФОК"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k_11"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView32"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="top|left"
-                        android:text="ул. Коммунаров, д. 37"
+                        android:text="@string/ad7"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/side_nav_bar"
@@ -296,27 +261,22 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView33"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="12-й"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k12"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView34"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="top|left"
-                        android:text="ул. Допризывников, д. 1"
+                        android:text="@string/ad8"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -336,27 +296,22 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView36"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="14-й "
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k14"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView37"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="left"
-                        android:text="ул. Орджоникидзе, д.78"
+                        android:text="@string/ad9"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -374,31 +329,25 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView39"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="15-й"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k15"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView40"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="left"
-                        android:text="ул. Коммунаров, д. 39"
+                        android:text="@string/ad10"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/side_nav_bar"
@@ -412,29 +361,23 @@
                     android:paddingLeft="12dp">
 
                     <TextView
-
-                        android:id="@+id/textView41"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="bottom|left"
-                        android:text="16-й"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="12sp"
+                        android:text="@string/k16"
+                        android:textSize="13sp"
                         android:textStyle="bold" />
 
                     <TextView
-
-                        android:id="@+id/textView42"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="left"
-                        android:text=" ул. Коммунаров, д. 28"
+                        android:text="@string/ad11"
                         android:textColor="@color/colorTextSub"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
-
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

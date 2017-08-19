@@ -27,9 +27,7 @@
         android:title="@string/others">
         <menu>
     <group
-        android:checkableBehavior="single"
-
-        >
+        android:checkableBehavior="single">
         <item
             android:id="@+id/news"
             android:icon="@drawable/ic_rss_feed_black_24dp"
