@@ -15,12 +15,11 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class TimeClock extends Fragment {
 
-
     LinearLayout l1,l2,l3,l4,l5,l6;
     TimePicker timePicker;
     Calendar calendar;
-    public TimeClock() {
-    }
+
+    public TimeClock() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,39 +38,46 @@ public class TimeClock extends Fragment {
 
         TimeOne();
         return v;
-    }
+}
 
     public void TimeOne(){
 
-        int getHour = timePicker.getHour();
-        int getMinute = timePicker.getMinute();
+        int getHour = timePicker.getHour(); // - Точность до часа
+       //  int getMinute = timePicker.getMinute(); - Проблема с точностью до минут не решена!
 
         calendar.set(Calendar.MINUTE, timePicker.getMinute());
         calendar.set(Calendar.HOUR, timePicker.getHour());
-        updateClock();
 
-        if ((getHour > 8)||(getMinute > 30)){
+
+        if ((getHour > 8)/*&&(getMinute > 30)*/){
+            updateClock();
             l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
-        if  ((getHour > 10)||(getMinute > 15)){
+        if  ((getHour > 10)/*&&(getMinute > 15)*/){
+            updateClock();
             l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
 
-        if ((getHour > 12)||(getMinute > 30)){
+        if ((getHour > 12)/*&&(getMinute > 30)*/){
+            updateClock();
             l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
-        if ((getHour > 14)||(getMinute > 15)){
+        if ((getHour > 14)/*&&(getMinute > 15)*/){
+            updateClock();
             l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
-        if  ((getHour > 16)||(getMinute > 0)){
+        if  ((getHour > 16)/*&&(getMinute > 0)*/){
+            updateClock();
             l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
 
-        if( (getHour > 17)||(getMinute > 45)){
+        if ((getHour > 17)/*&&(getMinute > 45)*/){
+            updateClock();
             l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
+
         }
 
-        if  ((getHour > 19)||(getMinute > 0)){
+        if  ((getHour > 19)/*&&(getMinute > 0)*/){
             updateClock();
         }
     }

@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawers();
 
+
+
                 if (item.getItemId() == R.id.main_tab) {
                     loadName();
                     FragmentTransaction fragmentTransaction = FM.beginTransaction();

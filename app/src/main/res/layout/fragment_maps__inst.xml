@@ -15,6 +15,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/ins1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimaryS"
@@ -61,6 +62,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ins2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimaryF"
@@ -106,6 +108,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ins3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimaryS"
@@ -153,6 +156,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ins4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimaryF"
@@ -202,6 +206,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ins5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimaryS"
@@ -255,6 +260,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ins6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimaryF"
@@ -307,6 +313,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ins7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimaryS"
@@ -365,6 +372,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ins8"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimaryF"
@@ -383,6 +391,7 @@
                             android:gravity="center"
                             android:orientation="horizontal"
                             android:padding="10dp">
+
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

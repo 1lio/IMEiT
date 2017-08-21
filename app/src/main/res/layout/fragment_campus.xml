@@ -17,6 +17,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/k1"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"
@@ -51,6 +52,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/k2"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryF"
@@ -86,6 +88,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/k3"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"
@@ -118,6 +121,7 @@
                     android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/k4"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryF"
@@ -152,11 +156,13 @@
                     android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/k5"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -187,6 +193,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/k6"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryF"
@@ -222,6 +229,7 @@
                     android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/k7"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"
@@ -254,6 +262,7 @@
                     android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/k8"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryF"
@@ -289,6 +298,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/k9"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"
@@ -322,6 +332,7 @@
                     android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/k10"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryF"
@@ -354,6 +365,7 @@
                     android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/k11"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"

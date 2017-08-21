@@ -17,6 +17,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/hos1"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"
@@ -48,6 +49,7 @@
                     android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/hos2"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryF"
@@ -80,6 +82,7 @@
                     android:orientation="vertical"/>
 
                 <LinearLayout
+                    android:id="@+id/hos3"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryS"
@@ -111,6 +114,7 @@
                     android:orientation="vertical" />
 
                 <LinearLayout
+                    android:id="@+id/hos4"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:background="@color/colorPrimaryF"
