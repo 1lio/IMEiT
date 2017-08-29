@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-
 public class Mon extends Fragment {
 
     public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
@@ -90,40 +89,7 @@ public class Mon extends Fragment {
         // # позиции - группа
         switch (position){
             case 0:
-
-                p1.setText(getResources().getString(R.string.pcixol));
-                p1a.setText(getResources().getString(R.string.okuneva));
-                m_p1_t.setText(getResources().getString(R.string.pz));
-                m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-24");
-                p1z.setText(getResources().getString(R.string.pedagogic));
-                p1az.setText(getResources().getString(R.string.zaharova));
-                m_p1_tz.setText(getResources().getString(R.string.lk));
-                m_p1_kz.setText(getResources().getString(R.string.uk)+ " 4-24");
-
-                p2.setText(getResources().getString(R.string.pedagogic));
-                p2a.setText(getResources().getString(R.string.zaharova));
-                m_p2_t.setText(getResources().getString(R.string.pz));
-                m_p2_k.setText(getResources().getString(R.string.uk)+ " 4-24");
-                m_l_2z.setVisibility(View.GONE);
-                m_l2.setVisibility(View.GONE);
-
-                p3.setText(getResources().getString(R.string.fk));
-                p3a.setVisibility(View.GONE);
-                m_p3_t.setVisibility(View.GONE);
-                m_p3_k.setText(getResources().getString(R.string.fok));
-                m_l_3z.setVisibility(View.GONE);
-                m_l3.setVisibility(View.GONE);
-
-                p4.setText(getResources().getString(R.string.bjd));
-                p4a.setText(getResources().getString(R.string.ivanov));
-                m_p4_t.setText(getResources().getString(R.string.lk));
-                m_p4_k.setText(getResources().getString(R.string.uk)+ " 4-24");
-                p4z.setVisibility(View.GONE);
-                p4az.setVisibility(View.GONE);
-                m_p4_tz.setVisibility(View.GONE);
-                m_p4_kz.setVisibility(View.GONE);
-                // Вторник
-
+                MonMI();
                 break;
             case 1:
                 p1.setText(getResources().getString(R.string.pcixol));
@@ -159,7 +125,7 @@ public class Mon extends Fragment {
                 m_p4_kz.setVisibility(View.INVISIBLE);
                 break;
 
-            case 2:
+           /* case 2:
                 p1.setText(getResources().getString(R.string.mat_pra));
                 p1a.setText(getResources().getString(R.string.padaev));
                 m_p1_t.setText(getResources().getString(R.string.pz));
@@ -193,7 +159,7 @@ public class Mon extends Fragment {
                 p4az.setVisibility(View.INVISIBLE);
                 m_p4_tz.setVisibility(View.INVISIBLE);
                 m_p4_kz.setVisibility(View.INVISIBLE);
-                break;
+                break;*/
 
         }
     }
@@ -209,6 +175,41 @@ public class Mon extends Fragment {
         m_l_3z.setVisibility(View.VISIBLE);
         m_l_4z.setVisibility(View.VISIBLE);
 
+    }
+
+
+    public void MonMI(){
+        p1.setText(getResources().getString(R.string.pcixol));
+        p1a.setText(getResources().getString(R.string.okuneva));
+        m_p1_t.setText(getResources().getString(R.string.pz));
+        m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-24");
+        p1z.setText(getResources().getString(R.string.pedagogic));
+        p1az.setText(getResources().getString(R.string.zaharova));
+        m_p1_tz.setText(getResources().getString(R.string.lk));
+        m_p1_kz.setText(getResources().getString(R.string.uk)+ " 4-24");
+
+        p2.setText(getResources().getString(R.string.pedagogic));
+        p2a.setText(getResources().getString(R.string.zaharova));
+        m_p2_t.setText(getResources().getString(R.string.pz));
+        m_p2_k.setText(getResources().getString(R.string.uk)+ " 4-24");
+        m_l_2z.setVisibility(View.GONE);
+        m_l2.setVisibility(View.GONE);
+
+        p3.setText(getResources().getString(R.string.fk));
+        p3a.setVisibility(View.GONE);
+        m_p3_t.setVisibility(View.GONE);
+        m_p3_k.setText(getResources().getString(R.string.fok));
+        m_l_3z.setVisibility(View.GONE);
+        m_l3.setVisibility(View.GONE);
+
+        p4.setText(getResources().getString(R.string.bjd));
+        p4a.setText(getResources().getString(R.string.ivanov));
+        m_p4_t.setText(getResources().getString(R.string.lk));
+        m_p4_k.setText(getResources().getString(R.string.uk)+ " 4-24");
+        p4z.setVisibility(View.GONE);
+        p4az.setVisibility(View.GONE);
+        m_p4_tz.setVisibility(View.GONE);
+        m_p4_kz.setVisibility(View.GONE);
     }
 }
 

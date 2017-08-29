@@ -9,6 +9,12 @@
 
 
     <string-array name="bak_groops">
+        <item>МИ-21</item>
+        <item>ИСиТ-21</item>
+    </string-array>
+
+
+   <!-- <string-array name="bak_groops">
         <item>МФ-11</item>
         <item>МИ-11</item>
         <item>ПМ-11</item>
@@ -30,7 +36,9 @@
         <item>ИиВТ-41</item>
         <item>НЭ-41</item>
         <item>ИБ-41</item>
-    </string-array>
+    </string-array>-->
+
+
     // Базовая часть ИСиТ
     <string name="filosofia">Философия</string>
     <string name="history">Философия</string>

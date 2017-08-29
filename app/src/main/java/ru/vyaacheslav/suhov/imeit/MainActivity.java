@@ -21,6 +21,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     FragmentTransaction FT;
     Toast toast;
 
+    Calendar calendar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView = (NavigationView) findViewById(R.id.shitstuff);
+
+        calendar = Calendar.getInstance();
 
         Menu menu = navigationView.getMenu();
         MenuItem tools= menu.findItem(R.id.tools);
@@ -62,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawers();
-
 
 
                 if (item.getItemId() == R.id.main_tab) {
@@ -140,12 +145,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position){
             case 0:
-                MainActivity.this.getSupportActionBar().setSubtitle("МФ-11");
+                MainActivity.this.getSupportActionBar().setSubtitle("МИ-21");
                 break;
             case 1:
-                MainActivity.this.getSupportActionBar().setSubtitle("МИ-11");
+                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-21");
                 break;
-            case 2:
+        /*    case 2:
                 MainActivity.this.getSupportActionBar().setSubtitle("ПМ-11");
                 break;
             case 3:
@@ -202,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 20:
                 MainActivity.this.getSupportActionBar().setSubtitle("ИБ-41");
-                break;
+                break;*/
 
         }
     }
@@ -221,5 +226,31 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
     }
-}
 
+    public void dayNotifications(){
+
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+
+        switch (day) {
+            case Calendar.SUNDAY:
+                // Воскр.
+                break;
+            case Calendar.MONDAY:
+                // Пн.
+                break;
+            case Calendar.TUESDAY:
+                // Вт.
+                break;
+            case Calendar.WEDNESDAY:
+                // Вт.
+                break;
+            case Calendar.THURSDAY:
+                // Вт.
+                break;
+            case Calendar.FRIDAY:
+                break;
+        }
+
+
+    }
+}

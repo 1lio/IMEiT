@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.OtherFragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -15,6 +16,7 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class TimeClock extends Fragment {
 
+   public int getHour;
     LinearLayout l1,l2,l3,l4,l5,l6;
     TimePicker timePicker;
     Calendar calendar;
@@ -42,12 +44,14 @@ public class TimeClock extends Fragment {
 
     public void TimeOne(){
 
-        int getHour = timePicker.getHour(); // - Точность до часа
-       //  int getMinute = timePicker.getMinute(); - Проблема с точностью до минут не решена!
-
-        calendar.set(Calendar.MINUTE, timePicker.getMinute());
-        calendar.set(Calendar.HOUR, timePicker.getHour());
-
+        if(Build.VERSION.SDK_INT < 23){
+            getHour = timePicker.getCurrentHour();
+            calendar.set(Calendar.HOUR_OF_DAY, timePicker.getCurrentHour());
+        } else{
+            getHour = timePicker.getHour();
+            calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
+        }
+            /// ^sdk
 
         if ((getHour > 8)/*&&(getMinute > 30)*/){
             updateClock();

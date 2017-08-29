@@ -1,22 +1,21 @@
 package ru.vyaacheslav.suhov.imeit.Maps;
 
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-public class Maps_Other extends Fragment {
+public class Maps_Other extends Fragment implements View.OnClickListener {
 
     LinearLayout hos1,hos2,hos3,hos4;
+    Intent agr;
+    Uri adress;
 
     public Maps_Other() {}
 
@@ -30,97 +29,32 @@ public class Maps_Other extends Fragment {
         hos3=v.findViewById(R.id.hos3);
         hos4=v.findViewById(R.id.hos4);
 
-        hos1.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View view, MotionEvent event) {
-                Intent agr;
-                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
-                    hos1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
-                    Uri gmmIntentUri = Uri.parse("geo:0,0?q=ул. Коммунаров, д. 28,+Елец,+Липецкая+обл.");
-                    agr = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                    agr.setPackage("com.google.android.apps.maps");
-                    startActivity(agr);
-
-                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                    hos1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
-                }
-                return true;
-            }
-
-        });
-
-        hos1.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View view, MotionEvent event) {
-                Intent agr;
-                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
-                    hos1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
-                    Uri gmmIntentUri = Uri.parse("geo:0,0?q=ул. Коммунаров, д. 28,+Елец,+Липецкая+обл.");
-                    agr = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                    agr.setPackage("com.google.android.apps.maps");
-                    startActivity(agr);
-
-                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                    hos1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
-                }
-                return true;
-            }
-
-        });
-
-        hos2.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View view, MotionEvent event) {
-                Intent agr;
-                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
-                    hos2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
-                    Uri gmmIntentUri = Uri.parse("geo:0,0?q=ул. Ленина, д. 88,+Елец,+Липецкая+обл.");
-                    agr = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                    agr.setPackage("com.google.android.apps.maps");
-                    startActivity(agr);
-
-                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                    hos2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
-                }
-                return true;
-            }
-
-        });
-
-        hos3.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View view, MotionEvent event) {
-                Intent agr;
-                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
-                    hos3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
-                    Uri gmmIntentUri = Uri.parse("geo:0,0?q=ул. Допризывников, д.1,+Елец,+Липецкая+обл.");
-                    agr = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                    agr.setPackage("com.google.android.apps.maps");
-                    startActivity(agr);
-
-                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                    hos3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
-                }
-                return true;
-            }
-
-        });
-        hos4.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View view, MotionEvent event) {
-                Intent agr;
-                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
-                    hos4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
-                    Uri gmmIntentUri = Uri.parse("geo:0,0?q=Липецкая обл., +Задонский район.");
-                    agr = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                    agr.setPackage("com.google.android.apps.maps");
-                    startActivity(agr);
-
-                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                    hos4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
-                }
-                return true;
-            }
-
-        });
-
-
+        hos1.setOnClickListener(this);
+        hos2.setOnClickListener(this);
+        hos3.setOnClickListener(this);
+        hos4.setOnClickListener(this);
         return v;
     }
 
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.hos1:
+                    adress = Uri.parse("geo:0,0?q=ул.Коммунаров,д.28,+Елец,+Липецкая+обл.");
+                break;
+            case R.id.hos2:
+                  adress = Uri.parse("geo:0,0?q=ул. Ленина,д.88,+Елец,+Липецкая+обл.");
+                break;
+            case R.id.hos3:
+                    adress = Uri.parse("geo:0,0?q=ул.Допризывников,д.1,+Елец,+Липецкая+обл.");
+                break;
+            case R.id.hos4:
+                    adress = Uri.parse("geo:0,0?q=Липецкая обл.,+Задонский район.");
+                break;
+        }
+        agr = new Intent(Intent.ACTION_VIEW, adress);
+        agr.setPackage("com.google.android.apps.maps");
+        startActivity(agr);
+    }
 }
