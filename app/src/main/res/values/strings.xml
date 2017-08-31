@@ -9,12 +9,12 @@
 
 
     <string-array name="bak_groops">
-        <item>МИ-21</item>
-        <item>ИСиТ-21</item>
+        <item>МФ-21 / МИ-21"</item>
+        <item>ИСиТ-21 / ИиВТ-21</item>
     </string-array>
 
 
-   <!-- <string-array name="bak_groops">
+    <!-- <string-array name="bak_groops">
         <item>МФ-11</item>
         <item>МИ-11</item>
         <item>ПМ-11</item>
@@ -45,10 +45,10 @@
     <string name="inlang">Иностранный язык</string>
     // Математика
     <string name="algebra_a_geo">Алгебра и геометрия</string>
+    <string name="algebra_a_teoc">Алгебра и теория чисел</string>
     <string name="m_analis">Математический анализ</string>
     <string name="disckret">Дискретная математика</string>
     <string name="matlogic">Математическая логика и теория алгоритмов</string>
-    <string name="chismet">Численные метод</string>
     <string name="veroyat">Теория вероятностей и математическая статистика</string>
     //
     <string name="informat">Информатика</string>
@@ -67,6 +67,7 @@
     <string name="met_sys">Методы и средства проектирования информационных систем и технологий</string>
     <string name="fk">Физическая культура и спорт</string>
     <string name="bjd">Безопасность жизнедеятельности</string>
+    <string name="mat_chis_met">Математика(численные методы)</string>
     //
     <string name="econ">Экономика</string>
     <string name="pravo">Правоведение</string>
@@ -110,10 +111,12 @@
     <string name="imt_mod">Имитационное моделирование</string>
 
     <string name="pcixol">Психология (общая психология)</string>
+    <string name="pcixol_soc">Социальная психология</string>
     <string name="pedagogic">Педагогика (Введение в педагогическую деятельность. Общие основы педагогики)</string>
     <string name="chkm">Практикум по шк.курсу математики</string>
     <string name="omoi">Основы математической обработки информации</string>
-
+    <string name="eco_obr">Экономика образования</string>
+    <string name="nikitina">Никитина Е.Н.</string>
     <string name="fok">ФОК</string>
     <string name="name_p">Название предмета</string>
     <string name="name_te">Имя преподователя</string>
@@ -140,6 +143,8 @@
     <string name="tarov">Таров Д.А.</string>
     <string name="turtaeva">Туртаева А.Ю.0</string>
     <string name="padaev">Подаев М.В.</string>
+    <string name="padaeva">Подаева Н.Г.</string>
+    <string name="kornienko">Корниенко В.В.</string>
     <string name="cherbatix">Щербатых В.Е.</string>
 
     <string name="settings">Настройки</string>
@@ -216,4 +221,58 @@
     <string name="ad10">ул. Коммунаров, д. 39</string>
     <string name="k16">16-й</string>
     <string name="ad11">ул. Коммунаров, д. 28</string>
+    <string name="bus">Маршрут автобусов</string>
+
+    <string-array name="bussRoute">
+        <!--Автобусы-->
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>6a</item>
+        <item>7</item>
+        <item>9</item>
+        <item>9a</item>
+        <item>10б</item>
+        <item>11</item>
+        <item>12</item>
+        <item>14</item>
+        <item>18</item>
+        <item>200</item>
+        <item>202</item>
+        <item>204-212</item>
+        <item>205</item>
+        <item>206</item>
+        <item>207</item>
+        <item>208</item>
+        <item>210</item>
+        <item>213</item>
+        <item>214</item>
+        <item>215</item>
+        <item>216</item>
+        <item>217</item>
+        <item>218</item>
+        <item>219</item>
+        <item>246</item>
+        <item>411</item>
+        <item>414</item>
+        <item>415a</item>
+        <item>415</item>
+        <item>416</item>
+        <item>511</item>
+        <item>530</item>
+        <item>584</item>
+        <item>593</item>
+        <!--Маршрутки-->
+        <item>8</item>
+        <item>15</item>
+        <item>19</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+
+
+
 </resources>

@@ -106,6 +106,12 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                     fragmentTransaction1.replace(R.id.containerView, new MapsFragment()).commit();
                 }
+
+             /*   if (item.getItemId() == R.id.bus) {
+                    MainActivity.this.getSupportActionBar().setSubtitle("Маршруты автобусов");
+                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+                    fragmentTransaction1.replace(R.id.containerView, new BusRoute()).commit();
+                }*/
                 return false;
             }
         });
@@ -145,10 +151,10 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position){
             case 0:
-                MainActivity.this.getSupportActionBar().setSubtitle("МИ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("МФ-21 / МИ-21");
                 break;
             case 1:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-21 / ИиВТ-21");
                 break;
         /*    case 2:
                 MainActivity.this.getSupportActionBar().setSubtitle("ПМ-11");
