@@ -11,6 +11,7 @@
     <string-array name="bak_groops">
         <item>МФ-21 / МИ-21"</item>
         <item>ИСиТ-21 / ИиВТ-21</item>
+        <item>БХ-21</item>
     </string-array>
 
 
@@ -110,6 +111,8 @@
     <string name="teo_obs">Теория массового обслуживания</string>
     <string name="imt_mod">Имитационное моделирование</string>
 
+    <string name="f_col_che">Физическая и коллоидная химия</string>
+
     <string name="pcixol">Психология (общая психология)</string>
     <string name="pcixol_soc">Социальная психология</string>
     <string name="pedagogic">Педагогика (Введение в педагогическую деятельность. Общие основы педагогики)</string>
@@ -139,9 +142,11 @@
     <string name="zaharova">Захарова М.А.</string>
     <string name="ivanov">Иванов А. М.</string>
     <string name="prokuratova">Прокуратова О.Н.</string>
+    <string name="pahomova">Пахомова О.А.</string>
+    <string name="lebedeva">Лебедева В.Ю.</string>
     <string name="chernousova">Черноусова Н.В.</string>
     <string name="tarov">Таров Д.А.</string>
-    <string name="turtaeva">Туртаева А.Ю.0</string>
+    <string name="turtaeva">Туртаева А.Ю.</string>
     <string name="padaev">Подаев М.В.</string>
     <string name="padaeva">Подаева Н.Г.</string>
     <string name="kornienko">Корниенко В.В.</string>
@@ -222,6 +227,7 @@
     <string name="k16">16-й</string>
     <string name="ad11">ул. Коммунаров, д. 28</string>
     <string name="bus">Маршрут автобусов</string>
+    <string name="note">Заметки</string>
 
     <string-array name="bussRoute">
         <!--Автобусы-->
@@ -272,7 +278,6 @@
         <item>20</item>
         <item>25</item>
     </string-array>
-
 
 
 </resources>

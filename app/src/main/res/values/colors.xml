@@ -15,4 +15,5 @@
     <color name="colorNewstitle">#FF020202</color>
     <color name="colorNewsSummary">#F68B8686</color>
     <color name="colorWhite">#00F9F6F6</color>
+    <color name="colorWhitee">#ffffff</color>
 </resources>

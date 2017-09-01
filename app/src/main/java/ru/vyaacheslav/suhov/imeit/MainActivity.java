@@ -25,6 +25,7 @@ import java.util.Calendar;
 
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
+import ru.vyaacheslav.suhov.imeit.Note.Note;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
@@ -107,6 +108,13 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction1.replace(R.id.containerView, new MapsFragment()).commit();
                 }
 
+                if (item.getItemId() == R.id.note) {
+                    MainActivity.this.getSupportActionBar().setSubtitle("Заметки");
+                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+                    fragmentTransaction1.replace(R.id.containerView, new Note()).commit();
+                }
+
+
              /*   if (item.getItemId() == R.id.bus) {
                     MainActivity.this.getSupportActionBar().setSubtitle("Маршруты автобусов");
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
@@ -156,9 +164,10 @@ public class MainActivity extends AppCompatActivity {
             case 1:
                 MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-21 / ИиВТ-21");
                 break;
-        /*    case 2:
-                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-11");
+            case 2:
+                MainActivity.this.getSupportActionBar().setSubtitle("БХ-21");
                 break;
+        /*
             case 3:
                 MainActivity.this.getSupportActionBar().setSubtitle("БИ-11");
                 break;
