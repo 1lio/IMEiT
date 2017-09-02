@@ -10,8 +10,8 @@ import java.util.List;
 
 class ImeitNews implements Runnable {
 
-    Document doc;
-    List<News> newsList;
+    private Document doc;
+    private List<News> newsList;
 
 
     ImeitNews(List<News> newsList) {
@@ -25,8 +25,6 @@ class ImeitNews implements Runnable {
             e.printStackTrace();
         }
     }
-
-
 
     public void run() {
         System.out.println("run thread kurdoress");
@@ -55,7 +53,6 @@ class ImeitNews implements Runnable {
     newsList.add(news);
 
 }
-
 
 return newsList;
 

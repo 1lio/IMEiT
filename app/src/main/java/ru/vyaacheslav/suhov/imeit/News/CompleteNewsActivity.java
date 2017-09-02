@@ -13,8 +13,8 @@ public class CompleteNewsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_news);
 
-        String newsUrl= getIntent().getStringExtra("newsURL");
-        WebView webView= (WebView) findViewById(R.id.webView);
+        String newsUrl = getIntent().getStringExtra("newsURL");
+        WebView webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(newsUrl);
     }

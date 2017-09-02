@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,20 +23,17 @@ public class Note extends Fragment {
     ArrayAdapter<String> mAdapter;
     ListView lstTask;
     ImageView newNote, del;
-    public Note() {
-        // Required empty public constructor
-    }
 
+    public Note() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.note_list, container, false);
-
         del = v.findViewById(R.id.btnDelete);
         dbHelper = new DbHelper(getActivity());
-        lstTask = (ListView)v.findViewById(R.id.lstTask);
-        newNote = (ImageView) v.findViewById(R.id.newNote);
+        lstTask = v.findViewById(R.id.lstTask);
+        newNote = v.findViewById(R.id.newNote);
 
         newNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +41,6 @@ public class Note extends Fragment {
 
                 final EditText taskEditText = new EditText(getActivity());
                 AlertDialog dialog = new AlertDialog.Builder(getActivity(),R.style.MyAlertDialogStyle)
-
                         .setTitle("Новая заметка")
                         .setMessage("Добавте описание заметки")
                         .setView(taskEditText)
@@ -68,14 +63,12 @@ public class Note extends Fragment {
             @Override
             public void onClick(View view) {
                 View parent = (View)view.getParent();
-                TextView taskTextView = (TextView)parent.findViewById(R.id.task_title);
-                Log.e("String", (String) taskTextView.getText());
+                TextView taskTextView = parent.findViewById(R.id.task_title);
                 String task = String.valueOf(taskTextView.getText());
                 dbHelper.deleteTask(task);
                 loadTaskList();
             }
         });
-
         loadTaskList();
         return v;
     }
@@ -83,7 +76,7 @@ public class Note extends Fragment {
  private void loadTaskList() {
         ArrayList<String> taskList = dbHelper.getTaskList();
         if(mAdapter==null){
-            mAdapter = new ArrayAdapter<String>(getActivity(),R.layout.note_row,R.id.task_title,taskList);
+            mAdapter = new ArrayAdapter<>(getActivity(),R.layout.note_row,R.id.task_title,taskList);
             lstTask.setAdapter(mAdapter);
         }
         else{

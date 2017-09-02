@@ -44,10 +44,11 @@
             android:id="@+id/note"
             android:icon="@drawable/ic_note_black_24dp"
             android:title="@string/note" />
-      <!--  <item
+      <!-- <item
             android:id="@+id/bus"
             android:icon="@drawable/ic_directions_bus_black_24dp"
             android:title="@string/bus" />-->
+
 <!-- автобусы, как писать курсовую, найти преподователя, каталог библиотеки(хотя нах она нужна)
 ближайшая закусочная(тоже), бумажные вопросы(хз), методички(!где их найти?) - из всего
 выше можно добавить пока 3, где идеи?...

@@ -8,11 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
-/**
- * Created by reale on 06/10/2016.
- */
 
-public class DbHelper extends SQLiteOpenHelper {
+ class DbHelper extends SQLiteOpenHelper {
 
     public static final String DB_TABLE="Task";
     public static final String DB_COLUMN = "TaskName";

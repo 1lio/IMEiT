@@ -147,8 +147,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical"
-                        />
+                        android:orientation="vertical" />
 
                     <LinearLayout
                         android:id="@+id/m_l_1z"
@@ -350,7 +349,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical"/>
+                        android:orientation="vertical" />
 
                     <LinearLayout
                         android:id="@+id/m_l_2z"
@@ -553,7 +552,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical"/>
+                        android:orientation="vertical" />
 
                     <LinearLayout
                         android:id="@+id/m_l_3z"
@@ -757,7 +756,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical"/>
+                        android:orientation="vertical" />
 
                     <LinearLayout
                         android:id="@+id/m_l_4z"
@@ -828,5 +827,32 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+
+        android:id="@+id/lkV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorNewstitle"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="Группа не выбрана:" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custbordgreen"
+            android:text="Выбрать"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp" />
+    </LinearLayout>
 
 </RelativeLayout>

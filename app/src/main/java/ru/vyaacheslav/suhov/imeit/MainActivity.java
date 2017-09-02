@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-             /*   if (item.getItemId() == R.id.bus) {
+           /*  if (item.getItemId() == R.id.bus) {
                     MainActivity.this.getSupportActionBar().setSubtitle("Маршруты автобусов");
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                     fragmentTransaction1.replace(R.id.containerView, new BusRoute()).commit();
