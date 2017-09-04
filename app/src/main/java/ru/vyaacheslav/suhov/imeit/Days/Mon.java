@@ -127,7 +127,7 @@ public class Mon extends Fragment {
                 p3.setText(getResources().getString(R.string.mat_chis_met));
                 p3a.setText(getResources().getString(R.string.kornienko));
                 m_p3_t.setText(getResources().getString(R.string.lk));
-                m_p3_k.setText(getResources().getString(R.string.uk)+ " 1-10");
+                m_p3_k.setText(getResources().getString(R.string.uk)+ " 3-16");
                 m_l_3z.setVisibility(View.GONE);
                 m_l3.setVisibility(View.GONE);
 

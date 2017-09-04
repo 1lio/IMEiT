@@ -50,10 +50,10 @@ public class Thu extends Fragment {
 
         switch (position){
             case 0:
-                textview.setText(getResources().getString(R.string.pravo));
+             /*   textview.setText(getResources().getString(R.string.pravo));*/
                 break;
             case 1:
-                textview.setText(getResources().getString(R.string.vis_tex));
+             /*   textview.setText(getResources().getString(R.string.vis_tex));*/
                 break;
 
         }

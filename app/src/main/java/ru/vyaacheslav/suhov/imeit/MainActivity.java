@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,12 +32,13 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final int NOTIFICATION_ID = 123;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     FragmentManager FM;
     FragmentTransaction FT;
     Toast toast;
-
+    NotificationManager nm;
     Calendar calendar;
 
     @Override
@@ -52,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         calendar = Calendar.getInstance();
 
         Menu menu = navigationView.getMenu();
-        MenuItem tools= menu.findItem(R.id.tools);
-        MenuItem tools2= menu.findItem(R.id.tools2);
+        MenuItem tools = menu.findItem(R.id.tools);
+        MenuItem tools2 = menu.findItem(R.id.tools2);
         SpannableString s = new SpannableString(tools.getTitle());
         SpannableString b = new SpannableString(tools2.getTitle());
         s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
         FT.replace(R.id.containerView, new TabFragment()).commit();
+
+        nm = (NotificationManager)getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 if (item.getItemId() == R.id.news) {
-                  isNetworkConnected();
+                    isNetworkConnected();
 
                 }
 
@@ -129,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
         loadName();
+      /*  dayNotifications();*/
     }
 
     @Override
@@ -153,11 +157,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void loadName(){
+    public void loadName() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int position= sharedPreferences .getInt("name",-1);
+        int position = sharedPreferences.getInt("name", -1);
 
-        switch (position){
+
+        switch (position) {
             case 0:
                 MainActivity.this.getSupportActionBar().setSubtitle("МФ-21 / МИ-21");
                 break;
@@ -231,27 +236,65 @@ public class MainActivity extends AppCompatActivity {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();
         if (ni == null) {
-            toast = Toast.makeText(getApplicationContext(),"Проверте интернет соединение", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), "Проверте интернет соединение", Toast.LENGTH_SHORT);
             toast.show();
             return false;
         } else
             MainActivity.this.getSupportActionBar().setSubtitle("Новости");
-            FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-            fragmentTransaction1.replace(R.id.containerView, new NewsFragment()).commit();
+        FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+        fragmentTransaction1.replace(R.id.containerView, new NewsFragment()).commit();
 
-            return true;
+        return true;
     }
 
-    public void dayNotifications(){
+    /*public void dayNotifications() {
+
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        int position = sharedPreferences.getInt("name", -1);
 
         int day = calendar.get(Calendar.DAY_OF_WEEK);
-
         switch (day) {
             case Calendar.SUNDAY:
-                // Воскр.
+
                 break;
             case Calendar.MONDAY:
-                // Пн.
+                switch (position){
+                    case 0:
+
+                        Notification.Builder builder = new Notification.Builder(getApplicationContext());
+
+                        builder
+                                .setSmallIcon(R.drawable.notif)
+                                .setLargeIcon(BitmapFactory.decodeResource(getApplication().getResources(), R.drawable.ic_mat))
+                                .setTicker("Расписание на понедельник")
+                                .setWhen(System.currentTimeMillis())
+                                .setAutoCancel(true)
+                                .setContentTitle("Понедельник:")
+                                .setContentText("1пара - Математика; 2пара - История");
+                        Notification notification = builder.build();
+
+                        nm.notify(NOTIFICATION_ID, notification);
+                        break;
+                    case 1:
+
+
+                        Notification.Builder builder2 = new Notification.Builder(getApplicationContext());
+
+                        builder2
+                                .setSmallIcon(R.drawable.notif)
+                                .setLargeIcon(BitmapFactory.decodeResource(getApplication().getResources(), R.drawable.ic_mat))
+                                .setTicker("Расписание на понедельник")
+                                .setWhen(System.currentTimeMillis())
+                                .setAutoCancel(true)
+                                .setContentTitle("Понедельник:")
+                                .setContentText("1пара - Физика; 2пара - Математика");
+                        Notification notification2 = builder2.build();
+
+                        nm.notify(NOTIFICATION_ID, notification2);
+                        break;
+                }
+
                 break;
             case Calendar.TUESDAY:
                 // Вт.
@@ -267,5 +310,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    }
+    }*/
 }
