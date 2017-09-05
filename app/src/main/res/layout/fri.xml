@@ -340,7 +340,7 @@
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/w_l2"
+                        android:id="@+id/f_l2"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/side_nav_bar"
@@ -540,7 +540,7 @@
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/w_l3"
+                        android:id="@+id/f_l3"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/side_nav_bar"
@@ -741,7 +741,7 @@
                         </LinearLayout>
                     </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/w_l4"
+                        android:id="@+id/f_l4"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/side_nav_bar"

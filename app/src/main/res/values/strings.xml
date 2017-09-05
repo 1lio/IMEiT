@@ -10,8 +10,9 @@
 
     <string-array name="bak_groops">
         <item>МФ-21 / МИ-21"</item>
-        <item>ИСиТ-21 / ИиВТ-21</item>
+        <item>ИСиТ-21</item>
         <item>БХ-21</item>
+        <item>ЕГ-21</item>
     </string-array>
 
 
@@ -44,9 +45,11 @@
     <string name="filosofia">Философия</string>
     <string name="history">Философия</string>
     <string name="inlang">Иностранный язык</string>
+
     // Математика
     <string name="algebra_a_geo">Алгебра и геометрия</string>
     <string name="algebra_a_teoc">Алгебра и теория чисел</string>
+    <string name="nus_m">Избранные вопросы дифференциального и интегрального исчислений</string>
     <string name="m_analis">Математический анализ</string>
     <string name="disckret">Дискретная математика</string>
     <string name="matlogic">Математическая логика и теория алгоритмов</string>
@@ -70,6 +73,7 @@
     <string name="bjd">Безопасность жизнедеятельности</string>
     <string name="mat_chis_met">Математика(численные методы)</string>
     //
+    <string name="k_mir">Естественно-научная картина мира</string>
     <string name="econ">Экономика</string>
     <string name="pravo">Правоведение</string>
     <string name="oop">Объектно-ориентированное программирование</string>
@@ -110,8 +114,11 @@
     <string name="teo_obr">Теория распознавания образов</string>
     <string name="teo_obs">Теория массового обслуживания</string>
     <string name="imt_mod">Имитационное моделирование</string>
-
+    <string name="botanika">Ботаника</string>
     <string name="f_col_che">Физическая и коллоидная химия</string>
+    <string name="zoologia">Зоология</string>
+    <string name="rast_mir">Биоразнообразие растительного мира Липецкой области</string>
+    <string name="kartograf">Картография</string>
 
     <string name="pcixol">Психология (общая психология)</string>
     <string name="pcixol_soc">Социальная психология</string>
@@ -119,6 +126,7 @@
     <string name="chkm">Практикум по шк.курсу математики</string>
     <string name="omoi">Основы математической обработки информации</string>
     <string name="eco_obr">Экономика образования</string>
+    <string name="anatomia">Анатомия человека</string>
     <string name="nikitina">Никитина Е.Н.</string>
     <string name="fok">ФОК</string>
     <string name="name_p">Название предмета</string>
@@ -134,6 +142,7 @@
     <string name="lk">ЛК</string>
     <string name="gk">ГК</string>
     <string name="lb">ЛБ</string>
+    <string name="lb_pz">ЛБ/ПЗ</string>
 
     /// PREPOD
 
@@ -143,6 +152,7 @@
     <string name="ivanov">Иванов А. М.</string>
     <string name="prokuratova">Прокуратова О.Н.</string>
     <string name="pahomova">Пахомова О.А.</string>
+    <string name="sotnikova">Сотникова Е.Б. </string>
     <string name="lebedeva">Лебедева В.Ю.</string>
     <string name="chernousova">Черноусова Н.В.</string>
     <string name="tarov">Таров Д.А.</string>
@@ -151,11 +161,21 @@
     <string name="padaeva">Подаева Н.Г.</string>
     <string name="kornienko">Корниенко В.В.</string>
     <string name="cherbatix">Щербатых В.Е.</string>
+    <string name="igonina">Игонина Е.В.</string>
+    <string name="melnikova">Мельников Р.А.</string>
+    <string name="podaeva">Подаева Н.Г.</string>
+    <string name="zaburaeva">Зубарева Е.В.</string>
+    <string name="podoksenov">Подоксенов А.М.</string>
+    <string name="gubin">Губин М.А.</string>
+    <string name="petricheva">Петрищева Т.Ю.</string>
+    <string name="zaiceva">Зайцева И.Н.</string>
+    <string name="trofimova">Трофимова Е.И.</string>
+    <string name="chaxsuarov">Шахсуваров А.В.</string>
+    <string name="usacheva">Усачева И.Н.</string>
+    <string name="saz_inf">Методы и средства защиты информации</string>
 
     <string name="settings">Настройки</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="time_zvonok">Время звонков</string>
     <string name="news">Новости</string>
     <string name="inf">Основные сведения</string>

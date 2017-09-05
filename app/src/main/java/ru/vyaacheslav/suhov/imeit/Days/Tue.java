@@ -165,6 +165,44 @@ public class Tue extends Fragment {
                m_p4_kz.setVisibility(View.GONE);
 
                break;
+            case 3:
+                p1.setText(getResources().getString(R.string.eco_obr));
+                p1a.setText(getResources().getString(R.string.nikitina));
+                m_p1_t.setText(getResources().getString(R.string.lk));
+                m_p1_k.setText(getResources().getString(R.string.uk)+ " 1-11");
+                p1z.setVisibility(View.GONE);
+                p1az.setVisibility(View.GONE);
+                m_p1_tz.setVisibility(View.GONE);
+                m_p1_kz.setVisibility(View.GONE);
+                m_l1.setVisibility(View.GONE);
+                m_l_1z.setVisibility(View.GONE);
+
+                p2.setText(getResources().getString(R.string.zoologia));
+                p2a.setText(getResources().getString(R.string.sotnikova));
+                m_p2_t.setText(getResources().getString(R.string.lk));
+                m_p2_k.setText(getResources().getString(R.string.uk)+ " 4-23");
+                m_l_2z.setVisibility(View.GONE);
+                m_l2.setVisibility(View.GONE);
+
+                p3.setText(getResources().getString(R.string.inlang));
+                p3a.setText(getResources().getString(R.string.lebedeva));
+                m_p3_t.setText(getResources().getString(R.string.lk));
+                m_p3_k.setText(getResources().getString(R.string.uk)+ " 4-24");
+                m_l_3z.setVisibility(View.GONE);
+                m_l3.setVisibility(View.GONE);
+
+
+                p4.setVisibility(View.GONE);
+                p4a.setVisibility(View.GONE);
+                m_p4_t.setVisibility(View.GONE);
+                m_p4_k.setVisibility(View.GONE);
+                p4z.setVisibility(View.GONE);
+                p4az.setVisibility(View.GONE);
+                m_p4_tz.setVisibility(View.GONE);
+                m_p4_kz.setVisibility(View.GONE);
+
+                break;
+
 
         }
     }

@@ -179,6 +179,44 @@ public class Mon extends Fragment {
 
                break;
 
+            case 3:
+                lkV.setVisibility(View.GONE);
+                p1.setText(getResources().getString(R.string.pcixol_soc));
+                p1a.setText(getResources().getString(R.string.okuneva));
+                m_p1_t.setText(getResources().getString(R.string.lk));
+                m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-24");
+                p1z.setVisibility(View.GONE);
+                p1az.setVisibility(View.GONE);
+                m_p1_tz.setVisibility(View.GONE);
+                m_p1_kz.setVisibility(View.GONE);
+                m_l1.setVisibility(View.GONE);
+                m_l_1z.setVisibility(View.GONE);
+
+                p2.setText(getResources().getString(R.string.fk));
+                p2a.setVisibility(View.GONE);
+                m_p2_t.setVisibility(View.GONE);
+                m_p2_k.setText(getResources().getString(R.string.fok));
+                m_l_2z.setVisibility(View.GONE);
+                m_l2.setVisibility(View.GONE);
+
+                p3.setVisibility(View.INVISIBLE);
+                p3a.setVisibility(View.INVISIBLE);
+                m_p3_t.setVisibility(View.INVISIBLE);
+                m_p3_k.setVisibility(View.INVISIBLE);
+                m_l_3z.setVisibility(View.INVISIBLE);
+
+
+                p4.setVisibility(View.GONE);
+                p4a.setVisibility(View.GONE);
+                m_p4_t.setVisibility(View.GONE);
+                m_p4_k.setVisibility(View.GONE);
+                p4z.setVisibility(View.GONE);
+                p4az.setVisibility(View.GONE);
+                m_p4_tz.setVisibility(View.GONE);
+                m_p4_kz.setVisibility(View.GONE);
+
+                break;
+
         }
     }
     public void layoutVisable(){

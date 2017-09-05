@@ -57,20 +57,20 @@ public class TimeClock extends Fragment {
             updateClock();
             l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
-        if  ((getHour > 10)/*&&(getMinute > 15)*/){
+        if ((getHour > 9)/*&&(getMinute > 15)*/) {
             updateClock();
             l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
 
-        if ((getHour > 12)/*&&(getMinute > 30)*/){
+        if ((getHour > 11)/*&&(getMinute > 30)*/) {
             updateClock();
             l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
-        if ((getHour > 14)/*&&(getMinute > 15)*/){
+        if ((getHour > 13)/*&&(getMinute > 15)*/) {
             updateClock();
             l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
-        if  ((getHour > 16)/*&&(getMinute > 0)*/){
+        if ((getHour > 15)/*&&(getMinute > 0)*/) {
             updateClock();
             l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTouch));
         }
