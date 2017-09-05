@@ -26,13 +26,12 @@ import java.util.Calendar;
 
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
-import ru.vyaacheslav.suhov.imeit.Note.Note;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final int NOTIFICATION_ID = 123;
+    /*private final int NOTIFICATION_ID = 123;*/
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     FragmentManager FM;
@@ -112,11 +111,11 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction1.replace(R.id.containerView, new MapsFragment()).commit();
                 }
 
-                if (item.getItemId() == R.id.note) {
+              /*  if (item.getItemId() == R.id.note) {
                     MainActivity.this.getSupportActionBar().setSubtitle("Заметки");
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                     fragmentTransaction1.replace(R.id.containerView, new Note()).commit();
-                }
+                }*/
 
 
            /*  if (item.getItemId() == R.id.bus) {
@@ -172,10 +171,12 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 MainActivity.this.getSupportActionBar().setSubtitle("БХ-21");
                 break;
-        /*
+
             case 3:
-                MainActivity.this.getSupportActionBar().setSubtitle("БИ-11");
+                MainActivity.this.getSupportActionBar().setSubtitle("ЕГ-21");
                 break;
+        /*
+
             case 4:
                 MainActivity.this.getSupportActionBar().setSubtitle("НЭ-11");
                 break;

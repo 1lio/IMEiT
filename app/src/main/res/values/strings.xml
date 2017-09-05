@@ -12,6 +12,7 @@
         <item>МФ-21 / МИ-21"</item>
         <item>ИСиТ-21 / ИиВТ-21</item>
         <item>БХ-21</item>
+        <item>ЕГ-21</item>
     </string-array>
 
 
@@ -44,6 +45,7 @@
     <string name="filosofia">Философия</string>
     <string name="history">Философия</string>
     <string name="inlang">Иностранный язык</string>
+
     // Математика
     <string name="algebra_a_geo">Алгебра и геометрия</string>
     <string name="algebra_a_teoc">Алгебра и теория чисел</string>
@@ -112,6 +114,9 @@
     <string name="imt_mod">Имитационное моделирование</string>
 
     <string name="f_col_che">Физическая и коллоидная химия</string>
+    <string name="zoologia">Зоология</string>
+    <string name="rast_mir">Биоразнообразие растительного мира Липецкой области</string>
+    <string name="kartograf">Картография</string>
 
     <string name="pcixol">Психология (общая психология)</string>
     <string name="pcixol_soc">Социальная психология</string>
@@ -134,6 +139,7 @@
     <string name="lk">ЛК</string>
     <string name="gk">ГК</string>
     <string name="lb">ЛБ</string>
+    <string name="lb_pz">ЛБ/ПЗ</string>
 
     /// PREPOD
 
@@ -143,6 +149,7 @@
     <string name="ivanov">Иванов А. М.</string>
     <string name="prokuratova">Прокуратова О.Н.</string>
     <string name="pahomova">Пахомова О.А.</string>
+    <string name="sotnikova">Сотникова Е.Б. </string>
     <string name="lebedeva">Лебедева В.Ю.</string>
     <string name="chernousova">Черноусова Н.В.</string>
     <string name="tarov">Таров Д.А.</string>
@@ -151,11 +158,11 @@
     <string name="padaeva">Подаева Н.Г.</string>
     <string name="kornienko">Корниенко В.В.</string>
     <string name="cherbatix">Щербатых В.Е.</string>
+    <string name="igonina">Игонина Е.В.</string>
+    <string name="melnikova">Мельников Р.А.</string>
 
     <string name="settings">Настройки</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="time_zvonok">Время звонков</string>
     <string name="news">Новости</string>
     <string name="inf">Основные сведения</string>
