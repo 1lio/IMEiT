@@ -8,9 +8,7 @@
     <color name="colorPrimaryF">#050505</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#2160a4</color> <!-- a42321  Accent v. 1.0.0-->
-    <color name="colorDe">#15659c</color>
     <color name="colorNewstitle">#020202</color>
-    <color name="colorNewsSummary">#F68B8686</color>
     <color name="colorWhite">#00F9F6F6</color>
     <color name="colorWhitee">#ffffff</color>
 </resources>

@@ -77,6 +77,7 @@ public class Note extends Fragment {
         ArrayList<String> taskList = dbHelper.getTaskList();
         if(mAdapter==null){
             mAdapter = new ArrayAdapter<>(getActivity(),R.layout.note_row,R.id.task_title,taskList);
+
             lstTask.setAdapter(mAdapter);
         }
         else{

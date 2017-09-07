@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
-    Spinner spinner;
+    public Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +45,6 @@ public class Settings extends AppCompatActivity {
 
                 int spinnerPosition = spinner.getSelectedItemPosition();
 
-                switch (position) {
-                    // MF11
-                    case 0:
-                        break;
-                    // MI11
-                    case 1:
-                        break;
-
-                }
                 saveSpinnerPosition(spinnerPosition);
                 saveSpinnerPositionName(spinnerPosition);
                 Toast toast = Toast.makeText(getApplicationContext(),
@@ -96,9 +87,6 @@ public class Settings extends AppCompatActivity {
                 startActivity(i);
                 finish();
                 return true;
-
-            default:
-
         }
         return super.onOptionsItemSelected(item);
     }

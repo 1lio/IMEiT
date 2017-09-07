@@ -15,7 +15,6 @@ public class TabFragment extends Fragment {
     ViewPager viewPager;
 
     public TabFragment() {
-
     }
 
     @Override
@@ -35,9 +34,5 @@ public class TabFragment extends Fragment {
             }
         });
         return v;
-
-
     }
-
-
 }

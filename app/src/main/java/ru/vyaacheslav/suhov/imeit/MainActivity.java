@@ -1,9 +1,11 @@
 package ru.vyaacheslav.suhov.imeit;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -31,7 +33,7 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
 
-    /*private final int NOTIFICATION_ID = 123;*/
+    private final int NOTIFICATION_ID = 123;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     FragmentManager FM;
@@ -133,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         loadName();
-      /*  dayNotifications();*/
+        dayNotifications();
     }
 
     @Override
@@ -248,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    /*public void dayNotifications() {
+    public void dayNotifications() {
 
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -304,12 +306,27 @@ public class MainActivity extends AppCompatActivity {
                 // Вт.
                 break;
             case Calendar.THURSDAY:
-                // Вт.
+
+                Notification.Builder builder12 = new Notification.Builder(getApplicationContext());
+             /*   Intent intent = new Intent(MainActivity.this,MainActivity.class);*/
+
+                builder12
+              /*          .setContentIntent(PendingIntent.readPendingIntentOrNullFromParcel())*/
+                        .setSmallIcon(R.drawable.notif)
+                        .setLargeIcon(BitmapFactory.decodeResource(getApplication().getResources(), R.drawable.ic_mat))
+                        .setTicker("Расписание на четверг")
+                        .setWhen(System.currentTimeMillis())
+                        .setAutoCancel(true)
+                        .setContentTitle("Четверг:")
+                        .setContentText("1пара - веты; 2пара - Математика");
+                Notification notification2 = builder12.build();
+
+                nm.notify(NOTIFICATION_ID, notification2);
                 break;
             case Calendar.FRIDAY:
                 break;
         }
 
 
-    }*/
+    }
 }

@@ -16,13 +16,11 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Thu extends Fragment {
 
-
     public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
     public LinearLayout m_l1, m_l2, m_l3, m_l4;
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az;
     Spinner spinner;
-
 
     public Thu() {
     }
@@ -109,7 +107,7 @@ public class Thu extends Fragment {
                 p2.setText(getResources().getString(R.string.com_tip));
                 p2a.setText(getResources().getString(R.string.gubin));
                 m_p2_t.setText(getResources().getString(R.string.lk));
-                m_p2_k.setText(getResources().getString(R.string.uk) + "???");
+                m_p2_k.setText(getResources().getString(R.string.uk) + "4-21");
                 m_l_2z.setVisibility(View.GONE);
                 m_l2.setVisibility(View.GONE);
 
@@ -171,40 +169,41 @@ public class Thu extends Fragment {
 
                 break;
             case 3:
-                p1.setText(getResources().getString(R.string.m_analis));
-                p1a.setText(getResources().getString(R.string.padaev));
-                m_p1_t.setText(getResources().getString(R.string.lk));
-                m_p1_k.setText(getResources().getString(R.string.uk) + " 4-22");
-                p1z.setVisibility(View.GONE);
-                p1az.setVisibility(View.GONE);
-                m_p1_tz.setVisibility(View.GONE);
-                m_p1_kz.setVisibility(View.GONE);
-                m_l1.setVisibility(View.GONE);
-                m_l_1z.setVisibility(View.GONE);
 
-                p2.setText(getResources().getString(R.string.zoologia));
-                p2a.setText(getResources().getString(R.string.sotnikova));
+                p1.setVisibility(View.INVISIBLE);
+                p1a.setVisibility(View.INVISIBLE);
+                m_p1_t.setVisibility(View.INVISIBLE);
+                m_p1_k.setVisibility(View.INVISIBLE);
+                p1z.setVisibility(View.INVISIBLE);
+                p1az.setVisibility(View.INVISIBLE);
+                m_p1_tz.setVisibility(View.INVISIBLE);
+                m_p1_kz.setVisibility(View.INVISIBLE);
+                m_l_1z.setVisibility(View.INVISIBLE);
+
+                p2.setText(getResources().getString(R.string.m_analis));
+                p2a.setText(getResources().getString(R.string.padaev));
                 m_p2_t.setText(getResources().getString(R.string.lk));
-                m_p2_k.setText(getResources().getString(R.string.uk) + " 4-23");
-                m_l_2z.setVisibility(View.GONE);
+                m_p2_k.setText(getResources().getString(R.string.uk) + " 4-22");
+                p2z.setVisibility(View.GONE);
+                p2az.setVisibility(View.GONE);
+                m_p2_tz.setVisibility(View.GONE);
+                m_p2_kz.setVisibility(View.GONE);
                 m_l2.setVisibility(View.GONE);
+                m_l_2z.setVisibility(View.GONE);
 
-                p3.setText(getResources().getString(R.string.k_mir));
-                p3a.setText(getResources().getString(R.string.usacheva));
+                p3.setText(getResources().getString(R.string.zoologia));
+                p3a.setText(getResources().getString(R.string.sotnikova));
                 m_p3_t.setText(getResources().getString(R.string.lk));
-                m_p3_k.setText(getResources().getString(R.string.uk) + " 4-13");
+                m_p3_k.setText(getResources().getString(R.string.uk) + " 4-23");
                 m_l_3z.setVisibility(View.GONE);
                 m_l3.setVisibility(View.GONE);
 
-
-                p4.setVisibility(View.GONE);
-                p4a.setVisibility(View.GONE);
-                m_p4_t.setVisibility(View.GONE);
-                m_p4_k.setVisibility(View.GONE);
-                p4z.setVisibility(View.GONE);
-                p4az.setVisibility(View.GONE);
-                m_p4_tz.setVisibility(View.GONE);
-                m_p4_kz.setVisibility(View.GONE);
+                p4.setText(getResources().getString(R.string.k_mir));
+                p4a.setText(getResources().getString(R.string.usacheva));
+                m_p4_t.setText(getResources().getString(R.string.lk));
+                m_p4_k.setText(getResources().getString(R.string.uk) + " 4-13");
+                m_l_4z.setVisibility(View.GONE);
+                m_l4.setVisibility(View.GONE);
 
                 break;
 
@@ -247,7 +246,6 @@ public class Thu extends Fragment {
         p4z.setTextColor(getResources().getColor(R.color.colorAccent));
         p4az.setVisibility(View.GONE);
         m_p4_tz.setVisibility(View.GONE);
-
         m_p4_kz.setVisibility(View.GONE);
 
 

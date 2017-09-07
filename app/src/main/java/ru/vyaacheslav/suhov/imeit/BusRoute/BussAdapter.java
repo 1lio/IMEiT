@@ -18,7 +18,6 @@ class BussAdapter extends FragmentPagerAdapter {
                 return new BussL();
             case 1:
                 return new BussK();
-
         }
         return null;
     }
@@ -34,7 +33,6 @@ class BussAdapter extends FragmentPagerAdapter {
                 return "Маршруты";
             case 1:
                 return "Корпуса";
-
         }
         return null;
     }

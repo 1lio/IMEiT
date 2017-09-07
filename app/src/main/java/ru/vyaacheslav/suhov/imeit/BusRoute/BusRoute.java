@@ -14,8 +14,8 @@ public class BusRoute extends Fragment {
 
     TabLayout tabLayout;
     ViewPager viewPager;
+
     public BusRoute() {
-        // Required empty public constructor
     }
 
     @Override
