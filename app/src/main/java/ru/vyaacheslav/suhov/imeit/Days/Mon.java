@@ -63,7 +63,6 @@ public class Mon extends Fragment {
         p2az = v.findViewById(R.id.m_p2_az);
         m_p2_tz = v.findViewById(R.id.m_p2_tz);
         m_p2_kz = v.findViewById(R.id.m_p2_kz);
-        m_l2.setVisibility(View.GONE);
 
         p3 = v.findViewById(R.id.m_p3);
         p3a = v.findViewById(R.id.m_p3_a);
