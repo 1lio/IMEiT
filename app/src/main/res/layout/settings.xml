@@ -20,7 +20,7 @@
         app:titleTextAppearance="@style/ToolbarTitleAppearance" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
@@ -68,6 +68,37 @@
             android:gravity="right|center"
             android:popupBackground="@color/colorPrimary" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:text="Уведомления"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/side_nav_bar"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:checked="true"
+        android:hapticFeedbackEnabled="false"
+        android:text="Получать уведомления"
+        android:textColor="@color/cardview_light_background" />
 
     <TextView
         android:id="@+id/textView"
