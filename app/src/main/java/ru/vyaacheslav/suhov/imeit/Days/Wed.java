@@ -168,6 +168,41 @@ public class Wed extends Fragment {
             case 3:
                 p1.setText(getResources().getString(R.string.pcixol_soc));
                 p1a.setText(getResources().getString(R.string.okuneva));
+                m_p1_t.setText(getResources().getString(R.string.prs));
+                m_p1_k.setText(getResources().getString(R.string.uk) + " 4-24");
+                p1z.setVisibility(View.GONE);
+                p1az.setVisibility(View.GONE);
+                m_p1_tz.setVisibility(View.GONE);
+                m_p1_kz.setVisibility(View.GONE);
+                m_l1.setVisibility(View.GONE);
+                m_l_1z.setVisibility(View.GONE);
+
+                p2.setText(getResources().getString(R.string.fk));
+                p2a.setVisibility(View.GONE);
+                m_p2_t.setVisibility(View.GONE);
+                m_p2_k.setText(getResources().getString(R.string.fok));
+                m_l_2z.setVisibility(View.GONE);
+                m_l2.setVisibility(View.GONE);
+
+                p3.setVisibility(View.INVISIBLE);
+                p3a.setVisibility(View.INVISIBLE);
+                m_p3_t.setVisibility(View.INVISIBLE);
+                m_p3_k.setVisibility(View.INVISIBLE);
+                m_l_3z.setVisibility(View.INVISIBLE);
+
+
+                p4.setVisibility(View.INVISIBLE);
+                p4a.setVisibility(View.INVISIBLE);
+                m_p4_t.setVisibility(View.INVISIBLE);
+                m_p4_k.setVisibility(View.INVISIBLE);
+                p4z.setVisibility(View.INVISIBLE);
+                p4az.setVisibility(View.INVISIBLE);
+                m_l_4z.setVisibility(View.INVISIBLE);
+
+                break;
+            case 4:
+                p1.setText(getResources().getString(R.string.pcixol_soc));
+                p1a.setText(getResources().getString(R.string.okuneva));
                 m_p1_t.setText(getResources().getString(R.string.lk));
                 m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-13");
                 p1z.setVisibility(View.GONE);
@@ -184,25 +219,24 @@ public class Wed extends Fragment {
                 m_l_2z.setVisibility(View.GONE);
                 m_l2.setVisibility(View.GONE);
 
-                p3.setText(getResources().getString(R.string.kartograf));
-                p3a.setText(getResources().getString(R.string.melnikova));
+                p3.setText(getResources().getString(R.string.zoologia));
+                p3a.setText(getResources().getString(R.string.sotnikova));
                 m_p3_t.setText(getResources().getString(R.string.lk));
-                m_p3_k.setText(getResources().getString(R.string.uk)+ " 4-24");
+                m_p3_k.setText(getResources().getString(R.string.uk) + " 12-310");
                 m_l_3z.setVisibility(View.GONE);
                 m_l3.setVisibility(View.GONE);
 
 
-                p4.setText(getResources().getString(R.string.kartograf));
-                p4a.setText(getResources().getString(R.string.melnikova));
+                p4.setText(getResources().getString(R.string.zoologia));
+                p4a.setText(getResources().getString(R.string.sotnikova));
                 m_p4_t.setText(getResources().getString(R.string.lb));
-                m_p4_k.setText(getResources().getString(R.string.uk)+ " 4-26");
+                m_p4_k.setText(getResources().getString(R.string.uk) + " 12-310");
                 p4z.setVisibility(View.GONE);
                 p4az.setVisibility(View.GONE);
                 m_l_4z.setVisibility(View.GONE);
                 m_l4.setVisibility(View.GONE);
 
                 break;
-
 
         }
     }

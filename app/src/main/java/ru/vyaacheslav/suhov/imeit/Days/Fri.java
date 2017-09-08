@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -166,7 +165,7 @@ public class Fri extends Fragment {
                 break;
 
             case 3:
-                p1.setText("В расписании нет пар!");
+        /*        p1.setText("В расписании нет пар!");
                 p1.setGravity(Gravity.CENTER);
                 p1.setTextColor(getResources().getColor(R.color.colorAccent));
                 p1a.setVisibility(View.GONE);
@@ -200,7 +199,7 @@ public class Fri extends Fragment {
                 p4z.setVisibility(View.GONE);
                 p4az.setVisibility(View.GONE);
                 m_p4_tz.setVisibility(View.GONE);
-                m_p4_kz.setVisibility(View.GONE);
+                m_p4_kz.setVisibility(View.GONE);*/
 
                 break;
         }

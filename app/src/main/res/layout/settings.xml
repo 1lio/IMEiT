@@ -79,26 +79,29 @@
         android:paddingTop="16dp"
         android:text="Уведомления"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="2dp"
         android:background="@drawable/side_nav_bar"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    <Switch
+        android:id="@+id/switch1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="6dp"
-        android:checked="true"
-        android:hapticFeedbackEnabled="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:text="Получать уведомления"
-        android:textColor="@color/cardview_light_background" />
+        android:textColor="@color/colorWhitee"
+        android:visibility="gone"
+        tools:checked="true" />
 
     <TextView
         android:id="@+id/textView"

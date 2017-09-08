@@ -96,6 +96,7 @@ public class Mon extends Fragment {
         return v;
     }
 
+    // Готовимся к выходу релиза // Полный список настройки.
 
     public void loadMethod(){
       SharedPreferences  sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -181,9 +182,9 @@ public class Mon extends Fragment {
 
             case 3:
                 lkV.setVisibility(View.GONE);
-                p1.setText(getResources().getString(R.string.pcixol_soc));
-                p1a.setText(getResources().getString(R.string.okuneva));
-                m_p1_t.setText(getResources().getString(R.string.lk));
+                p1.setText(getResources().getString(R.string.teo_met_vosp));
+                p1a.setText(getResources().getString(R.string.zaharova));
+                m_p1_t.setText(getResources().getString(R.string.pz));
                 m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-24");
                 p1z.setVisibility(View.GONE);
                 p1az.setVisibility(View.GONE);
@@ -199,10 +200,10 @@ public class Mon extends Fragment {
                 m_l_2z.setVisibility(View.GONE);
                 m_l2.setVisibility(View.GONE);
 
-                p3.setVisibility(View.INVISIBLE);
-                p3a.setVisibility(View.INVISIBLE);
-                m_p3_t.setVisibility(View.INVISIBLE);
-                m_p3_k.setVisibility(View.INVISIBLE);
+                p3.setText(getResources().getString(R.string.zoologia));
+                p3a.setText(getResources().getString(R.string.sotnikova));
+                m_p3_t.setText(getResources().getString(R.string.lb));
+                m_p3_k.setText(getResources().getString(R.string.uk) + " 12-213");
                 m_l_3z.setVisibility(View.INVISIBLE);
 
 
@@ -214,6 +215,54 @@ public class Mon extends Fragment {
                 p4az.setVisibility(View.GONE);
                 m_p4_tz.setVisibility(View.GONE);
                 m_p4_kz.setVisibility(View.GONE);
+
+                m_l_1z.setVisibility(View.GONE);
+                m_l_2z.setVisibility(View.GONE);
+                m_l_3z.setVisibility(View.GONE);
+                m_l3.setVisibility(View.GONE);
+                break;
+
+            case 4:
+                lkV.setVisibility(View.GONE);
+                p1.setText(getResources().getString(R.string.teo_met_vosp));
+                p1a.setText(getResources().getString(R.string.zaharova));
+                m_p1_t.setText(getResources().getString(R.string.pz));
+                m_p1_k.setText(getResources().getString(R.string.uk) + " 4-24");
+                p1z.setVisibility(View.GONE);
+                p1az.setVisibility(View.GONE);
+                m_p1_tz.setVisibility(View.GONE);
+                m_p1_kz.setVisibility(View.GONE);
+                m_l1.setVisibility(View.GONE);
+                m_l_1z.setVisibility(View.GONE);
+
+                p2.setText(getResources().getString(R.string.fk));
+                p2a.setVisibility(View.GONE);
+                m_p2_t.setVisibility(View.GONE);
+                m_p2_k.setText(getResources().getString(R.string.fok));
+                m_l_2z.setVisibility(View.GONE);
+                m_l2.setVisibility(View.GONE);
+
+                p3.setText(getResources().getString(R.string.algebra_a_geo));
+                p3a.setText(getResources().getString(R.string.padaeva));
+                m_p3_t.setText(getResources().getString(R.string.pz));
+                m_p3_k.setText(getResources().getString(R.string.uk) + " 1-10");
+                m_l_3z.setVisibility(View.INVISIBLE);
+                m_l3.setVisibility(View.GONE);
+
+                p4.setText(getResources().getString(R.string.kartograf));
+                p4a.setText(getResources().getString(R.string.melnikova));
+                m_p4_t.setText(getResources().getString(R.string.lk));
+                m_p4_k.setText(getResources().getString(R.string.uk) + " 4-26");
+                m_l_3z.setVisibility(View.INVISIBLE);
+                p4z.setVisibility(View.GONE);
+                p4az.setVisibility(View.GONE);
+                m_p4_tz.setVisibility(View.GONE);
+                m_p4_kz.setVisibility(View.GONE);
+                m_l4.setVisibility(View.GONE);
+                m_l_1z.setVisibility(View.GONE);
+                m_l_2z.setVisibility(View.GONE);
+                m_l_3z.setVisibility(View.GONE);
+                m_l_4z.setVisibility(View.GONE);
 
                 break;
 
@@ -268,8 +317,6 @@ public class Mon extends Fragment {
         p4az.setVisibility(View.GONE);
         m_p4_tz.setVisibility(View.GONE);
         m_p4_kz.setVisibility(View.GONE);
-
-
     }
 }
 

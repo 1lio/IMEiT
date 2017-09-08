@@ -33,7 +33,7 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final int NOTIFICATION_ID = 123;
+    int NOTIFICATION_ID = 123;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     FragmentManager FM;
@@ -112,19 +112,6 @@ public class MainActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                     fragmentTransaction1.replace(R.id.containerView, new MapsFragment()).commit();
                 }
-
-              /*  if (item.getItemId() == R.id.note) {
-                    MainActivity.this.getSupportActionBar().setSubtitle("Заметки");
-                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                    fragmentTransaction1.replace(R.id.containerView, new Note()).commit();
-                }*/
-
-
-           /*  if (item.getItemId() == R.id.bus) {
-                    MainActivity.this.getSupportActionBar().setSubtitle("Маршруты автобусов");
-                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                    fragmentTransaction1.replace(R.id.containerView, new BusRoute()).commit();
-                }*/
                 return false;
             }
         });
@@ -135,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         loadName();
-        dayNotifications();
+      /*  dayNotifications();*/
     }
 
     @Override
@@ -165,23 +152,23 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position) {
             case 0:
-                MainActivity.this.getSupportActionBar().setSubtitle("МФ-21 / МИ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("МФ-21");
                 break;
             case 1:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("МИ-21");
                 break;
             case 2:
-                MainActivity.this.getSupportActionBar().setSubtitle("БХ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-21");
                 break;
 
             case 3:
-                MainActivity.this.getSupportActionBar().setSubtitle("ЕГ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("БХ-21");
                 break;
-        /*
 
             case 4:
-                MainActivity.this.getSupportActionBar().setSubtitle("НЭ-11");
+                MainActivity.this.getSupportActionBar().setSubtitle("ЕГ-21");
                 break;
+            /*
             case 5:
                 MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-11");
                 break;

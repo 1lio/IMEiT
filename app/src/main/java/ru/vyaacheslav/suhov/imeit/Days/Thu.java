@@ -169,7 +169,7 @@ public class Thu extends Fragment {
 
                 break;
             case 3:
-
+/*
                 p1.setVisibility(View.INVISIBLE);
                 p1a.setVisibility(View.INVISIBLE);
                 m_p1_t.setVisibility(View.INVISIBLE);
@@ -203,7 +203,7 @@ public class Thu extends Fragment {
                 m_p4_t.setText(getResources().getString(R.string.lk));
                 m_p4_k.setText(getResources().getString(R.string.uk) + " 4-13");
                 m_l_4z.setVisibility(View.GONE);
-                m_l4.setVisibility(View.GONE);
+                m_l4.setVisibility(View.GONE);*/
 
                 break;
 
