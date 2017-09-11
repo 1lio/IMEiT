@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">ИМЕиТ</string>
-
+    <string name="ob_ex_phys">Общая и экспериментальная физика</string>
+    <string name="osn_geo">Основания геометрии</string>
+    <string name="oop_an_pr">Объектно-ориентированный анализ и программирование</string>
+    <string name="inj_gra">Инженерная графика</string>
+    <string name="teo_ver">Теория вероятностей и математическая статистика</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="ras">Расписание</string>
     <string name="ras2">Настр. расписание</string>
     <string name="groope">Ваша группа:</string>
+    <string name="teo_inz_obr">Теория и практика инзивного образования</string>
 
     <string-array name="bak_groops">
 
@@ -24,10 +29,16 @@
         <item>БХ-21</item>
         <item>ЕГ-21</item>
 
-        <!-- <item>МФ-31</item>
-         <item>ПМ-31</item>
-         <item>ИиВТ-31</item>
-         <item>НЭ-31</item>-->
+        <item>МФ-31</item>
+        <item>ПМ-31</item>
+        <item>ИиВТ-31</item>
+        <item>НЭ-31</item>
+
+        <item>М-41</item>
+        <item>ФМ-41</item>
+        <item>ПМ-41</item>
+        <item>ИиВТ-41</item>
+        <item>НЭ-41</item>
 
     </string-array>
 
@@ -54,6 +65,8 @@
     <string name="physics">Физика</string>
     <string name="chemistry">Химия</string>
     <string name="eco">Экология</string>
+
+    <string name="teo_razv">Технологии проектирования математического развития</string>
     <string name="inf_sys">Теория информационных процессов и систем</string>
     <string name="inf_tex">Информационные технологии</string>
     <string name="arx_sys">Архитектура информационных систем</string>
@@ -71,6 +84,7 @@
     <string name="mat_chis_met">Математика(численные методы)</string>
     <string name="k_mir">Естественно-научная картина мира</string>
     <string name="econ">Экономика</string>
+    <string name="phys_xim">Физическая химия наноструктурированных материалов</string>
     <string name="el_physic">Элементарная физика с практикумом по решению задач</string>
     <string name="pravo">Правоведение</string>
     <string name="oop">Объектно-ориентированное программирование</string>
@@ -82,18 +96,29 @@
     <string name="metrologian">Метрология, стандартизация и технические измерения</string>
     <string name="or_ibm">Организация ЭВМ и систем</string>
     <string name="os">Операционные системы</string>
+    <string name="spec_fun">Специальные функции</string>
+    <string name="ner_term">Неравновесная термодинамика</string>
+    <string name="ibm_per_us">ЭВМ и периферийные устройства</string>
+    <string name="osn_el">Основы оптоэлектроники</string>
+    <string name="mod_soc_pol">Моделирование социально-политических процессов</string>
     <string name="in_bez">Информационная безопасность и защита информации</string>
     <string name="md_pr_sys">Моделирование процессов и систем</string>
+    <string name="comp_bez">Компьютерная безопасность</string>
+    <string name="mat_nano">Материалы и методы нанотехнологий </string>
+    <string name="mod_class">Моделирование некоторых классов систем управления</string>
     <string name="up_bd_sys">Управление безопасностью информационных систем</string>
     <string name="pr_web">Программирование Web-приложений</string>
+    <string name="galv_polpro">Гальваномагнитные и термомагнитные явления в полупроводниках</string>
     <string name="ad_os">Администрирование операционных и информационных систем</string>
     <string name="ob_bd">Распределенная обработка данных</string>
     <string name="cach_sys">Качество и надежность информационных систем</string>
     <string name="pr_sys_up">Проектирование информационных систем управления</string>
+    <string name="pr_sys">Проектирование информационно-вычислительных  систем</string>
     <string name="pr_bez">Правовое обеспечение информационной безопасности</string>
     <string name="russian_lang">Русский язык и культура речи</string>
     <string name="met_prog">Языки и методы программирования</string>
     <string name="progr">Программирование</string>
+    <string name="eco_proiz">Экономика и организация производства</string>
     <string name="po_prog">Предметно-ориентированное программирование </string>
     <string name="mat_pra">Математический практикум</string>
     <string name="mat_zad">Решение нестандартных математических задач</string>
@@ -118,7 +143,10 @@
     <string name="teo_obr">Теория распознавания образов</string>
     <string name="teo_obs">Теория массового обслуживания</string>
     <string name="imt_mod">Имитационное моделирование</string>
+
+    <string name="teplophys">Теплофизика</string>
     <string name="mat_mod_eco">Математическое моделирование в экономике</string>
+    <string name="mat_mod_nano">Математическое моделиро-вание и проектирование наносистем</string>
     <string name="botanika">Ботаника</string>
     <string name="f_col_che">Физическая и коллоидная химия</string>
     <string name="zoologia">Зоология</string>
@@ -137,36 +165,62 @@
     <string name="omoi">Основы математической обработки информации</string>
     <string name="eco_obr">Экономика образования</string>
     <string name="anatomia">Анатомия человека</string>
+    <string name="osn_teo_phy">Основы теоретической физики</string>
+    <string name="ist_mat_r">История математики в России</string>
     <string name="nikitina">Никитина Е.Н.</string>
     <string name="fok">ФОК</string>
     <string name="name_p">Название предмета</string>
     <string name="manadjment">Менеджмент</string>
     <string name="name_te">Имя преподователя</string>
     <string name="pz">ПЗ</string>
+    <string name="ad_seit">Администрирование компьютерных сетей</string>
+    <string name="vector_isch">Векторное исчисление </string>
+    <string name="seti_tv">Сети и телекоммуникации</string>
+    <string name="astrophysic">Астрофизика</string>
+    <string name="sys_po">Системное и прикладное программное обеспечение</string>
     <string name="uk_4_24">УК4 24</string>
+    <string name="etica">Профессиональная этика</string>
+    <string name="el_nec_mn">Элементы теории нечетких множеств</string>
+    <string name="ur_mat_phy">Уравнения математической физики</string>
+    <string name="prog_1c">Программирование в ПЗ системе 1С: предприятие</string>
+    <string name="kvant_el">Квантовая электроника</string>
+    <string name="kvant_ph">Квантовая физика</string>
+    <string name="zad_hard">Решение задач повышенной сложности</string>
+    <string name="par_ob_inf">Параллельная обработка данных</string>
+    <string name="int_ur">Интегральные уравнения</string>
+    <string name="zona_str_el">Зонная структура перспективных материалов электроники</string>
+    <string name="met_ob_vos"> Методика обучения и воспитания (Методика обучения математике)</string>
 
+    <string name="practic">Практика по получению первичных профессиональных умений и навыков, в том числе первичных умений и навыков научно-исследовательской деятельности (рассред.)</string>
     <string name="one">1</string>
     <string name="two">2</string>
     <string name="tree">3</string>
     <string name="four">4</string>
 
+    <string name="app_sys">Приложения и системы программирования</string>
     <string name="uk">УК </string>
     <string name="prs">ПР</string>
     <string name="lk">ЛК</string>
     <string name="gk">ГК</string>
     <string name="lb">ЛБ</string>
+    <string name="ftd">ФТД</string>
     <string name="dv_pz">ДВ/ПЗ</string>
     <string name="lb_pz">ЛБ/ПЗ</string>
 
+    <string name="simonovskaya">Симоновская Г.А.</string>
+    <string name="mezinov">Мезинов В.Н.</string>
     <string name="teo_met_vosp">Теория и методика воспитания</string>
-
+    <string name="gladkih">Гладких О.Б.</string>
+    <string name="kondakov">Кондаков О.В.</string>
     <string name="belix">Белых О.Н.</string>
     <string name="pachin">Пачин Р.К.</string>
     <string name="pichulin">Пищулин В.Н.</string>
+    <string name="vorobev">Воробьев С.В.</string>
     <string name="kuznecov">Кузнецов Д.В.</string>
     <string name="okuneva">Окунева С.Е.</string>
     <string name="zaharova">Захарова М.А.</string>
     <string name="budyakova">Будякова Т.П.</string>
+    <string name="safronova">Сафронова Т.М.</string>
     <string name="ivanov">Иванов А. М.</string>
     <string name="ivanova">Иванова М. Ю.</string>
     <string name="prokuratova">Прокуратова О.Н.</string>
@@ -189,7 +243,8 @@
     <string name="podaeva">Подаева Н.Г.</string>
     <string name="zaburaeva">Зубарева Е.В.</string>
     <string name="sidorov">Сидоров А.В.</string>
-
+    <string name="rodionova">Родионова М.А.</string>
+    <string name="elchinova">Ельчанинова Г.Г.</string>
     <string name="podoksenov">Подоксенов А.М.</string>
     <string name="gubin">Губин М.А.</string>
     <string name="klevcova">Клевцова О.В.</string>
@@ -206,11 +261,16 @@
     <string name="rochupkin">Рощюпкин С.А.</string>
     <string name="masina">Масина О.Н.</string>
     <string name="eleckix">Елецких И.А.</string>
+    <string name="dvoryakina">Дворяткина С.Н.</string>
+    <string name="met_crypto">Методы криптографической защиты информации</string>
     <string name="saz_inf">Методы и средства защиты информации</string>
     <string name="obrInf">Обработка результатов физического эксперимента</string>
     <string name="vop_int_vi">Избранные вопросы дифференциального и интегрального исчислений</string>
     <string name="settings">Настройки</string>
-
+    <string name="schol_uche">Изучение школьных учебников математики</string>
+    <string name="schol_uche_ug">Изучение школьных учебников математики с углубленным содержанием</string>
+    <string name="up_mat_phy">Уравнения математической физики</string>
+    <string name="el_mat"> Элементарная математика</string>
     <string name="time_zvonok">Время звонков</string>
     <string name="news">Новости</string>
     <string name="inf">Основные сведения</string>
@@ -289,10 +349,19 @@
     <string name="note">Заметки</string>
     <string name="grope_err">Группа не выбрана:</string>
     <string name="take">Выбрать</string>
-
+    <string name="vop_dif">Избранные вопросы дифференциального и интегрального исчислений</string>
+    <string name="samsonova">Самсонова С.Н.</string>
     <string name="metiso">Методы изображений и компьютерная графика</string>
     <!--Учебные аудитории-->
 
+    <string name="inf_bez_set">Информационная безопасность в сетях</string>
+    <string name="prepo_phy">Преподавание физики в профильной школе</string>
+    <string name="met_mat">Методика обучения и воспитания (математике)</string>
+    <string name="met_phy">Методика обучения и воспитания (физике)</string>
+    <string name="phy_osn_el"> Физические основы электроники</string>
+    <string name="fun_analis">Функциональный анализ</string>
+    <string name="pro_tipograf">Программирование в типовых конфигурациях</string>
+    <string name="shemotexnika">Схемотехника</string>
     <string name="uk4_13">УК 4-13</string>
     <string name="uk1_2">УК 1-2</string>
     <string name="uk1_8">УК 1-8</string>
@@ -302,6 +371,7 @@
     <string name="uk1_22">УК 1-22</string>
     <string name="uk2_213">УК 2-213</string>
     <string name="uk1_10">УК 1-10</string>
+    <string name="uk1_6">УК 1-6</string>
     <string name="uk3_16">УК 3-16</string>
     <string name="uk4_27">УК 4-27</string>
     <string name="uk4_21">УК 4-21</string>
@@ -309,6 +379,7 @@
     <string name="uk4_23">УК 4-23</string>
     <string name="uk4_15">УК 4-15</string>
     <string name="uk4_24">УК 4-24</string>
+    <string name="uk15_001">УК 15-001</string>
     <string name="uk2_113">УК 2-113</string>
     <string name="uk4_26">УК 4-26</string>
     <string name="uk4_28">УК 4-28</string>
@@ -319,9 +390,19 @@
     <string name="uk14_211">УК 16-211</string>
     <string name="gk212">ГК-212</string>
     <string name="gk208">ГК-208</string>
+    <string name="gk307">ГК-207</string>
     <string name="gk300">ГК-300</string>
     <string name="uk16_301a">УК 16-301а</string>
+    <string name="uk12_2_101">УК 12/2-101</string>
+    <string name="uk12_103">УК 12-103</string>
+    <string name="uk14_203">УК 14-203</string>
 
+    <string name="nano_el">Наноэлектроника</string>
+    <string name="el_sred">Электродинамика сплошных сред</string>
+    <string name="inf_ob_mat">Инновационные технологии в обучении </string>
+    <string name="arnuatov">Арнаутов Е.А.</string>
+    <string name="nes_trigo">Нестандартные тригонометрические задачи</string>
+    <string name="met_or_astr_tex">Методика организации астрономических наблюдений</string>
     <string name="rasp_ob_inf">Распределенная обработка информации</string>
 
 </resources>

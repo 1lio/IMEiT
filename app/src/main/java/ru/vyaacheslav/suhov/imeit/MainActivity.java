@@ -160,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-12");
                 break;
-
             case 3:
                 MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-11");
                 break;
@@ -193,7 +192,33 @@ public class MainActivity extends AppCompatActivity {
             case 12:
                 MainActivity.this.getSupportActionBar().setSubtitle("ЕГ-21");
                 break;
-
+            case 13:
+                MainActivity.this.getSupportActionBar().setSubtitle("МФ-31");
+                break;
+            case 14:
+                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-31");
+                break;
+            case 15:
+                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-31");
+                break;
+            case 16:
+                MainActivity.this.getSupportActionBar().setSubtitle("НЭ-31");
+                break;
+            case 17:
+                MainActivity.this.getSupportActionBar().setSubtitle("М-41");
+                break;
+            case 18:
+                MainActivity.this.getSupportActionBar().setSubtitle("ФМ-41");
+                break;
+            case 19:
+                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-41");
+                break;
+            case 20:
+                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-41");
+                break;
+            case 21:
+                MainActivity.this.getSupportActionBar().setSubtitle("НЭ-41");
+                break;
 
         }
     }
