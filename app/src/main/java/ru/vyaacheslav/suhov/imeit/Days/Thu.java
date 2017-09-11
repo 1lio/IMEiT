@@ -509,7 +509,6 @@ public class Thu extends Fragment {
         p1a.setText(getResources().getString(R.string.rochupkin));
         m_p1_t.setText(getResources().getString(R.string.dv_pz));
         m_p1_k.setText(getResources().getString(R.string.uk16_301a));
-        Null_Mon_Z();
 
         p2.setText(getResources().getString(R.string.app_sys));
         p2a.setText(getResources().getString(R.string.rochupkin));
@@ -542,7 +541,7 @@ public class Thu extends Fragment {
         p1a.setText(getResources().getString(R.string.sidorov));
         m_p1_t.setText(getResources().getString(R.string.dv_pz));
         m_p1_k.setText(getResources().getString(R.string.uk1_9));
-        Null_Mon_Z();
+
 
         p2.setText(getResources().getString(R.string.vector_isch));
         p2a.setText(getResources().getString(R.string.kondakov));
@@ -632,10 +631,10 @@ public class Thu extends Fragment {
 
     public void IiVT_41() {
 
-        p1z.setText(getResources().getString(R.string.inf_bez_set));
-        p1az.setText(getResources().getString(R.string.pachin));
-        m_p1_tz.setText(getResources().getString(R.string.lk));
-        m_p1_kz.setText(getResources().getString(R.string.uk2_113));
+        p1.setText(getResources().getString(R.string.inf_bez_set));
+        p1a.setText(getResources().getString(R.string.pachin));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk2_113));
         Null_Mon_Z();
 
         p2.setText(getResources().getString(R.string.com_tip));
@@ -654,7 +653,6 @@ public class Thu extends Fragment {
         p4a.setText(getResources().getString(R.string.masina));
         m_p4_t.setText(getResources().getString(R.string.ftd));
         m_p4_k.setText(getResources().getString(R.string.uk4_21));
-        Null_Mon_Z_4();
 
     }
 

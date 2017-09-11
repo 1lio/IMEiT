@@ -680,14 +680,13 @@ public class Mon extends Fragment {
 
     }
 
-    //FM
     public void PM_41() {
 
-        p1z.setText(getResources().getString(R.string.el_nec_mn));
-        p1az.setText(getResources().getString(R.string.belix));
-        m_p1_tz.setText(getResources().getString(R.string.dv_pz));
-        m_p1_kz.setText(getResources().getString(R.string.uk4_26));
-        Null_Mon_Z();
+        p1.setText(getResources().getString(R.string.el_nec_mn));
+        p1a.setText(getResources().getString(R.string.belix));
+        m_p1_t.setText(getResources().getString(R.string.dv_pz));
+        m_p1_k.setText(getResources().getString(R.string.uk4_26));
+
 
         p2.setText(getResources().getString(R.string.ur_mat_phy));
         p2a.setText(getResources().getString(R.string.cherbatix));

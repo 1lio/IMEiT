@@ -530,10 +530,10 @@ public class Wed extends Fragment {
         m_p3_k.setText(getResources().getString(R.string.uk15_001));
         Null_Mon_Z_3();
 
-        p4z.setText(getResources().getString(R.string.vector_isch));
-        p4az.setText(getResources().getString(R.string.kondakov));
-        m_p4_tz.setText(getResources().getString(R.string.pz));
-        m_p4_kz.setText(getResources().getString(R.string.uk15_001));
+        p4.setText(getResources().getString(R.string.vector_isch));
+        p4a.setText(getResources().getString(R.string.kondakov));
+        m_p4_t.setText(getResources().getString(R.string.pz));
+        m_p4_k.setText(getResources().getString(R.string.uk15_001));
         Null_Mon_Z_4();
     }
 
@@ -554,7 +554,7 @@ public class Wed extends Fragment {
         p2a.setText(getResources().getString(R.string.trofimova));
         m_p2_t.setText(getResources().getString(R.string.dv_pz));
         m_p2_k.setText(getResources().getString(R.string.uk4_27));
-        p2z.setText(getResources().getString(R.string.prepo_phy));
+        p2z.setText(getResources().getString(R.string.compot));
         p2az.setText(getResources().getString(R.string.trofimova));
         m_p2_tz.setText(getResources().getString(R.string.dv_pz));
         m_p2_kz.setText(getResources().getString(R.string.uk4_26));
@@ -564,7 +564,7 @@ public class Wed extends Fragment {
         m_p3_t.setText(getResources().getString(R.string.lk));
         m_p3_k.setText(getResources().getString(R.string.uk4_27));
 
-        p4.setText(getResources().getString(R.string.prepo_phy));
+        p4.setText(getResources().getString(R.string.met_phy));
         p4a.setText(getResources().getString(R.string.trofimova));
         m_p4_t.setText(getResources().getString(R.string.lb));
         m_p4_k.setText(getResources().getString(R.string.uk4_27));

@@ -42,7 +42,6 @@
 
     </string-array>
 
-    <!-- Базовая часть ИСиТ-->
     <string name="set_protocol">Сетевые протоколы и интернет-технологии</string>
     <string name="paket_asu">Пакеты прикладных программ в АСУ</string>
     <string name="filosofia">Философия</string>
@@ -352,7 +351,6 @@
     <string name="vop_dif">Избранные вопросы дифференциального и интегрального исчислений</string>
     <string name="samsonova">Самсонова С.Н.</string>
     <string name="metiso">Методы изображений и компьютерная графика</string>
-    <!--Учебные аудитории-->
 
     <string name="inf_bez_set">Информационная безопасность в сетях</string>
     <string name="prepo_phy">Преподавание физики в профильной школе</string>
@@ -396,13 +394,12 @@
     <string name="uk12_2_101">УК 12/2-101</string>
     <string name="uk12_103">УК 12-103</string>
     <string name="uk14_203">УК 14-203</string>
-
     <string name="nano_el">Наноэлектроника</string>
     <string name="el_sred">Электродинамика сплошных сред</string>
-    <string name="inf_ob_mat">Инновационные технологии в обучении </string>
+    <string name="inf_ob_mat">Инновационные технологии в обучении математике </string>
+    <string name="compot">Компьютерная поддержка курса физики</string>
     <string name="arnuatov">Арнаутов Е.А.</string>
     <string name="nes_trigo">Нестандартные тригонометрические задачи</string>
     <string name="met_or_astr_tex">Методика организации астрономических наблюдений</string>
     <string name="rasp_ob_inf">Распределенная обработка информации</string>
-
 </resources>

@@ -52,7 +52,7 @@ public class Info extends Fragment  {
                     intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://imet.elsu.ru/"));
                     startActivity(intent);
                 } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                    webs.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
+                    webs.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
                 }
                 return true;
             }
@@ -82,7 +82,7 @@ public class Info extends Fragment  {
                     email.setType("message/rfc822");
                     startActivity(Intent.createChooser(email, "Выберите email клиент :"));
                 } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                    email.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
+                    email.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
                 }
                 return true;
             }

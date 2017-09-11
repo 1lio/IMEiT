@@ -767,6 +767,7 @@ public class Tue extends Fragment {
         p4a.setText(getResources().getString(R.string.pachin));
         m_p4_t.setText(getResources().getString(R.string.lk));
         m_p4_k.setText(getResources().getString(R.string.uk2_113));
+        Null_Mon_Z_4();
 
 
     }
@@ -822,5 +823,14 @@ public class Tue extends Fragment {
         m_l3.setVisibility(View.GONE);
         m_l_3z.setVisibility(View.GONE);
 
+    }
+
+    public void Null_Mon_Z_4() {
+        p4z.setVisibility(View.GONE);
+        p4az.setVisibility(View.GONE);
+        m_p4_tz.setVisibility(View.GONE);
+        m_p4_kz.setVisibility(View.GONE);
+        m_l4.setVisibility(View.GONE);
+        m_l_4z.setVisibility(View.GONE);
     }
 }

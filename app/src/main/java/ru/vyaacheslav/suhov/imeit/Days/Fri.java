@@ -482,6 +482,7 @@ public class Fri extends Fragment {
         m_p1_t.setText(getResources().getString(R.string.lk));
         m_p1_k.setText(getResources().getString(R.string.uk4_15));
         p1z.setText(getResources().getString(R.string.practic));
+        p1z.setTextSize(8);
         p1az.setVisibility(View.GONE);
         m_p1_tz.setVisibility(View.GONE);
         m_p1_kz.setVisibility(View.GONE);
@@ -494,15 +495,18 @@ public class Fri extends Fragment {
         p2az.setVisibility(View.GONE);
         m_p2_tz.setVisibility(View.GONE);
         m_p2_kz.setVisibility(View.GONE);
+        p2z.setTextSize(8);
 
         p3z.setText(getResources().getString(R.string.practic));
         p3az.setVisibility(View.GONE);
         m_p3_tz.setVisibility(View.GONE);
         m_p3_kz.setVisibility(View.GONE);
+        p3z.setTextSize(8);
 
         p4z.setText(getResources().getString(R.string.practic));
         p4az.setVisibility(View.GONE);
         m_p4_tz.setVisibility(View.GONE);
+        p4z.setTextSize(8);
         m_p4_kz.setVisibility(View.GONE);
     }
 
@@ -591,22 +595,22 @@ public class Fri extends Fragment {
         m_p2_tz.setText(getResources().getString(R.string.dv_pz));
         m_p2_kz.setText(getResources().getString(R.string.uk4_15));
 
-        p1.setText(getResources().getString(R.string.inf_ob_mat));
-        p1a.setText(getResources().getString(R.string.safronova));
-        m_p1_t.setText(getResources().getString(R.string.dv_pz));
-        m_p1_k.setText(getResources().getString(R.string.uk4_15));
-        p1z.setText(getResources().getString(R.string.nes_trigo));
-        p1az.setText(getResources().getString(R.string.melnikova));
-        m_p1_tz.setText(getResources().getString(R.string.dv_pz));
-        m_p1_kz.setText(getResources().getString(R.string.uk4_26));
+        p3.setText(getResources().getString(R.string.inf_ob_mat));
+        p3a.setText(getResources().getString(R.string.safronova));
+        m_p3_t.setText(getResources().getString(R.string.dv_pz));
+        m_p3_k.setText(getResources().getString(R.string.uk4_15));
+        p3z.setText(getResources().getString(R.string.nes_trigo));
+        p3az.setText(getResources().getString(R.string.melnikova));
+        m_p3_tz.setText(getResources().getString(R.string.dv_pz));
+        m_p3_kz.setText(getResources().getString(R.string.uk4_26));
     }
 
     public void FM_41() {
 
-        p1z.setText(getResources().getString(R.string.met_or_astr_tex));
-        p1az.setText(getResources().getString(R.string.kondakova));
-        m_p1_tz.setText(getResources().getString(R.string.dv_pz));
-        m_p1_kz.setText(getResources().getString(R.string.uk1_11));
+        p1.setText(getResources().getString(R.string.met_or_astr_tex));
+        p1a.setText(getResources().getString(R.string.kondakova));
+        m_p1_t.setText(getResources().getString(R.string.dv_pz));
+        m_p1_k.setText(getResources().getString(R.string.uk1_11));
         Null_Mon_Z();
 
         p2.setText(getResources().getString(R.string.kvant_ph));
@@ -653,6 +657,7 @@ public class Fri extends Fragment {
         p4a.setText(getResources().getString(R.string.tarov));
         m_p4_t.setText(getResources().getString(R.string.dv_pz));
         m_p4_k.setText(getResources().getString(R.string.gk300));
+        Null_Mon_Z_4();
     }
 
     public void IiVT_41() {
