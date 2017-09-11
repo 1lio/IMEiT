@@ -23,7 +23,7 @@
 
                 <LinearLayout
                     android:layout_width="60dp"
-                    android:layout_height="120dp"
+                    android:layout_height="128dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -99,8 +99,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_p"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -109,7 +107,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_te"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -126,8 +123,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/pz"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -136,7 +131,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/uk_4_24"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -171,8 +165,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_p"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -181,7 +173,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_te"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -198,8 +189,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/pz"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -208,7 +197,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/uk_4_24"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -219,13 +207,19 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorSigma"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimaryS"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="60dp"
-                    android:layout_height="120dp"
+                    android:layout_height="128dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -301,8 +295,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_p"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -311,7 +303,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_te"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -328,8 +319,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/pz"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -338,7 +327,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/uk_4_24"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -373,8 +361,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_p"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -383,7 +369,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_te"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -400,8 +385,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/pz"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -410,7 +393,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/uk_4_24"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -421,13 +403,19 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorSigma"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimaryF"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="60dp"
-                    android:layout_height="120dp"
+                    android:layout_height="128dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -495,7 +483,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:gravity="center_vertical"
+                            android:gravity="bottom|left"
                             android:orientation="vertical"
                             android:padding="6dp">
 
@@ -504,8 +492,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_p"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -514,7 +500,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_te"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -531,8 +516,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/pz"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -541,7 +524,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/uk_4_24"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -575,9 +557,7 @@
                                 android:id="@+id/m_p3z"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
-                                android:text="@string/name_p"
-                                android:textColor="@android:color/background_light"
+                                android:gravity="left"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -586,7 +566,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_te"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -603,8 +582,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/pz"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -613,7 +590,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/uk_4_24"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -624,13 +600,19 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorSigma"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimaryS"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="60dp"
-                    android:layout_height="120dp"
+                    android:layout_height="128dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -708,8 +690,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_p"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -718,7 +698,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_te"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -735,8 +714,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/pz"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -745,7 +722,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/uk_4_24"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -778,19 +754,16 @@
                             <TextView
                                 android:id="@+id/m_p4z"
                                 android:layout_width="match_parent"
-                                android:layout_height="12dp"
+                                android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_p"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/m_p4_az"
                                 android:layout_width="match_parent"
-                                android:layout_height="10dp"
+                                android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="@string/name_te"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -807,8 +780,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/pz"
-                                android:textColor="@android:color/background_light"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -817,7 +788,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="@string/uk_4_24"
                                 android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -829,7 +799,6 @@
     </ScrollView>
 
     <LinearLayout
-
         android:id="@+id/lkV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -843,16 +812,15 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:gravity="center"
-            android:text="Группа не выбрана:" />
+            android:text="@string/grope_err" />
 
         <Button
             android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/custbordgreen"
-            android:text="Выбрать"
+            android:text="@string/take"
             android:textColor="@color/colorAccent"
             android:textSize="12sp" />
     </LinearLayout>
-
 </RelativeLayout>

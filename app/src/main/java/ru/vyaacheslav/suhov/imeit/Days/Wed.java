@@ -29,7 +29,7 @@ public class Wed extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.wed, container, false);
 
-        spinner = (Spinner)getActivity().findViewById(R.id.spinner);
+        spinner = getActivity().findViewById(R.id.spinner);
 
         m_l_1z = v.findViewById(R.id.w_l_1z);
         m_l_2z = v.findViewById(R.id.w_l_2z);
@@ -82,171 +82,63 @@ public class Wed extends Fragment {
 
         return v;
     }
-    public void loadMethod(){
+
+    public void loadMethod() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        int position= sharedPreferences .getInt("spnCalorieRange",-1);
+        int position = sharedPreferences.getInt("spnCalorieRange", -1);
         layoutVisable();
-        // # позиции - группа
-        switch (position){
+        switch (position) {
             case 0:
-                MonMI();
+                FMiI_11();
                 break;
             case 1:
-                p1.setText(getResources().getString(R.string.log_pro));
-                p1a.setText(getResources().getString(R.string.igonina));
-                m_p1_t.setText(getResources().getString(R.string.lb_pz));
-                m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-21");
-                p1z.setVisibility(View.GONE);
-                p1az.setVisibility(View.GONE);
-                m_p1_tz.setVisibility(View.GONE);
-                m_p1_kz.setVisibility(View.GONE);
-                m_l1.setVisibility(View.GONE);
-                m_l_1z.setVisibility(View.GONE);
-
-                p2.setText(getResources().getString(R.string.fk));
-                p2a.setVisibility(View.GONE);
-                m_p2_t.setVisibility(View.GONE);
-                m_p2_k.setText(getResources().getString(R.string.fok));
-                m_l_2z.setVisibility(View.GONE);
-                m_l2.setVisibility(View.GONE);
-
-                p3.setVisibility(View.INVISIBLE);
-                p3a.setVisibility(View.GONE);
-                m_p3_t.setVisibility(View.GONE);
-                m_p3_k.setVisibility(View.GONE);
-                m_l_3z.setVisibility(View.INVISIBLE);
-
-
-                p4.setVisibility(View.GONE);
-                p4a.setVisibility(View.GONE);
-                m_p4_t.setVisibility(View.GONE);
-                m_p4_k.setVisibility(View.GONE);
-                p4z.setVisibility(View.GONE);
-                p4az.setVisibility(View.GONE);
-                m_p4_tz.setVisibility(View.GONE);
-                m_p4_kz.setVisibility(View.GONE);
-
+                Pm_11();
                 break;
 
             case 2:
-                p1.setText(getResources().getString(R.string.pcixol_soc));
-                p1a.setText(getResources().getString(R.string.okuneva));
-                m_p1_t.setText(getResources().getString(R.string.lk));
-                m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-13");
-                p1z.setVisibility(View.GONE);
-                p1az.setVisibility(View.GONE);
-                m_p1_tz.setVisibility(View.GONE);
-                m_p1_kz.setVisibility(View.GONE);
-                m_l1.setVisibility(View.GONE);
-                m_l_1z.setVisibility(View.GONE);
-
-                p2.setText(getResources().getString(R.string.fk));
-                p2a.setVisibility(View.GONE);
-                m_p2_t.setVisibility(View.GONE);
-                m_p2_k.setText(getResources().getString(R.string.fok));
-                m_l_2z.setVisibility(View.GONE);
-                m_l2.setVisibility(View.GONE);
-
-                p3.setText(getResources().getString(R.string.rast_mir));
-                p3a.setText(getResources().getString(R.string.sotnikova));
-                m_p3_t.setText(getResources().getString(R.string.pz));
-                m_p3_k.setText(getResources().getString(R.string.uk)+ " 12-310");
-                m_l_3z.setVisibility(View.GONE);
-                m_l3.setVisibility(View.GONE);
-
-
-                p4.setText(getResources().getString(R.string.rast_mir));
-                p4a.setText(getResources().getString(R.string.sotnikova));
-                m_p4_t.setText(getResources().getString(R.string.pz));
-                m_p4_k.setText(getResources().getString(R.string.uk)+ " 12-310");
-                p4z.setVisibility(View.GONE);
-                p4az.setVisibility(View.GONE);
-                m_l_4z.setVisibility(View.GONE);
-                m_l4.setVisibility(View.GONE);
-
+                IiVT_12();
                 break;
+
             case 3:
-                p1.setText(getResources().getString(R.string.pcixol_soc));
-                p1a.setText(getResources().getString(R.string.okuneva));
-                m_p1_t.setText(getResources().getString(R.string.prs));
-                m_p1_k.setText(getResources().getString(R.string.uk) + " 4-24");
-                p1z.setVisibility(View.GONE);
-                p1az.setVisibility(View.GONE);
-                m_p1_tz.setVisibility(View.GONE);
-                m_p1_kz.setVisibility(View.GONE);
-                m_l1.setVisibility(View.GONE);
-                m_l_1z.setVisibility(View.GONE);
-
-                p2.setText(getResources().getString(R.string.fk));
-                p2a.setVisibility(View.GONE);
-                m_p2_t.setVisibility(View.GONE);
-                m_p2_k.setText(getResources().getString(R.string.fok));
-                m_l_2z.setVisibility(View.GONE);
-                m_l2.setVisibility(View.GONE);
-
-                p3.setVisibility(View.INVISIBLE);
-                p3a.setVisibility(View.INVISIBLE);
-                m_p3_t.setVisibility(View.INVISIBLE);
-                m_p3_k.setVisibility(View.INVISIBLE);
-                m_l_3z.setVisibility(View.INVISIBLE);
-
-
-                p4.setVisibility(View.INVISIBLE);
-                p4a.setVisibility(View.INVISIBLE);
-                m_p4_t.setVisibility(View.INVISIBLE);
-                m_p4_k.setVisibility(View.INVISIBLE);
-                p4z.setVisibility(View.INVISIBLE);
-                p4az.setVisibility(View.INVISIBLE);
-                m_l_4z.setVisibility(View.INVISIBLE);
-
+                ISiT_11();
                 break;
+
             case 4:
-                p1.setText(getResources().getString(R.string.pcixol_soc));
-                p1a.setText(getResources().getString(R.string.okuneva));
-                m_p1_t.setText(getResources().getString(R.string.lk));
-                m_p1_k.setText(getResources().getString(R.string.uk)+ " 4-13");
-                p1z.setVisibility(View.GONE);
-                p1az.setVisibility(View.GONE);
-                m_p1_tz.setVisibility(View.GONE);
-                m_p1_kz.setVisibility(View.GONE);
-                m_l1.setVisibility(View.GONE);
-                m_l_1z.setVisibility(View.GONE);
-
-                p2.setText(getResources().getString(R.string.fk));
-                p2a.setVisibility(View.GONE);
-                m_p2_t.setVisibility(View.GONE);
-                m_p2_k.setText(getResources().getString(R.string.fok));
-                m_l_2z.setVisibility(View.GONE);
-                m_l2.setVisibility(View.GONE);
-
-                p3.setText(getResources().getString(R.string.zoologia));
-                p3a.setText(getResources().getString(R.string.sotnikova));
-                m_p3_t.setText(getResources().getString(R.string.lk));
-                m_p3_k.setText(getResources().getString(R.string.uk) + " 12-310");
-                m_l_3z.setVisibility(View.GONE);
-                m_l3.setVisibility(View.GONE);
-
-
-                p4.setText(getResources().getString(R.string.zoologia));
-                p4a.setText(getResources().getString(R.string.sotnikova));
-                m_p4_t.setText(getResources().getString(R.string.lb));
-                m_p4_k.setText(getResources().getString(R.string.uk) + " 12-310");
-                p4z.setVisibility(View.GONE);
-                p4az.setVisibility(View.GONE);
-                m_l_4z.setVisibility(View.GONE);
-                m_l4.setVisibility(View.GONE);
-
+                MI_21();
+                break;
+            case 5:
+                MF_21();
+                break;
+            case 6:
+                PM_21();
+                break;
+            case 7:
+                BI_21();
+                break;
+            case 8:
+                IiVT_21();
+                break;
+            case 9:
+                ISiT_21();
+                break;
+            case 10:
+                NE_21();
+                break;
+            case 11:
+                BX_21();
+                break;
+            case 12:
+                EG_21();
                 break;
 
         }
     }
-    public void layoutVisable(){
 
+    public void layoutVisable() {
         m_l1.setVisibility(View.VISIBLE);
         m_l2.setVisibility(View.VISIBLE);
         m_l3.setVisibility(View.VISIBLE);
         m_l4.setVisibility(View.VISIBLE);
-
         m_l_1z.setVisibility(View.VISIBLE);
         m_l_2z.setVisibility(View.VISIBLE);
         m_l_3z.setVisibility(View.VISIBLE);
@@ -254,8 +146,243 @@ public class Wed extends Fragment {
 
     }
 
+    // Первый курс
+    public void FMiI_11() {
+        p1.setText(getResources().getString(R.string.schol_mat));
+        p1a.setText(getResources().getString(R.string.chernousova));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk4_28));
+        m_l_1z.setVisibility(View.GONE); // знаменатель
+        m_l1.setVisibility(View.GONE);  // Линия разделения
 
-    public void MonMI(){
+        p2.setText(getResources().getString(R.string.m_analis));
+        p2a.setText(getResources().getString(R.string.chernousova));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk4_28));
+        p2z.setText(getResources().getString(R.string.m_analis));
+        p2az.setText(getResources().getString(R.string.chernousova));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk4_28));
+
+        Fizra_pervaki();
+
+        p4.setText(getResources().getString(R.string.pedagogic));
+        p4a.setText(getResources().getString(R.string.zaharova));
+        m_p4_t.setText(getResources().getString(R.string.lk));
+        m_p4_k.setText(getResources().getString(R.string.uk4_28));
+        p4z.setText(getResources().getString(R.string.russian_lang));
+        p4az.setText(getResources().getString(R.string.ivanova));
+        m_p4_tz.setText(getResources().getString(R.string.lk));
+        m_p4_kz.setText(getResources().getString(R.string.uk4_28));
+
+
+    }
+
+    public void Pm_11() {
+
+
+        p2.setText(getResources().getString(R.string.m_analis));
+        p2a.setText(getResources().getString(R.string.cherbatix));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk4_26));
+        p2z.setText(getResources().getString(R.string.m_analis));
+        p2az.setText(getResources().getString(R.string.cherbatix));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk4_26));
+
+        Fizra_pervaki();
+
+
+    }
+
+    public void IiVT_12() {
+
+        p2.setText(getResources().getString(R.string.oop));
+        p2a.setText(getResources().getString(R.string.rochupkin));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk4_21));
+        p2z.setText(getResources().getString(R.string.oop));
+        p2az.setText(getResources().getString(R.string.rochupkin));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk4_21));
+
+        Fizra_pervaki();
+    }
+
+    public void ISiT_11() {
+        p1.setText(getResources().getString(R.string.m_analis));
+        p1a.setText(getResources().getString(R.string.rochupkin));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk4_21));
+        p1z.setText(getResources().getString(R.string.m_analis));
+        p1az.setText(getResources().getString(R.string.rochupkin));
+        m_p1_tz.setText(getResources().getString(R.string.lk));
+        m_p1_kz.setText(getResources().getString(R.string.uk4_21));
+
+        p2z.setText(getResources().getString(R.string.m_analis));
+        p2az.setText(getResources().getString(R.string.rochupkin));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk4_21));
+
+        p2.setText(getResources().getString(R.string.oop));
+        p2a.setText(getResources().getString(R.string.rochupkin));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk4_21));
+        p2z.setText(getResources().getString(R.string.oop));
+        p2az.setText(getResources().getString(R.string.rochupkin));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk4_21));
+
+        Fizra_pervaki();
+
+    }
+
+    // Второй курс
+    public void MI_21() {
+
+        p1.setText(getResources().getString(R.string.pcixol_soc));
+        p1a.setText(getResources().getString(R.string.okuneva));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk4_24));
+        p1z.setText(getResources().getString(R.string.pcixol_soc));
+        p1az.setText(getResources().getString(R.string.okuneva));
+        m_p1_tz.setText(getResources().getString(R.string.pz));
+        m_p1_kz.setText(getResources().getString(R.string.uk4_24));
+
+        Fizra_2kurs();
+    }
+
+    public void MF_21() {
+
+        p1.setText(getResources().getString(R.string.pcixol_soc));
+        p1a.setText(getResources().getString(R.string.okuneva));
+        m_p1_t.setText(getResources().getString(R.string.pz));
+        m_p1_k.setText(getResources().getString(R.string.uk4_24));
+        p1z.setText(getResources().getString(R.string.pcixol_soc));
+        p1az.setText(getResources().getString(R.string.okuneva));
+        m_p1_tz.setText(getResources().getString(R.string.pz));
+        m_p1_kz.setText(getResources().getString(R.string.uk4_24));
+
+        Fizra_2kurs();
+
+        p3z.setText(getResources().getString(R.string.obrInf));
+        p3az.setText(getResources().getString(R.string.trofimova));
+        m_p3_tz.setText(getResources().getString(R.string.lk));
+        m_p3_kz.setText(getResources().getString(R.string.uk1_1));
+
+
+    }
+
+    public void PM_21() {
+
+        Fizra_2kurs();
+
+        p3.setText(getResources().getString(R.string.m_analis));
+        p3a.setText(getResources().getString(R.string.cherbatix));
+        m_p3_t.setText(getResources().getString(R.string.lk));
+        m_p3_k.setText(getResources().getString(R.string.uk4_26));
+        p3z.setText(getResources().getString(R.string.m_analis));
+        p3az.setText(getResources().getString(R.string.cherbatix));
+        m_p3_tz.setText(getResources().getString(R.string.pz));
+        m_p3_kz.setText(getResources().getString(R.string.uk4_26));
+
+    }
+
+    public void BI_21() {
+        Fizra_2kurs();
+
+        p3.setText(getResources().getString(R.string.dif_raz));
+        p3a.setText(getResources().getString(R.string.rochupkin));
+        m_p3_t.setText(getResources().getString(R.string.lk));
+        m_p3_k.setText(getResources().getString(R.string.uk4_21));
+        p3z.setText(getResources().getString(R.string.dif_raz));
+        p3az.setText(getResources().getString(R.string.rochupkin));
+        m_p3_tz.setText(getResources().getString(R.string.pz));
+        m_p3_kz.setText(getResources().getString(R.string.uk4_21));
+    }
+
+    public void IiVT_21() {
+
+        p1.setText(getResources().getString(R.string.log_pro));
+        p1a.setText(getResources().getString(R.string.igonina));
+        m_p1_t.setText(getResources().getString(R.string.lb_pz));
+        m_p1_k.setText(getResources().getString(R.string.gk300));
+        m_l_1z.setVisibility(View.GONE); // знаменатель
+        m_l1.setVisibility(View.GONE);  // Линия разделения
+
+        Fizra_2kurs();
+
+
+    }
+
+    public void ISiT_21() {
+
+        p1.setText(getResources().getString(R.string.log_pro));
+        p1a.setText(getResources().getString(R.string.igonina));
+        m_p1_t.setText(getResources().getString(R.string.lb_pz));
+        m_p1_k.setText(getResources().getString(R.string.gk300));
+        m_l_1z.setVisibility(View.GONE); // знаменатель
+        m_l1.setVisibility(View.GONE);  // Линия разделения
+
+        Fizra_2kurs();
+
+
+    }
+
+    public void NE_21() {
+
+        p1.setText(getResources().getString(R.string.on_teo_mex));
+        p1a.setText(getResources().getString(R.string.kuznecov));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk4_27));
+
+        Fizra_2kurs();
+
+    }
+
+    public void Fizra_pervaki() {
+
+        p3.setText(getResources().getString(R.string.fk));  //Блок физ-ра для первочей
+        p3a.setVisibility(View.GONE);
+        m_p3_t.setText(getResources().getString(R.string.pz));
+        m_p3_k.setText(getResources().getString(R.string.fok));
+        m_l_3z.setVisibility(View.GONE); // знаменатель
+        m_l3.setVisibility(View.GONE);  // Лини
+    }
+
+    public void Fizra_2kurs() {
+
+        p2.setText(getResources().getString(R.string.fk));  //Блок физ-ра для первочей
+        p2a.setVisibility(View.GONE);
+        m_p2_t.setText(getResources().getString(R.string.pz));
+        m_p2_k.setText(getResources().getString(R.string.fok));
+        m_l2.setVisibility(View.GONE);
+        m_l_2z.setVisibility(View.GONE);
+
+    }
+
+    public void BX_21() {
+        p1.setText(getResources().getString(R.string.pcixol_soc));
+        p1a.setText(getResources().getString(R.string.okuneva));
+        m_p1_t.setText(getResources().getString(R.string.prs));
+        m_p1_k.setText(getResources().getString(R.string.uk) + " 4-24");
+        p1z.setVisibility(View.GONE);
+        p1az.setVisibility(View.GONE);
+        m_p1_tz.setVisibility(View.GONE);
+        m_p1_kz.setVisibility(View.GONE);
+        m_l1.setVisibility(View.GONE);
+        m_l_1z.setVisibility(View.GONE);
+
+        p2.setText(getResources().getString(R.string.fk));
+        p2a.setVisibility(View.GONE);
+        m_p2_t.setVisibility(View.GONE);
+        m_p2_k.setText(getResources().getString(R.string.fok));
+        m_l_2z.setVisibility(View.GONE);
+        m_l2.setVisibility(View.GONE);
+
+    }
+
+    public void EG_21() {
         p1.setText(getResources().getString(R.string.pcixol_soc));
         p1a.setText(getResources().getString(R.string.okuneva));
         m_p1_t.setText(getResources().getString(R.string.lk));
@@ -274,23 +401,21 @@ public class Wed extends Fragment {
         m_l_2z.setVisibility(View.GONE);
         m_l2.setVisibility(View.GONE);
 
-        p3.setVisibility(View.INVISIBLE);
-        p3a.setVisibility(View.GONE);
-        m_p3_t.setVisibility(View.GONE);
-        m_p3_k.setVisibility(View.GONE);
-        m_l_3z.setVisibility(View.INVISIBLE);
+        p3.setText(getResources().getString(R.string.zoologia));
+        p3a.setText(getResources().getString(R.string.sotnikova));
+        m_p3_t.setText(getResources().getString(R.string.lk));
+        m_p3_k.setText(getResources().getString(R.string.uk) + " 12-310");
+        m_l_3z.setVisibility(View.GONE);
+        m_l3.setVisibility(View.GONE);
 
-        p4.setVisibility(View.GONE);
-        p4a.setVisibility(View.GONE);
-        m_p4_t.setVisibility(View.GONE);
-        m_p4_k.setVisibility(View.GONE);
+
+        p4.setText(getResources().getString(R.string.zoologia));
+        p4a.setText(getResources().getString(R.string.sotnikova));
+        m_p4_t.setText(getResources().getString(R.string.lb));
+        m_p4_k.setText(getResources().getString(R.string.uk) + " 12-310");
         p4z.setVisibility(View.GONE);
         p4az.setVisibility(View.GONE);
-        m_p4_tz.setVisibility(View.GONE);
-        m_p4_kz.setVisibility(View.GONE);
-
-
+        m_l_4z.setVisibility(View.GONE);
+        m_l4.setVisibility(View.GONE);
     }
 }
-
-

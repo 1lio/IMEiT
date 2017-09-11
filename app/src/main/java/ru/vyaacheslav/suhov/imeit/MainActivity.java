@@ -152,72 +152,48 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position) {
             case 0:
-                MainActivity.this.getSupportActionBar().setSubtitle("МФ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("ФМиИ-11");
                 break;
             case 1:
-                MainActivity.this.getSupportActionBar().setSubtitle("МИ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-11");
                 break;
             case 2:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-12");
                 break;
 
             case 3:
-                MainActivity.this.getSupportActionBar().setSubtitle("БХ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-11");
                 break;
 
             case 4:
-                MainActivity.this.getSupportActionBar().setSubtitle("ЕГ-21");
+                MainActivity.this.getSupportActionBar().setSubtitle("МИ-21");
                 break;
-            /*
+
             case 5:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-11");
-                break;
-            case 6:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-11");
-                break;
-            case 7:
                 MainActivity.this.getSupportActionBar().setSubtitle("МФ-21");
                 break;
-            case 8:
+            case 6:
                 MainActivity.this.getSupportActionBar().setSubtitle("ПМ-21");
                 break;
-            case 9:
+            case 7:
+                MainActivity.this.getSupportActionBar().setSubtitle("БИ-21");
+                break;
+            case 8:
                 MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-21");
+                break;
+            case 9:
+                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-21");
                 break;
             case 10:
                 MainActivity.this.getSupportActionBar().setSubtitle("НЭ-21");
                 break;
             case 11:
-                MainActivity.this.getSupportActionBar().setSubtitle("М-31");
+                MainActivity.this.getSupportActionBar().setSubtitle("БХ-21");
                 break;
             case 12:
-                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-31");
+                MainActivity.this.getSupportActionBar().setSubtitle("ЕГ-21");
                 break;
-            case 13:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-31");
-                break;
-            case 14:
-                MainActivity.this.getSupportActionBar().setSubtitle("НЭ-31");
-                break;
-            case 15:
-                MainActivity.this.getSupportActionBar().setSubtitle("М-41");
-                break;
-            case 16:
-                MainActivity.this.getSupportActionBar().setSubtitle("ФМ-41");
-                break;
-            case 17:
-                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-41");
-                break;
-            case 18:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-41");
-                break;
-            case 19:
 
-                MainActivity.this.getSupportActionBar().setSubtitle("НЭ-41");
-                break;
-            case 20:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИБ-41");
-                break;*/
 
         }
     }

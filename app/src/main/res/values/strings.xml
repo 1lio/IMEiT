@@ -8,27 +8,48 @@
     <string name="groope">Ваша группа:</string>
 
     <string-array name="bak_groops">
-        <item>МФ-21"</item>
+
+        <item>ФМиИ-11</item>
+        <item>ПМ-11</item>
+        <item>ИиВТ-12</item>
+        <item>ИСиТ-11</item>
+
         <item>МИ-21</item>
+        <item>МФ-21</item>
+        <item>ПМ-21</item>
+        <item>БИ-21</item>
+        <item>ИиВТ-21</item>
         <item>ИСиТ-21</item>
+        <item>НЭ-21</item>
         <item>БХ-21</item>
         <item>ЕГ-21</item>
+
+        <!-- <item>МФ-31</item>
+         <item>ПМ-31</item>
+         <item>ИиВТ-31</item>
+         <item>НЭ-31</item>-->
+
     </string-array>
 
-    // Базовая часть ИСиТ
+    <!-- Базовая часть ИСиТ-->
+    <string name="set_protocol">Сетевые протоколы и интернет-технологии</string>
+    <string name="paket_asu">Пакеты прикладных программ в АСУ</string>
     <string name="filosofia">Философия</string>
-    <string name="history">Философия</string>
-    <string name="inlang">Иностранный язык</string>
+    <string name="history">История</string>
+    <string name="inlang">Иностранный язык(Английский)</string>
+    <string name="inlangN">Иностранный язык(Немецкий)</string>
 
-    // Математика
     <string name="algebra_a_geo">Алгебра и геометрия</string>
+    <string name="dif_ur">Дифференциальные уравнения</string>
     <string name="algebra_a_teoc">Алгебра и теория чисел</string>
     <string name="nus_m">Избранные вопросы дифференциального и интегрального исчислений</string>
     <string name="m_analis">Математический анализ</string>
+    <string name="m_analiso">Основы математического анализа</string>
     <string name="disckret">Дискретная математика</string>
     <string name="matlogic">Математическая логика и теория алгоритмов</string>
     <string name="veroyat">Теория вероятностей и математическая статистика</string>
-    //
+    <string name="analis_data">Анализ данных</string>
+    <string name="vvod_v_analis">Введение в анализ</string>
     <string name="informat">Информатика</string>
     <string name="physics">Физика</string>
     <string name="chemistry">Химия</string>
@@ -44,16 +65,21 @@
     <string name="in_sys_seti">Инфокоммуникационные системы и сети</string>
     <string name="met_sys">Методы и средства проектирования информационных систем и технологий</string>
     <string name="fk">Физическая культура и спорт</string>
+    <string name="fkl">Элективные дисциплины по физической культуре и спорту</string>
     <string name="bjd">Безопасность жизнедеятельности</string>
+    <string name="his_mat">История математики и информатики</string>
     <string name="mat_chis_met">Математика(численные методы)</string>
-    //
     <string name="k_mir">Естественно-научная картина мира</string>
     <string name="econ">Экономика</string>
+    <string name="el_physic">Элементарная физика с практикумом по решению задач</string>
     <string name="pravo">Правоведение</string>
     <string name="oop">Объектно-ориентированное программирование</string>
     <string name="teo_game">Исследование операций и теория игр</string>
+    <string name="iss_op">Исследование операций</string>
+    <string name="sociolog">Социология</string>
     <string name="el_ec">Электротехника, электроника и схемотехника</string>
     <string name="metrologia">Метрология, стандартизация и сертификация</string>
+    <string name="metrologian">Метрология, стандартизация и технические измерения</string>
     <string name="or_ibm">Организация ЭВМ и систем</string>
     <string name="os">Операционные системы</string>
     <string name="in_bez">Информационная безопасность и защита информации</string>
@@ -66,7 +92,9 @@
     <string name="pr_sys_up">Проектирование информационных систем управления</string>
     <string name="pr_bez">Правовое обеспечение информационной безопасности</string>
     <string name="russian_lang">Русский язык и культура речи</string>
-    //
+    <string name="met_prog">Языки и методы программирования</string>
+    <string name="progr">Программирование</string>
+    <string name="po_prog">Предметно-ориентированное программирование </string>
     <string name="mat_pra">Математический практикум</string>
     <string name="mat_zad">Решение нестандартных математических задач</string>
     <string name="elc_doc">Электронный документооборот</string>
@@ -75,6 +103,8 @@
     <string name="fun_pro">Функциональное программирование</string>
     <string name="com_tip">Компьютерная типография</string>
     <string name="izd_sys">Издательские системы</string>
+    <string name="dif_xz">Дифференциальное и интегральное исчисление фун. неск. пер.</string>
+    <string name="dif_raz">Дифференциальные и  разностные уравнения</string>
     <string name="za_ob_d">Защита и обработка конфиденциальных документов</string>
     <string name="crip_za">Криптографические методы защиты информации</string>
     <string name="met_opt">Методы оптимизации</string>
@@ -88,15 +118,21 @@
     <string name="teo_obr">Теория распознавания образов</string>
     <string name="teo_obs">Теория массового обслуживания</string>
     <string name="imt_mod">Имитационное моделирование</string>
+    <string name="mat_mod_eco">Математическое моделирование в экономике</string>
     <string name="botanika">Ботаника</string>
     <string name="f_col_che">Физическая и коллоидная химия</string>
     <string name="zoologia">Зоология</string>
     <string name="rast_mir">Биоразнообразие растительного мира Липецкой области</string>
     <string name="kartograf">Картография</string>
-
+    <string name="schol_mat"> Практикум по школьному курсу математики</string>
+    <string name="teo_osn_inf">Основы информатики</string>
+    <string name="osn_inf">Основы информатики</string>
+    <string name="osn_mat_inf">Основы математической обработки информации</string>
+    <string name="on_teo_mex">Основы теоретической механики</string>
     <string name="pcixol">Психология (общая психология)</string>
     <string name="pcixol_soc">Социальная психология</string>
     <string name="pedagogic">Педагогика (Введение в педагогическую деятельность. Общие основы педагогики)</string>
+    <string name="pedagogic_vosp">Педагогика (Теория и методика воспитания)</string>
     <string name="chkm">Практикум по шк.курсу математики</string>
     <string name="omoi">Основы математической обработки информации</string>
     <string name="eco_obr">Экономика образования</string>
@@ -104,6 +140,7 @@
     <string name="nikitina">Никитина Е.Н.</string>
     <string name="fok">ФОК</string>
     <string name="name_p">Название предмета</string>
+    <string name="manadjment">Менеджмент</string>
     <string name="name_te">Имя преподователя</string>
     <string name="pz">ПЗ</string>
     <string name="uk_4_24">УК4 24</string>
@@ -118,24 +155,32 @@
     <string name="lk">ЛК</string>
     <string name="gk">ГК</string>
     <string name="lb">ЛБ</string>
+    <string name="dv_pz">ДВ/ПЗ</string>
     <string name="lb_pz">ЛБ/ПЗ</string>
 
     <string name="teo_met_vosp">Теория и методика воспитания</string>
 
-    /// PREPOD
-
     <string name="belix">Белых О.Н.</string>
+    <string name="pachin">Пачин Р.К.</string>
+    <string name="pichulin">Пищулин В.Н.</string>
+    <string name="kuznecov">Кузнецов Д.В.</string>
     <string name="okuneva">Окунева С.Е.</string>
     <string name="zaharova">Захарова М.А.</string>
+    <string name="budyakova">Будякова Т.П.</string>
     <string name="ivanov">Иванов А. М.</string>
+    <string name="ivanova">Иванова М. Ю.</string>
     <string name="prokuratova">Прокуратова О.Н.</string>
     <string name="pahomova">Пахомова О.А.</string>
     <string name="sotnikova">Сотникова Е.Б. </string>
     <string name="lebedeva">Лебедева В.Ю.</string>
     <string name="chernousova">Черноусова Н.В.</string>
+    <string name="korotkix">Коротких В.И.</string>
     <string name="tarov">Таров Д.А.</string>
+    <string name="tarova">Тарова И.Н.</string>
     <string name="turtaeva">Туртаева А.Ю.</string>
     <string name="padaev">Подаев М.В.</string>
+    <string name="fortunova">Фортунова Н.А.</string>
+    <string name="pomanova">Романова Т.Е.</string>
     <string name="padaeva">Подаева Н.Г.</string>
     <string name="kornienko">Корниенко В.В.</string>
     <string name="cherbatix">Щербатых В.Е.</string>
@@ -143,15 +188,27 @@
     <string name="melnikova">Мельников Р.А.</string>
     <string name="podaeva">Подаева Н.Г.</string>
     <string name="zaburaeva">Зубарева Е.В.</string>
+    <string name="sidorov">Сидоров А.В.</string>
+
     <string name="podoksenov">Подоксенов А.М.</string>
     <string name="gubin">Губин М.А.</string>
+    <string name="klevcova">Клевцова О.В.</string>
+    <string name="gubina">Губина Т.Н.</string>
     <string name="petricheva">Петрищева Т.Ю.</string>
     <string name="zaiceva">Зайцева И.Н.</string>
     <string name="trofimova">Трофимова Е.И.</string>
     <string name="chaxsuarov">Шахсуваров А.В.</string>
     <string name="usacheva">Усачева И.Н.</string>
+    <string name="kondakova">Кондакова Е.В.</string>
+    <string name="savvina"> Саввина О.А.</string>
+    <string name="sazanov">Сазонов А.Н.</string>
+    <string name="sedova">Седова О.В.</string>
+    <string name="rochupkin">Рощюпкин С.А.</string>
+    <string name="masina">Масина О.Н.</string>
+    <string name="eleckix">Елецких И.А.</string>
     <string name="saz_inf">Методы и средства защиты информации</string>
-
+    <string name="obrInf">Обработка результатов физического эксперимента</string>
+    <string name="vop_int_vi">Избранные вопросы дифференциального и интегрального исчислений</string>
     <string name="settings">Настройки</string>
 
     <string name="time_zvonok">Время звонков</string>
@@ -177,7 +234,10 @@
     <string name="pereriv">Перерыв</string>
     <string name="min_10">10 минут</string>
     <string name="min_5">5 минут</string>
+    <string name="ofiice_tex">Офисные информационные технологии</string>
+    <string name="mod_phys_pro">Моделирование физических процессов</string>
 
+    <string name="teo_el">Теоретические основы  электротехники</string>
     <string name="library">Научная библиотека</string>
     <string name="komunarov_28">ул. Коммунаров, д. 28</string>
     <string name="hostels">Общежития</string>
@@ -185,6 +245,7 @@
     <string name="sanatory">Санаторий-профилакторий</string>
     <string name="dopriziv_1">ул. Допризывников, д.1</string>
     <string name="foc_base">Учебно-спортивная база</string>
+    <string name="data_bases">Базы данных</string>
     <string name="turbase">Липецкая обл., Задонский район</string>
     <string name="agronom_in">Агропромышленный институт</string>
     <string name="agr_i_1">Адрес: ул. Допризывников, д. 1</string>
@@ -226,4 +287,41 @@
     <string name="ad11">ул. Коммунаров, д. 28</string>
     <string name="bus">Маршрут автобусов</string>
     <string name="note">Заметки</string>
+    <string name="grope_err">Группа не выбрана:</string>
+    <string name="take">Выбрать</string>
+
+    <string name="metiso">Методы изображений и компьютерная графика</string>
+    <!--Учебные аудитории-->
+
+    <string name="uk4_13">УК 4-13</string>
+    <string name="uk1_2">УК 1-2</string>
+    <string name="uk1_8">УК 1-8</string>
+    <string name="uk1_9">УК 1-9</string>
+    <string name="uk1_11">УК 1-11</string>
+    <string name="uk1_1">УК 1-1</string>
+    <string name="uk1_22">УК 1-22</string>
+    <string name="uk2_213">УК 2-213</string>
+    <string name="uk1_10">УК 1-10</string>
+    <string name="uk3_16">УК 3-16</string>
+    <string name="uk4_27">УК 4-27</string>
+    <string name="uk4_21">УК 4-21</string>
+    <string name="uk4_22">УК 4-22</string>
+    <string name="uk4_23">УК 4-23</string>
+    <string name="uk4_15">УК 4-15</string>
+    <string name="uk4_24">УК 4-24</string>
+    <string name="uk2_113">УК 2-113</string>
+    <string name="uk4_26">УК 4-26</string>
+    <string name="uk4_28">УК 4-28</string>
+    <string name="uk15_305">УК 15-305</string>
+    <string name="uk14_207">УК 14-207</string>
+    <string name="uk15_313">УК 15-313</string>
+    <string name="uk14_216">УК 16-216</string>
+    <string name="uk14_211">УК 16-211</string>
+    <string name="gk212">ГК-212</string>
+    <string name="gk208">ГК-208</string>
+    <string name="gk300">ГК-300</string>
+    <string name="uk16_301a">УК 16-301а</string>
+
+    <string name="rasp_ob_inf">Распределенная обработка информации</string>
+
 </resources>
