@@ -261,17 +261,16 @@ public class Fri extends Fragment {
     // Второй курс
     public void MI_21() {
         p1.setText(getResources().getString(R.string.k_mir));
-
         p1a.setText(getResources().getString(R.string.trofimova));
         m_p1_t.setText(getResources().getString(R.string.lk));
         m_p1_k.setText(getResources().getString(R.string.uk4_26));
         p1z.setText(getResources().getString(R.string.k_mir));
-        p1a.setText(getResources().getString(R.string.trofimova));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk4_26));
+        p1az.setText(getResources().getString(R.string.trofimova));
+        m_p1_tz.setText(getResources().getString(R.string.pz));
+        m_p1_kz.setText(getResources().getString(R.string.uk4_26));
 
         p2.setText(getResources().getString(R.string.inlang));
-        p1a.setText(getResources().getString(R.string.lebedeva));
+        p2a.setText(getResources().getString(R.string.lebedeva));
         m_p2_t.setText(getResources().getString(R.string.pz));
         m_p2_k.setText(getResources().getString(R.string.uk4_24));
         m_l_2z.setVisibility(View.GONE); // знаменатель
