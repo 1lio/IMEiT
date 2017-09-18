@@ -219,6 +219,24 @@ public class MainActivity extends AppCompatActivity {
             case 21:
                 MainActivity.this.getSupportActionBar().setSubtitle("НЭ-41");
                 break;
+            case 22:
+                MainActivity.this.getSupportActionBar().setSubtitle("МиИТм-11");
+                break;
+            case 23:
+                MainActivity.this.getSupportActionBar().setSubtitle("ПМм-11");
+                break;
+            case 24:
+                MainActivity.this.getSupportActionBar().setSubtitle("ИиВтМ-11");
+                break;
+            case 25:
+                MainActivity.this.getSupportActionBar().setSubtitle("Мм-21");
+                break;
+            case 26:
+                MainActivity.this.getSupportActionBar().setSubtitle("ПМм-21");
+                break;
+            case 27:
+                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТм-21");
+                break;
 
         }
     }
