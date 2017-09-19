@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
@@ -22,7 +23,7 @@ public class Tue extends Fragment {
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z;
     Spinner spinner;
-
+    Switch eng, dec;
     public Tue() {
     }
 
@@ -31,6 +32,10 @@ public class Tue extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.tue, container, false);
         spinner = getActivity().findViewById(R.id.spinner);
+
+        View row1 = inflater.inflate(R.layout.settings, null);
+        eng = row1.findViewById(R.id.sw_eng);
+        dec = row1.findViewById(R.id.sw_dec);
 
         m_l_1z = v.findViewById(R.id.t_l_1z);
         m_l_2z = v.findViewById(R.id.t_l_2z);
@@ -226,12 +231,7 @@ public class Tue extends Fragment {
         m_p2_tz.setText(getResources().getString(R.string.lk));
         m_p2_kz.setText(getResources().getString(R.string.uk1_22));
 
-        p3.setText(getResources().getString(R.string.inlang));
-        p3a.setText(getResources().getString(R.string.lebedeva));
-        m_p3_t.setText(getResources().getString(R.string.pz));
-        m_p3_k.setText(getResources().getString(R.string.uk4_27));
-        m_l_3z.setVisibility(View.GONE); // знаменатель
-        m_l3.setVisibility(View.GONE);  // Линия разделения
+        engL_3p();
 
         p4.setText(getResources().getString(R.string.bjd));
         p4a.setText(getResources().getString(R.string.sazanov));
@@ -247,12 +247,7 @@ public class Tue extends Fragment {
 
     public void Pm_11() {
 
-        p2.setText(getResources().getString(R.string.inlang));
-        p2a.setText(getResources().getString(R.string.lebedeva));
-        m_p2_t.setText(getResources().getString(R.string.pz));
-        m_p2_k.setText(getResources().getString(R.string.uk4_13));
-        m_l_2z.setVisibility(View.GONE); // знаменатель
-        m_l2.setVisibility(View.GONE);  // Линия разделения
+        engL_2p();
 
 
         p3.setText(getResources().getString(R.string.mat_zad));
@@ -281,13 +276,7 @@ public class Tue extends Fragment {
         m_p1_k.setText(getResources().getString(R.string.uk4_26));
         m_l_1z.setVisibility(View.GONE); // знаменатель
         m_l1.setVisibility(View.GONE);  // Линия разделения
-
-        p2.setText(getResources().getString(R.string.inlang));
-        p2a.setText(getResources().getString(R.string.lebedeva));
-        m_p2_t.setText(getResources().getString(R.string.pz));
-        m_p2_k.setText(getResources().getString(R.string.uk4_13));
-        m_l_2z.setVisibility(View.GONE); // знаменатель
-        m_l2.setVisibility(View.GONE);  // Линия разделения
+        engL_2p();
 
 
         p3.setText(getResources().getString(R.string.his_mat));
@@ -308,12 +297,7 @@ public class Tue extends Fragment {
         m_p1_tz.setText(getResources().getString(R.string.dv_pz));
         m_p1_kz.setText(getResources().getString(R.string.uk4_22));
 
-        p2.setText(getResources().getString(R.string.inlang));
-        p2a.setText(getResources().getString(R.string.lebedeva));
-        m_p2_t.setText(getResources().getString(R.string.pz));
-        m_p2_k.setText(getResources().getString(R.string.uk4_13));
-        m_l_2z.setVisibility(View.GONE); // знаменатель
-        m_l2.setVisibility(View.GONE);  // Линия разделения
+        engL_2p();
 
         p3.setText(getResources().getString(R.string.eco));
         p3a.setText(getResources().getString(R.string.melnikova));
@@ -338,12 +322,7 @@ public class Tue extends Fragment {
     // Второй курс
     public void MI_21() {
 
-        p1.setText(getResources().getString(R.string.inlangN));
-        p1a.setText(getResources().getString(R.string.sedova));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk1_8));
-        m_l_1z.setVisibility(View.GONE); // знаменатель
-        m_l1.setVisibility(View.GONE);  // Линия разделения
+        decL_1p();
 
         p2.setText(getResources().getString(R.string.eco_obr));
         p2a.setText(getResources().getString(R.string.nikitina));
@@ -364,12 +343,7 @@ public class Tue extends Fragment {
 
     public void MF_21() {
 
-        p1.setText(getResources().getString(R.string.inlangN));
-        p1a.setText(getResources().getString(R.string.sedova));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk1_8));
-        m_l_1z.setVisibility(View.GONE); // знаменатель
-        m_l1.setVisibility(View.GONE);  // Линия разделения
+        decL_1p();
 
 
         p2.setText(getResources().getString(R.string.eco_obr));
@@ -392,12 +366,7 @@ public class Tue extends Fragment {
 
     public void PM_21() {
 
-        p1.setText(getResources().getString(R.string.inlangN));
-        p1a.setText(getResources().getString(R.string.sedova));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk1_8));
-        m_l_1z.setVisibility(View.GONE); // знаменатель
-        m_l1.setVisibility(View.GONE);  // Линия разделения
+        decL_1p();
 
 
         p2.setText(getResources().getString(R.string.dif_xz));
@@ -431,12 +400,7 @@ public class Tue extends Fragment {
     }
 
     public void BI_21() {
-        p1.setText(getResources().getString(R.string.inlangN));
-        p1a.setText(getResources().getString(R.string.sedova));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk1_8));
-        m_l_1z.setVisibility(View.GONE); // знаменатель
-        m_l1.setVisibility(View.GONE);  // Линия разделения
+        decL_1p();
 
         p2.setText(getResources().getString(R.string.iss_op));
         p2a.setText(getResources().getString(R.string.prokuratova));
@@ -461,12 +425,7 @@ public class Tue extends Fragment {
 
     public void IiVT_21() {
 
-        p1.setText(getResources().getString(R.string.inlangN));
-        p1a.setText(getResources().getString(R.string.sedova));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk1_8));
-        m_l_1z.setVisibility(View.GONE); // знаменатель
-        m_l1.setVisibility(View.GONE);  // Линия разделения
+        decL_1p();
 
 
         p2.setText(getResources().getString(R.string.mat_chis_met));
@@ -492,12 +451,7 @@ public class Tue extends Fragment {
 
     public void ISiT_21() {
 
-        p1.setText(getResources().getString(R.string.inlangN));
-        p1a.setText(getResources().getString(R.string.sedova));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk1_8));
-        m_l_1z.setVisibility(View.GONE); // знаменатель
-        m_l1.setVisibility(View.GONE);  // Линия разделения
+        decL_1p();
 
 
         p2.setText(getResources().getString(R.string.mat_chis_met));
@@ -523,12 +477,7 @@ public class Tue extends Fragment {
 
     public void NE_21() {
 
-        p1.setText(getResources().getString(R.string.inlangN));
-        p1a.setText(getResources().getString(R.string.sedova));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk1_8));
-        m_l_1z.setVisibility(View.GONE); // знаменатель
-        m_l1.setVisibility(View.GONE);  // Линия разделения
+        decL_1p();
 
 
         p2.setText(getResources().getString(R.string.dif_ur));
@@ -1019,4 +968,57 @@ public class Tue extends Fragment {
         m_l4.setVisibility(View.GONE);
         m_l_4z.setVisibility(View.GONE);
     }
+
+    public void decL_1p() {
+        SharedPreferences settings = getActivity().getSharedPreferences("dec", 1);
+        dec.setChecked(settings.getBoolean("check", false));
+        if (dec.isChecked()) {
+            p1.setText(getResources().getString(R.string.inlangN));
+            p1a.setText(getResources().getString(R.string.sedova));
+            m_p1_t.setText(getResources().getString(R.string.pz));
+            m_p1_k.setText(getResources().getString(R.string.uk4_24));
+            m_l_1z.setVisibility(View.GONE); // знаменатель
+            m_l1.setVisibility(View.GONE);  // Линия разделения
+
+        } else {
+
+            m_l1.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+    public void engL_2p() {
+        SharedPreferences settings = getActivity().getSharedPreferences("mysettings", 0);
+        eng.setChecked(settings.getBoolean("check", false));
+        if (eng.isChecked()) {
+            p2.setText(getResources().getString(R.string.inlang));
+            p2a.setText(getResources().getString(R.string.lebedeva));
+            m_p2_t.setText(getResources().getString(R.string.pz));
+            m_p2_k.setText(getResources().getString(R.string.uk4_24));
+            m_l_2z.setVisibility(View.GONE); // знаменатель
+            m_l2.setVisibility(View.GONE);  // Линия разделения
+
+        } else {
+            m_l2.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+    public void engL_3p() {
+        SharedPreferences settings = getActivity().getSharedPreferences("mysettings", 0);
+        eng.setChecked(settings.getBoolean("check", false));
+        if (eng.isChecked()) {
+            p3.setText(getResources().getString(R.string.inlang));
+            p3a.setText(getResources().getString(R.string.lebedeva));
+            m_p3_t.setText(getResources().getString(R.string.pz));
+            m_p3_k.setText(getResources().getString(R.string.uk4_24));
+            m_l_3z.setVisibility(View.GONE); // знаменатель
+            m_l3.setVisibility(View.GONE);  // Линия разделения
+
+        } else {
+            m_l2.setVisibility(View.VISIBLE);
+        }
+
+    }
+
 }

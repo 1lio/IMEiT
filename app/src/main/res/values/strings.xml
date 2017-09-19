@@ -452,4 +452,7 @@
     <string name="nes_trigo">Нестандартные тригонометрические задачи</string>
     <string name="met_or_astr_tex">Методика организации астрономических наблюдений</string>
     <string name="rasp_ob_inf">Распределенная обработка информации</string>
+    <string name="lnaglage_is">Изучаемый язык</string>
+    <string name="eng">Английский</string>
+    <string name="nem">Немецкий</string>
 </resources>
