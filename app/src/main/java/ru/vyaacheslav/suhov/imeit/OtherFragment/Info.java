@@ -1,6 +1,8 @@
 package ru.vyaacheslav.suhov.imeit.OtherFragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,13 +11,19 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
 public class Info extends Fragment  {
 
     LinearLayout tel, webs, group, email;
+    TextView p1, p2, p3, p4;
+    RelativeLayout mapa;
+    ImageView im1, im2, im3, im4;
 
     public Info() {}
 
@@ -28,6 +36,20 @@ public class Info extends Fragment  {
         webs = v.findViewById(R.id.webs);
         group = v.findViewById(R.id.groups);
         email = v.findViewById(R.id.emal_l);
+
+        p1 = v.findViewById(R.id.p1);
+        p2 = v.findViewById(R.id.p2);
+        p3 = v.findViewById(R.id.p3);
+        p4 = v.findViewById(R.id.p4);
+
+        im1 = v.findViewById(R.id.im1);
+        im2 = v.findViewById(R.id.im2);
+        im3 = v.findViewById(R.id.im3);
+        im4 = v.findViewById(R.id.im4);
+
+        mapa = v.findViewById(R.id.mapa);
+
+        themeS();
 
         tel.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent event) {
@@ -88,5 +110,43 @@ public class Info extends Fragment  {
             }
         });
         return v;
+    }
+
+    private void themeS() {
+        SharedPreferences settings = getContext().getSharedPreferences("status", 0);
+        if (settings.getBoolean("orange", false)) {
+            //svet
+            im1.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
+            im2.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
+            im3.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
+            im4.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
+            mapa.setBackgroundResource(R.color.colorWhitee);
+            tel.setBackgroundResource(R.color.colorWhitee);
+            webs.setBackgroundResource(R.color.colorTes);
+            group.setBackgroundResource(R.color.colorWhitee);
+            email.setBackgroundResource(R.color.colorTes);
+            p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            p2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            p3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
+        }
+        if (settings.getBoolean("blue", false)) {
+            //dark
+            im1.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
+            im2.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
+            im3.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
+            im4.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
+            mapa.setBackgroundResource(R.color.colorPrimaryF);
+            tel.setBackgroundResource(R.color.colorPrimaryF);
+            webs.setBackgroundResource(R.color.colorPrimaryS);
+            group.setBackgroundResource(R.color.colorPrimaryF);
+            email.setBackgroundResource(R.color.colorPrimaryS);
+            p1.setTextColor(getResources().getColor(R.color.colorWhitee));
+            p2.setTextColor(getResources().getColor(R.color.colorWhitee));
+            p3.setTextColor(getResources().getColor(R.color.colorWhitee));
+            p4.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+        }
     }
 }

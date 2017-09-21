@@ -1040,10 +1040,10 @@
         android:id="@+id/lkV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorNewstitle"
+        android:background="@color/colorTes"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/textView12"
@@ -1051,7 +1051,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:gravity="center"
-            android:text="@string/grope_err" />
+            android:text="@string/grope_err"
+            android:textColor="@color/colorTextBlack" />
 
         <Button
             android:id="@+id/send"

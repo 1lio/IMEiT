@@ -3,7 +3,6 @@ package ru.vyaacheslav.suhov.imeit;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -29,12 +28,12 @@ import android.widget.Toast;
 public class Settings extends AppCompatActivity {
 
     public Spinner spinner;
-    public Switch eng, dec, vid;
+    public Switch eng, dec/*, vid*/;
     public RadioGroup rg;
     public RadioButton r_s, r_d;
     public TextView name1, name2, name3, uss;
     RelativeLayout setm;
-    LinearLayout l1, l2, l3, l4, mama;
+    LinearLayout l1, l2, mama;
     Toolbar toolbar;
     ImageView imageView;
     @Override
@@ -46,15 +45,14 @@ public class Settings extends AppCompatActivity {
         setSupportActionBar(toolbar);
         imageView = (ImageView) findViewById(R.id.imageView);
         spinner = (Spinner)findViewById(R.id.spinner);
-        l1 = (LinearLayout) findViewById(R.id.l1);
-        l2 = (LinearLayout) findViewById(R.id.l2);
-        l3 = (LinearLayout) findViewById(R.id.l3);
-        l4 = (LinearLayout) findViewById(R.id.l4);
+        l1 = (LinearLayout) findViewById(R.id.ll1);
+        l2 = (LinearLayout) findViewById(R.id.ll2);
+
         mama = (LinearLayout) findViewById(R.id.mama);
 
         eng = (Switch) findViewById(R.id.sw_eng);
         dec = (Switch) findViewById(R.id.sw_dec);
-        vid = (Switch) findViewById(R.id.sw_ve);
+     /*   vid = (Switch) findViewById(R.id.sw_ve);*/
         rg = (RadioGroup) findViewById(R.id.rg);
         r_s = (RadioButton) findViewById(R.id.r_svet);
         r_d = (RadioButton) findViewById(R.id.r_dark);
@@ -91,7 +89,7 @@ public class Settings extends AppCompatActivity {
         SharedPreferences des = getSharedPreferences("dec", 1);
         dec.setChecked(des.getBoolean("check", false));
 
-        vids();
+       /* vids();*/
         setBg();
         themeSettings();
 
@@ -182,7 +180,7 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        vid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+     /*   vid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (vid.isChecked()) {
@@ -272,7 +270,7 @@ public class Settings extends AppCompatActivity {
                 saves();
 
             }
-        });
+        });*/
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
@@ -288,15 +286,15 @@ public class Settings extends AppCompatActivity {
                         toolbar.setBackgroundResource(R.color.colorPrimary);
                         l1.setBackgroundResource(R.color.colorNewstitle);
                         l2.setBackgroundResource(R.color.colorNewstitle);
-                        l3.setBackgroundResource(R.color.colorNewstitle);
-                        l4.setBackgroundResource(R.color.colorNewstitle);
+                     /*   l3.setBackgroundResource(R.color.colorNewstitle);
+                        l4.setBackgroundResource(R.color.colorNewstitle);*/
 
                         setm.setBackgroundResource(R.color.colorWhitee);
 
                         name1.setTextColor(getResources().getColor(R.color.colorTextBlack));
                         name2.setTextColor(getResources().getColor(R.color.colorTextBlack));
                         name3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-                        vid.setTextColor(getResources().getColor(R.color.colorTextBlack));
+                   /*     vid.setTextColor(getResources().getColor(R.color.colorTextBlack));*/
 
                         SharedPreferences settings = getSharedPreferences("status", 0);
                         SharedPreferences.Editor editor = settings.edit();
@@ -315,15 +313,15 @@ public class Settings extends AppCompatActivity {
                         }
                         l1.setBackgroundResource(R.color.colorSigma);
                         l2.setBackgroundResource(R.color.colorSigma);
-                        l3.setBackgroundResource(R.color.colorSigma);
-                        l4.setBackgroundResource(R.color.colorSigma);
+                       /* l3.setBackgroundResource(R.color.colorSigma);
+                        l4.setBackgroundResource(R.color.colorSigma);*/
 
                         toolbar.setBackgroundResource(R.color.colorPrimaryD);
                         setm.setBackgroundResource(R.color.colorPrimaryS);
                         name1.setTextColor(getResources().getColor(R.color.colorWhitee));
                         name2.setTextColor(getResources().getColor(R.color.colorWhitee));
                         name3.setTextColor(getResources().getColor(R.color.colorWhitee));
-                        vid.setTextColor(getResources().getColor(R.color.colorWhitee));
+                      /*  vid.setTextColor(getResources().getColor(R.color.colorWhitee));*/
 
                         SharedPreferences settingsa = getSharedPreferences("status", 0);
                         SharedPreferences.Editor editors = settingsa.edit();
@@ -390,7 +388,7 @@ public class Settings extends AppCompatActivity {
         editor.apply();
     }
 
-    public void vids() {
+   /* public void vids() {
         SharedPreferences settings = this.getSharedPreferences("vid", 3);
         vid.setChecked(settings.getBoolean("check", false));
         if (vid.isChecked()) {
@@ -414,7 +412,7 @@ public class Settings extends AppCompatActivity {
             name2.setTypeface(Typeface.DEFAULT);
             name3.setTypeface(Typeface.DEFAULT);
         }
-    }
+    }*/
 
     public void saves() {
         SharedPreferences settings = getSharedPreferences("status", 0);

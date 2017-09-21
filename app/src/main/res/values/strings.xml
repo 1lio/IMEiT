@@ -455,4 +455,7 @@
     <string name="lnaglage_is">Изучаемый язык</string>
     <string name="eng">Английский</string>
     <string name="nem">Немецкий</string>
+    <string name="dark">Темная</string>
+    <string name="writ_t">Светлая</string>
+    <string name="thema">Тема</string>
 </resources>

@@ -20,11 +20,12 @@
                     android:id="@+id/k1"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryS"
+                    android:background="@color/colorWhitee"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -46,7 +47,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical">
 
                 </LinearLayout>
@@ -55,11 +56,12 @@
                     android:id="@+id/k2"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryF"
+                    android:background="@color/colorTes"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -82,7 +84,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical">
 
                 </LinearLayout>
@@ -91,11 +93,12 @@
                     android:id="@+id/k3"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryS"
+                    android:background="@color/colorWhitee"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -117,18 +120,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/k4"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryF"
+                    android:background="@color/colorTes"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -152,18 +156,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/k5"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryS"
+                    android:background="@color/colorWhitee"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -187,7 +192,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical">
 
                 </LinearLayout>
@@ -196,12 +201,12 @@
                     android:id="@+id/k6"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryF"
+                    android:background="@color/colorTes"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
-                        android:id="@+id/textView29"
+                        android:id="@+id/q6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -225,18 +230,19 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/k7"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryS"
+                    android:background="@color/colorWhitee"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -258,18 +264,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/k8"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryF"
+                    android:background="@color/colorTes"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -292,7 +299,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical">
 
                 </LinearLayout>
@@ -301,11 +308,12 @@
                     android:id="@+id/k9"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryS"
+                    android:background="@color/colorWhitee"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -328,18 +336,19 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/k10"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryF"
+                    android:background="@color/colorTes"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q10"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -361,18 +370,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorAccent"
                     android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/k11"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryS"
+                    android:background="@color/colorWhitee"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/q11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

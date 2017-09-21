@@ -92,7 +92,7 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/l1"
+            android:id="@+id/ll1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="2dp"
@@ -135,7 +135,7 @@
             android:textColor="@color/colorTextSub" />
 
         <LinearLayout
-            android:id="@+id/l2"
+            android:id="@+id/ll2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="2dp"
@@ -150,7 +150,7 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="16dp"
-            android:text="Тема"
+            android:text="@string/thema"
             android:textColor="@color/colorTextBlack"
             android:textSize="16sp" />
 
@@ -170,7 +170,7 @@
                 android:checked="true"
                 android:gravity="left|center"
                 android:layoutDirection="rtl"
-                android:text="Светлая"
+                android:text="@string/writ_t"
                 android:textColor="@color/colorTextSub" />
 
             <RadioButton
@@ -180,37 +180,37 @@
                 android:layout_weight="1"
                 android:gravity="left|center"
                 android:layoutDirection="rtl"
-                android:text="Темная"
+                android:text="@string/dark"
                 android:textColor="@color/colorTextSub" />
         </RadioGroup>
 
-        <LinearLayout
-            android:id="@+id/l3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="2dp"
-            android:background="@color/colorNewstitle"
-            android:orientation="vertical">
+        <!--     <LinearLayout
+                 android:id="@+id/l3"
+                 android:layout_width="match_parent"
+                 android:layout_height="1dp"
+                 android:layout_marginBottom="2dp"
+                 android:background="@color/colorNewstitle"
+                 android:orientation="vertical">
 
-        </LinearLayout>
+             </LinearLayout>
 
-        <Switch
-            android:id="@+id/sw_ve"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:padding="16dp"
-            android:text="Версия для слабовидящих"
-            android:textAllCaps="false"
-            android:textSize="16sp" />
+             <Switch
+                 android:id="@+id/sw_ve"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:checked="false"
+                 android:padding="16dp"
+                 android:text="Версия для слабовидящих"
+                 android:textAllCaps="false"
+                 android:textSize="16sp" />
 
-        <LinearLayout
-            android:id="@+id/l4"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="2dp"
-            android:background="@color/colorNewstitle"
-            android:orientation="vertical" />
+             <LinearLayout
+                 android:id="@+id/l4"
+                 android:layout_width="match_parent"
+                 android:layout_height="1dp"
+                 android:layout_marginBottom="2dp"
+                 android:background="@color/colorNewstitle"
+                 android:orientation="vertical" />-->
     </LinearLayout>
 
 </RelativeLayout>

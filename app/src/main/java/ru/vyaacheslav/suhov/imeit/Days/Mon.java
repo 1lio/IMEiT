@@ -135,116 +135,122 @@ public class Mon extends Fragment {
             case 0:
 
                 FMiI_11();
+                lkV.setVisibility(View.GONE);
                 break;
             case 1:
-
+                lkV.setVisibility(View.GONE);
                 Pm_11();
                 break;
 
             case 2:
-
+                lkV.setVisibility(View.GONE);
                 IiVT_12();
                 break;
 
             case 3:
-
+                lkV.setVisibility(View.GONE);
                 ISiT_11();
                 break;
 
             case 4:
-
+                lkV.setVisibility(View.GONE);
                 MI_21();
                 break;
             case 5:
-
+                lkV.setVisibility(View.GONE);
                 MF_21();
                 break;
             case 6:
-
+                lkV.setVisibility(View.GONE);
                 PM_21();
                 break;
             case 7:
-
+                lkV.setVisibility(View.GONE);
                 BI_21();
                 break;
             case 8:
-
+                lkV.setVisibility(View.GONE);
                 IiVT_21();
                 break;
             case 9:
-
+                lkV.setVisibility(View.GONE);
                 ISiT_21();
                 break;
             case 10:
-
+                lkV.setVisibility(View.GONE);
                 NE_21();
                 break;
             case 11:
-
+                lkV.setVisibility(View.GONE);
                 BX_21();
                 break;
             case 12:
-
+                lkV.setVisibility(View.GONE);
                 EG_21();
                 break;
             case 13:
-
+                lkV.setVisibility(View.GONE);
                 MF_31();
                 break;
             case 14:
-
+                lkV.setVisibility(View.GONE);
                 PM_31();
                 break;
             case 15:
-
+                lkV.setVisibility(View.GONE);
                 IiVT_31();
                 break;
             case 16:
-
+                lkV.setVisibility(View.GONE);
                 NE_31();
                 break;
             case 17:
-
+                lkV.setVisibility(View.GONE);
                 M_41();
                 break;
             case 18:
 
-
+                lkV.setVisibility(View.GONE);
                 break;
             case 19:
-
+                lkV.setVisibility(View.GONE);
                 PM_41();
                 break;
             case 20:
-
+                lkV.setVisibility(View.GONE);
 
                 break;
             case 21:
-
+                lkV.setVisibility(View.GONE);
                 break;
             case 22:
+                lkV.setVisibility(View.GONE);
                 MIitM();
                 break;
             case 23:
+                lkV.setVisibility(View.GONE);
                 PMm_11();
                 break;
             case 24:
+                lkV.setVisibility(View.GONE);
                 IIvtm_11();
                 break;
             case 25:
+                lkV.setVisibility(View.GONE);
                 Mm_21();
                 break;
             case 26:
+                lkV.setVisibility(View.GONE);
                 Pmm_21();
                 break;
             case 27:
+                lkV.setVisibility(View.GONE);
                 IIvtm_21();
                 break;
 
 
         }
 
-        lkV.setVisibility(View.GONE);
     }
 
     public void layoutVisable() {
@@ -536,7 +542,7 @@ public class Mon extends Fragment {
     }
 
     public void BX_21() {
-        lkV.setVisibility(View.GONE);
+
         p1.setText(getResources().getString(R.string.teo_met_vosp));
         p1a.setText(getResources().getString(R.string.zaharova));
         m_p1_t.setText(getResources().getString(R.string.lk));
@@ -562,7 +568,7 @@ public class Mon extends Fragment {
     }
 
     public void EG_21() {
-        lkV.setVisibility(View.GONE);
+
         p1.setText(getResources().getString(R.string.teo_met_vosp));
         p1a.setText(getResources().getString(R.string.zaharova));
         m_p1_t.setText(getResources().getString(R.string.lk));

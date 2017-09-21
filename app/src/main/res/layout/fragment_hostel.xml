@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sda"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -19,12 +23,13 @@
                     android:id="@+id/hos1"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryS"
+                    android:background="@color/colorWhitee"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/l1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="bottom|left"
@@ -44,19 +49,20 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorPrimary"
                     android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/hos2"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryF"
+                    android:background="@color/colorTes"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/l2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="bottom|left"
@@ -77,19 +83,20 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
-                    android:orientation="vertical"/>
+                    android:background="@color/colorPrimary"
+                    android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/hos3"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryS"
+                    android:background="@color/colorWhitee"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/l3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="bottom|left"
@@ -109,19 +116,20 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@drawable/side_nav_bar"
+                    android:background="@color/colorPrimary"
                     android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/hos4"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorPrimaryF"
+                    android:background="@color/colorTes"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
                     <TextView
+                        android:id="@+id/l4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="bottom|left"
