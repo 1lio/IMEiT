@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="3dp"
     android:layout_marginTop="3dp"
-    android:background="@drawable/custbordgreen"
+    android:background="@drawable/asa"
     android:orientation="horizontal"
     android:padding="10dip"
     android:weightSum="100">
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/textTitle"
-        android:background="@drawable/side_nav_bar" />
+        android:background="@android:color/darker_gray" />
 
     <ImageView
         android:id="@+id/imgNews"

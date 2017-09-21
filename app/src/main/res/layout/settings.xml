@@ -20,10 +20,22 @@
           android:background="@drawable/fab"
           android:src="@drawable/ic_save_black_24dp" />-->
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:tint="@color/colorAccent"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_save_black_24dp" />
+
     <LinearLayout
+        android:id="@+id/mama"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:visibility="visible"
         tools:context="ru.vyaacheslav.suhov.imeit.Settings">
 
         <android.support.v7.widget.Toolbar
@@ -80,6 +92,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/l1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="2dp"
@@ -122,6 +135,7 @@
             android:textColor="@color/colorTextSub" />
 
         <LinearLayout
+            android:id="@+id/l2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="2dp"
@@ -171,6 +185,7 @@
         </RadioGroup>
 
         <LinearLayout
+            android:id="@+id/l3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="2dp"
@@ -190,6 +205,7 @@
             android:textSize="16sp" />
 
         <LinearLayout
+            android:id="@+id/l4"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="2dp"

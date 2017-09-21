@@ -2,27 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:gravity="center"
     android:orientation="vertical"
-    android:paddingBottom="16dp"
     tools:context="ru.vyaacheslav.suhov.imeit.Exam">
-
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="Информация об экзаменах будет добавлена позже." />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
-        android:background="@drawable/side_nav_bar" />
 
 </LinearLayout>

@@ -4,17 +4,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -27,22 +33,32 @@ public class Settings extends AppCompatActivity {
     public RadioGroup rg;
     public RadioButton r_s, r_d;
     public TextView name1, name2, name3, uss;
-
+    RelativeLayout setm;
+    LinearLayout l1, l2, l3, l4, mama;
+    Toolbar toolbar;
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
-
+        imageView = (ImageView) findViewById(R.id.imageView);
         spinner = (Spinner)findViewById(R.id.spinner);
+        l1 = (LinearLayout) findViewById(R.id.l1);
+        l2 = (LinearLayout) findViewById(R.id.l2);
+        l3 = (LinearLayout) findViewById(R.id.l3);
+        l4 = (LinearLayout) findViewById(R.id.l4);
+        mama = (LinearLayout) findViewById(R.id.mama);
+
         eng = (Switch) findViewById(R.id.sw_eng);
         dec = (Switch) findViewById(R.id.sw_dec);
         vid = (Switch) findViewById(R.id.sw_ve);
         rg = (RadioGroup) findViewById(R.id.rg);
         r_s = (RadioButton) findViewById(R.id.r_svet);
         r_d = (RadioButton) findViewById(R.id.r_dark);
+        setm = (RelativeLayout) findViewById(R.id.setm);
 
         name1 = (TextView) findViewById(R.id.name1);
         name2 = (TextView) findViewById(R.id.name2);
@@ -84,6 +100,9 @@ public class Settings extends AppCompatActivity {
     public void onBackPressed() {
         Intent i = new Intent(Settings.this, MainActivity.class);
         startActivity(i);
+        imageView.setVisibility(View.VISIBLE);
+        mama.setVisibility(View.GONE);
+        doSaves();
         finish();
     }
     public void saveSpinnerPosition(int position){
@@ -105,9 +124,11 @@ public class Settings extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                doSaves();
                 Intent i = new Intent(Settings.this, MainActivity.class);
                 startActivity(i);
+                imageView.setVisibility(View.VISIBLE);
+                mama.setVisibility(View.GONE);
+                doSaves();
                 finish();
                 return true;
         }
@@ -126,7 +147,6 @@ public class Settings extends AppCompatActivity {
 
     }
 
-
     public void setBg() {
 
 
@@ -142,8 +162,8 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 SharedPreferences settings = getSharedPreferences("mysettings", 0);
-                SharedPreferences.Editor editor = settings.edit();
 
+                SharedPreferences.Editor editor = settings.edit();
                 boolean checkBoxValue = eng.isChecked();
                 editor.putBoolean("check", checkBoxValue);
                 editor.apply();
@@ -167,6 +187,10 @@ public class Settings extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (vid.isChecked()) {
 
+                    r_s.setChecked(true);
+                    r_s.setClickable(false);
+                    r_d.setClickable(false);
+                    setm.setBackgroundResource(R.color.colorWhitee);
                     name1.setTextSize(20);
                     name2.setTextSize(20);
                     name3.setTextSize(20);
@@ -177,6 +201,14 @@ public class Settings extends AppCompatActivity {
                     vid.setTextSize(18);
                     uss.setTextSize(18);
 
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        Window window = getWindow();
+                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
+                    }
+
+                    toolbar.setBackgroundResource(R.color.colorPrimaryD);
+////sx
 
                     eng.setTypeface(Typeface.DEFAULT_BOLD);
                     dec.setTypeface(Typeface.DEFAULT_BOLD);
@@ -187,7 +219,22 @@ public class Settings extends AppCompatActivity {
                     name1.setTypeface(Typeface.DEFAULT_BOLD);
                     name2.setTypeface(Typeface.DEFAULT_BOLD);
                     name3.setTypeface(Typeface.DEFAULT_BOLD);
+
+                    name1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+                    name2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+                    name3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+                    vid.setTextColor(getResources().getColor(R.color.colorTextBlack));
                 } else {
+
+                    r_s.setChecked(true);
+                    r_s.setClickable(true);
+                    r_d.setClickable(true);
+
+                    l1.setBackgroundResource(R.color.colorNewstitle);
+                    l2.setBackgroundResource(R.color.colorNewstitle);
+                    l3.setBackgroundResource(R.color.colorNewstitle);
+                    l4.setBackgroundResource(R.color.colorNewstitle);
+
                     name1.setTextSize(16);
                     name2.setTextSize(16);
                     name3.setTextSize(16);
@@ -206,6 +253,13 @@ public class Settings extends AppCompatActivity {
                     name1.setTypeface(Typeface.DEFAULT);
                     name2.setTypeface(Typeface.DEFAULT);
                     name3.setTypeface(Typeface.DEFAULT);
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        Window window = getWindow();
+                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+                    }
+                    toolbar.setBackgroundResource(R.color.colorPrimary);
                 }
                 SharedPreferences settings = getSharedPreferences("vid", 3);
                 SharedPreferences.Editor editor = settings.edit();
@@ -213,11 +267,79 @@ public class Settings extends AppCompatActivity {
                 boolean checkBoxValue = vid.isChecked();
                 editor.putBoolean("check", checkBoxValue);
                 editor.apply();
+                doSaves();
+
+                saves();
+
             }
         });
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                switch (checkedId) {
+                    case R.id.r_svet:
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            Window window = getWindow();
+                            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+                        }
+                        toolbar.setBackgroundResource(R.color.colorPrimary);
+                        l1.setBackgroundResource(R.color.colorNewstitle);
+                        l2.setBackgroundResource(R.color.colorNewstitle);
+                        l3.setBackgroundResource(R.color.colorNewstitle);
+                        l4.setBackgroundResource(R.color.colorNewstitle);
+
+                        setm.setBackgroundResource(R.color.colorWhitee);
+
+                        name1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+                        name2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+                        name3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+                        vid.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
+                        SharedPreferences settings = getSharedPreferences("status", 0);
+                        SharedPreferences.Editor editor = settings.edit();
+
+                        boolean checkBoxValue = dec.isChecked();
+                        editor.putBoolean("blue", checkBoxValue);
+                        editor.apply();
+
+                        break;
+                    case R.id.r_dark:
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            Window window = getWindow();
+                            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
+                        }
+                        l1.setBackgroundResource(R.color.colorSigma);
+                        l2.setBackgroundResource(R.color.colorSigma);
+                        l3.setBackgroundResource(R.color.colorSigma);
+                        l4.setBackgroundResource(R.color.colorSigma);
+
+                        toolbar.setBackgroundResource(R.color.colorPrimaryD);
+                        setm.setBackgroundResource(R.color.colorPrimaryS);
+                        name1.setTextColor(getResources().getColor(R.color.colorWhitee));
+                        name2.setTextColor(getResources().getColor(R.color.colorWhitee));
+                        name3.setTextColor(getResources().getColor(R.color.colorWhitee));
+                        vid.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+                        SharedPreferences settingsa = getSharedPreferences("status", 0);
+                        SharedPreferences.Editor editors = settingsa.edit();
+
+                        boolean checkBoxValues = dec.isChecked();
+                        editors.putBoolean("orange", checkBoxValues);
+                        editors.apply();
+                        break;
+
+                    default:
+                        break;
+                }
+                saves();
+            }
+        });
     }
-
 
     private void themeSettings() {
 
@@ -234,22 +356,36 @@ public class Settings extends AppCompatActivity {
 
     }
 
-   /* public void doSave(View view)  {
-
-        SharedPreferences sharedPreferences= this.getSharedPreferences("gameSetting", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        int checkedRadioButtonId = rg.getCheckedRadioButtonId();
-        editor.putInt("checkedRadioButtonId", checkedRadioButtonId);
-        editor.apply();
-    }*/
-
     public void doSaves() {
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("gameSetting", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         int checkedRadioButtonId = rg.getCheckedRadioButtonId();
+        if (sharedPreferences != null) {
+
+            int checkedRadioButtonIds = sharedPreferences.getInt("checkedRadioButtonId", R.id.r_svet);
+            rg.check(checkedRadioButtonIds);
+            setm.setBackgroundResource(R.color.colorWhitee);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
+            }
+            toolbar.setBackgroundResource(R.color.colorPrimaryD);
+
+        } else {
+            rg.check(R.id.r_svet);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+            }
+            toolbar.setBackgroundResource(R.color.colorPrimary);
+            setm.setBackgroundResource(R.color.colorWhitee);
+
+        }
+
         editor.putInt("checkedRadioButtonId", checkedRadioButtonId);
         editor.apply();
     }
@@ -278,5 +414,14 @@ public class Settings extends AppCompatActivity {
             name2.setTypeface(Typeface.DEFAULT);
             name3.setTypeface(Typeface.DEFAULT);
         }
+    }
+
+    public void saves() {
+        SharedPreferences settings = getSharedPreferences("status", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putBoolean("blue", r_s.isChecked());
+        editor.putBoolean("orange", r_d.isChecked());
+        editor.apply();
+
     }
 }

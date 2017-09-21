@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -16,12 +17,12 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Wed extends Fragment {
     public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
-    public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5;
+    public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5, l1, l2, l3, l4;
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
-            p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z;
+            p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
     Spinner spinner;
-
+    RelativeLayout mk;
     public Wed() {
     }
 
@@ -51,6 +52,26 @@ public class Wed extends Fragment {
         p1az = v.findViewById(R.id.w_p1_az);
         m_p1_tz = v.findViewById(R.id.w_p1_tz);
         m_p1_kz = v.findViewById(R.id.w_p1_kz);
+
+        mk = v.findViewById(R.id.wesa);
+
+        s1 = v.findViewById(R.id.e1);
+        s2 = v.findViewById(R.id.e2);
+        s3 = v.findViewById(R.id.e3);
+        s4 = v.findViewById(R.id.e4);
+        s5 = v.findViewById(R.id.e5);
+        s6 = v.findViewById(R.id.e6);
+        s7 = v.findViewById(R.id.e7);
+        s8 = v.findViewById(R.id.e8);
+        s9 = v.findViewById(R.id.e9);
+        s10 = v.findViewById(R.id.e10);
+
+        l1 = v.findViewById(R.id.ww1);
+        l2 = v.findViewById(R.id.w2);
+        l3 = v.findViewById(R.id.w3);
+        l4 = v.findViewById(R.id.w4);
+
+
 
         p2 = v.findViewById(R.id.w_p2);
         p2a = v.findViewById(R.id.w_p2_a);
@@ -90,7 +111,7 @@ public class Wed extends Fragment {
         m_p5_kz = v.findViewById(R.id.w_p5_kz);
 
         loadMethod();
-
+        themeS();
         return v;
     }
 
@@ -760,5 +781,102 @@ public class Wed extends Fragment {
         m_p1_k.setText(getResources().getString(R.string.fok));
         m_l1.setVisibility(View.GONE);
         m_l_1z.setVisibility(View.GONE);
+    }
+
+    private void themeS() {
+        SharedPreferences settings = getContext().getSharedPreferences("status", 0);
+        if (settings.getBoolean("orange", false)) {
+
+            mk.setBackgroundResource(R.color.colorWhitee);
+            p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            m_p1_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            p1z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            m_p1_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
+            p2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            m_p2_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            p2z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            m_p2_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
+            p3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            m_p3_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            p3z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            m_p3_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
+            p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            m_p4_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
+            s1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            s2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            s3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            s4.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            s5.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            s6.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            s7.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            s8.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            s9.setTextColor(getResources().getColor(R.color.colorTextBlack));
+            s10.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
+            l1.setBackgroundResource(R.color.colorNewstitle);
+            l2.setBackgroundResource(R.color.colorNewstitle);
+            l3.setBackgroundResource(R.color.colorNewstitle);
+            l4.setBackgroundResource(R.color.colorNewstitle);
+
+            m_l1.setBackgroundResource(R.color.colorNewstitle);
+            m_l2.setBackgroundResource(R.color.colorNewstitle);
+            m_l3.setBackgroundResource(R.color.colorNewstitle);
+            m_l4.setBackgroundResource(R.color.colorNewstitle);
+            m_l5.setBackgroundResource(R.color.colorNewstitle);
+
+
+        }
+        if (settings.getBoolean("blue", false)) {
+            mk.setBackgroundResource(R.color.colorPrimaryF);
+            p1.setTextColor(getResources().getColor(R.color.colorWhitee));
+            m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+            p1z.setTextColor(getResources().getColor(R.color.colorWhitee));
+            m_p1_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+            p2.setTextColor(getResources().getColor(R.color.colorWhitee));
+            m_p2_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+            p2z.setTextColor(getResources().getColor(R.color.colorWhitee));
+            m_p2_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+            p3.setTextColor(getResources().getColor(R.color.colorWhitee));
+            m_p3_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+            p3z.setTextColor(getResources().getColor(R.color.colorWhitee));
+            m_p3_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+            p4.setTextColor(getResources().getColor(R.color.colorWhitee));
+            m_p4_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+            p4z.setTextColor(getResources().getColor(R.color.colorWhitee));
+            m_p4_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+            s1.setTextColor(getResources().getColor(R.color.colorWhitee));
+            s2.setTextColor(getResources().getColor(R.color.colorWhitee));
+            s3.setTextColor(getResources().getColor(R.color.colorWhitee));
+            s4.setTextColor(getResources().getColor(R.color.colorWhitee));
+            s5.setTextColor(getResources().getColor(R.color.colorWhitee));
+            s6.setTextColor(getResources().getColor(R.color.colorWhitee));
+            s7.setTextColor(getResources().getColor(R.color.colorWhitee));
+            s8.setTextColor(getResources().getColor(R.color.colorWhitee));
+            s9.setTextColor(getResources().getColor(R.color.colorWhitee));
+            s10.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+            m_l1.setBackgroundResource(R.drawable.side_nav_bar);
+            m_l2.setBackgroundResource(R.drawable.side_nav_bar);
+            m_l3.setBackgroundResource(R.drawable.side_nav_bar);
+            m_l4.setBackgroundResource(R.drawable.side_nav_bar);
+            m_l5.setBackgroundResource(R.drawable.side_nav_bar);
+
+
+            l1.setBackgroundResource(R.color.colorSigma);
+            l2.setBackgroundResource(R.color.colorSigma);
+            l3.setBackgroundResource(R.color.colorSigma);
+            l4.setBackgroundResource(R.color.colorSigma);
+
+        }
     }
 }

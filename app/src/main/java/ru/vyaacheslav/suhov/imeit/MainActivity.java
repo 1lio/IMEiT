@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -22,6 +23,10 @@ import android.text.SpannableString;
 import android.text.style.TextAppearanceSpan;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -32,7 +37,8 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
-
+    public RadioGroup rg;
+    RelativeLayout dexp;
     int NOTIFICATION_ID = 123;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -41,27 +47,28 @@ public class MainActivity extends AppCompatActivity {
     Toast toast;
     NotificationManager nm;
     Calendar calendar;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView = (NavigationView) findViewById(R.id.shitstuff);
-
+        dexp = (RelativeLayout) findViewById(R.id.dexs);
         calendar = Calendar.getInstance();
-
+        checkAndSetImage();
         Menu menu = navigationView.getMenu();
-        MenuItem tools = menu.findItem(R.id.tools);
+        /*MenuItem tools = menu.findItem(R.id.tools);*/
         MenuItem tools2 = menu.findItem(R.id.tools2);
-        SpannableString s = new SpannableString(tools.getTitle());
+       /* SpannableString s = new SpannableString(tools.getTitle());*/
         SpannableString b = new SpannableString(tools2.getTitle());
-        s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);
+       /* s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);*/
         b.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, b.length(), 0);
-        tools.setTitle(s);
+      /*  tools.setTitle(s);*/
         tools2.setTitle(b);
 
         FM = getSupportFragmentManager();
@@ -69,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         FT.replace(R.id.containerView, new TabFragment()).commit();
 
         nm = (NotificationManager)getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -99,13 +107,11 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction1.replace(R.id.containerView, new Info()).commit();
 
                 }
-                if (item.getItemId() == R.id.examen) {
+          /*      if (item.getItemId() == R.id.examen) {
                     loadName();
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                     fragmentTransaction1.replace(R.id.containerView, new Exam()).commit();
-
-
-                }
+                }*/
 
                 if (item.getItemId() == R.id.map) {
                     MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
@@ -122,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         loadName();
+
       /*  dayNotifications();*/
     }
 
@@ -332,7 +339,26 @@ public class MainActivity extends AppCompatActivity {
             case Calendar.FRIDAY:
                 break;
         }
-
-
     }
+
+    private void checkAndSetImage() {
+        SharedPreferences settings = getSharedPreferences("status", 0);
+        if (settings.getBoolean("orange", false)) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+            }
+            toolbar.setBackgroundResource(R.color.colorPrimary);
+        }
+        if (settings.getBoolean("blue", false)) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
+            }
+            toolbar.setBackgroundResource(R.color.colorPrimaryD);
+        }
+    }
+
 }

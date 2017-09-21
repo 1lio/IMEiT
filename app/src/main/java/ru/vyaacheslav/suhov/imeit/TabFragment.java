@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -33,6 +34,19 @@ public class TabFragment extends Fragment {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
+        checkAndSetImage();
         return v;
+    }
+
+
+    public void checkAndSetImage() {
+        SharedPreferences settings = getActivity().getSharedPreferences("status", 0);
+        if (settings.getBoolean("orange", false)) {
+            tabLayout.setBackgroundResource(R.color.colorTab);
+        }
+        if (settings.getBoolean("blue", false)) {
+            tabLayout.setBackgroundResource(R.color.colorPrimarySS);
+
+        }
     }
 }
