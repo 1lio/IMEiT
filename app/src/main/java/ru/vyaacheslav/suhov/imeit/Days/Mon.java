@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit.Days;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -8,14 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
-import ru.vyaacheslav.suhov.imeit.Settings;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -24,12 +21,11 @@ public class Mon extends Fragment {
     public static final String APP_PREFERENCES = "sasa";
     final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
-    public LinearLayout m_l1, m_l2, m_l3, m_l4, lkV, m_l5, l1, l2, l3, l4;
+    public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5, l1, l2, l3, l4;
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
     Spinner spinner;
-    Button send;
     RelativeLayout mk;
 
     public Mon() {
@@ -40,9 +36,7 @@ public class Mon extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.mon, container, false);
         spinner = getActivity().findViewById(R.id.spinner);
-        send = v.findViewById(R.id.send);
 
-        lkV = v.findViewById(R.id.lkV);
         mk = v.findViewById(R.id.mk1);
         m_l_1z = v.findViewById(R.id.m_l_1z);
         m_l_2z = v.findViewById(R.id.m_l_2z);
@@ -116,14 +110,6 @@ public class Mon extends Fragment {
         l3 = v.findViewById(R.id.l3);
         l4 = v.findViewById(R.id.l4);
 
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent sett = new Intent(getContext(), Settings.class);
-                lkV.setVisibility(View.GONE);
-                startActivity(sett);
-            }
-        });
         loadMethod();
         LoadPreferences();
         return v;
@@ -135,175 +121,126 @@ public class Mon extends Fragment {
         layoutVisable();
         switch (position) {
             case 0:
-
                 FMiI_11();
-                lkV.setVisibility(View.GONE);
                 break;
             case 1:
-                lkV.setVisibility(View.GONE);
                 Pm_11();
                 break;
-
             case 2:
-                lkV.setVisibility(View.GONE);
                 IiVT_12();
                 break;
-
             case 3:
-                lkV.setVisibility(View.GONE);
                 ISiT_11();
                 break;
-
             case 4:
-                lkV.setVisibility(View.GONE);
                 MI_21();
                 break;
             case 5:
-                lkV.setVisibility(View.GONE);
                 MF_21();
                 break;
             case 6:
-                lkV.setVisibility(View.GONE);
                 PM_21();
                 break;
             case 7:
-                lkV.setVisibility(View.GONE);
                 BI_21();
                 break;
             case 8:
-                lkV.setVisibility(View.GONE);
                 IiVT_21();
                 break;
             case 9:
-                lkV.setVisibility(View.GONE);
                 ISiT_21();
                 break;
             case 10:
-                lkV.setVisibility(View.GONE);
                 NE_21();
                 break;
             case 11:
-                lkV.setVisibility(View.GONE);
                 BX_21();
                 break;
             case 12:
-                lkV.setVisibility(View.GONE);
                 EG_21();
                 break;
             case 13:
-                lkV.setVisibility(View.GONE);
                 MF_31();
                 break;
             case 14:
-                lkV.setVisibility(View.GONE);
                 PM_31();
                 break;
             case 15:
-                lkV.setVisibility(View.GONE);
                 IiVT_31();
                 break;
             case 16:
-                lkV.setVisibility(View.GONE);
                 NE_31();
                 break;
             case 17:
-                lkV.setVisibility(View.GONE);
                 M_41();
                 break;
             case 18:
-
-                lkV.setVisibility(View.GONE);
                 break;
             case 19:
-                lkV.setVisibility(View.GONE);
                 PM_41();
                 break;
             case 20:
-                lkV.setVisibility(View.GONE);
-
                 break;
             case 21:
-                lkV.setVisibility(View.GONE);
                 break;
             case 22:
-                lkV.setVisibility(View.GONE);
                 MIitM();
                 break;
             case 23:
-                lkV.setVisibility(View.GONE);
                 PMm_11();
                 break;
             case 24:
-                lkV.setVisibility(View.GONE);
                 IIvtm_11();
                 break;
             case 25:
-                lkV.setVisibility(View.GONE);
                 Mm_21();
                 break;
             case 26:
-                lkV.setVisibility(View.GONE);
                 Pmm_21();
                 break;
             case 27:
-                lkV.setVisibility(View.GONE);
                 IIvtm_21();
                 break;
-
             case 28:
-                lkV.setVisibility(View.GONE);
                 XBiG_11();
                 break;
             case 29:
-                lkV.setVisibility(View.GONE);
                 FC_11();
                 break;
             case 30:
-                lkV.setVisibility(View.GONE);
                 FR_11();
                 break;
             case 31:
-                lkV.setVisibility(View.GONE);
                 FR_12();
                 break;
             case 32:
-                lkV.setVisibility(View.GONE);
                 FC_21();
                 break;
             case 33:
-                lkV.setVisibility(View.GONE);
                 FR_21();
                 break;
             case 34:
-                lkV.setVisibility(View.GONE);
                 BX_31();
                 break;
             case 35:
-                lkV.setVisibility(View.GONE);
                 ME_31();
                 break;
             case 36:
-                lkV.setVisibility(View.GONE);
                 FC_31();
                 break;
             case 37:
-                lkV.setVisibility(View.GONE);
                 FP_31();
                 break;
             case 38:
-                lkV.setVisibility(View.GONE);
                 FC_41();
                 break;
             case 39:
-                lkV.setVisibility(View.GONE);
                 FP_41();
                 break;
             case 40:
-                lkV.setVisibility(View.GONE);
                 FCm_11();
                 break;
             case 41:
-                lkV.setVisibility(View.GONE);
                 FCm_21();
                 break;
 
@@ -1021,17 +958,17 @@ public class Mon extends Fragment {
         p3a.setText(getResources().getString(R.string.safronova));
         m_p3_t.setText(getResources().getString(R.string.lk));
         m_p3_k.setText(getResources().getString(R.string.uk4_22));
+        Null_Mon_Z_3();
 
         p4.setText(getResources().getString(R.string.m_analis));
         p4a.setText(getResources().getString(R.string.safronova));
         m_p4_t.setText(getResources().getString(R.string.lk));
         m_p4_k.setText(getResources().getString(R.string.uk4_22));
-
+        Null_Mon_Z_4();
 
     }
 
     public void FR_21() {
-
 
         Fizra_2kurs();
 
@@ -1039,12 +976,13 @@ public class Mon extends Fragment {
         p3a.setText(getResources().getString(R.string.safronova));
         m_p3_t.setText(getResources().getString(R.string.lk));
         m_p3_k.setText(getResources().getString(R.string.uk4_22));
+        Null_Mon_Z_3();
 
         p4.setText(getResources().getString(R.string.m_analis));
         p4a.setText(getResources().getString(R.string.safronova));
         m_p4_t.setText(getResources().getString(R.string.lk));
         m_p4_k.setText(getResources().getString(R.string.uk4_22));
-
+        Null_Mon_Z_4();
 
     }
 
@@ -1159,17 +1097,6 @@ public class Mon extends Fragment {
         m_p3_tz.setText(getResources().getString(R.string.lk));
         m_p3_kz.setText(getResources().getString(R.string.uk14_218));
 
-        p4.setText(getResources().getString(R.string.radiousttr));
-        p4a.setText(getResources().getString(R.string.spirin));
-        m_p4_t.setText(getResources().getString(R.string.lb));
-        m_p4_k.setText(getResources().getString(R.string.uk14_202));
-        p4z.setText(getResources().getString(R.string.radiousttr));
-        p4az.setText(getResources().getString(R.string.spirin));
-        m_p4_tz.setText(getResources().getString(R.string.pz));
-        m_p4_kz.setText(getResources().getString(R.string.uk14_202));
-
-        p5.setText(getResources().getString(R.string.teo_ver) + " 3п знам. 11.09;  09.10;  06.11; 04.12");
-        p5.setTextColor(getResources().getColor(R.color.colorAccent));
     }
 
     public void FC_41() {

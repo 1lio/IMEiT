@@ -1012,6 +1012,10 @@ public class Fri extends Fragment {
         m_p4_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
         m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p5.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p5_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p5z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p5_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
 
         s1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         s2.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -1062,6 +1066,10 @@ public class Fri extends Fragment {
         m_p4_t.setTextColor(getResources().getColor(R.color.colorWhitee));
         p4z.setTextColor(getResources().getColor(R.color.colorWhitee));
         m_p4_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p5.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p5_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p5z.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p5_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
 
         s1.setTextColor(getResources().getColor(R.color.colorWhitee));
         s2.setTextColor(getResources().getColor(R.color.colorWhitee));
@@ -1096,7 +1104,7 @@ public class Fri extends Fragment {
         p1a.setText(getResources().getString(R.string.leb_sedova));
         m_p1_t.setText(getResources().getString(R.string.pz));
         m_p1_k.setText(getResources().getString(R.string.uk1_13_24));
-        Null_Mon_Z_2();
+        Null_Mon_Z();
 
         p2.setText(getResources().getString(R.string.osn_mat_inf));
         p2a.setText(getResources().getString(R.string.tarova));
@@ -1120,7 +1128,7 @@ public class Fri extends Fragment {
         p1a.setText(getResources().getString(R.string.leb_sedova));
         m_p1_t.setText(getResources().getString(R.string.pz));
         m_p1_k.setText(getResources().getString(R.string.uk1_13_24));
-        Null_Mon_Z_2();
+        Null_Mon_Z();
 
         p2.setText(getResources().getString(R.string.physics));
         p2a.setText(getResources().getString(R.string.trofimova));
@@ -1144,7 +1152,7 @@ public class Fri extends Fragment {
         p1a.setText(getResources().getString(R.string.leb_sedova));
         m_p1_t.setText(getResources().getString(R.string.pz));
         m_p1_k.setText(getResources().getString(R.string.uk1_13_24));
-        Null_Mon_Z_2();
+        Null_Mon_Z();
 
         p2.setText(getResources().getString(R.string.physics));
         p2a.setText(getResources().getString(R.string.trofimova));
@@ -1159,6 +1167,11 @@ public class Fri extends Fragment {
         p3a.setText(getResources().getString(R.string.trofimova));
         m_p3_t.setText(getResources().getString(R.string.lb));
         m_p3_k.setText(getResources().getString(R.string.uk1_6));
+
+        p4.setText(getResources().getString(R.string.vich_ss));
+        p4a.setText(getResources().getString(R.string.pachin));
+        m_p4_t.setText(getResources().getString(R.string.lb));
+        m_p4_k.setText(getResources().getString(R.string.uk3_16));
     }
 
     public void FR_12() {
@@ -1167,7 +1180,7 @@ public class Fri extends Fragment {
         p1a.setText(getResources().getString(R.string.leb_sedova));
         m_p1_t.setText(getResources().getString(R.string.pz));
         m_p1_k.setText(getResources().getString(R.string.uk1_13_24));
-        Null_Mon_Z_2();
+        Null_Mon_Z();
 
         p2.setText(getResources().getString(R.string.physics));
         p2a.setText(getResources().getString(R.string.trofimova));
@@ -1196,21 +1209,25 @@ public class Fri extends Fragment {
     public void BX_31() {
 
         p1z.setText(getResources().getString(R.string.practic));
+        p1z.setTextSize(8);
         p1az.setVisibility(View.GONE);
         m_p1_tz.setVisibility(View.GONE);
         m_p1_kz.setVisibility(View.GONE);
 
         p2z.setText(getResources().getString(R.string.practic));
+        p2z.setTextSize(8);
         p2az.setVisibility(View.GONE);
         m_p2_tz.setVisibility(View.GONE);
         m_p2_kz.setVisibility(View.GONE);
 
         p3z.setText(getResources().getString(R.string.practic));
+        p3z.setTextSize(8);
         p3az.setVisibility(View.GONE);
         m_p3_tz.setVisibility(View.GONE);
         m_p3_kz.setVisibility(View.GONE);
 
         p4z.setText(getResources().getString(R.string.practic));
+        p4z.setTextSize(8);
         p4az.setVisibility(View.GONE);
         m_p4_tz.setVisibility(View.GONE);
         m_p4_kz.setVisibility(View.GONE);
@@ -1255,6 +1272,14 @@ public class Fri extends Fragment {
         m_p1_k.setText(getResources().getString(R.string.uk14_205));
         Null_Mon_Z();
 
+        p2.setText(getResources().getString(R.string.radiousttr));
+        p2a.setText(getResources().getString(R.string.pechkov));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk14_205));
+        p2z.setText(getResources().getString(R.string.radiousttr));
+        p2az.setText(getResources().getString(R.string.pechkov));
+        m_p2_tz.setText(getResources().getString(R.string.lk));
+        m_p2_kz.setText(getResources().getString(R.string.uk14_205));
     }
 
     public void FC_41() {
@@ -1272,9 +1297,11 @@ public class Fri extends Fragment {
         p3a.setText(getResources().getString(R.string.pechkov));
         m_p3_t.setText(getResources().getString(R.string.lb));
         m_p3_k.setText(getResources().getString(R.string.uk14_205));
+        Null_Mon_Z_3();
 
         p4.setText(getResources().getString(R.string.beda));
-        p4a.setText(getResources().getString(R.string.pechkov));
+        p4.setTextSize(8);
+        p4a.setText(getResources().getString(R.string.nexoroshix));
         m_p4_t.setText(getResources().getString(R.string.lb));
         m_p4_k.setText(getResources().getString(R.string.uk14_215));
         p4z.setText(getResources().getString(R.string.tex_exp_appr));
@@ -1299,6 +1326,7 @@ public class Fri extends Fragment {
         p3a.setText(getResources().getString(R.string.pechkov));
         m_p3_t.setText(getResources().getString(R.string.lb));
         m_p3_k.setText(getResources().getString(R.string.uk14_205));
+        Null_Mon_Z_3();
 
         p4z.setText(getResources().getString(R.string.tex_exp_appr));
         p4az.setText(getResources().getString(R.string.pechkov));

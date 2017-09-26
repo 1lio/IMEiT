@@ -6,7 +6,7 @@
     android:layout_marginTop="3dp"
     android:background="@drawable/asa"
     android:orientation="horizontal"
-    android:padding="10dip"
+    android:padding="10dp"
     android:weightSum="100">
 
     <TextView
@@ -22,6 +22,7 @@
         android:layout_marginRight="6dp"
         android:layout_marginTop="6dp"
         android:text="New Text"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="12sp"
         android:textStyle="bold" />
 

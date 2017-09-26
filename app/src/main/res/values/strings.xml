@@ -172,6 +172,8 @@
     <string name="mat_zad">Решение нестандартных математических задач</string>
     <string name="elc_doc">Электронный документооборот</string>
     <string name="off_tex">Офисные технологии</string>
+    <string name="inj_ped">Инженерная педагогика</string>
+    <string name="lelinkova">Люленкова О.Ю. </string>
     <string name="log_pro">Логическое программирование</string>
     <string name="fun_pro">Функциональное программирование</string>
     <string name="com_tip">Компьютерная типография</string>
@@ -215,6 +217,9 @@
     <string name="cif_obr_data">Цифровая обработка данных</string>
     <string name="isp_yaz_pr">Использование языка запросов при программировании</string>
     <string name="vich_sys">Вычислительные системы</string>
+    <string name="vich_ss">Вычислительные устройства и системы </string>
+
+
     <string name="analis_kom_mat">Анализ учебно-методических комплексов по математике для профильных классов</string>
     <string name="acp_opz">Аспекты развития и управле-ния организационно-производственной системы</string>
     <string name="analis_inf">Оперативный анализ информации</string>

@@ -869,6 +869,10 @@ public class Wed extends Fragment {
         m_p4_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
         m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p5.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p5_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p5z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p5_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
 
         s1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         s2.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -917,6 +921,10 @@ public class Wed extends Fragment {
         m_p4_t.setTextColor(getResources().getColor(R.color.colorWhitee));
         p4z.setTextColor(getResources().getColor(R.color.colorWhitee));
         m_p4_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p5.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p5_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p5z.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p5_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
 
         s1.setTextColor(getResources().getColor(R.color.colorWhitee));
         s2.setTextColor(getResources().getColor(R.color.colorWhitee));
@@ -951,7 +959,7 @@ public class Wed extends Fragment {
         m_p2_k.setText(getResources().getString(R.string.uk12_212));
         p2z.setText(getResources().getString(R.string.botanika) + " 13.09;  11.10;  08.11; 06.12; 20.12");
         p2az.setText(getResources().getString(R.string.petricheva));
-        m_p2_tz.setText(getResources().getString(R.string.lk));
+        m_p2_tz.setText(getResources().getString(R.string.lb));
         m_p2_kz.setText(getResources().getString(R.string.uk12_212));
 
         Fizra_pervaki();
@@ -969,73 +977,70 @@ public class Wed extends Fragment {
 
     public void FC_11() {
 
-        p2z.setText(getResources().getString(R.string.vvod_stud_u_de));
-        p2az.setText(getResources().getString(R.string.zaharova));
-        m_p2_tz.setText(getResources().getString(R.string.pz));
-        m_p2_kz.setText(getResources().getString(R.string.uk14_215));
+        p1z.setText(getResources().getString(R.string.vvod_stud_u_de));
+        p1az.setText(getResources().getString(R.string.zaharova));
+        m_p1_tz.setText(getResources().getString(R.string.pz));
+        m_p1_kz.setText(getResources().getString(R.string.uk14_215));
 
-        p2.setText(getResources().getString(R.string.botanika));
-        p2a.setText(getResources().getString(R.string.petricheva));
+        p2.setText(getResources().getString(R.string.inj_ped));
+        p2a.setText(getResources().getString(R.string.zaharova));
         m_p2_t.setText(getResources().getString(R.string.lk));
         m_p2_k.setText(getResources().getString(R.string.uk12_212));
-        p2z.setText(getResources().getString(R.string.botanika) + " 13.09;  11.10;  08.11; 06.12; 20.12");
-        p2az.setText(getResources().getString(R.string.petricheva));
+        p2z.setText(getResources().getString(R.string.inj_ped) + " 13.09;  11.10;  08.11; 06.12;");
+        p2az.setText(getResources().getString(R.string.zaharova));
         m_p2_tz.setText(getResources().getString(R.string.lk));
         m_p2_kz.setText(getResources().getString(R.string.uk12_212));
 
         Fizra_pervaki();
 
-        p4.setText(getResources().getString(R.string.pedagogic));
-        p4a.setText(getResources().getString(R.string.zaharova));
-        m_p4_t.setText(getResources().getString(R.string.lk));
-        m_p4_k.setText(getResources().getString(R.string.uk4_28));
-        p4z.setText(getResources().getString(R.string.russian_lang));
-        p4az.setText(getResources().getString(R.string.ivanova));
+        p4.setText(getResources().getString(R.string.pcixol));
+        p4a.setText(getResources().getString(R.string.lelinkova));
+        m_p4_t.setText(getResources().getString(R.string.pz));
+        m_p4_k.setText(getResources().getString(R.string.uk4_22));
+        p4z.setText(getResources().getString(R.string.pcixol));
+        p4az.setText(getResources().getString(R.string.lelinkova));
         m_p4_tz.setText(getResources().getString(R.string.lk));
-        m_p4_kz.setText(getResources().getString(R.string.uk4_28));
+        m_p4_kz.setText(getResources().getString(R.string.uk4_22));
     }
 
     public void FR_11() {
 
-        p2z.setText(getResources().getString(R.string.vu_i_sys));
-        p2az.setText(getResources().getString(R.string.pachin));
+        p2.setText(getResources().getString(R.string.inj_ped));
+        p2a.setText(getResources().getString(R.string.zaharova));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk12_212));
+        p2z.setText(getResources().getString(R.string.inj_ped) + " 13.09;  11.10;  08.11; 06.12;");
+        p2az.setText(getResources().getString(R.string.zaharova));
         m_p2_tz.setText(getResources().getString(R.string.lk));
-        m_p2_kz.setText(getResources().getString(R.string.uk2_113));
+        m_p2_kz.setText(getResources().getString(R.string.uk12_212));
 
-        p3.setText(getResources().getString(R.string.history));
-        p3a.setText(getResources().getString(R.string.nekrilova));
-        m_p3_t.setText(getResources().getString(R.string.lk));
-        m_p3_k.setText(getResources().getString(R.string.uk14_218));
-        p3z.setText(getResources().getString(R.string.history));
-        p3az.setText(getResources().getString(R.string.nekrilova));
-        m_p3_tz.setText(getResources().getString(R.string.pz));
-        m_p3_kz.setText(getResources().getString(R.string.uk14_218));
+        Fizra_pervaki();
 
-        p4.setText(getResources().getString(R.string.bjd));
-        p4a.setText(getResources().getString(R.string.sazanov));
-        m_p4_t.setText(getResources().getString(R.string.lk));
-        m_p4_k.setText(getResources().getString(R.string.uk1_22));
-        p4z.setText(getResources().getString(R.string.bjd));
-        p4az.setText(getResources().getString(R.string.sazanov));
-        m_p4_tz.setText(getResources().getString(R.string.pz));
-        m_p4_kz.setText(getResources().getString(R.string.uk1_22));
     }
 
     public void FR_12() {
 
-        p2z.setText(getResources().getString(R.string.teo_osn_el));
-        p2az.setText(getResources().getString(R.string.zaiceva));
-        m_p2_tz.setText(getResources().getString(R.string.lb));
-        m_p2_kz.setText(getResources().getString(R.string.uk14_211));
+        p1.setText(getResources().getString(R.string.teo_osn_el));
+        p1a.setText(getResources().getString(R.string.fortunova));
+        m_p1_t.setText(getResources().getString(R.string.pz));
+        m_p1_k.setText(getResources().getString(R.string.uk14_207));
+        p1z.setText(getResources().getString(R.string.teo_osn_el));
+        p1az.setText(getResources().getString(R.string.fortunova));
+        m_p1_tz.setText(getResources().getString(R.string.pz));
+        m_p1_kz.setText(getResources().getString(R.string.uk14_207));
 
-        p3.setText(getResources().getString(R.string.osn_phy_polpr));
-        p3a.setText(getResources().getString(R.string.sidorov));
-        m_p3_t.setText(getResources().getString(R.string.lk));
-        m_p3_k.setText(getResources().getString(R.string.uk14_216));
-        p3.setText(getResources().getString(R.string.osn_phy_polpr));
-        p3a.setText(getResources().getString(R.string.sidorov));
-        m_p3_t.setText(getResources().getString(R.string.pz));
-        m_p3_k.setText(getResources().getString(R.string.uk14_216));
+        p2.setText(getResources().getString(R.string.inj_ped));
+        p2a.setText(getResources().getString(R.string.zaharova));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk12_212));
+        p2z.setText(getResources().getString(R.string.inj_ped) + " 13.09;  11.10;  08.11; 06.12;");
+        p2az.setText(getResources().getString(R.string.zaharova));
+        m_p2_tz.setText(getResources().getString(R.string.lk));
+        m_p2_kz.setText(getResources().getString(R.string.uk12_212));
+
+        Fizra_pervaki();
+
+
 
     }
 
@@ -1135,7 +1140,7 @@ public class Wed extends Fragment {
         p3a.setText(getResources().getString(R.string.pahomova));
         m_p3_t.setText(getResources().getString(R.string.pz));
         m_p3_k.setText(getResources().getString(R.string.uk12_103));
-        p3z.setText(getResources().getString(R.string.geometry));
+        p3z.setText(getResources().getString(R.string.geografia));
         p3az.setText(getResources().getString(R.string.melnikova));
         m_p3_tz.setText(getResources().getString(R.string.pz));
         m_p3_kz.setText(getResources().getString(R.string.uk4_28));
@@ -1161,8 +1166,7 @@ public class Wed extends Fragment {
         p3a.setText(getResources().getString(R.string.akopayn));
         m_p3_t.setText(getResources().getString(R.string.pz));
         m_p3_k.setText(getResources().getString(R.string.uk14_216));
-
-
+        Null_Mon_Z_3();
     }
 
     public void FP_31() {

@@ -959,7 +959,7 @@ public class Thu extends Fragment {
         p1a.setText(getResources().getString(R.string.ivanova));
         m_p1_t.setText(getResources().getString(R.string.pz));
         m_p1_k.setText(getResources().getString(R.string.uk4_21));
-        Null_Mon_Z_2();
+        Null_Mon_Z();
 
         p2z.setText(getResources().getString(R.string.pr_sch_chem));
         p2az.setText(getResources().getString(R.string.sotnikova));
@@ -1036,6 +1036,15 @@ public class Thu extends Fragment {
 
     public void FR_12() {
 
+        p1.setText(getResources().getString(R.string.filosofia));
+        p1a.setText(getResources().getString(R.string.podoksenov));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk1_22));
+        p1z.setText(getResources().getString(R.string.filosofia));
+        p1az.setText(getResources().getString(R.string.podoksenov));
+        m_p1_tz.setText(getResources().getString(R.string.pz));
+        m_p1_kz.setText(getResources().getString(R.string.uk1_22));
+
         p2.setText(getResources().getString(R.string.algebra_a_geo));
         p2a.setText(getResources().getString(R.string.belix));
         m_p2_t.setText(getResources().getString(R.string.lk));
@@ -1063,28 +1072,45 @@ public class Thu extends Fragment {
     }
 
     public void FC_21() {
-
-        p1.setText(getResources().getString(R.string.pl_prib));
-        p1a.setText(getResources().getString(R.string.zaicev));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk14_216));
-        p1z.setText(getResources().getString(R.string.cob_sys));
-        p1az.setText(getResources().getString(R.string.zaicev));
+        p1.setText(getResources().getString(R.string.filosofia));
+        p1a.setText(getResources().getString(R.string.podoksenov));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk1_22));
+        p1z.setText(getResources().getString(R.string.filosofia));
+        p1az.setText(getResources().getString(R.string.podoksenov));
         m_p1_tz.setText(getResources().getString(R.string.pz));
-        m_p1_kz.setText(getResources().getString(R.string.uk14_216));
+        m_p1_kz.setText(getResources().getString(R.string.uk1_22));
+
+        p2.setText(getResources().getString(R.string.pl_prib));
+        p2a.setText(getResources().getString(R.string.zaicev));
+        m_p2_t.setText(getResources().getString(R.string.pz));
+        m_p2_k.setText(getResources().getString(R.string.uk14_216));
+        p2z.setText(getResources().getString(R.string.cob_sys));
+        p2az.setText(getResources().getString(R.string.zaicev));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk14_216));
 
     }
 
     public void FR_21() {
 
-        p1.setText(getResources().getString(R.string.pl_prib));
-        p1a.setText(getResources().getString(R.string.zaicev));
-        m_p1_t.setText(getResources().getString(R.string.pz));
-        m_p1_k.setText(getResources().getString(R.string.uk14_216));
-        p1z.setText(getResources().getString(R.string.cob_sys));
-        p1az.setText(getResources().getString(R.string.zaicev));
+        p1.setText(getResources().getString(R.string.filosofia));
+        p1a.setText(getResources().getString(R.string.podoksenov));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk1_22));
+        p1z.setText(getResources().getString(R.string.filosofia));
+        p1az.setText(getResources().getString(R.string.podoksenov));
         m_p1_tz.setText(getResources().getString(R.string.pz));
-        m_p1_kz.setText(getResources().getString(R.string.uk14_216));
+        m_p1_kz.setText(getResources().getString(R.string.uk1_22));
+
+        p2.setText(getResources().getString(R.string.pl_prib));
+        p2a.setText(getResources().getString(R.string.zaicev));
+        m_p2_t.setText(getResources().getString(R.string.pz));
+        m_p2_k.setText(getResources().getString(R.string.uk14_216));
+        p2z.setText(getResources().getString(R.string.cob_sys));
+        p2az.setText(getResources().getString(R.string.zaicev));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk14_216));
 
     }
 
@@ -1190,16 +1216,30 @@ public class Thu extends Fragment {
     }
 
     public void FC_41() {
-
+        p1.setText(getResources().getString(R.string.tel_video));
+        p1a.setText(getResources().getString(R.string.spirin));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk14_218));
+        Null_Mon_Z();
+        p2.setText(getResources().getString(R.string.tel_video));
+        p2a.setText(getResources().getString(R.string.spirin));
+        m_p2_t.setText(getResources().getString(R.string.pz));
+        m_p2_k.setText(getResources().getString(R.string.uk14_202));
+        Null_Mon_Z();
     }
 
     public void FP_41() {
 
-        p4.setText(getResources().getString(R.string.rad_ustr));
-        p4a.setText(getResources().getString(R.string.zaicev));
-        m_p4_t.setText(getResources().getString(R.string.lk));
-        m_p4_k.setText(getResources().getString(R.string.uk14_206));
-        Null_Mon_Z_4();
+        p1.setText(getResources().getString(R.string.tel_video));
+        p1a.setText(getResources().getString(R.string.spirin));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk14_218));
+        Null_Mon_Z();
+        p2.setText(getResources().getString(R.string.tel_video));
+        p2a.setText(getResources().getString(R.string.spirin));
+        m_p2_t.setText(getResources().getString(R.string.pz));
+        m_p2_k.setText(getResources().getString(R.string.uk14_202));
+        Null_Mon_Z_2();
 
     }
 
@@ -1233,7 +1273,7 @@ public class Thu extends Fragment {
         p4a.setText(getResources().getString(R.string.pechkov));
         m_p4_t.setText(getResources().getString(R.string.lk));
         m_p4_k.setText(getResources().getString(R.string.uk14_205));
-        p4z.setText(getResources().getString(R.string.serv_sys_cifr));
+        p4z.setText(getResources().getString(R.string.sys_raddostup));
         p4az.setText(getResources().getString(R.string.pechkov));
         m_p4_tz.setText(getResources().getString(R.string.pz));
         m_p4_kz.setText(getResources().getString(R.string.uk14_205));
@@ -1321,6 +1361,11 @@ public class Thu extends Fragment {
         p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
         m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
 
+        p5.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p5_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p5z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p5_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
         s1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         s2.setTextColor(getResources().getColor(R.color.colorTextBlack));
         s3.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -1368,6 +1413,11 @@ public class Thu extends Fragment {
         m_p4_t.setTextColor(getResources().getColor(R.color.colorWhitee));
         p4z.setTextColor(getResources().getColor(R.color.colorWhitee));
         m_p4_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+        p5.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p5_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p5z.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p5_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
 
         s1.setTextColor(getResources().getColor(R.color.colorWhitee));
         s2.setTextColor(getResources().getColor(R.color.colorWhitee));

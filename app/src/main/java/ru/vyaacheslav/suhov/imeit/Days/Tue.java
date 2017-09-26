@@ -1269,10 +1269,10 @@ public class Tue extends Fragment {
 
     public void FR_11() {
 
-        p2z.setText(getResources().getString(R.string.vu_i_sys));
-        p2az.setText(getResources().getString(R.string.pachin));
-        m_p2_tz.setText(getResources().getString(R.string.lk));
-        m_p2_kz.setText(getResources().getString(R.string.uk2_113));
+        p2.setText(getResources().getString(R.string.vu_i_sys));
+        p2a.setText(getResources().getString(R.string.pachin));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk2_113));
 
         p3.setText(getResources().getString(R.string.history));
         p3a.setText(getResources().getString(R.string.nekrilova));
@@ -1295,19 +1295,19 @@ public class Tue extends Fragment {
 
     public void FR_12() {
 
-        p2z.setText(getResources().getString(R.string.teo_osn_el));
-        p2az.setText(getResources().getString(R.string.zaiceva));
-        m_p2_tz.setText(getResources().getString(R.string.lb));
-        m_p2_kz.setText(getResources().getString(R.string.uk14_211));
+        p2.setText(getResources().getString(R.string.teo_osn_el));
+        p2a.setText(getResources().getString(R.string.zaiceva));
+        m_p2_t.setText(getResources().getString(R.string.lb));
+        m_p2_k.setText(getResources().getString(R.string.uk14_211));
 
         p3.setText(getResources().getString(R.string.osn_phy_polpr));
         p3a.setText(getResources().getString(R.string.sidorov));
         m_p3_t.setText(getResources().getString(R.string.lk));
         m_p3_k.setText(getResources().getString(R.string.uk14_216));
-        p3.setText(getResources().getString(R.string.osn_phy_polpr));
-        p3a.setText(getResources().getString(R.string.sidorov));
-        m_p3_t.setText(getResources().getString(R.string.pz));
-        m_p3_k.setText(getResources().getString(R.string.uk14_216));
+        p3z.setText(getResources().getString(R.string.osn_phy_polpr));
+        p3az.setText(getResources().getString(R.string.sidorov));
+        m_p3_tz.setText(getResources().getString(R.string.pz));
+        m_p3_kz.setText(getResources().getString(R.string.uk14_216));
 
     }
 
@@ -1408,6 +1408,11 @@ public class Tue extends Fragment {
         m_p3_tz.setText(getResources().getString(R.string.pz));
         m_p3_kz.setText(getResources().getString(R.string.uk12_220));
 
+        p4z.setText(getResources().getString(R.string.chool_obr));
+        p4az.setText(getResources().getString(R.string.morgaceva));
+        m_p4_tz.setText(getResources().getString(R.string.pz));
+        m_p4_kz.setText(getResources().getString(R.string.uk12_220));
+
 
     }
 
@@ -1478,34 +1483,19 @@ public class Tue extends Fragment {
     }
 
     public void FC_41() {
-
-        p1.setText(getResources().getString(R.string.tel_video));
-        p1a.setText(getResources().getString(R.string.spirin));
-        m_p1_t.setText(getResources().getString(R.string.lk));
-        m_p1_k.setText(getResources().getString(R.string.uk14_218));
-        Null_Mon_Z();
-
-        p2.setText(getResources().getString(R.string.tel_video));
-        p2a.setText(getResources().getString(R.string.spirin));
-        m_p2_t.setText(getResources().getString(R.string.pz));
-        m_p2_k.setText(getResources().getString(R.string.uk14_218));
-        Null_Mon_Z_2();
-
     }
 
     public void FP_41() {
 
-        p1.setText(getResources().getString(R.string.tel_video));
-        p1a.setText(getResources().getString(R.string.spirin));
-        m_p1_t.setText(getResources().getString(R.string.lk));
-        m_p1_k.setText(getResources().getString(R.string.uk14_218));
-        Null_Mon_Z();
+        p1z.setText(getResources().getString(R.string.rad_avtom));
+        p1az.setText(getResources().getString(R.string.zaiceva));
+        m_p1_tz.setText(getResources().getString(R.string.lk));
+        m_p1_kz.setText(getResources().getString(R.string.uk14_206));
 
-        p2.setText(getResources().getString(R.string.tel_video));
-        p2a.setText(getResources().getString(R.string.spirin));
-        m_p2_t.setText(getResources().getString(R.string.pz));
-        m_p2_k.setText(getResources().getString(R.string.uk14_218));
-        Null_Mon_Z_2();
+        p2z.setText(getResources().getString(R.string.rad_avtom));
+        p2az.setText(getResources().getString(R.string.zaiceva));
+        m_p2_tz.setText(getResources().getString(R.string.lk));
+        m_p2_kz.setText(getResources().getString(R.string.uk14_206));
 
         p3.setText(getResources().getString(R.string.rad_ustr));
         p3a.setText(getResources().getString(R.string.zaiceva));
