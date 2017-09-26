@@ -16,8 +16,12 @@ import java.util.Calendar;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class TimeClock extends Fragment {
 
+    public static final String APP_PREFERENCES = "sasa";
+    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     public int getHour;
     LinearLayout l1, l2, l3, l4, l5, l6, lss, lsss;
     TimePicker timePicker;
@@ -79,7 +83,7 @@ public class TimeClock extends Fragment {
         t32 = v.findViewById(R.id.t32);
 
         TimeOne();
-        themeS();
+        LoadPreferences();
         return v;
     }
 
@@ -150,90 +154,98 @@ public class TimeClock extends Fragment {
             l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
 
         }
+    }
 
+    private void LoadPreferences() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
+                APP_PREFERENCES, MODE_PRIVATE);
+        int savedRadioIndex = sharedPreferences.getInt(
+                KEY_RADIOBUTTON_INDEX, 0);
+        switch (savedRadioIndex) {
+            case 0:
+                ThemeWrite();
+                break;
+            case 1:
+                ThemeDark();
+                break;
+        }
+    }
+
+    public void ThemeWrite() {
+        lss.setBackgroundResource(R.color.colorTes);
+        lsss.setBackgroundResource(R.color.colorWhitee);
+        c3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t4.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t5.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t6.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t7.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t8.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t9.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t10.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t11.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t12.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t13.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t14.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t15.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t16.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t17.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t18.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t19.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t20.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t21.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t22.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t23.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t24.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t25.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t26.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t27.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t28.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t29.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t30.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t31.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        t32.setTextColor(getResources().getColor(R.color.colorTextBlack));
 
     }
 
-    private void themeS() {
-        SharedPreferences settings = getContext().getSharedPreferences("status", 0);
-        if (settings.getBoolean("orange", false)) {
-            //svet
+    public void ThemeDark() {
 
-            lss.setBackgroundResource(R.color.colorTes);
-            lsss.setBackgroundResource(R.color.colorWhitee);
-            c3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t5.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t6.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t7.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t8.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t9.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t10.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t11.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t12.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t13.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t14.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t15.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t16.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t17.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t18.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t19.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t20.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t21.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t22.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t23.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t24.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t25.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t26.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t27.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t28.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t29.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t30.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t31.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            t32.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        }
-        if (settings.getBoolean("blue", false)) {
-            //dark
-            lss.setBackgroundResource(R.color.colorPrimarySS);
-            lsss.setBackgroundResource(R.color.colorPrimaryD);
-
-            c3.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t1.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t2.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t3.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t4.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t5.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t6.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t7.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t8.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t9.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t10.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t11.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t12.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t13.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t14.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t15.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t16.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t17.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t18.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t19.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t20.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t21.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t22.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t23.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t24.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t25.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t26.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t27.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t28.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t29.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t30.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t31.setTextColor(getResources().getColor(R.color.colorWhitee));
-            t32.setTextColor(getResources().getColor(R.color.colorWhitee));
-        }
+        lss.setBackgroundResource(R.color.colorPrimarySS);
+        lsss.setBackgroundResource(R.color.colorPrimaryD);
+        c3.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t1.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t2.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t3.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t4.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t5.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t6.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t7.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t8.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t9.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t10.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t11.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t12.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t13.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t14.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t15.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t16.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t17.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t18.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t19.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t20.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t21.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t22.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t23.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t24.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t25.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t26.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t27.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t28.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t29.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t30.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t31.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t32.setTextColor(getResources().getColor(R.color.colorWhitee));
     }
 }

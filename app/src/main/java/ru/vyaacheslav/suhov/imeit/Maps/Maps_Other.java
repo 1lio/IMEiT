@@ -13,8 +13,12 @@ import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class Maps_Other extends Fragment implements View.OnClickListener {
 
+    public static final String APP_PREFERENCES = "sasa";
+    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     LinearLayout hos1, hos2, hos3, hos4, otf;
     Intent agr;
     Uri adress;
@@ -44,7 +48,7 @@ public class Maps_Other extends Fragment implements View.OnClickListener {
         hos3.setOnClickListener(this);
         hos4.setOnClickListener(this);
 
-        themeS();
+        LoadPreferences();
         return v;
     }
 
@@ -70,34 +74,45 @@ public class Maps_Other extends Fragment implements View.OnClickListener {
         startActivity(agr);
     }
 
-    private void themeS() {
-        SharedPreferences settings = getContext().getSharedPreferences("status", 0);
-        if (settings.getBoolean("orange", false)) {
-            //svet
-
-            hos1.setBackgroundResource(R.color.colorWhitee);
-            hos2.setBackgroundResource(R.color.colorTes);
-            hos3.setBackgroundResource(R.color.colorWhitee);
-            hos4.setBackgroundResource(R.color.colorTes);
-            l1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            l2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            l3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            l4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            otf.setBackgroundResource(R.color.colorWhitee);
-
+    private void LoadPreferences() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
+                APP_PREFERENCES, MODE_PRIVATE);
+        int savedRadioIndex = sharedPreferences.getInt(
+                KEY_RADIOBUTTON_INDEX, 0);
+        switch (savedRadioIndex) {
+            case 0:
+                ThemeWrite();
+                break;
+            case 1:
+                ThemeDark();
+                break;
         }
-        if (settings.getBoolean("blue", false)) {
-            //dark
-            otf.setBackgroundResource(R.color.colorPrimaryF);
-            hos1.setBackgroundResource(R.color.colorPrimaryF);
-            hos2.setBackgroundResource(R.color.colorPrimaryS);
-            hos3.setBackgroundResource(R.color.colorPrimaryF);
-            hos4.setBackgroundResource(R.color.colorPrimaryS);
-            l1.setTextColor(getResources().getColor(R.color.colorWhitee));
-            l2.setTextColor(getResources().getColor(R.color.colorWhitee));
-            l3.setTextColor(getResources().getColor(R.color.colorWhitee));
-            l4.setTextColor(getResources().getColor(R.color.colorWhitee));
+    }
 
-        }
+    public void ThemeWrite() {
+
+        hos1.setBackgroundResource(R.color.colorWhitee);
+        hos2.setBackgroundResource(R.color.colorTes);
+        hos3.setBackgroundResource(R.color.colorWhitee);
+        hos4.setBackgroundResource(R.color.colorTes);
+        l1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        l2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        l3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        l4.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        otf.setBackgroundResource(R.color.colorWhitee);
+    }
+
+    public void ThemeDark() {
+
+        otf.setBackgroundResource(R.color.colorPrimaryF);
+        hos1.setBackgroundResource(R.color.colorPrimaryF);
+        hos2.setBackgroundResource(R.color.colorPrimaryS);
+        hos3.setBackgroundResource(R.color.colorPrimaryF);
+        hos4.setBackgroundResource(R.color.colorPrimaryS);
+        l1.setTextColor(getResources().getColor(R.color.colorWhitee));
+        l2.setTextColor(getResources().getColor(R.color.colorWhitee));
+        l3.setTextColor(getResources().getColor(R.color.colorWhitee));
+        l4.setTextColor(getResources().getColor(R.color.colorWhitee));
+
     }
 }

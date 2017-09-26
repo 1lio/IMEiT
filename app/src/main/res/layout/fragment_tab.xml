@@ -8,9 +8,8 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorTab"
         app:tabGravity="fill"
-        app:tabIndicatorColor="#1976d1"
+        app:tabIndicatorColor="#ffffff"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#ffffff"
         app:tabTextColor="#ffffff">

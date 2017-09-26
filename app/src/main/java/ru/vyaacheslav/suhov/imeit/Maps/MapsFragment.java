@@ -11,8 +11,12 @@ import android.view.ViewGroup;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class MapsFragment extends Fragment {
 
+    public static final String APP_PREFERENCES = "sasa";
+    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -32,18 +36,23 @@ public class MapsFragment extends Fragment {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
-        checkAndSetImage();
+        LoadPreferences();
         return v;
     }
 
-    public void checkAndSetImage() {
-        SharedPreferences settings = getActivity().getSharedPreferences("status", 0);
-        if (settings.getBoolean("orange", false)) {
-            tabLayout.setBackgroundResource(R.color.colorTab);
-        }
-        if (settings.getBoolean("blue", false)) {
-            tabLayout.setBackgroundResource(R.color.colorPrimarySS);
-
+    private void LoadPreferences() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
+                APP_PREFERENCES, MODE_PRIVATE);
+        int savedRadioIndex = sharedPreferences.getInt(
+                KEY_RADIOBUTTON_INDEX, 0);
+        switch (savedRadioIndex) {
+            case 0:
+                tabLayout.setBackgroundResource(R.color.colorPrimary);
+                break;
+            case 1:
+                tabLayout.setBackgroundResource(R.color.colorPrimarySS);
+                break;
         }
     }
+
 }

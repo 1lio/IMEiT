@@ -27,20 +27,22 @@ import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
+    public static final String APP_PREFERENCES = "sasa";
+    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     public Spinner spinner;
-    public Switch eng, dec/*, vid*/;
+    public Switch eng, dec/*, vid*/, sw_save;
     public RadioGroup rg;
     public RadioButton r_s, r_d;
     public TextView name1, name2, name3, uss;
-    RelativeLayout setm;
-    LinearLayout l1, l2, mama;
-    Toolbar toolbar;
-    ImageView imageView;
+    public RelativeLayout setm;
+    public LinearLayout l1, l2, mama;
+    public Toolbar toolbar;
+    public ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
-
         toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
         imageView = (ImageView) findViewById(R.id.imageView);
@@ -52,7 +54,7 @@ public class Settings extends AppCompatActivity {
 
         eng = (Switch) findViewById(R.id.sw_eng);
         dec = (Switch) findViewById(R.id.sw_dec);
-     /*   vid = (Switch) findViewById(R.id.sw_ve);*/
+        sw_save = (Switch) findViewById(R.id.sw_save);
         rg = (RadioGroup) findViewById(R.id.rg);
         r_s = (RadioButton) findViewById(R.id.r_svet);
         r_d = (RadioButton) findViewById(R.id.r_dark);
@@ -88,11 +90,11 @@ public class Settings extends AppCompatActivity {
         eng.setChecked(settings.getBoolean("check", false));
         SharedPreferences des = getSharedPreferences("dec", 1);
         dec.setChecked(des.getBoolean("check", false));
-
-       /* vids();*/
+        SharedPreferences savess = getSharedPreferences("saves", 2);
+        sw_save.setChecked(savess.getBoolean("af", false));
+        LoadP();
+        LoadPreferences();
         setBg();
-        themeSettings();
-
     }
     @Override
     public void onBackPressed() {
@@ -109,7 +111,6 @@ public class Settings extends AppCompatActivity {
         editor.putInt("spnCalorieRange",position);
         editor.apply();
     }
-
     public void saveSpinnerPositionName(int position){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -126,13 +127,11 @@ public class Settings extends AppCompatActivity {
                 startActivity(i);
                 imageView.setVisibility(View.VISIBLE);
                 mama.setVisibility(View.GONE);
-                doSaves();
                 finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
     public void saveP() {
 
         int spinnerPosition = spinner.getSelectedItemPosition();
@@ -142,25 +141,31 @@ public class Settings extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(),
                 "Выбранна группа: " + choose[spinnerPosition], Toast.LENGTH_SHORT);
         toast.show();
-
     }
-
     public void setBg() {
-
 
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
+                RadioButton checkedRadioButton = radioGroup.findViewById(i);
+                int checkedIndex = radioGroup.indexOfChild(checkedRadioButton);
+                SavePreferences(KEY_RADIOBUTTON_INDEX, checkedIndex);
+                switch (i) {
+                    case R.id.r_svet:
+                        ThemeWrithe();
+                        break;
+                    case R.id.r_dark:
+                        ThemeDark();
+                        break;
+                }
             }
         });
-
 
         eng.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 SharedPreferences settings = getSharedPreferences("mysettings", 0);
-
                 SharedPreferences.Editor editor = settings.edit();
                 boolean checkBoxValue = eng.isChecked();
                 editor.putBoolean("check", checkBoxValue);
@@ -173,185 +178,53 @@ public class Settings extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 SharedPreferences settings = getSharedPreferences("dec", 1);
                 SharedPreferences.Editor editor = settings.edit();
-
                 boolean checkBoxValue = dec.isChecked();
                 editor.putBoolean("check", checkBoxValue);
                 editor.apply();
             }
         });
 
-     /*   vid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        sw_save.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (vid.isChecked()) {
-
-                    r_s.setChecked(true);
-                    r_s.setClickable(false);
-                    r_d.setClickable(false);
-                    setm.setBackgroundResource(R.color.colorWhitee);
-                    name1.setTextSize(20);
-                    name2.setTextSize(20);
-                    name3.setTextSize(20);
-                    eng.setTextSize(18);
-                    dec.setTextSize(18);
-                    r_d.setTextSize(18);
-                    r_s.setTextSize(18);
-                    vid.setTextSize(18);
-                    uss.setTextSize(18);
-
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        Window window = getWindow();
-                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
-                    }
-
-                    toolbar.setBackgroundResource(R.color.colorPrimaryD);
-////sx
-
-                    eng.setTypeface(Typeface.DEFAULT_BOLD);
-                    dec.setTypeface(Typeface.DEFAULT_BOLD);
-                    r_d.setTypeface(Typeface.DEFAULT_BOLD);
-                    r_s.setTypeface(Typeface.DEFAULT_BOLD);
-                    vid.setTypeface(Typeface.DEFAULT_BOLD);
-
-                    name1.setTypeface(Typeface.DEFAULT_BOLD);
-                    name2.setTypeface(Typeface.DEFAULT_BOLD);
-                    name3.setTypeface(Typeface.DEFAULT_BOLD);
-
-                    name1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-                    name2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-                    name3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-                    vid.setTextColor(getResources().getColor(R.color.colorTextBlack));
-                } else {
-
-                    r_s.setChecked(true);
-                    r_s.setClickable(true);
-                    r_d.setClickable(true);
-
-                    l1.setBackgroundResource(R.color.colorNewstitle);
-                    l2.setBackgroundResource(R.color.colorNewstitle);
-                    l3.setBackgroundResource(R.color.colorNewstitle);
-                    l4.setBackgroundResource(R.color.colorNewstitle);
-
-                    name1.setTextSize(16);
-                    name2.setTextSize(16);
-                    name3.setTextSize(16);
-                    eng.setTextSize(14);
-                    dec.setTextSize(14);
-                    r_d.setTextSize(14);
-                    r_s.setTextSize(14);
-                    vid.setTextSize(14);
-                    uss.setTextSize(14);
-
-                    eng.setTypeface(Typeface.DEFAULT);
-                    dec.setTypeface(Typeface.DEFAULT);
-                    r_d.setTypeface(Typeface.DEFAULT);
-                    r_s.setTypeface(Typeface.DEFAULT);
-                    vid.setTypeface(Typeface.DEFAULT);
-                    name1.setTypeface(Typeface.DEFAULT);
-                    name2.setTypeface(Typeface.DEFAULT);
-                    name3.setTypeface(Typeface.DEFAULT);
-
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        Window window = getWindow();
-                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
-                    }
-                    toolbar.setBackgroundResource(R.color.colorPrimary);
-                }
-                SharedPreferences settings = getSharedPreferences("vid", 3);
-                SharedPreferences.Editor editor = settings.edit();
-
-                boolean checkBoxValue = vid.isChecked();
-                editor.putBoolean("check", checkBoxValue);
+                SharedPreferences sa = getSharedPreferences("saves", 2);
+                SharedPreferences.Editor editor = sa.edit();
+                boolean checkBoxValue = sw_save.isChecked();
+                editor.putBoolean("af", checkBoxValue);
                 editor.apply();
-                doSaves();
-
-                saves();
-
-            }
-        });*/
-        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                switch (checkedId) {
-                    case R.id.r_svet:
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            Window window = getWindow();
-                            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
-                        }
-                        toolbar.setBackgroundResource(R.color.colorPrimary);
-                        l1.setBackgroundResource(R.color.colorNewstitle);
-                        l2.setBackgroundResource(R.color.colorNewstitle);
-                     /*   l3.setBackgroundResource(R.color.colorNewstitle);
-                        l4.setBackgroundResource(R.color.colorNewstitle);*/
-
-                        setm.setBackgroundResource(R.color.colorWhitee);
-
-                        name1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-                        name2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-                        name3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-                   /*     vid.setTextColor(getResources().getColor(R.color.colorTextBlack));*/
-
-                        SharedPreferences settings = getSharedPreferences("status", 0);
-                        SharedPreferences.Editor editor = settings.edit();
-
-                        boolean checkBoxValue = dec.isChecked();
-                        editor.putBoolean("blue", checkBoxValue);
-                        editor.apply();
-
-                        break;
-                    case R.id.r_dark:
-
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            Window window = getWindow();
-                            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
-                        }
-                        l1.setBackgroundResource(R.color.colorSigma);
-                        l2.setBackgroundResource(R.color.colorSigma);
-                       /* l3.setBackgroundResource(R.color.colorSigma);
-                        l4.setBackgroundResource(R.color.colorSigma);*/
-
-                        toolbar.setBackgroundResource(R.color.colorPrimaryD);
-                        setm.setBackgroundResource(R.color.colorPrimaryS);
-                        name1.setTextColor(getResources().getColor(R.color.colorWhitee));
-                        name2.setTextColor(getResources().getColor(R.color.colorWhitee));
-                        name3.setTextColor(getResources().getColor(R.color.colorWhitee));
-                      /*  vid.setTextColor(getResources().getColor(R.color.colorWhitee));*/
-
-                        SharedPreferences settingsa = getSharedPreferences("status", 0);
-                        SharedPreferences.Editor editors = settingsa.edit();
-
-                        boolean checkBoxValues = dec.isChecked();
-                        editors.putBoolean("orange", checkBoxValues);
-                        editors.apply();
-                        break;
-
-                    default:
-                        break;
-                }
-                saves();
             }
         });
     }
 
-    private void themeSettings() {
+    private void SavePreferences(String key, int value) {
+        SharedPreferences sharedPreferences = getSharedPreferences(
+                APP_PREFERENCES, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(key, value);
+        editor.apply();
+    }
 
-        SharedPreferences sharedPreferences = this.getSharedPreferences("gameSetting", Context.MODE_PRIVATE);
-        if (sharedPreferences != null) {
-
-            int checkedRadioButtonId = sharedPreferences.getInt("checkedRadioButtonId", R.id.r_svet);
-            rg.check(checkedRadioButtonId);
-
-        } else {
-            rg.check(R.id.r_svet);
-
+    private void LoadPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences(
+                APP_PREFERENCES, MODE_PRIVATE);
+        int savedRadioIndex = sharedPreferences.getInt(
+                KEY_RADIOBUTTON_INDEX, 0);
+        RadioButton savedCheckedRadioButton = (RadioButton) rg.getChildAt(savedRadioIndex);
+        savedCheckedRadioButton.setChecked(true);
+        switch (savedRadioIndex) {
+            case 0:
+                ThemeWrithe();
+                break;
+            case 1:
+                ThemeDark();
+                break;
         }
+    }
 
+    public void LoadPosition() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        int position = sharedPreferences.getInt("name", -1);
+        spinner.setSelection(position);
     }
 
     public void doSaves() {
@@ -388,38 +261,44 @@ public class Settings extends AppCompatActivity {
         editor.apply();
     }
 
-   /* public void vids() {
-        SharedPreferences settings = this.getSharedPreferences("vid", 3);
-        vid.setChecked(settings.getBoolean("check", false));
-        if (vid.isChecked()) {
-            name1.setTextSize(20);
-            name2.setTextSize(20);
-            name3.setTextSize(20);
-            eng.setTextSize(18);
-            dec.setTextSize(18);
-            r_d.setTextSize(18);
-            r_s.setTextSize(18);
-            vid.setTextSize(18);
-            name1.setTypeface(Typeface.DEFAULT_BOLD);
-            name2.setTypeface(Typeface.DEFAULT_BOLD);
-            name3.setTypeface(Typeface.DEFAULT_BOLD);
-        } else {
-            name1.setTextSize(16);
-            name2.setTextSize(16);
-            name3.setTextSize(16);
-
-            name1.setTypeface(Typeface.DEFAULT);
-            name2.setTypeface(Typeface.DEFAULT);
-            name3.setTypeface(Typeface.DEFAULT);
+    public void LoadP() {
+        SharedPreferences settings = getSharedPreferences("saves", 2);
+        sw_save.setChecked(settings.getBoolean("af", false));
+        if (sw_save.isChecked()) {
+            LoadPosition();
         }
-    }*/
 
-    public void saves() {
-        SharedPreferences settings = getSharedPreferences("status", 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean("blue", r_s.isChecked());
-        editor.putBoolean("orange", r_d.isChecked());
-        editor.apply();
+    }
 
+    public void ThemeWrithe() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
+        toolbar.setBackgroundResource(R.color.colorPrimary);
+        l1.setBackgroundResource(R.color.colorNewstitle);
+        l2.setBackgroundResource(R.color.colorNewstitle);
+
+        setm.setBackgroundResource(R.color.colorWhitee);
+        name1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        name2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        name3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+    }
+
+    public void ThemeDark() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
+        }
+        l1.setBackgroundResource(R.color.colorSigma);
+        l2.setBackgroundResource(R.color.colorSigma);
+
+        toolbar.setBackgroundResource(R.color.colorPrimaryD);
+        setm.setBackgroundResource(R.color.colorPrimaryS);
+        name1.setTextColor(getResources().getColor(R.color.colorWhitee));
+        name2.setTextColor(getResources().getColor(R.color.colorWhitee));
+        name3.setTextColor(getResources().getColor(R.color.colorWhitee));
     }
 }

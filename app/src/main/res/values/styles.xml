@@ -1,57 +1,63 @@
 <resources>
-    <!-- Base application theme. -->
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <!--   <item name="android:textColor">#ffffff</item>-->
+    </style>
+
+    <style name="ThemeWrithe" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="toolbarStyle">@style/ToolbarSule</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccentD</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ThemeDark" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryD</item>
+        <item name="toolbarStyle">@style/ToolbarSuleS</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkD</item>
+        <item name="colorAccent">@color/colorAccentD</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
     </style>
+
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="ToolbarSule" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="ToolbarSuleS" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimaryD</item>
+    </style>
+
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="ToolbarTitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18sp</item>
-        <!-- include other attributes you want to change: textColor, textStyle, etc -->
     </style>
 
     <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">12sp</item>
     </style>
-    /// Color subTitleItemMenu
-    <style name="TextAppearance44">
+
+    <style name="MenuLine">
         <item name="android:textColor">@color/colorTextSub</item>
         <item name="android:textSize">10sp</item>
     </style>
 
-    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <!-- Used for the buttons -->
-        <item name="colorAccent">@color/colorAccent</item>
-        <!-- Used for the title and text -->
-        <item name="android:textColorPrimary">@color/colorTextSub</item>
-        <!-- Used for the background -->
-
-        <item name="android:windowTitleStyle">@style/MyTitleTextStyle</item>
-    </style>
-    <style name="MyTitleTextStyle">
-        <item name="android:textColor">@color/colorPrimaryDark</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
-    </style>
-
-
-    <style name="AudioFileInfoOverlayText">
-        <item name="android:paddingLeft">2dp</item>
-        <item name="android:paddingBottom">2dp</item>
-        <item name="android:shadowColor">#313131</item>
-        <item name="android:shadowDx">1</item>
-        <item name="android:shadowDy">1</item>
-        <item name="android:shadowRadius">1</item>
-    </style>
 </resources>

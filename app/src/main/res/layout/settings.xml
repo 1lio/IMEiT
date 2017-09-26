@@ -64,7 +64,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingBottom="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
 
@@ -85,11 +84,23 @@
                 android:layout_height="24dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginRight="2dp"
                 android:layout_toEndOf="@+id/uss"
                 android:textAlignment="center" />
+
             <!--  android:popupBackground="@color/colorPrimary"-->
 
         </RelativeLayout>
+
+        <Switch
+            android:id="@+id/sw_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginRight="16dp"
+            android:paddingLeft="16dp"
+            android:text="@string/save_group"
+            android:textColor="@color/colorTextSub" />
 
         <LinearLayout
             android:id="@+id/ll1"
@@ -152,7 +163,8 @@
             android:paddingTop="16dp"
             android:text="@string/thema"
             android:textColor="@color/colorTextBlack"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:visibility="visible" />
 
         <RadioGroup
             android:id="@+id/rg"
@@ -160,7 +172,8 @@
             android:layout_height="wrap_content"
             android:paddingBottom="16dp"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:paddingRight="16dp"
+            android:visibility="visible">
 
             <RadioButton
                 android:id="@+id/r_svet"

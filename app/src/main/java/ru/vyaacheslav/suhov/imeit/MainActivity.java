@@ -1,12 +1,10 @@
 package ru.vyaacheslav.suhov.imeit;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
-import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -38,6 +36,8 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String APP_PREFERENCES = "sasa";
+    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     public RadioGroup rg;
     RelativeLayout dexp;
     int NOTIFICATION_ID = 123;
@@ -53,23 +53,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.ThemeWrithe);
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+        if (prefs.getBoolean("isFirstRun", true)) {
+            Intent intent = new Intent(MainActivity.this, Settings.class);
+            startActivity(intent);
+        } else {
+        }
+        prefs.edit().putBoolean("isFirstRun", false).apply();
+
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView = (NavigationView) findViewById(R.id.shitstuff);
         dexp = (RelativeLayout) findViewById(R.id.dexs);
+        rg = (RadioGroup) findViewById(R.id.rg);
+
         calendar = Calendar.getInstance();
-        checkAndSetImage();
+
         Menu menu = navigationView.getMenu();
-        /*MenuItem tools = menu.findItem(R.id.tools);*/
         MenuItem tools2 = menu.findItem(R.id.tools2);
-       /* SpannableString s = new SpannableString(tools.getTitle());*/
         SpannableString b = new SpannableString(tools2.getTitle());
-       /* s.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, s.length(), 0);*/
-        b.setSpan(new TextAppearanceSpan(this, R.style.TextAppearance44), 0, b.length(), 0);
-      /*  tools.setTitle(s);*/
+        b.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, b.length(), 0);
         tools2.setTitle(b);
 
         FM = getSupportFragmentManager();
@@ -128,7 +135,9 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
         loadName();
+        LoadPreferences();
 
       /*  dayNotifications();*/
     }
@@ -154,99 +163,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadName() {
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         int position = sharedPreferences.getInt("name", -1);
+        String[] choose = getResources().getStringArray(R.array.bak_groops);
+        MainActivity.this.getSupportActionBar().setSubtitle(choose[position]);
 
-
-        switch (position) {
-            case 0:
-                MainActivity.this.getSupportActionBar().setSubtitle("ФМиИ-11");
-                break;
-            case 1:
-                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-11");
-                break;
-            case 2:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-12");
-                break;
-            case 3:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-11");
-                break;
-
-            case 4:
-                MainActivity.this.getSupportActionBar().setSubtitle("МИ-21");
-                break;
-
-            case 5:
-                MainActivity.this.getSupportActionBar().setSubtitle("МФ-21");
-                break;
-            case 6:
-                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-21");
-                break;
-            case 7:
-                MainActivity.this.getSupportActionBar().setSubtitle("БИ-21");
-                break;
-            case 8:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-21");
-                break;
-            case 9:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИСиТ-21");
-                break;
-            case 10:
-                MainActivity.this.getSupportActionBar().setSubtitle("НЭ-21");
-                break;
-            case 11:
-                MainActivity.this.getSupportActionBar().setSubtitle("БХ-21");
-                break;
-            case 12:
-                MainActivity.this.getSupportActionBar().setSubtitle("ЕГ-21");
-                break;
-            case 13:
-                MainActivity.this.getSupportActionBar().setSubtitle("МФ-31");
-                break;
-            case 14:
-                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-31");
-                break;
-            case 15:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-31");
-                break;
-            case 16:
-                MainActivity.this.getSupportActionBar().setSubtitle("НЭ-31");
-                break;
-            case 17:
-                MainActivity.this.getSupportActionBar().setSubtitle("М-41");
-                break;
-            case 18:
-                MainActivity.this.getSupportActionBar().setSubtitle("ФМ-41");
-                break;
-            case 19:
-                MainActivity.this.getSupportActionBar().setSubtitle("ПМ-41");
-                break;
-            case 20:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТ-41");
-                break;
-            case 21:
-                MainActivity.this.getSupportActionBar().setSubtitle("НЭ-41");
-                break;
-            case 22:
-                MainActivity.this.getSupportActionBar().setSubtitle("МиИТм-11");
-                break;
-            case 23:
-                MainActivity.this.getSupportActionBar().setSubtitle("ПМм-11");
-                break;
-            case 24:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИиВтМ-11");
-                break;
-            case 25:
-                MainActivity.this.getSupportActionBar().setSubtitle("Мм-21");
-                break;
-            case 26:
-                MainActivity.this.getSupportActionBar().setSubtitle("ПМм-21");
-                break;
-            case 27:
-                MainActivity.this.getSupportActionBar().setSubtitle("ИиВТм-21");
-                break;
-
-        }
     }
 
     private boolean isNetworkConnected() {
@@ -264,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void dayNotifications() {
+   /* public void dayNotifications() {
 
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -322,10 +244,10 @@ public class MainActivity extends AppCompatActivity {
             case Calendar.THURSDAY:
 
                 Notification.Builder builder12 = new Notification.Builder(getApplicationContext());
-             /*   Intent intent = new Intent(MainActivity.this,MainActivity.class);*/
+             *//*   Intent intent = new Intent(MainActivity.this,MainActivity.class);*//*
 
                 builder12
-              /*          .setContentIntent(PendingIntent.readPendingIntentOrNullFromParcel())*/
+              *//*          .setContentIntent(PendingIntent.readPendingIntentOrNullFromParcel())*//*
                         .setSmallIcon(R.drawable.notif)
                         .setLargeIcon(BitmapFactory.decodeResource(getApplication().getResources(), R.drawable.ic_mat))
                         .setTicker("Расписание на четверг")
@@ -340,33 +262,46 @@ public class MainActivity extends AppCompatActivity {
             case Calendar.FRIDAY:
                 break;
         }
+    }*/
+
+    private void LoadPreferences() {
+        SharedPreferences sharedPreferences = getSharedPreferences(
+                APP_PREFERENCES, MODE_PRIVATE);
+        int savedRadioIndex = sharedPreferences.getInt(
+                KEY_RADIOBUTTON_INDEX, 0);
+        switch (savedRadioIndex) {
+            case 0:
+                ThemeWrithe();
+                break;
+            case 1:
+                ThemeDark();
+                break;
+        }
     }
 
-    private void checkAndSetImage() {
-        SharedPreferences settings = getSharedPreferences("status", 0);
-        if (settings.getBoolean("orange", false)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+    public void ThemeWrithe() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
 
-            }
-            navigationView.setBackgroundResource(R.color.colorWhitee);
-            navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
-            navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
-            toolbar.setBackgroundResource(R.color.colorPrimary);
         }
-        if (settings.getBoolean("blue", false)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
-            }
-            navigationView.setBackgroundResource(R.color.colorPrimarySS);
-            navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
-            navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
-            toolbar.setBackgroundResource(R.color.colorPrimaryD);
+        navigationView.setBackgroundResource(R.color.colorWhitee);
+        navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
+        navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
+        toolbar.setBackgroundResource(R.color.colorPrimary);
+    }
+
+    public void ThemeDark() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
         }
+        navigationView.setBackgroundResource(R.color.colorPrimarySS);
+        navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
+        navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
+        toolbar.setBackgroundResource(R.color.colorPrimaryD);
     }
 
 }

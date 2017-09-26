@@ -15,8 +15,12 @@ import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class Fri extends Fragment {
 
+    public static final String APP_PREFERENCES = "sasa";
+    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
     public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5, m_l_5z, l1, l2, l3, l4, l5;
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
@@ -25,9 +29,7 @@ public class Fri extends Fragment {
             p6, m_p6_tz, m_p6_kz, p6a, m_p6_t, m_p6_k, p6az, p6z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12;
     Spinner spinner;
     Switch eng, dec;
-
     RelativeLayout mk;
-
     public Fri() {
     }
 
@@ -127,7 +129,7 @@ public class Fri extends Fragment {
         m_p6_tz = v.findViewById(R.id.f_p6_tz);
         m_p6_kz = v.findViewById(R.id.f_p6_kz);
 
-        themeS();
+        LoadPreferences();
         loadMethod();
 
         return v;
@@ -231,6 +233,50 @@ public class Fri extends Fragment {
                 break;
             case 27:
                 IIvtm_21();
+                break;
+            case 28:
+                XBiG_11();
+                break;
+            case 29:
+                FC_11();
+                break;
+            case 30:
+                FR_11();
+                break;
+            case 31:
+                FR_12();
+                break;
+            case 32:
+                FC_21();
+                break;
+            case 33:
+                FR_21();
+                break;
+            case 34:
+                BX_31();
+                break;
+            case 35:
+                ME_31();
+                break;
+            case 36:
+                FC_31();
+                break;
+            case 37:
+                FP_31();
+                break;
+            case 38:
+                FC_41();
+                break;
+            case 39:
+                FP_41();
+                break;
+            case 40:
+                FCm_11();
+                break;
+            case 41:
+                FCm_21();
+                break;
+            default:
                 break;
 
         }
@@ -446,7 +492,6 @@ public class Fri extends Fragment {
         p1az.setText(getResources().getString(R.string.gubin));
         m_p1_tz.setText(getResources().getString(R.string.lk));
         m_p1_kz.setText(getResources().getString(R.string.uk1_2));
-
 
         p2z.setText(getResources().getString(R.string.or_ibm));
         p2az.setText(getResources().getString(R.string.gubin));
@@ -930,105 +975,358 @@ public class Fri extends Fragment {
 
     }
 
-    private void themeS() {
-        SharedPreferences settings = getContext().getSharedPreferences("status", 0);
-        if (settings.getBoolean("orange", false)) {
-
-            mk.setBackgroundResource(R.color.colorWhitee);
-            p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            m_p1_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            p1z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            m_p1_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-            p2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            m_p2_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            p2z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            m_p2_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-            p3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            m_p3_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            p3z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            m_p3_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-            p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            m_p4_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-            s1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s5.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s6.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s7.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s8.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s9.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s10.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s11.setTextColor(getResources().getColor(R.color.colorTextBlack));
-            s12.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-            l1.setBackgroundResource(R.color.colorNewstitle);
-            l2.setBackgroundResource(R.color.colorNewstitle);
-            l3.setBackgroundResource(R.color.colorNewstitle);
-            l4.setBackgroundResource(R.color.colorNewstitle);
-            l5.setBackgroundResource(R.color.colorNewstitle);
-
-            m_l1.setBackgroundResource(R.color.colorNewstitle);
-            m_l2.setBackgroundResource(R.color.colorNewstitle);
-            m_l3.setBackgroundResource(R.color.colorNewstitle);
-            m_l4.setBackgroundResource(R.color.colorNewstitle);
-            m_l5.setBackgroundResource(R.color.colorNewstitle);
-
+    private void LoadPreferences() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
+                APP_PREFERENCES, MODE_PRIVATE);
+        int savedRadioIndex = sharedPreferences.getInt(
+                KEY_RADIOBUTTON_INDEX, 0);
+        switch (savedRadioIndex) {
+            case 0:
+                ThemeWrite();
+                break;
+            case 1:
+                ThemeDark();
+                break;
         }
-        if (settings.getBoolean("blue", false)) {
-            mk.setBackgroundResource(R.color.colorPrimaryF);
-            p1.setTextColor(getResources().getColor(R.color.colorWhitee));
-            m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-            p1z.setTextColor(getResources().getColor(R.color.colorWhitee));
-            m_p1_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+    }
 
-            p2.setTextColor(getResources().getColor(R.color.colorWhitee));
-            m_p2_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-            p2z.setTextColor(getResources().getColor(R.color.colorWhitee));
-            m_p2_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+    public void ThemeWrite() {
 
-            p3.setTextColor(getResources().getColor(R.color.colorWhitee));
-            m_p3_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-            p3z.setTextColor(getResources().getColor(R.color.colorWhitee));
-            m_p3_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+        mk.setBackgroundResource(R.color.colorWhitee);
+        p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p1_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p1z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p1_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
 
-            p4.setTextColor(getResources().getColor(R.color.colorWhitee));
-            m_p4_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-            p4z.setTextColor(getResources().getColor(R.color.colorWhitee));
-            m_p4_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p2_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p2z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p2_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
 
-            s1.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s2.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s3.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s4.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s5.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s6.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s7.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s8.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s9.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s10.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s11.setTextColor(getResources().getColor(R.color.colorWhitee));
-            s12.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p3_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p3z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p3_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
 
-            m_l1.setBackgroundResource(R.drawable.side_nav_bar);
-            m_l2.setBackgroundResource(R.drawable.side_nav_bar);
-            m_l3.setBackgroundResource(R.drawable.side_nav_bar);
-            m_l4.setBackgroundResource(R.drawable.side_nav_bar);
-            m_l5.setBackgroundResource(R.drawable.side_nav_bar);
+        p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p4_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
+        s1.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s2.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s3.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s4.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s5.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s6.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s7.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s8.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s9.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s10.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s11.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        s12.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
+        l1.setBackgroundResource(R.color.colorNewstitle);
+        l2.setBackgroundResource(R.color.colorNewstitle);
+        l3.setBackgroundResource(R.color.colorNewstitle);
+        l4.setBackgroundResource(R.color.colorNewstitle);
+
+        m_l1.setBackgroundResource(R.color.colorNewstitle);
+        m_l2.setBackgroundResource(R.color.colorNewstitle);
+        m_l3.setBackgroundResource(R.color.colorNewstitle);
+        m_l4.setBackgroundResource(R.color.colorNewstitle);
+        m_l5.setBackgroundResource(R.color.colorNewstitle);
 
 
-            l1.setBackgroundResource(R.color.colorSigma);
-            l2.setBackgroundResource(R.color.colorSigma);
-            l3.setBackgroundResource(R.color.colorSigma);
-            l4.setBackgroundResource(R.color.colorSigma);
-            l5.setBackgroundResource(R.color.colorSigma);
+    }
 
-        }
+    public void ThemeDark() {
+
+        mk.setBackgroundResource(R.color.colorPrimaryF);
+        p1.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p1z.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p1_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+        p2.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p2_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p2z.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p2_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+        p3.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p3_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p3z.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p3_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+        p4.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p4_t.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p4z.setTextColor(getResources().getColor(R.color.colorWhitee));
+        m_p4_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+        s1.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s2.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s3.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s4.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s5.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s6.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s7.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s8.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s9.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s10.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s11.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s12.setTextColor(getResources().getColor(R.color.colorWhitee));
+
+        m_l1.setBackgroundResource(R.drawable.side_nav_bar);
+        m_l2.setBackgroundResource(R.drawable.side_nav_bar);
+        m_l3.setBackgroundResource(R.drawable.side_nav_bar);
+        m_l4.setBackgroundResource(R.drawable.side_nav_bar);
+        m_l5.setBackgroundResource(R.drawable.side_nav_bar);
+
+
+        l1.setBackgroundResource(R.color.colorSigma);
+        l2.setBackgroundResource(R.color.colorSigma);
+        l3.setBackgroundResource(R.color.colorSigma);
+        l4.setBackgroundResource(R.color.colorSigma);
+
+    }
+
+    public void XBiG_11() {
+
+        p1.setText(getResources().getString(R.string.inlangAaN));
+        p1a.setText(getResources().getString(R.string.leb_sedova));
+        m_p1_t.setText(getResources().getString(R.string.pz));
+        m_p1_k.setText(getResources().getString(R.string.uk1_13_24));
+        Null_Mon_Z_2();
+
+        p2.setText(getResources().getString(R.string.osn_mat_inf));
+        p2a.setText(getResources().getString(R.string.tarova));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk2_113));
+        p2z.setText(getResources().getString(R.string.osn_mat_inf));
+        p2az.setText(getResources().getString(R.string.tarova));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk2_113));
+
+        p3.setText(getResources().getString(R.string.osn_mat_inf));
+        p3a.setText(getResources().getString(R.string.tarova));
+        m_p3_t.setText(getResources().getString(R.string.lb));
+        m_p3_k.setText(getResources().getString(R.string.uk2_113));
+
+    }
+
+    public void FC_11() {
+
+        p1.setText(getResources().getString(R.string.inlangAaN));
+        p1a.setText(getResources().getString(R.string.leb_sedova));
+        m_p1_t.setText(getResources().getString(R.string.pz));
+        m_p1_k.setText(getResources().getString(R.string.uk1_13_24));
+        Null_Mon_Z_2();
+
+        p2.setText(getResources().getString(R.string.physics));
+        p2a.setText(getResources().getString(R.string.trofimova));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk1_9));
+        p2z.setText(getResources().getString(R.string.physics));
+        p2az.setText(getResources().getString(R.string.trofimova));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk1_9));
+
+        p3.setText(getResources().getString(R.string.physics));
+        p3a.setText(getResources().getString(R.string.trofimova));
+        m_p3_t.setText(getResources().getString(R.string.lb));
+        m_p3_k.setText(getResources().getString(R.string.uk1_6));
+
+    }
+
+    public void FR_11() {
+
+        p1.setText(getResources().getString(R.string.inlangAaN));
+        p1a.setText(getResources().getString(R.string.leb_sedova));
+        m_p1_t.setText(getResources().getString(R.string.pz));
+        m_p1_k.setText(getResources().getString(R.string.uk1_13_24));
+        Null_Mon_Z_2();
+
+        p2.setText(getResources().getString(R.string.physics));
+        p2a.setText(getResources().getString(R.string.trofimova));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk1_9));
+        p2z.setText(getResources().getString(R.string.physics));
+        p2az.setText(getResources().getString(R.string.trofimova));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk1_9));
+
+        p3.setText(getResources().getString(R.string.physics));
+        p3a.setText(getResources().getString(R.string.trofimova));
+        m_p3_t.setText(getResources().getString(R.string.lb));
+        m_p3_k.setText(getResources().getString(R.string.uk1_6));
+    }
+
+    public void FR_12() {
+
+        p1.setText(getResources().getString(R.string.inlangAaN));
+        p1a.setText(getResources().getString(R.string.leb_sedova));
+        m_p1_t.setText(getResources().getString(R.string.pz));
+        m_p1_k.setText(getResources().getString(R.string.uk1_13_24));
+        Null_Mon_Z_2();
+
+        p2.setText(getResources().getString(R.string.physics));
+        p2a.setText(getResources().getString(R.string.trofimova));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk1_9));
+        p2z.setText(getResources().getString(R.string.physics));
+        p2az.setText(getResources().getString(R.string.trofimova));
+        m_p2_tz.setText(getResources().getString(R.string.pz));
+        m_p2_kz.setText(getResources().getString(R.string.uk1_9));
+
+        p3.setText(getResources().getString(R.string.physics));
+        p3a.setText(getResources().getString(R.string.trofimova));
+        m_p3_t.setText(getResources().getString(R.string.lb));
+        m_p3_k.setText(getResources().getString(R.string.uk1_6));
+    }
+
+    public void FC_21() {
+
+    }
+
+    public void FR_21() {
+
+
+    }
+
+    public void BX_31() {
+
+        p1z.setText(getResources().getString(R.string.practic));
+        p1az.setVisibility(View.GONE);
+        m_p1_tz.setVisibility(View.GONE);
+        m_p1_kz.setVisibility(View.GONE);
+
+        p2z.setText(getResources().getString(R.string.practic));
+        p2az.setVisibility(View.GONE);
+        m_p2_tz.setVisibility(View.GONE);
+        m_p2_kz.setVisibility(View.GONE);
+
+        p3z.setText(getResources().getString(R.string.practic));
+        p3az.setVisibility(View.GONE);
+        m_p3_tz.setVisibility(View.GONE);
+        m_p3_kz.setVisibility(View.GONE);
+
+        p4z.setText(getResources().getString(R.string.practic));
+        p4az.setVisibility(View.GONE);
+        m_p4_tz.setVisibility(View.GONE);
+        m_p4_kz.setVisibility(View.GONE);
+
+
+    }
+
+    public void ME_31() {
+
+        p1z.setText(getResources().getString(R.string.practic));
+        p1az.setVisibility(View.GONE);
+        m_p1_tz.setVisibility(View.GONE);
+        m_p1_kz.setVisibility(View.GONE);
+
+        p2z.setText(getResources().getString(R.string.practic));
+        p2az.setVisibility(View.GONE);
+        m_p2_tz.setVisibility(View.GONE);
+        m_p2_kz.setVisibility(View.GONE);
+
+        p3z.setText(getResources().getString(R.string.practic));
+        p3az.setVisibility(View.GONE);
+        m_p3_tz.setVisibility(View.GONE);
+        m_p3_kz.setVisibility(View.GONE);
+
+        p4z.setText(getResources().getString(R.string.practic));
+        p4az.setVisibility(View.GONE);
+        m_p4_tz.setVisibility(View.GONE);
+        m_p4_kz.setVisibility(View.GONE);
+
+
+    }
+
+    public void FC_31() {
+
+    }
+
+    public void FP_31() {
+
+        p1.setText(getResources().getString(R.string.radiousttr));
+        p1a.setText(getResources().getString(R.string.pechkov));
+        m_p1_t.setText(getResources().getString(R.string.lk));
+        m_p1_k.setText(getResources().getString(R.string.uk14_205));
+        Null_Mon_Z();
+
+    }
+
+    public void FC_41() {
+
+        p2.setText(getResources().getString(R.string.radiolocal));
+        p2a.setText(getResources().getString(R.string.pechkov));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk14_205));
+        p2z.setText(getResources().getString(R.string.radiolocal));
+        p2az.setText(getResources().getString(R.string.pechkov));
+        m_p2_tz.setText(getResources().getString(R.string.lk));
+        m_p2_kz.setText(getResources().getString(R.string.uk14_205));
+
+        p3.setText(getResources().getString(R.string.tex_exp_appr));
+        p3a.setText(getResources().getString(R.string.pechkov));
+        m_p3_t.setText(getResources().getString(R.string.lb));
+        m_p3_k.setText(getResources().getString(R.string.uk14_205));
+
+        p4.setText(getResources().getString(R.string.beda));
+        p4a.setText(getResources().getString(R.string.pechkov));
+        m_p4_t.setText(getResources().getString(R.string.lb));
+        m_p4_k.setText(getResources().getString(R.string.uk14_215));
+        p4z.setText(getResources().getString(R.string.tex_exp_appr));
+        p4az.setText(getResources().getString(R.string.pechkov));
+        m_p4_tz.setText(getResources().getString(R.string.lk));
+        m_p4_kz.setText(getResources().getString(R.string.uk14_205));
+
+    }
+
+    public void FP_41() {
+
+        p2.setText(getResources().getString(R.string.radiolocal));
+        p2a.setText(getResources().getString(R.string.pechkov));
+        m_p2_t.setText(getResources().getString(R.string.lk));
+        m_p2_k.setText(getResources().getString(R.string.uk14_205));
+        p2z.setText(getResources().getString(R.string.radiolocal));
+        p2az.setText(getResources().getString(R.string.pechkov));
+        m_p2_tz.setText(getResources().getString(R.string.lk));
+        m_p2_kz.setText(getResources().getString(R.string.uk14_205));
+
+        p3.setText(getResources().getString(R.string.tex_exp_appr));
+        p3a.setText(getResources().getString(R.string.pechkov));
+        m_p3_t.setText(getResources().getString(R.string.lb));
+        m_p3_k.setText(getResources().getString(R.string.uk14_205));
+
+        p4z.setText(getResources().getString(R.string.tex_exp_appr));
+        p4az.setText(getResources().getString(R.string.pechkov));
+        m_p4_tz.setText(getResources().getString(R.string.lk));
+        m_p4_kz.setText(getResources().getString(R.string.uk14_205));
+
+    }
+
+    public void FCm_11() {
+
+        p3z.setText(getResources().getString(R.string.comp_tex_nou));
+        p3az.setText(getResources().getString(R.string.gubina));
+        m_p3_tz.setText(getResources().getString(R.string.lb));
+        m_p3_kz.setText(getResources().getString(R.string.uk16_301a));
+
+        p4.setText(getResources().getString(R.string.in_lan_prof));
+        p4a.setText(getResources().getString(R.string.leb_sedova));
+        m_p4_t.setText(getResources().getString(R.string.lk));
+        m_p4_k.setText(getResources().getString(R.string.uk4_28_13));
+        Null_Mon_Z_4();
+
+        p5z.setText(getResources().getString(R.string.comp_tex_nou));
+        p5az.setText(getResources().getString(R.string.gubina));
+        m_p5_tz.setText(getResources().getString(R.string.lb));
+        m_p5_kz.setText(getResources().getString(R.string.uk16_301a));
+
+    }
+
+    public void FCm_21() {
     }
 }
