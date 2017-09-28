@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:defaultValue="1"
+        android:dialogTitle="Выберите группу"
+        android:entries="@array/bak_groops"
+        android:entryValues="@array/bak_groops"
+        android:key="@string/pref_style"
+        android:summary="Расписание группы"
+        android:title="Ваша группа" />
+</PreferenceScreen>

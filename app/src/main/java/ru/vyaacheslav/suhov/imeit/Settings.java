@@ -88,10 +88,10 @@ public class Settings extends AppCompatActivity {
 
         SharedPreferences settings = getSharedPreferences("mysettings", 0);
         eng.setChecked(settings.getBoolean("check", false));
-        SharedPreferences des = getSharedPreferences("dec", 1);
-        dec.setChecked(des.getBoolean("check", false));
-        SharedPreferences savess = getSharedPreferences("saves", 2);
-        sw_save.setChecked(savess.getBoolean("af", false));
+       /* SharedPreferences des = getSharedPreferences("dec", 1);
+        dec.setChecked(des.getBoolean("zszs", false));*/
+        /*SharedPreferences savess = getSharedPreferences("saves", 2);
+        sw_save.setChecked(savess.getBoolean("af", false));*/
         LoadP();
         LoadPreferences();
         setBg();
@@ -262,11 +262,11 @@ public class Settings extends AppCompatActivity {
     }
 
     public void LoadP() {
-        SharedPreferences settings = getSharedPreferences("saves", 2);
+      /*  SharedPreferences settings = getSharedPreferences("saves", 2);
         sw_save.setChecked(settings.getBoolean("af", false));
         if (sw_save.isChecked()) {
             LoadPosition();
-        }
+        }*/
 
     }
 

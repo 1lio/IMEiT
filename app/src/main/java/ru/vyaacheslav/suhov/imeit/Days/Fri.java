@@ -136,149 +136,140 @@ public class Fri extends Fragment {
     }
 
     public void loadMethod() {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        int position = sharedPreferences.getInt("spnCalorieRange", -1);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String position = prefs.getString(getString(R.string.pref_style), "");
         layoutVisable();
+
         switch (position) {
-            case 0:
+            case "ФМиИ-11":
                 FMiI_11();
                 break;
-            case 1:
+            case "ПМ-11":
                 Pm_11();
                 break;
-
-            case 2:
+            case "ИиВТ-12":
                 IiVT_12();
                 break;
-
-            case 3:
+            case "ИСиТ-11":
                 ISiT_11();
                 break;
-
-            case 4:
+            case "МИ-21":
                 MI_21();
                 break;
-            case 5:
+            case "МФ-21":
                 MF_21();
                 break;
-            case 6:
+            case "ПМ-21":
                 PM_21();
                 break;
-            case 7:
+            case "БИ-21":
                 BI_21();
                 break;
-            case 8:
+            case "ИиВТ-21":
                 IiVT_21();
                 break;
-            case 9:
+            case "ИСиТ-21":
                 ISiT_21();
                 break;
-            case 10:
+            case "НЭ-21":
                 NE_21();
                 break;
-
-            case 11:
+            case "БХ-21":
                 BX_21();
                 break;
-            case 12:
+            case "ЕГ-21":
                 EG_21();
                 break;
-
-            case 13:
-
+            case "МФ-31":
                 MF_31();
                 break;
-            case 14:
-
+            case "ПМ-31":
                 PM_31();
                 break;
-            case 15:
-
+            case "ИиВТ-31":
                 IiVT_31();
                 break;
-            case 16:
-
+            case "НЭ-31":
                 NE_31();
                 break;
-            case 17:
+            case "М-41":
                 M_41();
                 break;
-            case 18:
+            case "ФМ-41":
                 FM_41();
                 break;
-            case 19:
-
+            case "ПМ-41":
                 PM_41();
                 break;
-            case 20:
+            case "ИиВТ-41":
                 IiVT_41();
                 break;
-            case 21:
+            case "НЭ-41":
                 NE_41();
                 break;
-            case 22:
+            case "МиИТм-11":
                 MIitM();
                 break;
-            case 23:
+            case "ПМм-11":
                 PMm_11();
                 break;
-            case 24:
+            case "ИиВтМ-11":
                 IIvtm_11();
                 break;
-            case 25:
+            case "Мм-21":
                 Mm_21();
                 break;
-            case 26:
+            case "ПМм-21":
                 Pmm_21();
                 break;
-            case 27:
+            case "ИиВТм-21":
                 IIvtm_21();
                 break;
-            case 28:
+            case "ХБиГ-11":
                 XBiG_11();
                 break;
-            case 29:
+            case "ФС-11":
                 FC_11();
                 break;
-            case 30:
+            case "ФР-11":
                 FR_11();
                 break;
-            case 31:
+            case "ФР-12":
                 FR_12();
                 break;
-            case 32:
+            case "ФС-21":
                 FC_21();
                 break;
-            case 33:
+            case "ФР-21":
                 FR_21();
                 break;
-            case 34:
+            case "БХ-31":
                 BX_31();
                 break;
-            case 35:
+            case "МЕ-31":
                 ME_31();
                 break;
-            case 36:
+            case "ФС-31":
                 FC_31();
                 break;
-            case 37:
+            case "Р-31":
                 FP_31();
                 break;
-            case 38:
+            case "ФС-41":
                 FC_41();
                 break;
-            case 39:
+            case "ФР-41":
                 FP_41();
                 break;
-            case 40:
+            case "ФСм-11":
                 FCm_11();
                 break;
-            case 41:
+            case "ФСм-21":
                 FCm_21();
                 break;
+
             default:
                 break;
-
         }
     }
 

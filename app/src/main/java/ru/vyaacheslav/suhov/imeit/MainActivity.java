@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     public RadioGroup rg;
     RelativeLayout dexp;
-    int NOTIFICATION_ID = 123;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     FragmentManager FM;
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
         if (prefs.getBoolean("isFirstRun", true)) {
-            Intent intent = new Intent(MainActivity.this, Settings.class);
+            Intent intent = new Intent(MainActivity.this, SettingsPref.class);
             startActivity(intent);
         } else {
         }
@@ -153,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
-                Intent intent = new Intent(MainActivity.this, Settings.class);
+                Intent intent = new Intent(MainActivity.this, SettingsPref.class);
                 startActivity(intent);
                 finish();
                 return true;
@@ -163,11 +162,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadName() {
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int position = sharedPreferences.getInt("name", -1);
-        String[] choose = getResources().getStringArray(R.array.bak_groops);
-        MainActivity.this.getSupportActionBar().setSubtitle(choose[position]);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String regular = prefs.getString(getString(R.string.pref_style), "");
+        MainActivity.this.getSupportActionBar().setSubtitle(regular);
 
     }
 

@@ -219,7 +219,6 @@
     <string name="vich_sys">Вычислительные системы</string>
     <string name="vich_ss">Вычислительные устройства и системы </string>
 
-
     <string name="analis_kom_mat">Анализ учебно-методических комплексов по математике для профильных классов</string>
     <string name="acp_opz">Аспекты развития и управле-ния организационно-производственной системы</string>
     <string name="analis_inf">Оперативный анализ информации</string>
@@ -563,4 +562,21 @@
     <string name="writ_t">Светлая</string>
     <string name="thema">Тема</string>
     <string name="save_group">Сохранить текущую группу</string>
+
+
+    <string name="action_open">Открыть</string>
+    <string name="action_save">Сохранить</string>
+    <string name="action_settings">Настройки</string>
+    <string name="pref_openmode">Режим открытия</string>
+    <string name="pref_color">Цвет</string>
+    <string name="pref_color_black">Черный цвет</string>
+    <string name="pref_color_red">Красный цвет</string>
+    <string name="pref_color_green">Зеленый цвет</string>
+    <string name="pref_color_blue">Синий цвет</string>
+    <string name="pref_size">Размер</string>
+    <string name="pref_style">Стиль</string>
+    <string name="pref_style_regular">Нормальный</string>
+    <string name="pref_style_bold">Полужирный</string>
+    <string name="pref_style_italic">Курсив</string>
+
 </resources>
