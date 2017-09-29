@@ -3,6 +3,7 @@ package ru.vyaacheslav.suhov.imeit.OtherFragment;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -16,18 +17,14 @@ import java.util.Calendar;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-import static android.content.Context.MODE_PRIVATE;
-
 public class TimeClock extends Fragment {
 
-    public static final String APP_PREFERENCES = "sasa";
-    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
-    public int getHour;
+    public int getHour, getMin;
     LinearLayout l1, l2, l3, l4, l5, l6, lss, lsss;
     TimePicker timePicker;
     Calendar calendar;
     TextView t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22,
-            t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, c3;
+            t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, c3, just_time;
 
     public TimeClock() {
     }
@@ -81,6 +78,7 @@ public class TimeClock extends Fragment {
         t30 = v.findViewById(R.id.t30);
         t31 = v.findViewById(R.id.t31);
         t32 = v.findViewById(R.id.t32);
+        just_time = v.findViewById(R.id.juust_time);
 
         TimeOne();
         LoadPreferences();
@@ -91,50 +89,50 @@ public class TimeClock extends Fragment {
 
         if (Build.VERSION.SDK_INT < 23) {
             getHour = timePicker.getCurrentHour();
+            getMin = timePicker.getCurrentMinute();
             calendar.set(Calendar.HOUR_OF_DAY, timePicker.getCurrentHour());
         } else {
             getHour = timePicker.getHour();
             calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
+            getMin = timePicker.getMinute();
         }
-        /// ^sdk
 
-        if ((getHour > 8)/*&&(getMinute > 30)*/) {
-            updateClock();
-            l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
-        }
-        if ((getHour > 9)/*&&(getMinute > 15)*/) {
+        if ((getHour > 9) && (getMin > 30)) {
             updateClock();
             l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
         }
 
-        if ((getHour > 11)/*&&(getMinute > 30)*/) {
+        if ((getHour > 11)) {
             updateClock();
             l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
         }
-        if ((getHour > 13)/*&&(getMinute > 15)*/) {
+        if ((getHour > 13)) {
             updateClock();
             l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
         }
-        if ((getHour > 15)/*&&(getMinute > 0)*/) {
+        if ((getHour > 15)) {
             updateClock();
             l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
         }
 
-        if ((getHour > 17)/*&&(getMinute > 45)*/) {
+        if ((getHour > 17)) {
             updateClock();
             l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
 
         }
 
-        if ((getHour > 19)/*&&(getMinute > 0)*/) {
+        if ((getHour > 19)) {
             updateClock();
         }
+
+
     }
 
     public void updateClock() {
 
-        SharedPreferences settings = getContext().getSharedPreferences("status", 0);
-        if (settings.getBoolean("orange", false)) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+        if (prefs.getBoolean("Светлая", false)) {
             l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
             l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
             l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
@@ -144,7 +142,7 @@ public class TimeClock extends Fragment {
 
 
         }
-        if (settings.getBoolean("blue", false)) {
+        if (prefs.getBoolean("Темная", false)) {
             //dark
             l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
             l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
@@ -157,15 +155,14 @@ public class TimeClock extends Fragment {
     }
 
     private void LoadPreferences() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
-                APP_PREFERENCES, MODE_PRIVATE);
-        int savedRadioIndex = sharedPreferences.getInt(
-                KEY_RADIOBUTTON_INDEX, 0);
-        switch (savedRadioIndex) {
-            case 0:
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+
+        switch (regular) {
+            case "Светлая":
                 ThemeWrite();
                 break;
-            case 1:
+            case "Темная":
                 ThemeDark();
                 break;
         }

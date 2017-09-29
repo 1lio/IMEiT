@@ -2,6 +2,7 @@ package ru.vyaacheslav.suhov.imeit;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -9,13 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import static android.content.Context.MODE_PRIVATE;
-
 public class TabFragment extends Fragment {
 
-    public static final String APP_PREFERENCES = "sasa";
     public static int int_items = 5;
-    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -43,17 +40,17 @@ public class TabFragment extends Fragment {
     }
 
     private void LoadPreferences() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
-                APP_PREFERENCES, MODE_PRIVATE);
-        int savedRadioIndex = sharedPreferences.getInt(
-                KEY_RADIOBUTTON_INDEX, 0);
-        switch (savedRadioIndex) {
-            case 0:
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+
+        switch (regular) {
+            case "Светлая":
                 tabLayout.setBackgroundResource(R.color.colorPrimary);
                 break;
-            case 1:
+            case "Темная":
                 tabLayout.setBackgroundResource(R.color.colorPrimarySS);
                 break;
         }
+
     }
 }

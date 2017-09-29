@@ -1,8 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/ssas"
+        android:title="@string/znam"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/settings"
         android:icon="@drawable/settings"
         android:title="@string/settings"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 </menu>

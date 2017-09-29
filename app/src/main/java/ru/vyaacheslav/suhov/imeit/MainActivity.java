@@ -24,7 +24,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -36,9 +35,8 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String APP_PREFERENCES = "sasa";
-    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
-    public RadioGroup rg;
+
+    public int getDay;
     RelativeLayout dexp;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -68,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView = (NavigationView) findViewById(R.id.shitstuff);
         dexp = (RelativeLayout) findViewById(R.id.dexs);
-        rg = (RadioGroup) findViewById(R.id.rg);
 
         calendar = Calendar.getInstance();
 
@@ -93,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (item.getItemId() == R.id.main_tab) {
                     loadName();
+
                     FragmentTransaction fragmentTransaction = FM.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
                 }
@@ -105,20 +103,14 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (item.getItemId() == R.id.news) {
                     isNetworkConnected();
-
                 }
 
                 if (item.getItemId() == R.id.info) {
                     MainActivity.this.getSupportActionBar().setSubtitle("Основные сведения");
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                     fragmentTransaction1.replace(R.id.containerView, new Info()).commit();
-
                 }
-          /*      if (item.getItemId() == R.id.examen) {
-                    loadName();
-                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                    fragmentTransaction1.replace(R.id.containerView, new Exam()).commit();
-                }*/
+
 
                 if (item.getItemId() == R.id.map) {
                     MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
@@ -137,15 +129,14 @@ public class MainActivity extends AppCompatActivity {
 
         loadName();
         LoadPreferences();
-
-      /*  dayNotifications();*/
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
 
+
+        return true;
     }
 
     @Override
@@ -183,94 +174,16 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-   /* public void dayNotifications() {
-
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int position = sharedPreferences.getInt("name", -1);
-
-        int day = calendar.get(Calendar.DAY_OF_WEEK);
-        switch (day) {
-            case Calendar.SUNDAY:
-
-                break;
-            case Calendar.MONDAY:
-                switch (position){
-                    case 0:
-
-                        Notification.Builder builder = new Notification.Builder(getApplicationContext());
-
-                        builder
-                                .setSmallIcon(R.drawable.notif)
-                                .setLargeIcon(BitmapFactory.decodeResource(getApplication().getResources(), R.drawable.ic_mat))
-                                .setTicker("Расписание на понедельник")
-                                .setWhen(System.currentTimeMillis())
-                                .setAutoCancel(true)
-                                .setContentTitle("Понедельник:")
-                                .setContentText("1пара - Математика; 2пара - История");
-                        Notification notification = builder.build();
-
-                        nm.notify(NOTIFICATION_ID, notification);
-                        break;
-                    case 1:
-
-
-                        Notification.Builder builder2 = new Notification.Builder(getApplicationContext());
-
-                        builder2
-                                .setSmallIcon(R.drawable.notif)
-                                .setLargeIcon(BitmapFactory.decodeResource(getApplication().getResources(), R.drawable.ic_mat))
-                                .setTicker("Расписание на понедельник")
-                                .setWhen(System.currentTimeMillis())
-                                .setAutoCancel(true)
-                                .setContentTitle("Понедельник:")
-                                .setContentText("1пара - Физика; 2пара - Математика");
-                        Notification notification2 = builder2.build();
-
-                        nm.notify(NOTIFICATION_ID, notification2);
-                        break;
-                }
-
-                break;
-            case Calendar.TUESDAY:
-                // Вт.
-                break;
-            case Calendar.WEDNESDAY:
-                // Вт.
-                break;
-            case Calendar.THURSDAY:
-
-                Notification.Builder builder12 = new Notification.Builder(getApplicationContext());
-             *//*   Intent intent = new Intent(MainActivity.this,MainActivity.class);*//*
-
-                builder12
-              *//*          .setContentIntent(PendingIntent.readPendingIntentOrNullFromParcel())*//*
-                        .setSmallIcon(R.drawable.notif)
-                        .setLargeIcon(BitmapFactory.decodeResource(getApplication().getResources(), R.drawable.ic_mat))
-                        .setTicker("Расписание на четверг")
-                        .setWhen(System.currentTimeMillis())
-                        .setAutoCancel(true)
-                        .setContentTitle("Четверг:")
-                        .setContentText("1пара - веты; 2пара - Математика");
-                Notification notification2 = builder12.build();
-
-                nm.notify(NOTIFICATION_ID, notification2);
-                break;
-            case Calendar.FRIDAY:
-                break;
-        }
-    }*/
-
     private void LoadPreferences() {
-        SharedPreferences sharedPreferences = getSharedPreferences(
-                APP_PREFERENCES, MODE_PRIVATE);
-        int savedRadioIndex = sharedPreferences.getInt(
-                KEY_RADIOBUTTON_INDEX, 0);
-        switch (savedRadioIndex) {
-            case 0:
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+
+        switch (regular) {
+            case "Светлая":
                 ThemeWrithe();
                 break;
-            case 1:
+            case "Темная":
                 ThemeDark();
                 break;
         }

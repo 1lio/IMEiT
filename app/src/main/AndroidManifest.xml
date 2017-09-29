@@ -25,16 +25,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Settings"
+            android:name=".SettingsPref"
+            android:label="@string/settings"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity
-            android:name=".SettingsPref"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

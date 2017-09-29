@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -17,8 +18,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class Info extends Fragment  {
 
@@ -118,15 +117,14 @@ public class Info extends Fragment  {
     }
 
     private void LoadPreferences() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
-                APP_PREFERENCES, MODE_PRIVATE);
-        int savedRadioIndex = sharedPreferences.getInt(
-                KEY_RADIOBUTTON_INDEX, 0);
-        switch (savedRadioIndex) {
-            case 0:
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+
+        switch (regular) {
+            case "Светлая":
                 ThemeWrite();
                 break;
-            case 1:
+            case "Темная":
                 ThemeDark();
                 break;
         }

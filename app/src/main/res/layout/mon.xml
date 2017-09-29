@@ -43,7 +43,9 @@
                             android:text="08"
                             android:textColor="@color/colorTextBlack"
                             android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:typeface="normal"
+                            android:visibility="visible" />
 
                         <TextView
                             android:id="@+id/s2"

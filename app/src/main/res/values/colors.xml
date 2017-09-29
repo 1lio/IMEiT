@@ -5,7 +5,8 @@
   <color name="colorAccent">#1976d1</color>
   <color name="colorTab">#63a3fe</color>
 
-  <color name="colorPrimaryD">#121212</color>
+
+    <color name="colorPrimaryD">#121212</color>
   <color name="colorPrimaryDarkD">#000000</color>
   <color name="colorAccentD">#2160a4</color>
 

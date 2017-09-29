@@ -2,6 +2,7 @@ package ru.vyaacheslav.suhov.imeit.Maps;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -10,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ru.vyaacheslav.suhov.imeit.R;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class MapsFragment extends Fragment {
 
@@ -41,18 +40,19 @@ public class MapsFragment extends Fragment {
     }
 
     private void LoadPreferences() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
-                APP_PREFERENCES, MODE_PRIVATE);
-        int savedRadioIndex = sharedPreferences.getInt(
-                KEY_RADIOBUTTON_INDEX, 0);
-        switch (savedRadioIndex) {
-            case 0:
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+
+        switch (regular) {
+            case "Светлая":
                 tabLayout.setBackgroundResource(R.color.colorPrimary);
                 break;
-            case 1:
+            case "Темная":
                 tabLayout.setBackgroundResource(R.color.colorPrimarySS);
                 break;
         }
+
     }
 
 }

@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
@@ -28,8 +26,7 @@ public class Tue extends Fragment {
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
-    Spinner spinner;
-    Switch eng, dec;
+
     RelativeLayout mk;
 
     public Tue() {
@@ -39,11 +36,6 @@ public class Tue extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.tue, container, false);
-        spinner = getActivity().findViewById(R.id.spinner);
-
-        View row1 = inflater.inflate(R.layout.settings, null);
-        eng = row1.findViewById(R.id.sw_eng);
-        dec = row1.findViewById(R.id.sw_dec);
 
         m_l_1z = v.findViewById(R.id.t_l_1z);
         m_l_2z = v.findViewById(R.id.t_l_2z);
@@ -1034,27 +1026,31 @@ public class Tue extends Fragment {
     }
 
     public void decL_1p() {
-     /*   SharedPreferences settings = getActivity().getSharedPreferences("dec", 1);
-        dec.setChecked(settings.getBoolean("check", false));
-        if (dec.isChecked()) {*/
+
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(getActivity());
+        // читаем установленное значение из CheckBoxPreference
+        if (prefs.getBoolean(getString(R.string.pref_chek2), true)) {
             p1.setText(getResources().getString(R.string.inlangN));
             p1a.setText(getResources().getString(R.string.sedova));
             m_p1_t.setText(getResources().getString(R.string.pz));
             m_p1_k.setText(getResources().getString(R.string.uk4_24));
             m_l_1z.setVisibility(View.GONE); // знаменатель
-            m_l1.setVisibility(View.GONE);  // Линия разделения
+            m_l1.setVisibility(View.GONE);  // Линия разделен
 
-       /* } else {
+
+        } else {
 
             m_l1.setVisibility(View.VISIBLE);
-        }*/
+        }
 
     }
 
     public void engL_2p() {
-       /* SharedPreferences settings = getActivity().getSharedPreferences("mysettings", 0);
-        eng.setChecked(settings.getBoolean("check", false));
-        if (eng.isChecked()) {*/
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(getActivity());
+        // читаем установленное значение из CheckBoxPreference
+        if (prefs.getBoolean(getString(R.string.pref_chek1), true)) {
             p2.setText(getResources().getString(R.string.inlang));
             p2a.setText(getResources().getString(R.string.lebedeva));
             m_p2_t.setText(getResources().getString(R.string.pz));
@@ -1062,27 +1058,28 @@ public class Tue extends Fragment {
             m_l_2z.setVisibility(View.GONE); // знаменатель
             m_l2.setVisibility(View.GONE);  // Линия разделения
 
-      /*  } else {
+        } else {
             m_l2.setVisibility(View.VISIBLE);
-        }*/
+        }
 
     }
 
     public void engL_3p() {
-      /*  SharedPreferences settings = getActivity().getSharedPreferences("mysettings", 0);
-        eng.setChecked(settings.getBoolean("check", false));
-        if (eng.isChecked()) {*/
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(getActivity());
+        // читаем установленное значение из CheckBoxPreference
+        if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
+
+            m_l2.setVisibility(View.VISIBLE);
+
+        } else {
             p3.setText(getResources().getString(R.string.inlang));
             p3a.setText(getResources().getString(R.string.lebedeva));
             m_p3_t.setText(getResources().getString(R.string.pz));
             m_p3_k.setText(getResources().getString(R.string.uk4_24));
             m_l_3z.setVisibility(View.GONE); // знаменатель
             m_l3.setVisibility(View.GONE);  // Линия разделения
-
-       /* } else {
-            m_l2.setVisibility(View.VISIBLE);
         }
-*/
     }
 
     private void LoadPreferences() {
