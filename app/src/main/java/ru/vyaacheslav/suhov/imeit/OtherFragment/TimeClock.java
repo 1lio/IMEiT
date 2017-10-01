@@ -24,7 +24,7 @@ public class TimeClock extends Fragment {
     TimePicker timePicker;
     Calendar calendar;
     TextView t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22,
-            t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, c3, just_time;
+            t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, c3;
 
     public TimeClock() {
     }
@@ -78,7 +78,6 @@ public class TimeClock extends Fragment {
         t30 = v.findViewById(R.id.t30);
         t31 = v.findViewById(R.id.t31);
         t32 = v.findViewById(R.id.t32);
-        just_time = v.findViewById(R.id.juust_time);
 
         TimeOne();
         LoadPreferences();

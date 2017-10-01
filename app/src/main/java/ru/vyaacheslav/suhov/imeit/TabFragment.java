@@ -34,6 +34,8 @@ public class TabFragment extends Fragment {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
+        tabLayout.setBackgroundResource(R.color.colorPrimary);
+        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
 
         LoadPreferences();
         return v;

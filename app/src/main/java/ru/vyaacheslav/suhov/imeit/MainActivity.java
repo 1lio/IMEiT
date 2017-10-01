@@ -36,7 +36,6 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
 
-    public int getDay;
     RelativeLayout dexp;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -93,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
                     FragmentTransaction fragmentTransaction = FM.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
+
+                    toast = Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
 
                 if (item.getItemId() == R.id.you_tab) {
@@ -146,6 +148,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, SettingsPref.class);
                 startActivity(intent);
                 finish();
+                return true;
+            case R.id.ssas:
+                toast = Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT);
+                toast.show();
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
