@@ -16,24 +16,23 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Maps_Other extends Fragment implements View.OnClickListener {
 
-    public static final String APP_PREFERENCES = "sasa";
-    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
-    LinearLayout hos1, hos2, hos3, hos4, otf;
-    Intent agr;
-    Uri adress;
-    TextView l1, l2, l3, l4;
+    public Intent agr;
+    private LinearLayout hos1, hos2, hos3, hos4, otf;
+    private Uri adress;
+    private TextView l1, l2, l3, l4;
 
-    public Maps_Other() {}
+    public Maps_Other() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_hostel, container, false);
 
-        hos1=v.findViewById(R.id.hos1);
-        hos2=v.findViewById(R.id.hos2);
-        hos3=v.findViewById(R.id.hos3);
-        hos4=v.findViewById(R.id.hos4);
+        hos1 = v.findViewById(R.id.hos1);
+        hos2 = v.findViewById(R.id.hos2);
+        hos3 = v.findViewById(R.id.hos3);
+        hos4 = v.findViewById(R.id.hos4);
 
         l1 = v.findViewById(R.id.l1);
         l2 = v.findViewById(R.id.l2);
@@ -54,18 +53,18 @@ public class Maps_Other extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.hos1:
-                    adress = Uri.parse("geo:0,0?q=ул.Коммунаров,д.28,+Елец,+Липецкая+обл.");
+                adress = Uri.parse("geo:0,0?q=ул.Коммунаров,д.28,+Елец,+Липецкая+обл.");
                 break;
             case R.id.hos2:
-                  adress = Uri.parse("geo:0,0?q=ул. Ленина,д.88,+Елец,+Липецкая+обл.");
+                adress = Uri.parse("geo:0,0?q=ул. Ленина,д.88,+Елец,+Липецкая+обл.");
                 break;
             case R.id.hos3:
-                    adress = Uri.parse("geo:0,0?q=ул.Допризывников,д.1,+Елец,+Липецкая+обл.");
+                adress = Uri.parse("geo:0,0?q=ул.Допризывников,д.1,+Елец,+Липецкая+обл.");
                 break;
             case R.id.hos4:
-                    adress = Uri.parse("geo:0,0?q=Липецкая обл.,+Задонский район.");
+                adress = Uri.parse("geo:0,0?q=Липецкая обл.,+Задонский район.");
                 break;
         }
         agr = new Intent(Intent.ACTION_VIEW, adress);

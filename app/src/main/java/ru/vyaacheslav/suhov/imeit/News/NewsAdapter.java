@@ -19,25 +19,24 @@ import java.util.List;
 import ru.vyaacheslav.suhov.imeit.R;
 
 
-public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder>  {
+public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     Context ctx;
     private List<News> newsList;
     private EventBus bus = EventBus.getDefault();
 
     public NewsAdapter(Context ctx) {
-        this.ctx=ctx;
+        this.ctx = ctx;
     }
 
     public NewsAdapter(List<News> newsList, Context ctx) {
         this.newsList = newsList;
-        this.ctx=ctx;
+        this.ctx = ctx;
     }
 
     @Override
     public NewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.news_row, parent, false);
-
 
 
         NewsViewHolder myViewHolder = new NewsViewHolder(view);
@@ -49,13 +48,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder>  {
         TextView textNewsSummary = holder.textNewsSummary;
         TextView textNewsTitle = holder.textNewsTitle;
 
-final News news=newsList.get(position);
+        final News news = newsList.get(position);
 
         textNewsSummary.setText(news.getSummary());
         textNewsTitle.setText(newsList.get(position).getTitle());
 
 
-        Log.e("url=",news.getImageUrl());
+        Log.e("url=", news.getImageUrl());
         Glide.with(ctx).load(news.getImageUrl())
                 .thumbnail(0.5f)
                 .crossFade()
@@ -63,24 +62,18 @@ final News news=newsList.get(position);
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.imgNews);
 
-
         holder.getItemView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bus.post(news);
             }
         });
-
-
-
-
     }
 
     @Override
     public int getItemCount() {
         return newsList.size();
     }
-
 
 
 }

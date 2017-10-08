@@ -14,10 +14,8 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class MapsFragment extends Fragment {
 
-    public static final String APP_PREFERENCES = "sasa";
-    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
-    TabLayout tabLayout;
-    ViewPager viewPager;
+    public TabLayout tabLayout;
+    public ViewPager viewPager;
 
     public MapsFragment() { }
 
@@ -43,6 +41,8 @@ public class MapsFragment extends Fragment {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String regular = prefs.getString(getString(R.string.pref_theme), "");
+        tabLayout.setBackgroundResource(R.color.colorPrimary);
+        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
 
         switch (regular) {
             case "Светлая":

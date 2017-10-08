@@ -20,10 +20,10 @@ import ru.vyaacheslav.suhov.imeit.R;
 public class TimeClock extends Fragment {
 
     public int getHour, getMin;
-    LinearLayout l1, l2, l3, l4, l5, l6, lss, lsss;
-    TimePicker timePicker;
-    Calendar calendar;
-    TextView t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22,
+    private LinearLayout l1, l2, l3, l4, l5, l6, lss, lsss;
+    private TimePicker timePicker;
+    private Calendar calendar;
+    private TextView t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22,
             t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, c3;
 
     public TimeClock() {
@@ -44,7 +44,6 @@ public class TimeClock extends Fragment {
         lsss = v.findViewById(R.id.lsss);
         timePicker = v.findViewById(R.id.timePicker);
         calendar = Calendar.getInstance();
-
         c3 = v.findViewById(R.id.c3);
         t1 = v.findViewById(R.id.t1);
         t2 = v.findViewById(R.id.t2);
@@ -84,6 +83,7 @@ public class TimeClock extends Fragment {
         return v;
     }
 
+
     public void TimeOne() {
 
         if (Build.VERSION.SDK_INT < 23) {
@@ -99,6 +99,7 @@ public class TimeClock extends Fragment {
         if ((getHour > 9) && (getMin > 30)) {
             updateClock();
             l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+
         }
 
         if ((getHour > 11)) {
@@ -117,38 +118,35 @@ public class TimeClock extends Fragment {
         if ((getHour > 17)) {
             updateClock();
             l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
-
         }
 
         if ((getHour > 19)) {
             updateClock();
         }
-
-
     }
 
     public void updateClock() {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String regular = prefs.getString(getString(R.string.pref_theme), "");
-        if (prefs.getBoolean("Светлая", false)) {
-            l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
-            l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
-            l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
-            l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
-            l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
-            l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
 
-
-        }
-        if (prefs.getBoolean("Темная", false)) {
-            //dark
-            l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
-            l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
-            l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
-            l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
-            l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
-            l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
+        switch (regular) {
+            case "Светлая":
+                l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
+                l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
+                l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
+                l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
+                l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
+                l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
+                break;
+            case "Темная":
+                l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
+                l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
+                l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
+                l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
+                l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
+                l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
+                break;
 
         }
     }

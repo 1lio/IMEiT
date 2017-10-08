@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#1976d1</color>
-  <color name="colorPrimaryDark">#004b9f</color>
-  <color name="colorAccent">#1976d1</color>
-  <color name="colorTab">#63a3fe</color>
-
+    <color name="colorPrimary">#1976d1</color>
+    <color name="colorPrimaryDark">#004b9f</color>
+    <color name="colorAccent">#1976d1</color>
 
     <color name="colorPrimaryD">#121212</color>
-  <color name="colorPrimaryDarkD">#000000</color>
-  <color name="colorAccentD">#2160a4</color>
+    <color name="colorPrimaryDarkD">#000000</color>
+    <color name="colorAccentD">#2160a4</color>
 
-  <color name="colorTextSub">#747474</color>
+    <color name="colorTextSub">#747474</color>
     <color name="colorTextBlack">#101010</color>
     <color name="colorNewstitle">#c7c7c7</color>
     <color name="colorPrimaryS">#0d0d0d</color>
     <color name="colorPrimarySS">#181818</color>
     <color name="colorSigma">#11273e</color>
-    <color name="colorTouch">#ad000c39</color>
     <color name="colorPrimaryF">#121212</color>
-  <color name="colorTes">#f4f4f4</color>
+    <color name="colorTes">#f4f4f4</color>
     <color name="colorWhitee">#ffffff</color>
 </resources>

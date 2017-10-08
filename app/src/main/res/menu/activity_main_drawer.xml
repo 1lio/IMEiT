@@ -11,17 +11,6 @@
             android:title="@string/time_zvonok" />
 
     </group>
-    <!-- <item android:id="@+id/tools"
-         android:title="@string/exam_a_z">
-         <menu>
-     <group  android:checkableBehavior="single" >
-         <item
-             android:id="@+id/examen"
-             android:icon="@drawable/ic_check_black_24dp"
-             android:title="@string/exam" />
-     </group>
-         </menu>
-     </item>-->
 
     <item android:id="@+id/tools2"
         android:title="@string/others">
@@ -40,7 +29,6 @@
             android:id="@+id/info"
             android:icon="@drawable/ic_school_black_24dp"
             android:title="@string/inf" />
-
 
         <!-- автобусы, как писать курсовую, найти преподователя, каталог библиотеки(хотя нах она нужна)
         ближайшая закусочная(тоже), бумажные вопросы(хз), методички(!где их найти?) - из всего

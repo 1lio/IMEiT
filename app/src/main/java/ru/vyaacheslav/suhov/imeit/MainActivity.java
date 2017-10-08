@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit;
 
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,8 +26,6 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import java.util.Calendar;
-
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
@@ -42,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager FM;
     FragmentTransaction FT;
     Toast toast;
-    NotificationManager nm;
-    Calendar calendar;
     Toolbar toolbar;
 
     @Override
@@ -66,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.shitstuff);
         dexp = (RelativeLayout) findViewById(R.id.dexs);
 
-        calendar = Calendar.getInstance();
-
         Menu menu = navigationView.getMenu();
         MenuItem tools2 = menu.findItem(R.id.tools2);
         SpannableString b = new SpannableString(tools2.getTitle());
@@ -78,22 +71,16 @@ public class MainActivity extends AppCompatActivity {
         FT = FM.beginTransaction();
         FT.replace(R.id.containerView, new TabFragment()).commit();
 
-        nm = (NotificationManager)getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawers();
 
-
                 if (item.getItemId() == R.id.main_tab) {
                     loadName();
-
                     FragmentTransaction fragmentTransaction = FM.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
-
-                    toast = Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
@@ -123,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(toggle);
@@ -136,8 +122,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-
-
         return true;
     }
 
@@ -150,9 +134,8 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.ssas:
-                toast = Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT);
                 toast.show();
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -35,8 +35,7 @@ public class TabFragment extends Fragment {
             }
         });
         tabLayout.setBackgroundResource(R.color.colorPrimary);
-        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
-
+        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhitee));
         LoadPreferences();
         return v;
     }
@@ -48,9 +47,11 @@ public class TabFragment extends Fragment {
         switch (regular) {
             case "Светлая":
                 tabLayout.setBackgroundResource(R.color.colorPrimary);
+                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhitee));
                 break;
             case "Темная":
                 tabLayout.setBackgroundResource(R.color.colorPrimarySS);
+                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
                 break;
         }
 

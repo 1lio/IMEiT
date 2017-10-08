@@ -16,8 +16,6 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Maps_Camus extends Fragment implements View.OnClickListener {
 
-    public static final String APP_PREFERENCES = "sasa";
-    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     LinearLayout k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11;
     Intent agr;
     Uri adresK;

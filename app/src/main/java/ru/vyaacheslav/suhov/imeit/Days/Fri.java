@@ -13,12 +13,9 @@ import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-import static android.content.Context.MODE_PRIVATE;
 
 public class Fri extends Fragment {
 
-    public static final String APP_PREFERENCES = "sasa";
-    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
     public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5, m_l_5z, l1, l2, l3, l4, l5;
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
@@ -912,17 +909,17 @@ public class Fri extends Fragment {
                 .getDefaultSharedPreferences(getActivity());
         // читаем установленное значение из CheckBoxPreference
         if (prefs.getBoolean(getString(R.string.pref_chek2), false)) {
-
-            m_l1.setVisibility(View.VISIBLE);
-
-        } else {
-
             p1.setText(getResources().getString(R.string.inlangN));
             p1a.setText(getResources().getString(R.string.sedova));
             m_p1_t.setText(getResources().getString(R.string.pz));
             m_p1_k.setText(getResources().getString(R.string.uk4_24));
             m_l_1z.setVisibility(View.GONE); // знаменатель
             m_l1.setVisibility(View.GONE);  // Линия разделения
+            m_l1.setVisibility(View.VISIBLE);
+
+        } else {
+
+            m_l1.setVisibility(View.VISIBLE);
         }
 
     }
@@ -933,15 +930,15 @@ public class Fri extends Fragment {
         // читаем установленное значение из CheckBoxPreference
         if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
 
-            m_l2.setVisibility(View.VISIBLE);
-
-        } else {
             p2.setText(getResources().getString(R.string.inlang));
             p2a.setText(getResources().getString(R.string.lebedeva));
             m_p2_t.setText(getResources().getString(R.string.pz));
             m_p2_k.setText(getResources().getString(R.string.uk4_24));
             m_l_2z.setVisibility(View.GONE); // знаменатель
             m_l2.setVisibility(View.GONE);  // Линия разделения
+
+        } else {
+            m_l2.setVisibility(View.VISIBLE);
         }
 
     }
@@ -950,30 +947,27 @@ public class Fri extends Fragment {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
-            m_l2.setVisibility(View.VISIBLE);
-
-
-        } else {
             p3.setText(getResources().getString(R.string.inlang));
             p3a.setText(getResources().getString(R.string.lebedeva));
             m_p3_t.setText(getResources().getString(R.string.pz));
             m_p3_k.setText(getResources().getString(R.string.uk4_24));
             m_l_3z.setVisibility(View.GONE); // знаменатель
-            m_l3.setVisibility(View.GONE);  // Линия разделени
+            m_l3.setVisibility(View.GONE);  // Линия разделени.
+        } else {
+            m_l2.setVisibility(View.VISIBLE);
         }
 
     }
 
     private void LoadPreferences() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
-                APP_PREFERENCES, MODE_PRIVATE);
-        int savedRadioIndex = sharedPreferences.getInt(
-                KEY_RADIOBUTTON_INDEX, 0);
-        switch (savedRadioIndex) {
-            case 0:
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+
+        switch (regular) {
+            case "Светлая":
                 ThemeWrite();
                 break;
-            case 1:
+            case "Темная":
                 ThemeDark();
                 break;
         }

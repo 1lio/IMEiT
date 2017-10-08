@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <PreferenceCategory android:title="Настройки расписания">
 
         <ListPreference
-        android:defaultValue="1"
+            android:defaultValue="@string/isit21"
         android:dialogTitle="Выберите группу"
         android:entries="@array/bak_groops"
         android:entryValues="@array/bak_groops"
@@ -13,19 +12,18 @@
         android:summary="Расписание группы"
         android:title="Ваша группа" />
 
-
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="pref_chek1"
-            android:title="Английски" />
+            android:key="@string/pref_chek1"
+            android:title="Английский" />
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="pref_chek2"
+            android:key="@string/pref_chek2"
             android:title="Немецкий" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Настройки темы">
         <ListPreference
-            android:defaultValue="0"
+            android:defaultValue="@string/writ_t"
             android:dialogTitle="Выберите тему"
             android:entries="@array/themes"
             android:entryValues="@array/themes"

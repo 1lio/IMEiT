@@ -16,12 +16,10 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Maps_Inst extends Fragment implements View.OnClickListener {
 
-    public static final String APP_PREFERENCES = "sasa";
-    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
-    LinearLayout ins1, ins2, ins3, ins4, ins5, ins6, ins7, ins8;
-    Intent agr;
-    Uri adress;
-    TextView d1, d2, d3, d4, d5, d6, d7, d8;
+    public Intent agr;
+    private LinearLayout ins1, ins2, ins3, ins4, ins5, ins6, ins7, ins8;
+    private Uri adress;
+    private TextView d1, d2, d3, d4, d5, d6, d7, d8;
 
     public Maps_Inst() {
     }

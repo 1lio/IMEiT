@@ -412,7 +412,7 @@
     <string name="el_vis_mat">Элементы высшей математики</string>
     <string name="time_zvonok">Время звонков</string>
     <string name="news">Новости</string>
-    <string name="inf">Основные сведения</string>
+    <string name="inf">Контакты</string>
     <string name="exam">Экзамен</string>
     <string name="exam_a_z">Зачеты и экзамены</string>
     <string name="others">Прочее</string>
@@ -560,6 +560,7 @@
     <string name="nem">Немецкий</string>
     <string name="dark">Темная</string>
     <string name="writ_t">Светлая</string>
+    <string name="isit21">ИСиТ-21</string>
     <string name="thema">Тема</string>
     <string name="save_group">Сохранить текущую группу</string>
 

@@ -14,13 +14,10 @@ import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-import static android.content.Context.MODE_PRIVATE;
 
 
 public class Tue extends Fragment {
 
-    public static final String APP_PREFERENCES = "sasa";
-    final String KEY_RADIOBUTTON_INDEX = "SAVED_RADIO_BUTTON_INDEX";
     public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
     public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5, l1, l2, l3, l4;
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
@@ -28,6 +25,7 @@ public class Tue extends Fragment {
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
 
     RelativeLayout mk;
+    SharedPreferences sp;
 
     public Tue() {
     }
@@ -41,6 +39,8 @@ public class Tue extends Fragment {
         m_l_2z = v.findViewById(R.id.t_l_2z);
         m_l_3z = v.findViewById(R.id.t_l_3z);
         m_l_4z = v.findViewById(R.id.t_l_4z);
+
+        sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         mk = v.findViewById(R.id.ttr);
         s1 = v.findViewById(R.id.u1);
@@ -1026,18 +1026,17 @@ public class Tue extends Fragment {
     }
 
     public void decL_1p() {
-
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(getActivity());
         // читаем установленное значение из CheckBoxPreference
-        if (prefs.getBoolean(getString(R.string.pref_chek2), true)) {
+        if (prefs.getBoolean(getString(R.string.pref_chek2), false)) {
             p1.setText(getResources().getString(R.string.inlangN));
             p1a.setText(getResources().getString(R.string.sedova));
             m_p1_t.setText(getResources().getString(R.string.pz));
             m_p1_k.setText(getResources().getString(R.string.uk4_24));
             m_l_1z.setVisibility(View.GONE); // знаменатель
-            m_l1.setVisibility(View.GONE);  // Линия разделен
-
+            m_l1.setVisibility(View.GONE);  // Линия разделения
+            m_l1.setVisibility(View.VISIBLE);
 
         } else {
 
@@ -1050,7 +1049,8 @@ public class Tue extends Fragment {
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(getActivity());
         // читаем установленное значение из CheckBoxPreference
-        if (prefs.getBoolean(getString(R.string.pref_chek1), true)) {
+        if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
+
             p2.setText(getResources().getString(R.string.inlang));
             p2a.setText(getResources().getString(R.string.lebedeva));
             m_p2_t.setText(getResources().getString(R.string.pz));
@@ -1065,33 +1065,31 @@ public class Tue extends Fragment {
     }
 
     public void engL_3p() {
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(getActivity());
-        // читаем установленное значение из CheckBoxPreference
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
-
-            m_l2.setVisibility(View.VISIBLE);
-
-        } else {
             p3.setText(getResources().getString(R.string.inlang));
             p3a.setText(getResources().getString(R.string.lebedeva));
             m_p3_t.setText(getResources().getString(R.string.pz));
             m_p3_k.setText(getResources().getString(R.string.uk4_24));
             m_l_3z.setVisibility(View.GONE); // знаменатель
-            m_l3.setVisibility(View.GONE);  // Линия разделения
+            m_l3.setVisibility(View.GONE);  // Линия разделени.
+        } else {
+            m_l2.setVisibility(View.VISIBLE);
         }
+
     }
 
+
     private void LoadPreferences() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(
-                APP_PREFERENCES, MODE_PRIVATE);
-        int savedRadioIndex = sharedPreferences.getInt(
-                KEY_RADIOBUTTON_INDEX, 0);
-        switch (savedRadioIndex) {
-            case 0:
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+
+        switch (regular) {
+            case "Светлая":
                 ThemeWrite();
                 break;
-            case 1:
+            case "Темная":
                 ThemeDark();
                 break;
         }

@@ -38,7 +38,6 @@ public class NewsFragment extends Fragment {
 
         recyclerView.setLayoutManager(mLayoutManager);
         bus = EventBus.getDefault();
-      /*  bus.register(this);*/
         newsList = new ArrayList<>();
 
         ImeitNews imeitNews = new ImeitNews(newsList);

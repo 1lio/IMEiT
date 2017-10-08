@@ -17,15 +17,19 @@
             android:id="@+id/tel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorWhitee"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp">
 
             <LinearLayout
-                android:layout_width="60dp"
-                android:layout_height="100dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="6dp">
+                android:padding="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -39,7 +43,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/oval"
+                        android:elevation="1dp"
                         android:gravity="center"
+                        android:padding="12dp"
                         android:src="@drawable/ic_local_phone_black_24dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -49,64 +56,30 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+
+                    android:id="@+id/p1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:layout_weight="1"
-                    android:baselineAligned="false"
-                    android:gravity="bottom"
-                    android:orientation="horizontal">
+                    android:gravity="left|center"
+                    android:text="@string/tel"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="bottom"
-                        android:orientation="vertical"
-                        android:padding="6dp">
+                <TextView
 
-                        <TextView
-
-                            android:id="@+id/p1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left|center"
-                            android:text="@string/tel"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-
+                    android:id="@+id/textView9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
                     android:layout_weight="1"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:gravity="left|center"
+                    android:text="@string/num_tel"
+                    android:textColor="@color/colorTextSub"
+                    android:textSize="12sp" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="6dp">
-
-                        <TextView
-
-                            android:id="@+id/textView9"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left|center"
-                            android:text="@string/num_tel"
-                            android:textColor="@color/colorTextSub"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -115,15 +88,19 @@
             android:id="@+id/webs"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorTes"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp">
 
             <LinearLayout
-                android:layout_width="60dp"
-                android:layout_height="100dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="6dp">
+                android:padding="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -137,7 +114,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/oval"
+                        android:elevation="1dp"
                         android:gravity="center"
+                        android:padding="12dp"
                         android:src="@drawable/ic_web_black_24dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -148,63 +128,29 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/p2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:layout_weight="1"
-                    android:baselineAligned="false"
-                    android:gravity="bottom"
-                    android:orientation="horizontal">
+                    android:gravity="left|center"
+                    android:text="@string/website"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="bottom"
-                        android:orientation="vertical"
-                        android:padding="6dp">
+                <TextView
 
-                        <TextView
-                            android:id="@+id/p2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left|center"
-                            android:text="@string/website"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-
+                    android:id="@+id/textView51"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
                     android:layout_weight="1"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:gravity="left|center"
+                    android:text="@string/imet_elsu_ru"
+                    android:textColor="@color/colorTextSub"
+                    android:textSize="12sp" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="6dp">
-
-                        <TextView
-
-                            android:id="@+id/textView51"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left|center"
-                            android:text="@string/imet_elsu_ru"
-                            android:textColor="@color/colorTextSub"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -213,15 +159,19 @@
             android:id="@+id/groups"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorWhitee"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp">
 
             <LinearLayout
-                android:layout_width="60dp"
-                android:layout_height="100dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="6dp">
+                android:padding="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -235,7 +185,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/oval"
+                        android:elevation="1dp"
                         android:gravity="center"
+                        android:padding="12dp"
                         android:src="@drawable/ic_group_black_24dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -246,65 +199,30 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+
+                    android:id="@+id/p3"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:layout_weight="1"
-                    android:baselineAligned="false"
-                    android:gravity="bottom|center"
-                    android:orientation="horizontal">
+                    android:gravity="left|center"
+                    android:text="@string/groupe_vk"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="bottom|center_vertical"
-                        android:orientation="vertical"
-                        android:padding="6dp">
+                <TextView
 
-                        <TextView
-
-                            android:id="@+id/p3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left|center"
-                            android:text="@string/groupe_vk"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-
+                    android:id="@+id/textView18"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
                     android:layout_weight="1"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:gravity="left|center"
+                    android:text="@string/vk_adres"
+                    android:textColor="@color/colorTextSub"
+                    android:textSize="12sp" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:padding="6dp">
-
-                        <TextView
-
-                            android:id="@+id/textView18"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left|center"
-                            android:text="@string/vk_adres"
-                            android:textColor="@color/colorTextSub"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -313,15 +231,19 @@
             android:id="@+id/emal_l"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorTes"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp">
 
             <LinearLayout
-                android:layout_width="60dp"
-                android:layout_height="100dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="6dp">
+                android:padding="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -335,7 +257,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:background="@drawable/oval"
+                        android:elevation="1dp"
                         android:gravity="center"
+                        android:padding="12dp"
                         android:src="@drawable/ic_email_black_24dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -346,64 +271,30 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+
+                    android:id="@+id/p4"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:layout_weight="1"
-                    android:baselineAligned="false"
-                    android:gravity="bottom|center"
-                    android:orientation="horizontal">
+                    android:gravity="left|center"
+                    android:text="@string/e_mail"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="bottom|center_vertical"
-                        android:orientation="vertical"
-                        android:padding="6dp">
+                <TextView
 
-                        <TextView
-
-                            android:id="@+id/p4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left|center"
-                            android:text="@string/e_mail"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
+                    android:id="@+id/textView49"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
                     android:layout_weight="1"
-                    android:baselineAligned="false"
-                    android:gravity="top|center"
-                    android:orientation="horizontal">
+                    android:gravity="left|center"
+                    android:text="@string/dek_f_mail_ru"
+                    android:textColor="@color/colorTextSub"
+                    android:textSize="12sp" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:padding="6dp">
-
-                        <TextView
-
-                            android:id="@+id/textView49"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="left|center"
-                            android:text="@string/dek_f_mail_ru"
-                            android:textColor="@color/colorTextSub"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
