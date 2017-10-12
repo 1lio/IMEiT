@@ -910,8 +910,6 @@ public class Mon extends Fragment {
         m_p2_kz.setText(getResources().getString(R.string.uk1_2));
 
         Fizra_pervaki();
-
-
     }
 
     public void FR_11() {
@@ -928,13 +926,10 @@ public class Mon extends Fragment {
 
         Fizra_pervaki();
 
-
     }
 
     public void FR_12() {
-
         Fizra_pervaki();
-
     }
 
     public void FC_21() {
@@ -999,8 +994,6 @@ public class Mon extends Fragment {
         p3a.setText(getResources().getString(R.string.usacheva));
         m_p3_t.setText(getResources().getString(R.string.lb));
         m_p3_k.setText(getResources().getString(R.string.uk2_114));
-
-
     }
 
     public void ME_31() {
@@ -1039,8 +1032,6 @@ public class Mon extends Fragment {
         p5a.setVisibility(View.GONE);
         m_p5_t.setVisibility(View.GONE);
         m_p5_k.setVisibility(View.GONE);
-
-
     }
 
     public void FC_31() {
@@ -1070,8 +1061,6 @@ public class Mon extends Fragment {
         p4a.setVisibility(View.GONE);
         m_p4_t.setVisibility(View.GONE);
         m_p4_k.setVisibility(View.GONE);
-
-
     }
 
     public void FP_31() {
@@ -1092,7 +1081,6 @@ public class Mon extends Fragment {
         p3az.setText(getResources().getString(R.string.dvoryakina));
         m_p3_tz.setText(getResources().getString(R.string.lk));
         m_p3_kz.setText(getResources().getString(R.string.uk14_218));
-
     }
 
     public void FC_41() {
@@ -1114,7 +1102,6 @@ public class Mon extends Fragment {
         m_p3_t.setText(getResources().getString(R.string.lb));
         m_p3_k.setText(getResources().getString(R.string.uk14_214));
         Null_Mon_Z_3();
-
     }
 
     public void FP_41() {
@@ -1133,7 +1120,6 @@ public class Mon extends Fragment {
         m_p4_t.setText(getResources().getString(R.string.lk));
         m_p4_k.setText(getResources().getString(R.string.uk14_205));
         Null_Mon_Z_4();
-
     }
 
     public void FCm_11() {
@@ -1168,8 +1154,6 @@ public class Mon extends Fragment {
         p5az.setText(getResources().getString(R.string.zaiceva));
         m_p5_tz.setText(getResources().getString(R.string.pz));
         m_p5_kz.setText(getResources().getString(R.string.uk14_206));
-
-
     }
 
     private void LoadPreferences() {

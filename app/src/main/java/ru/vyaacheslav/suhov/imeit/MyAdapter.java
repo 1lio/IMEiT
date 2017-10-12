@@ -15,6 +15,7 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
 
  class MyAdapter  extends FragmentPagerAdapter {
 
+     // Адаптер вкладок расписания
 
     MyAdapter(FragmentManager fm)
     {
@@ -26,7 +27,7 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
         switch (position){
 
             case 0:
-                return new Mon();
+                return new Mon(); // Возвращает фрагмент с текущим днем недели
             case 1:
                 return new Tue();
             case 2:
@@ -45,7 +46,7 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
         return int_items;
     }
 
-    public CharSequence getPageTitle(int position){
+    public CharSequence getPageTitle(int position){ //Названия вкладок
         switch (position){
             case 0:
                 return "Пн";

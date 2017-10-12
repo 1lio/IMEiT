@@ -33,43 +33,50 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
 
-    RelativeLayout dexp;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    FragmentManager FM;
-    FragmentTransaction FT;
-    Toast toast;
-    Toolbar toolbar;
+    public NavigationView navigationView;
+    public DrawerLayout drawerLayout;
+    public FragmentTransaction FT;
+    public RelativeLayout dexp;
+    public FragmentManager FM;
+    public Toolbar toolbar;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.ThemeWrithe);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
         if (prefs.getBoolean("isFirstRun", true)) {
             Intent intent = new Intent(MainActivity.this, SettingsPref.class);
             startActivity(intent);
-        } else {
-        }
+        } else { }
         prefs.edit().putBoolean("isFirstRun", false).apply();
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         navigationView = (NavigationView) findViewById(R.id.shitstuff);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+
+        setSupportActionBar(toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
         dexp = (RelativeLayout) findViewById(R.id.dexs);
 
+        // Костомизация меню. Вообщем ненужная хрень. Нужно убрать потом
         Menu menu = navigationView.getMenu();
         MenuItem tools2 = menu.findItem(R.id.tools2);
         SpannableString b = new SpannableString(tools2.getTitle());
-        b.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, b.length(), 0);
+        b.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, b.length(), 0); // Меняем цвет полоски разделяющей группы
         tools2.setTitle(b);
 
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
         FT.replace(R.id.containerView, new TabFragment()).commit();
+
+        // Обработка нажатий на пункты меню. Я все это знаю - передаю потомкам
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -79,16 +86,14 @@ public class MainActivity extends AppCompatActivity {
                 if (item.getItemId() == R.id.main_tab) {
                     loadName();
                     FragmentTransaction fragmentTransaction = FM.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
-                    toast = Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT);
-                    toast.show();
+                    fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();                        // Нужно автоматизировать эту хрень
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();  // Вызов тоста о том какая неделя
                 }
 
                 if (item.getItemId() == R.id.you_tab) {
                     MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                     fragmentTransaction1.replace(R.id.containerView, new TimeClock()).commit();
-
                 }
                 if (item.getItemId() == R.id.news) {
                     isNetworkConnected();
@@ -100,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction1.replace(R.id.containerView, new Info()).commit();
                 }
 
-
                 if (item.getItemId() == R.id.map) {
                     MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
@@ -110,20 +114,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        loadName();
-        LoadPreferences();
+        loadName(); // Загрузка имени группы согласно настройкам
+        LoadPreferences(); //  Загрузка темы основной темы приложения
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -143,13 +137,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadName() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this); // Название группы берется из String-array
         String regular = prefs.getString(getString(R.string.pref_style), "");
         MainActivity.this.getSupportActionBar().setSubtitle(regular);
-
     }
 
-    private boolean isNetworkConnected() {
+
+    private boolean isNetworkConnected() { // Обход ошибки соеденения с помощью велосипеда
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();
         if (ni == null) {
@@ -178,20 +172,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-
+    // Кастомизация тем  Светлая и Темная
     public void ThemeWrithe() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
-
         }
         navigationView.setBackgroundResource(R.color.colorWhitee);
         navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
         navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
         toolbar.setBackgroundResource(R.color.colorPrimary);
     }
-
     public void ThemeDark() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
