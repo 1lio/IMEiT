@@ -70,7 +70,7 @@
     <string name="paket_asu">Пакеты прикладных программ в АСУ</string>
     <string name="filosofia">Философия</string>
     <string name="history">История</string>
-    <string name="inlang">Иностранный язык Английский)</string>
+    <string name="inlang">Иностранный язык (Английский)</string>
     <string name="inlangN">Иностранный язык(Немецкий)</string>
     <string name="inlangAaN">Иностранный язык (Английский)|(Немецкий)</string>
     <string name="algebra_a_geo">Алгебра и геометрия</string>
@@ -452,6 +452,7 @@
     <string name="his_ins">Адрес: ул. Коммунаров, д. 28</string>
     <string name="imeit_i">Институт математики, естествознания и техники</string>
     <string name="imeit_in">Адрес: ул. Ленина, д. 86</string>
+    <string name="imeit_ins">г.Елец, ул.Ленина, д.86</string>
     <string name="pravo_in">Институт права и экономики</string>
     <string name="pravo_ins_">Адрес: ул. Коммунаров, д. 28</string>
     <string name="peagog_in">Институт психологии и педагогики</string>
@@ -462,6 +463,7 @@
     <string name="filol_adr">Адрес: ул. Коммунаров, д. 39</string>
     <string name="spo">Центр СПО</string>
     <string name="spo_adr">Адрес: ул. Допризывников, д. 1а</string>
+    <string name="addres">Адрес</string>
     <string name="gk_l">Главный корпус</string>
     <string name="ad1">ул. Коммунаров, д.28</string>
     <string name="k1">1-й</string>

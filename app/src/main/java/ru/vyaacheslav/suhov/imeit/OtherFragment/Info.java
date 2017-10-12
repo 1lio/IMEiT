@@ -18,8 +18,8 @@ import ru.vyaacheslav.suhov.imeit.R;
 public class Info extends Fragment implements View.OnClickListener {
 
     public Intent intent;
-    private LinearLayout tel, webs, group, email;
-    private TextView p1, p2, p3, p4;
+    private LinearLayout tel, webs, group, email, mapl;
+    private TextView p1, p2, p3, p4, p5;
     private RelativeLayout mapa;
 
     public Info() {
@@ -34,21 +34,22 @@ public class Info extends Fragment implements View.OnClickListener {
         webs = v.findViewById(R.id.webs);
         group = v.findViewById(R.id.groups);
         email = v.findViewById(R.id.emal_l);
+        mapl = v.findViewById(R.id.map_l);
 
         p1 = v.findViewById(R.id.p1);
         p2 = v.findViewById(R.id.p2);
         p3 = v.findViewById(R.id.p3);
         p4 = v.findViewById(R.id.p4);
-
+        p5 = v.findViewById(R.id.p5);
         mapa = v.findViewById(R.id.mapa);
 
         tel.setOnClickListener(this);
         webs.setOnClickListener(this);
         group.setOnClickListener(this);
         email.setOnClickListener(this);
+        mapl.setOnClickListener(this);
 
         LoadPreferences();
-
         return v;
     }
 
@@ -73,10 +74,12 @@ public class Info extends Fragment implements View.OnClickListener {
         webs.setBackgroundResource(R.color.colorTes);
         group.setBackgroundResource(R.color.colorWhitee);
         email.setBackgroundResource(R.color.colorTes);
+        mapl.setBackgroundResource(R.color.colorWhitee);
         p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p2.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p3.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        p5.setTextColor(getResources().getColor(R.color.colorTextBlack));
     }
 
     public void ThemeDark() {
@@ -86,10 +89,12 @@ public class Info extends Fragment implements View.OnClickListener {
         webs.setBackgroundResource(R.color.colorPrimaryS);
         group.setBackgroundResource(R.color.colorPrimaryF);
         email.setBackgroundResource(R.color.colorPrimaryS);
+        mapl.setBackgroundResource(R.color.colorPrimaryF);
         p1.setTextColor(getResources().getColor(R.color.colorWhitee));
         p2.setTextColor(getResources().getColor(R.color.colorWhitee));
         p3.setTextColor(getResources().getColor(R.color.colorWhitee));
         p4.setTextColor(getResources().getColor(R.color.colorWhitee));
+        p5.setTextColor(getResources().getColor(R.color.colorWhitee));
     }
 
     @Override
@@ -112,6 +117,12 @@ public class Info extends Fragment implements View.OnClickListener {
                 email.putExtra(Intent.EXTRA_EMAIL, new String[]{"DEK_F@MAIL.RU"});
                 email.setType("message/rfc822");
                 startActivity(Intent.createChooser(email, "Выберите email клиент :"));
+                break;
+            case R.id.map_l:
+                Uri adress = Uri.parse("geo:0,0?q=ул. Ленина, д. 86,+Елец,+Липецкая+обл.");
+                Intent agr = new Intent(Intent.ACTION_VIEW, adress);
+                agr.setPackage("com.google.android.apps.maps");
+                startActivity(agr);
                 break;
             default:
                 break;

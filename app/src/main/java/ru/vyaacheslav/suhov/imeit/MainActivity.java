@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (item.getItemId() == R.id.info) {
-                    MainActivity.this.getSupportActionBar().setSubtitle("Основные сведения");
+                    MainActivity.this.getSupportActionBar().setSubtitle("Контакты");
                     FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                     fragmentTransaction1.replace(R.id.containerView, new Info()).commit();
                 }

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -20,12 +21,12 @@ import ru.vyaacheslav.suhov.imeit.R;
 public class TimeClock extends Fragment {
 
     public int getHour, getMin;
-    private LinearLayout l1, l2, l3, l4, l5, l6, lss, lsss;
+    private LinearLayout l1, l2, l3, l4, l5, l6, lss;
     private TimePicker timePicker;
     private Calendar calendar;
-    private TextView t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22,
-            t23, t24, t25, t26, t27, t28, t29, t30, t31, t32, c3;
-
+    private TextView t1, t2, t3, t5, t6, t7, t8, t10, t11, t12, t13, t14, t15, t16, t17, t19, t20, t21, t22,
+            t24, t25, t26, t27, t29, t30, t31, t32;
+    private RelativeLayout lsss;
     public TimeClock() {
     }
 
@@ -44,16 +45,14 @@ public class TimeClock extends Fragment {
         lsss = v.findViewById(R.id.lsss);
         timePicker = v.findViewById(R.id.timePicker);
         calendar = Calendar.getInstance();
-        c3 = v.findViewById(R.id.c3);
+
         t1 = v.findViewById(R.id.t1);
         t2 = v.findViewById(R.id.t2);
         t3 = v.findViewById(R.id.t3);
-        t4 = v.findViewById(R.id.t4);
         t5 = v.findViewById(R.id.t5);
         t6 = v.findViewById(R.id.t6);
         t7 = v.findViewById(R.id.t7);
         t8 = v.findViewById(R.id.t8);
-        t9 = v.findViewById(R.id.t9);
         t10 = v.findViewById(R.id.t10);
         t11 = v.findViewById(R.id.t11);
         t12 = v.findViewById(R.id.t12);
@@ -62,22 +61,20 @@ public class TimeClock extends Fragment {
         t15 = v.findViewById(R.id.t15);
         t16 = v.findViewById(R.id.t16);
         t17 = v.findViewById(R.id.t17);
-        t18 = v.findViewById(R.id.t18);
         t19 = v.findViewById(R.id.t19);
         t20 = v.findViewById(R.id.t20);
         t21 = v.findViewById(R.id.t21);
         t22 = v.findViewById(R.id.t22);
-        t23 = v.findViewById(R.id.t23);
         t24 = v.findViewById(R.id.t24);
         t25 = v.findViewById(R.id.t25);
         t26 = v.findViewById(R.id.t26);
         t27 = v.findViewById(R.id.t27);
-        t28 = v.findViewById(R.id.t28);
         t29 = v.findViewById(R.id.t29);
         t30 = v.findViewById(R.id.t30);
         t31 = v.findViewById(R.id.t31);
         t32 = v.findViewById(R.id.t32);
 
+        updateClock();
         TimeOne();
         LoadPreferences();
         return v;
@@ -99,7 +96,6 @@ public class TimeClock extends Fragment {
         if ((getHour > 9) && (getMin > 30)) {
             updateClock();
             l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
-
         }
 
         if ((getHour > 11)) {
@@ -168,16 +164,13 @@ public class TimeClock extends Fragment {
     public void ThemeWrite() {
         lss.setBackgroundResource(R.color.colorTes);
         lsss.setBackgroundResource(R.color.colorWhitee);
-        c3.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t2.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t4.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t5.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t6.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t7.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t8.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t9.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t10.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t11.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t12.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -186,17 +179,14 @@ public class TimeClock extends Fragment {
         t15.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t16.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t17.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t18.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t19.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t20.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t21.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t22.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t23.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t24.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t25.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t26.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t27.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t28.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t29.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t30.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t31.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -208,16 +198,14 @@ public class TimeClock extends Fragment {
 
         lss.setBackgroundResource(R.color.colorPrimarySS);
         lsss.setBackgroundResource(R.color.colorPrimaryD);
-        c3.setTextColor(getResources().getColor(R.color.colorWhitee));
+
         t1.setTextColor(getResources().getColor(R.color.colorWhitee));
         t2.setTextColor(getResources().getColor(R.color.colorWhitee));
         t3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t4.setTextColor(getResources().getColor(R.color.colorWhitee));
         t5.setTextColor(getResources().getColor(R.color.colorWhitee));
         t6.setTextColor(getResources().getColor(R.color.colorWhitee));
         t7.setTextColor(getResources().getColor(R.color.colorWhitee));
         t8.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t9.setTextColor(getResources().getColor(R.color.colorWhitee));
         t10.setTextColor(getResources().getColor(R.color.colorWhitee));
         t11.setTextColor(getResources().getColor(R.color.colorWhitee));
         t12.setTextColor(getResources().getColor(R.color.colorWhitee));
@@ -226,17 +214,14 @@ public class TimeClock extends Fragment {
         t15.setTextColor(getResources().getColor(R.color.colorWhitee));
         t16.setTextColor(getResources().getColor(R.color.colorWhitee));
         t17.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t18.setTextColor(getResources().getColor(R.color.colorWhitee));
         t19.setTextColor(getResources().getColor(R.color.colorWhitee));
         t20.setTextColor(getResources().getColor(R.color.colorWhitee));
         t21.setTextColor(getResources().getColor(R.color.colorWhitee));
         t22.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t23.setTextColor(getResources().getColor(R.color.colorWhitee));
         t24.setTextColor(getResources().getColor(R.color.colorWhitee));
         t25.setTextColor(getResources().getColor(R.color.colorWhitee));
         t26.setTextColor(getResources().getColor(R.color.colorWhitee));
         t27.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t28.setTextColor(getResources().getColor(R.color.colorWhitee));
         t29.setTextColor(getResources().getColor(R.color.colorWhitee));
         t30.setTextColor(getResources().getColor(R.color.colorWhitee));
         t31.setTextColor(getResources().getColor(R.color.colorWhitee));

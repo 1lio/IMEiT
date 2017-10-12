@@ -1164,7 +1164,6 @@ public class Mon extends Fragment {
         m_p4_tz.setText(getResources().getString(R.string.lk));
         m_p4_kz.setText(getResources().getString(R.string.uk14_206));
 
-
         p5z.setText(getResources().getString(R.string.mod_serv));
         p5az.setText(getResources().getString(R.string.zaiceva));
         m_p5_tz.setText(getResources().getString(R.string.pz));
@@ -1274,7 +1273,6 @@ public class Mon extends Fragment {
         m_l3.setBackgroundResource(R.drawable.side_nav_bar);
         m_l4.setBackgroundResource(R.drawable.side_nav_bar);
         m_l5.setBackgroundResource(R.drawable.side_nav_bar);
-
 
         l1.setBackgroundResource(R.color.colorSigma);
         l2.setBackgroundResource(R.color.colorSigma);

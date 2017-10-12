@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/lsss"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,12 +17,14 @@
         android:id="@+id/lss"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:orientation="horizontal"
         android:visibility="visible">
 
         <LinearLayout
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="32dp"
+            android:layout_marginLeft="16dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="6dp">
@@ -41,6 +43,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/para"
+                    android:textColor="@color/colorTes"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -56,6 +59,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
                 android:layout_weight="1"
                 android:baselineAligned="false"
                 android:gravity="center_vertical"
@@ -75,13 +79,14 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/zan"
+                        android:textColor="@color/colorTes"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="vertical"
@@ -93,6 +98,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="left|center"
                         android:text="@string/pereriv"
+                        android:textColor="@color/colorTes"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -106,6 +112,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/lss"
         android:visibility="visible">
 
         <LinearLayout
@@ -122,6 +129,7 @@
                 <LinearLayout
                     android:layout_width="60dp"
                     android:layout_height="100dp"
+                    android:layout_marginLeft="8dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -134,13 +142,14 @@
 
                         <TextView
 
-                            android:id="@+id/t4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             android:layout_weight="1"
+                            android:background="@drawable/oval"
                             android:gravity="center"
                             android:text="@string/one"
-                            android:textSize="18sp"
+                            android:textColor="@color/colorTes"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
@@ -171,7 +180,7 @@
                                 android:id="@+id/t5"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="08:30 - 09:15"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -199,12 +208,6 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:baselineAligned="false"
@@ -222,7 +225,7 @@
                                 android:id="@+id/t7"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="09:20 - 10:05"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -261,6 +264,7 @@
                 <LinearLayout
                     android:layout_width="60dp"
                     android:layout_height="100dp"
+                    android:layout_marginLeft="8dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -273,13 +277,14 @@
 
                         <TextView
 
-                            android:id="@+id/t9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             android:layout_weight="1"
+                            android:background="@drawable/oval"
                             android:gravity="center"
                             android:text="2"
-                            android:textSize="18sp"
+                            android:textColor="@color/colorTes"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
@@ -309,7 +314,7 @@
                                 android:id="@+id/t10"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="10:15 - 11:00"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -338,12 +343,6 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:baselineAligned="false"
@@ -360,7 +359,7 @@
                                 android:id="@+id/t12"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="11:05 - 11:50"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -397,6 +396,7 @@
                 <LinearLayout
                     android:layout_width="60dp"
                     android:layout_height="100dp"
+                    android:layout_marginLeft="8dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -408,13 +408,14 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/c3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             android:layout_weight="1"
+                            android:background="@drawable/oval"
                             android:gravity="center"
                             android:text="3"
-                            android:textSize="18sp"
+                            android:textColor="@color/colorTes"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
@@ -445,7 +446,7 @@
                                 android:id="@+id/t14"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="12:30 - 13:15"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -471,13 +472,6 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/m_l3"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical" />
-
-                    <LinearLayout
                         android:id="@+id/m_l_3z"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -496,7 +490,7 @@
                                 android:id="@+id/t16"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="13:20 - 14:05"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -534,6 +528,7 @@
                 <LinearLayout
                     android:layout_width="60dp"
                     android:layout_height="100dp"
+                    android:layout_marginLeft="8dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -545,13 +540,14 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/t18"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             android:layout_weight="1"
+                            android:background="@drawable/oval"
                             android:gravity="center"
                             android:text="4"
-                            android:textSize="18sp"
+                            android:textColor="@color/colorTes"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
@@ -582,7 +578,7 @@
                                 android:id="@+id/t19"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="14:15 - 15:00"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -610,12 +606,6 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_weight="1"
                         android:baselineAligned="false"
@@ -633,7 +623,7 @@
                                 android:id="@+id/t21"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="15:05 - 15:50"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -672,6 +662,7 @@
                 <LinearLayout
                     android:layout_width="60dp"
                     android:layout_height="100dp"
+                    android:layout_marginLeft="8dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -684,13 +675,14 @@
 
                         <TextView
 
-                            android:id="@+id/t23"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             android:layout_weight="1"
+                            android:background="@drawable/oval"
                             android:gravity="center"
                             android:text="5"
-                            android:textSize="18sp"
+                            android:textColor="@color/colorTes"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
@@ -721,7 +713,7 @@
                                 android:id="@+id/t24"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="16:00 - 16:45"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -748,13 +740,6 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/m_l4"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical" />
-
-                    <LinearLayout
                         android:id="@+id/m_l_4z"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
@@ -775,7 +760,7 @@
                                 android:id="@+id/t26"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="16:50 - 17:35"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -813,6 +798,7 @@
                 <LinearLayout
                     android:layout_width="60dp"
                     android:layout_height="100dp"
+                    android:layout_marginLeft="8dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="6dp">
@@ -824,13 +810,14 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/t28"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             android:layout_weight="1"
+                            android:background="@drawable/oval"
                             android:gravity="center"
                             android:text="6"
-                            android:textSize="18sp"
+                            android:textColor="@color/colorTes"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
@@ -861,7 +848,7 @@
                                 android:id="@+id/t29"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="17:45 - 18:30"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -890,12 +877,6 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
-                        android:orientation="vertical" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_weight="1"
                         android:baselineAligned="false"
@@ -914,7 +895,7 @@
                                 android:id="@+id/t31"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="left|center"
+                                android:gravity="center"
                                 android:text="18:35 - 19:20"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -945,4 +926,4 @@
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+</RelativeLayout>
