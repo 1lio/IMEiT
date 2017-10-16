@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         if (prefs.getBoolean("isFirstRun", true)) {
             Intent intent = new Intent(MainActivity.this, SettingsPref.class);
             startActivity(intent);
-        } else { }
+        } else {
+        }
         prefs.edit().putBoolean("isFirstRun", false).apply();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     loadName();
                     FragmentTransaction fragmentTransaction = FM.beginTransaction();
                     fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();                        // Нужно автоматизировать эту хрень
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();  // Вызов тоста о том какая неделя
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();  // Вызов тоста о том какая неделя
                 }
 
                 if (item.getItemId() == R.id.you_tab) {
@@ -118,6 +119,11 @@ public class MainActivity extends AppCompatActivity {
         LoadPreferences(); //  Загрузка темы основной темы приложения
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -141,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
         String regular = prefs.getString(getString(R.string.pref_style), "");
         MainActivity.this.getSupportActionBar().setSubtitle(regular);
     }
-
 
     private boolean isNetworkConnected() { // Обход ошибки соеденения с помощью велосипеда
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -172,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
     // Кастомизация тем  Светлая и Темная
     public void ThemeWrithe() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -184,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
         toolbar.setBackgroundResource(R.color.colorPrimary);
     }
+
     public void ThemeDark() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

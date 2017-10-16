@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/ssas"
-        android:icon="@drawable/ic_filter_3_black_24dp"
+        android:icon="@drawable/ic_filter_4_black_24dp"
         android:title="Числитель"
         app:showAsAction="ifRoom" />
     <item

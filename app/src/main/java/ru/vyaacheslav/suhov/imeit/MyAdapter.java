@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import ru.vyaacheslav.suhov.imeit.Days.Fri;
 import ru.vyaacheslav.suhov.imeit.Days.Mon;
+import ru.vyaacheslav.suhov.imeit.Days.MonTEST;
 import ru.vyaacheslav.suhov.imeit.Days.Thu;
 import ru.vyaacheslav.suhov.imeit.Days.Tue;
 import ru.vyaacheslav.suhov.imeit.Days.Wed;
