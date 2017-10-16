@@ -93,7 +93,7 @@ public class TimeClock extends Fragment {
             getMin = timePicker.getMinute();
         }
 
-        if ((getHour > 9) && (getMin > 30)) {
+        if ((getHour > 7)) {
             updateClock();
             l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
         }

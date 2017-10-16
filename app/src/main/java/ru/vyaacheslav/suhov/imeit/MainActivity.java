@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -26,6 +27,8 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
@@ -39,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
     public RelativeLayout dexp;
     public FragmentManager FM;
     public Toolbar toolbar;
-    private Toast toast;
+    public Toast toast;
+    private Menu menu;
+
+    java.util.Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +57,14 @@ public class MainActivity extends AppCompatActivity {
         if (prefs.getBoolean("isFirstRun", true)) {
             Intent intent = new Intent(MainActivity.this, SettingsPref.class);
             startActivity(intent);
-        } else {
-        }
+        } else { }
         prefs.edit().putBoolean("isFirstRun", false).apply();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         navigationView = (NavigationView) findViewById(R.id.shitstuff);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        calendar = java.util.Calendar.getInstance();
+
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
@@ -80,37 +87,42 @@ public class MainActivity extends AppCompatActivity {
         // Обработка нажатий на пункты меню. Я все это знаю - передаю потомкам
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawers();
 
-                if (item.getItemId() == R.id.main_tab) {
-                    loadName();
-                    FragmentTransaction fragmentTransaction = FM.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();                        // Нужно автоматизировать эту хрень
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();  // Вызов тоста о том какая неделя
+                switch (item.getItemId()){
+                    case R.id.main_tab:
+                        loadName();
+                        FragmentTransaction fragmentTransaction = FM.beginTransaction();
+                        fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
+                        // Нужно автоматизировать эту хрень
+                        calendarT();
+                        break;
+                    case R.id.you_tab:
+                        MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
+                        FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+                        fragmentTransaction1.replace(R.id.containerView, new TimeClock()).commit();
+                        break;
+                    case R.id.news:
+                        isNetworkConnected();
+                        break;
+                    case R.id.info:
+                        MainActivity.this.getSupportActionBar().setSubtitle("Контакты");
+                        FragmentTransaction fragmentTransaction2 = FM.beginTransaction();
+                        fragmentTransaction2.replace(R.id.containerView, new Info()).commit();
+                        break;
+                    case R.id.map:
+                        MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
+                        FragmentTransaction fragmentTransaction3 = FM.beginTransaction();
+                        fragmentTransaction3.replace(R.id.containerView, new MapsFragment()).commit();
+                        break;
+                    default:
+                        break;
                 }
 
-                if (item.getItemId() == R.id.you_tab) {
-                    MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
-                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                    fragmentTransaction1.replace(R.id.containerView, new TimeClock()).commit();
-                }
-                if (item.getItemId() == R.id.news) {
-                    isNetworkConnected();
-                }
 
-                if (item.getItemId() == R.id.info) {
-                    MainActivity.this.getSupportActionBar().setSubtitle("Контакты");
-                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                    fragmentTransaction1.replace(R.id.containerView, new Info()).commit();
-                }
-
-                if (item.getItemId() == R.id.map) {
-                    MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
-                    FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                    fragmentTransaction1.replace(R.id.containerView, new MapsFragment()).commit();
-                }
                 return false;
             }
         });
@@ -118,13 +130,12 @@ public class MainActivity extends AppCompatActivity {
         loadName(); // Загрузка имени группы согласно настройкам
         LoadPreferences(); //  Загрузка темы основной темы приложения
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
         getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -134,21 +145,84 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.ssas:
-                toast = Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT);
-                toast.show();
+                calendarT();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
+    // Подзаголовок subTitle
     public void loadName() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this); // Название группы берется из String-array
         String regular = prefs.getString(getString(R.string.pref_style), "");
         MainActivity.this.getSupportActionBar().setSubtitle(regular);
     }
+    //Наконец-то автоматизировал смену числителя и знаменателя
+    //Теперь этот кусок необходимо воткнуть в цикл for
+    public void calendarT(){
 
-    private boolean isNetworkConnected() { // Обход ошибки соеденения с помощью велосипеда
+        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+        int weekYear =  Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+
+        if ((weekYear >= 42)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+        }
+        if ((weekYear >= 43)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+        }
+        if ((weekYear >= 44)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+        }
+        if ((weekYear >= 45)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+        }
+        if ((weekYear >= 46)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+        }
+        if ((weekYear >= 47)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+        }
+        if ((weekYear >= 48)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+        }
+        if ((weekYear >= 49)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+        }
+        if ((weekYear >= 50)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+        }
+        if ((weekYear >= 51)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+        }
+        if ((weekYear >= 52)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+        }
+        if ((weekYear >= 53)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+        }
+        if ((weekYear >= 54)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+        }
+        if ((weekYear >= 55)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+        }
+    }
+    // Обход ошибки соеденения с помощью велосипеда
+    private boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();
         if (ni == null) {
@@ -162,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-
+    // Загрузка выбора темы приложения
     private void LoadPreferences() {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -177,7 +251,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-
     // Кастомизация тем  Светлая и Темная
     public void ThemeWrithe() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -190,7 +263,6 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
         toolbar.setBackgroundResource(R.color.colorPrimary);
     }
-
     public void ThemeDark() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
