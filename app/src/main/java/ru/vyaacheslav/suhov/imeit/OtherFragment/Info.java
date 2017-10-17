@@ -68,12 +68,12 @@ public class Info extends Fragment implements View.OnClickListener {
 
     public void ThemeWrite() {
 
-        mapa.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        mapa.setBackgroundColor(getResources().getColor(R.color.colorWhitee));
         tel.setBackground(getResources().getDrawable(R.drawable.card_row1));
         webs.setBackground(getResources().getDrawable(R.drawable.card_row1));
         group.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        email.setBackgroundResource(R.color.colorTes);
-        mapl.setBackgroundResource(R.color.colorWhitee);
+        email.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        mapl.setBackground(getResources().getDrawable(R.drawable.card_row1));
         p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p2.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p3.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -82,7 +82,7 @@ public class Info extends Fragment implements View.OnClickListener {
     }
     public void ThemeDark() {
 
-        mapa.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        mapa.setBackgroundColor(getResources().getColor(R.color.colorPrimaryF));
         tel.setBackground(getResources().getDrawable(R.drawable.card_row0));
         webs.setBackground(getResources().getDrawable(R.drawable.card_row0));
         group.setBackground(getResources().getDrawable(R.drawable.card_row0));

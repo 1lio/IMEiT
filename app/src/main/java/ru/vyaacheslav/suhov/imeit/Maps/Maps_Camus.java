@@ -16,7 +16,7 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Maps_Camus extends Fragment implements View.OnClickListener {
 
-    LinearLayout k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11;
+    LinearLayout k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, ddf;
     Intent agr;
     Uri adresK;
     TextView q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11;
@@ -52,6 +52,7 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
         q9 = v.findViewById(R.id.q9);
         q10 = v.findViewById(R.id.q10);
         q11 = v.findViewById(R.id.q11);
+        ddf = v.findViewById(R.id.ddf);
 
         k1.setOnClickListener(this);
         k2.setOnClickListener(this);
@@ -128,6 +129,7 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
 
     public void ThemeWrite() {
 
+        ddf.setBackgroundColor(getResources().getColor(R.color.colorWhitee));
         k1.setBackground(getResources().getDrawable(R.drawable.card_row1));
         k2.setBackground(getResources().getDrawable(R.drawable.card_row1));
         k3.setBackground(getResources().getDrawable(R.drawable.card_row1));
@@ -154,6 +156,7 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
 
     public void ThemeDark() {
 
+        ddf.setBackgroundColor(getResources().getColor(R.color.colorPrimaryF));
         k1.setBackground(getResources().getDrawable(R.drawable.card_row0));
         k2.setBackground(getResources().getDrawable(R.drawable.card_row0));
         k3.setBackground(getResources().getDrawable(R.drawable.card_row0));

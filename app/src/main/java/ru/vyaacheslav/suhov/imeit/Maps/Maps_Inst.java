@@ -17,7 +17,7 @@ import ru.vyaacheslav.suhov.imeit.R;
 public class Maps_Inst extends Fragment implements View.OnClickListener {
 
     public Intent agr;
-    private LinearLayout ins1, ins2, ins3, ins4, ins5, ins6, ins7, ins8;
+    private LinearLayout ins1, ins2, ins3, ins4, ins5, ins6, ins7, ins8, ddf;
     private Uri adress;
     private TextView d1, d2, d3, d4, d5, d6, d7, d8;
 
@@ -55,6 +55,7 @@ public class Maps_Inst extends Fragment implements View.OnClickListener {
         d6 = v.findViewById(R.id.d6);
         d7 = v.findViewById(R.id.d7);
         d8 = v.findViewById(R.id.d8);
+        ddf = v.findViewById(R.id.ffd);
 
         LoadPreferences();
         return v;
@@ -109,6 +110,7 @@ public class Maps_Inst extends Fragment implements View.OnClickListener {
     }
 
     public void ThemeWrite() {
+        ddf.setBackgroundColor(getResources().getColor(R.color.colorWhitee));
         ins1.setBackground(getResources().getDrawable(R.drawable.card_row1));
         ins2.setBackground(getResources().getDrawable(R.drawable.card_row1));
         ins3.setBackground(getResources().getDrawable(R.drawable.card_row1));
@@ -130,6 +132,7 @@ public class Maps_Inst extends Fragment implements View.OnClickListener {
 
     public void ThemeDark() {
 
+        ddf.setBackgroundColor(getResources().getColor(R.color.colorPrimaryF));
         ins1.setBackground(getResources().getDrawable(R.drawable.card_row0));
         ins2.setBackground(getResources().getDrawable(R.drawable.card_row0));
         ins3.setBackground(getResources().getDrawable(R.drawable.card_row0));
