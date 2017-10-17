@@ -43,9 +43,8 @@ public class MainActivity extends AppCompatActivity {
     public FragmentManager FM;
     public Toolbar toolbar;
     public Toast toast;
-    private Menu menu;
-
     java.util.Calendar calendar;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -215,10 +214,6 @@ public class MainActivity extends AppCompatActivity {
         if ((weekYear >= 54)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
             menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
-        }
-        if ((weekYear >= 55)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
         }
     }
     // Обход ошибки соеденения с помощью велосипеда
