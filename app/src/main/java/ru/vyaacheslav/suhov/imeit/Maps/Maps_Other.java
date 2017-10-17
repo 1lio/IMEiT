@@ -88,24 +88,26 @@ public class Maps_Other extends Fragment implements View.OnClickListener {
 
     public void ThemeWrite() {
 
-        hos1.setBackgroundResource(R.color.colorWhitee);
-        hos2.setBackgroundResource(R.color.colorTes);
-        hos3.setBackgroundResource(R.color.colorWhitee);
-        hos4.setBackgroundResource(R.color.colorTes);
+        hos1.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        hos2.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        hos3.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        hos4.setBackground(getResources().getDrawable(R.drawable.card_row1));
         l1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         l2.setTextColor(getResources().getColor(R.color.colorTextBlack));
         l3.setTextColor(getResources().getColor(R.color.colorTextBlack));
         l4.setTextColor(getResources().getColor(R.color.colorTextBlack));
+
         otf.setBackgroundResource(R.color.colorWhitee);
     }
 
     public void ThemeDark() {
 
         otf.setBackgroundResource(R.color.colorPrimaryF);
-        hos1.setBackgroundResource(R.color.colorPrimaryF);
-        hos2.setBackgroundResource(R.color.colorPrimaryS);
-        hos3.setBackgroundResource(R.color.colorPrimaryF);
-        hos4.setBackgroundResource(R.color.colorPrimaryS);
+
+        hos1.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        hos2.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        hos3.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        hos4.setBackground(getResources().getDrawable(R.drawable.card_row0));
         l1.setTextColor(getResources().getColor(R.color.colorWhitee));
         l2.setTextColor(getResources().getColor(R.color.colorWhitee));
         l3.setTextColor(getResources().getColor(R.color.colorWhitee));

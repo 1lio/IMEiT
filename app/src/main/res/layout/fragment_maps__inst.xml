@@ -17,7 +17,10 @@
                 android:id="@+id/ins1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorWhitee"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -65,7 +68,10 @@
                 android:id="@+id/ins2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorTes"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -112,7 +118,10 @@
                 android:id="@+id/ins3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorWhitee"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -161,7 +170,10 @@
                 android:id="@+id/ins4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorTes"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -212,7 +224,10 @@
                 android:id="@+id/ins5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorWhitee"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -267,7 +282,10 @@
                 android:id="@+id/ins6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorTes"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -321,7 +339,10 @@
                 android:id="@+id/ins7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorWhitee"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -380,7 +401,11 @@
                 android:id="@+id/ins8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorTes"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout

@@ -23,127 +23,226 @@
                     android:id="@+id/hos1"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorWhitee"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/card_row1"
                     android:gravity="center"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:paddingLeft="12dp">
 
-                    <TextView
-                        android:id="@+id/l1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="bottom|left"
-                        android:text="@string/library"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                    <TextView
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/oval"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_local_library_black_24dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/komunarov_28"
-                        android:textColor="@color/colorTextSub"
-                        android:textSize="12sp" />
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/l1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|left"
+                            android:text="@string/library"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/komunarov_28"
+                            android:textColor="@color/colorTextSub"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorPrimary"
-                    android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/hos2"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorTes"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:gravity="center"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:paddingLeft="12dp">
 
-                    <TextView
-                        android:id="@+id/l2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="bottom|left"
-                        android:text="@string/hostels"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                    <TextView
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/oval"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_hotel_black_24dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/lenina_88_122"
-                        android:textColor="@color/colorTextSub"
-                        android:textSize="12sp" />
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/l2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|left"
+                            android:text="@string/hostels"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/lenina_88_122"
+                            android:textColor="@color/colorTextSub"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorPrimary"
-                    android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/hos3"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorWhitee"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:gravity="center"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:paddingLeft="12dp">
 
-                    <TextView
-                        android:id="@+id/l3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="bottom|left"
-                        android:text="@string/sanatory"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                    <TextView
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/oval"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_business_black_24dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/dopriziv_1"
-                        android:textColor="@color/colorTextSub"
-                        android:textSize="12sp" />
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/l3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|left"
+                            android:text="@string/sanatory"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/dopriziv_1"
+                            android:textColor="@color/colorTextSub"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorPrimary"
-                    android:orientation="vertical" />
 
                 <LinearLayout
                     android:id="@+id/hos4"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorTes"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:gravity="center"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:paddingLeft="12dp">
 
-                    <TextView
-                        android:id="@+id/l4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="bottom|left"
-                        android:text="@string/foc_base"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                    <TextView
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/oval"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_location_city_black_24dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/turbase"
-                        android:textColor="@color/colorTextSub"
-                        android:textSize="12sp" />
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/l4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom|left"
+                            android:text="@string/foc_base"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:text="@string/turbase"
+                            android:textColor="@color/colorTextSub"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

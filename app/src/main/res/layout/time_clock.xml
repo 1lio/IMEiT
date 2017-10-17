@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="match_parent"
@@ -24,7 +23,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="32dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="32dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="6dp">
@@ -59,7 +58,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
+                android:layout_marginRight="32dp"
                 android:layout_weight="1"
                 android:baselineAligned="false"
                 android:gravity="center_vertical"
@@ -124,6 +123,10 @@
                 android:id="@+id/l1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -181,7 +184,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="08:30 - 09:15"
+                                android:text="@string/time001"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -226,7 +229,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="09:20 - 10:05"
+                                android:text="@string/time002"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -259,6 +262,10 @@
                 android:id="@+id/l2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -282,7 +289,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/oval"
                             android:gravity="center"
-                            android:text="2"
+                            android:text="@string/two"
                             android:textColor="@color/colorTes"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -315,7 +322,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="10:15 - 11:00"
+                                android:text="@string/time003"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -334,7 +341,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="5 минут"
+                                android:text="@string/min_5"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -360,7 +367,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="11:05 - 11:50"
+                                android:text="@string/time004"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -377,7 +384,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="40 минут"
+                                android:text="@string/min_40"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -391,6 +398,10 @@
                 android:id="@+id/l3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -413,7 +424,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/oval"
                             android:gravity="center"
-                            android:text="3"
+                            android:text="@string/tree"
                             android:textColor="@color/colorTes"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -447,7 +458,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="12:30 - 13:15"
+                                android:text="@string/tome005"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -464,7 +475,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="5 минут"
+                                android:text="@string/min5"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -491,7 +502,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="13:20 - 14:05"
+                                android:text="@string/time006"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -509,7 +520,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="10 минут"
+                                android:text="@string/min_10"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -523,6 +534,10 @@
                 android:id="@+id/l4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -545,7 +560,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/oval"
                             android:gravity="center"
-                            android:text="4"
+                            android:text="@string/four"
                             android:textColor="@color/colorTes"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -579,7 +594,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="14:15 - 15:00"
+                                android:text="@string/time007"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -597,7 +612,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="5 минут"
+                                android:text="@string/min5"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -624,7 +639,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="15:05 - 15:50"
+                                android:text="@string/time008"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -643,7 +658,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="10 минут"
+                                android:text="@string/min_10"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -657,6 +672,10 @@
                 android:id="@+id/l5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -680,7 +699,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/oval"
                             android:gravity="center"
-                            android:text="5"
+                            android:text="@string/five"
                             android:textColor="@color/colorTes"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -714,7 +733,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="16:00 - 16:45"
+                                android:text="@string/time009"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -732,7 +751,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="5 минут"
+                                android:text="@string/min_5"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -761,7 +780,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="16:50 - 17:35"
+                                android:text="@string/time010"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -779,7 +798,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="left|center"
-                                android:text="10 минут"
+                                android:text="@string/min_10"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -793,6 +812,11 @@
                 android:id="@+id/l6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/card_row1"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -815,7 +839,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/oval"
                             android:gravity="center"
-                            android:text="6"
+                            android:text="@string/six"
                             android:textColor="@color/colorTes"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -849,7 +873,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="17:45 - 18:30"
+                                android:text="@string/time011"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -896,7 +920,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="18:35 - 19:20"
+                                android:text="@string/time012"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 

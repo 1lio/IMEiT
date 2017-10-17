@@ -56,7 +56,6 @@ public class Info extends Fragment implements View.OnClickListener {
     private void LoadPreferences() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String regular = prefs.getString(getString(R.string.pref_theme), "");
-
         switch (regular) {
             case "Светлая":
                 ThemeWrite();
@@ -69,10 +68,10 @@ public class Info extends Fragment implements View.OnClickListener {
 
     public void ThemeWrite() {
 
-        mapa.setBackgroundResource(R.color.colorWhitee);
-        tel.setBackgroundResource(R.color.colorWhitee);
-        webs.setBackgroundResource(R.color.colorTes);
-        group.setBackgroundResource(R.color.colorWhitee);
+        mapa.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        tel.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        webs.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        group.setBackground(getResources().getDrawable(R.drawable.card_row1));
         email.setBackgroundResource(R.color.colorTes);
         mapl.setBackgroundResource(R.color.colorWhitee);
         p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -81,15 +80,14 @@ public class Info extends Fragment implements View.OnClickListener {
         p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p5.setTextColor(getResources().getColor(R.color.colorTextBlack));
     }
-
     public void ThemeDark() {
 
-        mapa.setBackgroundResource(R.color.colorPrimaryF);
-        tel.setBackgroundResource(R.color.colorPrimaryF);
-        webs.setBackgroundResource(R.color.colorPrimaryS);
-        group.setBackgroundResource(R.color.colorPrimaryF);
-        email.setBackgroundResource(R.color.colorPrimaryS);
-        mapl.setBackgroundResource(R.color.colorPrimaryF);
+        mapa.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        tel.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        webs.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        group.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        email.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        mapl.setBackground(getResources().getDrawable(R.drawable.card_row0));
         p1.setTextColor(getResources().getColor(R.color.colorWhitee));
         p2.setTextColor(getResources().getColor(R.color.colorWhitee));
         p3.setTextColor(getResources().getColor(R.color.colorWhitee));

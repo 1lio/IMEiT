@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +26,7 @@ public class TimeClock extends Fragment {
     private TextView t1, t2, t3, t5, t6, t7, t8, t10, t11, t12, t13, t14, t15, t16, t17, t19, t20, t21, t22,
             t24, t25, t26, t27, t29, t30, t31, t32;
     private RelativeLayout lsss;
+
     public TimeClock() {
     }
 
@@ -43,6 +43,7 @@ public class TimeClock extends Fragment {
         l6 = v.findViewById(R.id.l6);
         lss = v.findViewById(R.id.lss);
         lsss = v.findViewById(R.id.lsss);
+
         timePicker = v.findViewById(R.id.timePicker);
         calendar = Calendar.getInstance();
 
@@ -80,7 +81,6 @@ public class TimeClock extends Fragment {
         return v;
     }
 
-
     public void TimeOne() {
 
         if (Build.VERSION.SDK_INT < 23) {
@@ -95,25 +95,25 @@ public class TimeClock extends Fragment {
 
         if ((getHour > 7)) {
             updateClock();
-            l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+            l2.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
         if ((getHour > 11)) {
             updateClock();
-            l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+            l3.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
         if ((getHour > 13)) {
             updateClock();
-            l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+            l4.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
         if ((getHour > 15)) {
             updateClock();
-            l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+            l5.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
         if ((getHour > 17)) {
             updateClock();
-            l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+            l6.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
         if ((getHour > 19)) {
@@ -128,20 +128,20 @@ public class TimeClock extends Fragment {
 
         switch (regular) {
             case "Светлая":
-                l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
-                l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
-                l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
-                l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
-                l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorWhitee));
-                l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorTes));
+                l1.setBackground(getResources().getDrawable(R.drawable.card_row1));
+                l2.setBackground(getResources().getDrawable(R.drawable.card_row1));
+                l3.setBackground(getResources().getDrawable(R.drawable.card_row1));
+                l4.setBackground(getResources().getDrawable(R.drawable.card_row1));
+                l5.setBackground(getResources().getDrawable(R.drawable.card_row1));
+                l6.setBackground(getResources().getDrawable(R.drawable.card_row1));
                 break;
             case "Темная":
-                l1.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
-                l2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
-                l3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
-                l4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
-                l5.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryF));
-                l6.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryS));
+                l1.setBackground(getResources().getDrawable(R.drawable.card_row0));
+                l2.setBackground(getResources().getDrawable(R.drawable.card_row0));
+                l3.setBackground(getResources().getDrawable(R.drawable.card_row0));
+                l4.setBackground(getResources().getDrawable(R.drawable.card_row0));
+                l5.setBackground(getResources().getDrawable(R.drawable.card_row0));
+                l6.setBackground(getResources().getDrawable(R.drawable.card_row0));
                 break;
 
         }
@@ -193,7 +193,6 @@ public class TimeClock extends Fragment {
         t32.setTextColor(getResources().getColor(R.color.colorTextBlack));
 
     }
-
     public void ThemeDark() {
 
         lss.setBackgroundResource(R.color.colorPrimarySS);

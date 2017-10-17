@@ -2,14 +2,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/ssas"
+        android:icon="@drawable/look4"
         android:orderInCategory="0"
-        android:icon="@drawable/ic_filter_4_black_24dp"
         android:title="Числитель"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/settings"
-        android:orderInCategory="1"
         android:icon="@drawable/settings"
+        android:orderInCategory="1"
         android:title="@string/settings"
         app:showAsAction="ifRoom" />
 </menu>

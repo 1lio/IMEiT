@@ -128,17 +128,17 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
 
     public void ThemeWrite() {
 
-        k1.setBackgroundResource(R.color.colorWhitee);
-        k2.setBackgroundResource(R.color.colorTes);
-        k3.setBackgroundResource(R.color.colorWhitee);
-        k4.setBackgroundResource(R.color.colorTes);
-        k5.setBackgroundResource(R.color.colorWhitee);
-        k6.setBackgroundResource(R.color.colorTes);
-        k7.setBackgroundResource(R.color.colorWhitee);
-        k8.setBackgroundResource(R.color.colorTes);
-        k9.setBackgroundResource(R.color.colorWhitee);
-        k10.setBackgroundResource(R.color.colorTes);
-        k11.setBackgroundResource(R.color.colorWhitee);
+        k1.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k2.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k3.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k4.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k5.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k6.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k7.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k8.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k9.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k10.setBackground(getResources().getDrawable(R.drawable.card_row1));
+        k11.setBackground(getResources().getDrawable(R.drawable.card_row1));
         q1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         q2.setTextColor(getResources().getColor(R.color.colorTextBlack));
         q3.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -154,17 +154,17 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
 
     public void ThemeDark() {
 
-        k1.setBackgroundResource(R.color.colorPrimaryF);
-        k2.setBackgroundResource(R.color.colorPrimaryS);
-        k3.setBackgroundResource(R.color.colorPrimaryF);
-        k4.setBackgroundResource(R.color.colorPrimaryS);
-        k5.setBackgroundResource(R.color.colorPrimaryF);
-        k6.setBackgroundResource(R.color.colorPrimaryS);
-        k7.setBackgroundResource(R.color.colorPrimaryF);
-        k8.setBackgroundResource(R.color.colorPrimaryS);
-        k9.setBackgroundResource(R.color.colorPrimaryF);
-        k10.setBackgroundResource(R.color.colorPrimaryS);
-        k11.setBackgroundResource(R.color.colorPrimaryF);
+        k1.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k2.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k3.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k4.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k5.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k6.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k7.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k8.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k9.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k10.setBackground(getResources().getDrawable(R.drawable.card_row0));
+        k11.setBackground(getResources().getDrawable(R.drawable.card_row0));
         q1.setTextColor(getResources().getColor(R.color.colorWhitee));
         q2.setTextColor(getResources().getColor(R.color.colorWhitee));
         q3.setTextColor(getResources().getColor(R.color.colorWhitee));

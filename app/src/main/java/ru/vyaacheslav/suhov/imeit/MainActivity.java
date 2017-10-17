@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public FragmentManager FM;
     public Toolbar toolbar;
     public Toast toast;
-    java.util.Calendar calendar;
+    public java.util.Calendar calendar;
     private Menu menu;
 
     @Override
@@ -158,62 +158,67 @@ public class MainActivity extends AppCompatActivity {
     }
     //Наконец-то автоматизировал смену числителя и знаменателя
     //Теперь этот кусок необходимо воткнуть в цикл for
+    //Писос все на велосипедах
     public void calendarT(){
 
         Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
         int weekYear =  Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 
-        if ((weekYear >= 42)) {
+        if ((weekYear == 43)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
         }
-        if ((weekYear >= 43)) {
+        if ((weekYear == 44)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
         }
-        if ((weekYear >= 44)) {
+        if ((weekYear == 45)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
         }
-        if ((weekYear >= 45)) {
+        if ((weekYear == 46)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
         }
-        if ((weekYear >= 46)) {
+        if ((weekYear == 47)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
         }
-        if ((weekYear >= 47)) {
+        if ((weekYear == 48)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
         }
-        if ((weekYear >= 48)) {
+        if ((weekYear == 49)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
         }
-        if ((weekYear >= 49)) {
+        if ((weekYear == 50)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
         }
-        if ((weekYear >= 50)) {
+        if ((weekYear == 51)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
         }
-        if ((weekYear >= 51)) {
+        if ((weekYear == 52)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
         }
-        if ((weekYear >= 52)) {
+        if ((weekYear == 53)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
         }
-        if ((weekYear >= 53)) {
+        if ((weekYear == 1)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_3_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
         }
-        if ((weekYear >= 54)) {
+        if ((weekYear == 2)) {
             Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_filter_4_black_24dp));
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+        }
+        if ((weekYear == 3)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
         }
     }
     // Обход ошибки соеденения с помощью велосипеда

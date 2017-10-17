@@ -20,7 +20,10 @@
                     android:id="@+id/k1"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorWhitee"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -45,18 +48,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/k2"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorTes"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -81,19 +79,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/k3"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorWhitee"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -118,16 +110,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical" />
-
-                <LinearLayout
                     android:id="@+id/k4"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorTes"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -154,16 +143,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical" />
-
-                <LinearLayout
                     android:id="@+id/k5"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorWhitee"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -190,18 +176,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/k6"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorTes"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -227,17 +208,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical" />
-
-                <LinearLayout
                     android:id="@+id/k7"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorWhitee"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -262,16 +239,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical" />
-
-                <LinearLayout
                     android:id="@+id/k8"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorTes"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -296,19 +270,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/k9"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorWhitee"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -333,17 +301,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical" />
-
-                <LinearLayout
                     android:id="@+id/k10"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorTes"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
@@ -368,16 +332,14 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical" />
-
-                <LinearLayout
                     android:id="@+id/k11"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:background="@color/colorWhitee"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/card_row1"
                     android:orientation="vertical"
                     android:paddingLeft="12dp">
 
