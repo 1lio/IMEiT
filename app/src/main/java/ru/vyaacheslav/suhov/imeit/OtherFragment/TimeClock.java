@@ -76,12 +76,12 @@ public class TimeClock extends Fragment {
         t32 = v.findViewById(R.id.t32);
 
         updateClock();
-        TimeOne();
+        TimeFunction();
         LoadPreferences();
         return v;
     }
 
-    public void TimeOne() {
+    public void TimeFunction() {
 
         if (Build.VERSION.SDK_INT < 23) {
             getHour = timePicker.getCurrentHour();
@@ -93,30 +93,30 @@ public class TimeClock extends Fragment {
             getMin = timePicker.getMinute();
         }
 
-        if ((getHour > 7)) {
+        if ((getHour == 8)) {
             updateClock();
             l2.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
-        if ((getHour > 11)) {
+        if ((getHour == 10)) {
             updateClock();
             l3.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
-        if ((getHour > 13)) {
+        if ((getHour == 13)) {
             updateClock();
             l4.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
-        if ((getHour > 15)) {
+        if ((getHour == 15)) {
             updateClock();
             l5.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
-        if ((getHour > 17)) {
+        if ((getHour == 17)) {
             updateClock();
             l6.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
-        if ((getHour > 19)) {
+        if ((getHour == 19)) {
             updateClock();
         }
     }
