@@ -1,13 +1,16 @@
 package ru.vyaacheslav.suhov.imeit.News;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -22,6 +25,8 @@ public class NewsFragment extends Fragment {
     EventBus bus;
     Thread trImeitNews;
     RecyclerView recyclerView;
+    RelativeLayout newsBg;
+
     public NewsFragment() {
     }
 
@@ -32,6 +37,7 @@ public class NewsFragment extends Fragment {
         View v = inflater.inflate(R.layout.news, container, false);
 
         recyclerView = v.findViewById(R.id.recyclerNews);
+        newsBg = v.findViewById(R.id.news_bascgr);
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -42,7 +48,7 @@ public class NewsFragment extends Fragment {
 
         ImeitNews imeitNews = new ImeitNews(newsList);
 
-        trImeitNews =new Thread(imeitNews);
+        trImeitNews = new Thread(imeitNews);
 
         trImeitNews.start();
 
@@ -54,14 +60,37 @@ public class NewsFragment extends Fragment {
         }
 
         fillRecycler();
+        LoadPreferences();
         return v;
     }
 
-    public void fillRecycler(){
+    public void fillRecycler() {
 
-        NewsAdapter newsAdapter=new NewsAdapter(newsList,getActivity());
+        NewsAdapter newsAdapter = new NewsAdapter(newsList, getActivity());
         recyclerView.setAdapter(newsAdapter);
         newsAdapter.notifyDataSetChanged();
 
+    }
+
+    private void LoadPreferences() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+
+        switch (regular) {
+            case "Светлая":
+                ThemeWrite();
+                break;
+            case "Темная":
+                ThemeDark();
+                break;
+        }
+    }
+
+    public void ThemeWrite() {
+        newsBg.setBackgroundResource(R.color.colorWhitee);
+    }
+
+    public void ThemeDark() {
+        newsBg.setBackgroundResource(R.color.colorPrimaryF);
     }
 }

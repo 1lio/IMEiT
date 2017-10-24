@@ -1,24 +1,15 @@
 package ru.vyaacheslav.suhov.imeit.News;
 
-public class News {
+ class News {
     private String title;
     private String summary;
     private String imageUrl;
-    private String newsUrl;
 
-    public String getNewsUrl() {
-        return newsUrl;
-    }
-
-    public void setNewsUrl(String newsUrl) {
-        this.newsUrl = newsUrl;
-    }
-
-    public String getImageUrl() {
+     String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+     void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
@@ -30,11 +21,11 @@ public class News {
         this.title = title;
     }
 
-    public String getSummary() {
+     String getSummary() {
         return summary;
     }
 
-    public void setSummary(String summary) {
+     void setSummary(String summary) {
         this.summary = summary;
     }
 }

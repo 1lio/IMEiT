@@ -2,7 +2,6 @@ package ru.vyaacheslav.suhov.imeit.News;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,16 +18,13 @@ import java.util.List;
 import ru.vyaacheslav.suhov.imeit.R;
 
 
-public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
-    Context ctx;
+class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
+
+    private Context ctx;
     private List<News> newsList;
     private EventBus bus = EventBus.getDefault();
 
-    public NewsAdapter(Context ctx) {
-        this.ctx = ctx;
-    }
-
-    public NewsAdapter(List<News> newsList, Context ctx) {
+    NewsAdapter(List<News> newsList, Context ctx) {
         this.newsList = newsList;
         this.ctx = ctx;
     }
@@ -37,10 +33,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     public NewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.news_row, parent, false);
-
-
-        NewsViewHolder myViewHolder = new NewsViewHolder(view);
-        return myViewHolder;
+        return new NewsViewHolder(view);
     }
 
     @Override
@@ -53,8 +46,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         textNewsSummary.setText(news.getSummary());
         textNewsTitle.setText(newsList.get(position).getTitle());
 
-
-        Log.e("url=", news.getImageUrl());
         Glide.with(ctx).load(news.getImageUrl())
                 .thumbnail(0.5f)
                 .crossFade()
@@ -74,6 +65,4 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     public int getItemCount() {
         return newsList.size();
     }
-
-
 }

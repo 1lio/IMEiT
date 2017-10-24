@@ -230,7 +230,6 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.this.getSupportActionBar().setSubtitle("Новости");
         FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
         fragmentTransaction1.replace(R.id.containerView, new NewsFragment()).commit();
-
         return true;
     }
     // Загрузка выбора темы приложения

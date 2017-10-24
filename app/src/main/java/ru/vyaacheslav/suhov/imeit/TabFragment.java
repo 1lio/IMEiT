@@ -16,8 +16,7 @@ public class TabFragment extends Fragment {
     TabLayout tabLayout;
     ViewPager viewPager;
 
-    public TabFragment() {
-    }
+    public TabFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
