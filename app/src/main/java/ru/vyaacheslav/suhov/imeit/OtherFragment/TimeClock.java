@@ -93,30 +93,30 @@ public class TimeClock extends Fragment {
             getMin = timePicker.getMinute();
         }
 
-        if ((getHour == 8)) {
+        if ((getHour >= 8)) {
             updateClock();
             l2.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
-        if ((getHour == 10)) {
+        if ((getHour >= 10)) {
             updateClock();
             l3.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
-        if ((getHour == 13)) {
+        if ((getHour >= 13)) {
             updateClock();
             l4.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
-        if ((getHour == 15)) {
+        if ((getHour >= 15)) {
             updateClock();
             l5.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
-        if ((getHour == 17)) {
+        if ((getHour >= 17)) {
             updateClock();
             l6.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
-        if ((getHour == 19)) {
+        if ((getHour >= 19)) {
             updateClock();
         }
     }
@@ -143,7 +143,6 @@ public class TimeClock extends Fragment {
                 l5.setBackground(getResources().getDrawable(R.drawable.card_row0));
                 l6.setBackground(getResources().getDrawable(R.drawable.card_row0));
                 break;
-
         }
     }
 

@@ -27,10 +27,9 @@ class ImeitNews implements Runnable {
     }
 
     public void run() {
-        System.out.println("run thread kurdoress");
+        System.out.println("run thread imet.elsu");
         connectToSite();
         extractNews();
-
     }
 
 

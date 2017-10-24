@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         calendar = java.util.Calendar.getInstance();
 
-
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(toggle);
@@ -96,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                         loadName();
                         FragmentTransaction fragmentTransaction = FM.beginTransaction();
                         fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
-                        // Нужно автоматизировать эту хрень
                         calendarT();
                         break;
                     case R.id.you_tab:
@@ -120,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         break;
                 }
-
 
                 return false;
             }
@@ -158,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //Наконец-то автоматизировал смену числителя и знаменателя
     //Теперь этот кусок необходимо воткнуть в цикл for
-    //Писос все на велосипедах
+    //Писос все на костылях
     public void calendarT(){
 
         Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
@@ -221,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
             menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
         }
     }
-    // Обход ошибки соеденения с помощью велосипеда
+    // Проверка ошибки соеденения с помощью велосипеда
     private boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();

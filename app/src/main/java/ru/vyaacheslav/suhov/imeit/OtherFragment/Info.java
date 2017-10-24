@@ -22,8 +22,7 @@ public class Info extends Fragment implements View.OnClickListener {
     private TextView p1, p2, p3, p4, p5;
     private RelativeLayout mapa;
 
-    public Info() {
-    }
+    public Info() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
