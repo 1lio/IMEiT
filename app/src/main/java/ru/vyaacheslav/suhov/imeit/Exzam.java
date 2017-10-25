@@ -1,21 +1,25 @@
 package ru.vyaacheslav.suhov.imeit;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class Exzam extends Fragment {
+public class Exzam extends Fragment{
 
     public LinearLayout mod01,mod02,mod03,mod04,mod05,mod06,mod07,mod08,mod09,mod10,mod11,mod12,mod13,mod14;
-    public CheckBox ch01,ch02,ch03,ch04,ch05,ch06,ch07,ch08,ch09,ch10,ch11,ch12,ch13,ch14;
+    public TextView ch01,ch02,ch03,ch04,ch05,ch06,ch07,ch08,ch09,ch10,ch11,ch12,ch13,ch14;
     public TextView ty01,ty02,ty03,ty04,ty05,ty06,ty07,ty08,ty09,ty10,ty11,ty12,ty13,ty14;
 
     public Exzam() {    }
@@ -205,33 +209,18 @@ public class Exzam extends Fragment {
             case "ФСм-21":
                 FCm_21();
                 break;
-
             default:
                 break;
         }
     }
 
-    public void FMiI_11() {
+    public void FMiI_11() {  }
 
+    public void Pm_11() {   }
 
-    }
+    public void IiVT_12() { }
 
-    public void Pm_11() {
-
-
-    }
-
-    public void IiVT_12() {
-
-
-
-    }
-
-    public void ISiT_11() {
-
-
-
-    }
+    public void ISiT_11() {  }
 
     // Второй курс
     public void MI_21() {
@@ -264,26 +253,17 @@ public class Exzam extends Fragment {
         ty12.setText(getResources().getString(R.string.zacot));
 
     }
-    public void MF_21() {
-
-
-    }
-
-    public void PM_21() {
-
-
-    }
-
-    public void BI_21() {
-
-
-    }
-
-    public void IiVT_21() {
 
 
 
-    }
+
+    public void MF_21() {    }
+
+    public void PM_21() {    }
+
+    public void BI_21() {    }
+
+    public void IiVT_21() {    }
 
     public void ISiT_21() {
 
@@ -466,4 +446,5 @@ public class Exzam extends Fragment {
     public void FCm_21() {
 
     }
+
 }
