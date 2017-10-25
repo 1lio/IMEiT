@@ -6,6 +6,10 @@
             android:icon="@drawable/tab1"
             android:title="@string/ras" />
         <item
+            android:id="@+id/exam"
+            android:icon="@drawable/ic_assignment_turned_in_black_24dp"
+            android:title="@string/exam_a_z" />
+        <item
             android:id="@+id/you_tab"
             android:icon="@drawable/ic_access_time"
             android:title="@string/time_zvonok" />

@@ -70,6 +70,7 @@
     <string name="paket_asu">Пакеты прикладных программ в АСУ</string>
     <string name="filosofia">Философия</string>
     <string name="history">История</string>
+    <string name="langM">Иностранный язык</string>
     <string name="inlang">Иностранный язык (Английский)</string>
     <string name="inlangN">Иностранный язык(Немецкий)</string>
     <string name="inlangAaN">Иностранный язык (Английский)|(Немецкий)</string>
@@ -588,10 +589,17 @@
     <string name="six">6</string>
     <string name="time011">17:45 - 18:30</string>
     <string name="time012">18:35 - 19:20</string>
+    
+    <string name="zac_oc">Зачот с оценкой</string>
+    <string name="zacot">Зачет</string>
+    <string name="examen">Экзамен</string>
 
     <array name="themes">
         <item>Светлая</item>
         <item>Темная</item>
     </array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

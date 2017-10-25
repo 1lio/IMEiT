@@ -15,12 +15,13 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Mon extends Fragment {
 
-    RelativeLayout mk;
+    private RelativeLayout mk;
     private LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
     private LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5, l1, l2, l3, l4;
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
+    public View v;
 
     public Mon() {
     }
@@ -28,81 +29,8 @@ public class Mon extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.mon, container, false);
-
-        mk = v.findViewById(R.id.mk1);
-        m_l_1z = v.findViewById(R.id.m_l_1z);
-        m_l_2z = v.findViewById(R.id.m_l_2z);
-        m_l_3z = v.findViewById(R.id.m_l_3z);
-        m_l_4z = v.findViewById(R.id.m_l_4z);
-
-        m_l1 = v.findViewById(R.id.m_l1);
-        m_l2 = v.findViewById(R.id.m_l2);
-        m_l3 = v.findViewById(R.id.m_l3);
-        m_l4 = v.findViewById(R.id.m_l4);
-        m_l5 = v.findViewById(R.id.m_l5);
-
-        p1 = v.findViewById(R.id.m_p1);
-        p1a = v.findViewById(R.id.m_p1_a);
-        m_p1_t = v.findViewById(R.id.m_p1_t);
-        m_p1_k = v.findViewById(R.id.m_p1_k);
-        p1z = v.findViewById(R.id.m_p1z);
-        p1az = v.findViewById(R.id.m_p1_az);
-        m_p1_tz = v.findViewById(R.id.m_p1_tz);
-        m_p1_kz = v.findViewById(R.id.m_p1_kz);
-
-        p2 = v.findViewById(R.id.m_p2);
-        p2a = v.findViewById(R.id.m_p2_a);
-        m_p2_t = v.findViewById(R.id.m_p2_t);
-        m_p2_k = v.findViewById(R.id.m_p2_k);
-        p2z = v.findViewById(R.id.m_p2z);
-        p2az = v.findViewById(R.id.m_p2_az);
-        m_p2_tz = v.findViewById(R.id.m_p2_tz);
-        m_p2_kz = v.findViewById(R.id.m_p2_kz);
-
-        p3 = v.findViewById(R.id.m_p3);
-        p3a = v.findViewById(R.id.m_p3_a);
-        m_p3_t = v.findViewById(R.id.m_p3_t);
-        m_p3_k = v.findViewById(R.id.m_p3_k);
-        p3z = v.findViewById(R.id.m_p3z);
-        p3az = v.findViewById(R.id.m_p3_az);
-        m_p3_tz = v.findViewById(R.id.m_p3_tz);
-        m_p3_kz = v.findViewById(R.id.m_p3_kz);
-
-        p4 = v.findViewById(R.id.m_p4);
-        p4a = v.findViewById(R.id.m_p4_a);
-        m_p4_t = v.findViewById(R.id.m_p4_t);
-        m_p4_k = v.findViewById(R.id.m_p4_k);
-        p4z = v.findViewById(R.id.m_p4z);
-        p4az = v.findViewById(R.id.m_p4_az);
-        m_p4_tz = v.findViewById(R.id.m_p4_tz);
-        m_p4_kz = v.findViewById(R.id.m_p4_kz);
-
-        p5 = v.findViewById(R.id.m_p5);
-        p5a = v.findViewById(R.id.m_p5a);
-        m_p5_t = v.findViewById(R.id.m_p5_t);
-        m_p5_k = v.findViewById(R.id.m_p5_k);
-        p5z = v.findViewById(R.id.m_p5z);
-        p5az = v.findViewById(R.id.m_p5_az);
-        m_p5_tz = v.findViewById(R.id.m_p5_tz);
-        m_p5_kz = v.findViewById(R.id.m_p5_kz);
-
-        s1 = v.findViewById(R.id.s1);
-        s2 = v.findViewById(R.id.s2);
-        s3 = v.findViewById(R.id.s3);
-        s4 = v.findViewById(R.id.s4);
-        s5 = v.findViewById(R.id.s5);
-        s6 = v.findViewById(R.id.s6);
-        s7 = v.findViewById(R.id.s7);
-        s8 = v.findViewById(R.id.s8);
-        s9 = v.findViewById(R.id.s9);
-        s10 = v.findViewById(R.id.s10);
-
-        l1 = v.findViewById(R.id.l1);
-        l2 = v.findViewById(R.id.l2);
-        l3 = v.findViewById(R.id.l3);
-        l4 = v.findViewById(R.id.l4);
-
+        v = inflater.inflate(R.layout.mon, container, false);
+        InitViews();
         loadMethod();
         LoadPreferences();
         return v;
@@ -111,7 +39,6 @@ public class Mon extends Fragment {
     public void loadMethod() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String position = prefs.getString(getString(R.string.pref_style), "");
-        layoutVisable();
 
         switch (position) {
             case "ФМиИ-11":
@@ -246,15 +173,80 @@ public class Mon extends Fragment {
         }
     }
 
-    public void layoutVisable() {
-        m_l1.setVisibility(View.VISIBLE);
-        m_l2.setVisibility(View.VISIBLE);
-        m_l3.setVisibility(View.VISIBLE);
-        m_l4.setVisibility(View.VISIBLE);
-        m_l_1z.setVisibility(View.VISIBLE);
-        m_l_2z.setVisibility(View.VISIBLE);
-        m_l_3z.setVisibility(View.VISIBLE);
-        m_l_4z.setVisibility(View.VISIBLE);
+    public void InitViews(){
+
+        mk = v.findViewById(R.id.mk1);
+        m_l_1z = v.findViewById(R.id.m_l_1z);
+        m_l_2z = v.findViewById(R.id.m_l_2z);
+        m_l_3z = v.findViewById(R.id.m_l_3z);
+        m_l_4z = v.findViewById(R.id.m_l_4z);
+
+        m_l1 = v.findViewById(R.id.m_l1);
+        m_l2 = v.findViewById(R.id.m_l2);
+        m_l3 = v.findViewById(R.id.m_l3);
+        m_l4 = v.findViewById(R.id.m_l4);
+        m_l5 = v.findViewById(R.id.m_l5);
+
+        p1 = v.findViewById(R.id.m_p1);
+        p1a = v.findViewById(R.id.m_p1_a);
+        m_p1_t = v.findViewById(R.id.m_p1_t);
+        m_p1_k = v.findViewById(R.id.m_p1_k);
+        p1z = v.findViewById(R.id.m_p1z);
+        p1az = v.findViewById(R.id.m_p1_az);
+        m_p1_tz = v.findViewById(R.id.m_p1_tz);
+        m_p1_kz = v.findViewById(R.id.m_p1_kz);
+
+        p2 = v.findViewById(R.id.m_p2);
+        p2a = v.findViewById(R.id.m_p2_a);
+        m_p2_t = v.findViewById(R.id.m_p2_t);
+        m_p2_k = v.findViewById(R.id.m_p2_k);
+        p2z = v.findViewById(R.id.m_p2z);
+        p2az = v.findViewById(R.id.m_p2_az);
+        m_p2_tz = v.findViewById(R.id.m_p2_tz);
+        m_p2_kz = v.findViewById(R.id.m_p2_kz);
+
+        p3 = v.findViewById(R.id.m_p3);
+        p3a = v.findViewById(R.id.m_p3_a);
+        m_p3_t = v.findViewById(R.id.m_p3_t);
+        m_p3_k = v.findViewById(R.id.m_p3_k);
+        p3z = v.findViewById(R.id.m_p3z);
+        p3az = v.findViewById(R.id.m_p3_az);
+        m_p3_tz = v.findViewById(R.id.m_p3_tz);
+        m_p3_kz = v.findViewById(R.id.m_p3_kz);
+
+        p4 = v.findViewById(R.id.m_p4);
+        p4a = v.findViewById(R.id.m_p4_a);
+        m_p4_t = v.findViewById(R.id.m_p4_t);
+        m_p4_k = v.findViewById(R.id.m_p4_k);
+        p4z = v.findViewById(R.id.m_p4z);
+        p4az = v.findViewById(R.id.m_p4_az);
+        m_p4_tz = v.findViewById(R.id.m_p4_tz);
+        m_p4_kz = v.findViewById(R.id.m_p4_kz);
+
+        p5 = v.findViewById(R.id.m_p5);
+        p5a = v.findViewById(R.id.m_p5a);
+        m_p5_t = v.findViewById(R.id.m_p5_t);
+        m_p5_k = v.findViewById(R.id.m_p5_k);
+        p5z = v.findViewById(R.id.m_p5z);
+        p5az = v.findViewById(R.id.m_p5_az);
+        m_p5_tz = v.findViewById(R.id.m_p5_tz);
+        m_p5_kz = v.findViewById(R.id.m_p5_kz);
+
+        s1 = v.findViewById(R.id.s1);
+        s2 = v.findViewById(R.id.s2);
+        s3 = v.findViewById(R.id.s3);
+        s4 = v.findViewById(R.id.s4);
+        s5 = v.findViewById(R.id.s5);
+        s6 = v.findViewById(R.id.s6);
+        s7 = v.findViewById(R.id.s7);
+        s8 = v.findViewById(R.id.s8);
+        s9 = v.findViewById(R.id.s9);
+        s10 = v.findViewById(R.id.s10);
+
+        l1 = v.findViewById(R.id.l1);
+        l2 = v.findViewById(R.id.l2);
+        l3 = v.findViewById(R.id.l3);
+        l4 = v.findViewById(R.id.l4);
 
     }
 

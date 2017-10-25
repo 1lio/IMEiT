@@ -115,6 +115,13 @@ public class MainActivity extends AppCompatActivity {
                         FragmentTransaction fragmentTransaction3 = FM.beginTransaction();
                         fragmentTransaction3.replace(R.id.containerView, new MapsFragment()).commit();
                         break;
+
+                    case R.id.exam:
+                        loadName();
+                        FragmentTransaction fragmentTransaction4 = FM.beginTransaction();
+                        fragmentTransaction4.replace(R.id.containerView, new Exzam()).commit();
+                        break;
+
                     default:
                         break;
                 }
@@ -122,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
         loadName(); // Загрузка имени группы согласно настройкам
         LoadPreferences(); //  Загрузка темы основной темы приложения
     }
@@ -130,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         this.menu = menu;
         getMenuInflater().inflate(R.menu.menu, menu);
+        calendarT();
         return super.onCreateOptionsMenu(menu);
     }
     @Override
