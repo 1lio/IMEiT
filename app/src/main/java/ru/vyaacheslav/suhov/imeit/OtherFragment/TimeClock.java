@@ -84,12 +84,10 @@ public class TimeClock extends Fragment {
 
         if (Build.VERSION.SDK_INT < 23) {
             getHour = timePicker.getCurrentHour();
-            getMin = timePicker.getCurrentMinute();
             calendar.set(Calendar.HOUR_OF_DAY, timePicker.getCurrentHour());
         } else {
             getHour = timePicker.getHour();
             calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
-            getMin = timePicker.getMinute();
         }
 
         if ((getHour == 8)) {

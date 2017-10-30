@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         loadName(); // Загрузка имени группы согласно настройкам
         LoadPreferences(); //  Загрузка темы основной темы приложения
     }
