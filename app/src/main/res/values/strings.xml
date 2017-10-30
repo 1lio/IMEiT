@@ -593,6 +593,7 @@
     <string name="zac_oc">Зачет с оценкой</string>
     <string name="zacot">Зачет</string>
     <string name="examen">Экзамен</string>
+    <string name="zac_exam">Зачет / Экзамен</string>
 
     <array name="themes">
         <item>Светлая</item>

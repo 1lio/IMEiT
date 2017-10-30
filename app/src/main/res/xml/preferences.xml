@@ -4,7 +4,6 @@
     <PreferenceCategory android:title="Настройки расписания">
 
         <ListPreference
-            android:defaultValue="@string/isit21"
         android:dialogTitle="Выберите группу"
         android:entries="@array/bak_groops"
         android:entryValues="@array/bak_groops"

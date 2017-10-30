@@ -15,13 +15,13 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Mon extends Fragment {
 
+    public View v;
     private RelativeLayout mk;
     private LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
     private LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5, l1, l2, l3, l4;
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
-    public View v;
 
     public Mon() {
     }
@@ -885,7 +885,6 @@ public class Mon extends Fragment {
         Null_Mon_Z_2();
 
         Fizra_pervaki();
-
 
     }
 

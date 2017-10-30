@@ -21,8 +21,7 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
     Uri adresK;
     TextView q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11;
 
-    public Maps_Camus() {
-    }
+    public Maps_Camus() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

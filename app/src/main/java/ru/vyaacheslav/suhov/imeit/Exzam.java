@@ -1,18 +1,13 @@
 package ru.vyaacheslav.suhov.imeit;
 
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -214,11 +209,70 @@ public class Exzam extends Fragment{
         }
     }
 
-    public void FMiI_11() {  }
+    public void FMiI_11() {
+        mod14.setVisibility(View.GONE);
+        mod13.setVisibility(View.GONE);
+
+        ch01.setText(getResources().getString(R.string.history));
+        ch02.setText(getResources().getString(R.string.inlangN));
+        ch03.setText(getResources().getString(R.string.bjd));
+        ch04.setText(getResources().getString(R.string.pcixol));
+        ch05.setText(getResources().getString(R.string.vvov_v_ped_de));
+        ch06.setText(getResources().getString(R.string.mat_med_obr));
+        ch07.setText(getResources().getString(R.string.russian_lang));
+        ch08.setText(getResources().getString(R.string.fk));
+        ch09.setText(getResources().getString(R.string.m_analis));
+        ch10.setText(getResources().getString(R.string.algebra_a_teoc));
+        ch11.setText(getResources().getString(R.string.geometry));
+        ch12.setText(getResources().getString(R.string.schol_mat));
+
+        ty01.setText(getResources().getString(R.string.examen));
+        ty02.setText(getResources().getString(R.string.zacot));
+
+        ty04.setText(getResources().getString(R.string.exam));
+        ty05.setText(getResources().getString(R.string.zacot));
+        ty06.setText(getResources().getString(R.string.zacot));
+        ty07.setText(getResources().getString(R.string.zacot));
+        ty08.setText(getResources().getString(R.string.zacot));
+        ty09.setText(getResources().getString(R.string.exam));
+        ty10.setText(getResources().getString(R.string.exam));
+        ty11.setText(getResources().getString(R.string.zacot));
+
+    }
 
     public void Pm_11() {   }
 
-    public void IiVT_12() { }
+    public void IiVT_12() {
+
+        mod14.setVisibility(View.GONE);
+        mod13.setVisibility(View.GONE);
+        mod12.setVisibility(View.GONE);
+
+        ch01.setText(getResources().getString(R.string.langM));
+        ch02.setText(getResources().getString(R.string.algebra_a_geo));
+        ch03.setText(getResources().getString(R.string.disckret));
+        ch04.setText(getResources().getString(R.string.fk));
+        ch05.setText(getResources().getString(R.string.his_mat));
+        ch06.setText(getResources().getString(R.string.m_analis));
+        ch07.setText(getResources().getString(R.string.paket_asu));
+        ch08.setText(getResources().getString(R.string.oop));
+        ch09.setText(getResources().getString(R.string.paket_asu));
+        ch10.setText(getResources().getString(R.string.set_protocol));
+        ch11.setText(getResources().getString(R.string.com_tip));
+
+        ty01.setText(getResources().getString(R.string.zac_oc));
+        ty02.setText(getResources().getString(R.string.examen));
+        ty03.setText(getResources().getString(R.string.zacot));
+        ty04.setText(getResources().getString(R.string.zacot));
+        ty05.setText(getResources().getString(R.string.zacot));
+        ty06.setText(getResources().getString(R.string.examen));
+        ty07.setText(getResources().getString(R.string.examen));
+        ty08.setText(getResources().getString(R.string.examen));
+        ty09.setText(getResources().getString(R.string.zacot));
+
+        ty11.setText(getResources().getString(R.string.zacot));
+
+    }
 
     public void ISiT_11() {  }
 
@@ -255,45 +309,140 @@ public class Exzam extends Fragment{
     }
 
 
+    public void MF_21() {
 
+        mod14.setVisibility(View.GONE);
+        ch01.setText(getResources().getString(R.string.langM));
+        ch02.setText(getResources().getString(R.string.pcixol_soc));
+        ch03.setText(getResources().getString(R.string.pedagogic_vosp));
+        ch04.setText(getResources().getString(R.string.k_mir));
+        ch05.setText(getResources().getString(R.string.eco_obr));
+        ch06.setText(getResources().getString(R.string.m_analis));
+        ch07.setText(getResources().getString(R.string.algebra_a_teoc));
+        ch08.setText(getResources().getString(R.string.geometry));
+        ch09.setText(getResources().getString(R.string.matlogic));
+        ch10.setText(getResources().getString(R.string.ob_ex_phys));
+        ch11.setText(getResources().getString(R.string.el_physic));
+        ch12.setText(getResources().getString(R.string.fkl));
+        ch13.setText(getResources().getString(R.string.vop_dif));
 
-    public void MF_21() {    }
+        ty01.setText(getResources().getString(R.string.zac_oc));
+        ty02.setText(getResources().getString(R.string.zacot));
+        ty03.setText(getResources().getString(R.string.examen));
+        ty04.setText(getResources().getString(R.string.zacot));
+        ty05.setText(getResources().getString(R.string.zacot));
+        ty06.setText(getResources().getString(R.string.examen));
+        ty07.setText(getResources().getString(R.string.examen));
+        ty08.setText(getResources().getString(R.string.zacot));
+        ty09.setText(getResources().getString(R.string.examen));
+
+        ty10.setText(getResources().getString(R.string.zacot));
+        ty12.setText(getResources().getString(R.string.zacot));
+    }
 
     public void PM_21() {    }
 
     public void BI_21() {    }
 
-    public void IiVT_21() {    }
+    public void IiVT_21() {
+
+        mod14.setVisibility(View.GONE);
+        mod13.setVisibility(View.GONE);
+        mod12.setVisibility(View.GONE);
+
+        ch01.setText(getResources().getString(R.string.inlangN));
+        ch02.setText(getResources().getString(R.string.filosofia));
+        ch03.setText(getResources().getString(R.string.econ));
+        ch04.setText(getResources().getString(R.string.m_analis));
+        ch05.setText(getResources().getString(R.string.disckret));
+        ch06.setText(getResources().getString(R.string.mat_chis_met));
+        ch07.setText(getResources().getString(R.string.el_ec));
+        ch08.setText(getResources().getString(R.string.mod_phys_pro));
+        ch09.setText(getResources().getString(R.string.fkl));
+        ch10.setText(getResources().getString(R.string.log_pro));
+        ch11.setText(getResources().getString(R.string.rasp_ob_inf));
+
+        ty01.setText(getResources().getString(R.string.zac_oc));
+        ty02.setText(getResources().getString(R.string.examen));
+        ty03.setText(getResources().getString(R.string.zacot));
+        ty04.setText(getResources().getString(R.string.examen));
+        ty05.setText(getResources().getString(R.string.zacot));
+        ty06.setText(getResources().getString(R.string.zacot));
+        ty07.setText(getResources().getString(R.string.examen));
+        ty08.setText(getResources().getString(R.string.zacot));
+        ty09.setText(getResources().getString(R.string.zacot));
+        ty11.setText(getResources().getString(R.string.examen));
+
+    }
 
     public void ISiT_21() {
 
+        mod14.setVisibility(View.GONE);
+        mod13.setVisibility(View.GONE);
+        mod12.setVisibility(View.GONE);
 
+        ch01.setText(getResources().getString(R.string.filosofia));
+        ch02.setText(getResources().getString(R.string.inlangN));
+        ch03.setText(getResources().getString(R.string.disckret));
+        ch04.setText(getResources().getString(R.string.mat_chis_met));
+        ch05.setText(getResources().getString(R.string.econ));
+        ch06.setText(getResources().getString(R.string.el_ec));
+        ch07.setText(getResources().getString(R.string.metrologia));
+        ch08.setText(getResources().getString(R.string.or_ibm));
+        ch09.setText(getResources().getString(R.string.fkl));
+        ch10.setText(getResources().getString(R.string.log_pro));
+        ch11.setText(getResources().getString(R.string.com_tip));
 
+        ty01.setText(getResources().getString(R.string.examen));
+        ty02.setText(getResources().getString(R.string.zac_oc));
+        ty03.setText(getResources().getString(R.string.zacot));
+        ty04.setText(getResources().getString(R.string.zacot));
+        ty05.setText(getResources().getString(R.string.zacot));
+        ty06.setText(getResources().getString(R.string.examen));
+        ty07.setText(getResources().getString(R.string.zacot));
+        ty08.setText(getResources().getString(R.string.examen));
+        ty09.setText(getResources().getString(R.string.zacot));
+        ty10.setText(getResources().getString(R.string.zacot));
+        ty11.setText(getResources().getString(R.string.examen));
 
     }
 
     public void NE_21() {
 
+        mod14.setVisibility(View.GONE);
+        mod13.setVisibility(View.GONE);
+        mod12.setVisibility(View.GONE);
 
+        ch01.setText(getResources().getString(R.string.filosofia));
+        ch02.setText(getResources().getString(R.string.inlangN));
+        ch03.setText(getResources().getString(R.string.m_analis));
+        ch04.setText(getResources().getString(R.string.disckret));
+        ch05.setText(getResources().getString(R.string.physics));
+        ch06.setText(getResources().getString(R.string.teo_el));
+        ch07.setText(getResources().getString(R.string.metrologia));
+        ch08.setText(getResources().getString(R.string.on_teo_mex));
+        ch09.setText(getResources().getString(R.string.dif_ur));
+        ch10.setText(getResources().getString(R.string.fkl));
+        ch11.setText(getResources().getString(R.string.k_mir));
+
+        ty01.setText(getResources().getString(R.string.examen));
+        ty02.setText(getResources().getString(R.string.zac_oc));
+        ty03.setText(getResources().getString(R.string.examen));
+        ty04.setText(getResources().getString(R.string.zacot));
+        ty05.setText(getResources().getString(R.string.examen));
+        ty06.setText(getResources().getString(R.string.zacot));
+        ty07.setText(getResources().getString(R.string.zacot));
+        ty08.setText(getResources().getString(R.string.examen));
+        ty09.setText(getResources().getString(R.string.zacot));
+        ty10.setText(getResources().getString(R.string.zacot));
 
     }
 
-    public void BX_21() {
+    public void BX_21() {    }
 
+    public void EG_21() {    }
 
-
-    }
-
-    public void EG_21() {
-
-
-    }
-
-    public void MF_31() {
-
-
-
-    }
+    public void MF_31() {    }
 
     public void PM_31() {
 
@@ -308,6 +457,33 @@ public class Exzam extends Fragment{
     }
 
     public void NE_31() {
+
+        mod14.setVisibility(View.GONE);
+        mod13.setVisibility(View.GONE);
+        mod12.setVisibility(View.GONE);
+        mod11.setVisibility(View.GONE);
+
+        ch01.setText(getResources().getString(R.string.phy_osn_el));
+        ch02.setText(getResources().getString(R.string.shemotexnika));
+        ch03.setText(getResources().getString(R.string.up_mat_phy));
+        ch04.setText(getResources().getString(R.string.osn_el));
+        ch05.setText(getResources().getString(R.string.phys_xim));
+        ch06.setText(getResources().getString(R.string.el_sred));
+        ch07.setText(getResources().getString(R.string.fkl));
+        ch08.setText(getResources().getString(R.string.vector_isch));
+        ch09.setText(getResources().getString(R.string.ner_term));
+        ch10.setText(getResources().getString(R.string.practic));
+
+        ty01.setText(getResources().getString(R.string.examen));
+        ty02.setText(getResources().getString(R.string.zacot));
+        ty03.setText(getResources().getString(R.string.zac_exam));
+        ty04.setText(getResources().getString(R.string.zac_exam));
+        ty05.setText(getResources().getString(R.string.zacot));
+        ty06.setText(getResources().getString(R.string.examen));
+        ty07.setText(getResources().getString(R.string.zacot));
+        ty08.setText(getResources().getString(R.string.zacot));
+        ty09.setText(getResources().getString(R.string.zacot));
+        ty10.setText(getResources().getString(R.string.zac_oc));
 
     }
 
