@@ -17,7 +17,7 @@ import ru.vyaacheslav.suhov.imeit.R;
 public class Fri extends Fragment {
 
     public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
-    public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5, m_l_5z, l1, l2, l3, l4, l5;
+    public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5,m_l6, m_l_5z, l1, l2, l3, l4, l5;
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z,
@@ -63,6 +63,7 @@ public class Fri extends Fragment {
         m_l3 = v.findViewById(R.id.f_l3);
         m_l4 = v.findViewById(R.id.f_l4);
         m_l5 = v.findViewById(R.id.f_l5);
+        m_l6 = v.findViewById(R.id.f_l6);
         p1 = v.findViewById(R.id.f1);
         p1a = v.findViewById(R.id.f_p1_a);
         m_p1_t = v.findViewById(R.id.f_p1_t);
@@ -1017,12 +1018,14 @@ public class Fri extends Fragment {
         l2.setBackgroundResource(R.color.colorNewstitle);
         l3.setBackgroundResource(R.color.colorNewstitle);
         l4.setBackgroundResource(R.color.colorNewstitle);
+        l5.setBackgroundResource(R.color.colorNewstitle);
 
         m_l1.setBackgroundResource(R.color.colorNewstitle);
         m_l2.setBackgroundResource(R.color.colorNewstitle);
         m_l3.setBackgroundResource(R.color.colorNewstitle);
         m_l4.setBackgroundResource(R.color.colorNewstitle);
         m_l5.setBackgroundResource(R.color.colorNewstitle);
+        m_l6.setBackgroundResource(R.color.colorNewstitle);
 
 
     }
@@ -1067,11 +1070,14 @@ public class Fri extends Fragment {
         s11.setTextColor(getResources().getColor(R.color.colorWhitee));
         s12.setTextColor(getResources().getColor(R.color.colorWhitee));
 
+
         m_l1.setBackgroundResource(R.drawable.side_nav_bar);
         m_l2.setBackgroundResource(R.drawable.side_nav_bar);
         m_l3.setBackgroundResource(R.drawable.side_nav_bar);
         m_l4.setBackgroundResource(R.drawable.side_nav_bar);
         m_l5.setBackgroundResource(R.drawable.side_nav_bar);
+        m_l6.setBackgroundResource(R.drawable.side_nav_bar);
+
 
 
         l1.setBackgroundResource(R.color.colorSigma);

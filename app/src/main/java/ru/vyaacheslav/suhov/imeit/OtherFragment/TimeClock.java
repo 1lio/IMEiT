@@ -160,11 +160,8 @@ public class TimeClock extends Fragment {
     }
 
     public void ThemeWrite() {
-        lss.setBackgroundResource(R.color.colorTes);
+
         lsss.setBackgroundResource(R.color.colorWhitee);
-        t1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t3.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t5.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t6.setTextColor(getResources().getColor(R.color.colorTextBlack));
         t7.setTextColor(getResources().getColor(R.color.colorTextBlack));

@@ -8,14 +8,14 @@ import android.widget.TextView;
 import ru.vyaacheslav.suhov.imeit.R;
 
 
-public class NewsViewHolder extends RecyclerView.ViewHolder {
+ class NewsViewHolder extends RecyclerView.ViewHolder {
 
     TextView textNewsTitle;
     TextView textNewsSummary;
     ImageView imgNews;
-    View itemView;
+    private View itemView;
 
-    public NewsViewHolder(View itemView) {
+    NewsViewHolder(View itemView) {
         super(itemView);
         this.itemView=itemView;
         this.textNewsTitle = itemView.findViewById(R.id.textTitle);
@@ -23,11 +23,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         this.imgNews = itemView.findViewById(R.id.imgNews);
     }
 
-    public View getItemView() {
+    View getItemView() {
         return itemView;
     }
 
-    public void setItemView(View itemView) {
-        this.itemView = itemView;
-    }
 }

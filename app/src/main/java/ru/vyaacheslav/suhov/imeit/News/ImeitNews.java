@@ -20,7 +20,7 @@ class ImeitNews implements Runnable {
 
     private void connectToSite(){
         try {
-            doc = Jsoup.connect("http://imet.elsu.ru/").timeout(20000).get();
+            doc = Jsoup.connect("http://imet.elsu.ru/").timeout(10000).get();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -33,7 +33,7 @@ class ImeitNews implements Runnable {
     }
 
 
-    private List<News> extractNews(){
+    private void extractNews(){
 
         Elements uls = doc.select("div.nm_post");
 
@@ -50,10 +50,6 @@ class ImeitNews implements Runnable {
 
 
     newsList.add(news);
-
-}
-
-return newsList;
-
+    }
     }
 }
