@@ -162,7 +162,7 @@
     <string name="ob_bd">Распределенная обработка данных</string>
     <string name="cach_sys">Качество и надежность <br>информационных систем</br> </string>
     <string name="pr_sys_up">Проектирование информационных систем управления</string>
-    <string name="pr_sys">Проектирование информационно-вычислительных  систем</string>
+    <string name="pr_sys">Проектирование информационно-вычислительных систем</string>
     <string name="pr_bez">Правовое обеспечение информационной безопасности</string>
     <string name="russian_lang">Русский язык и культура речи</string>
     <string name="met_prog">Языки и методы программирования</string>
@@ -309,6 +309,8 @@
     <string name="mod_serv">Моделирование и оптимизация процессов и систем сервиса</string>
     <string name="ser_opt_vol">Сервис волоконно-оптических систем передачи </string>
     <string name="practic">Практика по получению первичных профессиональных умений и навыков, в том числе первичных умений и навыков научно-исследовательской деятельности</string>
+    <string name="practic2">Практика по получению первичных профессиональных умений и навыков профессиональной деятельности</string>
+    <string name="practic3">Практика по получению первичных профессиональных умений и навыков</string>
     <string name="one">1</string>
 
     <string name="sys_bez_serv">Система безопасности сервисной деятельности</string>
@@ -594,13 +596,12 @@
     <string name="zacot">Зачет</string>
     <string name="examen">Экзамен</string>
     <string name="zac_exam">Зачет / Экзамен</string>
+    <string name="ocenka">Оценка</string>
+    <string name="kursovaya">Курсовая работа</string>
 
     <array name="themes">
         <item>Светлая</item>
         <item>Темная</item>
     </array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

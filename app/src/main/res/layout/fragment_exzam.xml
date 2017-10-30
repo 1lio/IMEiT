@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context="ru.vyaacheslav.suhov.imeit.Exzam">
 
     <TextView
@@ -13,13 +12,16 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
         android:gravity="center"
+        android:padding="16dp"
         android:text="I Полугодие 2017/2018 учебного года"
         android:textColor="@color/colorAccent"
         android:textSize="18sp" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
