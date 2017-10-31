@@ -17,7 +17,7 @@
     </group>
 
     <item android:id="@+id/tools2"
-        android:title="@string/others">
+        android:title="@string/others2">
         <menu>
     <group
         android:checkableBehavior="single">
@@ -33,12 +33,26 @@
             android:id="@+id/info"
             android:icon="@drawable/ic_school_black_24dp"
             android:title="@string/inf" />
-
-        <!-- автобусы, как писать курсовую, найти преподователя, каталог библиотеки(хотя нах она нужна)
-        ближайшая закусочная(тоже), бумажные вопросы(хз), методички(!где их найти?) - из всего
-        выше можно добавить пока 3, где идеи?...
-        -->
     </group>
+        </menu>
+    </item>
+
+    <item android:id="@+id/inf"
+        android:title="@string/others">
+        <menu>
+            <group
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/about"
+                    android:icon="@drawable/ic_info_black_24dp"
+                    android:title="@string/info" />
+
+
+                <!-- автобусы, как писать курсовую, найти преподователя, каталог библиотеки(хотя нах она нужна)
+                ближайшая закусочная(тоже), бумажные вопросы(хз), методички(!где их найти?) - из всего
+                выше можно добавить пока 3, где идеи?...
+                -->
+            </group>
         </menu>
     </item>
 

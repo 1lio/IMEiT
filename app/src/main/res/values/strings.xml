@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ИМЕиТ</string>
+
     <string name="ob_ex_phys">Общая и экспериментальная физика</string>
     <string name="osn_geo">Основания геометрии</string>
     <string name="oop_an_pr">Объектно-ориентированный анализ и программирование</string>
@@ -307,9 +308,12 @@
     <string name="vvos_v_spec">Введение в специальность</string>
     <string name="pr_sch_chem">Практикум по школьному курсу химии</string>
     <string name="chevetovodstvo">Цветоводство</string>
+    <string name="teo_met_vosp">Теория и методика воспитания</string>
+    <string name="teo_mas_obsl">Теория массового обслуживания</string>
     <string name="mod_serv">Моделирование и оптимизация процессов и систем сервиса</string>
     <string name="ser_opt_vol">Сервис волоконно-оптических систем передачи </string>
     <string name="practic">Практика по получению первичных профессиональных умений и навыков, в том числе первичных умений и навыков научно-исследовательской деятельности</string>
+    <string name="chool_obr">История школьного естественнонаучного образования</string>
     <string name="practic2">Практика по получению первичных профессиональных умений и навыков профессиональной деятельности</string>
     <string name="practic3">Практика по получению первичных профессиональных умений и навыков</string>
     <string name="one">1</string>
@@ -320,6 +324,17 @@
     <string name="four">4</string>
 
     <string name="app_sys">Приложения и системы программирования</string>
+    <string name="graf_dising">Проектирование в графическом дизайне</string>
+    <string name="met_crypto">Методы криптографической защиты информации</string>
+    <string name="saz_inf">Методы и средства защиты информации</string>
+    <string name="obrInf">Обработка результатов физического эксперимента</string>
+    <string name="vop_int_vi">Избранные вопросы дифференциального и интегрального исчислений</string>
+    <string name="settings">Настройки</string>
+    <string name="schol_uche">Изучение школьных учебников математики</string>
+    <string name="schol_uche_ug">Изучение школьных учебников математики с углубленным содержанием</string>
+    <string name="up_mat_phy">Уравнения математической физики</string>
+    <string name="el_mat"> Элементарная математика</string>
+    <string name="el_vis_mat">Элементы высшей математики</string>
     <string name="prs">ПР</string>
     <string name="lk">ЛК</string>
     <string name="gk">ГК</string>
@@ -330,8 +345,6 @@
 
     <string name="simonovskaya">Симоновская Г.А.</string>
     <string name="mezinov">Мезинов В.Н.</string>
-    <string name="teo_met_vosp">Теория и методика воспитания</string>
-    <string name="teo_mas_obsl">Теория массового обслуживания</string>
     <string name="gladkih">Гладких О.Б.</string>
     <string name="kondakov">Кондаков О.В.</string>
     <string name="belix">Белых О.Н.</string>
@@ -367,7 +380,6 @@
     <string name="uk1_8_9">1-8 | 1-9</string>
     <string name="uk1_13_24">4-13 | 4-24</string>
     <string name="fortunova">Фортунова Н.А.</string>
-    <string name="chool_obr">История школьного естественнонаучного образования</string>
     <string name="pechkov">Пешков И.В.</string>
     <string name="pomanova">Рыманова Т.Е.</string>
     <string name="nekrilova">Некрылова О.Г.</string>
@@ -401,25 +413,16 @@
     <string name="sedova">Седова О.В.</string>
     <string name="rochupkin">Рощюпкин С.А.</string>
     <string name="masina">Масина О.Н.</string>
-    <string name="graf_dising">Проектирование в графическом дизайне</string>
     <string name="eleckix">Елецких И.А.</string>
     <string name="dvoryakina">Дворяткина С.Н.</string>
-    <string name="met_crypto">Методы криптографической защиты информации</string>
-    <string name="saz_inf">Методы и средства защиты информации</string>
-    <string name="obrInf">Обработка результатов физического эксперимента</string>
-    <string name="vop_int_vi">Избранные вопросы дифференциального и интегрального исчислений</string>
-    <string name="settings">Настройки</string>
-    <string name="schol_uche">Изучение школьных учебников математики</string>
-    <string name="schol_uche_ug">Изучение школьных учебников математики с углубленным содержанием</string>
-    <string name="up_mat_phy">Уравнения математической физики</string>
-    <string name="el_mat"> Элементарная математика</string>
-    <string name="el_vis_mat">Элементы высшей математики</string>
     <string name="time_zvonok">Время звонков</string>
     <string name="news">Новости</string>
     <string name="inf">Контакты</string>
+    <string name="info">О приложении</string>
     <string name="exam">Экзамен</string>
     <string name="exam_a_z">Зачеты и экзамены</string>
     <string name="others">Прочее</string>
+    <string name="others2">Дополнительно</string>
     <string name="maps">Учебные корпуса</string>
     <string name="num_tel">+7(47467)2–24-26</string>
     <string name="tel">Телефон</string>
@@ -507,6 +510,8 @@
     <string name="fun_analis">Функциональный анализ</string>
     <string name="pro_tipograf">Программирование в типовых конфигурациях</string>
     <string name="shemotexnika">Схемотехника</string>
+
+    // Имена корпусов
     <string name="uk4_13">4-13</string>
     <string name="uk1_2">1-2</string>
     <string name="uk1_8">1-8</string>
@@ -553,6 +558,7 @@
     <string name="uk12_103">12-103</string>
     <string name="uk14_203">14-203</string>
     <string name="uk14_214">14-214</string>
+
     <string name="nano_el">Наноэлектроника</string>
     <string name="el_sred">Электродинамика сплошных сред</string>
     <string name="inf_ob_mat">Инновационные технологии в обучении математике </string>
@@ -567,7 +573,6 @@
     <string name="nem">Немецкий</string>
     <string name="dark">Темная</string>
     <string name="writ_t">Светлая</string>
-    <string name="isit21">ИСиТ-21</string>
     <string name="thema">Тема</string>
     <string name="save_group">Сохранить текущую группу</string>
 

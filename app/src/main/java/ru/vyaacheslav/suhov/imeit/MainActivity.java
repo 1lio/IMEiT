@@ -31,6 +31,7 @@ import java.util.Calendar;
 
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
+import ru.vyaacheslav.suhov.imeit.OtherFragment.About;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
@@ -90,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.closeDrawers();
 
                 switch (item.getItemId()){
+
+
                     case R.id.main_tab:
                         loadName();
                         FragmentTransaction fragmentTransaction = FM.beginTransaction();
@@ -119,6 +122,12 @@ public class MainActivity extends AppCompatActivity {
                         loadName();
                         FragmentTransaction fragmentTransaction4 = FM.beginTransaction();
                         fragmentTransaction4.replace(R.id.containerView, new Exzam()).commit();
+                        break;
+
+                    case R.id.about:
+                        MainActivity.this.getSupportActionBar().setSubtitle("О приложении");
+                        FragmentTransaction fragmentTransaction5 = FM.beginTransaction();
+                        fragmentTransaction5.replace(R.id.containerView, new About()).commit();
                         break;
 
                     default:

@@ -40,12 +40,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -73,7 +73,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -91,7 +91,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -100,7 +100,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -111,7 +111,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -120,7 +120,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -137,12 +137,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -170,7 +170,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -188,7 +188,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -197,7 +197,6 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -208,7 +207,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -217,7 +216,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -234,12 +233,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -267,7 +266,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -285,7 +284,6 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -331,12 +329,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -364,7 +362,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -382,7 +380,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -391,7 +389,6 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -402,7 +399,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -411,7 +408,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -428,12 +425,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -461,7 +458,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -479,7 +476,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -488,7 +485,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -499,7 +496,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -508,7 +505,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -525,12 +522,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -559,7 +556,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -577,7 +574,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -586,7 +583,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -597,7 +594,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -606,7 +603,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -623,12 +620,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -656,7 +653,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -674,7 +671,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -683,7 +680,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -694,7 +691,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -703,7 +700,6 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -720,12 +716,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -753,7 +749,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -771,7 +767,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -780,7 +776,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -791,7 +787,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -800,7 +796,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -817,12 +813,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -850,7 +846,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -868,7 +864,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -877,7 +873,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -888,7 +884,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -897,7 +893,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -914,12 +910,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -947,7 +943,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -965,7 +961,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -974,7 +970,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -985,7 +981,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -994,7 +990,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -1011,12 +1007,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -1044,7 +1040,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1062,7 +1058,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1071,7 +1067,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -1082,7 +1078,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1091,7 +1087,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -1108,12 +1104,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -1131,7 +1127,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1149,7 +1145,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1158,7 +1154,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -1169,7 +1165,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1178,7 +1174,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -1195,12 +1191,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -1218,7 +1214,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1236,7 +1232,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1245,7 +1241,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -1256,7 +1252,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1265,7 +1261,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -1282,12 +1278,12 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/asa"
+                    android:background="@drawable/card_mask"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
                     <LinearLayout
-                        android:id="@+id/name"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -1305,7 +1301,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/type"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1323,7 +1319,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/data"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1332,7 +1328,7 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView33"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -1343,7 +1339,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/audit"
+
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -1352,7 +1348,6 @@
                         android:visibility="gone">
 
                         <TextView
-                            android:id="@+id/textView34"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
