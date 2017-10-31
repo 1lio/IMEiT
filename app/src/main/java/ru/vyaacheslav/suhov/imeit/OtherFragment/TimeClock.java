@@ -19,7 +19,7 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class TimeClock extends Fragment {
 
-    public int getHour, getMin;
+    public int getHour;
     private LinearLayout l1, l2, l3, l4, l5, l6, lss;
     private TimePicker timePicker;
     private Calendar calendar;
@@ -90,30 +90,30 @@ public class TimeClock extends Fragment {
             calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
         }
 
-        if ((getHour == 8)) {
+         if ((getHour > 8)) {
             updateClock();
             l2.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
-        if ((getHour == 10)) {
+         if ((getHour > 10)) {
             updateClock();
             l3.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
-        if ((getHour == 12)) {
+         if ((getHour > 12)) {
             updateClock();
             l4.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
-        if ((getHour == 15)) {
+         if ((getHour > 14)) {
             updateClock();
             l5.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
-        if ((getHour == 17)) {
+         if ((getHour > 16)) {
             updateClock();
             l6.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
 
-        if ((getHour == 19)) {
+         if ((getHour > 18)) {
             updateClock();
         }
     }

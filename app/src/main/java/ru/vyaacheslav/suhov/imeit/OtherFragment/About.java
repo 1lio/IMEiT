@@ -46,6 +46,7 @@ public class About extends Fragment implements View.OnClickListener {
                 break;
             case R.id.neo1:
                 Toast.makeText(getActivity(), "Спасибо не нужно! Лучше поставь оценку!", Toast.LENGTH_SHORT).show();
+                // создать форму для пожертвования средств на QIWI кошелек.
                 break;
             default:
                 break;
