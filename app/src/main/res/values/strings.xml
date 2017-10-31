@@ -14,6 +14,7 @@
     <string name="teo_inz_obr">Теория и практика инзивного образования</string>
     <string name="sov_prob_el">Современные проблемы прикладной математики и информатики</string>
     <string name="sov_prob_iivt">Современные проблемы информатики и вычислительной техники</string>
+
     <string-array name="bak_groops">
 
         <item>ФМиИ-11</item>
@@ -219,7 +220,7 @@
     <string name="isp_yaz_pr">Использование языка запросов при программировании</string>
     <string name="vich_sys">Вычислительные системы</string>
     <string name="vich_ss">Вычислительные устройства и системы </string>
-
+    <string name="met_osb_det">Методика обучения мат. детей с особыми обр потребностями</string>
     <string name="analis_kom_mat">Анализ учебно-методических комплексов по математике для профильных классов</string>
     <string name="acp_opz">Аспекты развития и управле-ния организационно-производственной системы</string>
     <string name="analis_inf">Оперативный анализ информации</string>
@@ -437,6 +438,7 @@
     <string name="min_10">10 минут</string>
     <string name="min_5">5 минут</string>
     <string name="ofiice_tex">Офисные информационные технологии</string>
+    <string name="ped_practic">Педагогическая практика</string>
     <string name="mod_phys_pro">Моделирование физических процессов</string>
 
     <string name="teo_el">Теоретические основы  электротехники</string>

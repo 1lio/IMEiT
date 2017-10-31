@@ -99,7 +99,7 @@ public class TimeClock extends Fragment {
             updateClock();
             l3.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }
-        if ((getHour == 13)) {
+        if ((getHour == 12)) {
             updateClock();
             l4.setBackground(getResources().getDrawable(R.drawable.card_row2));
         }

@@ -11,13 +11,15 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class Exzam extends Fragment{
+public class Exzam extends Fragment {
 
-    public LinearLayout mod01,mod02,mod03,mod04,mod05,mod06,mod07,mod08,mod09,mod10,mod11,mod12,mod13,mod14;
-    public TextView ch01,ch02,ch03,ch04,ch05,ch06,ch07,ch08,ch09,ch10,ch11,ch12,ch13,ch14;
-    public TextView ty01,ty02,ty03,ty04,ty05,ty06,ty07,ty08,ty09,ty10,ty11,ty12,ty13,ty14;
+    public LinearLayout mod01, mod02, mod03, mod04, mod05, mod06, mod07, mod08, mod09, mod10, mod11, mod12, mod13, mod14;
+    public TextView ch01, ch02, ch03, ch04, ch05, ch06, ch07, ch08, ch09, ch10, ch11, ch12, ch13, ch14;
+    public TextView ty01, ty02, ty03, ty04, ty05, ty06, ty07, ty08, ty09, ty10, ty11, ty12, ty13, ty14;
+    public TextView ti01,ti02,ti03,ti04,ti05,ti06,ti07,ti08,ti09,ti10,ti11;
 
-    public Exzam() {    }
+    public Exzam() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,6 +71,19 @@ public class Exzam extends Fragment{
         ty12 = v.findViewById(R.id.z12);
         ty13 = v.findViewById(R.id.z13);
         ty14 = v.findViewById(R.id.z14);
+
+        ti01 =v.findViewById(R.id.ki1);
+        ti02 =v.findViewById(R.id.ki2);
+        ti03 =v.findViewById(R.id.ki3);
+        ti04 =v.findViewById(R.id.ki4);
+        ti05 =v.findViewById(R.id.ki5);
+        ti06 =v.findViewById(R.id.ki6);
+        ti07 =v.findViewById(R.id.ki7);
+        ti08 =v.findViewById(R.id.ki8);
+        ti09 =v.findViewById(R.id.ki9);
+        ti10 =v.findViewById(R.id.ki10);
+        ti11 =v.findViewById(R.id.ki11);
+
 
         loadMethod();
         return v;
@@ -239,7 +254,32 @@ public class Exzam extends Fragment{
 
     }
 
-    public void Pm_11() {   }
+    public void Pm_11() {
+
+        ch01.setText(getResources().getString(R.string.langM));
+        ch02.setText(getResources().getString(R.string.history));
+        ch03.setText(getResources().getString(R.string.m_analis));
+        ch04.setText(getResources().getString(R.string.algebra_a_geo));
+        ch05.setText(getResources().getString(R.string.osn_inf));
+        ch06.setText(getResources().getString(R.string.bjd));
+        ch07.setText(getResources().getString(R.string.fk));
+        ch08.setText(getResources().getString(R.string.mat_zad));
+        ch09.setText(getResources().getString(R.string.vvod_v_analis));
+        ch10.setText(getResources().getString(R.string.metiso));
+
+        ty01.setText(getResources().getString(R.string.zacot));
+        ty02.setText(getResources().getString(R.string.examen));
+        ty03.setText(getResources().getString(R.string.examen));
+        ty04.setText(getResources().getString(R.string.examen));
+        ty05.setText(getResources().getString(R.string.examen));
+
+        ty07.setText(getResources().getString(R.string.zacot));
+        ty08.setText(getResources().getString(R.string.zacot));
+        ty09.setText(getResources().getString(R.string.zacot));
+        ty10.setText(getResources().getString(R.string.zacot));
+
+
+    }
 
     public void IiVT_12() {
 
@@ -469,6 +509,30 @@ public class Exzam extends Fragment{
         ty10.setText(getResources().getString(R.string.zacot));
         ty11.setText(getResources().getString(R.string.examen));
 
+        ti01.setVisibility(View.VISIBLE);
+        ti02.setVisibility(View.VISIBLE);
+        ti03.setVisibility(View.VISIBLE);
+        ti04.setVisibility(View.VISIBLE);
+        ti05.setVisibility(View.VISIBLE);
+        ti06.setVisibility(View.VISIBLE);
+        ti07.setVisibility(View.VISIBLE);
+        ti08.setVisibility(View.VISIBLE);
+
+        ti10.setVisibility(View.VISIBLE);
+        ti11.setVisibility(View.VISIBLE);
+
+        ti01.setText(getResources().getString(R.string.podoksenov));
+        ti02.setText(getResources().getString(R.string.lebedeva));
+        ti03.setText(getResources().getString(R.string.belix));
+        ti04.setText(getResources().getString(R.string.kornienko));
+        ti05.setText(getResources().getString(R.string.nikitina));
+        ti06.setText(getResources().getString(R.string.zaiceva));
+        ti07.setText(getResources().getString(R.string.fortunova));
+        ti08.setText(getResources().getString(R.string.gubin));
+
+        ti10.setText(getResources().getString(R.string.igonina));
+        ti11.setText(getResources().getString(R.string.gubin));
+
     }
 
     public void NE_21() {
@@ -498,9 +562,11 @@ public class Exzam extends Fragment{
 
     }
 
-    public void BX_21() {    }
+    public void BX_21() {
+    }
 
-    public void EG_21() {    }
+    public void EG_21() {
+    }
 
     public void MF_31() {
         ch01.setText(getResources().getString(R.string.teo_pr_incluziv));
@@ -612,9 +678,60 @@ public class Exzam extends Fragment{
     }
 
     // 4 курс
-    public void M_41() {    }
+    public void M_41() {
+        ch01.setText(getResources().getString(R.string.met_ob_vos));
+        ch02.setText(getResources().getString(R.string.el_mat));
+        ch03.setText(getResources().getString(R.string.inf_ob_mat));
+        ch04.setText(getResources().getString(R.string.met_osb_det));
+        ch05.setText(getResources().getString(R.string.schol_uche));
+        ch06.setText(getResources().getString(R.string.teo_razv));
+        ch07.setText(getResources().getString(R.string.nes_trigo));
+        ch08.setText(getResources().getString(R.string.ist_mat_r));
+        ch09.setText(getResources().getString(R.string.schol_uche_ug));
+        ch10.setText(getResources().getString(R.string.practic));
+        ch11.setText(getResources().getString(R.string.ped_practic));
+        ch12.setText(getResources().getString(R.string.kursovaya));
 
-    public void FM_41() {    }
+        ty01.setText(getResources().getString(R.string.zac_exam));
+        ty02.setText(getResources().getString(R.string.zacot));
+        ty03.setText(getResources().getString(R.string.zacot));
+        ty04.setText(getResources().getString(R.string.zacot));
+        ty05.setText(getResources().getString(R.string.zacot));
+        ty06.setText(getResources().getString(R.string.examen));
+        ty07.setText(getResources().getString(R.string.zacot));
+        ty08.setText(getResources().getString(R.string.examen));
+        ty09.setText(getResources().getString(R.string.zacot));
+        ty10.setText(getResources().getString(R.string.zac_oc));
+        ty11.setText(getResources().getString(R.string.zac_oc));
+        ty12.setText(getResources().getString(R.string.ocenka));
+    }
+
+    public void FM_41() {
+
+        ch01.setText(getResources().getString(R.string.met_phy));
+        ch02.setText(getResources().getString(R.string.osn_teo_phy));
+        ch03.setText(getResources().getString(R.string.kvant_ph));
+        ch04.setText(getResources().getString(R.string.astrophysic));
+        ch05.setText(getResources().getString(R.string.prepo_phy));
+        ch06.setText(getResources().getString(R.string.zad_hard));
+        ch07.setText(getResources().getString(R.string.compot));
+        ch08.setText(getResources().getString(R.string.met_or_astr_tex));
+        ch09.setText(getResources().getString(R.string.practic));
+        ch10.setText(getResources().getString(R.string.ped_practic));
+        ch11.setText(getResources().getString(R.string.kursovaya));
+
+        ty01.setText(getResources().getString(R.string.zac_exam));
+        ty02.setText(getResources().getString(R.string.zacot));
+        ty03.setText(getResources().getString(R.string.zacot));
+        ty04.setText(getResources().getString(R.string.zacot));
+        ty05.setText(getResources().getString(R.string.examen));
+        ty06.setText(getResources().getString(R.string.zacot));
+        ty07.setText(getResources().getString(R.string.zacot));
+        ty08.setText(getResources().getString(R.string.examen));
+        ty09.setText(getResources().getString(R.string.zac_oc));
+        ty10.setText(getResources().getString(R.string.zac_oc));
+        ty11.setText(getResources().getString(R.string.ocenka));
+    }
 
     public void PM_41() {
 
@@ -670,20 +787,54 @@ public class Exzam extends Fragment{
 
     }
 
-    public void NE_41() {    }
+    public void NE_41() {
+        ch01.setText(getResources().getString(R.string.eco_proiz));
+        ch02.setText(getResources().getString(R.string.nano_el));
+        ch03.setText(getResources().getString(R.string.zona_str_el));
+        ch04.setText(getResources().getString(R.string.kvant_el));
+        ch05.setText(getResources().getString(R.string.mat_mod_nano));
+        ch06.setText(getResources().getString(R.string.mat_nano));
+        ch07.setText(getResources().getString(R.string.galv_polpro));
+        ch08.setText(getResources().getString(R.string.teplophys));
+        ch09.setText(getResources().getString(R.string.astrophysic));
+        ch10.setText(getResources().getString(R.string.practic));
+        ch11.setText(getResources().getString(R.string.nau_rab));
+        ch12.setText(getResources().getString(R.string.int_ur));
+        ch13.setText(getResources().getString(R.string.kursovaya));
+
+        ty01.setText(getResources().getString(R.string.examen));
+        ty02.setText(getResources().getString(R.string.zacot));
+        ty03.setText(getResources().getString(R.string.examen));
+        ty04.setText(getResources().getString(R.string.exam));
+        ty05.setText(getResources().getString(R.string.exam));
+        ty06.setText(getResources().getString(R.string.zacot));
+        ty07.setText(getResources().getString(R.string.zacot));
+        ty08.setText(getResources().getString(R.string.zacot));
+        ty09.setText(getResources().getString(R.string.zacot));
+        ty10.setText(getResources().getString(R.string.zac_oc));
+        ty11.setText(getResources().getString(R.string.zac_oc));
+        ty12.setText(getResources().getString(R.string.zacot));
+        ty13.setText(getResources().getString(R.string.ocenka));
+    }
 
 
-    public void MIitM() {    }
+    public void MIitM() {
+    }
 
-    public void PMm_11() {    }
+    public void PMm_11() {
+    }
 
-    public void IIvtm_11() {    }
+    public void IIvtm_11() {
+    }
 
-    public void Mm_21() {    }
+    public void Mm_21() {
+    }
 
-    public void Pmm_21() {    }
+    public void Pmm_21() {
+    }
 
-    public void IIvtm_21() {    }
+    public void IIvtm_21() {
+    }
 
 
     // Инжинерно-физическое отделение
@@ -691,12 +842,9 @@ public class Exzam extends Fragment{
     public void XBiG_11() {
 
 
-
     }
 
     public void FC_11() {
-
-
 
 
     }
@@ -708,12 +856,9 @@ public class Exzam extends Fragment{
     public void FR_12() {
 
 
-
     }
 
     public void FC_21() {
-
-
 
 
     }
@@ -721,12 +866,9 @@ public class Exzam extends Fragment{
     public void FR_21() {
 
 
-
     }
 
     public void BX_31() {
-
-
 
 
     }
@@ -744,14 +886,12 @@ public class Exzam extends Fragment{
     public void FP_31() {
 
 
-
     }
 
     public void FC_41() {
     }
 
     public void FP_41() {
-
 
 
     }

@@ -63,13 +63,12 @@ public class MainActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.shitstuff);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         calendar = java.util.Calendar.getInstance();
+        dexp = (RelativeLayout) findViewById(R.id.dexs);
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
-        dexp = (RelativeLayout) findViewById(R.id.dexs);
 
         // Костомизация меню. Вообщем ненужная хрень. Нужно убрать потом
         Menu menu = navigationView.getMenu();
@@ -227,18 +226,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     // Проверка ошибки соеденения с помощью велосипеда
-    private boolean isNetworkConnected() {
+    private void isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();
         if (ni == null) {
             toast = Toast.makeText(getApplicationContext(), "Проверте интернет соединение", Toast.LENGTH_SHORT);
             toast.show();
-            return false;
+            return;
         } else
             MainActivity.this.getSupportActionBar().setSubtitle("Новости");
         FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
         fragmentTransaction1.replace(R.id.containerView, new NewsFragment()).commit();
-        return true;
     }
     // Загрузка выбора темы приложения
     private void LoadPreferences() {

@@ -32,7 +32,6 @@ class ImeitNews implements Runnable {
         extractNews();
     }
 
-
     private void extractNews(){
 
         Elements uls = doc.select("div.nm_post");
@@ -47,7 +46,6 @@ class ImeitNews implements Runnable {
     news.setImageUrl(imageUrl);
     news.setSummary(summary);
     news.setTitle(title);
-
 
     newsList.add(news);
     }
