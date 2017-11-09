@@ -30,8 +30,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
-import ru.vyaacheslav.suhov.imeit.News.NewsFragment;
-import ru.vyaacheslav.suhov.imeit.OtherFragment.About;
+import ru.vyaacheslav.suhov.imeit.NewsPa.FragmentN;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         if (prefs.getBoolean("isFirstRun", true)) {
             Intent intent = new Intent(MainActivity.this, SettingsPref.class);
             startActivity(intent);
-        } else { }
+        } else {}
         prefs.edit().putBoolean("isFirstRun", false).apply();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -92,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()){
 
-
                     case R.id.main_tab:
                         loadName();
                         FragmentTransaction fragmentTransaction = FM.beginTransaction();
@@ -124,12 +122,11 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction4.replace(R.id.containerView, new Exzam()).commit();
                         break;
 
-                    case R.id.about:
+              /*      case R.id.about:
                         MainActivity.this.getSupportActionBar().setSubtitle("О приложении");
                         FragmentTransaction fragmentTransaction5 = FM.beginTransaction();
                         fragmentTransaction5.replace(R.id.containerView, new About()).commit();
-                        break;
-
+                        break;*/
                     default:
                         break;
                 }
@@ -169,71 +166,22 @@ public class MainActivity extends AppCompatActivity {
         String regular = prefs.getString(getString(R.string.pref_style), "");
         MainActivity.this.getSupportActionBar().setSubtitle(regular);
     }
-    //Наконец-то автоматизировал смену числителя и знаменателя
-    //Теперь этот кусок необходимо воткнуть в цикл for
-    //Писос все на костылях
+    // ВАЖНО! Проверить работоспособность
     public void calendarT(){
 
         Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
         int weekYear =  Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+        int weekBefore;
 
-        if ((weekYear == 43)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+        for ( weekBefore = 0; weekBefore < weekYear; weekBefore =+1 )
+
+            if(weekBefore < weekYear){
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+            }
+            else { menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+
+            }
         }
-        if ((weekYear == 44)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 45)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 46)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 47)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 48)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 49)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 50)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 51)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 52)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 53)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 1)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 2)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 3)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-    }
     // Проверка ошибки соеденения с помощью велосипеда
     private void isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -245,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         } else
             MainActivity.this.getSupportActionBar().setSubtitle("Новости");
         FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-        fragmentTransaction1.replace(R.id.containerView, new NewsFragment()).commit();
+        fragmentTransaction1.replace(R.id.containerView, new FragmentN()).commit();
     }
     // Загрузка выбора темы приложения
     private void LoadPreferences() {
@@ -270,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
         navigationView.setBackgroundResource(R.color.colorWhitee);
-        navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorAccent)));
+        navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
         navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
         toolbar.setBackgroundResource(R.color.colorPrimary);
     }
