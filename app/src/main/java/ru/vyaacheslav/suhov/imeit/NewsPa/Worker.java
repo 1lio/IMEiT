@@ -9,7 +9,7 @@ public class Worker extends Thread{
 
     private WeakReference<FragmentN> activity;
 
-    public Worker(FragmentN activity){
+    Worker(FragmentN activity){
         this.activity = new WeakReference<>(activity);
     }
 

@@ -40,7 +40,6 @@ class ImeitNews implements Runnable {
     String imageUrl=  element.select("div.nm_post_image").first().select("img").first().absUrl("src");
     String title=  element.select("h3.nm_post_title").first().text();
     String summary=  element.select("div.nm_post_content").first().text();
-   /* String newsUrl=  element.select("h3.nm_post_title").first().select("a").attr("abs:href");*/
 
     News news=new News();
     news.setImageUrl(imageUrl);

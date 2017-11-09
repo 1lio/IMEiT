@@ -11,31 +11,29 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class SearchArtilhariaRequest extends AsyncTask<Void, Void, List<Artilharia>> {
 
     private WeakReference<FragmentN> activity;
 
-    public SearchArtilhariaRequest(FragmentN activity){
+     SearchArtilhariaRequest(FragmentN activity){
         this.activity = new WeakReference<>(activity);
     }
 
     @Override
     protected List<Artilharia> doInBackground(Void... voids) {
+
         List<Artilharia> artilharias = new ArrayList<>();
 
         try {
-            Document html = Jsoup.connect("http://globoesporte.globo.com/sp/futebol/campeonato-paulista/").get();
+            Document html = Jsoup.connect("http://imet.elsu.ru/").get();
 
-            Elements golsArt       = html.select("span.artilheiro-gols");
-            Elements imgArtilharia = html.select("img.artilheiro-foto");
-            Elements imgClube      = html.select("img.artilheiro-escudo");
-            Elements nomeArt       = html.select("p.artilheiro-nome");
+            Elements golsArt       = html.select("h3.nm_post_title");
+            Elements imgArtilharia = html.select("div.nm_post_image");
+            Elements nomeArt       = html.select("div.nm_post_content");
 
             for (int i = 0; i < golsArt.size(); i++) {
                 Artilharia artilharia = new Artilharia();
                 artilharia.setImagemArtUrl(imgArtilharia.get(i).attr("src"));
-                artilharia.setImagemClubeUrl(imgClube.get(i).attr("src"));
                 artilharia.setNomeJogador(nomeArt.get(i).text());
                 artilharia.setGolsJogador(golsArt.get(i).text());
                 artilharias.add(artilharia);

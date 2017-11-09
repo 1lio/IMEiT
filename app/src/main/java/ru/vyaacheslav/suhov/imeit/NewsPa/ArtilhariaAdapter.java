@@ -19,7 +19,7 @@ public class ArtilhariaAdapter extends RecyclerView.Adapter<ArtilhariaAdapter.Vi
     private Context context;
     private List<Artilharia> artilhariaList;
 
-    public ArtilhariaAdapter(Context context, List<Artilharia> artilhariaList){
+     ArtilhariaAdapter(Context context, List<Artilharia> artilhariaList){
         this.context = context;
         this.artilhariaList = artilhariaList;
     }
@@ -49,7 +49,7 @@ public class ArtilhariaAdapter extends RecyclerView.Adapter<ArtilhariaAdapter.Vi
         TextView tvPosicaoJogador;
         TextView tvGols;
 
-        public ViewHolder(View itemView) {
+         ViewHolder(View itemView) {
             super(itemView);
 
             ivClube          = itemView.findViewById(R.id.iv_clube);
@@ -62,11 +62,6 @@ public class ArtilhariaAdapter extends RecyclerView.Adapter<ArtilhariaAdapter.Vi
 
             Picasso.with(context)
                     .load(artilharia.getImagemArtUrl());
-
-
-            Picasso.with(context)
-                    .load(artilharia.getImagemClubeUrl())
-                    .into(ivClube);
 
             tvNomeJogador.setText(artilharia.getNomeJogador());
             tvPosicaoJogador.setText(artilharia.getPisicaoJogador());

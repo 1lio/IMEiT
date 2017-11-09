@@ -167,19 +167,18 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.getSupportActionBar().setSubtitle(regular);
     }
     // ВАЖНО! Проверить работоспособность
-    public void calendarT(){
+    public void calendarT() {
 
         Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-        int weekYear =  Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
         int weekBefore;
 
-        for ( weekBefore = 0; weekBefore < weekYear; weekBefore =+1 )
+        for (weekBefore = 0; weekBefore < weekYear; weekBefore = +1)
 
-            if(weekBefore < weekYear){
+            if (weekBefore < weekYear) {
                 menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-            }
-            else { menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-
+            } else {
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
             }
         }
     // Проверка ошибки соеденения с помощью велосипеда
