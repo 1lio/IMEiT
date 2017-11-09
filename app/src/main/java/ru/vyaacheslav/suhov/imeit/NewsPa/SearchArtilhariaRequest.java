@@ -11,9 +11,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by jose on 28/02/2017.
- */
 
 public class SearchArtilhariaRequest extends AsyncTask<Void, Void, List<Artilharia>> {
 

@@ -38,7 +38,6 @@ dependencies {
     compile 'com.android.support:design:26.+'
 
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'de.hdodenhof:circleimageview:2.1.0'
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.jsoup:jsoup:1.10.3'
