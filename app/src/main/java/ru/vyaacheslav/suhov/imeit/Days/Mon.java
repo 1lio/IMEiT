@@ -22,7 +22,7 @@ public class Mon extends Fragment {
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
-
+    private LinearLayout mm1,mm2,mm3,mm4,mm5;
     public Mon() {
     }
 
@@ -33,6 +33,7 @@ public class Mon extends Fragment {
         InitViews();
         loadMethod();
         LoadPreferences();
+      /*  MasterDepos();*/
         return v;
     }
 
@@ -248,6 +249,22 @@ public class Mon extends Fragment {
         l3 = v.findViewById(R.id.l3);
         l4 = v.findViewById(R.id.l4);
 
+        mm1 = v.findViewById(R.id.mm1);
+        mm2 = v.findViewById(R.id.mm2);
+        mm3 = v.findViewById(R.id.mm3);
+        mm4 = v.findViewById(R.id.mm4);
+        mm5 = v.findViewById(R.id.mm5);
+
+    }
+
+    private  void  MasterDepos(){
+
+        if ((p1.getText().length() == 0)&&(p1z.getText().length()== 0))mm1.setVisibility(View.GONE);
+        if ((p2.getText().length() == 0)&&(p2z.getText().length()== 0))mm2.setVisibility(View.GONE);
+        if ((p3.getText().length() == 0)&&(p3z.getText().length()== 0))mm3.setVisibility(View.GONE);
+        if ((p4.getText().length() == 0)&&(p4z.getText().length()== 0))mm4.setVisibility(View.GONE);
+        if ((p5.getText().length() == 0)&&(p5z.getText().length()== 0))mm5.setVisibility(View.GONE);
+
     }
 
     // Первый курс
@@ -261,7 +278,6 @@ public class Mon extends Fragment {
         m_l2.setVisibility(View.GONE);  // Линия разделения
 
         Fizra_pervaki();
-
     }
 
     public void Pm_11() {

@@ -68,6 +68,57 @@
 
     </string-array>
 
+    <string-array name="function_metod">
+        <item>FMiI-11</item>
+        <item>PM-11</item>
+        <item>IiVT-12</item>
+        <item>ISiT_11</item>
+
+        <item>MI-21</item>
+        <item>MF-21</item>
+        <item>PM-21</item>
+        <item>BI-21</item>
+        <item>IiVT-21</item>
+        <item>ISiT-21</item>
+        <item>NE-21</item>
+        <item>BX-21</item>
+        <item>EG-21</item>
+
+        <item>MF-31</item>
+        <item>PM-31</item>
+        <item>IiVT-31</item>
+        <item>NE-31</item>
+
+        <item>M-41</item>
+        <item>FM-41</item>
+        <item>PM-41</item>
+        <item>IiVT-41</item>
+        <item>NE-41</item>
+
+        <item>MiITm-11</item>
+        <item>PMm-11</item>
+        <item>IiVTm-11</item>
+        <item>Mm-21</item>
+        <item>PMm-21</item>
+        <item>IiVTm-21</item>
+
+        <item>XBiG-11</item>
+        <item>FS-11</item>
+        <item>FR-11</item>
+        <item>FR-12</item>
+        <item>FS-21</item>
+        <item>FR-21</item>
+        <item>BX-31</item>
+        <item>ME-31</item>
+        <item>FC-31</item>
+        <item>FR-31</item>
+        <item>FS-41</item>
+        <item>FR-41</item>
+        <item>FSm-11</item>
+        <item>FSm-21</item>
+
+    </string-array>
+
     <string name="set_protocol">Сетевые протоколы и интернет-технологии</string>
     <string name="paket_asu">Пакеты прикладных программ в АСУ</string>
     <string name="filosofia">Философия</string>

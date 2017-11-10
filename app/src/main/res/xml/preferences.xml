@@ -19,6 +19,14 @@
             android:defaultValue="false"
             android:key="@string/pref_chek2"
             android:title="Немецкий" />
+        <ListPreference
+            android:defaultValue="@string/writ_t"
+            android:dialogTitle="Jnj,hf;"
+            android:entries="@array/themes"
+            android:entryValues="@array/themes"
+            android:key="@string/pref_theme"
+            android:summary="Время звонков/нормер пары"
+            android:title="Отображение слева" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Настройки темы">
         <ListPreference

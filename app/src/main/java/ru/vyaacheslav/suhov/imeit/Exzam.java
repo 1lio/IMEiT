@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit;
 
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -84,8 +83,8 @@ public class Exzam extends Fragment {
         ti10 =v.findViewById(R.id.ki10);
         ti11 =v.findViewById(R.id.ki11);
 
-
         loadMethod();
+        MasterDepos();
         return v;
     }
 
@@ -225,6 +224,26 @@ public class Exzam extends Fragment {
         }
     }
 
+    // Визуальное скрытие неиспользуемых элементов
+    private  void  MasterDepos(){
+
+                if (ch01.getText().length() == 0)mod01.setVisibility(View.GONE);
+                if (ch02.getText().length() == 0)mod02.setVisibility(View.GONE);
+                if (ch03.getText().length() == 0)mod03.setVisibility(View.GONE);
+                if (ch04.getText().length() == 0)mod04.setVisibility(View.GONE);
+                if (ch05.getText().length() == 0)mod05.setVisibility(View.GONE);
+                if (ch06.getText().length() == 0)mod06.setVisibility(View.GONE);
+                if (ch07.getText().length() == 0)mod07.setVisibility(View.GONE);
+                if (ch08.getText().length() == 0)mod08.setVisibility(View.GONE);
+                if (ch09.getText().length() == 0)mod09.setVisibility(View.GONE);
+                if (ch10.getText().length() == 0)mod10.setVisibility(View.GONE);
+                if (ch11.getText().length() == 0)mod11.setVisibility(View.GONE);
+                if (ch12.getText().length() == 0)mod12.setVisibility(View.GONE);
+                if (ch13.getText().length() == 0)mod13.setVisibility(View.GONE);
+                if (ch14.getText().length() == 0)mod14.setVisibility(View.GONE);
+
+    }
+
     public void FMiI_11() {
 
         ch01.setText(getResources().getString(R.string.history));
@@ -277,8 +296,6 @@ public class Exzam extends Fragment {
         ty08.setText(getResources().getString(R.string.zacot));
         ty09.setText(getResources().getString(R.string.zacot));
         ty10.setText(getResources().getString(R.string.zacot));
-
-
     }
 
     public void IiVT_12() {
@@ -306,7 +323,6 @@ public class Exzam extends Fragment {
         ty09.setText(getResources().getString(R.string.zacot));
 
         ty11.setText(getResources().getString(R.string.zacot));
-
     }
 
     public void ISiT_11() {
@@ -884,7 +900,6 @@ public class Exzam extends Fragment {
     }
 
     public void FP_31() {
-
 
     }
 
