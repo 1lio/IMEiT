@@ -102,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
                         FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                         fragmentTransaction1.replace(R.id.containerView, new TimeClock()).commit();
                         break;
-                    case R.id.news:
-                        isNetworkConnected();
-                        break;
+                   /* case R.id.news:
+                      *//*  isNetworkConnected();*//*
+                        break;*/
                     case R.id.info:
                         MainActivity.this.getSupportActionBar().setSubtitle("Контакты");
                         FragmentTransaction fragmentTransaction2 = FM.beginTransaction();
@@ -171,15 +171,55 @@ public class MainActivity extends AppCompatActivity {
 
         Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
         int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-        int weekBefore;
 
-        for (weekBefore = 0; weekBefore < weekYear; weekBefore = +1)
-
-            if (weekBefore < weekYear) {
+        if ((weekYear == 45)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
                 menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-            } else {
+            }
+        if ((weekYear == 46)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
                 menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
             }
+        if ((weekYear == 47)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+            }
+        if ((weekYear == 48)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+            }
+        if ((weekYear == 49)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+            }
+        if ((weekYear == 50)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+            }
+        if ((weekYear == 51)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+            }
+        if ((weekYear == 52)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+            }
+        if ((weekYear == 53)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+            }
+        if ((weekYear == 1)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+            }
+        if ((weekYear == 2)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+            }
+        if ((weekYear == 3)) {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+        }
         }
     // Проверка ошибки соеденения с помощью велосипеда
     private void isNetworkConnected() {
