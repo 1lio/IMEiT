@@ -1,11 +1,8 @@
 package ru.vyaacheslav.suhov.imeit;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -30,7 +27,6 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
-import ru.vyaacheslav.suhov.imeit.NewsPa.FragmentN;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
@@ -222,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         }
         }
     // Проверка ошибки соеденения с помощью велосипеда
-    private void isNetworkConnected() {
+   /* private void isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getActiveNetworkInfo();
         if (ni == null) {
@@ -233,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.this.getSupportActionBar().setSubtitle("Новости");
         FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
         fragmentTransaction1.replace(R.id.containerView, new FragmentN()).commit();
-    }
+    }*/
     // Загрузка выбора темы приложения
     private void LoadPreferences() {
 
