@@ -48,8 +48,8 @@ public class TabFragment extends Fragment {
                 tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhitee));
                 break;
             case "Темная":
-                tabLayout.setBackgroundResource(R.color.colorPrimarySS);
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
+                tabLayout.setBackgroundResource(R.color.colorPrimaryD);
+                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccentD));
                 break;
         }
 

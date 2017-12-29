@@ -656,10 +656,29 @@
     <string name="zac_exam">Зачет / Экзамен</string>
     <string name="ocenka">Оценка</string>
     <string name="kursovaya">Курсовая работа</string>
+    <string name="t_08">08</string>
+    <string name="min_30">30</string>
+    <string name="t_10_05">10:05</string>
+    <string name="t_10">10</string>
+    <string name="t_15">15</string>
+    <string name="t_11_50">11:50</string>
+    <string name="t_12">12</string>
+    <string name="t_30">30</string>
+    <string name="t_14_05">14:05</string>
+    <string name="t_14">14</string>
+    <string name="t_15_50">15:50</string>
+    <string name="t_16">16</string>
+    <string name="t_00">00</string>
+    <string name="t_17_35">17:35</string>
 
     <array name="themes">
         <item>Светлая</item>
         <item>Темная</item>
     </array>
+
+    <string-array name="time_in_st">
+        <item>Отображать время пары</item>
+        <item>Отображать номер пары</item>
+    </string-array>
 
 </resources>

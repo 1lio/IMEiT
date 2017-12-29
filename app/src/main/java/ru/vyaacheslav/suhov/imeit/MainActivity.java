@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     public RelativeLayout dexp;
     public FragmentManager FM;
     public Toolbar toolbar;
-    public Toast toast;
     public java.util.Calendar calendar;
     private Menu menu;
 
@@ -55,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
         } else {}
         prefs.edit().putBoolean("isFirstRun", false).apply();
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        navigationView = (NavigationView) findViewById(R.id.shitstuff);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        toolbar =  findViewById(R.id.toolbar);
+        navigationView =  findViewById(R.id.shitstuff);
+        drawerLayout = findViewById(R.id.drawerLayout);
         calendar = java.util.Calendar.getInstance();
-        dexp = (RelativeLayout) findViewById(R.id.dexs);
+        dexp =  findViewById(R.id.dexs);
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
@@ -98,9 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
                         fragmentTransaction1.replace(R.id.containerView, new TimeClock()).commit();
                         break;
-                   /* case R.id.news:
-                      *//*  isNetworkConnected();*//*
-                        break;*/
+
                     case R.id.info:
                         MainActivity.this.getSupportActionBar().setSubtitle("Контакты");
                         FragmentTransaction fragmentTransaction2 = FM.beginTransaction();
@@ -117,12 +114,6 @@ public class MainActivity extends AppCompatActivity {
                         FragmentTransaction fragmentTransaction4 = FM.beginTransaction();
                         fragmentTransaction4.replace(R.id.containerView, new Exzam()).commit();
                         break;
-
-              /*      case R.id.about:
-                        MainActivity.this.getSupportActionBar().setSubtitle("О приложении");
-                        FragmentTransaction fragmentTransaction5 = FM.beginTransaction();
-                        fragmentTransaction5.replace(R.id.containerView, new About()).commit();
-                        break;*/
                     default:
                         break;
                 }
@@ -151,7 +142,58 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.ssas:
-                calendarT();
+                Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+                int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+
+                if ((weekYear == 45)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+                }
+                if ((weekYear == 46)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+                }
+
+                if ((weekYear == 47)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+                }
+                if ((weekYear == 48)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+                }
+                if ((weekYear == 49)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+                }
+                if ((weekYear == 50)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+                }
+                if ((weekYear == 51)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+                }
+                if ((weekYear == 52)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+                }
+                if ((weekYear == 53)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+                }
+                if ((weekYear == 1)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+                }
+                if ((weekYear == 2)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
+                }
+                if ((weekYear == 3)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -166,63 +208,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void calendarT() {
 
-        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 
-        menu = navigationView.getMenu();
+        }
 
 
-        if ((weekYear == 45)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 46)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-
-        if ((weekYear == 47)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 48)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 49)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 50)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 51)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 52)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 53)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 1)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-        if ((weekYear == 2)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-        }
-        if ((weekYear == 3)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-        }
-
-    }
 
 
    /* private void isNetworkConnected() {
@@ -273,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
         }
-        navigationView.setBackgroundResource(R.color.colorPrimarySS);
+        navigationView.setBackgroundResource(R.color.colorPrimaryDarkD);
         navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
         navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
         toolbar.setBackgroundResource(R.color.colorPrimaryD);

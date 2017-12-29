@@ -17,8 +17,7 @@ public class Exzam extends Fragment {
     public TextView ty01, ty02, ty03, ty04, ty05, ty06, ty07, ty08, ty09, ty10, ty11, ty12, ty13, ty14;
     public TextView ti01,ti02,ti03,ti04,ti05,ti06,ti07,ti08,ti09,ti10,ti11;
 
-    public Exzam() {
-    }
+    public Exzam() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
