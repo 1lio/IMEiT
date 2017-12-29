@@ -16,25 +16,45 @@
 
     </group>
 
-    <item android:id="@+id/tools2"
+    <item
+        android:id="@+id/tools2"
         android:title="@string/others2">
         <menu>
-    <group
-        android:checkableBehavior="single">
-<!--        <item
-            android:id="@+id/news"
-            android:icon="@drawable/ic_rss_feed_black_24dp"
-            android:title="@string/news" />-->
-    <item
-            android:id="@+id/map"
-            android:icon="@drawable/ic_map_black_24dp"
-            android:title="@string/maps" />
-        <item
-            android:id="@+id/info"
-            android:icon="@drawable/ic_school_black_24dp"
-            android:title="@string/inf" />
-    </group>
+            <group android:checkableBehavior="single">
+                <!--        <item
+                            android:id="@+id/news"
+                            android:icon="@drawable/ic_rss_feed_black_24dp"
+                            android:title="@string/news" />-->
+                <item
+                    android:id="@+id/map"
+                    android:icon="@drawable/ic_map_black_24dp"
+                    android:title="@string/maps" />
+            </group>
+
         </menu>
+    </item>
+    <item
+        android:id="@+id/tools32"
+        android:title="Институт">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/info"
+                    android:icon="@drawable/ic_info_outline_black_24dp"
+                    android:title="@string/inf" />
+
+                <item
+                    android:id="@+id/caf1"
+                    android:icon="@drawable/ic_equalizer_black_24dp"
+                    android:title="Кафедры" />
+                <item
+                    android:id="@+id/prepods"
+                    android:icon="@drawable/ic_school_black_24dp"
+                    android:title="Преподовательский состав" />
+
+            </group>
+        </menu>
+
     </item>
 
     <!--<item android:id="@+id/inf"

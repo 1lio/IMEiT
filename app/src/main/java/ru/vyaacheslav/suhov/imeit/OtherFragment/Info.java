@@ -47,8 +47,8 @@ public class Info extends Fragment implements View.OnClickListener {
         group.setOnClickListener(this);
         email.setOnClickListener(this);
         mapl.setOnClickListener(this);
-
-        LoadPreferences();
+/*
+        LoadPreferences();*/
         return v;
     }
 

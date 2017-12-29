@@ -66,11 +66,17 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
         // Костомизация меню. Вообщем ненужная хрень. Нужно убрать потом
+
         Menu menu = navigationView.getMenu();
         MenuItem tools2 = menu.findItem(R.id.tools2);
         SpannableString b = new SpannableString(tools2.getTitle());
         b.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, b.length(), 0); // Меняем цвет полоски разделяющей группы
         tools2.setTitle(b);
+
+        MenuItem tools3 = menu.findItem(R.id.tools32);
+        SpannableString cb = new SpannableString(tools3.getTitle());
+        cb.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, cb.length(), 0); // Меняем цвет полоски разделяющей группы
+        tools3.setTitle(cb);
 
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
@@ -99,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.info:
-                        MainActivity.this.getSupportActionBar().setSubtitle("Контакты");
+                        MainActivity.this.getSupportActionBar().setSubtitle("Об институте");
                         FragmentTransaction fragmentTransaction2 = FM.beginTransaction();
                         fragmentTransaction2.replace(R.id.containerView, new Info()).commit();
                         break;
@@ -208,11 +214,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void calendarT() {
 
-
         }
-
-
-
 
    /* private void isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
