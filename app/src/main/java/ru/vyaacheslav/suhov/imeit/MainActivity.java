@@ -26,8 +26,8 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import ru.vyaacheslav.suhov.imeit.Cafedrs.Matmod;
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
-import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.info:
                         MainActivity.this.getSupportActionBar().setSubtitle("Об институте");
                         FragmentTransaction fragmentTransaction2 = FM.beginTransaction();
-                        fragmentTransaction2.replace(R.id.containerView, new Info()).commit();
+                        fragmentTransaction2.replace(R.id.containerView, new Matmod()).commit();
                         break;
                     case R.id.map:
                         MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");

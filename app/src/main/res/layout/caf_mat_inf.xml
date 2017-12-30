@@ -26,10 +26,44 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:background="@color/colorT"
+                    android:orientation="horizontal"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/oval"
+                        android:backgroundTint="@color/colorSigma"
+                        android:elevation="1dp"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_computer_white_36dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="16dp"
+                        android:text="Кафедра КАФЕДРА ПРИКЛАДНОЙ МАТЕМАТИКИ И ИНФОРМАТИКИ"
+                        android:textColor="@color/colorTes"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="6dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:paddingBottom="6dp"
@@ -42,7 +76,7 @@
                         android:layout_width="72dp"
                         android:layout_height="72dp"
                         android:layout_margin="2dp"
-                        android:background="@drawable/kim"
+                        android:background="@drawable/padaeva"
                         app:srcCompat="@drawable/maska" />
 
                     <LinearLayout
@@ -59,7 +93,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Симоновская Галина Александровна"
+                            android:text="Подаева Наталия Георгиевна"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -70,7 +104,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="top|left"
-                            android:text="Директор"
+                            android:paddingRight="16dp"
+                            android:text="Заведующий кафедрой, доктор педагогических наук, профессор"
                             android:textColor="@color/colorNewstitle"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -114,7 +149,7 @@
                             android:layout_marginBottom="12dp"
                             android:layout_weight="1"
                             android:gravity="left|center"
-                            android:text="@string/num_tel"
+                            android:text="+7 (47467) 2-00-01"
                             android:textColor="@color/colorTextSub"
                             android:textSize="12sp" />
 
@@ -147,159 +182,6 @@
                                 android:gravity="center"
                                 android:padding="10dp"
                                 android:src="@drawable/ic_local_phone_black_24dp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/webs"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/colorT"
-                    android:orientation="horizontal"
-                    android:paddingLeft="16dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/p2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:layout_weight="1"
-                            android:gravity="left|center"
-                            android:text="@string/website"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-
-                            android:id="@+id/textView51"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
-                            android:layout_weight="1"
-                            android:gravity="left|center"
-                            android:text="@string/imet_elsu_ru"
-                            android:textColor="@color/colorTextSub"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:gravity="right|center"
-                        android:orientation="vertical"
-                        android:padding="6dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-
-                            <ImageView
-                                android:id="@+id/im2"
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
-                                android:layout_weight="1"
-                                android:background="@drawable/oval"
-                                android:elevation="1dp"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:src="@drawable/ic_web_black_24dp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/groups"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@color/colorT"
-                    android:orientation="horizontal"
-                    android:paddingLeft="16dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:orientation="vertical">
-
-                        <TextView
-
-                            android:id="@+id/p3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:layout_weight="1"
-                            android:gravity="left|center"
-                            android:text="@string/groupe_vk"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-
-                            android:id="@+id/textView18"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
-                            android:layout_weight="1"
-                            android:gravity="left|center"
-                            android:text="@string/vk_adres"
-                            android:textColor="@color/colorTextSub"
-                            android:textSize="12sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:gravity="right|center"
-                        android:orientation="vertical"
-                        android:padding="8dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="4dp"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-
-                            <ImageView
-                                android:id="@+id/im3"
-                                android:layout_width="36dp"
-                                android:layout_height="36dp"
-                                android:layout_weight="1"
-                                android:background="@drawable/oval"
-                                android:elevation="1dp"
-                                android:gravity="center"
-                                android:padding="10dp"
-                                android:src="@drawable/ic_group_black_24dp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -343,7 +225,7 @@
                             android:layout_marginBottom="12dp"
                             android:layout_weight="1"
                             android:gravity="left|center"
-                            android:text="@string/dek_f_mail_ru"
+                            android:text=" podaeva@mail.ru"
                             android:textColor="@color/colorTextSub"
                             android:textSize="12sp" />
 
@@ -419,7 +301,7 @@
                             android:layout_marginBottom="12dp"
                             android:layout_weight="1"
                             android:gravity="left|center"
-                            android:text="@string/imeit_ins"
+                            android:text="г. Елец, ул. Ленина, д. 91, ауд. 7"
                             android:textColor="@color/colorTextSub"
                             android:textSize="12sp" />
 
@@ -460,13 +342,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:background="@color/colorT"
                     android:gravity="left|center"
                     android:padding="6dp"
-                    android:text="Кафедры:"
+                    android:text="Ведущие специалисты:"
                     android:textColor="@color/colorTes"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -474,219 +357,492 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginTop="6dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="6dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/oval"
-                        android:backgroundTint="@color/colorSigma"
-                        android:elevation="1dp"
-                        android:gravity="center"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_functions_white_36dp" />
 
-                    <TextView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/kornienko_b"
+                        app:srcCompat="@drawable/maska" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="16dp"
-                        android:text="МАТЕМАТИКИ И МЕТОДИКИ ЕЕ ПРЕПОДАВАНИЯ"
-                        android:textColor="@color/colorTes"
-                        android:textSize="13sp" />
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp">
+
+                        <TextView
+                            android:id="@+id/m_p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom|left"
+                            android:text="Корниенко Василий Васильевич"
+                            android:textColor="@color/colorTes"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/m_p1_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|left"
+                            android:text="доктор физико-математических наук, профессор"
+                            android:textColor="@color/colorNewstitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="6dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/oval"
-                        android:backgroundTint="@color/colorSigma"
-                        android:elevation="1dp"
-                        android:gravity="center"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_code_white_36dp" />
 
-                    <TextView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/belyx"
+                        app:srcCompat="@drawable/maska" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="16dp"
-                        android:text="МАТЕМАТИЧЕСКОГО МОДЕЛИРОВАНИЯ И КОМПЬЮТЕРНЫХ ТЕХНОЛОГИЙ"
-                        android:textColor="@color/colorTes"
-                        android:textSize="13sp" />
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp">
+
+                        <TextView
+                            android:id="@+id/m_p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom|left"
+                            android:text="Белых Ольга Николаевна"
+                            android:textColor="@color/colorTes"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/m_p1_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|left"
+                            android:text="кандидат педагогических наук, доцент"
+                            android:textColor="@color/colorNewstitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="6dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/oval"
-                        android:backgroundTint="@color/colorSigma"
-                        android:elevation="1dp"
-                        android:gravity="center"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_computer_white_36dp" />
 
-                    <TextView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/gubina"
+                        app:srcCompat="@drawable/maska" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="16dp"
-                        android:text="ПРИКЛАДНОЙ МАТЕМАТИКИ И ИНФОРМАТИКИ"
-                        android:textColor="@color/colorTes"
-                        android:textSize="13sp" />
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp">
+
+                        <TextView
+                            android:id="@+id/m_p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom|left"
+                            android:text="Губина Татьяна Николаевна"
+                            android:textColor="@color/colorTes"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/m_p1_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|left"
+                            android:text="кандидат педагогических наук, доцент"
+                            android:textColor="@color/colorNewstitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="6dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/oval"
-                        android:backgroundTint="@color/colorSigma"
-                        android:elevation="1dp"
-                        android:gravity="center"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_radio_white_36dp" />
 
-                    <TextView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/zhug"
+                        app:srcCompat="@drawable/maska" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="16dp"
-                        android:text="@string/caf_rad"
-                        android:textColor="@color/colorTes"
-                        android:textSize="13sp" />
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp">
+
+                        <TextView
+                            android:id="@+id/m_p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom|left"
+                            android:text="Жук Лариса Викторовна"
+                            android:textColor="@color/colorTes"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/m_p1_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|left"
+                            android:text="кандидат педагогических наук, доцент"
+                            android:textColor="@color/colorNewstitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="6dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/oval"
-                        android:backgroundTint="@color/colorSigma"
-                        android:elevation="1dp"
-                        android:gravity="center"
-                        android:padding="12dp"
-                        android:src="@drawable/phyz" />
 
-                    <TextView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/zubaeva"
+                        app:srcCompat="@drawable/maska" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="16dp"
-                        android:text="@string/caf_phyz"
-                        android:textColor="@color/colorTes"
-                        android:textSize="13sp" />
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp">
+
+                        <TextView
+                            android:id="@+id/m_p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom|left"
+                            android:text="Зубарева Елена Васильевна"
+                            android:textColor="@color/colorTes"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/m_p1_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|left"
+                            android:text="кандидат педагогических наук, доцент"
+                            android:textColor="@color/colorNewstitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="12dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="6dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/oval"
-                        android:backgroundTint="@color/colorSigma"
-                        android:elevation="1dp"
-                        android:gravity="center"
-                        android:padding="12dp"
-                        android:src="@drawable/chem" />
 
-                    <TextView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/korn_d"
+                        app:srcCompat="@drawable/maska" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="16dp"
-                        android:text="Химии и Биологии"
-                        android:textColor="@color/colorTes"
-                        android:textSize="13sp" />
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp">
+
+                        <TextView
+                            android:id="@+id/m_p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom|left"
+                            android:text="Корниенко Дмитрий Васильевич"
+                            android:textColor="@color/colorTes"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/m_p1_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|left"
+                            android:text="кандидат физико-математических наук, доцент"
+                            android:textColor="@color/colorNewstitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/colorT"
+                    android:orientation="horizontal"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="6dp">
+
+                    <ImageView
+
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/tarov"
+                        app:srcCompat="@drawable/maska" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp">
+
+                        <TextView
+                            android:id="@+id/m_p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom|left"
+                            android:text="Таров Дмитрий Анатольевич"
+                            android:textColor="@color/colorTes"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/m_p1_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|left"
+                            android:text="кандидат педагогических наук, доцент"
+                            android:textColor="@color/colorNewstitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/colorT"
+                    android:orientation="horizontal"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="6dp">
+
+                    <ImageView
+
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/tarova"
+                        app:srcCompat="@drawable/maska" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp">
+
+                        <TextView
+                            android:id="@+id/m_p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom|left"
+                            android:text="Тарова Инна Николаевна"
+                            android:textColor="@color/colorTes"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/m_p1_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|left"
+                            android:text="кандидат педагогических наук, доцент"
+                            android:textColor="@color/colorNewstitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/colorT"
+                    android:orientation="horizontal"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="6dp">
+
+                    <ImageView
+
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/prokuratova"
+                        app:srcCompat="@drawable/maska" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="8dp">
+
+                        <TextView
+                            android:id="@+id/m_p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="bottom|left"
+                            android:text="Прокуратова Оксана Николаевна"
+                            android:textColor="@color/colorTes"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/m_p1_a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|left"
+                            android:text="ст. преподаватель"
+                            android:textColor="@color/colorNewstitle"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/textView11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginTop="12dp"
                     android:layout_weight="1"
                     android:background="@color/colorT"
                     android:gravity="left|center"
                     android:padding="6dp"
-                    android:text="Об институте:  "
+                    android:text="График присутствия заведующего кафедрой:"
                     android:textColor="@color/colorTes"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -694,204 +850,29 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:background="@color/colorT"
                     android:gravity="left|center"
                     android:padding="6dp"
-                    android:text="@string/his_mats"
+                    android:text="Понедельник	11:00 - 14:00 Вторник	12:00 - 15:00"
                     android:textColor="@color/colorTes"
                     android:textSize="13sp" />
 
                 <TextView
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginTop="12dp"
                     android:layout_weight="1"
                     android:background="@color/colorT"
                     android:gravity="left|center"
                     android:padding="6dp"
-                    android:text="Образование: Направления бакалавриата"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/or_bak"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Образование: Направления магистратуры"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/or_mag"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Образование: Направления подготовки кадров высшей квалификации (аспирантура):"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/or_asp"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Формы обучения"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Очная, заочная, очно-заочная"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Продолжительность обучения"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/form_obc"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Профессорско-преподавательский состав"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="В институте работают более 100 преподавателей, из них:
-      - 12 докторов наук,
-      - 40 кандидатов наук."
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Наука: Ключевые научные направления"
+                    android:text="История кафедры:"
                     android:textColor="@color/colorTes"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -906,7 +887,7 @@
                     android:background="@color/colorT"
                     android:gravity="left|center"
                     android:padding="6dp"
-                    android:text="@string/napr_nauch"
+                    android:text="@string/his_caf3"
                     android:textColor="@color/colorTes"
                     android:textSize="13sp" />
             </LinearLayout>
