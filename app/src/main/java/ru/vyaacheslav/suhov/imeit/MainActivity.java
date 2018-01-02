@@ -26,9 +26,11 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-import ru.vyaacheslav.suhov.imeit.Cafedrs.Matmod;
+import ru.vyaacheslav.suhov.imeit.Cafedrs.CafedraMain;
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
+import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
+import ru.vyaacheslav.suhov.imeit.Teachers.Prepods;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.info:
                         MainActivity.this.getSupportActionBar().setSubtitle("Об институте");
                         FragmentTransaction fragmentTransaction2 = FM.beginTransaction();
-                        fragmentTransaction2.replace(R.id.containerView, new Matmod()).commit();
+                        fragmentTransaction2.replace(R.id.containerView, new Info()).commit();
                         break;
                     case R.id.map:
                         MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
@@ -119,6 +121,16 @@ public class MainActivity extends AppCompatActivity {
                         loadName();
                         FragmentTransaction fragmentTransaction4 = FM.beginTransaction();
                         fragmentTransaction4.replace(R.id.containerView, new Exzam()).commit();
+                        break;
+                    case R.id.caf1:
+                        MainActivity.this.getSupportActionBar().setSubtitle("Кафедры");
+                        FragmentTransaction fragmentTransaction5 = FM.beginTransaction();
+                        fragmentTransaction5.replace(R.id.containerView, new CafedraMain()).commit();
+                        break;
+                    case R.id.prepods:
+                        MainActivity.this.getSupportActionBar().setSubtitle("Преподовательский состав");
+                        FragmentTransaction ds = FM.beginTransaction();
+                        ds.replace(R.id.containerView, new Prepods()).commit();
                         break;
                     default:
                         break;
@@ -141,7 +153,14 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
         switch (item.getItemId()) {
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
             case R.id.settings:
                 Intent intent = new Intent(MainActivity.this, SettingsPref.class);
                 startActivity(intent);
@@ -269,4 +288,14 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
         toolbar.setBackgroundResource(R.color.colorPrimaryD);
     }
+
+    public void onBackPressed() {
+        FragmentManager fm = this.getSupportFragmentManager();
+        if (fm.getBackStackEntryCount() > 0)
+            fm.popBackStack();
+        else
+            finish();
+    }
+
+
 }

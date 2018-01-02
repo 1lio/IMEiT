@@ -52,7 +52,7 @@
                         android:gravity="left|center"
                         android:paddingLeft="10dp"
                         android:paddingRight="16dp"
-                        android:text="Кафедра КАФЕДРА ПРИКЛАДНОЙ МАТЕМАТИКИ И ИНФОРМАТИКИ"
+                        android:text="@string/caf_ptrds"
                         android:textColor="@color/colorTes"
                         android:textSize="13sp" />
 
@@ -88,18 +88,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Подаева Наталия Георгиевна"
+                            android:text="@string/padaeva2"
                             android:textColor="@color/colorTes"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -383,18 +383,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Корниенко Василий Васильевич"
+                            android:text="@string/kornienkodv2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -436,18 +436,17 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Белых Ольга Николаевна"
+                            android:text="@string/belix2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -489,18 +488,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Губина Татьяна Николаевна"
+                            android:text="@string/gubina2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -542,18 +541,16 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Жук Лариса Викторовна"
+                            android:text="@string/juk2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -595,18 +592,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Зубарева Елена Васильевна"
+                            android:text="@string/zubareva2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -648,18 +645,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Корниенко Дмитрий Васильевич"
+                            android:text="@string/kornienko_dv2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -701,18 +698,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Таров Дмитрий Анатольевич"
+                            android:text="@string/tarov2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -759,7 +756,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Тарова Инна Николаевна"
+                            android:text="@string/tarova2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -807,18 +804,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Прокуратова Оксана Николаевна"
+                            android:text="@string/prokuratova2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

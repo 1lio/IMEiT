@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDarkD"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
 
     <ScrollView
@@ -27,9 +28,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="16dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:paddingBottom="6dp"
@@ -61,7 +59,7 @@
                             android:gravity="bottom|left"
                             android:text="Симоновская Галина Александровна"
                             android:textColor="@color/colorTes"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -81,8 +79,6 @@
                     android:id="@+id/tel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="6dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
@@ -156,8 +152,6 @@
                     android:id="@+id/webs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
@@ -232,8 +226,6 @@
                     android:id="@+id/groups"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
@@ -309,8 +301,6 @@
                     android:id="@+id/emal_l"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
@@ -387,8 +377,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
@@ -460,8 +448,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
                     android:background="@color/colorT"
                     android:gravity="left|center"
@@ -472,12 +459,10 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@+id/cf_mat"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="6dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
@@ -500,18 +485,17 @@
                         android:gravity="left|center"
                         android:paddingLeft="10dp"
                         android:paddingRight="16dp"
-                        android:text="МАТЕМАТИКИ И МЕТОДИКИ ЕЕ ПРЕПОДАВАНИЯ"
+                        android:text="@string/cf_match"
                         android:textColor="@color/colorTes"
                         android:textSize="13sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/cf_cmt"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
@@ -534,86 +518,17 @@
                         android:gravity="left|center"
                         android:paddingLeft="10dp"
                         android:paddingRight="16dp"
-                        android:text="МАТЕМАТИЧЕСКОГО МОДЕЛИРОВАНИЯ И КОМПЬЮТЕРНЫХ ТЕХНОЛОГИЙ"
+                        android:text="@string/cfa_comptex"
                         android:textColor="@color/colorTes"
                         android:textSize="13sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/cf_phy"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:background="@color/colorT"
-                    android:orientation="horizontal"
-                    android:padding="6dp">
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/oval"
-                        android:backgroundTint="@color/colorSigma"
-                        android:elevation="1dp"
-                        android:gravity="center"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_computer_white_36dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="16dp"
-                        android:text="ПРИКЛАДНОЙ МАТЕМАТИКИ И ИНФОРМАТИКИ"
-                        android:textColor="@color/colorTes"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:background="@color/colorT"
-                    android:orientation="horizontal"
-                    android:padding="6dp">
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_margin="6dp"
-                        android:background="@drawable/oval"
-                        android:backgroundTint="@color/colorSigma"
-                        android:elevation="1dp"
-                        android:gravity="center"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_radio_white_36dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="left|center"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="16dp"
-                        android:text="@string/caf_rad"
-                        android:textColor="@color/colorTes"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
@@ -643,11 +558,76 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/cf_rad"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/colorT"
+                    android:orientation="horizontal"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/oval"
+                        android:backgroundTint="@color/colorSigma"
+                        android:elevation="1dp"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_radio_white_36dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="16dp"
+                        android:text="@string/caf_rad"
+                        android:textColor="@color/colorTes"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cf_inf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/colorT"
+                    android:orientation="horizontal"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/oval"
+                        android:backgroundTint="@color/colorSigma"
+                        android:elevation="1dp"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_computer_white_36dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="16dp"
+                        android:text="@string/caf_ptrds"
+                        android:textColor="@color/colorTes"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ch_che"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
                     android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
@@ -670,246 +650,214 @@
                         android:gravity="left|center"
                         android:paddingLeft="10dp"
                         android:paddingRight="16dp"
-                        android:text="Химии и Биологии"
+                        android:text="@string/caf_chemsct"
                         android:textColor="@color/colorTes"
                         android:textSize="13sp" />
 
                 </LinearLayout>
+            </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Об институте:  "
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="Об институте:  "
+                android:textColor="@color/colorTes"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/his_mats"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="@string/his_mats"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Образование: Направления бакалавриата"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="Образование: Направления бакалавриата"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/or_bak"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="@string/or_bak"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Образование: Направления магистратуры"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="Образование: Направления магистратуры"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/or_mag"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="@string/or_mag"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Образование: Направления подготовки кадров высшей квалификации (аспирантура):"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="Образование: Направления подготовки кадров высшей квалификации (аспирантура):"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/or_asp"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="@string/or_asp"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Формы обучения"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="Формы обучения"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Очная, заочная, очно-заочная"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="Очная, заочная, очно-заочная"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Продолжительность обучения"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="Продолжительность обучения"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/form_obc"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="@string/form_obc"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Профессорско-преподавательский состав"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="Профессорско-преподавательский состав"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="В институте работают более 100 преподавателей, из них:
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="В институте работают более 100 преподавателей, из них:
       - 12 докторов наук,
       - 40 кандидатов наук."
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
+                android:textColor="@color/colorTes"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="Наука: Ключевые научные направления"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="Наука: Ключевые научные направления"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="1"
-                    android:background="@color/colorT"
-                    android:gravity="left|center"
-                    android:padding="6dp"
-                    android:text="@string/napr_nauch"
-                    android:textColor="@color/colorTes"
-                    android:textSize="13sp" />
-            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:background="@color/colorT"
+                android:gravity="left|center"
+                android:padding="12dp"
+                android:text="@string/napr_nauch"
+                android:textColor="@color/colorTes"
+                android:textSize="13sp" />
         </LinearLayout>
     </ScrollView>
 

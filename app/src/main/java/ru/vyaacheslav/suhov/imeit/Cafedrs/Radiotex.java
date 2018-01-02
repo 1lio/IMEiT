@@ -9,19 +9,17 @@ import android.view.ViewGroup;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-public class Matmod extends Fragment  {
+public class Radiotex extends Fragment {
 
 
-    public Matmod() {    }
+    public Radiotex() {    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.caf_matmod, container, false);
+        return inflater.inflate(R.layout.caf_radio, container, false);
     }
-
-
 
 }

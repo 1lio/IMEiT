@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-public class Matmod extends Fragment  {
+public class CompTex extends Fragment {
 
 
-    public Matmod() {    }
+    public CompTex() {    }
 
 
     @Override
@@ -21,7 +21,5 @@ public class Matmod extends Fragment  {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.caf_matmod, container, false);
     }
-
-
 
 }

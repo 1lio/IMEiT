@@ -20,8 +20,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -52,7 +50,7 @@
                         android:gravity="left|center"
                         android:paddingLeft="10dp"
                         android:paddingRight="16dp"
-                        android:text="Кафедра РАДИОЭЛЕКТРОНИКИ И КОМПЬЮТЕРНОЙ ТЕХНИКИ"
+                        android:text="@string/caf_rad"
                         android:textColor="@color/colorTes"
                         android:textSize="13sp" />
 
@@ -88,14 +86,13 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Фортунова Наталия Александровна"
+                            android:text="@string/fortunova2"
                             android:textColor="@color/colorTes"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -388,7 +385,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Нечаев Юрий Борисович"
+                            android:text="@string/nechaev2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -441,7 +438,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Зайцев Андрей Анатольевич"
+                            android:text="@string/zaicev2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -493,7 +490,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Пешков Илья Владимирович"
+                            android:text="@string/pechkov2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -546,7 +543,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Спирин Виталий Георгиевич"
+                            android:text="@string/spirin2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -593,6 +590,7 @@
                     android:text="@string/napr_caf4"
                     android:textColor="@color/colorTes"
                     android:textSize="13sp" />
+
                 <TextView
 
                     android:layout_width="match_parent"

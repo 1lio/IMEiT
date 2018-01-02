@@ -215,7 +215,7 @@
     <string name="ob_bd">Распределенная обработка данных</string>
     <string name="cach_sys">Качество и надежность <br>информационных систем</br> </string>
     <string name="pr_sys_up">Проектирование информационных систем управления</string>
-    <string name="pr_sys">Проектирование информационно-вычислительных систем</string>
+    <string name="pr_sys">Проектирование и нформационно-вычислительных систем</string>
     <string name="pr_bez">Правовое обеспечение информационной безопасности</string>
     <string name="russian_lang">Русский язык и культура речи</string>
     <string name="met_prog">Языки и методы программирования</string>
@@ -483,7 +483,7 @@
     <string name="imet_elsu_ru">IMET.ELSU.RU</string>
     <string name="groupe_vk">Группа Вконтакте</string>
     <string name="vk_adres">vk.com/imet.elsu</string>
-    <string name="e_mail">E-mail</string>
+    <string name="e_mail">Написать нам:</string>
     <string name="dek_f_mail_ru">DEK_F@MAIL.RU</string>
     <string name="autor">Сухов Вячеслав 2017г.</string>
     <string name="para">Пара</string>
@@ -522,7 +522,7 @@
     <string name="filol_adr">Адрес: ул. Коммунаров, д. 39</string>
     <string name="spo">Центр СПО</string>
     <string name="spo_adr">Адрес: ул. Допризывников, д. 1а</string>
-    <string name="addres">Адрес</string>
+    <string name="addres">Наш адрес:</string>
     <string name="gk_l">Главный корпус</string>
     <string name="ad1">ул. Коммунаров, д.28</string>
     <string name="k1">1-й</string>
@@ -753,8 +753,6 @@
         <item>Отображать номер пары</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sd">\tСреда 15.30- 17.30\n\tПятница 15.30-17.30</string>
     <string name="napr_caf1">- История и теория математического образования в школе и вузе (13.00.01, 13.00.02, 13.00.08).\n
 - Научно-методическая подготовка учителя математики к работе в профильных классах общеобразовательной школы (13.00.02).\n
@@ -920,4 +918,46 @@
 - грант  Министерства образования и науки РФ «Микоризообразование хвойных на отвалах горнодобывающей промышленности» (регистрационный номер 4.3458.2011).  Источник финансирования: Министерство образования и науки РФ (2011 г).
 \n\n
 - работы по сбору сведений о состоянии популяций редких видов растений, мхов, грибов, лишайников на территории Липецкой области по Госконтракту № 57-14 от 02.04.2014 г. (2014-2015г)</string>
+    <string name="caf_chemsct">Химии и Биологии</string>
+    <string name="petricheva_tu">Петрищева Татьяна Юрьевна</string>
+    <string name="cand_bio">Кандидат биологических наук, зав. кафедрой</string>
+    <string name="tel_caf_che">+7 (47467) 6-59-71</string>
+    <string name="cf_match">Математики и методики ее преподования</string>
+    <string name="caf_ptrds">Прикладной математики и информатики</string>
+    <string name="cfa_comptex">Математического моделирования м компьютерных технологий</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="belix2">Белых Ольга Николаевна</string>
+    <string name="gladkix2">Гладких Ольга Барисовна</string>
+    <string name="gubin2">Губин Михаил Алексеевич</string>
+    <string name="gubina2">Губина Татьяна Николаевна</string>
+    <string name="dvoryadkina2">Дворядкина Светлана Николаевна</string>
+    <string name="eletcki2">Елецких Ирина Адольфовна</string>
+    <string name="juk2">Жук Лариса Викторовна</string>
+    <string name="zaicev2">Зайцев Андрей Анатольевич</string>
+    <string name="zubareva2">Зубарева Елена Васильевна</string>
+    <string name="kornienkodv2">Корниенко Василий Васильевич</string>
+    <string name="kornienko_dv2">Корниенко Дмитрий Васильевич</string>
+    <string name="masina2">Масина Ольга Николаевна</string>
+    <string name="melnikov">Мельников Роман Анатольевич</string>
+    <string name="nechaev2">Нечаев Юрий Борисович</string>
+    <string name="pahomova2">Пахомова Оксана Анатольевна</string>
+    <string name="pechkov2">Пешков Илья Владимирович</string>
+    <string name="prokuratova2">Прокуратова Оксана Николаевна</string>
+    <string name="roshupkin2">Рощупкин Сергей Александрович</string>
+    <string name="rimanova">Рыманова Татьяна Евгеньевна</string>
+    <string name="elchaninova2">Ельчанинова Галина Георгиевна</string>
+    <string name="savvina2">Саввина Ольга Алексеевна</string>
+    <string name="safronova2">Сафронова Татьяна Михайловна</string>
+    <string name="simanovasaya2">Симановская Галина Александровна</string>
+    <string name="spirin2">Спирин Виталий Георгиевич</string>
+    <string name="tarov2">Таров Дмитрий Анатольевич</string>
+    <string name="tarova2">Тарова Инна Николаевна</string>
+    <string name="trofimova2">Трофимова Елена Ивановна</string>
+    <string name="padaeva2">Подаева Наталия Георгиевна</string>
+    <string name="fortunova2">Фортунова Наталия Александровна</string>
+    <string name="chernousova2">Черноусова Наталья Вячеславовна</string>
+
 </resources>

@@ -52,7 +52,7 @@
                         android:gravity="left|center"
                         android:paddingLeft="10dp"
                         android:paddingRight="16dp"
-                        android:text="Кафедра МАТЕМАТИЧЕСКОГО МОДЕЛИРОВАНИЯ И КОМПЬЮТЕРНЫХ ТЕХНОЛОГИЙ"
+                        android:text="@string/cfa_comptex"
                         android:textColor="@color/colorTes"
                         android:textSize="13sp" />
 
@@ -88,18 +88,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Масина Ольга Николаевна"
+                            android:text="@string/masina2"
                             android:textColor="@color/colorTes"
-                            android:textSize="14sp"
+                            android:textSize="18sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -308,18 +308,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Гладких Ольга Барисовна"
+                            android:text="@string/gladkix2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -361,18 +361,17 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Губин Михаил Алексеевич"
+                            android:text="@string/gubin2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -414,18 +413,18 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="bottom|left"
-                            android:text="Рощупкин Сергей Александрович"
+                            android:text="@string/roshupkin2"
                             android:textColor="@color/colorTes"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
