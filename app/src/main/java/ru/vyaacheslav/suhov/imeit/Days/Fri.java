@@ -845,7 +845,6 @@ public class Fri extends Fragment {
 
     public void Pmm_21() {
 
-
         p3z.setText(getResources().getString(R.string.opt_chis_met));
         p3az.setText(getResources().getString(R.string.kornienko));
         m_p3_tz.setText(getResources().getString(R.string.lk));
@@ -1032,7 +1031,7 @@ public class Fri extends Fragment {
 
     public void ThemeDark() {
 
-        mk.setBackgroundResource(R.color.colorPrimaryF);
+        mk.setBackgroundResource(R.color.colorT);
         p1.setTextColor(getResources().getColor(R.color.colorWhitee));
         m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
         p1z.setTextColor(getResources().getColor(R.color.colorWhitee));

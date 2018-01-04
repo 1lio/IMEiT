@@ -57,6 +57,23 @@
 
     </item>
 
+    <item
+        android:id="@+id/other"
+        android:title="Прочее">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/share"
+                    android:icon="@drawable/ic_share_black_24dp"
+                    android:title="@string/inf" />
+
+
+            </group>
+        </menu>
+
+    </item>
+
+
     <!--<item android:id="@+id/inf"
         android:title="@string/others">
         <menu>

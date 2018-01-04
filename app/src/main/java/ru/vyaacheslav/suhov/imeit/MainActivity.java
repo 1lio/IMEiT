@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         loadName();
                         FragmentTransaction fragmentTransaction = FM.beginTransaction();
                         fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
-                        calendarT();
+
                         break;
                     case R.id.you_tab:
                         MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        calendarT();
+        calendarTest(); // Отображение статуса текущей недели
         loadName(); // Загрузка имени группы согласно настройкам
         LoadPreferences(); //  Загрузка темы основной темы приложения
     }
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         this.menu = menu;
         getMenuInflater().inflate(R.menu.menu, menu);
-        calendarT();
+
         return super.onCreateOptionsMenu(menu);
     }
     @Override
@@ -167,73 +167,35 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.ssas:
-                Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-                int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+                calendarTest();
 
-                if ((weekYear == 45)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-                }
-                if ((weekYear == 46)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-                }
-
-                if ((weekYear == 47)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-                }
-                if ((weekYear == 48)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-                }
-                if ((weekYear == 49)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-                }
-                if ((weekYear == 50)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-                }
-                if ((weekYear == 51)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-                }
-                if ((weekYear == 52)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-                }
-                if ((weekYear == 53)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-                }
-                if ((weekYear == 1)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-                }
-                if ((weekYear == 2)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look4));
-                }
-                if ((weekYear == 3)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.look3));
-                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    public void calendarTest(){
+        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+
+        if ((weekYear%2 == 0)) {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
+        }
+        else  {
+            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
+        }
+
+    }
+
     // Подзаголовок subTitle
     public void loadName() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this); // Название группы берется из String-array
         String regular = prefs.getString(getString(R.string.pref_style), "");
         MainActivity.this.getSupportActionBar().setSubtitle(regular);
     }
-
-    public void calendarT() {
-
-        }
 
    /* private void isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);

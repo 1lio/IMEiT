@@ -3,21 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryD"
     android:orientation="vertical"
     tools:context="ru.vyaacheslav.suhov.imeit.Exzam">
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorT"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="II Полугодие"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/colorT"
         android:gravity="center"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
-        android:text="I Полугодие 2017/2018 учебного года"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp" />
+        android:padding="6dp"
+        android:text="Информация о летней сессии будет добавлена позднее"
+        android:textColor="@color/colorTextSub"
+        android:textSize="12sp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,7 +43,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,7 +57,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -137,7 +154,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -233,7 +250,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -329,7 +346,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -425,7 +442,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -522,7 +539,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -620,7 +637,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -716,7 +733,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -813,7 +830,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -910,7 +927,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -1007,7 +1024,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -1104,7 +1121,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -1191,7 +1208,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 
@@ -1278,7 +1295,7 @@
                     android:layout_height="60dp"
                     android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@drawable/card_mask"
+                    android:background="@color/colorT"
                     android:orientation="horizontal"
                     android:padding="6dp">
 

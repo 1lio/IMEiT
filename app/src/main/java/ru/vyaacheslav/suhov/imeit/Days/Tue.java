@@ -1145,7 +1145,7 @@ public class Tue extends Fragment {
 
     public void ThemeDark() {
 
-        mk.setBackgroundResource(R.color.colorPrimaryF);
+        mk.setBackgroundResource(R.color.colorT);
         p1.setTextColor(getResources().getColor(R.color.colorWhitee));
         m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
         p1z.setTextColor(getResources().getColor(R.color.colorWhitee));
