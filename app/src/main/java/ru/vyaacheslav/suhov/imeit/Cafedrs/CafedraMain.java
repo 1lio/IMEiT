@@ -13,7 +13,6 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class CafedraMain extends Fragment implements View.OnClickListener {
 
-    public FragmentTransaction FT;
     public FragmentManager FM;
     LinearLayout caf1, caf2, caf3, caf4, caf5, caf6;
 

@@ -399,5 +399,14 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="12dp"
+        android:background="@drawable/oval"
+        android:padding="12dp"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 </RelativeLayout>

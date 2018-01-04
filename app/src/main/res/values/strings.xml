@@ -926,6 +926,9 @@
     <string name="caf_ptrds">Прикладной математики и информатики</string>
     <string name="cfa_comptex">Математического моделирования м компьютерных технологий</string>
 
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="belix2">Белых Ольга Николаевна</string>
     <string name="gladkix2">Гладких Ольга Барисовна</string>
     <string name="gubin2">Губин Михаил Алексеевич</string>
@@ -956,39 +959,5 @@
     <string name="padaeva2">Подаева Наталия Георгиевна</string>
     <string name="fortunova2">Фортунова Наталия Александровна</string>
     <string name="chernousova2">Черноусова Наталья Вячеславовна</string>
-    <string name="week">Текущая неделя:</string>
 
-    <string-array name="prepods">
-
-    <item>Белых Ольга Николаевна</item>
-        <item>Гладких Ольга Барисовна</item>
-        <item>Губин Михаил Алексеевич</item>
-        <item>Губина Татьяна Николаевна</item>
-        <item>Дворядкина Светлана Николаевна</item>
-        <item>Елецких Ирина Адольфовна</item>
-        <item>Жук Лариса Викторовна</item>
-        <item>Зайцев Андрей Анатольевич</item>
-        <item>Зубарева Елена Васильевна</item>
-        <item>Корниенко Василий Васильевич</item>
-        <item>Корниенко Дмитрий Васильевич</item>
-        <item>Масина Ольга Николаевна</item>
-        <item>Мельников Роман Анатольевич</item>
-        <item>Нечаев Юрий Борисович</item>
-        <item>Пахомова Оксана Анатольевна</item>
-        <item>Пешков Илья Владимирович</item>
-        <item>Прокуратова Оксана Николаевна</item>
-        <item>Рощупкин Сергей Александрович</item>
-        <item>Рыманова Татьяна Евгеньевна</item>
-        <item>Ельчанинова Галина Георгиевна</item>
-        <item>Саввина Ольга Алексеевна</item>
-        <item>Сафронова Татьяна Михайловна</item>
-        <item>Симановская Галина Александровна</item>
-        <item>Спирин Виталий Георгиевич</item>
-        <item>Таров Дмитрий Анатольевич</item>
-        <item>Тарова Инна Николаевна</item>
-        <item>Трофимова Елена Ивановна</item>
-        <item>Подаева Наталия Георгиевна</item>
-        <item>Фортунова Наталия Александровна</item>
-        <item>Черноусова Наталья Вячеславовна</item>
-    </string-array>
 </resources>

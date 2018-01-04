@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mapa"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDarkD"
@@ -435,7 +434,6 @@
                         android:paddingLeft="8dp">
 
                         <TextView
-                            android:id="@+id/m_p1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -446,7 +444,6 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/m_p1_a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -908,6 +905,7 @@
                     android:text="@string/sd"
                     android:textColor="@color/colorTes"
                     android:textSize="13sp" />
+
                 <TextView
 
                     android:layout_width="match_parent"
@@ -937,6 +935,7 @@
                     android:text="@string/napr_caf1"
                     android:textColor="@color/colorTes"
                     android:textSize="13sp" />
+
                 <TextView
 
                     android:layout_width="match_parent"
@@ -970,5 +969,14 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="12dp"
+        android:background="@drawable/oval"
+        android:padding="12dp"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 </RelativeLayout>
