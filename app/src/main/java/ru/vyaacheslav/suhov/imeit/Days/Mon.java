@@ -687,7 +687,6 @@ public class Mon extends Fragment {
 
     // 4 курс
     public void M_41() {
-
         p1z.setText(getResources().getString(R.string.schol_uche));
         p1az.setText(getResources().getString(R.string.pomanova));
         m_p1_tz.setText(getResources().getString(R.string.dv_pz));
@@ -771,8 +770,6 @@ public class Mon extends Fragment {
         p4az.setText(getResources().getString(R.string.rochupkin));
         m_p4_tz.setText(getResources().getString(R.string.pz));
         m_p4_kz.setText(getResources().getString(R.string.uk4_21));
-
-
     }
 
     public void IIvtm_21() {

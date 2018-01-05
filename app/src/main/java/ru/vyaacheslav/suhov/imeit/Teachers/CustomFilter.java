@@ -6,31 +6,28 @@ import java.util.ArrayList;
 
 public class CustomFilter extends Filter {
 
-    ArrayList<Movie> filterList;
-    Mnju adapter;
+    private ArrayList<TechClassAb> filterList;
+    private TechAdapterAb adapter;
 
-    public CustomFilter(ArrayList<Movie> filterList, Mnju adapter) {
+     CustomFilter(ArrayList<TechClassAb> filterList, TechAdapterAb adapter) {
         this.filterList = filterList;
         this.adapter = adapter;
     }
 
-    //FILTERING
     @Override
     protected FilterResults performFiltering(CharSequence constraint) {
 
-        //RESULTS
+
         FilterResults results=new FilterResults();
 
-        //VALIDATION
         if(constraint != null && constraint.length()>0)
         {
 
-            //CHANGE TO UPPER FOR CONSISTENCY
+
             constraint=constraint.toString().toUpperCase();
 
-            ArrayList<Movie> filteredMovies=new ArrayList<>();
+            ArrayList<TechClassAb> filteredMovies=new ArrayList<>();
 
-            //LOOP THRU FILTER LIST
             for(int i=0;i<filterList.size();i++)
             {
                 //FILTER
@@ -52,12 +49,10 @@ public class CustomFilter extends Filter {
     }
 
 
-    //PUBLISH RESULTS
-
     @Override
     protected void publishResults(CharSequence constraint, FilterResults results) {
 
-        adapter.movies= (ArrayList<Movie>) results.values;
+        adapter.movies= (ArrayList<TechClassAb>) results.values;
         adapter.notifyDataSetChanged();
 
     }

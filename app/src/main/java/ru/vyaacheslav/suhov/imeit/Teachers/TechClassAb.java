@@ -1,11 +1,11 @@
 package ru.vyaacheslav.suhov.imeit.Teachers;
 
-public class Movie {
+public class TechClassAb {
 
     private String name;
     private int image;
 
-    public Movie(String name, int image) {
+     TechClassAb(String name, int image) {
         this.name = name;
         this.image = image;
     }
@@ -14,7 +14,7 @@ public class Movie {
         return name;
     }
 
-    public int getImage() {
+     int getImage() {
         return image;
     }
 }

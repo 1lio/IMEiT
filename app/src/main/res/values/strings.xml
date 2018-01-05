@@ -926,9 +926,6 @@
     <string name="caf_ptrds">Прикладной математики и информатики</string>
     <string name="cfa_comptex">Математического моделирования м компьютерных технологий</string>
 
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="belix2">Белых Ольга Николаевна</string>
     <string name="gladkix2">Гладких Ольга Барисовна</string>
     <string name="gubin2">Губин Михаил Алексеевич</string>
@@ -959,5 +956,7 @@
     <string name="padaeva2">Подаева Наталия Георгиевна</string>
     <string name="fortunova2">Фортунова Наталия Александровна</string>
     <string name="chernousova2">Черноусова Наталья Вячеславовна</string>
+    <string name="week">Текущая неделя</string>
+    <string name="kanfizmat">каф.физм</string>
 
 </resources>

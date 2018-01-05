@@ -12,17 +12,17 @@ import java.util.ArrayList;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-public class Mnju extends BaseAdapter implements Filterable {
+public class TechAdapterAb extends BaseAdapter implements Filterable {
 
-    ArrayList<Movie> movies;
+    ArrayList<TechClassAb> movies;
     private Context c;
     private LayoutInflater inflater;
 
-    private ArrayList<Movie> filterList;
+    private ArrayList<TechClassAb> filterList;
     private CustomFilter filter;
 
 
-    Mnju(Context c, ArrayList<Movie> movies) {
+    TechAdapterAb(Context c, ArrayList<TechClassAb> movies) {
         this.c = c;
         this.movies = movies;
         this.filterList = movies;
@@ -57,7 +57,7 @@ public class Mnju extends BaseAdapter implements Filterable {
             convertView = inflater.inflate(R.layout.custom_list, null);
         }
 
-        MyViewHolder holder = new MyViewHolder(convertView);
+        TechHolderAb holder = new TechHolderAb(convertView);
         holder.nameTxt.setText(movies.get(position).getName());
         holder.img.setBackgroundResource(movies.get(position).getImage());
 

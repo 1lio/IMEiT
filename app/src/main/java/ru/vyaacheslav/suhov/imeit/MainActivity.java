@@ -154,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-
         switch (item.getItemId()) {
 
             case android.R.id.home:
@@ -258,6 +257,5 @@ public class MainActivity extends AppCompatActivity {
         else
             finish();
     }
-
 
 }
