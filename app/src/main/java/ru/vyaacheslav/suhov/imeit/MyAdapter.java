@@ -34,7 +34,6 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
                 return new Thu();
             case 4:
                 return new Fri();
-
         }
         return null;
     }
@@ -57,7 +56,6 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
                 return "Чт";
             case 4:
                 return "Пт";
-
         }
 
         return null;

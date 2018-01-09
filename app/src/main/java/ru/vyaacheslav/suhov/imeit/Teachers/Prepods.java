@@ -27,8 +27,7 @@ public class Prepods extends Fragment {
     TextView name,subname,namecaf;
     LinearLayout p_tel, p_email,p_address;
 
-    public Prepods() {
-    }
+    public Prepods() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,6 +47,7 @@ public class Prepods extends Fragment {
         p_address=v.findViewById(R.id.p_address);
         namecaf=v.findViewById(R.id.name_caf);
         iconcaf=v.findViewById(R.id.icon_caf);
+
         adapter = new TechAdapterAb(getActivity(), getMovies());
         lv.setAdapter(adapter);
 
@@ -75,6 +75,7 @@ public class Prepods extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
                                     long id) {
+
                 switch (position) {
                     case 0:
                         break;

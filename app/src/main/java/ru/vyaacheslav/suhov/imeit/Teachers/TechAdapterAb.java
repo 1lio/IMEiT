@@ -22,13 +22,12 @@ public class TechAdapterAb extends BaseAdapter implements Filterable {
     private CustomFilter filter;
 
 
-    TechAdapterAb(Context c, ArrayList<TechClassAb> movies) {
+    TechAdapterAb(Context c, ArrayList<TechClassAb> tech) {
         this.c = c;
-        this.movies = movies;
-        this.filterList = movies;
+        this.movies = tech;
+        this.filterList = tech;
 
     }
-
 
     @Override
     public int getCount() {
@@ -60,8 +59,6 @@ public class TechAdapterAb extends BaseAdapter implements Filterable {
         TechHolderAb holder = new TechHolderAb(convertView);
         holder.nameTxt.setText(movies.get(position).getName());
         holder.img.setBackgroundResource(movies.get(position).getImage());
-
-
 
         return convertView;
     }

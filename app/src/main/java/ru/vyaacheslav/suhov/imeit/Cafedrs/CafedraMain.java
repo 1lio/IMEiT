@@ -41,7 +41,6 @@ public class CafedraMain extends Fragment implements View.OnClickListener {
         return v;
     }
 
-
     @Override
     public void onClick(View view) {
 

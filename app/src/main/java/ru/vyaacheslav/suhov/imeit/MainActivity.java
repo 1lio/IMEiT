@@ -30,7 +30,6 @@ import ru.vyaacheslav.suhov.imeit.Cafedrs.CafedraMain;
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
-import ru.vyaacheslav.suhov.imeit.Teachers.Prepods;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
         cb.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, cb.length(), 0); // Меняем цвет полоски разделяющей группы
         tools3.setTitle(cb);
 
+        MenuItem ss = menu.findItem(R.id.other);
+        SpannableString vb = new SpannableString(ss.getTitle());
+        vb.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, vb.length(), 0); // Меняем цвет полоски разделяющей группы
+        ss.setTitle(vb);
+
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
         FT.replace(R.id.containerView, new TabFragment()).commit();
@@ -116,22 +120,22 @@ public class MainActivity extends AppCompatActivity {
                         FragmentTransaction fragmentTransaction3 = FM.beginTransaction();
                         fragmentTransaction3.replace(R.id.containerView, new MapsFragment()).commit();
                         break;
-
-                    case R.id.exam:
+                    // Экзамен
+               /*     case R.id.exam:
                         loadName();
                         FragmentTransaction fragmentTransaction4 = FM.beginTransaction();
                         fragmentTransaction4.replace(R.id.containerView, new Exzam()).commit();
-                        break;
+                        break;*/
                     case R.id.caf1:
                         MainActivity.this.getSupportActionBar().setSubtitle("Кафедры");
                         FragmentTransaction fragmentTransaction5 = FM.beginTransaction();
                         fragmentTransaction5.replace(R.id.containerView, new CafedraMain()).commit();
                         break;
-                    case R.id.prepods:
+                  /*  case R.id.prepods:
                         MainActivity.this.getSupportActionBar().setSubtitle("Преподовательский состав");
                         FragmentTransaction ds = FM.beginTransaction();
                         ds.replace(R.id.containerView, new Prepods()).commit();
-                        break;
+                        break;*/
                     default:
                         break;
                 }
@@ -139,8 +143,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        calendarTest(); // Отображение статуса текущей недели
+       // Отображение статуса текущей недели
         loadName(); // Загрузка имени группы согласно настройкам
         LoadPreferences(); //  Загрузка темы основной темы приложения
     }
@@ -148,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         this.menu = menu;
         getMenuInflater().inflate(R.menu.menu, menu);
+        calendarTest();
 
         return super.onCreateOptionsMenu(menu);
     }

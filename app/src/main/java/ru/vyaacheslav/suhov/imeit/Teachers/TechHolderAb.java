@@ -11,13 +11,8 @@ import ru.vyaacheslav.suhov.imeit.R;
     ImageView img;
     TextView nameTxt;
 
-
-
      TechHolderAb(View v) {
         img=  v.findViewById(R.id.movieImage);
         nameTxt=  v.findViewById(R.id.nameTxt);
-
-
     }
-
 }

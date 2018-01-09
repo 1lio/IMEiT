@@ -47,10 +47,10 @@
                     android:id="@+id/caf1"
                     android:icon="@drawable/ic_equalizer_black_24dp"
                     android:title="Кафедры" />
-                <item
+              <!--  <item
                     android:id="@+id/prepods"
                     android:icon="@drawable/ic_school_black_24dp"
-                    android:title="Преподовательский состав" />
+                    android:title="Преподовательский состав" />-->
 
             </group>
         </menu>
@@ -65,9 +65,7 @@
                 <item
                     android:id="@+id/share"
                     android:icon="@drawable/ic_share_black_24dp"
-                    android:title="@string/inf" />
-
-
+                    android:title="@string/share" />
             </group>
         </menu>
 
@@ -84,8 +82,7 @@
                     android:icon="@drawable/ic_info_black_24dp"
                     android:title="@string/info" />
 
-
-                &lt;!&ndash; автобусы, как писать курсовую, найти преподователя, каталог библиотеки(хотя нах она нужна)
+                автобусы, как писать курсовую, найти преподователя, каталог библиотеки(хотя нах она нужна)
                 ближайшая закусочная(тоже), бумажные вопросы(хз), методички(!где их найти?) - из всего
                 выше можно добавить пока 3, где идеи?...
                 &ndash;&gt;
