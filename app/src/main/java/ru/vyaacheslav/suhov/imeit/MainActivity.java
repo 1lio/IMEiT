@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                         FragmentTransaction fragmentTransaction3 = FM.beginTransaction();
                         fragmentTransaction3.replace(R.id.containerView, new MapsFragment()).commit();
                         break;
-                    // Экзамен
+                        // Экзамен
                /*     case R.id.exam:
                         loadName();
                         FragmentTransaction fragmentTransaction4 = FM.beginTransaction();
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    // Велосипед + костыль = говнокод
     // Кастомизация тем  Светлая и Темная
     public void ThemeWrithe() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

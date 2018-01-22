@@ -23,7 +23,6 @@ public class CustomFilter extends Filter {
         if(constraint != null && constraint.length()>0)
         {
 
-
             constraint=constraint.toString().toUpperCase();
 
             ArrayList<TechClassAb> filteredMovies=new ArrayList<>();

@@ -57,7 +57,7 @@
 
     </item>
 
-    <item
+<!--    <item
         android:id="@+id/other"
         android:title="Прочее">
         <menu>
@@ -69,7 +69,7 @@
             </group>
         </menu>
 
-    </item>
+    </item>-->
 
 
     <!--<item android:id="@+id/inf"

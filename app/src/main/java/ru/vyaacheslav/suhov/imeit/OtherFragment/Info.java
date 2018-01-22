@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +15,25 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import ru.vyaacheslav.suhov.imeit.Cafedrs.Chemestry;
+import ru.vyaacheslav.suhov.imeit.Cafedrs.CompTex;
+import ru.vyaacheslav.suhov.imeit.Cafedrs.Informat;
+import ru.vyaacheslav.suhov.imeit.Cafedrs.Matmod;
+import ru.vyaacheslav.suhov.imeit.Cafedrs.Physucs;
+import ru.vyaacheslav.suhov.imeit.Cafedrs.Radiotex;
 import ru.vyaacheslav.suhov.imeit.R;
 
 public class Info extends Fragment implements View.OnClickListener {
 
     public Intent intent;
+    LinearLayout caf_chem, caf_tex, caf_inf, caf_matm, caf_phy, caf_rad;
+    FragmentManager FM;
     private LinearLayout tel, webs, group, email, mapl;
     private TextView p1, p2, p3, p4, p5;
     private RelativeLayout mapa;
 
-    public Info() { }
+    public Info() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,8 +58,22 @@ public class Info extends Fragment implements View.OnClickListener {
         group.setOnClickListener(this);
         email.setOnClickListener(this);
         mapl.setOnClickListener(this);
-/*
-        LoadPreferences();*/
+
+        caf_chem = v.findViewById(R.id.cf_che);
+        caf_tex = v.findViewById(R.id.cf_cmt);
+        caf_inf = v.findViewById(R.id.cf_inf);
+        caf_matm = v.findViewById(R.id.cf_mat);
+        caf_phy = v.findViewById(R.id.cf_phy);
+        caf_rad = v.findViewById(R.id.cf_rad);
+
+        caf_chem.setOnClickListener(this);
+        caf_tex.setOnClickListener(this);
+        caf_inf.setOnClickListener(this);
+        caf_matm.setOnClickListener(this);
+        caf_phy.setOnClickListener(this);
+        caf_rad.setOnClickListener(this);
+
+        /*LoadPreferences();*/
         return v;
     }
 
@@ -79,6 +104,7 @@ public class Info extends Fragment implements View.OnClickListener {
         p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p5.setTextColor(getResources().getColor(R.color.colorTextBlack));
     }
+
     public void ThemeDark() {
 
         mapa.setBackgroundColor(getResources().getColor(R.color.colorPrimaryF));
@@ -96,6 +122,8 @@ public class Info extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
+        FM = getFragmentManager();
         switch (view.getId()) {
             case R.id.tel:
                 intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+74746722426"));
@@ -120,6 +148,30 @@ public class Info extends Fragment implements View.OnClickListener {
                 Intent agr = new Intent(Intent.ACTION_VIEW, adress);
                 agr.setPackage("com.google.android.apps.maps");
                 startActivity(agr);
+                break;
+            case R.id.cf_mat:
+                FragmentTransaction fc = FM.beginTransaction();
+                fc.replace(R.id.containerView, new Matmod()).commit();
+                break;
+            case R.id.cf_inf:
+                FragmentTransaction cd = FM.beginTransaction();
+                cd.replace(R.id.containerView, new Informat()).commit();
+                break;
+            case R.id.cf_rad:
+                FragmentTransaction dd = FM.beginTransaction();
+                dd.replace(R.id.containerView, new Radiotex()).commit();
+                break;
+            case R.id.cf_phy:
+                FragmentTransaction ss = FM.beginTransaction();
+                ss.replace(R.id.containerView, new Physucs()).commit();
+                break;
+            case R.id.ch_chx:
+                FragmentTransaction aa = FM.beginTransaction();
+                aa.replace(R.id.containerView, new Chemestry()).commit();
+                break;
+            case R.id.cf_che:
+                FragmentTransaction ee = FM.beginTransaction();
+                ee.replace(R.id.containerView, new CompTex()).commit();
                 break;
             default:
                 break;

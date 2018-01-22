@@ -110,7 +110,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/tel"
+                    android:id="@+id/tel_r"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="16dp"
@@ -185,7 +185,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/emal_l"
+                    android:id="@+id/emal_r"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="16dp"
@@ -262,7 +262,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/map_l"
+                    android:id="@+id/map_r"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="12dp"
@@ -624,8 +624,9 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ab_radio"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"

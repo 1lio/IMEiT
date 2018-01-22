@@ -16,8 +16,7 @@ public class CafedraMain extends Fragment implements View.OnClickListener {
     public FragmentManager FM;
     LinearLayout caf1, caf2, caf3, caf4, caf5, caf6;
 
-    public CafedraMain() {
-    }
+    public CafedraMain() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

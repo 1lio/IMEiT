@@ -33,6 +33,7 @@ public class MapsFragment extends Fragment {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
+
         LoadPreferences();
         return v;
     }
