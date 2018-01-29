@@ -142,7 +142,7 @@
                         android:id="@+id/f_l1"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
+                        android:background="@color/colorNewstitle"
                         android:orientation="vertical" />
 
                     <LinearLayout
@@ -339,7 +339,7 @@
                         android:id="@+id/f_l2"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
+                        android:background="@color/colorNewstitle"
                         android:orientation="vertical" />
 
                     <LinearLayout
@@ -538,7 +538,7 @@
                         android:id="@+id/f_l3"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
+                        android:background="@color/colorNewstitle"
                         android:orientation="vertical" />
 
                     <LinearLayout
@@ -739,7 +739,7 @@
                         android:id="@+id/f_l4"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
+                        android:background="@color/colorNewstitle"
                         android:orientation="vertical" />
 
                     <LinearLayout
@@ -939,7 +939,7 @@
                         android:id="@+id/f_l5"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
+                        android:background="@color/colorNewstitle"
                         android:orientation="vertical" />
 
                     <LinearLayout
@@ -1139,7 +1139,7 @@
                         android:id="@+id/f_l6"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:background="@drawable/side_nav_bar"
+                        android:background="@color/colorNewstitle"
                         android:orientation="vertical" />
 
                     <LinearLayout

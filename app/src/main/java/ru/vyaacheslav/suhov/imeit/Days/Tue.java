@@ -1036,7 +1036,6 @@ public class Tue extends Fragment {
             m_p1_k.setText(getResources().getString(R.string.uk4_24));
             m_l_1z.setVisibility(View.GONE); // знаменатель
             m_l1.setVisibility(View.GONE);  // Линия разделения
-            m_l1.setVisibility(View.VISIBLE);
 
         } else {
 
@@ -1134,13 +1133,6 @@ public class Tue extends Fragment {
         l3.setBackgroundResource(R.color.colorNewstitle);
         l4.setBackgroundResource(R.color.colorNewstitle);
 
-        m_l1.setBackgroundResource(R.color.colorNewstitle);
-        m_l2.setBackgroundResource(R.color.colorNewstitle);
-        m_l3.setBackgroundResource(R.color.colorNewstitle);
-        m_l4.setBackgroundResource(R.color.colorNewstitle);
-        m_l5.setBackgroundResource(R.color.colorNewstitle);
-
-
     }
 
     public void ThemeDark() {
@@ -1176,19 +1168,6 @@ public class Tue extends Fragment {
         s8.setTextColor(getResources().getColor(R.color.colorWhitee));
         s9.setTextColor(getResources().getColor(R.color.colorWhitee));
         s10.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        m_l1.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l2.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l3.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l4.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l5.setBackgroundResource(R.drawable.side_nav_bar);
-
-
-        l1.setBackgroundResource(R.color.colorSigma);
-        l2.setBackgroundResource(R.color.colorSigma);
-        l3.setBackgroundResource(R.color.colorSigma);
-        l4.setBackgroundResource(R.color.colorSigma);
-
     }
 
     public void XBiG_11() {

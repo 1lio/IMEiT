@@ -1364,13 +1364,6 @@ public class Thu extends Fragment {
         l3.setBackgroundResource(R.color.colorNewstitle);
         l4.setBackgroundResource(R.color.colorNewstitle);
 
-        m_l1.setBackgroundResource(R.color.colorNewstitle);
-        m_l2.setBackgroundResource(R.color.colorNewstitle);
-        m_l3.setBackgroundResource(R.color.colorNewstitle);
-        m_l4.setBackgroundResource(R.color.colorNewstitle);
-        m_l5.setBackgroundResource(R.color.colorNewstitle);
-
-
     }
 
     public void ThemeDark() {
@@ -1411,13 +1404,6 @@ public class Thu extends Fragment {
         s8.setTextColor(getResources().getColor(R.color.colorWhitee));
         s9.setTextColor(getResources().getColor(R.color.colorWhitee));
         s10.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        m_l1.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l2.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l3.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l4.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l5.setBackgroundResource(R.drawable.side_nav_bar);
-
 
         l1.setBackgroundResource(R.color.colorSigma);
         l2.setBackgroundResource(R.color.colorSigma);

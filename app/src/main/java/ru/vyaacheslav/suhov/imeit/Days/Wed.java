@@ -24,8 +24,7 @@ public class Wed extends Fragment {
 
     RelativeLayout mk;
 
-    public Wed() {
-    }
+    public Wed() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -872,14 +871,6 @@ public class Wed extends Fragment {
         l2.setBackgroundResource(R.color.colorNewstitle);
         l3.setBackgroundResource(R.color.colorNewstitle);
         l4.setBackgroundResource(R.color.colorNewstitle);
-
-        m_l1.setBackgroundResource(R.color.colorNewstitle);
-        m_l2.setBackgroundResource(R.color.colorNewstitle);
-        m_l3.setBackgroundResource(R.color.colorNewstitle);
-        m_l4.setBackgroundResource(R.color.colorNewstitle);
-        m_l5.setBackgroundResource(R.color.colorNewstitle);
-
-
     }
 
     public void ThemeDark() {
@@ -920,18 +911,10 @@ public class Wed extends Fragment {
         s9.setTextColor(getResources().getColor(R.color.colorWhitee));
         s10.setTextColor(getResources().getColor(R.color.colorWhitee));
 
-        m_l1.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l2.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l3.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l4.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l5.setBackgroundResource(R.drawable.side_nav_bar);
-
-
         l1.setBackgroundResource(R.color.colorSigma);
         l2.setBackgroundResource(R.color.colorSigma);
         l3.setBackgroundResource(R.color.colorSigma);
         l4.setBackgroundResource(R.color.colorSigma);
-
     }
 
     public void XBiG_11() {
@@ -1022,9 +1005,6 @@ public class Wed extends Fragment {
         m_p2_kz.setText(getResources().getString(R.string.uk12_212));
 
         Fizra_pervaki();
-
-
-
     }
 
     public void FC_21() {
@@ -1053,8 +1033,6 @@ public class Wed extends Fragment {
         p4a.setText(getResources().getString(R.string.kondakova));
         m_p4_t.setText(getResources().getString(R.string.lb));
         m_p4_k.setText(getResources().getString(R.string.uk1_9));
-
-
     }
 
     public void FR_21() {
@@ -1164,7 +1142,6 @@ public class Wed extends Fragment {
         p2az.setText(getResources().getString(R.string.dvoryakina));
         m_p2_tz.setText(getResources().getString(R.string.pz));
         m_p2_kz.setText(getResources().getString(R.string.uk4_24));
-
     }
 
     public void FC_41() {

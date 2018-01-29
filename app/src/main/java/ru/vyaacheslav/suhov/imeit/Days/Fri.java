@@ -1070,12 +1070,6 @@ public class Fri extends Fragment {
         s12.setTextColor(getResources().getColor(R.color.colorWhitee));
 
 
-        m_l1.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l2.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l3.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l4.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l5.setBackgroundResource(R.drawable.side_nav_bar);
-        m_l6.setBackgroundResource(R.drawable.side_nav_bar);
 
 
 

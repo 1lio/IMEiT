@@ -79,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
         cb.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, cb.length(), 0); // Меняем цвет полоски разделяющей группы
         tools3.setTitle(cb);
 
-        MenuItem ss = menu.findItem(R.id.other);
+       /* MenuItem ss = menu.findItem(R.id.other);
         SpannableString vb = new SpannableString(ss.getTitle());
         vb.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, vb.length(), 0); // Меняем цвет полоски разделяющей группы
-        ss.setTitle(vb);
+        ss.setTitle(vb);*/
 
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
@@ -193,10 +193,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Подзаголовок subTitle
-    public void loadName() {
+    public void loadName() {                                                                   // В качестве подзоголовка берем имя выбранной группы.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this); // Название группы берется из String-array
-        String regular = prefs.getString(getString(R.string.pref_style), "");
+        String regular = prefs.getString(getString(R.string.pref_style), "");                                // Нужно сделать проверку на пустое поле.
         MainActivity.this.getSupportActionBar().setSubtitle(regular);
     }
 
