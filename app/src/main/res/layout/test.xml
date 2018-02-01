@@ -25,7 +25,7 @@
                 android:id="@+id/imageView2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@color/colorAccent"
+                android:background="@drawable/fortunova"
                 app:srcCompat="@drawable/maska" />
 
             <ImageView
@@ -66,7 +66,7 @@
                         android:textColor="@color/colorTes"
                         android:textSize="12sp"
                         android:textStyle="bold"
-                        tools:text="0000" />
+                        tools:text="Схемотехника электортехника" />
 
                     <TextView
                         android:id="@+id/m_p1_a"
@@ -75,7 +75,7 @@
                         android:gravity="left|center"
                         android:textColor="@color/colorTextSub"
                         android:textSize="10sp"
-                        tools:text="0000" />
+                        tools:text="Фартунова Т.В," />
                 </LinearLayout>
 
                 <LinearLayout
@@ -93,7 +93,7 @@
                         android:textColor="@color/colorTes"
                         android:textSize="12sp"
                         android:textStyle="bold"
-                        tools:text="0000" />
+                        tools:text="ПЗ" />
 
                     <TextView
                         android:id="@+id/m_p1_k"
@@ -102,7 +102,7 @@
                         android:gravity="center"
                         android:textColor="@color/colorTextSub"
                         android:textSize="12sp"
-                        tools:text="0000" />
+                        tools:text="16-24" />
                 </LinearLayout>
             </LinearLayout>
 

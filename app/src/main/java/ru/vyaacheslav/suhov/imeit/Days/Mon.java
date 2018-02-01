@@ -23,6 +23,7 @@ public class Mon extends Fragment {
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z;
     private LinearLayout mm1, mm2, mm3, mm4, mm5;
+
     public Mon() {
     }
 
@@ -40,7 +41,7 @@ public class Mon extends Fragment {
     public void Less1(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
 
-        // indicator GreenLight
+
 
         if (i) {
             m_l1.setVisibility(View.VISIBLE);
@@ -70,8 +71,113 @@ public class Mon extends Fragment {
         p1az.setText(pz);
         m_p1_tz.setText(tz);
         m_p1_kz.setText(rz);
-
     }
+
+    public void Less2(String l, String p, String t, String r, String lz,
+                      String pz, String tz, String rz, boolean i) {
+
+
+
+        if (i) {
+            m_l2.setVisibility(View.VISIBLE);
+        } else {
+            m_l2.setVisibility(View.GONE);
+        }
+
+
+        if (lz == null) {
+            p2z.setVisibility(View.GONE);
+        }
+        if (pz == null) {
+            p2az.setVisibility(View.GONE);
+        }
+        if (tz == null) {
+            m_p2_tz.setVisibility(View.GONE);
+        }
+        if (rz == null) {
+            m_p2_kz.setVisibility(View.GONE);
+        }
+
+        p2.setText(l);
+        p2a.setText(p);
+        m_p2_t.setText(t);
+        m_p2_k.setText(r);
+        p2z.setText(lz);
+        p2az.setText(pz);
+        m_p2_tz.setText(tz);
+        m_p2_kz.setText(rz);
+    }
+
+    public void Less3(String l, String p, String t, String r, String lz,
+                      String pz, String tz, String rz, boolean i) {
+
+
+
+        if (i) {
+            m_l3.setVisibility(View.VISIBLE);
+        } else {
+            m_l3.setVisibility(View.GONE);
+        }
+
+
+        if (lz == null) {
+            p3z.setVisibility(View.GONE);
+        }
+        if (pz == null) {
+            p3az.setVisibility(View.GONE);
+        }
+        if (tz == null) {
+            m_p3_tz.setVisibility(View.GONE);
+        }
+        if (rz == null) {
+            m_p3_kz.setVisibility(View.GONE);
+        }
+
+        p3.setText(l);
+        p3a.setText(p);
+        m_p3_t.setText(t);
+        m_p3_k.setText(r);
+        p3z.setText(lz);
+        p3az.setText(pz);
+        m_p3_tz.setText(tz);
+        m_p3_kz.setText(rz);
+    }
+
+    public void Less4(String l, String p, String t, String r, String lz,
+                      String pz, String tz, String rz, boolean i) {
+
+
+
+        if (i) {
+            m_l4.setVisibility(View.VISIBLE);
+        } else {
+            m_l4.setVisibility(View.GONE);
+        }
+
+
+        if (lz == null) {
+            p4z.setVisibility(View.GONE);
+        }
+        if (pz == null) {
+            p4az.setVisibility(View.GONE);
+        }
+        if (tz == null) {
+            m_p4_tz.setVisibility(View.GONE);
+        }
+        if (rz == null) {
+            m_p4_kz.setVisibility(View.GONE);
+        }
+
+        p1.setText(l);
+        p1a.setText(p);
+        m_p1_t.setText(t);
+        m_p1_k.setText(r);
+        p1z.setText(lz);
+        p1az.setText(pz);
+        m_p1_tz.setText(tz);
+        m_p1_kz.setText(rz);
+    }
+
 
     public void loadMethod() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -293,6 +399,27 @@ public class Mon extends Fragment {
 
     }
 
+    // отсуцтвие пар
+    public void Not_Less_1() {
+        Less1(("(нет пар)"), null, null, null,null, null, null, null, false);
+        p1.setGravity(Gravity.CENTER);
+    }
+
+    public void Not_Less_2() {
+        Less2(("(нет пар)"), null, null, null,null, null, null, null, false);
+        p2.setGravity(Gravity.CENTER);
+    }
+
+    public void Not_Less_3() {
+        Less3(("(нет пар)"), null, null, null,null, null, null, null, false);
+        p3.setGravity(Gravity.CENTER);
+    }
+
+    public void Not_Less_4() {
+        Less4(("(нет пар)"), null, null, null,null, null, null, null, false);
+        p4.setGravity(Gravity.CENTER);
+    }
+
     // Первый курс
     public void FMiI_11() {
         Less1(null, null, null, null,null, null, null, null, false);
@@ -352,58 +479,6 @@ public class Mon extends Fragment {
         m_p4_k.setText(getResources().getString(R.string.uk4_15));
         Null_Mon_Z_4();
 
-    }
-
-    public void Not_Less_1() {
-        p1.setText("(нет пар)");
-        p1.setGravity(Gravity.CENTER);
-
-        p1a.setVisibility(View.GONE);
-        m_p1_t.setVisibility(View.GONE);
-        m_p1_k.setVisibility(View.GONE);
-        p1z.setVisibility(View.GONE);
-        p1az.setVisibility(View.GONE);
-        m_p1_tz.setVisibility(View.GONE);
-        m_p1_kz.setVisibility(View.GONE);
-    }
-
-    public void Not_Less_2() {
-        p2.setText("(нет пар)");
-        p2.setGravity(Gravity.CENTER);
-
-        p2a.setVisibility(View.GONE);
-        m_p2_t.setVisibility(View.GONE);
-        m_p2_k.setVisibility(View.GONE);
-        p2z.setVisibility(View.GONE);
-        p2az.setVisibility(View.GONE);
-        m_p2_tz.setVisibility(View.GONE);
-        m_p2_kz.setVisibility(View.GONE);
-    }
-
-    public void Not_Less_3() {
-        p3.setText("(нет пар)");
-        p3.setGravity(Gravity.CENTER);
-
-        p3a.setVisibility(View.GONE);
-        m_p3_t.setVisibility(View.GONE);
-        m_p3_k.setVisibility(View.GONE);
-        p3z.setVisibility(View.GONE);
-        p3az.setVisibility(View.GONE);
-        m_p3_tz.setVisibility(View.GONE);
-        m_p3_kz.setVisibility(View.GONE);
-    }
-
-    public void Not_Less_4() {
-        p4.setText("(нет пар)");
-        p4.setGravity(Gravity.CENTER);
-
-        p4a.setVisibility(View.GONE);
-        m_p4_t.setVisibility(View.GONE);
-        m_p4_k.setVisibility(View.GONE);
-        p4z.setVisibility(View.GONE);
-        p4az.setVisibility(View.GONE);
-        m_p4_tz.setVisibility(View.GONE);
-        m_p4_kz.setVisibility(View.GONE);
     }
 
     // Второй курс
@@ -514,6 +589,7 @@ public class Mon extends Fragment {
     public void IiVT_21() {
         Fizra_2kurs();
 
+        Less1(getResources().getString(R.string.teo_game),(getResources().getString(R.string.melnikova)), "","","","","","",false);
         p3.setText(getResources().getString(R.string.m_analis));
         p3a.setText(getResources().getString(R.string.melnikova));
         m_p3_t.setText(getResources().getString(R.string.lk));
@@ -913,6 +989,9 @@ public class Mon extends Fragment {
         m_l_1z.setVisibility(View.GONE);
     }
 
+
+    // Физико математический факультет
+
     public void XBiG_11() {
 
         p1.setText(getResources().getString(R.string.neoxim));
@@ -1192,6 +1271,8 @@ public class Mon extends Fragment {
         m_p5_tz.setText(getResources().getString(R.string.pz));
         m_p5_kz.setText(getResources().getString(R.string.uk14_206));
     }
+
+    // загрузка настроек кастыльный
 
     private void LoadPreferences() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
