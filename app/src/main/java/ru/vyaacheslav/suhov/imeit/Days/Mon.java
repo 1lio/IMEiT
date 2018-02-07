@@ -24,8 +24,7 @@ public class Mon extends Fragment {
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z;
     private LinearLayout mm1, mm2, mm3, mm4, mm5;
 
-    public Mon() {
-    }
+    public Mon() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
