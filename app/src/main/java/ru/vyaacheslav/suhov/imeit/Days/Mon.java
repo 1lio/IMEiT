@@ -609,25 +609,16 @@ public class Mon extends Fragment {
     }
 
     public void ISiT_21() {
+
+        Less1(getResources().getString(R.string.tex_v_c), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lk), getString(R.string.uk4_22),
+                getResources().getString(R.string.tex_v_c), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lk), getString(R.string.uk4_22), true);
         Fizra_2kurs();
+        Less3(getResources().getString(R.string.za_ob_d), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lk), getString(R.string.uk16_301a),
+                getResources().getString(R.string.za_ob_d), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lb), getString(R.string.uk16_301a), true);
+        Less4(null,null, null, null,getResources().getString(R.string.com_tip),
+                getResources().getString(R.string.gladkih), getResources().getString(R.string.pz), getString(R.string.uk4_21), true);
 
-        p3.setText(getResources().getString(R.string.metrologia));
-        p3a.setText(getResources().getString(R.string.fortunova));
-        m_p3_t.setText(getResources().getString(R.string.lk));
-        m_p3_k.setText(getResources().getString(R.string.uk4_15));
-        p3z.setText(getResources().getString(R.string.metrologia));
-        p3az.setText(getResources().getString(R.string.fortunova));
-        m_p3_tz.setText(getResources().getString(R.string.pz));
-        m_p3_kz.setText(getResources().getString(R.string.uk4_15));
 
-        p4.setText(getResources().getString(R.string.disckret));
-        p4a.setText(getResources().getString(R.string.belix));
-        m_p4_t.setText(getResources().getString(R.string.lk));
-        m_p4_k.setText(getResources().getString(R.string.uk4_24));
-        p4z.setText(getResources().getString(R.string.disckret));
-        p4az.setText(getResources().getString(R.string.belix));
-        m_p4_tz.setText(getResources().getString(R.string.pz));
-        m_p4_kz.setText(getResources().getString(R.string.uk4_24));
     }
 
     public void NE_21() {
@@ -971,11 +962,9 @@ public class Mon extends Fragment {
 
     public void Fizra_2kurs() {
 
-        p2.setText(getResources().getString(R.string.fkl));
-        p2a.setVisibility(View.GONE);
-        m_p2_t.setText(getResources().getString(R.string.pz));
-        m_p2_k.setText(getResources().getString(R.string.fok));
-        m_l_2z.setVisibility(View.GONE);
+        Less2(getResources().getString(R.string.fkl), null, getResources().getString(R.string.pz),
+                getString(R.string.fok),null, null, null, null, false);
+
 
     }
 
