@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +11,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 import ru.vyaacheslav.suhov.imeit.R;
 
 public class Mon extends Fragment {
 
     public View v;
-    LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l1, m_l2, m_l3, m_l4, m_l5;
+    LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l1, m_l2, m_l3, m_l4, m_l5,m_l_4c, m_l_3c, m_l_2c, m_l_1c,m_l_5c;
     private RelativeLayout mk;
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
@@ -34,6 +35,9 @@ public class Mon extends Fragment {
 
         loadMethod();
         LoadPreferences();
+        MasterDepos();
+
+        Danger();
         return v;
     }
 
@@ -167,14 +171,49 @@ public class Mon extends Fragment {
             m_p4_kz.setVisibility(View.GONE);
         }
 
-        p1.setText(l);
-        p1a.setText(p);
-        m_p1_t.setText(t);
-        m_p1_k.setText(r);
-        p1z.setText(lz);
-        p1az.setText(pz);
-        m_p1_tz.setText(tz);
-        m_p1_kz.setText(rz);
+        p4.setText(l);
+        p4a.setText(p);
+        m_p4_t.setText(t);
+        m_p4_k.setText(r);
+        p4z.setText(lz);
+        p4az.setText(pz);
+        m_p4_tz.setText(tz);
+        m_p4_kz.setText(rz);
+    }
+
+    public void Less5(String l, String p, String t, String r, String lz,
+                      String pz, String tz, String rz, boolean i) {
+
+
+
+        if (i) {
+            m_l5.setVisibility(View.VISIBLE);
+        } else {
+            m_l5.setVisibility(View.GONE);
+        }
+
+
+        if (lz == null) {
+            p5z.setVisibility(View.GONE);
+        }
+        if (pz == null) {
+            p5az.setVisibility(View.GONE);
+        }
+        if (tz == null) {
+            m_p5_tz.setVisibility(View.GONE);
+        }
+        if (rz == null) {
+            m_p5_kz.setVisibility(View.GONE);
+        }
+
+        p5.setText(l);
+        p5a.setText(p);
+        m_p5_t.setText(t);
+        m_p5_k.setText(r);
+        p5z.setText(lz);
+        p5az.setText(pz);
+        m_p5_tz.setText(tz);
+        m_p5_kz.setText(rz);
     }
 
 
@@ -323,6 +362,12 @@ public class Mon extends Fragment {
         m_l_3z = v.findViewById(R.id.m_l_3z);
         m_l_4z = v.findViewById(R.id.m_l_4z);
 
+        m_l_1c = v.findViewById(R.id.m_l_1с);
+        m_l_2c = v.findViewById(R.id.m_l_2с);
+        m_l_3c = v.findViewById(R.id.m_l_3с);
+        m_l_4c = v.findViewById(R.id.m_l_4с);
+        m_l_5c = v.findViewById(R.id.m_l_5c);
+
         p1 = v.findViewById(R.id.m_p1);
         p1a = v.findViewById(R.id.m_p1_a);
         m_p1_t = v.findViewById(R.id.m_p1_t);
@@ -382,42 +427,51 @@ public class Mon extends Fragment {
 
     }
 
-    // полное удаление строки. На данный момент ненужно.
+    // полное удаление строки.
     private void MasterDepos() {
 
-        if ((p1.getText().length() == 0) && (p1z.getText().length() == 0))
-            mm1.setVisibility(View.GONE);
-        if ((p2.getText().length() == 0) && (p2z.getText().length() == 0))
-            mm2.setVisibility(View.GONE);
-        if ((p3.getText().length() == 0) && (p3z.getText().length() == 0))
-            mm3.setVisibility(View.GONE);
-        if ((p4.getText().length() == 0) && (p4z.getText().length() == 0))
-            mm4.setVisibility(View.GONE);
-        if ((p5.getText().length() == 0) && (p5z.getText().length() == 0))
-            mm5.setVisibility(View.GONE);
-
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean(getString(R.string.depos), false)) {
+            if ((p1.getText().length() == 0) && (p1z.getText().length() == 0))
+                mm1.setVisibility(View.GONE);
+            if ((p2.getText().length() == 0) && (p2z.getText().length() == 0))
+                mm2.setVisibility(View.GONE);
+            if ((p3.getText().length() == 0) && (p3z.getText().length() == 0))
+                mm3.setVisibility(View.GONE);
+            if ((p4.getText().length() == 0) && (p4z.getText().length() == 0))
+                mm4.setVisibility(View.GONE);
+            if ((p5.getText().length() == 0) && (p5z.getText().length() == 0))
+                mm5.setVisibility(View.GONE);
+        } else {
+        }
     }
 
-    // отсуцтвие пар
-    public void Not_Less_1() {
-        Less1(("(нет пар)"), null, null, null,null, null, null, null, false);
-        p1.setGravity(Gravity.CENTER);
+    private void Danger() {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        if (prefs.getBoolean(getString(R.string.danger), false)) {
+            Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+            int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+            //числитель
+            if ((weekYear%2 == 0)) {
+                Null_Mon_Z();
+                Null_Mon_Z_2();
+                Null_Mon_Z_3();
+                Null_Mon_Z_4();
+                Null_Mon_Z_5();
+            }
+            // знаменатель
+            else  {
+                Null_Mon_C();
+                Null_Mon_C_2();
+                Null_Mon_C_3();
+                Null_Mon_C_4();
+                Null_Mon_C_5();
+            }
+        }
     }
 
-    public void Not_Less_2() {
-        Less2(("(нет пар)"), null, null, null,null, null, null, null, false);
-        p2.setGravity(Gravity.CENTER);
-    }
-
-    public void Not_Less_3() {
-        Less3(("(нет пар)"), null, null, null,null, null, null, null, false);
-        p3.setGravity(Gravity.CENTER);
-    }
-
-    public void Not_Less_4() {
-        Less4(("(нет пар)"), null, null, null,null, null, null, null, false);
-        p4.setGravity(Gravity.CENTER);
-    }
 
     // Первый курс
     public void FMiI_11() {
@@ -459,7 +513,7 @@ public class Mon extends Fragment {
 
     public void ISiT_11() {
 
-        Not_Less_1();
+
 
         p2.setText(getResources().getString(R.string.algebra_a_geo));
         p2a.setText(getResources().getString(R.string.belix));
@@ -609,15 +663,15 @@ public class Mon extends Fragment {
     }
 
     public void ISiT_21() {
+        Less1(getString(R.string.tex_v_c), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk4_22),
+                getString(R.string.tex_v_c), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk4_22), true);
 
-        Less1(getResources().getString(R.string.tex_v_c), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lk), getString(R.string.uk4_22),
-                getResources().getString(R.string.tex_v_c), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lk), getString(R.string.uk4_22), true);
         Fizra_2kurs();
+
         Less3(getResources().getString(R.string.za_ob_d), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lk), getString(R.string.uk16_301a),
                 getResources().getString(R.string.za_ob_d), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lb), getString(R.string.uk16_301a), true);
-        Less4(null,null, null, null,getResources().getString(R.string.com_tip),
-                getResources().getString(R.string.gladkih), getResources().getString(R.string.pz), getString(R.string.uk4_21), true);
 
+        Less4(null,null, null, null,getString(R.string.com_tip),getString(R.string.gladkih), getString(R.string.pz), getString(R.string.uk4_21), true);
 
     }
 
@@ -919,8 +973,9 @@ public class Mon extends Fragment {
         m_p1_kz.setVisibility(View.GONE);
         m_l_1z.setVisibility(View.GONE);
 
-    }
+        m_l1.setVisibility(View.GONE);
 
+    }
     public void Null_Mon_Z_2() {
         p2z.setVisibility(View.GONE);
         p2az.setVisibility(View.GONE);
@@ -928,8 +983,9 @@ public class Mon extends Fragment {
         m_p2_kz.setVisibility(View.GONE);
         m_l_2z.setVisibility(View.GONE);
 
-    }
+        m_l2.setVisibility(View.GONE);
 
+    }
     public void Null_Mon_Z_3() {
         p3z.setVisibility(View.GONE);
         p3az.setVisibility(View.GONE);
@@ -937,15 +993,77 @@ public class Mon extends Fragment {
         m_p3_kz.setVisibility(View.GONE);
         m_l_3z.setVisibility(View.GONE);
 
-    }
+        m_l3.setVisibility(View.GONE);
 
+    }
     public void Null_Mon_Z_4() {
         p4z.setVisibility(View.GONE);
         p4az.setVisibility(View.GONE);
         m_p4_tz.setVisibility(View.GONE);
         m_p4_kz.setVisibility(View.GONE);
         m_l_4z.setVisibility(View.GONE);
+
+        m_l4.setVisibility(View.GONE);
     }
+    public void Null_Mon_Z_5() {
+        p5z.setVisibility(View.GONE);
+        p5az.setVisibility(View.GONE);
+        m_p5_tz.setVisibility(View.GONE);
+        m_p5_kz.setVisibility(View.GONE);
+
+        m_l5.setVisibility(View.GONE);
+
+    }
+
+    public void Null_Mon_C() {
+        p1.setVisibility(View.GONE);
+        p1a.setVisibility(View.GONE);
+        m_p1_t.setVisibility(View.GONE);
+        m_p1_k.setVisibility(View.GONE);
+        m_l_1z.setVisibility(View.GONE);
+
+        m_l1.setVisibility(View.GONE);
+
+    }
+    public void Null_Mon_C_2() {
+        p2z.setVisibility(View.GONE);
+        p2az.setVisibility(View.GONE);
+        m_p2_tz.setVisibility(View.GONE);
+        m_p2_kz.setVisibility(View.GONE);
+        m_l_2z.setVisibility(View.GONE);
+
+        m_l2.setVisibility(View.GONE);
+
+    }
+    public void Null_Mon_C_3() {
+        p3z.setVisibility(View.GONE);
+        p3az.setVisibility(View.GONE);
+        m_p3_tz.setVisibility(View.GONE);
+        m_p3_kz.setVisibility(View.GONE);
+        m_l_3z.setVisibility(View.GONE);
+
+        m_l3.setVisibility(View.GONE);
+
+    }
+    public void Null_Mon_C_4() {
+        p4z.setVisibility(View.GONE);
+        p4az.setVisibility(View.GONE);
+        m_p4_tz.setVisibility(View.GONE);
+        m_p4_kz.setVisibility(View.GONE);
+        m_l_4z.setVisibility(View.GONE);
+
+        m_l4.setVisibility(View.GONE);
+    }
+    public void Null_Mon_C_5() {
+        p5z.setVisibility(View.GONE);
+        p5az.setVisibility(View.GONE);
+        m_p5_tz.setVisibility(View.GONE);
+        m_p5_kz.setVisibility(View.GONE);
+
+        m_l5.setVisibility(View.GONE);
+
+    }
+
 
     //
     public void Fizra_pervaki() {

@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
     <PreferenceCategory android:title="Настройки расписания">
-
         <ListPreference
-        android:dialogTitle="Выберите группу"
-        android:entries="@array/bak_groops"
-        android:entryValues="@array/bak_groops"
-        android:key="@string/pref_style"
-        android:summary="Расписание группы"
-        android:title="Ваша группа" />
-
+            android:dialogTitle="@string/your_groupe"
+            android:entries="@array/bak_groops"
+            android:entryValues="@array/bak_groops"
+            android:key="@string/pref_style"
+            android:summary="@string/gr_inf"
+            android:title="@string/you_goupe" />
+        <CheckBoxPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="true"
+            android:key="num_par"
+            android:summary="Снимите галку чтобы отображать только номер пары"
+            android:title="Отображать время пары" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/danger"
+            android:summary="@string/info_danger"
+            android:title="@string/inf_par_week" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/filter_r">
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/pref_chek1"
-            android:title="Английский" />
+            android:summary="@string/lan_rasp"
+            android:title="@string/eng" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/pref_chek2"
-            android:title="Немецкий" />
-    <!--    <CheckBoxPreference
+            android:summary="@string/lan_rasp"
+            android:title="@string/nem" />
+        <CheckBoxPreference
             android:defaultValue="false"
-            android:key="check_box_preference_1"
-            android:title="Если нет пары скрывать ячейку" />
-        <ListPreference
-            android:defaultValue="@string/writ_t"
-            android:dialogTitle="Настройка ячейки"
-            android:entries="@array/time_in_st"
-            android:entryValues="@array/time_in_st"
-            android:key="@string/pref_theme"
-            android:summary="Время звонков/нормер пары"
-            android:title="Отображение слева" />-->
+            android:key="@string/depos"
+            android:summary="@string/null_par"
+            android:title="@string/scr_item" />
+
     </PreferenceCategory>
-    <PreferenceCategory android:title="Настройки темы">
+    <PreferenceCategory android:title="@string/sett_theme">
         <ListPreference
-            android:defaultValue="@string/writ_t"
+            android:defaultValue="@string/dark"
             android:dialogTitle="Выберите тему"
             android:entries="@array/themes"
             android:entryValues="@array/themes"
             android:key="@string/pref_theme"
-            android:summary="Основная тема приложения"
-            android:title="Тема" />
+            android:summary="@string/main_theme"
+            android:title="@string/theme" />
     </PreferenceCategory>
 </PreferenceScreen>

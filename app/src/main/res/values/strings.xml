@@ -908,5 +908,20 @@
     <string name="week">Текущая неделя</string>
     <string name="kanfizmat">каф.физм</string>
     <string name="share">Рассказать друзьям</string>
+    <string name="depos">depos</string>
+    <string name="danger">danger</string>
+
+    <string name="info_danger">При включении отображать только пару текущей недели. В отключенном состоянии отображается числитель и занменатель</string>
+    <string name="your_groupe">Выберите группу</string>
+    <string name="gr_inf">Отображение расписания выбранной группы</string>
+    <string name="filter_r">Фильтрация расписания</string>
+    <string name="lan_rasp">Отображать данный язык в расписании</string>
+    <string name="null_par">Если нет пар пропускать строку</string>
+    <string name="scr_item">Скрывать ячейки с пустыми парами</string>
+    <string name="inf_par_week">Отображение отностительно дня недели</string>
+    <string name="sett_theme">Настройки темы</string>
+    <string name="main_theme">Основная тема приложения</string>
+    <string name="theme">Тема</string>
+    <string name="you_goupe">Ваша группа</string>
 
 </resources>

@@ -29,6 +29,24 @@
                     android:layout_height="128dp"
                     android:gravity="center"
                     android:orientation="vertical"
+                    android:padding="6dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textAlignment="center"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="60dp"
+                    android:layout_height="128dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
                     android:padding="6dp">
 
                     <LinearLayout
@@ -87,6 +105,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/m_l_1с"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:baselineAligned="false"
@@ -293,6 +312,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/m_l_2с"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:baselineAligned="false"
@@ -497,6 +517,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/m_l_3с"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:baselineAligned="false"
@@ -704,6 +725,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/m_l_4с"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:baselineAligned="false"
@@ -909,6 +931,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/m_l_5c"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:baselineAligned="false"

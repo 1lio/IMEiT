@@ -1,9 +1,11 @@
 package ru.vyaacheslav.suhov.imeit;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
@@ -12,6 +14,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.Objects;
 
 public class SettingsPref extends PreferenceActivity {
 
@@ -30,9 +35,18 @@ public class SettingsPref extends PreferenceActivity {
     }
 
     public void onBackPressed() {
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        finish();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String position = prefs.getString(getString(R.string.pref_style), "");
+
+        if (Objects.equals(position, "")) {
+            Toast.makeText(getApplicationContext(), "Выберите группу", Toast.LENGTH_SHORT).show();
+        } else {
+
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 
     @Override
@@ -49,9 +63,7 @@ public class SettingsPref extends PreferenceActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Intent i = new Intent(this, MainActivity.class);
-                startActivity(i);
-                finish();
+                onBackPressed();
                 return true;
         }
         return super.onOptionsItemSelected(item);
