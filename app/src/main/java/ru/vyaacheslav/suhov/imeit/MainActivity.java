@@ -52,14 +52,15 @@ public class MainActivity extends AppCompatActivity {
         if (prefs.getBoolean("isFirstRun", true)) {
             Intent intent = new Intent(MainActivity.this, SettingsPref.class);
             startActivity(intent);
-        } else {}
+        } else {
+        }
         prefs.edit().putBoolean("isFirstRun", false).apply();
 
-        toolbar =  findViewById(R.id.toolbar);
-        navigationView =  findViewById(R.id.shitstuff);
+        toolbar = findViewById(R.id.toolbar);
+        navigationView = findViewById(R.id.shitstuff);
         drawerLayout = findViewById(R.id.drawerLayout);
         calendar = java.util.Calendar.getInstance();
-        dexp =  findViewById(R.id.dexs);
+        dexp = findViewById(R.id.dexs);
 
         setSupportActionBar(toolbar);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawers();
 
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
 
                     case R.id.main_tab:
                         loadName();
@@ -120,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                         FragmentTransaction fragmentTransaction3 = FM.beginTransaction();
                         fragmentTransaction3.replace(R.id.containerView, new MapsFragment()).commit();
                         break;
-                        // Экзамен
+                    // Экзамен
                /*     case R.id.exam:
                         loadName();
                         FragmentTransaction fragmentTransaction4 = FM.beginTransaction();
@@ -143,10 +144,11 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-       // Отображение статуса текущей недели
+        // Отображение статуса текущей недели
         loadName(); // Загрузка имени группы согласно настройкам
         LoadPreferences(); //  Загрузка темы основной темы приложения
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         this.menu = menu;
@@ -155,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -178,18 +181,46 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void calendarTest(){
+    public void calendarTest() {
         Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
         int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 
-        if ((weekYear%2 == 0)) {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String position = prefs.getString(getString(R.string.week_i), "");
+        switch (position) {
+            case "Авто": {
+                if ((weekYear % 2 == 0)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
+                } else {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
+                }
+            }
+            break;
+            case "Числитель": {
+                if ((weekYear % 2 == 0)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
+                } else {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
+                }
+            }
+            break;
+            case "Знаменатель": {
+                if ((weekYear % 2 == 0)) {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
+                } else {
+                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
+                }
+            }
+            break;
         }
-        else  {
-            Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
-        }
+
 
     }
 
@@ -241,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
         toolbar.setBackgroundResource(R.color.colorPrimary);
     }
+
     public void ThemeDark() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

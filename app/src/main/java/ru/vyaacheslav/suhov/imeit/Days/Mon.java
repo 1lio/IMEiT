@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -18,14 +19,18 @@ import ru.vyaacheslav.suhov.imeit.R;
 public class Mon extends Fragment {
 
     public View v;
-    LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l1, m_l2, m_l3, m_l4, m_l5,m_l_4c, m_l_3c, m_l_2c, m_l_1c,m_l_5c;
+    LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l1, m_l2, m_l3, m_l4, m_l5, m_l_4c, m_l_3c, m_l_2c, m_l_1c, m_l_5c;
     private RelativeLayout mk;
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z;
     private LinearLayout mm1, mm2, mm3, mm4, mm5;
 
-    public Mon() {}
+    // Переменные для Depos == говнокод. Ну и похер.
+    boolean any, any2, any3, any4, any5;
+
+    public Mon() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,10 +46,10 @@ public class Mon extends Fragment {
         return v;
     }
 
+    // Типа ООП, ну это херня
+
     public void Less1(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
-
-
 
         if (i) {
             m_l1.setVisibility(View.VISIBLE);
@@ -54,16 +59,16 @@ public class Mon extends Fragment {
 
 
         if (lz == null) {
-            p1z.setVisibility(View.GONE);
+            p1z.setVisibility(View.INVISIBLE);
         }
         if (pz == null) {
-            p1az.setVisibility(View.GONE);
+            p1az.setVisibility(View.INVISIBLE);
         }
         if (tz == null) {
-            m_p1_tz.setVisibility(View.GONE);
+            m_p1_tz.setVisibility(View.INVISIBLE);
         }
         if (rz == null) {
-            m_p1_kz.setVisibility(View.GONE);
+            m_p1_kz.setVisibility(View.INVISIBLE);
         }
 
         p1.setText(l);
@@ -80,7 +85,6 @@ public class Mon extends Fragment {
                       String pz, String tz, String rz, boolean i) {
 
 
-
         if (i) {
             m_l2.setVisibility(View.VISIBLE);
         } else {
@@ -89,16 +93,16 @@ public class Mon extends Fragment {
 
 
         if (lz == null) {
-            p2z.setVisibility(View.GONE);
+            p2z.setVisibility(View.INVISIBLE);
         }
         if (pz == null) {
-            p2az.setVisibility(View.GONE);
+            p2az.setVisibility(View.INVISIBLE);
         }
         if (tz == null) {
-            m_p2_tz.setVisibility(View.GONE);
+            m_p2_tz.setVisibility(View.INVISIBLE);
         }
         if (rz == null) {
-            m_p2_kz.setVisibility(View.GONE);
+            m_p2_kz.setVisibility(View.INVISIBLE);
         }
 
         p2.setText(l);
@@ -115,7 +119,6 @@ public class Mon extends Fragment {
                       String pz, String tz, String rz, boolean i) {
 
 
-
         if (i) {
             m_l3.setVisibility(View.VISIBLE);
         } else {
@@ -124,15 +127,29 @@ public class Mon extends Fragment {
 
 
         if (lz == null) {
-            p3z.setVisibility(View.GONE);
+            p3z.setVisibility(View.INVISIBLE);
         }
         if (pz == null) {
-            p3az.setVisibility(View.GONE);
+            p3az.setVisibility(View.INVISIBLE);
         }
         if (tz == null) {
-            m_p3_tz.setVisibility(View.GONE);
+            m_p3_tz.setVisibility(View.INVISIBLE);
         }
         if (rz == null) {
+            m_p3_kz.setVisibility(View.INVISIBLE);
+        }
+
+        /// Дурацкая конструкция
+        if ((lz == null) && (!i)) {
+            p3z.setVisibility(View.GONE);
+        }
+        if ((pz == null) && (!i)) {
+            p3az.setVisibility(View.GONE);
+        }
+        if ((tz == null) && (!i)) {
+            m_p3_tz.setVisibility(View.GONE);
+        }
+        if ((rz == null) && (!i)) {
             m_p3_kz.setVisibility(View.GONE);
         }
 
@@ -150,7 +167,6 @@ public class Mon extends Fragment {
                       String pz, String tz, String rz, boolean i) {
 
 
-
         if (i) {
             m_l4.setVisibility(View.VISIBLE);
         } else {
@@ -159,16 +175,16 @@ public class Mon extends Fragment {
 
 
         if (lz == null) {
-            p4z.setVisibility(View.GONE);
+            p4z.setVisibility(View.INVISIBLE);
         }
         if (pz == null) {
-            p4az.setVisibility(View.GONE);
+            p4az.setVisibility(View.INVISIBLE);
         }
         if (tz == null) {
-            m_p4_tz.setVisibility(View.GONE);
+            m_p4_tz.setVisibility(View.INVISIBLE);
         }
         if (rz == null) {
-            m_p4_kz.setVisibility(View.GONE);
+            m_p4_kz.setVisibility(View.INVISIBLE);
         }
 
         p4.setText(l);
@@ -184,25 +200,36 @@ public class Mon extends Fragment {
     public void Less5(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
 
-
-
         if (i) {
             m_l5.setVisibility(View.VISIBLE);
         } else {
             m_l5.setVisibility(View.GONE);
         }
 
-
         if (lz == null) {
-            p5z.setVisibility(View.GONE);
+            p5z.setVisibility(View.INVISIBLE);
         }
         if (pz == null) {
-            p5az.setVisibility(View.GONE);
+            p5az.setVisibility(View.INVISIBLE);
         }
         if (tz == null) {
-            m_p5_tz.setVisibility(View.GONE);
+            m_p5_tz.setVisibility(View.INVISIBLE);
         }
         if (rz == null) {
+            m_p5_kz.setVisibility(View.INVISIBLE);
+        }
+
+        /// Дурацкая конструкция
+        if ((lz == null) && (!i)) {
+            p5z.setVisibility(View.GONE);
+        }
+        if ((pz == null) && (!i)) {
+            p5az.setVisibility(View.GONE);
+        }
+        if ((tz == null) && (!i)) {
+            m_p5_tz.setVisibility(View.GONE);
+        }
+        if ((rz == null) && (!i)) {
             m_p5_kz.setVisibility(View.GONE);
         }
 
@@ -217,6 +244,7 @@ public class Mon extends Fragment {
     }
 
 
+    // нужно оптимизировать эту херню.
     public void loadMethod() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String position = prefs.getString(getString(R.string.pref_style), "");
@@ -427,7 +455,8 @@ public class Mon extends Fragment {
 
     }
 
-    // полное удаление строки.
+    // полное удаление строк.
+    // полноценно работает только с отображение чс и зн
     private void MasterDepos() {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -446,6 +475,9 @@ public class Mon extends Fragment {
         }
     }
 
+    // функция кастомизации 1 предмет в ячейке в завсисимости от дня недели
+    // Сделано через жопу - переделать
+
     private void Danger() {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -453,29 +485,91 @@ public class Mon extends Fragment {
         if (prefs.getBoolean(getString(R.string.danger), false)) {
             Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
             int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-            //числитель
-            if ((weekYear%2 == 0)) {
-                Null_Mon_Z();
-                Null_Mon_Z_2();
-                Null_Mon_Z_3();
-                Null_Mon_Z_4();
-                Null_Mon_Z_5();
+
+            SharedPreferences prefss = PreferenceManager.getDefaultSharedPreferences(getContext());
+            String position = prefss.getString(getString(R.string.week_i), "");
+            switch (position) {
+
+                case "Числитель": {
+
+                    if ((weekYear % 2 == 0)) {
+                        Null_Mon_C();
+                        Null_Mon_C_2();
+                        Null_Mon_C_3();
+                        Null_Mon_C_4();
+                        Null_Mon_C_5();
+
+                    }
+                    // знаменатель
+                    else {
+                        Null_Mon_Z();
+                        Null_Mon_Z_2();
+                        Null_Mon_Z_3();
+                        Null_Mon_Z_4();
+                        Null_Mon_Z_5();
+                    }
+
+                }
+                break;
+
+                case "Знаменатель": {
+                    if ((weekYear % 2 == 0)) {
+                        Null_Mon_Z();
+                        Null_Mon_Z_2();
+                        Null_Mon_Z_3();
+                        Null_Mon_Z_4();
+                        Null_Mon_Z_5();
+
+                    }
+                    // знаменатель
+                    else {
+                        Null_Mon_C();
+                        Null_Mon_C_2();
+                        Null_Mon_C_3();
+                        Null_Mon_C_4();
+                        Null_Mon_C_5();
+                    }
+                }
+                break;
+
+                case "Авто": {
+                    //числитель
+                    if ((weekYear % 2 == 0)) {
+                        Null_Mon_C();
+                        Null_Mon_C_2();
+                        Null_Mon_C_3();
+                        Null_Mon_C_4();
+                        Null_Mon_C_5();
+
+                    }
+                    // знаменатель
+                    else {
+                        Null_Mon_Z();
+                        Null_Mon_Z_2();
+                        Null_Mon_Z_3();
+                        Null_Mon_Z_4();
+                        Null_Mon_Z_5();
+                    }
+                }
+                break;
+                default:
+                    break;
             }
-            // знаменатель
-            else  {
-                Null_Mon_C();
-                Null_Mon_C_2();
-                Null_Mon_C_3();
-                Null_Mon_C_4();
-                Null_Mon_C_5();
-            }
+
         }
     }
 
+    // Дальше идет огроменный кусок говнеца который нужно оптимизировать и научить работать с БД
+    // Научить работать с БД того кто писал этот ужас.
 
     // Первый курс
     public void FMiI_11() {
-        Less1(null, null, null, null,null, null, null, null, false);
+        Less1(getString(R.string.pedagogic), getString(R.string.zaharova), getString(R.string.lk),
+                getString(R.string.uk4_28), null, null, null, null, true);
+        Less2(getString(R.string.pedagogic), getString(R.string.zaharova), getString(R.string.pz),
+                getString(R.string.uk4_28), null, null, null, null, false);
+
+        Fizra_pervaki();
     }
 
     public void Pm_11() {
@@ -512,7 +606,6 @@ public class Mon extends Fragment {
     }
 
     public void ISiT_11() {
-
 
 
         p2.setText(getResources().getString(R.string.algebra_a_geo));
@@ -642,7 +735,7 @@ public class Mon extends Fragment {
     public void IiVT_21() {
         Fizra_2kurs();
 
-        Less1(getResources().getString(R.string.teo_game),(getResources().getString(R.string.melnikova)), "","","","","","",false);
+        Less1(getResources().getString(R.string.teo_game), (getResources().getString(R.string.melnikova)), "", "", "", "", "", "", false);
         p3.setText(getResources().getString(R.string.m_analis));
         p3a.setText(getResources().getString(R.string.melnikova));
         m_p3_t.setText(getResources().getString(R.string.lk));
@@ -671,7 +764,7 @@ public class Mon extends Fragment {
         Less3(getResources().getString(R.string.za_ob_d), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lk), getString(R.string.uk16_301a),
                 getResources().getString(R.string.za_ob_d), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lb), getString(R.string.uk16_301a), true);
 
-        Less4(null,null, null, null,getString(R.string.com_tip),getString(R.string.gladkih), getString(R.string.pz), getString(R.string.uk4_21), true);
+        Less4(null, null, null, null, getString(R.string.com_tip), getString(R.string.gladkih), getString(R.string.pz), getString(R.string.uk4_21), true);
 
     }
 
@@ -976,6 +1069,7 @@ public class Mon extends Fragment {
         m_l1.setVisibility(View.GONE);
 
     }
+
     public void Null_Mon_Z_2() {
         p2z.setVisibility(View.GONE);
         p2az.setVisibility(View.GONE);
@@ -986,6 +1080,7 @@ public class Mon extends Fragment {
         m_l2.setVisibility(View.GONE);
 
     }
+
     public void Null_Mon_Z_3() {
         p3z.setVisibility(View.GONE);
         p3az.setVisibility(View.GONE);
@@ -996,6 +1091,7 @@ public class Mon extends Fragment {
         m_l3.setVisibility(View.GONE);
 
     }
+
     public void Null_Mon_Z_4() {
         p4z.setVisibility(View.GONE);
         p4az.setVisibility(View.GONE);
@@ -1005,6 +1101,7 @@ public class Mon extends Fragment {
 
         m_l4.setVisibility(View.GONE);
     }
+
     public void Null_Mon_Z_5() {
         p5z.setVisibility(View.GONE);
         p5az.setVisibility(View.GONE);
@@ -1025,6 +1122,7 @@ public class Mon extends Fragment {
         m_l1.setVisibility(View.GONE);
 
     }
+
     public void Null_Mon_C_2() {
         p2z.setVisibility(View.GONE);
         p2az.setVisibility(View.GONE);
@@ -1035,6 +1133,7 @@ public class Mon extends Fragment {
         m_l2.setVisibility(View.GONE);
 
     }
+
     public void Null_Mon_C_3() {
         p3z.setVisibility(View.GONE);
         p3az.setVisibility(View.GONE);
@@ -1045,6 +1144,7 @@ public class Mon extends Fragment {
         m_l3.setVisibility(View.GONE);
 
     }
+
     public void Null_Mon_C_4() {
         p4z.setVisibility(View.GONE);
         p4az.setVisibility(View.GONE);
@@ -1054,6 +1154,7 @@ public class Mon extends Fragment {
 
         m_l4.setVisibility(View.GONE);
     }
+
     public void Null_Mon_C_5() {
         p5z.setVisibility(View.GONE);
         p5az.setVisibility(View.GONE);
@@ -1068,20 +1169,14 @@ public class Mon extends Fragment {
     //
     public void Fizra_pervaki() {
 
-        p3.setText(getResources().getString(R.string.fk));  //Блок физ-ра для первочей
-        p3a.setVisibility(View.GONE);
-        m_p3_t.setText(getResources().getString(R.string.lk));
-        m_p3_k.setText(getResources().getString(R.string.gk212));
-        p3z.setText(getResources().getString(R.string.fk));
-        p3az.setVisibility(View.GONE);
-        m_p3_tz.setText(getResources().getString(R.string.pz));
-        m_p3_kz.setText(getResources().getString(R.string.fok));
+        Less3(getString(R.string.fkl), null, getString(R.string.pz), getString(R.string.fok), null, null, null, null, false);
+
     }
 
     public void Fizra_2kurs() {
 
         Less2(getResources().getString(R.string.fkl), null, getResources().getString(R.string.pz),
-                getString(R.string.fok),null, null, null, null, false);
+                getString(R.string.fok), null, null, null, null, false);
 
 
     }
