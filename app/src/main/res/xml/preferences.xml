@@ -8,11 +8,13 @@
             android:key="@string/pref_style"
             android:summary="@string/gr_inf"
             android:title="@string/you_goupe" />
-        <CheckBoxPreference
+
+   <!--     <CheckBoxPreference
             android:defaultValue="true"
             android:key="num_par"
             android:summary="Снимите галку чтобы отображать только номер пары"
-            android:title="Отображать время пары" />
+            android:title="Отображать время пары" />-->
+
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/danger"
@@ -20,9 +22,9 @@
             android:title="@string/inf_par_week" />
 
         <ListPreference
+            android:defaultValue="@string/auto"
             android:dialogTitle="Текущая неделя"
             android:entries="@array/weeks"
-            android:defaultValue="@string/auto"
             android:entryValues="@array/weeks"
             android:key="@string/week_i"
             android:summary="По умолчанию: Авто"

@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -20,14 +19,13 @@ public class Mon extends Fragment {
 
     public View v;
     LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l1, m_l2, m_l3, m_l4, m_l5, m_l_4c, m_l_3c, m_l_2c, m_l_1c, m_l_5c;
+    // Переменные для Depos == говнокод. Ну и похер.
+    boolean any, any2, any3, any4, any5;
     private RelativeLayout mk;
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z;
     private LinearLayout mm1, mm2, mm3, mm4, mm5;
-
-    // Переменные для Depos == говнокод. Ну и похер.
-    boolean any, any2, any3, any4, any5;
 
     public Mon() {
     }
@@ -41,6 +39,7 @@ public class Mon extends Fragment {
         loadMethod();
         LoadPreferences();
         MasterDepos();
+    /* DeposElseAny();*/
 
         Danger();
         return v;
@@ -59,16 +58,16 @@ public class Mon extends Fragment {
 
 
         if (lz == null) {
-            p1z.setVisibility(View.INVISIBLE);
+            p1z.setVisibility(View.GONE);
         }
         if (pz == null) {
-            p1az.setVisibility(View.INVISIBLE);
+            p1az.setVisibility(View.GONE);
         }
         if (tz == null) {
-            m_p1_tz.setVisibility(View.INVISIBLE);
+            m_p1_tz.setVisibility(View.GONE);
         }
         if (rz == null) {
-            m_p1_kz.setVisibility(View.INVISIBLE);
+            m_p1_kz.setVisibility(View.GONE);
         }
 
         p1.setText(l);
@@ -93,16 +92,16 @@ public class Mon extends Fragment {
 
 
         if (lz == null) {
-            p2z.setVisibility(View.INVISIBLE);
+            p2z.setVisibility(View.GONE);
         }
         if (pz == null) {
-            p2az.setVisibility(View.INVISIBLE);
+            p2az.setVisibility(View.GONE);
         }
         if (tz == null) {
-            m_p2_tz.setVisibility(View.INVISIBLE);
+            m_p2_tz.setVisibility(View.GONE);
         }
         if (rz == null) {
-            m_p2_kz.setVisibility(View.INVISIBLE);
+            m_p2_kz.setVisibility(View.GONE);
         }
 
         p2.setText(l);
@@ -127,16 +126,16 @@ public class Mon extends Fragment {
 
 
         if (lz == null) {
-            p3z.setVisibility(View.INVISIBLE);
+            p3z.setVisibility(View.GONE);
         }
         if (pz == null) {
-            p3az.setVisibility(View.INVISIBLE);
+            p3az.setVisibility(View.GONE);
         }
         if (tz == null) {
-            m_p3_tz.setVisibility(View.INVISIBLE);
+            m_p3_tz.setVisibility(View.GONE);
         }
         if (rz == null) {
-            m_p3_kz.setVisibility(View.INVISIBLE);
+            m_p3_kz.setVisibility(View.GONE);
         }
 
         /// Дурацкая конструкция
@@ -457,6 +456,7 @@ public class Mon extends Fragment {
 
     // полное удаление строк.
     // полноценно работает только с отображение чс и зн
+
     private void MasterDepos() {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -474,6 +474,109 @@ public class Mon extends Fragment {
         } else {
         }
     }
+
+    private void DeposElseAny(){
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+
+        SharedPreferences prefss = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String position = prefss.getString(getString(R.string.week_i), "");
+
+        if (prefs.getBoolean(getString(R.string.depos), false)) {
+            switch (position) {
+                case "Числитель": {
+                    if ((weekYear % 2 == 0)) {
+                        if ((p1z.getText().length() == 0))
+                            mm1.setVisibility(View.GONE);
+                        if ((p2z.getText().length() == 0))
+                            mm2.setVisibility(View.GONE);
+                        if ((p3z.getText().length() == 0))
+                            mm3.setVisibility(View.GONE);
+                        if ((p4z.getText().length() == 0))
+                            mm4.setVisibility(View.GONE);
+                        if ((p5z.getText().length() == 0))
+                            mm5.setVisibility(View.GONE);
+                    } else {
+                        if ((p1.getText().length() == 0))
+                            mm1.setVisibility(View.GONE);
+                        if ((p2.getText().length() == 0))
+                            mm2.setVisibility(View.GONE);
+                        if ((p3.getText().length() == 0))
+                            mm3.setVisibility(View.GONE);
+                        if ((p4.getText().length() == 0))
+                            mm4.setVisibility(View.GONE);
+                        if ((p5.getText().length() == 0))
+                            mm5.setVisibility(View.GONE);
+                    }
+                }
+                break;
+                case "Знаменатель": {
+                    if ((weekYear % 2 == 0)) {
+                        if ((p1z.getText().length() == 0))
+                            mm1.setVisibility(View.GONE);
+                        if ((p2z.getText().length() == 0))
+                            mm2.setVisibility(View.GONE);
+                        if ((p3z.getText().length() == 0))
+                            mm3.setVisibility(View.GONE);
+                        if ((p4z.getText().length() == 0))
+                            mm4.setVisibility(View.GONE);
+                        if ((p5z.getText().length() == 0))
+                            mm5.setVisibility(View.GONE);
+                    } else {
+                        if ((p1z.getText().length() == 0))
+                            mm1.setVisibility(View.GONE);
+                        if ((p2z.getText().length() == 0))
+                            mm2.setVisibility(View.GONE);
+                        if ((p3z.getText().length() == 0))
+                            mm3.setVisibility(View.GONE);
+                        if ((p4z.getText().length() == 0))
+                            mm4.setVisibility(View.GONE);
+                        if ((p5z.getText().length() == 0))
+                            mm5.setVisibility(View.GONE);
+
+                    }
+                }
+                break;
+
+                case "Авто": {
+                    //числитель
+                    if ((weekYear % 2 == 0)) {
+
+                        if ((p1z.getText().length() == 0))
+                            mm1.setVisibility(View.GONE);
+                        if ((p2z.getText().length() == 0))
+                            mm2.setVisibility(View.GONE);
+                        if ((p3z.getText().length() == 0))
+                            mm3.setVisibility(View.GONE);
+                        if ((p4z.getText().length() == 0))
+                            mm4.setVisibility(View.GONE);
+                        if ((p5z.getText().length() == 0))
+                            mm5.setVisibility(View.GONE);
+                    } else {
+                        if ((p1.getText().length() == 0))
+                            mm1.setVisibility(View.GONE);
+                        if ((p2.getText().length() == 0))
+                            mm2.setVisibility(View.GONE);
+                        if ((p3.getText().length() == 0))
+                            mm3.setVisibility(View.GONE);
+                        if ((p4.getText().length() == 0))
+                            mm4.setVisibility(View.GONE);
+                        if ((p5.getText().length() == 0))
+                            mm5.setVisibility(View.GONE);
+                    }
+
+                }
+                break;
+                default:
+                    break;
+            }
+        }
+        else {}
+
+    }
+
 
     // функция кастомизации 1 предмет в ячейке в завсисимости от дня недели
     // Сделано через жопу - переделать
@@ -493,20 +596,20 @@ public class Mon extends Fragment {
                 case "Числитель": {
 
                     if ((weekYear % 2 == 0)) {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
 
-                    }
-                    // знаменатель
-                    else {
                         Null_Mon_Z();
                         Null_Mon_Z_2();
                         Null_Mon_Z_3();
                         Null_Mon_Z_4();
                         Null_Mon_Z_5();
+                                            }
+                    // знаменатель
+                    else {
+                        Null_Mon_C();
+                        Null_Mon_C_2();
+                        Null_Mon_C_3();
+                        Null_Mon_C_4();
+                        Null_Mon_C_5();
                     }
 
                 }
@@ -514,20 +617,19 @@ public class Mon extends Fragment {
 
                 case "Знаменатель": {
                     if ((weekYear % 2 == 0)) {
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-
-                    }
-                    // знаменатель
-                    else {
                         Null_Mon_C();
                         Null_Mon_C_2();
                         Null_Mon_C_3();
                         Null_Mon_C_4();
                         Null_Mon_C_5();
+                    }
+                    // знаменатель
+                    else {
+                        Null_Mon_Z();
+                        Null_Mon_Z_2();
+                        Null_Mon_Z_3();
+                        Null_Mon_Z_4();
+                        Null_Mon_Z_5();
                     }
                 }
                 break;
@@ -540,7 +642,6 @@ public class Mon extends Fragment {
                         Null_Mon_C_3();
                         Null_Mon_C_4();
                         Null_Mon_C_5();
-
                     }
                     // знаменатель
                     else {
@@ -1065,7 +1166,7 @@ public class Mon extends Fragment {
         m_p1_tz.setVisibility(View.GONE);
         m_p1_kz.setVisibility(View.GONE);
         m_l_1z.setVisibility(View.GONE);
-
+        mm1.setVisibility(View.GONE);
         m_l1.setVisibility(View.GONE);
 
     }
