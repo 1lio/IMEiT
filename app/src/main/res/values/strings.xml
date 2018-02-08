@@ -2,6 +2,7 @@
     <string name="app_name">ИМЕиТ</string>
 
     <string name="ob_ex_phys">Общая и экспериментальная физика</string>
+    <string name="ob_soc_geogr">Общая социальноэкономическая география</string>
     <string name="osn_geo">Основания геометрии</string>
     <string name="oop_an_pr">Объектно-ориентированный анализ и программирование</string>
     <string name="inj_gra">Инженерная графика</string>
@@ -79,6 +80,7 @@
 
     </string-array>
 
+    <string name="pr_asoi">Проектирование АСОИУ</string>
     <string name="set_protocol">Сетевые протоколы и интернет-технологии</string>
     <string name="paket_asu">Пакеты прикладных программ в АСУ</string>
     <string name="filosofia">Философия</string>
@@ -128,7 +130,9 @@
     <string name="met_sys">Методы и средства проектирования информационных систем и технологий</string>
     <string name="fk">Физическая культура и спорт</string>
     <string name="fkl">Элективные дисциплины по физической культуре и спорту</string>
+    <string name="fkl_inf">12.02.18, 26.02.18, 12.03.18, 26.03.18</string>
     <string name="bjd">Безопасность жизнедеятельности</string>
+    <string name="youday">День самостоятельной работы</string>
     <string name="his_mat">История математики и информатики</string>
     <string name="his_mat_ob">История методики обучения математике</string>
     <string name="mat_chis_met">Математика(численные методы)</string>
@@ -175,6 +179,7 @@
     <string name="ob_bd">Распределенная обработка данных</string>
     <string name="cach_sys">Качество и надежность <br>информационных систем</br> </string>
     <string name="pr_sys_up">Проектирование информационных систем управления</string>
+    <string name="pr_bd">Проектирование приложений баз данных</string>
     <string name="pr_sys">Проектирование и нформационно-вычислительных систем</string>
     <string name="pr_bez">Правовое обеспечение информационной безопасности</string>
     <string name="russian_lang">Русский язык и культура речи</string>
@@ -195,6 +200,7 @@
     <string name="dif_xz">Дифференциальное и интегральное исчисление фун. неск. пер.</string>
     <string name="dif_raz">Дифференциальные и  разностные уравнения</string>
     <string name="za_ob_d">Защита и обработка конфиденциальных документов</string>
+    <string name="za_inf">Защита информации</string>
     <string name="crip_za">Криптографические методы защиты информации</string>
     <string name="met_opt">Методы оптимизации</string>
     <string name="opt_chis_met">Оптимизация и численные методы</string>
@@ -209,6 +215,7 @@
     <string name="vis_sys">Высокопроизводительные вычислительные системы</string>
     <string name="geo_gra">Компьютерная геометрия и графика</string>
     <string name="geometry">Геометрия</string>
+    <string name="dif_geometry">Дифференциальная геометрия</string>
     <string name="verif">Верификация и качество программного обеспечения</string>
     <string name="teo_obr">Теория распознавания образов</string>
     <string name="teo_obs">Теория массового обслуживания</string>
@@ -237,10 +244,12 @@
     <string name="acp_opz">Аспекты развития и управле-ния организационно-производственной системы</string>
     <string name="analis_inf">Оперативный анализ информации</string>
     <string name="cloud_osn"> Основы облачных технологий</string>
+    <string name="pr_comp_base"> Основы проектирования электронной компонентной базы</string>
     <string name="teo_pr_incluziv">Теория и практика инклюзивного образования</string>
 
     <string name="teplophys">Теплофизика</string>
     <string name="mat_mod_eco">Математическое моделирование в экономике</string>
+    <string name="mat_mod">Математическое моделирование</string>
     <string name="mat_med_obr">Математические методы в естествознании</string>
     <string name="mat_mod_nano">Математическое моделиро-вание и проектирование наносистем</string>
     <string name="botanika">Ботаника</string>
@@ -256,6 +265,7 @@
     <string name="pcixol">Психология (общая психология)</string>
     <string name="pcixol_soc">Социальная психология</string>
     <string name="pedagogic">Педагогика (Введение в педагогическую деятельность. Общие основы педагогики)</string>
+    <string name="pedagogic_his">Педагогика (История педагогики и образования. Философия образования)</string>
     <string name="pedagogic_vosp">Педагогика (Теория и методика воспитания)</string>
     <string name="chkm">Практикум по шк.курсу математики</string>
     <string name="vvod_stud_u_de">Введение в учебно-познавательную деятельность студентов</string>
@@ -272,6 +282,7 @@
     <string name="name_te">Имя преподователя</string>
     <string name="pz">ПЗ</string>
     <string name="ad_seit">Администрирование компьютерных сетей</string>
+    <string name="oper_ish">Операционное исчисление</string>
     <string name="vector_isch">Векторное исчисление </string>
     <string name="seti_tv">Сети и телекоммуникации</string>
     <string name="astrophysic">Астрофизика</string>
@@ -287,6 +298,7 @@
     <string name="kvant_el">Квантовая электроника</string>
     <string name="kvant_ph">Квантовая физика</string>
     <string name="sys_analis">Системный анализ в сервисе</string>
+    <string name="sys_content">Системы управления контентом</string>
     <string name="tex_nou_rab">Технология подготовки научной работы </string>
     <string name="oxrn_sys">Сервис радиотехнических охранных систем и устройств</string>
     <string name="sert_lecen">Сертификация и лицензирование услуг</string>
@@ -305,6 +317,7 @@
     <string name="new_ob_tex_ectect">Новые образовательные технологии в естествознании</string>
     <string name="neoxim">Общая и неорганическая химия</string>
     <string name="el_sx">Электроника и схемотехника</string>
+    <string name="phyz_cond">Физика конденсированного состояния</string>
     <string name="term_peobr">Термоэлектрические преобразователи</string>
     <string name="sys_raddostup">Компьютерное моделирование систем радиосвязи и радиодоступа</string>
     <string name="tel_video">Основы телевидения и видеотехники</string>
@@ -327,6 +340,7 @@
     <string name="chool_obr">История школьного естественнонаучного образования</string>
     <string name="practic2">Практика по получению первичных профессиональных умений и навыков профессиональной деятельности</string>
     <string name="practic3">Практика по получению первичных профессиональных умений и навыков</string>
+    <string name="ii">Искуственный интилект</string>
     <string name="one">1</string>
 
     <string name="sys_bez_serv">Система безопасности сервисной деятельности</string>
@@ -345,6 +359,8 @@
     <string name="schol_uche_ug">Изучение школьных учебников математики с углубленным содержанием</string>
     <string name="up_mat_phy">Уравнения математической физики</string>
     <string name="el_mat"> Элементарная математика</string>
+    <string name="razr_sys"> Управление разработкой систем</string>
+    <string name="el_mat_pr"> Элементарная математика с практикумом по решению задач</string>
     <string name="el_vis_mat">Элементы высшей математики</string>
     <string name="prs">ПР</string>
     <string name="lk">ЛК</string>
@@ -423,6 +439,7 @@
     <string name="sazanov">Сазонов А.Н.</string>
     <string name="sedova">Седова О.В.</string>
     <string name="rochupkin">Рощюпкин С.А.</string>
+    <string name="povalayeva">Поваляева О.Н.</string>
     <string name="masina">Масина О.Н.</string>
     <string name="eleckix">Елецких И.А.</string>
     <string name="dvoryakina">Дворяткина С.Н.</string>
@@ -448,6 +465,7 @@
     <string name="autor">Сухов Вячеслав 2017г.</string>
     <string name="para">Пара</string>
     <string name="zan">Занятие</string>
+    <string name="admins">Администрирование компьютерных сетей</string>
     <string name="pereriv">Перерыв</string>
     <string name="min_10">10 минут</string>
     <string name="min_5">5 минут</string>
@@ -615,6 +633,7 @@
     <string name="examen">Экзамен</string>
     <string name="zac_exam">Зачет / Экзамен</string>
     <string name="ocenka">Оценка</string>
+    <string name="teo_vuzz">Теоретические основы взаимосвязи школьтного курса алгебры \n и  начал анализа и вузовского курса математического анализа</string>
     <string name="kursovaya">Курсовая работа</string>
     <string name="t_08">08</string>
     <string name="min_30">30</string>

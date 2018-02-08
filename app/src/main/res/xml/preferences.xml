@@ -41,11 +41,11 @@
             android:key="@string/pref_chek2"
             android:summary="@string/lan_rasp"
             android:title="@string/nem" />
-        <CheckBoxPreference
+      <!--  <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/depos"
             android:summary="@string/null_par"
-            android:title="@string/scr_item" />
+            android:title="@string/scr_item" />-->
 
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/sett_theme">
