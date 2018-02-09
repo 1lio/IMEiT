@@ -142,9 +142,11 @@
     <string name="mat_chis_met">Математика(численные методы)</string>
     <string name="k_mir">Естественно-научная картина мира</string>
     <string name="econ">Экономика</string>
+    <string name="econ_firma">Экономика Фирмы</string>
     <string name="phys_xim">Физическая химия наноструктурированных материалов</string>
     <string name="el_physic">Элементарная физика с практикумом по решению задач</string>
     <string name="pravo">Правоведение</string>
+    <string name="obr_pravo">Образовательное право</string>
     <string name="comp_analis">Комплексный анализ</string>
     <string name="oop">Объектно-ориентированное программирование</string>
     <string name="teo_game">Исследование операций и теория игр</string>
@@ -274,6 +276,7 @@
     <string name="on_teo_mex">Основы теоретической механики</string>
     <string name="pcixol">Психология (общая психология)</string>
     <string name="pcixolv">Психология (Возрастная психология)</string>
+    <string name="pcixolp">Психология (Педагогическая психология)</string>
 
     <string name="teo_pr_reh">Теория принятия решений</string>
     <string name="teo_sys">Теория систем и системный анализ</string>
@@ -316,6 +319,7 @@
     <string name="ur_mat_phy">Уравнения математической физики</string>
     <string name="prog_1c">Программирование в ПЗ системе 1С: предприятие</string>
     <string name="kvant_el">Квантовая электроника</string>
+    <string name="kvant_mx">Квантовая механика</string>
     <string name="kvant_ph">Квантовая физика</string>
     <string name="sys_analis">Системный анализ в сервисе</string>
     <string name="sys_content">Системы управления контентом</string>
@@ -339,6 +343,8 @@
     <string name="neoxim">Общая и неорганическая химия</string>
     <string name="el_sx">Электроника и схемотехника</string>
     <string name="phyz_cond">Физика конденсированного состояния</string>
+    <string name="phyz_osn_el">Физические основы электронники</string>
+    <string name="scan_mikr">СКАНИРУЮЩАЯ ЗОНДОВАЯ МИКРОСКОПИЯ</string>
     <string name="term_peobr">Термоэлектрические преобразователи</string>
     <string name="sys_raddostup">Компьютерное моделирование систем радиосвязи и радиодоступа</string>
     <string name="tel_video">Основы телевидения и видеотехники</string>
@@ -350,6 +356,7 @@
     <string name="rad_ustr">Радиоприемные устройства</string>
     <string name="serv_sys_cifr">Сервис систем цифрового телевизионного и радиовещания</string>
     <string name="rad_avtom">Радиоавтоматика</string>
+    <string name="rad_eco">Радиоэкология</string>
     <string name="vvos_v_spec">Введение в специальность</string>
     <string name="pr_sch_chem">Практикум по школьному курсу химии</string>
     <string name="pr_sch_phy">Практикум по школьному курсу физики</string>
@@ -439,6 +446,7 @@
     <string name="cherbatix">Щербатых В.Е.</string>
     <string name="spirin">Спирин В.Г.</string>
     <string name="igonina">Игонина Е.В.</string>
+    <string name="petrov">Петров А.А.</string>
     <string name="melnikova">Мельников Р.А.</string>
     <string name="podaeva">Подаева Н.Г.</string>
     <string name="zaburaeva">Зубарева Е.В.</string>
@@ -584,6 +592,7 @@
     <string name="uk4_23">4-23</string>
     <string name="uk4_15">4-15</string>
     <string name="uk4_24">4-24</string>
+    <string name="uk16_202">16-202</string>
     <string name="uk15_001">15-001</string>
     <string name="uk12_213">12-213</string>
     <string name="uk12_307">12-307</string>
@@ -624,6 +633,7 @@
     <string name="beda">Психолого-педагогические основы разрешения производственных конфликтов</string>
     <string name="nes_trigo">Нестандартные тригонометрические задачи</string>
     <string name="met_or_astr_tex">Методика организации астрономических наблюдений</string>
+    <string name="met_or_let_ot">Методика организации летнего отдыха у детей</string>
     <string name="rasp_ob_inf">Распределенная обработка информации</string>
     <string name="lnaglage_is">Изучаемый язык</string>
     <string name="eng">Английский</string>

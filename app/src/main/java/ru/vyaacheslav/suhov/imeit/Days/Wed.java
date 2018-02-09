@@ -278,7 +278,6 @@ public class Wed extends Fragment {
         m_p3_kz.setText(rz);
     }
 
-
     public void Less4(String l, String p, String t, String r, String lz, String pz, String tz, String rz, boolean i) {
 
 
