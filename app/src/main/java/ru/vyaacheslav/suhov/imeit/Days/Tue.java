@@ -203,7 +203,6 @@ public class Tue extends Fragment {
         m_p4_k.setText(r);
     }
 
-
     public void Less2(String l, String p, String t, String r, String lz, String pz, String tz, String rz, boolean i) {
 
 
@@ -619,36 +618,17 @@ public class Tue extends Fragment {
 
     public void NE_41() {}
 
+    public void MIitM() {}
 
-    public void MIitM() {
+    public void PMm_11() {}
 
-    }
+    public void IIvtm_11() {}
 
-    public void PMm_11() {
+    public void Mm_21() {}
 
+    public void Pmm_21() {}
 
-
-
-    }
-
-    public void IIvtm_11() {
-
-
-    }
-
-    public void Mm_21() {
-
-
-    }
-
-    public void Pmm_21() {
-
-    }
-
-    public void IIvtm_21() {
-
-
-    }
+    public void IIvtm_21() {}
 
     public void decL_1p() {
         SharedPreferences prefs = PreferenceManager
@@ -795,63 +775,33 @@ public class Tue extends Fragment {
         s10.setTextColor(getResources().getColor(R.color.colorWhitee));
     }
 
-    public void XBiG_11() {
-    }
+    public void XBiG_11() {}
 
-    public void FC_11() {
-    }
+    public void FC_11() {}
 
-    public void FR_11() {
+    public void FR_11() {}
 
+    public void FR_12() {}
 
-    }
+    public void FC_21() {}
 
-    public void FR_12() {
+    public void FR_21() {}
 
+    public void BX_31() {}
 
-    }
+    public void ME_31() {}
 
-    public void FC_21() {
+    public void FC_31() {}
 
-    }
+    public void FP_31() {}
 
-    public void FR_21() {
-    }
+    public void FC_41() {}
 
-    public void BX_31() {
+    public void FP_41() {}
 
-    }
+    public void FCm_11() {}
 
-    public void ME_31() {
-
-    }
-
-    public void FC_31() {
-
-
-    }
-
-    public void FP_31() {
-
-
-    }
-
-    public void FC_41() {
-    }
-
-    public void FP_41() {
-
-
-
-    }
-
-    public void FCm_11() {
-
-    }
-
-    public void FCm_21() {
-
-    }
+    public void FCm_21() {}
 
     public void YouDay(){
         youday.setVisibility(View.VISIBLE);
@@ -859,109 +809,57 @@ public class Tue extends Fragment {
     }
 
     public void Null_Mon_Z() {
-        p1z.setVisibility(View.GONE);
-        p1az.setVisibility(View.GONE);
-        m_p1_tz.setVisibility(View.GONE);
-        m_p1_kz.setVisibility(View.GONE);
-        m_l_1z.setVisibility(View.GONE);
-
-        m_l1.setVisibility(View.GONE);
-
+        (p1z = p1az = m_p1_tz = m_p1_kz).setVisibility(View.GONE);
+        (m_l_1z=m_l1).setVisibility(View.GONE);
     }
 
     public void Null_Mon_Z_2() {
-        p2z.setVisibility(View.GONE);
-        p2az.setVisibility(View.GONE);
-        m_p2_tz.setVisibility(View.GONE);
-        m_p2_kz.setVisibility(View.GONE);
-        m_l_2z.setVisibility(View.GONE);
-
-        m_l2.setVisibility(View.GONE);
-
+        (p2z = p2az = m_p2_tz = m_p2_kz).setVisibility(View.GONE);
+        (m_l_2z=m_l2).setVisibility(View.GONE);
     }
 
     public void Null_Mon_Z_3() {
-        p3z.setVisibility(View.GONE);
-        p3az.setVisibility(View.GONE);
-        m_p3_tz.setVisibility(View.GONE);
-        m_p3_kz.setVisibility(View.GONE);
-        m_l_3z.setVisibility(View.GONE);
-
-        m_l3.setVisibility(View.GONE);
+        (p3z = p3az = m_p3_tz = m_p3_kz).setVisibility(View.GONE);
+        (m_l_3z=m_l3).setVisibility(View.GONE);
 
     }
 
     public void Null_Mon_Z_4() {
-        p4z.setVisibility(View.GONE);
-        p4az.setVisibility(View.GONE);
-        m_p4_tz.setVisibility(View.GONE);
-        m_p4_kz.setVisibility(View.GONE);
-        m_l_4z.setVisibility(View.GONE);
-
-        m_l4.setVisibility(View.GONE);
+        (p4z = p4az = m_p4_tz = m_p4_kz).setVisibility(View.GONE);
+        (m_l_4z=m_l4).setVisibility(View.GONE);
     }
 
     public void Null_Mon_Z_5() {
-        p5z.setVisibility(View.GONE);
-        p5az.setVisibility(View.GONE);
-        m_p5_tz.setVisibility(View.GONE);
-        m_p5_kz.setVisibility(View.GONE);
-
+        (p5z = p5az = m_p5_tz = m_p5_kz).setVisibility(View.GONE);
         m_l5.setVisibility(View.GONE);
 
     }
 
     public void Null_Mon_C() {
-        p1.setVisibility(View.GONE);
-        p1a.setVisibility(View.GONE);
-        m_p1_t.setVisibility(View.GONE);
-        m_p1_k.setVisibility(View.GONE);
-        m_l_1z.setVisibility(View.GONE);
-
+        (p1 = p1a = m_p1_t = m_p1_k).setVisibility(View.GONE);
         m_l1.setVisibility(View.GONE);
-
     }
 
     public void Null_Mon_C_2() {
-        p2z.setVisibility(View.GONE);
-        p2az.setVisibility(View.GONE);
-        m_p2_tz.setVisibility(View.GONE);
-        m_p2_kz.setVisibility(View.GONE);
-        m_l_2z.setVisibility(View.GONE);
-
+        (p2 = p2a = m_p2_t = m_p2_k).setVisibility(View.GONE);
         m_l2.setVisibility(View.GONE);
 
     }
 
     public void Null_Mon_C_3() {
-        p3z.setVisibility(View.GONE);
-        p3az.setVisibility(View.GONE);
-        m_p3_tz.setVisibility(View.GONE);
-        m_p3_kz.setVisibility(View.GONE);
-        m_l_3z.setVisibility(View.GONE);
-
+        (p3 = p3a = m_p3_t = m_p3_k).setVisibility(View.GONE);
         m_l3.setVisibility(View.GONE);
 
     }
 
     public void Null_Mon_C_4() {
-        p4z.setVisibility(View.GONE);
-        p4az.setVisibility(View.GONE);
-        m_p4_tz.setVisibility(View.GONE);
-        m_p4_kz.setVisibility(View.GONE);
-        m_l_4z.setVisibility(View.GONE);
-
+        (p4 = p4a = m_p4_t = m_p4_k).setVisibility(View.GONE);
         m_l4.setVisibility(View.GONE);
     }
 
     public void Null_Mon_C_5() {
-        p5z.setVisibility(View.GONE);
-        p5az.setVisibility(View.GONE);
-        m_p5_tz.setVisibility(View.GONE);
-        m_p5_kz.setVisibility(View.GONE);
-
+        (p5 = p5a = m_p5_t = m_p5_k).setVisibility(View.GONE);
         m_l5.setVisibility(View.GONE);
-
     }
 
 }

@@ -145,6 +145,7 @@
     <string name="phys_xim">Физическая химия наноструктурированных материалов</string>
     <string name="el_physic">Элементарная физика с практикумом по решению задач</string>
     <string name="pravo">Правоведение</string>
+    <string name="comp_analis">Комплексный анализ</string>
     <string name="oop">Объектно-ориентированное программирование</string>
     <string name="teo_game">Исследование операций и теория игр</string>
     <string name="iss_op">Исследование операций</string>
@@ -220,6 +221,7 @@
     <string name="vis_tex">Высокопроизводительные вычислительные технологии</string>
     <string name="vis_sys">Высокопроизводительные вычислительные системы</string>
     <string name="geo_gra">Компьютерная геометрия и графика</string>
+    <string name="com_gra">Компьютерная графика</string>
     <string name="geometry">Геометрия</string>
     <string name="dif_geometry">Дифференциальная геометрия</string>
     <string name="verif">Верификация и качество программного обеспечения</string>
@@ -272,6 +274,10 @@
     <string name="on_teo_mex">Основы теоретической механики</string>
     <string name="pcixol">Психология (общая психология)</string>
     <string name="pcixolv">Психология (Возрастная психология)</string>
+
+    <string name="teo_pr_reh">Теория принятия решений</string>
+    <string name="teo_sys">Теория систем и системный анализ</string>
+    <string name="teo_syss">Общая теория систем</string>
     <string name="pcixol_soc">Социальная психология</string>
     <string name="pedagogic">Педагогика (Введение в педагогическую деятельность. Общие основы педагогики)</string>
     <string name="pedagogic_his">Педагогика (История педагогики и образования. Философия образования)</string>
@@ -303,6 +309,8 @@
     <string name="etica">Профессиональная этика</string>
     <string name="pop_botanika">Популяционная ботаника</string>
     <string name="bio_rast">Биология растений</string>
+    <string name="microbiologia">Микробиология</string>
+    <string name="microel">Микроэлектроника</string>
     <string name="osn_gosud">Основы социального государства</string>
     <string name="el_nec_mn">Элементы теории нечетких множеств</string>
     <string name="ur_mat_phy">Уравнения математической физики</string>
@@ -344,10 +352,12 @@
     <string name="rad_avtom">Радиоавтоматика</string>
     <string name="vvos_v_spec">Введение в специальность</string>
     <string name="pr_sch_chem">Практикум по школьному курсу химии</string>
+    <string name="pr_sch_phy">Практикум по школьному курсу физики</string>
     <string name="chevetovodstvo">Цветоводство</string>
     <string name="teo_met_vosp">Теория и методика воспитания</string>
     <string name="teo_mas_obsl">Теория массового обслуживания</string>
     <string name="mod_serv">Моделирование и оптимизация процессов и систем сервиса</string>
+    <string name="mod_sys">Моделирование систем</string>
     <string name="ser_opt_vol">Сервис волоконно-оптических систем передачи </string>
     <string name="practic">Практика по получению первичных профессиональных умений и навыков, в том числе первичных умений и навыков научно-исследовательской деятельности</string>
     <string name="chool_obr">История школьного естественнонаучного образования</string>
@@ -549,6 +559,7 @@
     <string name="prepo_phy">Преподавание физики в профильной школе</string>
     <string name="met_mat">Методика обучения и воспитания (математике)</string>
     <string name="met_phy">Методика обучения и воспитания (физике)</string>
+    <string name="alg_com_graf">Алгоритмические основы современной компьютерной графики</string>
     <string name="phy_osn_el"> Физические основы электроники</string>
     <string name="fun_analis">Функциональный анализ</string>
     <string name="pro_tipograf">Программирование в типовых конфигурациях</string>
@@ -575,6 +586,7 @@
     <string name="uk4_24">4-24</string>
     <string name="uk15_001">15-001</string>
     <string name="uk12_213">12-213</string>
+    <string name="uk12_307">12-307</string>
     <string name="uk2_113">2-113</string>
     <string name="uk2_114">2-114</string>
     <string name="uk4_26">4-26</string>
@@ -656,6 +668,9 @@
     <string name="t_10_05">10:05</string>
     <string name="t_10">10</string>
     <string name="t_15">15</string>
+    <string name="mat_met_nano">МАТЕРИАЛЫ И МЕТОДЫ НАНОТЕХНОЛОГИЙ</string>
+    <string name="prac_struktur">Практикум по решению низкоразмерных структур</string>
+
     <string name="t_11_50">11:50</string>
     <string name="t_12">12</string>
     <string name="t_30">30</string>
