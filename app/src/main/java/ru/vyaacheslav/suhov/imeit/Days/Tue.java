@@ -691,7 +691,7 @@ public class Tue extends Fragment {
 
         switch (regular) {
             case "Светлая":
-                ThemeWrite();
+                ThemeDark();
                 break;
             case "Темная":
                 ThemeDark();

@@ -15,11 +15,11 @@
             android:summary="Снимите галку чтобы отображать только номер пары"
             android:title="Отображать время пары" />-->
 
-        <CheckBoxPreference
+     <!--   <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/danger"
             android:summary="@string/info_danger"
-            android:title="@string/inf_par_week" />
+            android:title="@string/inf_par_week" />-->
 
         <ListPreference
             android:defaultValue="@string/auto"

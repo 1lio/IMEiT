@@ -898,8 +898,7 @@ public class Mon extends Fragment {
         p1az.setVisibility(View.GONE);
         m_p1_tz.setVisibility(View.GONE);
         m_p1_kz.setVisibility(View.GONE);
-        m_l_1z.setVisibility(View.GONE);
-        m_l1.setVisibility(View.GONE);
+        m_l_1c.setVisibility(View.GONE);
     }
 
     public void Null_Mon_Z_2() {
@@ -907,8 +906,7 @@ public class Mon extends Fragment {
         p2az.setVisibility(View.GONE);
         m_p2_tz.setVisibility(View.GONE);
         m_p2_kz.setVisibility(View.GONE);
-        m_l_2z.setVisibility(View.GONE);
-        m_l2.setVisibility(View.GONE);
+        m_l_2c.setVisibility(View.GONE);
     }
 
     public void Null_Mon_Z_3() {
@@ -916,8 +914,7 @@ public class Mon extends Fragment {
         p3az.setVisibility(View.GONE);
         m_p3_tz.setVisibility(View.GONE);
         m_p3_kz.setVisibility(View.GONE);
-        m_l_3z.setVisibility(View.GONE);
-        m_l3.setVisibility(View.GONE);
+        m_l_3c.setVisibility(View.GONE);
 
     }
 
@@ -926,8 +923,7 @@ public class Mon extends Fragment {
         p4az.setVisibility(View.GONE);
         m_p4_tz.setVisibility(View.GONE);
         m_p4_kz.setVisibility(View.GONE);
-        m_l_4z.setVisibility(View.GONE);
-        m_l4.setVisibility(View.GONE);
+        m_l_4c.setVisibility(View.GONE);
     }
 
     public void Null_Mon_Z_5() {
@@ -935,8 +931,8 @@ public class Mon extends Fragment {
         p5az.setVisibility(View.GONE);
         m_p5_tz.setVisibility(View.GONE);
         m_p5_kz.setVisibility(View.GONE);
-    /*    m_l_5z.setVisibility(View.GONE);*/
-        m_l5.setVisibility(View.GONE);
+
+        m_l_5c.setVisibility(View.GONE);
 
     }
 
@@ -1109,6 +1105,8 @@ public class Mon extends Fragment {
 
     public void ThemeWrite() {
 
+        ThemeDark();
+/*
         mk.setBackgroundResource(R.color.colorWhitee);
         p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         m_p1_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -1128,7 +1126,7 @@ public class Mon extends Fragment {
         p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
         m_p4_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+        m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));*/
     }
 
     public void ThemeDark() {

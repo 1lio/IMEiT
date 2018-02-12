@@ -55,9 +55,8 @@
                     android:id="@+id/mm1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="6dp">
 
                     <LinearLayout
                         android:layout_width="60dp"
@@ -281,9 +280,8 @@
                     android:id="@+id/mm2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginTop="6dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="6dp">
 
                     <LinearLayout
                         android:layout_width="60dp"
@@ -488,9 +486,8 @@
                     android:id="@+id/mm3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginTop="6dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="6dp">
 
                     <LinearLayout
                         android:layout_width="60dp"
@@ -693,9 +690,8 @@
                     android:id="@+id/mm4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginTop="6dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="6dp">
 
                     <LinearLayout
                         android:layout_width="60dp"
@@ -901,9 +897,8 @@
                     android:id="@+id/mm5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="6dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="6dp">
 
                     <LinearLayout
                         android:layout_width="60dp"

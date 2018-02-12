@@ -47,8 +47,8 @@ public class MapsFragment extends Fragment {
 
         switch (regular) {
             case "Светлая":
-                tabLayout.setBackgroundResource(R.color.colorPrimary);
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhitee));
+                tabLayout.setBackgroundResource(R.color.colorPrimarySS);
+                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
                 break;
             case "Темная":
                 tabLayout.setBackgroundResource(R.color.colorPrimarySS);

@@ -17,7 +17,7 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Thu extends Fragment {
 
-    public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z;
+    public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, main_mon, youday;
     public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5, l1, l2, l3, l4;
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
@@ -32,6 +32,9 @@ public class Thu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.thu, container, false);
+
+        main_mon = v.findViewById(R.id.main_thu);
+        youday = v.findViewById(R.id.you_day_thu);
 
         m_l_1z = v.findViewById(R.id.h_l_1z);
         m_l_2z = v.findViewById(R.id.h_l_2z);
@@ -79,7 +82,6 @@ public class Thu extends Fragment {
         p2az = v.findViewById(R.id.h_p2_az);
         m_p2_tz = v.findViewById(R.id.h_p2_tz);
         m_p2_kz = v.findViewById(R.id.h_p2_kz);
-        m_l2.setVisibility(View.GONE);
 
         p3 = v.findViewById(R.id.h_p3);
         p3a = v.findViewById(R.id.h_p3_a);
@@ -198,6 +200,7 @@ public class Thu extends Fragment {
             m_p3_tz.setText(getString(R.string.pz));
             m_p3_kz.setText(r);
         }
+        else {}
 
         if (i) {
             m_l_3z.setVisibility(View.VISIBLE);
@@ -404,13 +407,17 @@ public class Thu extends Fragment {
                 M_41();
                 break;
             case "ФМ-41":
+                FM_41();
                 break;
             case "ПМ-41":
                 PM_41();
                 break;
             case "ИиВТ-41":
+
+                IiVT_41();
                 break;
             case "НЭ-41":
+                NE_41();
                 break;
             case "МиИТм-11":
                 MIitM();
@@ -586,8 +593,8 @@ public class Thu extends Fragment {
     public void MI_21() {
         Less1D(getString(R.string.filosofia), getString(R.string.podoksenov), getString(R.string.lk),getString(R.string.uk4_24),true, true);
         Less2D(getString(R.string.pcixolp), getString(R.string.larin), getString(R.string.pz),getString(R.string.uk4_24),true, true);
-        Less3D(getString(R.string.teo_osn_inf), getString(R.string.padaev), getString(R.string.pz),getString(R.string.gk300),false, false);
-        Less4D(getString(R.string.teo_osn_inf), getString(R.string.padaev), getString(R.string.pz),getString(R.string.gk300),false, false);
+        Less3D(getString(R.string.teo_osn_inf), getString(R.string.padaev), getString(R.string.pz),getString(R.string.gk300),false, true);
+        Less4D(getString(R.string.teo_osn_inf), getString(R.string.padaev), getString(R.string.pz),getString(R.string.gk300),false, true);
 
     }
 
@@ -683,124 +690,38 @@ public class Thu extends Fragment {
 
     // 4 курс
 
-    public void M_41() {
-
-      /* YouDay();*/
-    }
+    public void M_41() { YouDay();}
 
     public void FM_41() {
-
-        p1z.setText(getResources().getString(R.string.kvant_ph));
-        p1az.setText(getResources().getString(R.string.sidorov));
-        m_p1_tz.setText(getResources().getString(R.string.lb));
-        m_p1_kz.setText(getResources().getString(R.string.uk1_9));
-
-
-        p2.setText(getResources().getString(R.string.zad_hard));
-        p2a.setText(getResources().getString(R.string.kondakova));
-        m_p2_t.setText(getResources().getString(R.string.dv_pz));
-        m_p2_k.setText(getResources().getString(R.string.uk1_11));
-        Null_Mon_Z_2();
-
-        p3.setText(getResources().getString(R.string.zad_hard));
-        p3a.setText(getResources().getString(R.string.kondakova));
-        m_p3_t.setText(getResources().getString(R.string.dv_pz));
-        m_p3_k.setText(getResources().getString(R.string.uk1_11));
-        p3z.setText(getResources().getString(R.string.osn_teo_phy));
-        p3az.setText(getResources().getString(R.string.kondakova));
-        m_p3_tz.setText(getResources().getString(R.string.pz));
-        m_p3_kz.setText(getResources().getString(R.string.uk1_11));
-
-
+        Less1D(getString(R.string.astrophysic), getString(R.string.kondakova), getString(R.string.lk), getString(R.string.uk1_11),true, true);
+        Less2(getString(R.string.his_phy), getString(R.string.trofimova), getString(R.string.lk), getString(R.string.uk4_27),
+                getString(R.string.astrophysic), getString(R.string.kondakova), getString(R.string.lk), getString(R.string.uk1_11), true);
+        Less3D(getString(R.string.his_phy), getString(R.string.trofimova), getString(R.string.pz), getString(R.string.uk4_27), false, false);
     }
 
     public void PM_41() {
-        p1.setText(getResources().getString(R.string.teo_game));
-        p1a.setText(getResources().getString(R.string.belix));
-        m_p1_t.setText(getResources().getString(R.string.lk));
-        m_p1_k.setText(getResources().getString(R.string.uk4_13));
-        p1z.setText(getResources().getString(R.string.teo_game));
-        p1az.setText(getResources().getString(R.string.belix));
-        m_p1_tz.setText(getResources().getString(R.string.pz));
-        m_p1_kz.setText(getResources().getString(R.string.uk4_13));
+        Less1D(getString(R.string.vis_sys), getString(R.string.zaburaeva), getString(R.string.pz), getString(R.string.uk15_305), false, true);
+        Less2(getString(R.string.vis_sys), getString(R.string.zaburaeva), getString(R.string.pz), getString(R.string.uk15_305),
+                getString(R.string.ii), getString(R.string.kornienko), getString(R.string.lb), getString(R.string.uk3_16), true);
 
-        p2.setText(getResources().getString(R.string.spec_fun));
-        p2a.setText(getResources().getString(R.string.melnikova));
-        m_p2_t.setText(getResources().getString(R.string.pz));
-        m_p2_k.setText(getResources().getString(R.string.uk4_26));
-        p2z.setText(getResources().getString(R.string.par_ob_inf));
-        p2az.setText(getResources().getString(R.string.gubina));
-        m_p2_tz.setText(getResources().getString(R.string.lk));
-        m_p2_kz.setText(getResources().getString(R.string.uk15_305));
-
-        p3.setText(getResources().getString(R.string.comp_bez));
-        p3a.setText(getResources().getString(R.string.zaburaeva));
-        m_p3_t.setText(getResources().getString(R.string.lk));
-        m_p3_k.setText(getResources().getString(R.string.uk15_313));
-
-        p4.setText(getResources().getString(R.string.pr_web));
-        p4a.setText(getResources().getString(R.string.gubina));
-        m_p4_t.setText(getResources().getString(R.string.lk));
-        m_p4_k.setText(getResources().getString(R.string.uk15_305));
     }
 
     public void IiVT_41() {
-
-        p1.setText(getResources().getString(R.string.inf_bez_set));
-        p1a.setText(getResources().getString(R.string.pachin));
-        m_p1_t.setText(getResources().getString(R.string.lk));
-        m_p1_k.setText(getResources().getString(R.string.uk2_113));
-        Null_Mon_Z();
-
-        p2.setText(getResources().getString(R.string.com_tip));
-        p2a.setText(getResources().getString(R.string.gubin));
-        m_p2_t.setText(getResources().getString(R.string.dv_pz));
-        m_p2_k.setText(getResources().getString(R.string.uk1_2));
-        Null_Mon_Z_2();
-
-        p3.setText(getResources().getString(R.string.pr_web));
-        p3a.setText(getResources().getString(R.string.pachin));
-        m_p3_t.setText(getResources().getString(R.string.lb));
-        m_p3_k.setText(getResources().getString(R.string.uk2_113));
-        Null_Mon_Z_3();
-
-        p4.setText(getResources().getString(R.string.mod_class));
-        p4a.setText(getResources().getString(R.string.masina));
-        m_p4_t.setText(getResources().getString(R.string.ftd));
-        m_p4_k.setText(getResources().getString(R.string.uk4_21));
+        Less2(getString(R.string.mod_sys_up), getString(R.string.masina), getString(R.string.pz), getString(R.string.uk4_21),
+                getString(R.string.ii_ex), getString(R.string.tarov), getString(R.string.pz), getString(R.string.uk16_301a), true);
+        Less3   (getString(R.string.ii_ex), getString(R.string.tarov), getString(R.string.pz), getString(R.string.uk16_301a),
+                getString(R.string.seti_tv), getString(R.string.igonina), getString(R.string.pz), getString(R.string.uk4_22), true);
+        Less4   (getString(R.string.ii_ex), getString(R.string.tarov), getString(R.string.pz), getString(R.string.uk16_301a),
+                getString(R.string.ii_ex), getString(R.string.tarov), getString(R.string.pz), getString(R.string.uk16_301a), true);
 
     }
 
     public void NE_41() {
 
-        p1z.setText(getResources().getString(R.string.mat_nano));
-        p1az.setText(getResources().getString(R.string.kondakov));
-        m_p1_tz.setText(getResources().getString(R.string.lk));
-        m_p1_kz.setText(getResources().getString(R.string.uk15_001));
+        Less1D(getString(R.string.astrophysic), getString(R.string.kondakova), getString(R.string.lk), getString(R.string.uk1_11),false, true);
+        Less2D(getString(R.string.mat_nano), getString(R.string.sidorov), getString(R.string.lk), getString(R.string.uk1_2),false, false);
+        Less3D(getString(R.string.mat_nano), getString(R.string.sidorov), getString(R.string.lk), getString(R.string.uk1_2),false, false);
 
-        p2.setText(getResources().getString(R.string.int_ur));
-        p2a.setText(getResources().getString(R.string.melnikova));
-        m_p2_t.setText(getResources().getString(R.string.ftd));
-        m_p2_k.setText(getResources().getString(R.string.uk4_26));
-        p2z.setText(getResources().getString(R.string.mat_nano));
-        p2az.setText(getResources().getString(R.string.kondakov));
-        m_p2_tz.setText(getResources().getString(R.string.pz));
-        m_p2_kz.setText(getResources().getString(R.string.uk15_001));
-
-        p3.setText(getResources().getString(R.string.zona_str_el));
-        p3a.setText(getResources().getString(R.string.kondakov));
-        m_p3_t.setText(getResources().getString(R.string.lk));
-        m_p3_k.setText(getResources().getString(R.string.uk15_001));
-        p3z.setText(getResources().getString(R.string.zona_str_el));
-        p3az.setText(getResources().getString(R.string.kondakov));
-        m_p3_tz.setText(getResources().getString(R.string.pz));
-        m_p3_kz.setText(getResources().getString(R.string.uk15_001));
-
-        p4.setText(getResources().getString(R.string.zona_str_el));
-        p4a.setText(getResources().getString(R.string.kondakov));
-        m_p4_t.setText(getResources().getString(R.string.lk));
-        m_p4_k.setText(getResources().getString(R.string.uk15_001));
-        Null_Mon_Z_4();
     }
 
     public void MIitM() {
@@ -841,56 +762,17 @@ public class Thu extends Fragment {
 
     public void BX_21() {
 
-        p2.setText(getResources().getString(R.string.zoologia));
-        p2a.setText(getResources().getString(R.string.sotnikova));
-        m_p2_t.setText(getResources().getString(R.string.lk));
-        m_p2_k.setText(getResources().getString(R.string.uk4_13));
-
-        p3.setText(getResources().getString(R.string.anatomia));
-        p3a.setText(getResources().getString(R.string.chaxsuarov));
-        m_p3_t.setText(getResources().getString(R.string.lk));
-        m_p3_k.setText(getResources().getString(R.string.uk1_8));
-        p3z.setText(getResources().getString(R.string.anatomia));
-        p3az.setText(getResources().getString(R.string.chaxsuarov));
-        m_p3_tz.setText(getResources().getString(R.string.lb));
-        m_p3_kz.setText(getResources().getString(R.string.uk1_8));
-
-        p4.setText(getResources().getString(R.string.k_mir));
-        p4a.setText(getResources().getString(R.string.usacheva));
-        m_p4_t.setText(getResources().getString(R.string.lk));
-        m_p4_k.setText(getResources().getString(R.string.uk1_8));
-        p4z.setText(getResources().getString(R.string.k_mir));
-        p4az.setText(getResources().getString(R.string.usacheva));
-        m_p4_tz.setText(getResources().getString(R.string.pz));
-        m_p4_kz.setText(getResources().getString(R.string.uk1_8));
+        Less1D(getString(R.string.filosofia), getString(R.string.podoksenov), getString(R.string.lk),getString(R.string.uk4_24),true, true);
+        Less2D(getString(R.string.pcixolp), getString(R.string.larin), getString(R.string.pz),getString(R.string.uk4_24),true, true);
 
     }
 
     public void EG_21() {
 
-        p2.setText(getResources().getString(R.string.m_analis));
-        p2a.setText(getResources().getString(R.string.padaev));
-        m_p2_t.setText(getResources().getString(R.string.lk));
-        m_p2_k.setText(getResources().getString(R.string.uk4_27));
-        p2z.setText(getResources().getString(R.string.m_analis));
-        p2az.setText(getResources().getString(R.string.padaev));
-        m_p2_tz.setText(getResources().getString(R.string.pz));
-        m_p2_kz.setText(getResources().getString(R.string.uk4_27));
-
-        p3.setText(getResources().getString(R.string.zoologia));
-        p3a.setText(getResources().getString(R.string.sotnikova));
-        m_p3_t.setText(getResources().getString(R.string.pz));
-        m_p3_k.setText(getResources().getString(R.string.uk4_13));
-        Null_Mon_Z_3();
-
-        p4.setText(getResources().getString(R.string.k_mir));
-        p4a.setText(getResources().getString(R.string.usacheva));
-        m_p4_t.setText(getResources().getString(R.string.lk));
-        m_p4_k.setText(getResources().getString(R.string.uk1_8));
-        p4z.setText(getResources().getString(R.string.k_mir));
-        p4az.setText(getResources().getString(R.string.usacheva));
-        m_p4_tz.setText(getResources().getString(R.string.pz));
-        m_p4_kz.setText(getResources().getString(R.string.uk1_8));
+        Less1D(getString(R.string.filosofia), getString(R.string.podoksenov), getString(R.string.lk),getString(R.string.uk4_24),true, true);
+        Less2D(getString(R.string.pcixolp), getString(R.string.larin), getString(R.string.pz),getString(R.string.uk4_24),true, true);
+        Less3D(getString(R.string.bio_rast), getString(R.string.sotnikova), getString(R.string.pz),getString(R.string.uk12_212),false, true);
+        Less3D(getString(R.string.bio_rast), getString(R.string.sotnikova), getString(R.string.pz),getString(R.string.uk12_212),false, true);
     }
 
 
@@ -1060,7 +942,7 @@ public class Thu extends Fragment {
 
         switch (regular) {
             case "Светлая":
-                ThemeWrite();
+                ThemeDark();
                 break;
             case "Темная":
                 ThemeDark();
@@ -1158,5 +1040,10 @@ public class Thu extends Fragment {
         l3.setBackgroundResource(R.color.colorSigma);
         l4.setBackgroundResource(R.color.colorSigma);
 
+    }
+
+    public void YouDay(){
+        youday.setVisibility(View.VISIBLE);
+        main_mon.setVisibility(View.GONE);
     }
 }

@@ -3,20 +3,19 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'SukhovViacheslav'
+            keyAlias 'appsforimeit'
             keyPassword 'zero1995SSz'
-            storeFile file('C:/Users/Admin/Desktop/IMEiT/IMEiT_KEY.jks')
-            storePassword 'neow'
+            storePassword 'zero1995SSz'
         }
     }
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "ru.vyaacheslav.suhov.imeit_rsp"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 7
-        versionName "1.3.7"
+        versionCode 10
+        versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,16 +32,16 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:support-v4:26.1.0'
-    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:appcompat-v7:27.0.2'
+    compile 'com.android.support:support-v4:27.0.2'
+    compile 'com.android.support:design:27.0.2'
 
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.jsoup:jsoup:1.10.3'
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.android.support:recyclerview-v7:26.1.0'
-    compile 'com.android.support:cardview-v7:26.1.0'
+    compile 'com.android.support:recyclerview-v7:27.0.2'
+    compile 'com.android.support:cardview-v7:27.0.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
 }

@@ -562,14 +562,14 @@ public class Wed extends Fragment {
     public void MI_21() {
         Fizra_2kurs();
         Less3D(getString(R.string.algebra_a_teoc), getString(R.string.prokuratova), getString(R.string.lk),getString(R.string.uk4_28),false, true);
-        Less4D(getString(R.string.algebra_a_teoc), getString(R.string.prokuratova), getString(R.string.lk),getString(R.string.uk4_28),false, true);
+        Less4D(getString(R.string.algebra_a_teoc), getString(R.string.prokuratova), getString(R.string.pz),getString(R.string.uk4_28),false, true);
     }
 
     public void MF_21() {
         Less1D(getString(R.string.el_physic), getString(R.string.trofimova), getString(R.string.pz),getString(R.string.uk4_27),false, false);
         Fizra_2kurs();
         Less3D(getString(R.string.algebra_a_teoc), getString(R.string.prokuratova), getString(R.string.lk),getString(R.string.uk4_28),false, true);
-        Less4D(getString(R.string.algebra_a_teoc), getString(R.string.prokuratova), getString(R.string.lk),getString(R.string.uk4_28),false, true);
+        Less4D(getString(R.string.algebra_a_teoc), getString(R.string.prokuratova), getString(R.string.pz),getString(R.string.uk4_28),false, true);
     }
 
     public void PM_21() {
@@ -816,7 +816,7 @@ public class Wed extends Fragment {
 
         switch (regular) {
             case "Светлая":
-                ThemeWrite();
+                ThemeDark();
                 break;
             case "Темная":
                 ThemeDark();
