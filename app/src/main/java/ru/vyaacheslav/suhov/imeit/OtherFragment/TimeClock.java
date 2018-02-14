@@ -76,7 +76,7 @@ public class TimeClock extends Fragment {
 
         updateClock();
         TimeFunction();
-        LoadPreferences();
+     /*   LoadPreferences(); */
         return v;
     }
 
