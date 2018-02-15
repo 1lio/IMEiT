@@ -17,7 +17,7 @@
     </group>
 
     <item
-        android:id="@+id/tools2"
+        android:id="@+id/instr1"
         android:title="@string/others2">
         <menu>
             <group android:checkableBehavior="single">
@@ -34,7 +34,7 @@
         </menu>
     </item>
     <item
-        android:id="@+id/tools32"
+        android:id="@+id/instr2"
         android:title="Институт">
         <menu>
             <group android:checkableBehavior="single">

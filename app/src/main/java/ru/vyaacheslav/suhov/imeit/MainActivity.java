@@ -33,69 +33,70 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
 
-    public NavigationView navigationView;
-    public DrawerLayout drawerLayout;
-    public FragmentTransaction FT;
-    public RelativeLayout dexp;
-    public FragmentManager FM;
-    public Toolbar toolbar;
     public java.util.Calendar calendar;
+    public FragmentTransaction FT;
+    public MenuItem inst1,inst2;
+    public FragmentManager FM;
+    public RelativeLayout lm;
     private Menu menu;
+    private Toolbar tb;
+    private DrawerLayout dl;
+    private NavigationView nv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.ThemeWrithe);
         setContentView(R.layout.activity_main);
 
+        // Проверка на первый запуск приложения
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
         if (prefs.getBoolean("isFirstRun", true)) {
             Intent intent = new Intent(MainActivity.this, SettingsPref.class);
             startActivity(intent);
-        } else {
         }
         prefs.edit().putBoolean("isFirstRun", false).apply();
 
-        toolbar = findViewById(R.id.toolbar);
-        navigationView = findViewById(R.id.shitstuff);
-        drawerLayout = findViewById(R.id.drawerLayout);
-        calendar = java.util.Calendar.getInstance();
-        dexp = findViewById(R.id.dexs);
+        // Стандартная инициализация компонетов
+        tb = findViewById(R.id.toolbar);
+        nv = findViewById(R.id.shitstuff);
+        dl = findViewById(R.id.drawerLayout);
+        lm = findViewById(R.id.layout_main);
 
-        setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
-        drawerLayout.addDrawerListener(toggle);
+        calendar = java.util.Calendar.getInstance();
+        setSupportActionBar(tb);
+
+        // Поддержка старых версий ActionBarToggle - Это иконка DrawerLayout
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, dl, tb, R.string.app_name, R.string.app_name);
+        dl.addDrawerListener(toggle);
         toggle.syncState();
 
         // Костомизация меню. Вообщем ненужная хрень. Нужно убрать потом
+        menu = nv.getMenu();
+        inst1 = menu.findItem(R.id.instr1);
+        inst2 = menu.findItem(R.id.instr2);
 
-        Menu menu = navigationView.getMenu();
-        MenuItem tools2 = menu.findItem(R.id.tools2);
-        SpannableString b = new SpannableString(tools2.getTitle());
-        b.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, b.length(), 0); // Меняем цвет полоски разделяющей группы
-        tools2.setTitle(b);
+        SpannableString str1 = new SpannableString(inst1.getTitle());
+        SpannableString str2 = new SpannableString(inst2.getTitle());
 
-        MenuItem tools3 = menu.findItem(R.id.tools32);
-        SpannableString cb = new SpannableString(tools3.getTitle());
-        cb.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, cb.length(), 0); // Меняем цвет полоски разделяющей группы
-        tools3.setTitle(cb);
+        str1.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, str1.length(), 0);
+        str2.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, str2.length(), 0);
 
-       /* MenuItem ss = menu.findItem(R.id.other);
-        SpannableString vb = new SpannableString(ss.getTitle());
-        vb.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, vb.length(), 0); // Меняем цвет полоски разделяющей группы
-        ss.setTitle(vb);*/
+        inst1.setTitle(str1);
+        inst2.setTitle(str2);
 
+        // Дублирование, нужно подумать как этого избежать.
+
+        // Транзакция фрагментов
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
-        FT.replace(R.id.containerView, new TabFragment()).commit();
+        FT.replace(R.id.containerView, new TabFragment()).commit(); // По умолчанию - расписание.
 
-        // Обработка нажатий на пункты меню. Я все это знаю - передаю потомкам
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        // Обработка нажатий на пункты меню.
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                drawerLayout.closeDrawers();
+                dl.closeDrawers(); // После нажатия закрывать Drawer
 
                 switch (item.getItemId()) {
 
@@ -103,40 +104,27 @@ public class MainActivity extends AppCompatActivity {
                         loadName();
                         FragmentTransaction fragmentTransaction = FM.beginTransaction();
                         fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
-
-                        break;
-                    case R.id.you_tab:
-                        MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
-                        FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                        fragmentTransaction1.replace(R.id.containerView, new TimeClock()).commit();
-                        break;
-
-                    case R.id.info:
-                        MainActivity.this.getSupportActionBar().setSubtitle("Об институте");
-                        FragmentTransaction fragmentTransaction2 = FM.beginTransaction();
-                        fragmentTransaction2.replace(R.id.containerView, new Info()).commit();
                         break;
                     case R.id.map:
                         MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
                         FragmentTransaction fragmentTransaction3 = FM.beginTransaction();
                         fragmentTransaction3.replace(R.id.containerView, new MapsFragment()).commit();
                         break;
-                    // Экзамен
-               /*     case R.id.exam:
-                        loadName();
-                        FragmentTransaction fragmentTransaction4 = FM.beginTransaction();
-                        fragmentTransaction4.replace(R.id.containerView, new Exzam()).commit();
-                        break;*/
+                    case R.id.you_tab:
+                        MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
+                        FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
+                        fragmentTransaction1.replace(R.id.containerView, new TimeClock()).commit();
+                        break;
+                    case R.id.info:
+                        MainActivity.this.getSupportActionBar().setSubtitle("Об институте");
+                        FragmentTransaction fragmentTransaction2 = FM.beginTransaction();
+                        fragmentTransaction2.replace(R.id.containerView, new Info()).commit();
+                        break;
                     case R.id.caf1:
                         MainActivity.this.getSupportActionBar().setSubtitle("Кафедры");
                         FragmentTransaction fragmentTransaction5 = FM.beginTransaction();
                         fragmentTransaction5.replace(R.id.containerView, new CafedraMain()).commit();
                         break;
-                  /*  case R.id.prepods:
-                        MainActivity.this.getSupportActionBar().setSubtitle("Преподовательский состав");
-                        FragmentTransaction ds = FM.beginTransaction();
-                        ds.replace(R.id.containerView, new Prepods()).commit();
-                        break;*/
                     default:
                         break;
                 }
@@ -144,9 +132,9 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        // Отображение статуса текущей недели
+
         loadName(); // Загрузка имени группы согласно настройкам
-        LoadPreferences(); //  Загрузка темы основной темы приложения
+        loadTheme(); //  Загрузка темы основной темы приложения
     }
 
     @Override
@@ -154,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
         this.menu = menu;
         getMenuInflater().inflate(R.menu.menu, menu);
         calendarTest();
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -166,15 +153,13 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 onBackPressed();
                 return true;
-
             case R.id.settings:
                 Intent intent = new Intent(MainActivity.this, SettingsPref.class);
                 startActivity(intent);
                 finish();
                 return true;
-            case R.id.ssas:
+            case R.id.weekIndicator:
                 calendarTest();
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -184,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
     public void calendarTest() {
         Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
         int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String position = prefs.getString(getString(R.string.week_i), "");
@@ -226,8 +210,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadName() {                                                                   // В качестве подзоголовка берем имя выбранной группы.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this); // Название группы берется из String-array
-        String regular = prefs.getString(getString(R.string.pref_style), "");                                // Нужно сделать проверку на пустое поле.
+        String regular = prefs.getString(getString(R.string.pref_style), "");
         MainActivity.this.getSupportActionBar().setSubtitle(regular);
+
+        // Если пользователь очистил память в окне настроек, то настройка будет пуста. Делаем проверку.
+        if ((regular.length() == 0)){
+            Intent intent = new Intent(MainActivity.this, SettingsPref.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
    /* private void isNetworkConnected() {
@@ -244,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
     // Загрузка выбора темы приложения
-    private void LoadPreferences() {
+    private void loadTheme() {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String regular = prefs.getString(getString(R.string.pref_theme), "");
@@ -259,6 +250,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     // Велосипед + костыль = говнокод
     // Кастомизация тем  Светлая и Темная
     public void ThemeWrithe() {
@@ -267,10 +259,10 @@ public class MainActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
-        navigationView.setBackgroundResource(R.color.colorWhitee);
-        navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
-        navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
-        toolbar.setBackgroundResource(R.color.colorPrimary);
+        nv.setBackgroundResource(R.color.colorWhitee);
+        nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
+        nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
+        tb.setBackgroundResource(R.color.colorPrimary);
     }
 
     public void ThemeDark() {
@@ -279,11 +271,14 @@ public class MainActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
         }
-        navigationView.setBackgroundResource(R.color.colorPrimaryDarkD);
-        navigationView.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
-        navigationView.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
-        toolbar.setBackgroundResource(R.color.colorPrimaryD);
+        nv.setBackgroundResource(R.color.colorPrimaryDarkD);
+        nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
+        nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
+        tb.setBackgroundResource(R.color.colorPrimaryD);
     }
+
+
+
 
     public void onBackPressed() {
         FragmentManager fm = this.getSupportFragmentManager();

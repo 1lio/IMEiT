@@ -97,6 +97,7 @@
                                 android:gravity="right|center"
                                 android:text="08"
 
+                                android:textColor="@color/colorTes"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:typeface="normal"
@@ -110,6 +111,7 @@
                                 android:gravity="top"
                                 android:paddingTop="1dp"
                                 android:text="30"
+                                android:textColor="@color/colorTes"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -304,6 +306,7 @@
                                 android:gravity="right|center"
                                 android:text="10"
 
+                                android:textColor="@color/colorTes"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -316,6 +319,7 @@
                                 android:paddingTop="1dp"
                                 android:text="15"
 
+                                android:textColor="@color/colorTes"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -510,6 +514,7 @@
                                 android:layout_weight="1"
                                 android:gravity="right|center"
                                 android:text="12"
+                                android:textColor="@color/colorTes"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -521,6 +526,7 @@
                                 android:gravity="top"
                                 android:paddingTop="1dp"
                                 android:text="30"
+                                android:textColor="@color/colorTes"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -715,6 +721,7 @@
                                 android:gravity="right|center"
                                 android:text="14"
 
+                                android:textColor="@color/colorTes"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -728,6 +735,7 @@
                                 android:paddingTop="1dp"
                                 android:text="15"
 
+                                android:textColor="@color/colorTes"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -921,6 +929,7 @@
                                 android:layout_weight="1"
                                 android:gravity="right|center"
                                 android:text="16"
+                                android:textColor="@color/colorTes"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -933,6 +942,7 @@
                                 android:gravity="top"
                                 android:paddingTop="1dp"
                                 android:text="00"
+                                android:textColor="@color/colorTes"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
