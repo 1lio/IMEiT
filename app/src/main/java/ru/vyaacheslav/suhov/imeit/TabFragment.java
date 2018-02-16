@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Calendar;
+
 public class TabFragment extends Fragment {
 
     public static int int_items = 5;
@@ -32,6 +34,26 @@ public class TabFragment extends Fragment {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
+
+        Calendar c = Calendar.getInstance();
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+
+        if (Calendar.MONDAY == dayOfWeek) {
+            viewPager.setCurrentItem(0, true);
+        } else if (Calendar.TUESDAY == dayOfWeek) {
+            viewPager.setCurrentItem(1, true);
+        } else if (Calendar.WEDNESDAY == dayOfWeek) {
+            viewPager.setCurrentItem(2, true);
+        } else if (Calendar.THURSDAY == dayOfWeek) {
+            viewPager.setCurrentItem(3, true);
+        } else if (Calendar.FRIDAY == dayOfWeek) {
+            viewPager.setCurrentItem(4, true);
+        } else if (Calendar.SATURDAY == dayOfWeek) {
+            viewPager.setCurrentItem(0, true);
+        } else if (Calendar.SUNDAY == dayOfWeek) {
+            viewPager.setCurrentItem(0, true);
+        }
+
         tabLayout.setBackgroundResource(R.color.colorPrimary);
         tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhitee));
         LoadPreferences();

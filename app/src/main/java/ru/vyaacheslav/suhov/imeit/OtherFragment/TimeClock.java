@@ -74,8 +74,8 @@ public class TimeClock extends Fragment {
         t31 = v.findViewById(R.id.t31);
         t32 = v.findViewById(R.id.t32);
 
-        updateClock();
-        TimeFunction();
+       /* updateClock();
+        TimeFunction();*/
      /*   LoadPreferences(); */
         return v;
     }
@@ -190,33 +190,7 @@ public class TimeClock extends Fragment {
 
         lss.setBackgroundResource(R.color.colorPrimarySS);
         lsss.setBackgroundResource(R.color.colorPrimaryD);
-
         t1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t5.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t6.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t7.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t8.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t10.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t11.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t12.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t13.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t14.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t15.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t16.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t17.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t19.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t20.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t21.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t22.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t24.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t25.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t26.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t27.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t29.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t30.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t31.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t32.setTextColor(getResources().getColor(R.color.colorWhitee));
+        t1=t2=t3=t6=t5=t7=t8=t10=t11=t12=t13=t14=t15=t16=t17=t19=t10=t21=t22=t24=t25=t26=t27=t29=t30=t31=t32;
     }
 }

@@ -110,15 +110,7 @@ public class Maps_Inst extends Fragment implements View.OnClickListener {
     }
 
     public void ThemeWrite() {
-        ddf.setBackgroundColor(getResources().getColor(R.color.colorWhitee));
-        ins1.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        ins2.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        ins3.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        ins4.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        ins5.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        ins6.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        ins7.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        ins8.setBackground(getResources().getDrawable(R.drawable.card_row1));
+
 
         d1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         d2.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -132,15 +124,7 @@ public class Maps_Inst extends Fragment implements View.OnClickListener {
 
     public void ThemeDark() {
 
-        ddf.setBackgroundColor(getResources().getColor(R.color.colorPrimaryF));
-        ins1.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        ins2.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        ins3.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        ins4.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        ins5.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        ins6.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        ins7.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        ins8.setBackground(getResources().getDrawable(R.drawable.card_row0));
+
 
         d1.setTextColor(getResources().getColor(R.color.colorWhitee));
         d2.setTextColor(getResources().getColor(R.color.colorWhitee));

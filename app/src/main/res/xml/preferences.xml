@@ -9,13 +9,13 @@
             android:summary="@string/gr_inf"
             android:title="@string/you_goupe" />
 
-   <!--     <CheckBoxPreference
+        <!--     <CheckBoxPreference
             android:defaultValue="true"
             android:key="num_par"
             android:summary="Снимите галку чтобы отображать только номер пары"
             android:title="Отображать время пары" />-->
 
-     <!--   <CheckBoxPreference
+        <!--   <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/danger"
             android:summary="@string/info_danger"
@@ -41,7 +41,8 @@
             android:key="@string/pref_chek2"
             android:summary="@string/lan_rasp"
             android:title="@string/nem" />
-      <!--  <CheckBoxPreference
+
+        <!--  <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/depos"
             android:summary="@string/null_par"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lsss"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -114,7 +115,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/lss"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -741,7 +742,8 @@
                         android:layout_weight="1"
                         android:baselineAligned="false"
                         android:gravity="bottom|center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        tools:ignore="TooManyViews">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -980,13 +982,5 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <TimePicker
-        android:id="@+id/timePicker2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/lss"
-        android:layout_marginTop="48dp" />
 
 </RelativeLayout>

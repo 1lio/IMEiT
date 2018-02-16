@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar tb;
     private DrawerLayout dl;
     private NavigationView nv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

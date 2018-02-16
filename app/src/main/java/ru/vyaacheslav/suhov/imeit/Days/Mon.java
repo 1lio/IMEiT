@@ -200,9 +200,7 @@ public class Mon extends Fragment {
         p5a.setText(p);
         m_p5_t.setText(t);
         m_p5_k.setText(r);
-
     }
-
 
     // нужно оптимизировать эту херню.
     public void loadMethod() {

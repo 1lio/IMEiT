@@ -128,18 +128,8 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
 
     public void ThemeWrite() {
 
-        ddf.setBackgroundColor(getResources().getColor(R.color.colorWhitee));
-        k1.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k2.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k3.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k4.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k5.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k6.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k7.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k8.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k9.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k10.setBackground(getResources().getDrawable(R.drawable.card_row1));
-        k11.setBackground(getResources().getDrawable(R.drawable.card_row1));
+
+
         q1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         q2.setTextColor(getResources().getColor(R.color.colorTextBlack));
         q3.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -155,18 +145,8 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
 
     public void ThemeDark() {
 
-        ddf.setBackgroundColor(getResources().getColor(R.color.colorPrimaryF));
-        k1.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k2.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k3.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k4.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k5.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k6.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k7.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k8.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k9.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k10.setBackground(getResources().getDrawable(R.drawable.card_row0));
-        k11.setBackground(getResources().getDrawable(R.drawable.card_row0));
+
+
         q1.setTextColor(getResources().getColor(R.color.colorWhitee));
         q2.setTextColor(getResources().getColor(R.color.colorWhitee));
         q3.setTextColor(getResources().getColor(R.color.colorWhitee));
