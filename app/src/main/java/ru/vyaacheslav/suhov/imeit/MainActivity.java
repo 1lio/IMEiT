@@ -33,6 +33,7 @@ import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
 public class MainActivity extends AppCompatActivity {
 
+    public ActionBarDrawerToggle toggle;
     public java.util.Calendar calendar;
     public FragmentTransaction FT;
     public MenuItem inst1,inst2;
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar tb;
     private DrawerLayout dl;
     private NavigationView nv;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(tb);
 
         // Поддержка старых версий ActionBarToggle - Это иконка DrawerLayout
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, dl, tb, R.string.app_name, R.string.app_name);
+        toggle = new ActionBarDrawerToggle(this, dl, tb, R.string.app_name, R.string.app_name);
         dl.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -99,31 +99,30 @@ public class MainActivity extends AppCompatActivity {
                 dl.closeDrawers(); // После нажатия закрывать Drawer
 
                 switch (item.getItemId()) {
-
                     case R.id.main_tab:
                         loadName();
-                        FragmentTransaction fragmentTransaction = FM.beginTransaction();
-                        fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
+                        FragmentTransaction ft1 = FM.beginTransaction();
+                        ft1.replace(R.id.containerView, new TabFragment()).commit();
                         break;
                     case R.id.map:
                         MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
-                        FragmentTransaction fragmentTransaction3 = FM.beginTransaction();
-                        fragmentTransaction3.replace(R.id.containerView, new MapsFragment()).commit();
+                        FragmentTransaction ft2 = FM.beginTransaction();
+                        ft2.replace(R.id.containerView, new MapsFragment()).commit();
                         break;
                     case R.id.you_tab:
                         MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
-                        FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-                        fragmentTransaction1.replace(R.id.containerView, new TimeClock()).commit();
+                        FragmentTransaction ft3 = FM.beginTransaction();
+                        ft3.replace(R.id.containerView, new TimeClock()).commit();
                         break;
                     case R.id.info:
                         MainActivity.this.getSupportActionBar().setSubtitle("Об институте");
-                        FragmentTransaction fragmentTransaction2 = FM.beginTransaction();
-                        fragmentTransaction2.replace(R.id.containerView, new Info()).commit();
+                        FragmentTransaction ft4 = FM.beginTransaction();
+                        ft4.replace(R.id.containerView, new Info()).commit();
                         break;
                     case R.id.caf1:
                         MainActivity.this.getSupportActionBar().setSubtitle("Кафедры");
-                        FragmentTransaction fragmentTransaction5 = FM.beginTransaction();
-                        fragmentTransaction5.replace(R.id.containerView, new CafedraMain()).commit();
+                        FragmentTransaction ft5 = FM.beginTransaction();
+                        ft5.replace(R.id.containerView, new CafedraMain()).commit();
                         break;
                     default:
                         break;
@@ -141,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         this.menu = menu;
         getMenuInflater().inflate(R.menu.menu, menu);
-        calendarTest();
+        WeekIndicator();
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -149,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-
             case android.R.id.home:
                 onBackPressed();
                 return true;
@@ -159,53 +157,64 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.weekIndicator:
-                calendarTest();
+                WeekIndicator();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public void calendarTest() {
-        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-
+    public void WeekIndicator() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String position = prefs.getString(getString(R.string.week_i), "");
         switch (position) {
             case "Авто": {
-                if ((weekYear % 2 == 0)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
-                } else {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
-                }
+                        // Ненужная настройка
+             WeekCh();  // Новый семестр начинается по умолчанию с числителя.
+                        // Функция дублирования
+                        // Неправильно + некрасивая конструкция
             }
             break;
             case "Числитель": {
-                if ((weekYear % 2 == 0)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
-                } else {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
-                }
+               WeekCh();
             }
             break;
             case "Знаменатель": {
-                if ((weekYear % 2 == 0)) {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
-                } else {
-                    Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                    menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
-                }
+              WeekZn();
             }
             break;
         }
+    }
 
+    public void WeekCh(){
 
+        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+
+            if(weekYear% 2 == 0){
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
+            }
+
+    }
+
+    public void WeekZn(){
+
+        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+
+            if(weekYear% 2 == 0){
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
+            }
     }
 
     public void loadName() {                                                                   // В качестве подзоголовка берем имя выбранной группы.
@@ -221,19 +230,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-   /* private void isNetworkConnected() {
-        ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo ni = cm.getActiveNetworkInfo();
-        if (ni == null) {
-            toast = Toast.makeText(getApplicationContext(), "Проверте интернет соединение", Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        } else
-            MainActivity.this.getSupportActionBar().setSubtitle("Новости");
-        FragmentTransaction fragmentTransaction1 = FM.beginTransaction();
-        fragmentTransaction1.replace(R.id.containerView, new FragmentN()).commit();
-    }*/
-
     // Загрузка выбора темы приложения
     private void loadTheme() {
 
@@ -241,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
         String regular = prefs.getString(getString(R.string.pref_theme), "");
 
         switch (regular) {
-            case "Светлая":
+            case "Светлая":  // Русские символы в коде - непорядок
                 ThemeWrithe();
                 break;
             case "Темная":
@@ -250,8 +246,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    // Велосипед + костыль = говнокод
     // Кастомизация тем  Светлая и Темная
     public void ThemeWrithe() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -276,9 +270,6 @@ public class MainActivity extends AppCompatActivity {
         nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
         tb.setBackgroundResource(R.color.colorPrimaryD);
     }
-
-
-
 
     public void onBackPressed() {
         FragmentManager fm = this.getSupportFragmentManager();
