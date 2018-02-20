@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.annotation.LayoutRes;
@@ -20,10 +21,20 @@ import java.util.Objects;
 
 public class SettingsPref extends PreferenceActivity {
 
+    public ListPreference groupe, theme;
     private AppCompatDelegate mDelegate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+        if (Objects.equals(regular, "Светлая")) {
+            setTheme(R.style.ThemeWrithe);
+        }
+        else if(Objects.equals(regular, "Темная")) {
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
 
@@ -32,6 +43,12 @@ public class SettingsPref extends PreferenceActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        groupe = (ListPreference) findPreference(getString(R.string.pref_style));
+        theme = (ListPreference) findPreference(getString(R.string.pref_theme));
+
+        groupe.setSummary(groupe.getEntry());
+        theme.setSummary(theme.getEntry());
     }
 
     public void onBackPressed() {
@@ -42,7 +59,7 @@ public class SettingsPref extends PreferenceActivity {
         if (Objects.equals(position, "")) {
             Toast.makeText(getApplicationContext(), "Выберите группу", Toast.LENGTH_SHORT).show();
         } else {
-
+            Toast.makeText(getApplicationContext(), "Настройки сохранены", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
             finish();
@@ -136,4 +153,3 @@ public class SettingsPref extends PreferenceActivity {
         return mDelegate;
     }
 }
-

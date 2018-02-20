@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Настройки расписания">
-        <ListPreference
-            android:dialogTitle="@string/your_groupe"
-            android:entries="@array/bak_groops"
-            android:entryValues="@array/bak_groops"
-            android:key="@string/pref_style"
-            android:summary="@string/gr_inf"
-            android:title="@string/you_goupe" />
 
         <!--     <CheckBoxPreference
             android:defaultValue="true"
@@ -21,6 +14,13 @@
             android:summary="@string/info_danger"
             android:title="@string/inf_par_week" />-->
 
+        <ListPreference
+            android:dialogTitle="@string/your_groupe"
+            android:entries="@array/bak_groops"
+            android:entryValues="@array/bak_groops"
+            android:key="@string/pref_style"
+            android:summary="@string/gr_inf"
+            android:title="@string/you_goupe" />
         <ListPreference
             android:defaultValue="@string/auto"
             android:dialogTitle="Текущая неделя"

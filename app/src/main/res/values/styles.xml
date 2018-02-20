@@ -4,17 +4,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/colorSigma</item>
     </style>
 
     <style name="ThemeWrithe" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="toolbarStyle">@style/ToolbarSule</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccentD</item>
-        <item name="android:textColor">#ffffff</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimaryA</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkA</item>
+        <item name="colorAccent">@color/colorPrimaryA</item>
     </style>
 
     <style name="ThemeDark" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -30,6 +25,10 @@
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+    <style name="TextWrithe" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorWhitee</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

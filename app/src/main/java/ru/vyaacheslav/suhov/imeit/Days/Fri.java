@@ -932,9 +932,6 @@ public class Fri extends Fragment {
 
     public void ThemeWrite() {
 
-        ThemeDark();
-/*
-        mk.setBackgroundResource(R.color.colorWhitee);
         p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         m_p1_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p1z.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -984,14 +981,13 @@ public class Fri extends Fragment {
         m_l4.setBackgroundResource(R.color.colorNewstitle);
         m_l5.setBackgroundResource(R.color.colorNewstitle);
         m_l6.setBackgroundResource(R.color.colorNewstitle);
-*/
+
 
 
     }
 
     public void ThemeDark() {
 
-        mk.setBackgroundResource(R.color.colorT);
         p1.setTextColor(getResources().getColor(R.color.colorWhitee));
         m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
         p1z.setTextColor(getResources().getColor(R.color.colorWhitee));
@@ -1028,10 +1024,6 @@ public class Fri extends Fragment {
         s10.setTextColor(getResources().getColor(R.color.colorWhitee));
         s11.setTextColor(getResources().getColor(R.color.colorWhitee));
         s12.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-
-
-
 
         l1.setBackgroundResource(R.color.colorSigma);
         l2.setBackgroundResource(R.color.colorSigma);

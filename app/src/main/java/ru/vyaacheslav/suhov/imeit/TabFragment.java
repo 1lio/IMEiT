@@ -54,8 +54,6 @@ public class TabFragment extends Fragment {
             viewPager.setCurrentItem(0, true);
         }
 
-        tabLayout.setBackgroundResource(R.color.colorPrimary);
-        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhitee));
         LoadPreferences();
         return v;
     }
@@ -66,8 +64,8 @@ public class TabFragment extends Fragment {
 
         switch (regular) {
             case "Светлая":
-                tabLayout.setBackgroundResource(R.color.colorPrimary);
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhitee));
+                tabLayout.setBackgroundResource(R.color.colorPrimaryA);
+                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccentA));
                 break;
             case "Темная":
                 tabLayout.setBackgroundResource(R.color.colorPrimaryD);

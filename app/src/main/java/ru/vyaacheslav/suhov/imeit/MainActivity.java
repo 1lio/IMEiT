@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -200,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
                 menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
             }
-
     }
 
     public void WeekZn(){
@@ -252,12 +252,13 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkA));
         }
         nv.setBackgroundResource(R.color.colorWhitee);
-        nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
-        nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorTextBlack)));
-        tb.setBackgroundResource(R.color.colorPrimary);
+        nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimarySS)));
+        nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimarySS)));
+        tb.setBackgroundResource(R.color.colorPrimaryA);
+        lm.setBackgroundResource(R.color.colorWhitee);
     }
 
     public void ThemeDark() {
@@ -270,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
         nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
         nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
         tb.setBackgroundResource(R.color.colorPrimaryD);
+        lm.setBackgroundResource(R.color.colorSigma);
     }
 
     public void onBackPressed() {

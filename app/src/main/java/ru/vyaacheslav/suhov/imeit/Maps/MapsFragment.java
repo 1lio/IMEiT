@@ -52,7 +52,7 @@ public class MapsFragment extends Fragment {
                 break;
             case "Темная":
                 tabLayout.setBackgroundResource(R.color.colorPrimary);
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhitee));
+                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
                 break;
         }
 

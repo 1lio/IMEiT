@@ -691,7 +691,7 @@ public class Tue extends Fragment {
 
         switch (regular) {
             case "Светлая":
-                ThemeDark();
+                ThemeWrite();
                 break;
             case "Темная":
                 ThemeDark();
@@ -701,7 +701,6 @@ public class Tue extends Fragment {
 
     public void ThemeWrite() {
 
-        mk.setBackgroundResource(R.color.colorWhitee);
         p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
         m_p1_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
         p1z.setTextColor(getResources().getColor(R.color.colorTextBlack));
@@ -742,7 +741,6 @@ public class Tue extends Fragment {
 
     public void ThemeDark() {
 
-        mk.setBackgroundResource(R.color.colorT);
         p1.setTextColor(getResources().getColor(R.color.colorWhitee));
         m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
         p1z.setTextColor(getResources().getColor(R.color.colorWhitee));

@@ -653,7 +653,8 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
                                     android:textColor="@color/colorTextSub"
-                                    android:textSize="12sp" />
+                                    android:textSize="12sp"
+                                    android:visibility="visible" />
                             </LinearLayout>
 
                             <LinearLayout

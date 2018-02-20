@@ -2,7 +2,7 @@
     <string name="app_name">ИМЕиТ</string>
 
     <string name="ob_ex_phys">Общая и экспериментальная физика</string>
-    <string name="rech_zad_pm">РЕШЕНИЕ ЗАДАЧ ЛИНЕЙНОЙ АЛГЕБРЫ И АНАЛИТИЧЕСКОЙ UЕОМЕТРИИ С ПОМОЩЬЮ МАТЕМАТИЧЕСКИХ ПАКЕТОВ</string>
+    <string name="rech_zad_pm">РЕШЕНИЕ ЗАДАЧ ЛИНЕЙНОЙ АЛГЕБРЫ И АНАЛИТИЧЕСКОЙ ГЕОМЕТРИИ С ПОМОЩЬЮ МАТЕМАТИЧЕСКИХ ПАКЕТОВ</string>
     <string name="ob_soc_geogr">Общая социальноэкономическая география</string>
     <string name="osn_geo">Основания геометрии</string>
     <string name="oop_an_pr">Объектно-ориентированный анализ и программирование</string>
@@ -211,7 +211,7 @@
     <string name="izd_sys">Издательские системы</string>
     <string name="dif_xz">Дифференциальное и интегральное исчисление фун. неск. пер.</string>
     <string name="dif_raz">Дифференциальные и  разностные уравнения</string>
-    <string name="za_ob_d">Защита и обработка конфиденциальных документов</string>
+    <string name="za_ob_d">Защита и обработка конф. док.</string>
     <string name="za_inf">Защита информации</string>
     <string name="crip_za">Криптографические методы защиты информации</string>
     <string name="met_opt">Методы оптимизации</string>
@@ -773,7 +773,7 @@
     <string name="caf_rad">Радиоэлектроники и компьютерной техники</string>
 
     <array name="themes">
-    <!--    <item>Светлая</item>-->
+        <item>Светлая</item>
         <item>Темная</item>
     </array>
 
