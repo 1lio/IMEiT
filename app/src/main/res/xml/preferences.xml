@@ -27,19 +27,16 @@
             android:entries="@array/weeks"
             android:entryValues="@array/weeks"
             android:key="@string/week_i"
-            android:summary="По умолчанию: Авто"
-            android:title="Счисление недели" />
+            android:title="Текущая неделя" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/filter_r">
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/pref_chek1"
-            android:summary="@string/lan_rasp"
             android:title="@string/eng" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="@string/pref_chek2"
-            android:summary="@string/lan_rasp"
             android:title="@string/nem" />
 
         <!--  <CheckBoxPreference

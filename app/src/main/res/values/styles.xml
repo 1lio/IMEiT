@@ -6,29 +6,52 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ThemeWrithe" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="ThemeWrithe" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/colorPrimaryA</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkA</item>
         <item name="colorAccent">@color/colorPrimaryA</item>
+
+        <item name="android:textColor">@color/colorTextBlack</item>
+
+        <item name="android:colorBackground">@color/colorWhitee</item>
+        <item name="android:textColorPrimaryInverse">@color/colorWhitee</item>
+        <item name="android:colorForeground">@color/colorNewstitle</item>
+        <item name="android:textColorSecondary">@color/colorNewstitle</item>
+        <item name="android:dialogTheme">@style/DialogStyle2</item>
+        <item name="android:alertDialogTheme">@style/DialogStyle2</item>
     </style>
 
-    <style name="ThemeDark" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimaryD</item>
-        <item name="toolbarStyle">@style/ToolbarSuleS</item>
+    <style name="ThemeDark" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkD</item>
         <item name="colorAccent">@color/colorAccentD</item>
-        <item name="android:textColor">#ffffff</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+        <item name="toolbarStyle">@style/ToolbarSuleS</item>
 
+        <item name="android:textColor">@color/colorWhitee</item>
+
+        <item name="android:colorBackground">@color/colorSigma</item>
+        <item name="android:colorForeground">@color/colorNewstitle</item>
+        <item name="android:textColorSecondary">@color/colorNewstitle</item>
+
+        <item name="android:dialogTheme">@style/DialogStyle2</item>
+        <item name="android:alertDialogTheme">@style/DialogStyle2</item>
+
+    </style>
+
+    <style name="DialogStyle2" parent="android:Theme.Material.Dialog">
+        <item name="android:textColor">#FFFF</item>
+        <item name="android:colorAccent">@color/colorPrimaryA</item>
+        <item name="android:textColorPrimary">@color/colorNewstitle</item>
+        <item name="android:background">@color/colorSigma</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
 
-    <style name="TextWrithe" parent="TextAppearance.AppCompat">
+    <style name="TextWrithe">
         <item name="android:textColor">@color/colorWhitee</item>
+        <item name="android:textColorSecondary">@color/colorNewstitle</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

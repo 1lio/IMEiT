@@ -37,11 +37,10 @@ public class Mon extends Fragment {
         InitViews();
 
         loadMethod();
-        LoadPreferences();
+     /* LoadPreferences();*/
      /*   MasterDepos();*/
      /* DeposElseAny();*/
-
-        Danger();
+    /*    Danger();*/
         return v;
     }
 
@@ -1152,6 +1151,16 @@ public class Mon extends Fragment {
 
     public void ThemeDark() {
         s1.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s2.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s3.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s4.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s5.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s6.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s7.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s8.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s9.setTextColor(getResources().getColor(R.color.colorWhitee));
+        s10.setTextColor(getResources().getColor(R.color.colorWhitee));
+
         p1.setTextColor(getResources().getColor(R.color.colorWhitee));
         m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
         p1z.setTextColor(getResources().getColor(R.color.colorWhitee));

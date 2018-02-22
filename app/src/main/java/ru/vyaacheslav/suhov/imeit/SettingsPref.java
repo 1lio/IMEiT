@@ -9,7 +9,6 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,18 +20,19 @@ import java.util.Objects;
 
 public class SettingsPref extends PreferenceActivity {
 
-    public ListPreference groupe, theme;
+    public ListPreference groupe, theme, week;
+    SharedPreferences prefs;
     private AppCompatDelegate mDelegate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String regular = prefs.getString(getString(R.string.pref_theme), "");
         if (Objects.equals(regular, "Светлая")) {
             setTheme(R.style.ThemeWrithe);
         }
         else if(Objects.equals(regular, "Темная")) {
-            setTheme(R.style.AppTheme);
+            setTheme(R.style.ThemeDark);
         }
 
         super.onCreate(savedInstanceState);
@@ -41,19 +41,17 @@ public class SettingsPref extends PreferenceActivity {
         getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         groupe = (ListPreference) findPreference(getString(R.string.pref_style));
         theme = (ListPreference) findPreference(getString(R.string.pref_theme));
+        week = (ListPreference) findPreference(getString(R.string.week_i));
 
         groupe.setSummary(groupe.getEntry());
         theme.setSummary(theme.getEntry());
+        week.setSummary(week.getEntry());
     }
 
     public void onBackPressed() {
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String position = prefs.getString(getString(R.string.pref_style), "");
 
         if (Objects.equals(position, "")) {
@@ -70,10 +68,6 @@ public class SettingsPref extends PreferenceActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         getDelegate().onPostCreate(savedInstanceState);
-    }
-
-    public ActionBar getSupportActionBar() {
-        return getDelegate().getSupportActionBar();
     }
 
     @Override

@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     public MenuItem inst1,inst2;
     public FragmentManager FM;
     public RelativeLayout lm;
+    int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
     private Menu menu;
     private Toolbar tb;
     private DrawerLayout dl;
@@ -87,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         inst2.setTitle(str2);
 
         // Дублирование, нужно подумать как этого избежать.
-
         // Транзакция фрагментов
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.main_tab:
-                        loadName();
                         FragmentTransaction ft1 = FM.beginTransaction();
                         ft1.replace(R.id.containerView, new TabFragment()).commit();
                         break;
@@ -133,8 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        loadName(); // Загрузка имени группы согласно настройкам
+        loadName(); // Загрузка имени группы согласно настройкам;
         loadTheme(); //  Загрузка темы основной темы приложения
     }
 
@@ -170,17 +168,11 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String position = prefs.getString(getString(R.string.week_i), "");
         switch (position) {
-            case "Авто": {
-                        // Ненужная настройка
-             WeekCh();  // Новый семестр начинается по умолчанию с числителя.
-                        // Функция дублирования
-                        // Неправильно + некрасивая конструкция
-            }
-            break;
             case "Числитель": {
                WeekCh();
             }
             break;
+
             case "Знаменатель": {
               WeekZn();
             }
@@ -189,9 +181,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void WeekCh(){
-
-        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 
             if(weekYear% 2 == 0){
                 Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
@@ -204,9 +193,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void WeekZn(){
-
-        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 
             if(weekYear% 2 == 0){
                 Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
@@ -230,7 +216,6 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
-
     // Загрузка выбора темы приложения
     private void loadTheme() {
 

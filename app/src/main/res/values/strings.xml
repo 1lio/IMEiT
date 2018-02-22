@@ -21,11 +21,10 @@
     <string-array name="weeks">
         <item>Числитель</item>
         <item>Знаменатель</item>
-        <item>Авто</item>
     </string-array>
 
-    <string name="auto">Авто</string>
-    <string name="week_i">Авто</string>
+    <string name="auto">Числитель</string>
+    <string name="week_i">Числитель</string>
 
     <string-array name="bak_groops">
 
