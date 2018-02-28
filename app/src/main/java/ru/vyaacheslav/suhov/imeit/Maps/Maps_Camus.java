@@ -73,37 +73,37 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.k1:
-                adresK = Uri.parse("geo:0,0?q=ул. Коммунаров, д. 28,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.Коммунаров, д. 28, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k2:
-                adresK = Uri.parse("geo:0,0?q=ул. Ленина, д. 91,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.Ленина, д. 91, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k3:
-                adresK = Uri.parse("geo:0,0?q=ул. Коммунаров, д. 15,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.Коммунаров, д. 15, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k4:
-                adresK = Uri.parse("geo:0,0?q=ул. 9 Декабря, д.72,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.9 Декабря, д.72, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k5:
-                adresK = Uri.parse("geo:0,0?q=ул. Ленина, д. 86,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.Ленина, д. 86, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k6:
-                adresK = Uri.parse("geo:0,0?q=ул. 9 Декабря, д. 13а,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул. 9 Декабря, д. 13а, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k7:
-                adresK = Uri.parse("geo:0,0?q=ул. Коммунаров, д. 37,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.Коммунаров, д. 37, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k8:
-                adresK = Uri.parse("geo:0,0?q=ул. Допризывников, д. 1,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.Допризывников, д. 1, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k9:
-                adresK = Uri.parse("geo:0,0?q=ул. Орджоникидзе, д.78,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.Орджоникидзе, д.78, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k10:
-                adresK = Uri.parse("geo:0,0?q=ул. Коммунаров, д. 39,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.Коммунаров, д. 39, + Елец,+Липецкая.обл.");
                 break;
             case R.id.k11:
-                adresK = Uri.parse("geo:0,0?q=ул. Коммунаров, д. 28,+Елец,+Липецкая+обл.");
+                adresK = Uri.parse("geo:0,0?q=ул.Коммунаров, д. 28, + Елец,+Липецкая.обл.");
                 break;
         }
 

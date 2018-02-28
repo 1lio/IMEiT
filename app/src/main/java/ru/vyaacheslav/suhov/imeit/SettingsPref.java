@@ -31,7 +31,7 @@ public class SettingsPref extends PreferenceActivity {
         if (Objects.equals(regular, "Светлая")) {
             setTheme(R.style.ThemeWrithe);
         }
-        else if(Objects.equals(regular, "Темная")) {
+         if(Objects.equals(regular, "Темная")) {
             setTheme(R.style.ThemeDark);
         }
 
@@ -57,7 +57,6 @@ public class SettingsPref extends PreferenceActivity {
         if (Objects.equals(position, "")) {
             Toast.makeText(getApplicationContext(), "Выберите группу", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(getApplicationContext(), "Настройки сохранены", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
             finish();

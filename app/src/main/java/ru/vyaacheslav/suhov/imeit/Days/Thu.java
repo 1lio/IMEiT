@@ -311,8 +311,8 @@ public class Thu extends Fragment {
         m_p3_kz.setText(rz);
     }
 
-    public void Less4(String l, String p, String t, String r, String lz, String pz, String tz, String rz, boolean i) {
-
+    public void Less4(String l, String p, String t, String r, String lz, String pz,
+                      String tz, String rz, boolean i) {
 
         if (i) {
             m_l4.setVisibility(View.VISIBLE);
@@ -348,6 +348,8 @@ public class Thu extends Fragment {
         m_p4_kz.setText(rz);
     }
 
+    // Херовый метод
+    // Дублирование
     public void loadMethod() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String position = prefs.getString(getString(R.string.pref_style), "");
@@ -652,9 +654,6 @@ public class Thu extends Fragment {
         Less3D(getString(R.string.ob_ex_phys), getString(R.string.kondakova), getString(R.string.pz), getString(R.string.uk1_10), true, true);
         Less4D(getString(R.string.m_analis), getString(R.string.melnikov), getString(R.string.pz), getString(R.string.uk4_26), true, true);
     }
-
-
-    //// Крыша едет едет
 
     public void PM_31() {
 

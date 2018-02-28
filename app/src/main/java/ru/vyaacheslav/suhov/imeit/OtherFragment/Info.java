@@ -175,6 +175,8 @@ public class Info extends Fragment implements View.OnClickListener {
                 break;
             default:
                 break;
+
+
         }
     }
 }
