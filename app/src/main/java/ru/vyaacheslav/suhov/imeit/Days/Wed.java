@@ -11,8 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.Calendar;
-
 import ru.vyaacheslav.suhov.imeit.R;
 
 
@@ -112,7 +110,6 @@ public class Wed extends Fragment {
 
         loadMethod();
         LoadPreferences();
-        Danger();
         return v;
     }
 
@@ -448,85 +445,6 @@ public class Wed extends Fragment {
                 break;
             default:
                 break;
-        }
-    }
-
-    private void Danger() {
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        if (prefs.getBoolean(getString(R.string.danger), false)) {
-            Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-            int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-
-            SharedPreferences prefss = PreferenceManager.getDefaultSharedPreferences(getContext());
-            String position = prefss.getString(getString(R.string.week_i), "");
-            switch (position) {
-
-                case "Числитель": {
-
-                    if ((weekYear % 2 == 0)) {
-
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-                    }
-                    // знаменатель
-                    else {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
-                    }
-
-                }
-                break;
-
-                case "Знаменатель": {
-                    if ((weekYear % 2 == 0)) {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
-                    }
-                    // знаменатель
-                    else {
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-                    }
-                }
-                break;
-
-                case "Авто": {
-                    //числитель
-                    if ((weekYear % 2 == 0)) {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
-                    }
-                    // знаменатель
-                    else {
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-                    }
-                }
-                break;
-                default:
-                    break;
-            }
-
         }
     }
 

@@ -12,15 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.Calendar;
-
+import ru.vyaacheslav.suhov.imeit.DaysSettings.DaysSettings;
 import ru.vyaacheslav.suhov.imeit.R;
 
-public class Mon extends Fragment {
+public class Mon extends Fragment{
 
     public View v;
     LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l1, m_l2, m_l3, m_l4, m_l5, m_l_4c, m_l_3c, m_l_2c, m_l_1c, m_l_5c;
     LinearLayout mm1, mm2, mm3, mm4, mm5, main_mon, youday;
+    DaysSettings ds = new DaysSettings();
     private RelativeLayout mk;
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
@@ -40,11 +40,12 @@ public class Mon extends Fragment {
      /* LoadPreferences();*/
      /*   MasterDepos();*/
      /* DeposElseAny();*/
-    /*    Danger();*/
+
+    ds.Danger(); // Проверить работет или нет по идее он вообще не нужон.
         return v;
     }
 
-    // Типа ООП, ну это херня
+
 
     public void Less1(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
@@ -553,87 +554,7 @@ public class Mon extends Fragment {
     }*/
 
 
-    // функция кастомизации 1 предмет в ячейке в завсисимости от дня недели
-    // Сделано через жопу - переделать
 
-    private void Danger() {
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        if (prefs.getBoolean(getString(R.string.danger), false)) {
-            Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-            int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-
-            SharedPreferences prefss = PreferenceManager.getDefaultSharedPreferences(getContext());
-            String position = prefss.getString(getString(R.string.week_i), "");
-            switch (position) {
-
-                case "Числитель": {
-
-                    if ((weekYear % 2 == 0)) {
-
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-                                            }
-                    // знаменатель
-                    else {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
-                    }
-
-                }
-                break;
-
-                case "Знаменатель": {
-                    if ((weekYear % 2 == 0)) {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
-                    }
-                    // знаменатель
-                    else {
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-                    }
-                }
-                break;
-
-                case "Авто": {
-                    //числитель
-                    if ((weekYear % 2 == 0)) {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
-                    }
-                    // знаменатель
-                    else {
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-                    }
-                }
-                break;
-                default:
-                    break;
-            }
-
-        }
-    }
 
     // Дальше идет огроменный кусок говнеца который нужно оптимизировать и научить работать с БД
     // Научить работать с БД того кто писал этот ужас.
@@ -902,98 +823,6 @@ public class Mon extends Fragment {
 
 
     }
-
-    //Пустой знаменатель
-    public void Null_Mon_Z() {
-        p1z.setVisibility(View.GONE);
-        p1az.setVisibility(View.GONE);
-        m_p1_tz.setVisibility(View.GONE);
-        m_p1_kz.setVisibility(View.GONE);
-        m_l_1c.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_Z_2() {
-        p2z.setVisibility(View.GONE);
-        p2az.setVisibility(View.GONE);
-        m_p2_tz.setVisibility(View.GONE);
-        m_p2_kz.setVisibility(View.GONE);
-        m_l_2c.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_Z_3() {
-        p3z.setVisibility(View.GONE);
-        p3az.setVisibility(View.GONE);
-        m_p3_tz.setVisibility(View.GONE);
-        m_p3_kz.setVisibility(View.GONE);
-        m_l_3c.setVisibility(View.GONE);
-
-    }
-
-    public void Null_Mon_Z_4() {
-        p4z.setVisibility(View.GONE);
-        p4az.setVisibility(View.GONE);
-        m_p4_tz.setVisibility(View.GONE);
-        m_p4_kz.setVisibility(View.GONE);
-        m_l_4c.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_Z_5() {
-        p5z.setVisibility(View.GONE);
-        p5az.setVisibility(View.GONE);
-        m_p5_tz.setVisibility(View.GONE);
-        m_p5_kz.setVisibility(View.GONE);
-
-        m_l_5c.setVisibility(View.GONE);
-
-    }
-
-    public void Null_Mon_C() {
-        p1.setVisibility(View.GONE);
-        p1a.setVisibility(View.GONE);
-        m_p1_t.setVisibility(View.GONE);
-        m_p1_k.setVisibility(View.GONE);
-
-        m_l1.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_C_2() {
-        p2.setVisibility(View.GONE);
-        p2a.setVisibility(View.GONE);
-        m_p2_t.setVisibility(View.GONE);
-        m_p2_k.setVisibility(View.GONE);
-
-        m_l2.setVisibility(View.GONE);
-
-    }
-
-    public void Null_Mon_C_3() {
-        p3.setVisibility(View.GONE);
-        p3a.setVisibility(View.GONE);
-        m_p3_t.setVisibility(View.GONE);
-        m_p3_k.setVisibility(View.GONE);
-
-        m_l3.setVisibility(View.GONE);
-
-    }
-
-    public void Null_Mon_C_4() {
-        p4.setVisibility(View.GONE);
-        p4a.setVisibility(View.GONE);
-        m_p4_t.setVisibility(View.GONE);
-        m_p4_k.setVisibility(View.GONE);
-
-        m_l4.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_C_5() {
-        p5.setVisibility(View.GONE);
-        p5a.setVisibility(View.GONE);
-        m_p5_t.setVisibility(View.GONE);
-        m_p5_k.setVisibility(View.GONE);
-
-        m_l5.setVisibility(View.GONE);
-    }
-
 
     //
     public void Fizra_1kurs() {

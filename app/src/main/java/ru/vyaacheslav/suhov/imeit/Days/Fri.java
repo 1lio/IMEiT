@@ -11,8 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.Calendar;
-
+import ru.vyaacheslav.suhov.imeit.DaysSettings.DaysSettings;
 import ru.vyaacheslav.suhov.imeit.R;
 
 
@@ -25,6 +24,7 @@ public class Fri extends Fragment {
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z,
             p6, m_p6_tz, m_p6_kz, p6a, m_p6_t, m_p6_k, p6az, p6z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12;
 
+    DaysSettings ds = new DaysSettings();
     RelativeLayout mk;
     public Fri() {
     }
@@ -127,7 +127,6 @@ public class Fri extends Fragment {
 
         LoadPreferences();
         loadMethod();
-        Danger();
         return v;
     }
 
@@ -498,84 +497,6 @@ public class Fri extends Fragment {
         }
     }
 
-    private void Danger() {
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        if (prefs.getBoolean(getString(R.string.danger), false)) {
-            Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-            int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-
-            SharedPreferences prefss = PreferenceManager.getDefaultSharedPreferences(getContext());
-            String position = prefss.getString(getString(R.string.week_i), "");
-            switch (position) {
-
-                case "Числитель": {
-
-                    if ((weekYear % 2 == 0)) {
-
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-                    }
-                    // знаменатель
-                    else {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
-                    }
-
-                }
-                break;
-
-                case "Знаменатель": {
-                    if ((weekYear % 2 == 0)) {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
-                    }
-                    // знаменатель
-                    else {
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-                    }
-                }
-                break;
-
-                case "Авто": {
-                    //числитель
-                    if ((weekYear % 2 == 0)) {
-                        Null_Mon_C();
-                        Null_Mon_C_2();
-                        Null_Mon_C_3();
-                        Null_Mon_C_4();
-                        Null_Mon_C_5();
-                    }
-                    // знаменатель
-                    else {
-                        Null_Mon_Z();
-                        Null_Mon_Z_2();
-                        Null_Mon_Z_3();
-                        Null_Mon_Z_4();
-                        Null_Mon_Z_5();
-                    }
-                }
-                break;
-                default:
-                    break;
-            }
-
-        }
-    }
     // Первый курс
     public void FMiI_11() {
 
@@ -718,103 +639,6 @@ public class Fri extends Fragment {
 
     }
 
-
-    //Пустой знаменатель
-    public void Null_Mon_Z() {
-        p1z.setVisibility(View.GONE);
-        p1az.setVisibility(View.GONE);
-        m_p1_tz.setVisibility(View.GONE);
-        m_p1_kz.setVisibility(View.GONE);
-        m_l_1z.setVisibility(View.GONE);
-        m_l1.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_Z_2() {
-        p2z.setVisibility(View.GONE);
-        p2az.setVisibility(View.GONE);
-        m_p2_tz.setVisibility(View.GONE);
-        m_p2_kz.setVisibility(View.GONE);
-        m_l_2z.setVisibility(View.GONE);
-        m_l2.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_Z_3() {
-        p3z.setVisibility(View.GONE);
-        p3az.setVisibility(View.GONE);
-        m_p3_tz.setVisibility(View.GONE);
-        m_p3_kz.setVisibility(View.GONE);
-        m_l_3z.setVisibility(View.GONE);
-        m_l3.setVisibility(View.GONE);
-
-    }
-
-    public void Null_Mon_Z_4() {
-        p4z.setVisibility(View.GONE);
-        p4az.setVisibility(View.GONE);
-        m_p4_tz.setVisibility(View.GONE);
-        m_p4_kz.setVisibility(View.GONE);
-        m_l_4z.setVisibility(View.GONE);
-        m_l4.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_Z_5() {
-        p5z.setVisibility(View.GONE);
-        p5az.setVisibility(View.GONE);
-        m_p5_tz.setVisibility(View.GONE);
-        m_p5_kz.setVisibility(View.GONE);
-    /*    m_l_5z.setVisibility(View.GONE);*/
-        m_l5.setVisibility(View.GONE);
-
-    }
-
-    public void Null_Mon_C() {
-        p1.setVisibility(View.GONE);
-        p1a.setVisibility(View.GONE);
-        m_p1_t.setVisibility(View.GONE);
-        m_p1_k.setVisibility(View.GONE);
-
-        m_l1.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_C_2() {
-        p2.setVisibility(View.GONE);
-        p2a.setVisibility(View.GONE);
-        m_p2_t.setVisibility(View.GONE);
-        m_p2_k.setVisibility(View.GONE);
-
-        m_l2.setVisibility(View.GONE);
-
-    }
-
-    public void Null_Mon_C_3() {
-        p3.setVisibility(View.GONE);
-        p3a.setVisibility(View.GONE);
-        m_p3_t.setVisibility(View.GONE);
-        m_p3_k.setVisibility(View.GONE);
-
-        m_l3.setVisibility(View.GONE);
-
-    }
-
-    public void Null_Mon_C_4() {
-        p4.setVisibility(View.GONE);
-        p4a.setVisibility(View.GONE);
-        m_p4_t.setVisibility(View.GONE);
-        m_p4_k.setVisibility(View.GONE);
-
-        m_l4.setVisibility(View.GONE);
-    }
-
-    public void Null_Mon_C_5() {
-        p5.setVisibility(View.GONE);
-        p5a.setVisibility(View.GONE);
-        m_p5_t.setVisibility(View.GONE);
-        m_p5_k.setVisibility(View.GONE);
-
-        m_l5.setVisibility(View.GONE);
-    }
-
-
     public void MIitM() {
 
 
@@ -866,7 +690,6 @@ public class Fri extends Fragment {
         p4.setText(getResources().getString(R.string.lang_mag));
         p4a.setText(getResources().getString(R.string.leb_sedova));
         m_p4_k.setText(getResources().getString(R.string.uk4_28_13));
-        Null_Mon_Z_4();
     }
 
     public void IIvtm_21() {

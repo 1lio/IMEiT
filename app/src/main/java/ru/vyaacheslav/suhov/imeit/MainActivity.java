@@ -27,6 +27,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import ru.vyaacheslav.suhov.imeit.Cafedrs.CafedraMain;
+import ru.vyaacheslav.suhov.imeit.DaysSettings.DaysSettings;
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public FragmentManager FM;
     public RelativeLayout lm;
     int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+    DaysSettings ds = new DaysSettings();
     private Menu menu;
     private Toolbar tb;
     private DrawerLayout dl;
@@ -50,6 +52,16 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Править эту байду /// Очень интересно
+        // Проверить этот кусок
+
+        SharedPreferences prefss = PreferenceManager.getDefaultSharedPreferences(getApplication());
+        String dayWeek = prefss.getString(getString(R.string.week_i), "");
+        ds.typeWeek = dayWeek;
+        ds.prefs = prefss;
+
+
 
         // Проверка на первый запуск приложения
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
