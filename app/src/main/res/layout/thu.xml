@@ -76,7 +76,6 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="10:05"
-                                android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -107,7 +106,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -116,7 +114,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -132,7 +129,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -141,7 +137,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -150,7 +145,7 @@
                             android:id="@+id/th_l1"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/colorNewstitle"
+                            android:background="@color/colorTextSub"
                             android:orientation="vertical" />
 
                         <LinearLayout
@@ -175,7 +170,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -184,7 +178,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -200,7 +193,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -209,7 +201,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -277,7 +268,6 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="11:50"
-                                android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -309,7 +299,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -318,7 +307,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -334,7 +322,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -343,7 +330,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -352,7 +338,7 @@
                             android:id="@+id/th_l2"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/colorNewstitle"
+                            android:background="@color/colorTextSub"
                             android:orientation="vertical"
                             android:visibility="visible" />
 
@@ -378,7 +364,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -387,7 +372,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -403,7 +387,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -412,7 +395,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -481,7 +463,6 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="14:05"
-                                android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -513,7 +494,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -522,7 +502,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -539,7 +518,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -548,7 +526,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -557,7 +534,7 @@
                             android:id="@+id/th_l3"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/colorNewstitle"
+                            android:background="@color/colorTextSub"
                             android:orientation="vertical" />
 
                         <LinearLayout
@@ -582,7 +559,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -591,7 +567,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -607,7 +582,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -616,7 +590,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -688,7 +661,6 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="15:50"
-                                android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -720,7 +692,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -729,7 +700,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -745,7 +715,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -754,7 +723,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -763,7 +731,7 @@
                             android:id="@+id/th_l4"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/colorNewstitle"
+                            android:background="@color/colorTextSub"
                             android:orientation="vertical" />
 
                         <LinearLayout
@@ -788,7 +756,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@android:color/background_light"
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -797,7 +764,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -813,7 +779,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@android:color/background_light"
+
                                     android:textSize="12sp"
                                     android:textStyle="bold" />
 
@@ -822,7 +788,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
+
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -892,7 +858,6 @@
                                 android:layout_weight="1"
                                 android:gravity="center"
                                 android:text="17:35"
-                                android:textColor="@color/colorTextSub"
                                 android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -932,7 +897,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -956,7 +920,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
@@ -965,7 +928,7 @@
                             android:id="@+id/h_l5"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="@color/colorNewstitle"
+                            android:background="@color/colorTextSub"
                             android:orientation="vertical" />
 
                         <LinearLayout
@@ -998,7 +961,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="left|center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="10sp" />
                             </LinearLayout>
 
@@ -1022,7 +984,6 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:textColor="@color/colorTextSub"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>

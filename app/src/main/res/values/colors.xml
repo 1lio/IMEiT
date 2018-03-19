@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--TODO: Оптимизировать колличество цветов|Убрать лишние-->
+<!--TODO: Добавить коментарии к цветам ?? Если в этом есть необходимость-->
 <resources>
     <color name="colorPrimary">#1f2429</color>1976d1
     <color name="colorPrimaryDark">#16191d</color>004b9f
@@ -6,20 +9,18 @@
 
     <color name="colorPrimaryA">#1976d1</color>1976d1
     <color name="colorPrimaryDarkA">#004b9f</color>004b9f
-    <color name="colorAccentA">#e9e9e9</color>1976d1
+    <color name="colorAccentA">#1976d1</color>1976d1
 
-    <color name="colorPrimaryD">#1f2429</color>
     <color name="colorPrimaryDarkD">#16191d</color>
-    <color name="colorAccentD">#659801</color>
 
     <color name="colorTextSub">#61676e</color>
     <color name="colorTextBlack">#101010</color>
-    <color name="colorNewstitle">#7e7e7e</color>
+
     <color name="colorPrimaryS">#1e1e1e</color>
     <color name="colorPrimarySS">#232323</color>
     <color name="colorSigma">#21262b</color>
     <color name="colorPrimaryF">#121212</color>
     <color name="colorT">#2b3239</color>
-    <color name="colorTes">#f4f4f4</color>
-    <color name="colorWhitee">#ffffff</color>
+    <color name="colorWhite">#ffffff</color>
+
 </resources>

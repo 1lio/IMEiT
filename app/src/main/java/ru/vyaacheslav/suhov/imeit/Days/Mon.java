@@ -9,25 +9,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import ru.vyaacheslav.suhov.imeit.DaysSettings.DaysSettings;
 import ru.vyaacheslav.suhov.imeit.R;
 
 public class Mon extends Fragment{
 
+    //Дохера переменных
+
     public View v;
-    LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l1, m_l2, m_l3, m_l4, m_l5, m_l_4c, m_l_3c, m_l_2c, m_l_1c, m_l_5c;
-    LinearLayout mm1, mm2, mm3, mm4, mm5, main_mon, youday;
-    DaysSettings ds = new DaysSettings();
-    private RelativeLayout mk;
+    public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l1, m_l2, m_l3, m_l4, m_l5, m_l_4c, m_l_3c, m_l_2c, m_l_1c, m_l_5c;
+    public LinearLayout mm1, mm2, mm3, mm4, mm5, main_mon, youday;
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
-            p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z;
-    private TextView s1,s2,s3,s4,s5,s6,s7,s8,s9,s10;
+            p5, p5a, m_p5_t, m_p5_k;
 
-    public Mon() {    }
+    public Mon() {}
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -35,17 +32,9 @@ public class Mon extends Fragment{
 
         v = inflater.inflate(R.layout.mon, container, false);
         InitViews();
-
         loadMethod();
-     /* LoadPreferences();*/
-     /*   MasterDepos();*/
-     /* DeposElseAny();*/
-
-    ds.Danger(); // Проверить работет или нет по идее он вообще не нужон.
         return v;
     }
-
-
 
     public void Less1(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
@@ -190,13 +179,11 @@ public class Mon extends Fragment{
         m_p4_kz.setText(rz);
     }
 
-    public void Less5(String l, String p, String t, String r, boolean i) {
+    public void Less5(String l, String p, String t, String r) {
 
-        if (i) {
-            m_l5.setVisibility(View.VISIBLE);
-        } else {
-            m_l5.setVisibility(View.GONE);
-        }
+       // 5 пара только у 1 группы поэтому проверки нет
+        // исправить в последующих версиях
+        m_l5.setVisibility(View.GONE);
 
         p5.setText(l);
         p5a.setText(p);
@@ -344,7 +331,6 @@ public class Mon extends Fragment{
 
     public void InitViews() {
 
-        mk = v.findViewById(R.id.mk1);
         main_mon = v.findViewById(R.id.main_mon);
         youday = v.findViewById(R.id.you_day);
 
@@ -399,10 +385,6 @@ public class Mon extends Fragment{
         p5a = v.findViewById(R.id.m_p5a);
         m_p5_t = v.findViewById(R.id.m_p5_t);
         m_p5_k = v.findViewById(R.id.m_p5_k);
-        p5z = v.findViewById(R.id.m_p5z);
-        p5az = v.findViewById(R.id.m_p5_az);
-        m_p5_tz = v.findViewById(R.id.m_p5_tz);
-        m_p5_kz = v.findViewById(R.id.m_p5_kz);
 
         mm1 = v.findViewById(R.id.mm1);
         mm2 = v.findViewById(R.id.mm2);
@@ -415,149 +397,10 @@ public class Mon extends Fragment{
         m_l3 = v.findViewById(R.id.m_l3);
         m_l4 = v.findViewById(R.id.m_l4);
         m_l5 = v.findViewById(R.id.m_l5);
-
-        s1 =  v.findViewById(R.id.s1);
-        s2 =  v.findViewById(R.id.s2);
-        s3 =  v.findViewById(R.id.s3);
-        s4 =  v.findViewById(R.id.s4);
-        s5 =  v.findViewById(R.id.s5);
-        s6 =  v.findViewById(R.id.s6);
-        s7 =  v.findViewById(R.id.s7);
-        s8 =  v.findViewById(R.id.s8);
-        s9 =  v.findViewById(R.id.s9);
-        s10 =  v.findViewById(R.id.s10);
-
     }
-
-    // полное удаление строк.
-    // полноценно работает только с отображение чс и зн
-    // отложу реализацию на более поздний срок
-
-/*    private void MasterDepos() {
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (prefs.getBoolean(getString(R.string.depos), false)) {
-            if ((p1.getText().length() == 0) && (p1z.getText().length() == 0))
-                mm1.setVisibility(View.GONE);
-            if ((p2.getText().length() == 0) && (p2z.getText().length() == 0))
-                mm2.setVisibility(View.GONE);
-            if ((p3.getText().length() == 0) && (p3z.getText().length() == 0))
-                mm3.setVisibility(View.GONE);
-            if ((p4.getText().length() == 0) && (p4z.getText().length() == 0))
-                mm4.setVisibility(View.GONE);
-            if ((p5.getText().length() == 0) && (p5z.getText().length() == 0))
-                mm5.setVisibility(View.GONE);
-        } else {
-        }
-    }
-
-    private void DeposElseAny(){
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-        int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-
-        SharedPreferences prefss = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String position = prefss.getString(getString(R.string.week_i), "");
-
-        if (prefs.getBoolean(getString(R.string.depos), false)) {
-            switch (position) {
-                case "Числитель": {
-                    if ((weekYear % 2 == 0)) {
-                        if ((p1z.getText().length() == 0))
-                            mm1.setVisibility(View.GONE);
-                        if ((p2z.getText().length() == 0))
-                            mm2.setVisibility(View.GONE);
-                        if ((p3z.getText().length() == 0))
-                            mm3.setVisibility(View.GONE);
-                        if ((p4z.getText().length() == 0))
-                            mm4.setVisibility(View.GONE);
-                        if ((p5z.getText().length() == 0))
-                            mm5.setVisibility(View.GONE);
-                    } else {
-                        if ((p1.getText().length() == 0))
-                            mm1.setVisibility(View.GONE);
-                        if ((p2.getText().length() == 0))
-                            mm2.setVisibility(View.GONE);
-                        if ((p3.getText().length() == 0))
-                            mm3.setVisibility(View.GONE);
-                        if ((p4.getText().length() == 0))
-                            mm4.setVisibility(View.GONE);
-                        if ((p5.getText().length() == 0))
-                            mm5.setVisibility(View.GONE);
-                    }
-                }
-                break;
-                case "Знаменатель": {
-                    if ((weekYear % 2 == 0)) {
-                        if ((p1z.getText().length() == 0))
-                            mm1.setVisibility(View.GONE);
-                        if ((p2z.getText().length() == 0))
-                            mm2.setVisibility(View.GONE);
-                        if ((p3z.getText().length() == 0))
-                            mm3.setVisibility(View.GONE);
-                        if ((p4z.getText().length() == 0))
-                            mm4.setVisibility(View.GONE);
-                        if ((p5z.getText().length() == 0))
-                            mm5.setVisibility(View.GONE);
-                    } else {
-                        if ((p1z.getText().length() == 0))
-                            mm1.setVisibility(View.GONE);
-                        if ((p2z.getText().length() == 0))
-                            mm2.setVisibility(View.GONE);
-                        if ((p3z.getText().length() == 0))
-                            mm3.setVisibility(View.GONE);
-                        if ((p4z.getText().length() == 0))
-                            mm4.setVisibility(View.GONE);
-                        if ((p5z.getText().length() == 0))
-                            mm5.setVisibility(View.GONE);
-
-                    }
-                }
-                break;
-
-                case "Авто": {
-                    //числитель
-                    if ((weekYear % 2 == 0)) {
-
-                        if ((p1z.getText().length() == 0))
-                            mm1.setVisibility(View.GONE);
-                        if ((p2z.getText().length() == 0))
-                            mm2.setVisibility(View.GONE);
-                        if ((p3z.getText().length() == 0))
-                            mm3.setVisibility(View.GONE);
-                        if ((p4z.getText().length() == 0))
-                            mm4.setVisibility(View.GONE);
-                        if ((p5z.getText().length() == 0))
-                            mm5.setVisibility(View.GONE);
-                    } else {
-                        if ((p1.getText().length() == 0))
-                            mm1.setVisibility(View.GONE);
-                        if ((p2.getText().length() == 0))
-                            mm2.setVisibility(View.GONE);
-                        if ((p3.getText().length() == 0))
-                            mm3.setVisibility(View.GONE);
-                        if ((p4.getText().length() == 0))
-                            mm4.setVisibility(View.GONE);
-                        if ((p5.getText().length() == 0))
-                            mm5.setVisibility(View.GONE);
-                    }
-
-                }
-                break;
-                default:
-                    break;
-            }
-        }
-        else {}
-
-    }*/
-
-
-
 
     // Дальше идет огроменный кусок говнеца который нужно оптимизировать и научить работать с БД
-    // Научить работать с БД того кто писал этот ужас.
+    // TODO: Научить работать с БД.
 
     // Первый курс
     public void FMiI_11() {
@@ -797,32 +640,19 @@ public class Mon extends Fragment{
                 getString(R.string.seti_tv), getString(R.string.igonina), getString(R.string.pz), getString(R.string.uk4_22), true);
         Less4(getString(R.string.admins), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk16_301a),
                 null,null,null,null, false);
-        Less5(getString(R.string.admins), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk16_301a),false);
+        Less5(getString(R.string.admins), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk16_301a));
     }
+    public void MIitM() {   }
 
+    public void PMm_11() {    }
 
+    public void IIvtm_11() {   }
 
-    public void MIitM() {
-    }
+    public void Mm_21() {   }
 
-    public void PMm_11() {
+    public void Pmm_21() {    }
 
-    }
-
-    public void IIvtm_11() {
-    }
-
-    public void Mm_21() {
-    }
-
-    public void Pmm_21() {
-
-    }
-
-    public void IIvtm_21() {
-
-
-    }
+    public void IIvtm_21() {    }
 
     //
     public void Fizra_1kurs() {
@@ -851,164 +681,33 @@ public class Mon extends Fragment{
         youday.setVisibility(View.VISIBLE);
         main_mon.setVisibility(View.GONE);
     }
-
-
     // Физико математический факультет
 
-    public void XBiG_11() {
+    public void XBiG_11() {    }
 
+    public void FC_11() {    }
 
-    }
+    public void FR_11() {    }
 
-    public void FC_11() {
+    public void FR_12() {    }
 
+    public void FC_21() {    }
 
+    public void FR_21() {    }
 
-    }
+    public void BX_31() {    }
 
-    public void FR_11() {
+    public void ME_31() {    }
 
+    public void FC_31() {    }
 
+    public void FP_31() {    }
 
-    }
+    public void FC_41() {    }
 
-    public void FR_12() {
+    public void FP_41() {    }
 
-    }
+    public void FCm_11() {   }
 
-    public void FC_21() {
-
-
-    }
-
-    public void FR_21() {
-
-
-
-    }
-
-    public void BX_31() {
-
-
-    }
-
-    public void ME_31() {
-
-
-    }
-
-    public void FC_31() {
-
-
-    }
-
-    public void FP_31() {
-
-
-    }
-
-    public void FC_41() {
-
-
-    }
-
-    public void FP_41() {
-
-
-    }
-
-    public void FCm_11() {
-
-
-    }
-
-    public void FCm_21() {
-
-
-    }
-
-    // загрузка настроек кастыльный
-
-    private void LoadPreferences() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
-
-        switch (regular) {
-            case "Светлая":
-                ThemeWrite();
-                break;
-            case "Темная":
-                ThemeDark();
-                break;
-        }
-    }
-
-    public void ThemeWrite() {
-
-        s1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s5.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s6.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s7.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s8.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s9.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s10.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        mk.setBackgroundResource(R.color.colorWhitee);
-        p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p1_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p1z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p1_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        p2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p2_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p2z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p2_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        p3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p3_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p3z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p3_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p4_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-    }
-
-    public void ThemeDark() {
-        s1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s4.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s5.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s6.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s7.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s8.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s9.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s10.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p1z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p1_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p2_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p2z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p2_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p3_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p3z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p3_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p4.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p4_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p4z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p4_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-    }
+    public void FCm_21() {   }
 }

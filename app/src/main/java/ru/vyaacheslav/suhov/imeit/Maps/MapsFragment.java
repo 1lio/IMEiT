@@ -38,17 +38,17 @@ public class MapsFragment extends Fragment {
         return v;
     }
 
+
+    //TODO: Добавить в styles.xml - не приоритетно
     private void LoadPreferences() {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String regular = prefs.getString(getString(R.string.pref_theme), "");
-        tabLayout.setBackgroundResource(R.color.colorPrimary);
-        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
 
         switch (regular) {
             case "Светлая":
-                tabLayout.setBackgroundResource(R.color.colorPrimarySS);
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
+                tabLayout.setBackgroundResource(R.color.colorAccentA);
+                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhite));
                 break;
             case "Темная":
                 tabLayout.setBackgroundResource(R.color.colorPrimary);

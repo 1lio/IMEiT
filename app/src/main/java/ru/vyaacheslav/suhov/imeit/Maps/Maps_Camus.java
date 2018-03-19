@@ -1,10 +1,8 @@
 package ru.vyaacheslav.suhov.imeit.Maps;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,7 +63,6 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
         k10.setOnClickListener(this);
         k11.setOnClickListener(this);
 
-        LoadPreferences();
         return v;
     }
 
@@ -110,53 +107,5 @@ public class Maps_Camus extends Fragment implements View.OnClickListener {
         agr = new Intent(Intent.ACTION_VIEW, adresK);
         agr.setPackage("com.google.android.apps.maps");
         startActivity(agr);
-    }
-
-    private void LoadPreferences() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
-
-        switch (regular) {
-            case "Светлая":
-                ThemeWrite();
-                break;
-            case "Темная":
-                ThemeDark();
-                break;
-        }
-    }
-
-    public void ThemeWrite() {
-
-
-
-        q1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q5.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q6.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q7.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q8.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q9.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q10.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        q11.setTextColor(getResources().getColor(R.color.colorTextBlack));
-    }
-
-    public void ThemeDark() {
-
-
-
-        q1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q4.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q5.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q6.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q7.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q8.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q9.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q10.setTextColor(getResources().getColor(R.color.colorWhitee));
-        q11.setTextColor(getResources().getColor(R.color.colorWhitee));
     }
 }

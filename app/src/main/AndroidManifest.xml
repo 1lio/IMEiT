@@ -31,7 +31,7 @@
             android:label="@string/settings"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/ThemeWrithe" />
     </application>
 
 </manifest>

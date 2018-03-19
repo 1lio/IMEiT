@@ -111,7 +111,6 @@ public class Tue extends Fragment {
         m_p5_kz = v.findViewById(R.id.t_p5_kz);
 
         loadMethod();
-        LoadPreferences();
         return v;
     }
 
@@ -603,93 +602,6 @@ public class Tue extends Fragment {
     }
 
 
-    private void LoadPreferences() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
-
-        switch (regular) {
-            case "Светлая":
-                ThemeWrite();
-                break;
-            case "Темная":
-                ThemeDark();
-                break;
-        }
-    }
-
-    public void ThemeWrite() {
-
-        p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p1_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p1z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p1_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        p2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p2_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p2z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p2_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        p3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p3_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p3z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p3_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p4_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        s1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s5.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s6.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s7.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s8.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s9.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s10.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-        l1.setBackgroundResource(R.color.colorNewstitle);
-        l2.setBackgroundResource(R.color.colorNewstitle);
-        l3.setBackgroundResource(R.color.colorNewstitle);
-        l4.setBackgroundResource(R.color.colorNewstitle);
-
-    }
-
-    public void ThemeDark() {
-
-        p1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p1z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p1_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p2_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p2z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p2_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p3_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p3z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p3_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p4.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p4_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p4z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p4_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        s1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s4.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s5.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s6.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s7.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s8.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s9.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s10.setTextColor(getResources().getColor(R.color.colorWhitee));
-    }
 
     public void XBiG_11() {}
 

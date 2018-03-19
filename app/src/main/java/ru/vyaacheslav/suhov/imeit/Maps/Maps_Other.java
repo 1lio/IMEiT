@@ -1,10 +1,8 @@
 package ru.vyaacheslav.suhov.imeit.Maps;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,8 +43,6 @@ public class Maps_Other extends Fragment implements View.OnClickListener {
         hos2.setOnClickListener(this);
         hos3.setOnClickListener(this);
         hos4.setOnClickListener(this);
-
-        LoadPreferences();
         return v;
     }
 
@@ -72,33 +68,4 @@ public class Maps_Other extends Fragment implements View.OnClickListener {
         startActivity(agr);
     }
 
-    private void LoadPreferences() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
-
-        switch (regular) {
-            case "Светлая":
-                ThemeWrite();
-                break;
-            case "Темная":
-                ThemeDark();
-                break;
-        }
-    }
-
-    public void ThemeWrite() {
-        l1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        l2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        l3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        l4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-    }
-
-    public void ThemeDark() {
-        l1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        l2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        l3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        l4.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-    }
 }

@@ -5,90 +5,22 @@
             android:id="@+id/main_tab"
             android:icon="@drawable/tab1"
             android:title="@string/ras" />
-     <!--   <item
-            android:id="@+id/exam"
-            android:icon="@drawable/ic_assignment_turned_in_black_24dp"
-            android:title="@string/exam_a_z" />-->
         <item
-            android:id="@+id/you_tab"
+            android:id="@+id/time_alarm"
             android:icon="@drawable/ic_access_time"
             android:title="@string/time_zvonok" />
 
     </group>
 
     <item
-        android:id="@+id/instr1"
         android:title="@string/others2">
         <menu>
             <group android:checkableBehavior="single">
-                <!--        <item
-                            android:id="@+id/news"
-                            android:icon="@drawable/ic_rss_feed_black_24dp"
-                            android:title="@string/news" />-->
                 <item
                     android:id="@+id/map"
                     android:icon="@drawable/ic_map_black_24dp"
                     android:title="@string/maps" />
             </group>
-
         </menu>
     </item>
-    <item
-        android:id="@+id/instr2"
-        android:title="Институт">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/info"
-                    android:icon="@drawable/ic_info_outline_black_24dp"
-                    android:title="@string/inf" />
-
-                <item
-                    android:id="@+id/caf1"
-                    android:icon="@drawable/ic_equalizer_black_24dp"
-                    android:title="Кафедры" />
-              <!--  <item
-                    android:id="@+id/prepods"
-                    android:icon="@drawable/ic_school_black_24dp"
-                    android:title="Преподовательский состав" />-->
-
-            </group>
-        </menu>
-
-    </item>
-
-<!--    <item
-        android:id="@+id/other"
-        android:title="Прочее">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/share"
-                    android:icon="@drawable/ic_share_black_24dp"
-                    android:title="@string/share" />
-            </group>
-        </menu>
-
-    </item>-->
-
-
-    <!--<item android:id="@+id/inf"
-        android:title="@string/others">
-        <menu>
-            <group
-                android:checkableBehavior="single">
-                <item
-                    android:id="@+id/about"
-                    android:icon="@drawable/ic_info_black_24dp"
-                    android:title="@string/info" />
-
-                автобусы, как писать курсовую, найти преподователя, каталог библиотеки(хотя нах она нужна)
-                ближайшая закусочная(тоже), бумажные вопросы(хз), методички(!где их найти?) - из всего
-                выше можно добавить пока 3, где идеи?...
-                &ndash;&gt;
-            </group>
-        </menu>
-    </item>-->
-
-
 </menu>

@@ -11,9 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import ru.vyaacheslav.suhov.imeit.DaysSettings.DaysSettings;
 import ru.vyaacheslav.suhov.imeit.R;
-
 
 public class Fri extends Fragment {
 
@@ -24,16 +22,13 @@ public class Fri extends Fragment {
             p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z,
             p6, m_p6_tz, m_p6_kz, p6a, m_p6_t, m_p6_k, p6az, p6z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12;
 
-    DaysSettings ds = new DaysSettings();
     RelativeLayout mk;
-    public Fri() {
-    }
+    public Fri() {  }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fri, container, false);
-
 
         main_mon = v.findViewById(R.id.main_fri);
         youday = v.findViewById(R.id.you_day_fri);
@@ -125,7 +120,6 @@ public class Fri extends Fragment {
         m_p6_tz = v.findViewById(R.id.f_p6_tz);
         m_p6_kz = v.findViewById(R.id.f_p6_kz);
 
-        LoadPreferences();
         loadMethod();
         return v;
     }
@@ -328,7 +322,6 @@ public class Fri extends Fragment {
     public void Less4(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
 
-
         if (i) {
             m_l4.setVisibility(View.VISIBLE);
         } else {
@@ -358,7 +351,6 @@ public class Fri extends Fragment {
         m_p4_tz.setText(tz);
         m_p4_kz.setText(rz);
     }
-
 
     public void loadMethod() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -542,9 +534,6 @@ public class Fri extends Fragment {
 
         Less1D(getString(R.string.com_gra), getString(R.string.zaburaeva), getString(R.string.lk),getString(R.string.uk15_305),true, true);
         Less2D(getString(R.string.data_bases), getString(R.string.zaburaeva), getString(R.string.lk),getString(R.string.uk15_305),true, true);
-
-
-
     }
 
     public void BI_21() {
@@ -570,48 +559,36 @@ public class Fri extends Fragment {
 
         Less3(null,null,null,null,getString(R.string.k_mir), getString(R.string.trofimova), getString(R.string.lk),getString(R.string.uk4_27), true);
         Less4D(getString(R.string.politologia), getString(R.string.usacheva), getString(R.string.lk),getString(R.string.uk4_27),true, true);
-
     }
 
 
     public void MF_31() {
-
         YouDay();
     }
 
     public void PM_31() {
-
         YouDay();
     }
 
     public void IiVT_31() {
-
         Less1D(getString(R.string.os), getString(R.string.tarov), getString(R.string.lk),getString(R.string.uk16_301a),true, true);
         Less2D(getString(R.string.com_gra), getString(R.string.gladkih), getString(R.string.lk),getString(R.string.uk4_22),true, true);
-
-
     }
 
     public void NE_31() {
 
         YouDay();
-
-
     }
 
     // 4 курс
     public void M_41() {
-
         Less1(null,null,null,null,getString(R.string.his_mat), getString(R.string.savvina), getString(R.string.lk),getString(R.string.uk4_15), true);
         Less2D(getString(R.string.his_mat), getString(R.string.savvina), getString(R.string.lk),getString(R.string.uk4_15), false,false);
-
     }
 
     public void FM_41() {
-
         Less3D(getString(R.string.met_or_astr_tex), getString(R.string.kondakova), getString(R.string.pz),getString(R.string.uk1_11), false,false);
         Less4D(getString(R.string.kvant_ph), getString(R.string.filimonova), getString(R.string.pz),getString(R.string.uk1_5), true,true);
-
     }
 
     public void PM_41() {
@@ -623,33 +600,21 @@ public class Fri extends Fragment {
     }
 
     public void IiVT_41() {
-
         Less1(null,null,null,null,
                 getString(R.string.his_mat), getString(R.string.savvina), getString(R.string.lk),getString(R.string.uk4_15),true);
         Less2D(getString(R.string.his_mat), getString(R.string.savvina), getString(R.string.lk),getString(R.string.uk4_15), true,true);
-
     }
 
     public void NE_41() {
-
         Less1D(getString(R.string.nano_el), getString(R.string.kuznecov), getString(R.string.lk),getString(R.string.uk4_27), false,false);
         Less2D(getString(R.string.nano_el), getString(R.string.kuznecov), getString(R.string.lk),getString(R.string.uk4_27), false,false);
         Less3D(getString(R.string.termoel), getString(R.string.kuznecov), getString(R.string.lk),getString(R.string.uk4_23), true,true);
         Less4D(getString(R.string.termoel), getString(R.string.kuznecov), getString(R.string.lk),getString(R.string.uk4_23), false,true);
-
     }
 
-    public void MIitM() {
+    public void MIitM() {}
 
-
-
-    }
-
-    public void PMm_11() {
-
-
-
-    }
+    public void PMm_11() {}
 
     public void BX_21() {
 
@@ -663,40 +628,23 @@ public class Fri extends Fragment {
     }
 
     public void EG_21() {
-
         Less1D(getString(R.string.geografia_mater), getString(R.string.melnikov), getString(R.string.pz),getString(R.string.uk4_26),false, false);
         Less1D(getString(R.string.geografia_mater), getString(R.string.melnikov), getString(R.string.pz),getString(R.string.uk4_26),false, true);
-
     }
 
+    public void IIvtm_11() {    }
 
-    public void IIvtm_11() {
+    public void Mm_21() {   }
 
-    }
-
-    public void Mm_21() {
-
-
-    }
-
-    public void Pmm_21() {
-
-
-
-    }
+    public void Pmm_21() {   }
 
     public void INlang_mag() {
-
         p4.setText(getResources().getString(R.string.lang_mag));
         p4a.setText(getResources().getString(R.string.leb_sedova));
         m_p4_k.setText(getResources().getString(R.string.uk4_28_13));
     }
 
-    public void IIvtm_21() {
-
-
-
-    }
+    public void IIvtm_21() {  }
 
     public void decL_1p() {
         SharedPreferences prefs = PreferenceManager
@@ -705,10 +653,7 @@ public class Fri extends Fragment {
         if (prefs.getBoolean(getString(R.string.pref_chek2), false)) {
 
             Less1D(getString(R.string.inlangN), getString(R.string.sedova), getString(R.string.pz), getString(R.string.uk14_218), false, false);
-
-
         } else {
-
             m_l1.setVisibility(View.VISIBLE);
         }
 
@@ -719,9 +664,7 @@ public class Fri extends Fragment {
                 .getDefaultSharedPreferences(getActivity());
         // читаем установленное значение из CheckBoxPreference
         if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
-
             Less2D(getString(R.string.inlang), getString(R.string.lebedeva), getString(R.string.pz), getString(R.string.uk14_218), false, false);
-
         } else {
             m_l2.setVisibility(View.VISIBLE);
         }
@@ -739,191 +682,33 @@ public class Fri extends Fragment {
 
     }
 
-    private void LoadPreferences() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
+    public void XBiG_11() {  }
 
-        switch (regular) {
-            case "Светлая":
-                ThemeWrite();
-                break;
-            case "Темная":
-                ThemeDark();
-                break;
-        }
-    }
+    public void FC_11() {  }
 
-    public void ThemeWrite() {
+    public void FR_11() {   }
 
-        p1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p1_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p1z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p1_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+    public void FR_12() {   }
 
-        p2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p2_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p2z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p2_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+    public void FC_21() {   }
 
-        p3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p3_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p3z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p3_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+    public void FR_21() {    }
 
-        p4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p4_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p4z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p4_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p5.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p5_t.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        p5z.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        m_p5_tz.setTextColor(getResources().getColor(R.color.colorTextBlack));
+    public void BX_31() {   }
 
-        s1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s5.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s6.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s7.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s8.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s9.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s10.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s11.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        s12.setTextColor(getResources().getColor(R.color.colorTextBlack));
+    public void ME_31() {   }
 
-        l1.setBackgroundResource(R.color.colorNewstitle);
-        l2.setBackgroundResource(R.color.colorNewstitle);
-        l3.setBackgroundResource(R.color.colorNewstitle);
-        l4.setBackgroundResource(R.color.colorNewstitle);
-        l5.setBackgroundResource(R.color.colorNewstitle);
+    public void FC_31() {   }
 
-        m_l1.setBackgroundResource(R.color.colorNewstitle);
-        m_l2.setBackgroundResource(R.color.colorNewstitle);
-        m_l3.setBackgroundResource(R.color.colorNewstitle);
-        m_l4.setBackgroundResource(R.color.colorNewstitle);
-        m_l5.setBackgroundResource(R.color.colorNewstitle);
-        m_l6.setBackgroundResource(R.color.colorNewstitle);
+    public void FP_31() {    }
 
+    public void FC_41() {   }
 
+    public void FP_41() {    }
 
-    }
+    public void FCm_11() {  }
 
-    public void ThemeDark() {
-
-        p1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p1_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p1z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p1_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p2_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p2z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p2_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p3_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p3z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p3_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        p4.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p4_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p4z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p4_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p5.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p5_t.setTextColor(getResources().getColor(R.color.colorWhitee));
-        p5z.setTextColor(getResources().getColor(R.color.colorWhitee));
-        m_p5_tz.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        s1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s4.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s5.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s6.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s7.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s8.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s9.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s10.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s11.setTextColor(getResources().getColor(R.color.colorWhitee));
-        s12.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-        l1.setBackgroundResource(R.color.colorSigma);
-        l2.setBackgroundResource(R.color.colorSigma);
-        l3.setBackgroundResource(R.color.colorSigma);
-        l4.setBackgroundResource(R.color.colorSigma);
-
-    }
-
-    public void XBiG_11() {
-
-
-
-    }
-
-    public void FC_11() {
-
-
-
-    }
-
-    public void FR_11() {
-
-
-    }
-
-    public void FR_12() {
-
-
-    }
-
-    public void FC_21() {
-
-    }
-
-    public void FR_21() {
-
-
-    }
-
-    public void BX_31() {
-
-    }
-
-    public void ME_31() {
-
-
-    }
-
-    public void FC_31() {
-
-    }
-
-    public void FP_31() {
-
-
-    }
-
-    public void FC_41() {
-
-
-
-    }
-
-    public void FP_41() {
-
-
-
-    }
-
-    public void FCm_11() {
-
-
-
-    }
-
-    public void FCm_21() {
-    }
+    public void FCm_21() {   }
 
     public void YouDay(){
         youday.setVisibility(View.VISIBLE);

@@ -7,41 +7,36 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.SpannableString;
-import android.text.style.TextAppearanceSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Objects;
 
-import ru.vyaacheslav.suhov.imeit.Cafedrs.CafedraMain;
-import ru.vyaacheslav.suhov.imeit.DaysSettings.DaysSettings;
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
-import ru.vyaacheslav.suhov.imeit.OtherFragment.Info;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public ActionBarDrawerToggle toggle;
     public java.util.Calendar calendar;
     public FragmentTransaction FT;
-    public MenuItem inst1,inst2;
     public FragmentManager FM;
-    public RelativeLayout lm;
+    public FrameLayout fl;
     int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-    DaysSettings ds = new DaysSettings();
+    SharedPreferences   prefs;
     private Menu menu;
     private Toolbar tb;
     private DrawerLayout dl;
@@ -50,21 +45,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String regular = prefs.getString(getString(R.string.pref_theme), "");
+        if (Objects.equals(regular, "Светлая")) {
+            setTheme(R.style.ThemeWrithe);
+        }
+        if(Objects.equals(regular, "Темная")) {
+            setTheme(R.style.ThemeDark);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Править эту байду /// Очень интересно
-        // Проверить этот кусок
-
         SharedPreferences prefss = PreferenceManager.getDefaultSharedPreferences(getApplication());
         String dayWeek = prefss.getString(getString(R.string.week_i), "");
-        ds.typeWeek = dayWeek;
-        ds.prefs = prefss;
-
-
 
         // Проверка на первый запуск приложения
-        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+         prefs = getPreferences(MODE_PRIVATE);
         if (prefs.getBoolean("isFirstRun", true)) {
             Intent intent = new Intent(MainActivity.this, SettingsPref.class);
             startActivity(intent);
@@ -75,75 +72,23 @@ public class MainActivity extends AppCompatActivity {
         tb = findViewById(R.id.toolbar);
         nv = findViewById(R.id.shitstuff);
         dl = findViewById(R.id.drawerLayout);
-        lm = findViewById(R.id.layout_main);
+        fl = findViewById(R.id.containerView);
 
         calendar = java.util.Calendar.getInstance();
         setSupportActionBar(tb);
-
         // Поддержка старых версий ActionBarToggle - Это иконка DrawerLayout
-        toggle = new ActionBarDrawerToggle(this, dl, tb, R.string.app_name, R.string.app_name);
+        toggle = new ActionBarDrawerToggle(this, dl, tb, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         dl.addDrawerListener(toggle);
         toggle.syncState();
 
-        // Костомизация меню. Вообщем ненужная хрень. Нужно убрать потом
-        menu = nv.getMenu();
-        inst1 = menu.findItem(R.id.instr1);
-        inst2 = menu.findItem(R.id.instr2);
+        nv.setNavigationItemSelectedListener(this);
 
-        SpannableString str1 = new SpannableString(inst1.getTitle());
-        SpannableString str2 = new SpannableString(inst2.getTitle());
-
-        str1.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, str1.length(), 0);
-        str2.setSpan(new TextAppearanceSpan(this, R.style.MenuLine), 0, str2.length(), 0);
-
-        inst1.setTitle(str1);
-        inst2.setTitle(str2);
-
-        // Дублирование, нужно подумать как этого избежать.
         // Транзакция фрагментов
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
         FT.replace(R.id.containerView, new TabFragment()).commit(); // По умолчанию - расписание.
 
         // Обработка нажатий на пункты меню.
-        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                dl.closeDrawers(); // После нажатия закрывать Drawer
-
-                switch (item.getItemId()) {
-                    case R.id.main_tab:
-                        FragmentTransaction ft1 = FM.beginTransaction();
-                        ft1.replace(R.id.containerView, new TabFragment()).commit();
-                        break;
-                    case R.id.map:
-                        MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
-                        FragmentTransaction ft2 = FM.beginTransaction();
-                        ft2.replace(R.id.containerView, new MapsFragment()).commit();
-                        break;
-                    case R.id.you_tab:
-                        MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
-                        FragmentTransaction ft3 = FM.beginTransaction();
-                        ft3.replace(R.id.containerView, new TimeClock()).commit();
-                        break;
-                    case R.id.info:
-                        MainActivity.this.getSupportActionBar().setSubtitle("Об институте");
-                        FragmentTransaction ft4 = FM.beginTransaction();
-                        ft4.replace(R.id.containerView, new Info()).commit();
-                        break;
-                    case R.id.caf1:
-                        MainActivity.this.getSupportActionBar().setSubtitle("Кафедры");
-                        FragmentTransaction ft5 = FM.beginTransaction();
-                        ft5.replace(R.id.containerView, new CafedraMain()).commit();
-                        break;
-                    default:
-                        break;
-                }
-
-                return false;
-            }
-        });
         loadName(); // Загрузка имени группы согласно настройкам;
         loadTheme(); //  Загрузка темы основной темы приложения
     }
@@ -230,10 +175,8 @@ public class MainActivity extends AppCompatActivity {
     }
     // Загрузка выбора темы приложения
     private void loadTheme() {
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String regular = prefs.getString(getString(R.string.pref_theme), "");
-
         switch (regular) {
             case "Светлая":  // Русские символы в коде - непорядок
                 ThemeWrithe();
@@ -251,27 +194,29 @@ public class MainActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkA));
         }
-        nv.setBackgroundResource(R.color.colorWhitee);
+        nv.setBackgroundResource(R.color.colorWhite);
         nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimarySS)));
         nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimarySS)));
         tb.setBackgroundResource(R.color.colorPrimaryA);
-        lm.setBackgroundResource(R.color.colorWhitee);
+        fl.setBackgroundResource(R.color.colorWhite);
+
     }
 
     public void ThemeDark() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkD));
+            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
-        nv.setBackgroundResource(R.color.colorPrimaryDarkD);
-        nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
-        nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhitee)));
-        tb.setBackgroundResource(R.color.colorPrimaryD);
-        lm.setBackgroundResource(R.color.colorSigma);
+        nv.setBackgroundResource(R.color.colorPrimaryDark);
+        nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhite)));
+        nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhite)));
+        tb.setBackgroundResource(R.color.colorPrimary);
+        fl.setBackgroundResource(R.color.colorPrimaryDarkD);
     }
 
     public void onBackPressed() {
+
         FragmentManager fm = this.getSupportFragmentManager();
         if (fm.getBackStackEntryCount() > 0)
             fm.popBackStack();
@@ -279,4 +224,31 @@ public class MainActivity extends AppCompatActivity {
             finish();
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.main_tab:
+                FragmentTransaction ft1 = FM.beginTransaction();
+                ft1.replace(R.id.containerView, new TabFragment()).commit();
+                loadName();
+                break;
+            case R.id.map:
+                MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
+                FragmentTransaction ft2 = FM.beginTransaction();
+                ft2.replace(R.id.containerView, new MapsFragment()).commit();
+                break;
+            case R.id.time_alarm:
+                MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
+                FragmentTransaction ft3 = FM.beginTransaction();
+                ft3.replace(R.id.containerView, new TimeClock()).commit();
+                break;
+            default:
+                break;
+        }
+
+        dl.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }

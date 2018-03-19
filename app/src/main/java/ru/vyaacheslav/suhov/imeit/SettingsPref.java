@@ -9,11 +9,16 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -34,9 +39,24 @@ public class SettingsPref extends PreferenceActivity {
          if(Objects.equals(regular, "Темная")) {
             setTheme(R.style.ThemeDark);
         }
+        getDelegate().installViewFactory();
+        getDelegate().onCreate(savedInstanceState);
 
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
+
+        LinearLayout root = (LinearLayout)findViewById(android.R.id.list).getParent().getParent().getParent();
+        Toolbar bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.toolbar, root, false);
+        root.addView(bar, 0); // insert at top
+
+        bar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsPref.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);
@@ -48,6 +68,15 @@ public class SettingsPref extends PreferenceActivity {
         groupe.setSummary(groupe.getEntry());
         theme.setSummary(theme.getEntry());
         week.setSummary(week.getEntry());
+    }
+
+
+    public ActionBar getSupportActionBar() {
+        return getDelegate().getSupportActionBar();
+    }
+
+    public void setSupportActionBar(@Nullable Toolbar toolbar) {
+        getDelegate().setSupportActionBar(toolbar);
     }
 
     public void onBackPressed() {
@@ -145,4 +174,5 @@ public class SettingsPref extends PreferenceActivity {
         }
         return mDelegate;
     }
+
 }

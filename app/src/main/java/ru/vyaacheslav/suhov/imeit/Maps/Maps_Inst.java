@@ -1,10 +1,8 @@
 package ru.vyaacheslav.suhov.imeit.Maps;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +55,6 @@ public class Maps_Inst extends Fragment implements View.OnClickListener {
         d8 = v.findViewById(R.id.d8);
         ddf = v.findViewById(R.id.ffd);
 
-        LoadPreferences();
         return v;
     }
 
@@ -95,45 +92,5 @@ public class Maps_Inst extends Fragment implements View.OnClickListener {
         startActivity(agr);
     }
 
-    private void LoadPreferences() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
 
-        switch (regular) {
-            case "Светлая":
-                ThemeWrite();
-                break;
-            case "Темная":
-                ThemeDark();
-                break;
-        }
-    }
-
-    public void ThemeWrite() {
-
-
-        d1.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        d2.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        d3.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        d4.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        d5.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        d6.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        d7.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        d8.setTextColor(getResources().getColor(R.color.colorTextBlack));
-    }
-
-    public void ThemeDark() {
-
-
-
-        d1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        d2.setTextColor(getResources().getColor(R.color.colorWhitee));
-        d3.setTextColor(getResources().getColor(R.color.colorWhitee));
-        d4.setTextColor(getResources().getColor(R.color.colorWhitee));
-        d5.setTextColor(getResources().getColor(R.color.colorWhitee));
-        d6.setTextColor(getResources().getColor(R.color.colorWhitee));
-        d7.setTextColor(getResources().getColor(R.color.colorWhitee));
-        d8.setTextColor(getResources().getColor(R.color.colorWhitee));
-
-    }
 }

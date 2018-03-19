@@ -74,9 +74,8 @@ public class TimeClock extends Fragment {
         t31 = v.findViewById(R.id.t31);
         t32 = v.findViewById(R.id.t32);
 
-       /* updateClock();
-        TimeFunction();*/
-     /*   LoadPreferences(); */
+       updateClock();
+        TimeFunction();
         return v;
     }
 
@@ -143,54 +142,4 @@ public class TimeClock extends Fragment {
         }
     }
 
-    private void LoadPreferences() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
-
-        switch (regular) {
-            case "Светлая":
-                ThemeWrite();
-                break;
-            case "Темная":
-                ThemeDark();
-                break;
-        }
-    }
-
-    public void ThemeWrite() {
-
-        lsss.setBackgroundResource(R.color.colorWhitee);
-        t5.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t6.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t7.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t8.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t10.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t11.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t12.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t13.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t14.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t15.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t16.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t17.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t19.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t20.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t21.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t22.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t24.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t25.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t26.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t27.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t29.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t30.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t31.setTextColor(getResources().getColor(R.color.colorTextBlack));
-        t32.setTextColor(getResources().getColor(R.color.colorTextBlack));
-
-    }
-    public void ThemeDark() {
-
-        lss.setBackgroundResource(R.color.colorPrimarySS);
-        lsss.setBackgroundResource(R.color.colorPrimaryD);
-        t1.setTextColor(getResources().getColor(R.color.colorWhitee));
-        t1=t2=t3=t6=t5=t7=t8=t10=t11=t12=t13=t14=t15=t16=t17=t19=t10=t21=t22=t24=t25=t26=t27=t29=t30=t31=t32;
-    }
 }
