@@ -14,18 +14,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:divider="?android:dividerHorizontal"
+            android:orientation="vertical"
+            android:showDividers="middle">
 
             <LinearLayout
                 android:id="@+id/k1"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q1"
@@ -51,12 +50,9 @@
                 android:id="@+id/k2"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q2"
@@ -82,12 +78,9 @@
                 android:id="@+id/k3"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q3"
@@ -113,12 +106,9 @@
                 android:id="@+id/k4"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q4"
@@ -146,12 +136,9 @@
                 android:id="@+id/k5"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q5"
@@ -179,12 +166,9 @@
                 android:id="@+id/k6"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q6"
@@ -211,12 +195,9 @@
                 android:id="@+id/k7"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q7"
@@ -242,12 +223,9 @@
                 android:id="@+id/k8"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q8"
@@ -273,12 +251,9 @@
                 android:id="@+id/k9"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q9"
@@ -304,12 +279,9 @@
                 android:id="@+id/k10"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q10"
@@ -335,13 +307,9 @@
                 android:id="@+id/k11"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
                 android:orientation="vertical"
-                android:paddingLeft="12dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
                 <TextView
                     android:id="@+id/q11"

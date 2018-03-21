@@ -35,8 +35,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public FragmentTransaction FT;
     public FragmentManager FM;
     public FrameLayout fl;
+    public SharedPreferences   prefs;
+    public String typeTheme,typeWeek, typeGroupe;
+    public Intent settingsIntent;
     int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
-    SharedPreferences   prefs;
     private Menu menu;
     private Toolbar tb;
     private DrawerLayout dl;
@@ -46,22 +48,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
-        if (Objects.equals(regular, "Светлая")) {
+        typeTheme = prefs.getString(getString(R.string.pref_theme), "");
+        typeWeek = prefs.getString(getString(R.string.week_i), "");
+        typeGroupe = prefs.getString(getString(R.string.pref_style), "");
+
+        if (Objects.equals(typeTheme, "Светлая")) {
             setTheme(R.style.ThemeWrithe);
         }
-        if(Objects.equals(regular, "Темная")) {
+        if(Objects.equals(typeTheme, "Темная")) {
             setTheme(R.style.ThemeDark);
         }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreferences prefss = PreferenceManager.getDefaultSharedPreferences(getApplication());
-        String dayWeek = prefss.getString(getString(R.string.week_i), "");
-
-        // Проверка на первый запуск приложения
-         prefs = getPreferences(MODE_PRIVATE);
+        // Интент для запуска окна с настройками
+        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
         if (prefs.getBoolean("isFirstRun", true)) {
             Intent intent = new Intent(MainActivity.this, SettingsPref.class);
             startActivity(intent);
@@ -76,21 +78,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         calendar = java.util.Calendar.getInstance();
         setSupportActionBar(tb);
-        // Поддержка старых версий ActionBarToggle - Это иконка DrawerLayout
+        //ActionBarToggle - Это иконка DrawerLayout
         toggle = new ActionBarDrawerToggle(this, dl, tb, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         dl.addDrawerListener(toggle);
         toggle.syncState();
 
-        nv.setNavigationItemSelectedListener(this);
-
-        // Транзакция фрагментов
+        // Инициализация транзакции фрагментов
         FM = getSupportFragmentManager();
         FT = FM.beginTransaction();
         FT.replace(R.id.containerView, new TabFragment()).commit(); // По умолчанию - расписание.
 
         // Обработка нажатий на пункты меню.
+        nv.setNavigationItemSelectedListener(this);
+
+        settingsIntent = new Intent(MainActivity.this, SettingsPref.class);
         loadName(); // Загрузка имени группы согласно настройкам;
-        loadTheme(); //  Загрузка темы основной темы приложения
+
+        // TODO: исправить Дублирование | Проблема в самом жизненном цикле
+        if (Objects.equals(typeTheme, "Светлая")) {
+            ThemeWrithe();
+        }
+        if(Objects.equals(typeTheme, "Темная")) {
+            ThemeDark();
+        }
     }
 
     @Override
@@ -103,14 +113,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 return true;
             case R.id.settings:
-                Intent intent = new Intent(MainActivity.this, SettingsPref.class);
-                startActivity(intent);
+                startActivity(settingsIntent);
                 finish();
                 return true;
             case R.id.weekIndicator:
@@ -122,71 +130,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void WeekIndicator() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String position = prefs.getString(getString(R.string.week_i), "");
-        switch (position) {
-            case "Числитель": {
-               WeekCh();
-            }
-            break;
+        if(typeWeek.equals("Числитель")){
 
-            case "Знаменатель": {
-              WeekZn();
+            if(weekYear% 2 == 0){
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
             }
-            break;
+            else {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
+            }
+        }
+        else {
+            if(weekYear% 2 == 0){
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
+                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
+            }
         }
     }
 
-    public void WeekCh(){
-
-            if(weekYear% 2 == 0){
-                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
-            }
-            else {
-                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
-            }
-    }
-
-    public void WeekZn(){
-
-            if(weekYear% 2 == 0){
-                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
-            }
-            else {
-                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
-            }
-    }
-
-    public void loadName() {                                                                   // В качестве подзоголовка берем имя выбранной группы.
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this); // Название группы берется из String-array
-        String regular = prefs.getString(getString(R.string.pref_style), "");
-        MainActivity.this.getSupportActionBar().setSubtitle(regular);
-
+    public void loadName() {
+        // В качестве подзоголовка берем имя выбранной группы.
+        typeGroupe = prefs.getString(getString(R.string.pref_style), "");
+        MainActivity.this.getSupportActionBar().setSubtitle(typeGroupe);
         // Если пользователь очистил память в окне настроек, то настройка будет пуста. Делаем проверку.
-        if ((regular.length() == 0)){
-            Intent intent = new Intent(MainActivity.this, SettingsPref.class);
-            startActivity(intent);
+        if ((typeGroupe.length() == 0)){
+            startActivity(settingsIntent);
             finish();
         }
     }
-    // Загрузка выбора темы приложения
-    private void loadTheme() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
-        switch (regular) {
-            case "Светлая":  // Русские символы в коде - непорядок
-                ThemeWrithe();
-                break;
-            case "Темная":
-                ThemeDark();
-                break;
-        }
-    }
-
     // Кастомизация тем  Светлая и Темная
     public void ThemeWrithe() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -199,9 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimarySS)));
         tb.setBackgroundResource(R.color.colorPrimaryA);
         fl.setBackgroundResource(R.color.colorWhite);
-
     }
-
     public void ThemeDark() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -216,19 +190,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void onBackPressed() {
-
-        FragmentManager fm = this.getSupportFragmentManager();
-        if (fm.getBackStackEntryCount() > 0)
-            fm.popBackStack();
+        if (FM.getBackStackEntryCount() > 0)
+            FM.popBackStack();
         else
             finish();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()) {
-
             case R.id.main_tab:
                 FragmentTransaction ft1 = FM.beginTransaction();
                 ft1.replace(R.id.containerView, new TabFragment()).commit();
@@ -247,7 +217,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             default:
                 break;
         }
-
         dl.closeDrawer(GravityCompat.START);
         return true;
     }

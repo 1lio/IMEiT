@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
@@ -16,6 +17,7 @@ public class MapsFragment extends Fragment {
 
     public TabLayout tabLayout;
     public ViewPager viewPager;
+    public LinearLayout times;
 
     public MapsFragment() { }
 
@@ -26,6 +28,7 @@ public class MapsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_tab, container, false);
         tabLayout = v.findViewById(R.id.tabs);
         viewPager = v.findViewById(R.id.viewpager);
+        times = v.findViewById(R.id.times);
         viewPager.setAdapter(new MapsAdapter(getChildFragmentManager()));
         tabLayout.post(new Runnable() {
             @Override
@@ -34,11 +37,14 @@ public class MapsFragment extends Fragment {
             }
         });
 
+        times.setVisibility(View.INVISIBLE);
+        ViewGroup.LayoutParams params = times.getLayoutParams();
+        params.width = 0;
+        times.setLayoutParams(params);
+
         LoadPreferences();
         return v;
     }
-
-
     //TODO: Добавить в styles.xml - не приоритетно
     private void LoadPreferences() {
 

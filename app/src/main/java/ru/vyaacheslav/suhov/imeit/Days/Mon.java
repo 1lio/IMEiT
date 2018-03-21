@@ -15,10 +15,8 @@ import ru.vyaacheslav.suhov.imeit.R;
 
 public class Mon extends Fragment{
 
-    //Дохера переменных
-
     public View v;
-    public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l1, m_l2, m_l3, m_l4, m_l5, m_l_4c, m_l_3c, m_l_2c, m_l_1c, m_l_5c;
+    public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, m_l_4c, m_l_3c, m_l_2c, m_l_1c, m_l_5c;
     public LinearLayout mm1, mm2, mm3, mm4, mm5, main_mon, youday;
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
@@ -29,7 +27,6 @@ public class Mon extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         v = inflater.inflate(R.layout.mon, container, false);
         InitViews();
         loadMethod();
@@ -38,13 +35,11 @@ public class Mon extends Fragment{
 
     public void Less1(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
-
         if (i) {
-            m_l1.setVisibility(View.VISIBLE);
+            m_l_1z.setVisibility(View.VISIBLE);
         } else {
-            m_l1.setVisibility(View.GONE);
+            m_l_1z.setVisibility(View.GONE);
         }
-
 
         if (lz == null) {
             p1z.setVisibility(View.INVISIBLE);
@@ -71,15 +66,11 @@ public class Mon extends Fragment{
 
     public void Less2(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
-
-
         if (i) {
-            m_l2.setVisibility(View.VISIBLE);
+            m_l_2z.setVisibility(View.VISIBLE);
         } else {
-            m_l2.setVisibility(View.GONE);
+            m_l_2z.setVisibility(View.GONE);
         }
-
-
         if (lz == null) {
             p2z.setVisibility(View.INVISIBLE);
         }
@@ -106,18 +97,14 @@ public class Mon extends Fragment{
         m_p2_tz.setText(tz);
         m_p2_kz.setText(rz);
     }
-
     public void Less3(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
 
-
         if (i) {
-            m_l3.setVisibility(View.VISIBLE);
+            m_l_3z.setVisibility(View.VISIBLE);
         } else {
-            m_l3.setVisibility(View.GONE);
+            m_l_3z.setVisibility(View.GONE);
         }
-
-
         if (lz == null) {
             p3z.setVisibility(View.GONE);
         }
@@ -144,18 +131,14 @@ public class Mon extends Fragment{
         m_p3_tz.setText(tz);
         m_p3_kz.setText(rz);
     }
-
     public void Less4(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
 
-
         if (i) {
-            m_l4.setVisibility(View.VISIBLE);
+            m_l_4z.setVisibility(View.VISIBLE);
         } else {
-            m_l4.setVisibility(View.GONE);
+            m_l_4z.setVisibility(View.GONE);
         }
-
-
         if (lz == null) {
             p4z.setVisibility(View.INVISIBLE);
         }
@@ -178,19 +161,16 @@ public class Mon extends Fragment{
         m_p4_tz.setText(tz);
         m_p4_kz.setText(rz);
     }
-
     public void Less5(String l, String p, String t, String r) {
 
        // 5 пара только у 1 группы поэтому проверки нет
         // исправить в последующих версиях
-        m_l5.setVisibility(View.GONE);
 
         p5.setText(l);
         p5a.setText(p);
         m_p5_t.setText(t);
         m_p5_k.setText(r);
     }
-
     // нужно оптимизировать эту херню.
     public void loadMethod() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -328,12 +308,10 @@ public class Mon extends Fragment{
                 break;
         }
     }
-
     public void InitViews() {
 
         main_mon = v.findViewById(R.id.main_mon);
         youday = v.findViewById(R.id.you_day);
-
         m_l_1z = v.findViewById(R.id.m_l_1z);
         m_l_2z = v.findViewById(R.id.m_l_2z);
         m_l_3z = v.findViewById(R.id.m_l_3z);
@@ -391,17 +369,9 @@ public class Mon extends Fragment{
         mm3 = v.findViewById(R.id.mm3);
         mm4 = v.findViewById(R.id.mm4);
         mm5 = v.findViewById(R.id.mm5);
-
-        m_l1 = v.findViewById(R.id.m_l1);
-        m_l2 = v.findViewById(R.id.m_l2);
-        m_l3 = v.findViewById(R.id.m_l3);
-        m_l4 = v.findViewById(R.id.m_l4);
-        m_l5 = v.findViewById(R.id.m_l5);
     }
-
     // Дальше идет огроменный кусок говнеца который нужно оптимизировать и научить работать с БД
     // TODO: Научить работать с БД.
-
     // Первый курс
     public void FMiI_11() {
         Less1(getString(R.string.pedagogic), getString(R.string.zaharova), getString(R.string.lk),
@@ -411,7 +381,6 @@ public class Mon extends Fragment{
 
         Fizra_1kurs();
     }
-
     public void Pm_11() {
         Less1(getString(R.string.physics), getString(R.string.kondakova), getString(R.string.lk),
                 getString(R.string.uk4_15), null, null, null, null, true);
@@ -421,7 +390,6 @@ public class Mon extends Fragment{
 
         Fizra_1kurs();
     }
-
     public void IiVT_12() {
 
         Less1(getString(R.string.log_pro), getString(R.string.igonina), getString(R.string.lk),
@@ -438,7 +406,6 @@ public class Mon extends Fragment{
                 getString(R.string.pz), getString(R.string.uk1_2), false);
 
     }
-
     public void ISiT_11() {
 
         Less1(getString(R.string.physics), getString(R.string.kondakova), getString(R.string.lk),
@@ -449,7 +416,6 @@ public class Mon extends Fragment{
 
         Fizra_1kurs();
     }
-
     // Второй курс
     public void MI_21() {
 
@@ -465,7 +431,6 @@ public class Mon extends Fragment{
                 getString(R.string.el_mat_pr), getString(R.string.elchinova),  getString(R.string.lk), getString(R.string.uk4_15), true);
 
     }
-
     public void MF_21() {
 
         Less1(getString(R.string.pedagogic_his), getString(R.string.povalayeva), getString(R.string.lk), getString(R.string.uk4_24),
@@ -479,7 +444,6 @@ public class Mon extends Fragment{
         Less4(getString(R.string.el_mat_pr), getString(R.string.elchinova),  getString(R.string.lk), getString(R.string.uk4_15),
                 getString(R.string.el_mat_pr), getString(R.string.elchinova),  getString(R.string.lk), getString(R.string.uk4_15), true);
     }
-
     public void PM_21() {
 
         Less1(getString(R.string.mat_mod), getString(R.string.sidorov), getString(R.string.lk), getString(R.string.uk4_26),
@@ -491,9 +455,8 @@ public class Mon extends Fragment{
                 getString(R.string.dif_geometry), getString(R.string.padaeva), getString(R.string.pz), getString(R.string.uk4_15), true);
 
         Less4(getString(R.string.sys_content), getString(R.string.kornienkod),  getString(R.string.pz), getString(R.string.uk3_16),
-            null,null,null,null, false);
+                null,null,null,null, false);
     }
-
     public void BI_21() {
 
         Less1(getString(R.string.razr_sys), getString(R.string.kornienkod), getString(R.string.lk), getString(R.string.uk3_16),
@@ -504,7 +467,6 @@ public class Mon extends Fragment{
         Less3(getResources().getString(R.string.za_ob_d), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lk), getString(R.string.uk16_301a),
                 getResources().getString(R.string.za_ob_d), getResources().getString(R.string.rochupkin), getResources().getString(R.string.lb), getString(R.string.uk16_301a), true);
     }
-
     public void IiVT_21() {
 
         Less1(null, null, null,null, getString(R.string.log_pro), getString(R.string.igonina), getString(R.string.lb),
@@ -512,7 +474,6 @@ public class Mon extends Fragment{
         Fizra_2kurs();
 
     }
-
     public void ISiT_21() {
         Less1(getString(R.string.tex_v_c), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk4_22),
                 getString(R.string.tex_v_c), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk4_22), true);
@@ -525,9 +486,7 @@ public class Mon extends Fragment{
         Less4(null, null, null, null, getString(R.string.com_tip), getString(R.string.gladkih), getString(R.string.pz), getString(R.string.uk4_21), true);
 
     }
-
     public void NE_21() {
-
         Fizra_2kurs();
         Less3(getResources().getString(R.string.phyz_cond), getResources().getString(R.string.kuznecov), getResources().getString(R.string.lk), getString(R.string.uk4_23),
                 getResources().getString(R.string.phyz_cond), getResources().getString(R.string.kuznecov), getResources().getString(R.string.pz), getString(R.string.uk4_23), true);
@@ -536,15 +495,12 @@ public class Mon extends Fragment{
                 null, null, null, null, true);
 
     }
-
     public void BX_21() {
-
         Less1(getString(R.string.pedagogic_his), getString(R.string.povalayeva), getString(R.string.lk), getString(R.string.uk4_24),
                 getString(R.string.pedagogic_his), getString(R.string.povalayeva), getString(R.string.pz), getString(R.string.uk4_24), true);
 
         Fizra_2kurs();
     }
-
     public void EG_21() {
 
         Less1(getString(R.string.pedagogic_his), getString(R.string.povalayeva), getString(R.string.lk), getString(R.string.uk4_24),
@@ -555,9 +511,7 @@ public class Mon extends Fragment{
         Less4(getResources().getString(R.string.ob_soc_geogr), getResources().getString(R.string.melnikov), getResources().getString(R.string.lk), getString(R.string.uk4_26),
                 null, null, null, null, true);
     }
-
     // 3 курс
-
     public void MF_31() {
 
         Fizra_3kurs();
@@ -572,7 +526,6 @@ public class Mon extends Fragment{
                 getString(R.string.vector_isch), getString(R.string.sidorov), getString(R.string.pz), getString(R.string.uk4_27), true);
 
     }
-
     public void PM_31() {
 
         Fizra_3kurs();
@@ -583,18 +536,15 @@ public class Mon extends Fragment{
         Less3(getString(R.string.ur_mat_phy), getString(R.string.cherbatix), getString(R.string.lk), getString(R.string.uk4_13),
                 null,null,null,null, true);
     }
-
     public void IiVT_31() {
-
         Fizra_3kurs();
 
         Less2(getString(R.string.pr_bd), getString(R.string.igonina), getString(R.string.lk), getString(R.string.uk1_2),
-              null,null,null,null, false);
+                null,null,null,null, false);
 
         Less3(getString(R.string.za_inf), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk16_301a),
                 getString(R.string.za_inf), getString(R.string.rochupkin), getString(R.string.pz), getString(R.string.uk16_301a), true);
     }
-
     public void NE_31() {
 
         Fizra_3kurs();
@@ -608,7 +558,6 @@ public class Mon extends Fragment{
                 getString(R.string.phys_xim), getString(R.string.pahomova), getString(R.string.pz), getString(R.string.uk12_103), true);
 
     }
-
     // 4 курс
     public void M_41() {
         Less1(getString(R.string.schol_uche_ug), getString(R.string.rimanova), getString(R.string.pz), getString(R.string.uk4_13),
@@ -617,7 +566,6 @@ public class Mon extends Fragment{
         Less2(getString(R.string.schol_uche_ug), getString(R.string.rimanova), getString(R.string.pz), getString(R.string.uk4_13),
                 null,null,null,null, false);
     }
-
     public void PM_41() {
         Less1(getString(R.string.mat_met_ect), getString(R.string.gladkih), getString(R.string.lk), getString(R.string.uk4_21),
                 getString(R.string.mat_met_ect), getString(R.string.gladkih), getString(R.string.lb), getString(R.string.uk4_21), true);
@@ -628,10 +576,9 @@ public class Mon extends Fragment{
         Less3(getString(R.string.ii), getString(R.string.kornienkod), getString(R.string.lk), getString(R.string.uk3_16),
                 getString(R.string.ii), getString(R.string.kornienkod), getString(R.string.lk), getString(R.string.uk3_16), true);
     }
-
     public void IiVT_41() {
         Less1(getString(R.string.mat_mod_eco), getString(R.string.gladkih), getString(R.string.lk), getString(R.string.uk4_21),
-               null,null,null,null, false);
+                null,null,null,null, false);
 
         Less2(getString(R.string.pr_asoi), getString(R.string.gladkih), getString(R.string.lk), getString(R.string.uk4_21),
                 null,null,null,null, false);
@@ -643,71 +590,41 @@ public class Mon extends Fragment{
         Less5(getString(R.string.admins), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk16_301a));
     }
     public void MIitM() {   }
-
     public void PMm_11() {    }
-
     public void IIvtm_11() {   }
-
     public void Mm_21() {   }
-
     public void Pmm_21() {    }
-
-    public void IIvtm_21() {    }
-
+    public void IIvtm_21() {   }
     //
     public void Fizra_1kurs() {
-
         Less3(getString(R.string.fkl), null, getString(R.string.pz), getString(R.string.fok), null, null, null, null, false);
-
     }
-
     public void Fizra_2kurs() {
-
         Less2(getString(R.string.fkl), null, getString(R.string.pz),
                 getString(R.string.fok), null, null, null, null, false);
-
-
     }
-
     public void Fizra_3kurs() {
-
         Less1(getString(R.string.fkl), getString(R.string.fkl_inf), getString(R.string.pz),
                 getString(R.string.fok), null, null, null, null, true);
     }
-
-
     // День для самостоятельной работы
     public void YouDay(){
         youday.setVisibility(View.VISIBLE);
         main_mon.setVisibility(View.GONE);
     }
     // Физико математический факультет
-
     public void XBiG_11() {    }
-
     public void FC_11() {    }
-
     public void FR_11() {    }
-
     public void FR_12() {    }
-
     public void FC_21() {    }
-
     public void FR_21() {    }
-
     public void BX_31() {    }
-
     public void ME_31() {    }
-
     public void FC_31() {    }
-
     public void FP_31() {    }
-
     public void FC_41() {    }
-
     public void FP_41() {    }
-
     public void FCm_11() {   }
-
     public void FCm_21() {   }
 }

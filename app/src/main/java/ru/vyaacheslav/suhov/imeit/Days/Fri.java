@@ -8,21 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
 public class Fri extends Fragment {
 
-    public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z, main_mon, youday;
-    public LinearLayout m_l1, m_l2, m_l3, m_l4, m_l5,m_l6, m_l_5z, l1, l2, l3, l4, l5;
+    public LinearLayout m_l_4z, m_l_3z, m_l_2z, m_l_1z,m_l_5z, main_mon, youday;
     public TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
-            p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z,
-            p6, m_p6_tz, m_p6_kz, p6a, m_p6_t, m_p6_k, p6az, p6z, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12;
+            p5, m_p5_tz, m_p5_kz, p5a, m_p5_t, m_p5_k, p5az, p5z;
 
-    RelativeLayout mk;
     public Fri() {  }
 
     @Override
@@ -33,38 +29,12 @@ public class Fri extends Fragment {
         main_mon = v.findViewById(R.id.main_fri);
         youday = v.findViewById(R.id.you_day_fri);
 
-        mk = v.findViewById(R.id.fk1);
-        s1 = v.findViewById(R.id.ff1);
-        s2 = v.findViewById(R.id.ff2);
-        s3 = v.findViewById(R.id.f3);
-        s4 = v.findViewById(R.id.f4);
-        s5 = v.findViewById(R.id.f5);
-        s6 = v.findViewById(R.id.f6);
-        s7 = v.findViewById(R.id.f7);
-        s8 = v.findViewById(R.id.f8);
-        s9 = v.findViewById(R.id.f9);
-        s10 = v.findViewById(R.id.f10);
-        s11 = v.findViewById(R.id.f11);
-        s12 = v.findViewById(R.id.f12);
-
-        l1 = v.findViewById(R.id.fl1);
-        l2 = v.findViewById(R.id.fl2);
-        l3 = v.findViewById(R.id.fl3);
-        l4 = v.findViewById(R.id.fl4);
-        l5 = v.findViewById(R.id.fl5);
-
         m_l_1z = v.findViewById(R.id.f_l_1z);
         m_l_2z = v.findViewById(R.id.f_l_2z);
         m_l_3z = v.findViewById(R.id.f_l_3z);
         m_l_4z = v.findViewById(R.id.f_l_4z);
         m_l_5z = v.findViewById(R.id.f_l_5z);
 
-        m_l1 = v.findViewById(R.id.f_l1);
-        m_l2 = v.findViewById(R.id.f_l2);
-        m_l3 = v.findViewById(R.id.f_l3);
-        m_l4 = v.findViewById(R.id.f_l4);
-        m_l5 = v.findViewById(R.id.f_l5);
-        m_l6 = v.findViewById(R.id.f_l6);
         p1 = v.findViewById(R.id.f1);
         p1a = v.findViewById(R.id.f_p1_a);
         m_p1_t = v.findViewById(R.id.f_p1_t);
@@ -111,15 +81,6 @@ public class Fri extends Fragment {
         m_p5_kz = v.findViewById(R.id.f_p5_kz);
 
 
-        p6 = v.findViewById(R.id.f_p6);
-        p6a = v.findViewById(R.id.f_p6a);
-        m_p6_t = v.findViewById(R.id.f_p6_t);
-        m_p6_k = v.findViewById(R.id.f_p6_k);
-        p6z = v.findViewById(R.id.f_p6z);
-        p6az = v.findViewById(R.id.f_p6_az);
-        m_p6_tz = v.findViewById(R.id.f_p6_tz);
-        m_p6_kz = v.findViewById(R.id.f_p6_kz);
-
         loadMethod();
         return v;
     }
@@ -136,7 +97,6 @@ public class Fri extends Fragment {
         if (i) {
             m_l_1z.setVisibility(View.VISIBLE);
         } else {
-            m_l1.setVisibility(View.GONE);
             m_l_1z.setVisibility(View.GONE);
         }
 
@@ -157,8 +117,7 @@ public class Fri extends Fragment {
         if (i) {
 
         } else {
-            m_l2.setVisibility(View.GONE);
-            m_l_2z.setVisibility(View.GONE);
+        m_l_2z.setVisibility(View.GONE);
         }
         p2.setText(l);
         p2a.setText(p);
@@ -178,7 +137,7 @@ public class Fri extends Fragment {
         if (i) {
             m_l_3z.setVisibility(View.VISIBLE);
         } else {
-            m_l3.setVisibility(View.GONE);
+
             m_l_3z.setVisibility(View.GONE);
         }
 
@@ -200,7 +159,6 @@ public class Fri extends Fragment {
         if (i) {
             m_l_4z.setVisibility(View.VISIBLE);
         } else {
-            m_l4.setVisibility(View.GONE);
             m_l_4z.setVisibility(View.GONE);
         }
 
@@ -212,13 +170,11 @@ public class Fri extends Fragment {
 
     public void Less1(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
-
         if (i) {
-            m_l1.setVisibility(View.VISIBLE);
+            m_l_1z.setVisibility(View.VISIBLE);
         } else {
-            m_l1.setVisibility(View.GONE);
+            m_l_1z.setVisibility(View.GONE);
         }
-
 
         if (lz == null) {
             p1z.setVisibility(View.INVISIBLE);
@@ -245,15 +201,11 @@ public class Fri extends Fragment {
 
     public void Less2(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
-
-
         if (i) {
-
+            m_l_2z.setVisibility(View.VISIBLE);
         } else {
-            m_l2.setVisibility(View.GONE);
+            m_l_2z.setVisibility(View.GONE);
         }
-
-
         if (lz == null) {
             p2z.setVisibility(View.INVISIBLE);
         }
@@ -280,18 +232,14 @@ public class Fri extends Fragment {
         m_p2_tz.setText(tz);
         m_p2_kz.setText(rz);
     }
-
     public void Less3(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
 
-
         if (i) {
-            m_l3.setVisibility(View.VISIBLE);
+            m_l_3z.setVisibility(View.VISIBLE);
         } else {
-            m_l3.setVisibility(View.GONE);
+            m_l_3z.setVisibility(View.GONE);
         }
-
-
         if (lz == null) {
             p3z.setVisibility(View.GONE);
         }
@@ -318,17 +266,14 @@ public class Fri extends Fragment {
         m_p3_tz.setText(tz);
         m_p3_kz.setText(rz);
     }
-
     public void Less4(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
 
         if (i) {
-            m_l4.setVisibility(View.VISIBLE);
+            m_l_4z.setVisibility(View.VISIBLE);
         } else {
-            m_l4.setVisibility(View.GONE);
+            m_l_4z.setVisibility(View.GONE);
         }
-
-
         if (lz == null) {
             p4z.setVisibility(View.INVISIBLE);
         }
@@ -654,7 +599,7 @@ public class Fri extends Fragment {
 
             Less1D(getString(R.string.inlangN), getString(R.string.sedova), getString(R.string.pz), getString(R.string.uk14_218), false, false);
         } else {
-            m_l1.setVisibility(View.VISIBLE);
+
         }
 
     }
@@ -666,7 +611,7 @@ public class Fri extends Fragment {
         if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
             Less2D(getString(R.string.inlang), getString(R.string.lebedeva), getString(R.string.pz), getString(R.string.uk14_218), false, false);
         } else {
-            m_l2.setVisibility(View.VISIBLE);
+
         }
 
     }
@@ -677,7 +622,7 @@ public class Fri extends Fragment {
         if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
             Less3D(getString(R.string.inlang), getString(R.string.lebedeva), getString(R.string.pz), getString(R.string.uk4_24), false, false);
         } else {
-            m_l2.setVisibility(View.VISIBLE);
+
         }
 
     }

@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Настройки расписания">
-
-        <!--     <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="num_par"
-            android:summary="Снимите галку чтобы отображать только номер пары"
-            android:title="Отображать время пары" />-->
-
-        <!--   <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="@string/danger"
-            android:summary="@string/info_danger"
-            android:title="@string/inf_par_week" />-->
-
         <ListPreference
             android:dialogTitle="@string/your_groupe"
             android:entries="@array/bak_groops"
@@ -39,16 +26,10 @@
             android:key="@string/pref_chek2"
             android:title="@string/nem" />
 
-        <!--  <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="@string/depos"
-            android:summary="@string/null_par"
-            android:title="@string/scr_item" />-->
-
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/sett_theme">
         <ListPreference
-            android:defaultValue="@string/dark"
+            android:defaultValue="@string/writ_t"
             android:dialogTitle="Выберите тему"
             android:entries="@array/themes"
             android:entryValues="@array/themes"

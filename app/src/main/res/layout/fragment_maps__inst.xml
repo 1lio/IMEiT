@@ -12,17 +12,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:divider="?android:dividerHorizontal"
+            android:orientation="vertical"
+            android:showDividers="middle">
 
             <LinearLayout
                 android:id="@+id/ins1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorT"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="6dp">
 
                 <LinearLayout
                     android:layout_width="60dp"
@@ -69,11 +68,8 @@
                 android:id="@+id/ins2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="6dp">
 
                 <LinearLayout
                     android:layout_width="60dp"
@@ -119,11 +115,8 @@
                 android:id="@+id/ins3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="6dp">
 
                 <LinearLayout
                     android:layout_width="60dp"
@@ -171,11 +164,8 @@
                 android:id="@+id/ins4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="6dp">
 
                 <LinearLayout
                     android:layout_width="60dp"
@@ -225,11 +215,8 @@
                 android:id="@+id/ins5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="6dp">
 
                 <LinearLayout
                     android:layout_width="60dp"
@@ -283,11 +270,8 @@
                 android:id="@+id/ins6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="6dp">
 
                 <LinearLayout
                     android:layout_width="60dp"
@@ -340,11 +324,8 @@
                 android:id="@+id/ins7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="6dp">
 
                 <LinearLayout
                     android:layout_width="60dp"
@@ -402,12 +383,8 @@
                 android:id="@+id/ins8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="6dp"
-                android:background="@color/colorT"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingLeft="6dp">
 
                 <LinearLayout
                     android:layout_width="60dp"

@@ -3,12 +3,12 @@ package ru.vyaacheslav.suhov.imeit.Maps;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
@@ -16,27 +16,21 @@ public class Maps_Other extends Fragment implements View.OnClickListener {
 
     public Intent agr;
     public LinearLayout hos1, hos2, hos3, hos4, otf;
+    public View v;
     private Uri adress;
-    private TextView l1, l2, l3, l4;
 
     public Maps_Other() {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_hostel, container, false);
+         v = inflater.inflate(R.layout.fragment_hostel, container, false);
 
         hos1 = v.findViewById(R.id.hos1);
         hos2 = v.findViewById(R.id.hos2);
         hos3 = v.findViewById(R.id.hos3);
         hos4 = v.findViewById(R.id.hos4);
-
-        l1 = v.findViewById(R.id.l1);
-        l2 = v.findViewById(R.id.l2);
-        l3 = v.findViewById(R.id.l3);
-        l4 = v.findViewById(R.id.l4);
-
         otf = v.findViewById(R.id.sda);
 
         hos1.setOnClickListener(this);
