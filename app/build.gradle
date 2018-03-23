@@ -6,14 +6,15 @@ android {
             keyAlias 'appsforimeit'
         }
     }
+
     compileSdkVersion 27
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "ru.vyaacheslav.suhov.imeit_rsp"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 14
-        versionName "2.4"
+        versionCode 16
+        versionName "2.6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

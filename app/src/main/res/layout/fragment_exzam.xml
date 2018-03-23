@@ -9,31 +9,13 @@
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/colorT"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:padding="6dp"
         android:text="II Полугодие"
-        android:textColor="@color/colorAccent"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="6dp"
-        android:background="@color/colorT"
-        android:gravity="center"
-        android:padding="6dp"
-        android:text="Информация о летней сессии будет добавлена позднее"
-        android:textColor="@color/colorTextSub"
-        android:textSize="12sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -47,18 +29,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:divider="?android:dividerHorizontal"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:showDividers="middle">
 
                 <LinearLayout
                     android:id="@+id/mod1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -74,7 +58,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -101,9 +84,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -151,11 +132,12 @@
                     android:id="@+id/mod2"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -171,7 +153,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -198,9 +179,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -247,11 +226,12 @@
                     android:id="@+id/mod3"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -267,7 +247,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -294,9 +273,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -343,11 +320,12 @@
                     android:id="@+id/mod4"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -363,7 +341,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -390,9 +367,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -439,11 +414,12 @@
                     android:id="@+id/mod5"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -459,7 +435,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -486,9 +461,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -536,11 +509,12 @@
                     android:id="@+id/mod6"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -556,7 +530,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -584,9 +557,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -634,11 +605,12 @@
                     android:id="@+id/mod7"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -654,7 +626,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -681,9 +652,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -730,11 +699,12 @@
                     android:id="@+id/mod8"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -750,7 +720,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -777,9 +746,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -827,11 +794,12 @@
                     android:id="@+id/mod9"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -847,7 +815,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -874,9 +841,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -924,11 +889,12 @@
                     android:id="@+id/mod10"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -944,7 +910,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -971,7 +936,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -1021,11 +985,12 @@
                     android:id="@+id/mod11"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -1041,7 +1006,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
 
                         <TextView
@@ -1068,7 +1032,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -1118,11 +1081,12 @@
                     android:id="@+id/mod12"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -1138,7 +1102,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -1155,7 +1118,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -1205,11 +1167,12 @@
                     android:id="@+id/mod13"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -1225,7 +1188,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -1242,7 +1204,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -1292,11 +1253,12 @@
                     android:id="@+id/mod14"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:layout_marginBottom="6dp"
                     android:layout_weight="1"
-                    android:background="@color/colorT"
+                    android:divider="?android:dividerHorizontal"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:showDividers="middle">
 
                     <LinearLayout
 
@@ -1312,7 +1274,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="left|center"
                             android:paddingLeft="6dp"
-                            android:textColor="@color/colorTextBlack"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -1329,7 +1290,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:textColor="@color/colorAccent"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>

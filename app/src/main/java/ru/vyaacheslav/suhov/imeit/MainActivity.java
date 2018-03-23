@@ -214,6 +214,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 FragmentTransaction ft3 = FM.beginTransaction();
                 ft3.replace(R.id.containerView, new TimeClock()).commit();
                 break;
+            case R.id.exzam:
+                MainActivity.this.getSupportActionBar().setSubtitle("Экзаменационная сессия");
+                FragmentTransaction ft4 = FM.beginTransaction();
+                ft4.replace(R.id.containerView, new Exzam()).commit();
+                break;
             default:
                 break;
         }

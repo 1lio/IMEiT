@@ -16,7 +16,6 @@ public class Exzam extends Fragment {
     public TextView ch01, ch02, ch03, ch04, ch05, ch06, ch07, ch08, ch09, ch10, ch11, ch12, ch13, ch14;
     public TextView ty01, ty02, ty03, ty04, ty05, ty06, ty07, ty08, ty09, ty10, ty11, ty12, ty13, ty14;
     public TextView ti01,ti02,ti03,ti04,ti05,ti06,ti07,ti08,ti09,ti10,ti11;
-
     public Exzam() {}
 
     @Override
@@ -326,13 +325,13 @@ public class Exzam extends Fragment {
 
     public void ISiT_11() {
 
-        ch01.setText(getResources().getString(R.string.history));
-        ch02.setText(getResources().getString(R.string.langM));
-        ch03.setText(getResources().getString(R.string.algebra_a_geo));
-        ch04.setText(getResources().getString(R.string.m_analis));
-        ch05.setText(getResources().getString(R.string.informat));
-        ch06.setText(getResources().getString(R.string.eco));
-        ch07.setText(getResources().getString(R.string.inf_tex));
+        ch01.setText(getResources().getString(R.string.langM));
+        ch02.setText(getResources().getString(R.string.algebra_a_geo));
+        ch03.setText(getResources().getString(R.string.m_analis));
+        ch04.setText(getResources().getString(R.string.matlogic));
+        ch05.setText(getResources().getString(R.string.physics));
+        ch06.setText(getResources().getString(R.string.chemistry));
+        ch07.setText(getResources().getString(R.string.teo_pr_incluziv));
         ch08.setText(getResources().getString(R.string.fk));
         ch09.setText(getResources().getString(R.string.bjd));
         ch10.setText(getResources().getString(R.string.oop));
@@ -500,39 +499,35 @@ public class Exzam extends Fragment {
 
     public void ISiT_21() {
 
-        ch01.setText(getResources().getString(R.string.filosofia));
-        ch02.setText(getResources().getString(R.string.langM));
-        ch03.setText(getResources().getString(R.string.disckret));
-        ch04.setText(getResources().getString(R.string.mat_chis_met));
-        ch05.setText(getResources().getString(R.string.econ));
-        ch06.setText(getResources().getString(R.string.el_ec));
-        ch07.setText(getResources().getString(R.string.metrologia));
-        ch08.setText(getResources().getString(R.string.or_ibm));
-        ch09.setText(getResources().getString(R.string.fkl));
-        ch10.setText(getResources().getString(R.string.log_pro));
-        ch11.setText(getResources().getString(R.string.com_tip));
+        ch01.setText(getResources().getString(R.string.teo_ver));
+        ch02.setText(getResources().getString(R.string.arx_sys));
+        ch03.setText(getResources().getString(R.string.tex_pr));
+        ch04.setText(getResources().getString(R.string.teo_game));
+        ch05.setText(getResources().getString(R.string.os));
+        ch06.setText(getResources().getString(R.string.fkl));
+        ch07.setText(getResources().getString(R.string.com_tip));
+        ch08.setText(getResources().getString(R.string.za_ob_d));
+        ch09.setText(getResources().getString(R.string.tex_v_c));
 
-        ty01.setText(getResources().getString(R.string.examen));
-        ty02.setText(getResources().getString(R.string.zac_oc));
+        ty01.setText(getResources().getString(R.string.zacot));
+        ty02.setText(getResources().getString(R.string.exam));
         ty03.setText(getResources().getString(R.string.zacot));
-        ty04.setText(getResources().getString(R.string.zacot));
-        ty05.setText(getResources().getString(R.string.zacot));
-        ty06.setText(getResources().getString(R.string.examen));
+        ty04.setText(getResources().getString(R.string.exam));
+        ty05.setText(getResources().getString(R.string.exam));
+        ty06.setText(getResources().getString(R.string.zacot));
         ty07.setText(getResources().getString(R.string.zacot));
-        ty08.setText(getResources().getString(R.string.examen));
+        ty08.setText(getResources().getString(R.string.zacot));
         ty09.setText(getResources().getString(R.string.zacot));
-        ty10.setText(getResources().getString(R.string.zacot));
-        ty11.setText(getResources().getString(R.string.examen));
 
-        ti01.setVisibility(View.VISIBLE);
+
+        /*ti01.setVisibility(View.VISIBLE);
         ti02.setVisibility(View.VISIBLE);
         ti03.setVisibility(View.VISIBLE);
         ti04.setVisibility(View.VISIBLE);
         ti05.setVisibility(View.VISIBLE);
-        ti06.setVisibility(View.VISIBLE);
         ti07.setVisibility(View.VISIBLE);
         ti08.setVisibility(View.VISIBLE);
-
+        ti09.setVisibility(View.VISIBLE);
         ti10.setVisibility(View.VISIBLE);
         ti11.setVisibility(View.VISIBLE);
 
@@ -546,7 +541,7 @@ public class Exzam extends Fragment {
         ti08.setText(getResources().getString(R.string.gubin));
 
         ti10.setText(getResources().getString(R.string.igonina));
-        ti11.setText(getResources().getString(R.string.gubin));
+        ti11.setText(getResources().getString(R.string.gubin));*/
 
     }
 
