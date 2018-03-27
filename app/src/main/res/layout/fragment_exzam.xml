@@ -10,10 +10,11 @@
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/colorPrimary"
+        android:background="?attr/colorPrimary"
         android:gravity="center"
         android:padding="6dp"
-        android:text="II Полугодие"
+        android:text="@string/two_subnet"
+        android:textColor="@color/colorWhite"
         android:textSize="18sp"
         android:textStyle="bold" />
 

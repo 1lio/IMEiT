@@ -9,7 +9,6 @@
             android:id="@+id/time_alarm"
             android:icon="@drawable/ic_access_time"
             android:title="@string/time_zvonok" />
-
     </group>
 
     <item
@@ -24,6 +23,10 @@
                     android:id="@+id/exzam"
                     android:icon="@drawable/ic_equalizer_black_24dp"
                     android:title="@string/exam" />
+                <item
+                    android:id="@+id/note"
+                    android:icon="@drawable/ic_assignment_turned_in_black_24dp"
+                    android:title="@string/note" />
             </group>
         </menu>
     </item>

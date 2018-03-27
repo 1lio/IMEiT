@@ -25,6 +25,8 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Objects;
 
+import ru.vyaacheslav.suhov.imeit.Activities.Docks;
+import ru.vyaacheslav.suhov.imeit.Activities.Note;
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
@@ -218,6 +220,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 MainActivity.this.getSupportActionBar().setSubtitle("Экзаменационная сессия");
                 FragmentTransaction ft4 = FM.beginTransaction();
                 ft4.replace(R.id.containerView, new Exzam()).commit();
+                break;
+                case R.id.note:
+                    Intent intent = new Intent(this, Note.class);
+                    startActivity(intent);
                 break;
             default:
                 break;

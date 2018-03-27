@@ -1002,5 +1002,27 @@
     <string name="main_theme">Основная тема приложения</string>
     <string name="theme">Тема</string>
     <string name="you_goupe">Ваша группа</string>
+    <string name="two_subnet">II Полугодие</string>
+    <string name="zametki">Новая заметка</string>
 
+    <string-array name="days">
+        <item>ПН</item>
+        <item>ВТ</item>
+        <item>СР</item>
+        <item>ЧТ</item>
+        <item>ПТ</item>
+    </string-array>
+    <string-array name="numbers">
+        <item>1 пара</item>
+        <item>2 пара</item>
+        <item>3 пара</item>
+        <item>4 пара</item>
+        <item>5 пара</item>
+        <item>6 пара</item>
+    </string-array>
+    <string-array name="type_week">
+        <item>Числ.</item>
+        <item>Знам.</item>
+        <item>Все</item>
+    </string-array>
 </resources>

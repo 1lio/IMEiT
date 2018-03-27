@@ -53,24 +53,6 @@ public class TabFragment extends Fragment {
         } else if (Calendar.SUNDAY == dayOfWeek) {
             viewPager.setCurrentItem(0, true);
         }
-
-        LoadPreferences();
         return v;
-    }
-
-    private void LoadPreferences() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
-
-        switch (regular) {
-            case "Светлая":
-                tabLayout.setBackgroundResource(R.color.colorPrimaryA);
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhite));
-                break;
-            case "Темная":
-                tabLayout.setBackgroundResource(R.color.colorPrimary);
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
-                break;
-        }
     }
 }

@@ -42,26 +42,8 @@ public class MapsFragment extends Fragment {
         params.width = 0;
         times.setLayoutParams(params);
 
-        LoadPreferences();
+
         return v;
-    }
-    //TODO: Добавить в styles.xml - не приоритетно
-    private void LoadPreferences() {
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regular = prefs.getString(getString(R.string.pref_theme), "");
-
-        switch (regular) {
-            case "Светлая":
-                tabLayout.setBackgroundResource(R.color.colorAccentA);
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorWhite));
-                break;
-            case "Темная":
-                tabLayout.setBackgroundResource(R.color.colorPrimary);
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
-                break;
-        }
-
     }
 
 }

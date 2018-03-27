@@ -13,13 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,6 +30,12 @@
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeWrithe" />
+
+        <activity android:name=".Activities.Docks" />
+        <activity android:name=".Activities.Note"/>
+        <activity android:name=".Activities.EditDataActivity"/>
+
+
     </application>
 
 </manifest>

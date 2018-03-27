@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.Days;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import ru.vyaacheslav.suhov.imeit.Activities.Docks;
+import ru.vyaacheslav.suhov.imeit.MainActivity;
 import ru.vyaacheslav.suhov.imeit.R;
 
 public class Mon extends Fragment{
@@ -21,7 +24,7 @@ public class Mon extends Fragment{
     private TextView p1, m_p1_tz, m_p1_kz, p1a, m_p1_t, m_p1_k, p1z, p1az, p2, m_p2_tz, m_p2_kz, p2a, m_p2_t, m_p2_k, p2z, p2az,
             p3, m_p3_tz, m_p3_kz, p3a, m_p3_t, m_p3_k, p3z, p3az, p4, m_p4_tz, m_p4_kz, p4a, m_p4_t, m_p4_k, p4z, p4az,
             p5, p5a, m_p5_t, m_p5_k;
-
+    final String day = "День недели: ПН";
     public Mon() {}
 
     @Override
@@ -62,6 +65,30 @@ public class Mon extends Fragment{
         p1az.setText(pz);
         m_p1_tz.setText(tz);
         m_p1_kz.setText(rz);
+
+        final String para = "1 пара";
+        mm1.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(getActivity(), Docks.class);
+
+                intent.putExtra("day", day);
+                intent.putExtra("para", para);
+
+                intent.putExtra("name", p1.getText().toString());
+                intent.putExtra("subname", p1a.getText().toString());
+                intent.putExtra("type", m_p1_t.getText().toString());
+                intent.putExtra("corp", m_p1_k.getText().toString());
+
+                intent.putExtra("zname", p1z.getText().toString());
+                intent.putExtra("zsubname", p1az.getText().toString());
+                intent.putExtra("ztype", m_p1_tz.getText().toString());
+                intent.putExtra("zcorp", m_p1_kz.getText().toString());
+
+                startActivity(intent);
+                return false;
+            }
+        });
     }
 
     public void Less2(String l, String p, String t, String r, String lz,
@@ -96,6 +123,33 @@ public class Mon extends Fragment{
         p2az.setText(pz);
         m_p2_tz.setText(tz);
         m_p2_kz.setText(rz);
+
+        final String para = "2 пара";
+        mm2.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(getActivity(), Docks.class);
+
+                intent.putExtra("day", day);
+                intent.putExtra("para", para);
+
+                intent.putExtra("name", p2.getText().toString());
+                intent.putExtra("subname", p2a.getText().toString());
+                intent.putExtra("type", m_p2_t.getText().toString());
+                intent.putExtra("corp", m_p2_k.getText().toString());
+
+                intent.putExtra("zname", p2z.getText().toString());
+                intent.putExtra("zsubname", p2az.getText().toString());
+                intent.putExtra("ztype", m_p2_tz.getText().toString());
+                intent.putExtra("zcorp", m_p2_kz.getText().toString());
+
+                startActivity(intent);
+                return false;
+            }
+        });
+
+
+
     }
     public void Less3(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
@@ -130,6 +184,30 @@ public class Mon extends Fragment{
         p3az.setText(pz);
         m_p3_tz.setText(tz);
         m_p3_kz.setText(rz);
+
+        final String para = "3 пара";
+        mm3.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(getActivity(), Docks.class);
+
+                intent.putExtra("day", day);
+                intent.putExtra("para", para);
+
+                intent.putExtra("name", p3.getText().toString());
+                intent.putExtra("subname", p3a.getText().toString());
+                intent.putExtra("type", m_p3_t.getText().toString());
+                intent.putExtra("corp", m_p3_k.getText().toString());
+
+                intent.putExtra("zname", p3z.getText().toString());
+                intent.putExtra("zsubname", p3az.getText().toString());
+                intent.putExtra("ztype", m_p3_tz.getText().toString());
+                intent.putExtra("zcorp", m_p3_kz.getText().toString());
+
+                startActivity(intent);
+                return false;
+            }
+        });
     }
     public void Less4(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
@@ -160,6 +238,30 @@ public class Mon extends Fragment{
         p4az.setText(pz);
         m_p4_tz.setText(tz);
         m_p4_kz.setText(rz);
+
+        final String para = "4 пара";
+        mm4.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(getActivity(), Docks.class);
+
+                intent.putExtra("day", day);
+                intent.putExtra("para", para);
+
+                intent.putExtra("name", p4.getText().toString());
+                intent.putExtra("subname", p4a.getText().toString());
+                intent.putExtra("type", m_p4_t.getText().toString());
+                intent.putExtra("corp", m_p4_k.getText().toString());
+
+                intent.putExtra("zname", p4z.getText().toString());
+                intent.putExtra("zsubname", p4az.getText().toString());
+                intent.putExtra("ztype", m_p4_tz.getText().toString());
+                intent.putExtra("zcorp", m_p4_kz.getText().toString());
+
+                startActivity(intent);
+                return false;
+            }
+        });
     }
     public void Less5(String l, String p, String t, String r) {
 
@@ -170,6 +272,30 @@ public class Mon extends Fragment{
         p5a.setText(p);
         m_p5_t.setText(t);
         m_p5_k.setText(r);
+
+        final String para = "5 пара";
+        mm5.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(getActivity(), Docks.class);
+
+                intent.putExtra("day", day);
+                intent.putExtra("para", para);
+
+                intent.putExtra("name", p5.getText().toString());
+                intent.putExtra("subname", p5a.getText().toString());
+                intent.putExtra("type", m_p5_t.getText().toString());
+                intent.putExtra("corp", m_p5_k.getText().toString());
+
+                intent.putExtra("zname", p5.getText().toString());
+                intent.putExtra("zsubname", p5a.getText().toString());
+             /*   intent.putExtra("ztype", m_p5_tz.getText().toString());
+                intent.putExtra("zcorp", m_p5_kz.getText().toString());*/
+
+                startActivity(intent);
+                return false;
+            }
+        });
     }
     // нужно оптимизировать эту херню.
     public void loadMethod() {
