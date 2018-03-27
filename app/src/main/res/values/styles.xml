@@ -11,7 +11,11 @@
         <item name="colorAccent">@color/colorPrimaryA</item>
         <item name="android:textColor">@color/colorTextBlack</item>
         <item name="android:textColorSecondary">@color/colorTextSub</item>
+        <!--Костыль colorError в роли атрибута для NavView -->
+        <item name="colorError">@color/colorWhite</item>
+        <item name="colorButtonNormal">@color/colorIconTint</item>
 
+        <item name="android:statusBarColor">@color/colorPrimaryDarkA</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -21,11 +25,15 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorWhite</item>
-
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:textColorSecondary">@color/colorTextSub</item>
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
         <!--ColorPrimary устанавливается в качестве заголовка тулбар-->
         <item name="android:textColorPrimary">@color/colorWhite</item>
+
+        <!--Костыль-->
+        <item name="colorError">@color/colorPrimaryDark</item>
+        <item name="colorButtonNormal">@color/colorWhite</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

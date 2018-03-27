@@ -2,8 +2,6 @@ package ru.vyaacheslav.suhov.imeit;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -17,9 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -36,15 +31,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public java.util.Calendar calendar;
     public FragmentTransaction FT;
     public FragmentManager FM;
-    public FrameLayout fl;
     public SharedPreferences   prefs;
     public String typeTheme,typeWeek, typeGroupe;
     public Intent settingsIntent;
+    public Toolbar tb;
+    public NavigationView nv;
     int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
     private Menu menu;
-    private Toolbar tb;
     private DrawerLayout dl;
-    private NavigationView nv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tb = findViewById(R.id.toolbar);
         nv = findViewById(R.id.shitstuff);
         dl = findViewById(R.id.drawerLayout);
-        fl = findViewById(R.id.containerView);
 
         calendar = java.util.Calendar.getInstance();
         setSupportActionBar(tb);
@@ -95,14 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         settingsIntent = new Intent(MainActivity.this, SettingsPref.class);
         loadName(); // Загрузка имени группы согласно настройкам;
-
-        // TODO: исправить Дублирование | Проблема в самом жизненном цикле
-        if (Objects.equals(typeTheme, "Светлая")) {
-            ThemeWrithe();
-        }
-        if(Objects.equals(typeTheme, "Темная")) {
-            ThemeDark();
-        }
     }
 
     @Override
@@ -159,36 +144,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // В качестве подзоголовка берем имя выбранной группы.
         typeGroupe = prefs.getString(getString(R.string.pref_style), "");
         MainActivity.this.getSupportActionBar().setSubtitle(typeGroupe);
-        // Если пользователь очистил память в окне настроек, то настройка будет пуста. Делаем проверку.
+        // Если пользователь очистил память в окне настроек, то строка будет пуста. Делаем проверку.
         if ((typeGroupe.length() == 0)){
             startActivity(settingsIntent);
             finish();
         }
-    }
-    // Кастомизация тем  Светлая и Темная
-    public void ThemeWrithe() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDarkA));
-        }
-        nv.setBackgroundResource(R.color.colorWhite);
-        nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimarySS)));
-        nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimarySS)));
-        tb.setBackgroundResource(R.color.colorPrimaryA);
-        fl.setBackgroundResource(R.color.colorWhite);
-    }
-    public void ThemeDark() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
-        }
-        nv.setBackgroundResource(R.color.colorPrimaryDark);
-        nv.setItemIconTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorWhite)));
-        nv.setItemTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorWhite)));
-        tb.setBackgroundResource(R.color.colorPrimary);
-        fl.setBackgroundResource(R.color.colorPrimaryDarkD);
     }
 
     public void onBackPressed() {

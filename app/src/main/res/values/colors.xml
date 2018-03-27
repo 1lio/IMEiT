@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--TODO: Оптимизировать колличество цветов|Убрать лишние-->
-<!--TODO: Добавить коментарии к цветам ?? Если в этом есть необходимость-->
 <resources>
     <color name="colorPrimary">#1f2429</color>1976d1
     <color name="colorPrimaryDark">#16191d</color>004b9f
@@ -11,16 +9,9 @@
     <color name="colorPrimaryDarkA">#004b9f</color>004b9f
     <color name="colorAccentA">#1976d1</color>1976d1
 
-    <color name="colorPrimaryDarkD">#16191d</color>
-
     <color name="colorTextSub">#61676e</color>
     <color name="colorTextBlack">#101010</color>
 
-    <color name="colorPrimaryS">#1e1e1e</color>
-    <color name="colorPrimarySS">#232323</color>
-    <color name="colorSigma">#21262b</color>
-    <color name="colorPrimaryF">#121212</color>
-    <color name="colorT">#2b3239</color>
+    <color name="colorIconTint">#232323</color>
     <color name="colorWhite">#ffffff</color>
-
 </resources>
