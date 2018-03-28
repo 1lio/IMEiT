@@ -23,10 +23,10 @@
                     android:id="@+id/exzam"
                     android:icon="@drawable/ic_equalizer_black_24dp"
                     android:title="@string/exam" />
-                <item
+                <!--<item
                     android:id="@+id/note"
                     android:icon="@drawable/ic_assignment_turned_in_black_24dp"
-                    android:title="@string/note" />
+                    android:title="@string/note" />-->
             </group>
         </menu>
     </item>

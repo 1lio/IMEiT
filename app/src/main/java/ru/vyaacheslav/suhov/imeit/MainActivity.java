@@ -2,6 +2,7 @@ package ru.vyaacheslav.suhov.imeit;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -20,8 +21,6 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Objects;
 
-import ru.vyaacheslav.suhov.imeit.Activities.Docks;
-import ru.vyaacheslav.suhov.imeit.Activities.Note;
 import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
 
@@ -48,11 +47,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         typeWeek = prefs.getString(getString(R.string.week_i), "");
         typeGroupe = prefs.getString(getString(R.string.pref_style), "");
 
-        if (Objects.equals(typeTheme, "Светлая")) {
-            setTheme(R.style.ThemeWrithe);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (Objects.equals(typeTheme, "Светлая")) {
+                setTheme(R.style.ThemeWrithe);
+            }
         }
-        if(Objects.equals(typeTheme, "Темная")) {
-            setTheme(R.style.ThemeDark);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if(Objects.equals(typeTheme, "Темная")) {
+                setTheme(R.style.ThemeDark);
+            }
         }
 
         super.onCreate(savedInstanceState);
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nv = findViewById(R.id.shitstuff);
         dl = findViewById(R.id.drawerLayout);
 
-        calendar = java.util.Calendar.getInstance();
+        calendar = Calendar.getInstance();
         setSupportActionBar(tb);
         //ActionBarToggle - Это иконка DrawerLayout
         toggle = new ActionBarDrawerToggle(this, dl, tb, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -143,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void loadName() {
         // В качестве подзоголовка берем имя выбранной группы.
         typeGroupe = prefs.getString(getString(R.string.pref_style), "");
-        MainActivity.this.getSupportActionBar().setSubtitle(typeGroupe);
+        MainActivity.this.tb.setSubtitle(typeGroupe);
         // Если пользователь очистил память в окне настроек, то строка будет пуста. Делаем проверку.
         if ((typeGroupe.length() == 0)){
             startActivity(settingsIntent);
@@ -167,28 +170,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 loadName();
                 break;
             case R.id.map:
-                MainActivity.this.getSupportActionBar().setSubtitle("Учебные корпуса");
+                MainActivity.this.tb.setSubtitle("Учебные корпуса");
                 FragmentTransaction ft2 = FM.beginTransaction();
                 ft2.replace(R.id.containerView, new MapsFragment()).commit();
                 break;
             case R.id.time_alarm:
-                MainActivity.this.getSupportActionBar().setSubtitle("Время звонков");
+                MainActivity.this.tb.setSubtitle("Время звонков");
                 FragmentTransaction ft3 = FM.beginTransaction();
                 ft3.replace(R.id.containerView, new TimeClock()).commit();
                 break;
             case R.id.exzam:
-                MainActivity.this.getSupportActionBar().setSubtitle("Экзаменационная сессия");
+                MainActivity.this.tb.setSubtitle("Экзаменационная сессия");
                 FragmentTransaction ft4 = FM.beginTransaction();
                 ft4.replace(R.id.containerView, new Exzam()).commit();
                 break;
-                case R.id.note:
+          /*      case R.id.note:
                     Intent intent = new Intent(this, Note.class);
                     startActivity(intent);
-                break;
+                break;*/
             default:
                 break;
         }
         dl.closeDrawer(GravityCompat.START);
         return true;
+
     }
+
+
 }
