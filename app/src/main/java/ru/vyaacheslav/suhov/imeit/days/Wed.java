@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.Days;
+package ru.vyaacheslav.suhov.imeit.days;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

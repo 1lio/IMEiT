@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.Days;
+package ru.vyaacheslav.suhov.imeit.days;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -115,7 +115,7 @@ public class Fri extends Fragment {
         }
 
         if (i) {
-
+            m_l_2z.setVisibility(View.VISIBLE);
         } else {
         m_l_2z.setVisibility(View.GONE);
         }
@@ -476,13 +476,12 @@ public class Fri extends Fragment {
     }
 
     public void PM_21() {
-
-        Less1D(getString(R.string.com_gra), getString(R.string.zaburaeva), getString(R.string.lk),getString(R.string.uk15_305),true, true);
-        Less2D(getString(R.string.data_bases), getString(R.string.zaburaeva), getString(R.string.lk),getString(R.string.uk15_305),true, true);
+        Less2D(getString(R.string.data_bases), getString(R.string.maksimov), getString(R.string.lk),getString(R.string.uk15_305),true, true);
+        Less3D(getString(R.string.com_gra), getString(R.string.maksimov), getString(R.string.lk),getString(R.string.uk15_305),true, true);
     }
 
     public void BI_21() {
-        Less3(null,null,null,null,getString(R.string.os), getString(R.string.zaburaeva), getString(R.string.lk),getString(R.string.uk15_305), true);
+        Less3D(getString(R.string.com_gra), getString(R.string.maksimov), getString(R.string.lk),getString(R.string.uk15_305),true, true);
     }
 
     public void IiVT_21() {
@@ -598,8 +597,6 @@ public class Fri extends Fragment {
         if (prefs.getBoolean(getString(R.string.pref_chek2), false)) {
 
             Less1D(getString(R.string.inlangN), getString(R.string.sedova), getString(R.string.pz), getString(R.string.uk14_218), false, false);
-        } else {
-
         }
 
     }
@@ -610,8 +607,6 @@ public class Fri extends Fragment {
         // читаем установленное значение из CheckBoxPreference
         if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
             Less2D(getString(R.string.inlang), getString(R.string.lebedeva), getString(R.string.pz), getString(R.string.uk14_218), false, false);
-        } else {
-
         }
 
     }
@@ -621,10 +616,7 @@ public class Fri extends Fragment {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean(getString(R.string.pref_chek1), false)) {
             Less3D(getString(R.string.inlang), getString(R.string.lebedeva), getString(R.string.pz), getString(R.string.uk4_24), false, false);
-        } else {
-
         }
-
     }
 
     public void XBiG_11() {  }

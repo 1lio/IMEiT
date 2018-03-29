@@ -1,9 +1,8 @@
-package ru.vyaacheslav.suhov.imeit.Activities;
+package ru.vyaacheslav.suhov.imeit.db;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -52,10 +51,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /**
-     * Returns all the data from database
-     * @return
-     */
     public Cursor getData(){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -63,11 +58,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    /**
-     * Returns only the ID that matches the name passed in
-     * @param name
-     * @return
-     */
     public Cursor getItemID(String name){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT " + COL1 + " FROM " + TABLE_NAME +
@@ -76,12 +66,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    /**
-     * Updates the name field
-     * @param newName
-     * @param id
-     * @param oldName
-     */
     public void updateName(String newName, int id, String oldName){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "UPDATE " + TABLE_NAME + " SET " + COL2 +
@@ -92,11 +76,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    /**
-     * Delete from database
-     * @param id
-     * @param name
-     */
     public void deleteName(int id, String name){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "DELETE FROM " + TABLE_NAME + " WHERE "

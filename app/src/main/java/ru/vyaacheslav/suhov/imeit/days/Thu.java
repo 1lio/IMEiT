@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.Days;
+package ru.vyaacheslav.suhov.imeit.days;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -571,8 +571,8 @@ public class Thu extends Fragment {
     }
 
     public void PM_41() {
-        Less1D(getString(R.string.vis_sys), getString(R.string.zaburaeva), getString(R.string.pz), getString(R.string.uk15_305), false, true);
-        Less2(getString(R.string.vis_sys), getString(R.string.zaburaeva), getString(R.string.pz), getString(R.string.uk15_305),
+        Less1D(getString(R.string.vis_sys), getString(R.string.maksimov), getString(R.string.pz), getString(R.string.uk1_2), false, true);
+        Less2(null,null,null,null,
                 getString(R.string.ii), getString(R.string.kornienko), getString(R.string.lb), getString(R.string.uk3_16), true);
 
     }

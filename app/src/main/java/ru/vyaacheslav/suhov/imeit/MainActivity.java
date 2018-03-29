@@ -21,8 +21,9 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Objects;
 
-import ru.vyaacheslav.suhov.imeit.Maps.MapsFragment;
-import ru.vyaacheslav.suhov.imeit.OtherFragment.TimeClock;
+import ru.vyaacheslav.suhov.imeit.ftagments.Exzam;
+import ru.vyaacheslav.suhov.imeit.maps.MapsFragment;
+import ru.vyaacheslav.suhov.imeit.ftagments.TimeClock;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

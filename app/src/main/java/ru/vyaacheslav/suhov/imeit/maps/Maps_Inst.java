@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.Maps;
+package ru.vyaacheslav.suhov.imeit.maps;
 
 import android.content.Intent;
 import android.net.Uri;

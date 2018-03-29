@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.Days;
+package ru.vyaacheslav.suhov.imeit.days;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import ru.vyaacheslav.suhov.imeit.Activities.Docks;
-import ru.vyaacheslav.suhov.imeit.MainActivity;
+import ru.vyaacheslav.suhov.imeit.db.Docks;
 import ru.vyaacheslav.suhov.imeit.R;
 
 public class Mon extends Fragment{
@@ -34,6 +33,27 @@ public class Mon extends Fragment{
         InitViews();
         loadMethod();
         return v;
+    }
+
+    public void Less1D(String l, String p, String t, String r, boolean duble, boolean i) {
+
+        if (duble) {
+            p1z.setText(l);
+            p1az.setText(p);
+            m_p1_tz.setText(getString(R.string.pz));
+            m_p1_kz.setText(r);
+        }
+
+        if (i) {
+            m_l_1z.setVisibility(View.VISIBLE);
+        } else {
+            m_l_1z.setVisibility(View.GONE);
+        }
+
+        p1.setText(l);
+        p1a.setText(p);
+        m_p1_t.setText(t);
+        m_p1_k.setText(r);
     }
 
     public void Less1(String l, String p, String t, String r, String lz,
@@ -654,7 +674,7 @@ public class Mon extends Fragment{
     }
     public void PM_31() {
 
-        Fizra_3kurs();
+        Less1D(getString(R.string.os), getString(R.string.maksimov), getString(R.string.lk),getString(R.string.uk15_313),true, true);
 
         Less2(getString(R.string.oper_ish), getString(R.string.rochupkin), getString(R.string.lk), getString(R.string.uk2_113),
                 getString(R.string.oper_ish), getString(R.string.rochupkin), getString(R.string.pz), getString(R.string.uk4_22), true);

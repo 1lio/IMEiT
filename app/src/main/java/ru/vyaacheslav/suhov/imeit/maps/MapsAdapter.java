@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.Maps;
+package ru.vyaacheslav.suhov.imeit.maps;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.OtherFragment;
+package ru.vyaacheslav.suhov.imeit.ftagments;
 
 import android.content.SharedPreferences;
 import android.os.Build;

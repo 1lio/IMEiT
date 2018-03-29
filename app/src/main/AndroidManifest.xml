@@ -7,12 +7,12 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".SettingsPref"
             android:label="@string/settings"
@@ -31,9 +32,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/ThemeWrithe" />
 
-        <activity android:name=".Activities.Docks" />
-        <activity android:name=".Activities.Note"/>
-        <activity android:name=".Activities.EditDataActivity"/>
+        <activity android:name=".db.Docks" />
+        <activity android:name=".db.Note"/>
+        <activity android:name=".db.EditDataActivity"/>
 
 
     </application>

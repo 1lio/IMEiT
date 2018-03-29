@@ -4,11 +4,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import ru.vyaacheslav.suhov.imeit.Days.Fri;
-import ru.vyaacheslav.suhov.imeit.Days.Mon;
-import ru.vyaacheslav.suhov.imeit.Days.Thu;
-import ru.vyaacheslav.suhov.imeit.Days.Tue;
-import ru.vyaacheslav.suhov.imeit.Days.Wed;
+import ru.vyaacheslav.suhov.imeit.days.Fri;
+import ru.vyaacheslav.suhov.imeit.days.Mon;
+import ru.vyaacheslav.suhov.imeit.days.Thu;
+import ru.vyaacheslav.suhov.imeit.days.Tue;
+import ru.vyaacheslav.suhov.imeit.days.Wed;
 
 import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
 

@@ -1,24 +1,15 @@
-package ru.vyaacheslav.suhov.imeit.Activities;
+package ru.vyaacheslav.suhov.imeit.db;
 
 import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +17,6 @@ import java.util.Objects;
 
 import ru.vyaacheslav.suhov.imeit.MainActivity;
 import ru.vyaacheslav.suhov.imeit.R;
-import ru.vyaacheslav.suhov.imeit.SettingsPref;
 
 public class Docks extends AppCompatActivity {
 
@@ -116,7 +106,6 @@ public class Docks extends AppCompatActivity {
 
         mDatabaseHelper = new DatabaseHelper(this);
 
-        // TODO сделать переход по кнопке в лист
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,10 +135,6 @@ public class Docks extends AppCompatActivity {
         }
     }
 
-    /**
-     * customizable toast
-     * @param message
-     */
     private void toastMessage(String message){
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }

@@ -6,11 +6,13 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,7 +25,6 @@ import java.util.Objects;
 
 public class SettingsPref extends PreferenceActivity {
 
-    public ListPreference groupe, theme, week;
     SharedPreferences prefs;
     private AppCompatDelegate mDelegate;
 
@@ -34,38 +35,14 @@ public class SettingsPref extends PreferenceActivity {
         if (Objects.equals(regular, "Светлая")) {
             setTheme(R.style.ThemeWrithe);
         }
-         if(Objects.equals(regular, "Темная")) {
+        if (Objects.equals(regular, "Темная")) {
             setTheme(R.style.ThemeDark);
         }
-        getDelegate().installViewFactory();
-        getDelegate().onCreate(savedInstanceState);
-
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.preferences);
-
-        LinearLayout root = (LinearLayout)findViewById(android.R.id.list).getParent().getParent().getParent();
-        Toolbar bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.toolbar, root, false);
-        root.addView(bar, 0); // insert at top
-
-        bar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SettingsPref.this,MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
 
         getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);
-
-        groupe = (ListPreference) findPreference(getString(R.string.pref_style));
-        theme = (ListPreference) findPreference(getString(R.string.pref_theme));
-        week = (ListPreference) findPreference(getString(R.string.week_i));
-
-        groupe.setSummary(groupe.getEntry());
-        theme.setSummary(theme.getEntry());
-        week.setSummary(week.getEntry());
     }
 
     public void onBackPressed() {
@@ -164,4 +141,50 @@ public class SettingsPref extends PreferenceActivity {
         return mDelegate;
     }
 
+    public static class MyPreferenceFragment extends PreferenceFragment {
+
+        public ListPreference groupe, theme, week;
+
+        @Override
+        public void onCreate(final Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            addPreferencesFromResource(R.xml.preferences);
+
+            LinearLayout root = (LinearLayout) getActivity().findViewById(android.R.id.list).getParent().getParent().getParent();
+            Toolbar bar = (Toolbar) LayoutInflater.from(getActivity()).inflate(R.layout.toolbar, root, false);
+            root.addView(bar, 0); // insert at top
+
+
+            bar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+            groupe = (ListPreference) findPreference(getString(R.string.pref_style));
+            theme = (ListPreference) findPreference(getString(R.string.pref_theme));
+            week = (ListPreference) findPreference(getString(R.string.week_i));
+
+            groupe.setSummary(groupe.getEntry());
+            theme.setSummary(theme.getEntry());
+            week.setSummary(week.getEntry());
+
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View view = super.onCreateView(inflater, container, savedInstanceState);
+
+            int horizontalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+            int verticalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+            int topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (int) getResources().getDimension(R.dimen.activity_vertical_margin) + 30, getResources().getDisplayMetrics());
+
+            assert view != null;
+            view.setPadding(horizontalMargin, topMargin, horizontalMargin, verticalMargin);
+            return view;
+        }
+
+    }
 }
