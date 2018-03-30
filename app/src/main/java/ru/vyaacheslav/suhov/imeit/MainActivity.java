@@ -18,12 +18,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
 import java.util.Objects;
 
 import ru.vyaacheslav.suhov.imeit.ftagments.Exzam;
-import ru.vyaacheslav.suhov.imeit.maps.MapsFragment;
 import ru.vyaacheslav.suhov.imeit.ftagments.TimeClock;
+import ru.vyaacheslav.suhov.imeit.maps.MapsFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -39,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
     private Menu menu;
     private DrawerLayout dl;
+
+    public FirebaseDatabase database;
+    public DatabaseReference  myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         settingsIntent = new Intent(MainActivity.this, SettingsPref.class);
         loadName(); // Загрузка имени группы согласно настройкам;
+
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("items");
     }
 
     @Override

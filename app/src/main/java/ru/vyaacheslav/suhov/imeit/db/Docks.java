@@ -106,7 +106,6 @@ public class Docks extends AppCompatActivity {
 
         mDatabaseHelper = new DatabaseHelper(this);
 
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

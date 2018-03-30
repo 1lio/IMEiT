@@ -18,9 +18,17 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorIconTint"
+        android:text="Button" />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1338,5 +1346,7 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+
 
 </LinearLayout>

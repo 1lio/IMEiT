@@ -1,25 +1,65 @@
 package ru.vyaacheslav.suhov.imeit.ftagments;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+
+import org.w3c.dom.Comment;
+
+import java.io.Serializable;
+import java.util.Objects;
+
+import ru.vyaacheslav.suhov.imeit.EditExam;
 import ru.vyaacheslav.suhov.imeit.R;
+
+import static android.content.ContentValues.TAG;
 
 public class Exzam extends Fragment {
 
     public LinearLayout mod01, mod02, mod03, mod04, mod05, mod06, mod07, mod08, mod09, mod10, mod11, mod12, mod13, mod14;
     public TextView ch01, ch02, ch03, ch04, ch05, ch06, ch07, ch08, ch09, ch10, ch11, ch12, ch13, ch14;
     public TextView ty01, ty02, ty03, ty04, ty05, ty06, ty07, ty08, ty09, ty10, ty11, ty12, ty13, ty14;
-    public TextView ti01,ti02,ti03,ti04,ti05,ti06,ti07,ti08,ti09,ti10,ti11;
-    public Exzam() {}
+    public TextView ti01, ti02, ti03, ti04, ti05, ti06, ti07, ti08, ti09, ti10, ti11;
+
+    public String zacot = "Зачет";
+    public String examen = "Экзамен";
+
+    public Exzam() {
+    }
+
+    static class Item implements Serializable {
+
+        public String name;
+        public String type;
+
+        public Item() {}
+
+        Item(String name, String type) {
+            this.name = name;
+            this.type = type;
+        }
+    }
+
+    public FirebaseDatabase database;
+    public DatabaseReference myRef;
 
 
     @Override
@@ -72,17 +112,28 @@ public class Exzam extends Fragment {
         ty13 = v.findViewById(R.id.z13);
         ty14 = v.findViewById(R.id.z14);
 
-        ti01 =v.findViewById(R.id.ki1);
-        ti02 =v.findViewById(R.id.ki2);
-        ti03 =v.findViewById(R.id.ki3);
-        ti04 =v.findViewById(R.id.ki4);
-        ti05 =v.findViewById(R.id.ki5);
-        ti06 =v.findViewById(R.id.ki6);
-        ti07 =v.findViewById(R.id.ki7);
-        ti08 =v.findViewById(R.id.ki8);
-        ti09 =v.findViewById(R.id.ki9);
-        ti10 =v.findViewById(R.id.ki10);
-        ti11 =v.findViewById(R.id.ki11);
+        ti01 = v.findViewById(R.id.ki1);
+        ti02 = v.findViewById(R.id.ki2);
+        ti03 = v.findViewById(R.id.ki3);
+        ti04 = v.findViewById(R.id.ki4);
+        ti05 = v.findViewById(R.id.ki5);
+        ti06 = v.findViewById(R.id.ki6);
+        ti07 = v.findViewById(R.id.ki7);
+        ti08 = v.findViewById(R.id.ki8);
+        ti09 = v.findViewById(R.id.ki9);
+        ti10 = v.findViewById(R.id.ki10);
+        ti11 = v.findViewById(R.id.ki11);
+
+        Button btn = v.findViewById(R.id.button2);
+        btn.setVisibility(View.GONE);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), EditExam.class);
+                startActivity(intent);
+
+            }
+        });
 
         loadMethod();
         MasterDepos();
@@ -226,26 +277,161 @@ public class Exzam extends Fragment {
     }
 
     // Визуальное скрытие неиспользуемых элементов
-    private  void  MasterDepos(){
+    private void MasterDepos() {
 
-                if (ch01.getText().length() == 0)mod01.setVisibility(View.GONE);
-                if (ch02.getText().length() == 0)mod02.setVisibility(View.GONE);
-                if (ch03.getText().length() == 0)mod03.setVisibility(View.GONE);
-                if (ch04.getText().length() == 0)mod04.setVisibility(View.GONE);
-                if (ch05.getText().length() == 0)mod05.setVisibility(View.GONE);
-                if (ch06.getText().length() == 0)mod06.setVisibility(View.GONE);
-                if (ch07.getText().length() == 0)mod07.setVisibility(View.GONE);
-                if (ch08.getText().length() == 0)mod08.setVisibility(View.GONE);
-                if (ch09.getText().length() == 0)mod09.setVisibility(View.GONE);
-                if (ch10.getText().length() == 0)mod10.setVisibility(View.GONE);
-                if (ch11.getText().length() == 0)mod11.setVisibility(View.GONE);
-                if (ch12.getText().length() == 0)mod12.setVisibility(View.GONE);
-                if (ch13.getText().length() == 0)mod13.setVisibility(View.GONE);
-                if (ch14.getText().length() == 0)mod14.setVisibility(View.GONE);
+        if (ch01.getText().length() == 0) mod01.setVisibility(View.GONE);
+        if (ch02.getText().length() == 0) mod02.setVisibility(View.GONE);
+        if (ch03.getText().length() == 0) mod03.setVisibility(View.GONE);
+        if (ch04.getText().length() == 0) mod04.setVisibility(View.GONE);
+        if (ch05.getText().length() == 0) mod05.setVisibility(View.GONE);
+        if (ch06.getText().length() == 0) mod06.setVisibility(View.GONE);
+        if (ch07.getText().length() == 0) mod07.setVisibility(View.GONE);
+        if (ch08.getText().length() == 0) mod08.setVisibility(View.GONE);
+        if (ch09.getText().length() == 0) mod09.setVisibility(View.GONE);
+        if (ch10.getText().length() == 0) mod10.setVisibility(View.GONE);
+        if (ch11.getText().length() == 0) mod11.setVisibility(View.GONE);
+        if (ch12.getText().length() == 0) mod12.setVisibility(View.GONE);
+        if (ch13.getText().length() == 0) mod13.setVisibility(View.GONE);
+        if (ch14.getText().length() == 0) mod14.setVisibility(View.GONE);
 
     }
 
+    public void objectTable(String c1, String c2, String c3, String c4, String c5, String c6, String c7, String c8, String c9, String c10, String c11, String c12, String c13, String c14,
+                            String t1, String t2, String t3, String t4, String t5, String t6, String t7, String t8, String t9, String t10, String t11, String t12, String t13, String t14) {
+
+        ch01.setText(c1);
+        ch02.setText(c2);
+        ch03.setText(c3);
+        ch04.setText(c4);
+        ch05.setText(c5);
+        ch06.setText(c6);
+        ch07.setText(c7);
+        ch08.setText(c8);
+        ch09.setText(c9);
+        ch10.setText(c10);
+        ch11.setText(c11);
+        ch12.setText(c12);
+        ch13.setText(c13);
+        ch14.setText(c14);
+
+        ty01.setText(t1);
+        ty02.setText(t2);
+        ty03.setText(t3);
+        ty04.setText(t4);
+        ty05.setText(t5);
+        ty06.setText(t6);
+        ty07.setText(t7);
+        ty08.setText(t8);
+        ty09.setText(t9);
+        ty10.setText(t10);
+        ty11.setText(t11);
+        ty12.setText(t12);
+        ty13.setText(t13);
+        ty14.setText(t14);
+
+        database = FirebaseDatabase.getInstance();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String position = prefs.getString(getString(R.string.pref_style), "");
+        myRef = database.getReference(position).child("Экзамены");
+        myRef.removeValue();
+
+        Item item = new Item(c1, t1);
+        Item item2 = new Item(c2, t2);
+        Item item3 = new Item(c3, t3);
+        Item item4 = new Item(c4, t4);
+        Item item5 = new Item(c5, t5);
+        Item item6 = new Item(c6, t6);
+        Item item7 = new Item(c7, t7);
+        Item item8 = new Item(c8, t8);
+        Item item9 = new Item(c9, t9);
+        Item item10 = new Item(c10, t10);
+        Item item11 = new Item(c11, t11);
+        Item item12 = new Item(c12, t12);
+        Item item13 = new Item(c13, t13);
+        Item item14 = new Item(c14, t14);
+
+
+        myRef.push().setValue(item);
+        myRef.push().setValue(item2);
+        myRef.push().setValue(item3);
+        myRef.push().setValue(item4);
+        myRef.push().setValue(item5);
+        myRef.push().setValue(item6);
+        myRef.push().setValue(item7);
+        myRef.push().setValue(item8);
+        myRef.push().setValue(item9);
+        myRef.push().setValue(item10);
+        myRef.push().setValue(item11);
+        myRef.push().setValue(item12);
+        myRef.push().setValue(item13);
+        myRef.push().setValue(item14);
+
+        ch01.setText(item.name);
+        ty01.setText(item.type);
+        ch02.setText(item2.name);
+        ty02.setText(item2.type);
+        ch03.setText(item3.name);
+        ty03.setText(item3.type);
+        ch04.setText(item4.name);
+        ty04.setText(item4.type);
+        ch05.setText(item5.name);
+        ty05.setText(item5.type);
+        ch06.setText(item6.name);
+        ty06.setText(item6.type);
+        ch07.setText(item7.name);
+        ty07.setText(item7.type);
+        ch08.setText(item8.name);
+        ty08.setText(item8.type);
+        ch09.setText(item9.name);
+        ty09.setText(item9.type);
+        ch10.setText(item10.name);
+        ty10.setText(item10.type);
+        ch11.setText(item11.name);
+        ty11.setText(item11.type);
+        ch12.setText(item12.name);
+        ty12.setText(item12.type);
+        ch13.setText(item13.name);
+        ty13.setText(item13.type);
+        ch14.setText(item14.name);
+        ty14.setText(item14.type);
+
+
+
+        ChildEventListener childEventListener = new ChildEventListener() {
+            // Он отдает нам 4 колбэка (onChildAdded, onChildChanged, onChildRemoved, onChildMoved)
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
+
+                Comment comment = dataSnapshot.getValue(Comment.class);
+
+                ch01.setText(comment.getTextContent());
+
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+
+        myRef.addChildEventListener(childEventListener);
+    }
+
     public void FMiI_11() {
+
 
         ch01.setText(getResources().getString(R.string.langM));
         ch02.setText(getResources().getString(R.string.bjd));
@@ -291,38 +477,10 @@ public class Exzam extends Fragment {
 */
     public void Pm_11() {
 
-      /*  String[] ms = {getString(R.string.langM),getString(R.string.m_analis),getString(R.string.algebra_a_geo),getString(R.string.physics),getString(R.string.arx_com)
-        ,getString(R.string.lang_progr),getString(R.string.bjd),getString(R.string.russian_lang),getString(R.string.fkl),getString(R.string.vvod_v_analis),
-                getString(R.string.com_gra),getString(R.string.comt_tex_zad)};
-        exMassive(ms);*/
+        objectTable(getString(R.string.langM), getString(R.string.m_analis), getString(R.string.algebra_a_geo), getString(R.string.physics), getString(R.string.arx_com)
+                , getString(R.string.lang_progr), getString(R.string.bjd), getString(R.string.russian_lang), getString(R.string.fkl), getString(R.string.vvod_v_analis),
+                getString(R.string.com_gra), getString(R.string.comt_tex_zad), null, null, zacot, examen, zacot, examen, zacot, examen, zacot, zacot, zacot, examen, zacot, zacot, null, null);
 
-
-        ch01.setText(getResources().getString(R.string.langM));
-        ch02.setText(getResources().getString(R.string.m_analis));
-        ch03.setText(getResources().getString(R.string.algebra_a_geo));
-        ch04.setText(getResources().getString(R.string.physics));
-
-        ch05.setText(getResources().getString(R.string.arx_com));
-        ch06.setText(getResources().getString(R.string.lang_progr));
-        ch07.setText(getResources().getString(R.string.bjd));
-        ch08.setText(getResources().getString(R.string.russian_lang));
-        ch09.setText(getResources().getString(R.string.fkl));
-        ch10.setText(getResources().getString(R.string.vvod_v_analis));
-        ch11.setText(getResources().getString(R.string.com_gra));
-        ch12.setText(getResources().getString(R.string.comt_tex_zad));
-
-        ty01.setText(getResources().getString(R.string.zacot));
-        ty02.setText(getResources().getString(R.string.examen));
-        ty03.setText(getResources().getString(R.string.zacot));
-        ty04.setText(getResources().getString(R.string.examen));
-        ty05.setText(getResources().getString(R.string.zacot));
-        ty06.setText(getResources().getString(R.string.exam));
-        ty07.setText(getResources().getString(R.string.zac_oc));
-        ty08.setText(getResources().getString(R.string.zacot));
-        ty09.setText(getResources().getString(R.string.zacot));
-        ty10.setText(getResources().getString(R.string.exam));
-        ty11.setText(getResources().getString(R.string.zac_oc));
-        ty12.setText(getResources().getString(R.string.zacot));
     }
 
     public void IiVT_12() {
@@ -523,50 +681,9 @@ public class Exzam extends Fragment {
 
     public void ISiT_21() {
 
-        ch01.setText(getResources().getString(R.string.teo_ver));
-        ch02.setText(getResources().getString(R.string.arx_sys));
-        ch03.setText(getResources().getString(R.string.tex_pr));
-        ch04.setText(getResources().getString(R.string.teo_game));
-        ch05.setText(getResources().getString(R.string.os));
-        ch06.setText(getResources().getString(R.string.fkl));
-        ch07.setText(getResources().getString(R.string.com_tip));
-        ch08.setText(getResources().getString(R.string.za_ob_d));
-        ch09.setText(getResources().getString(R.string.tex_v_c));
-
-        ty01.setText(getResources().getString(R.string.zacot));
-        ty02.setText(getResources().getString(R.string.exam));
-        ty03.setText(getResources().getString(R.string.zacot));
-        ty04.setText(getResources().getString(R.string.exam));
-        ty05.setText(getResources().getString(R.string.exam));
-        ty06.setText(getResources().getString(R.string.zacot));
-        ty07.setText(getResources().getString(R.string.zacot));
-        ty08.setText(getResources().getString(R.string.zacot));
-        ty09.setText(getResources().getString(R.string.zacot));
-
-
-        /*ti01.setVisibility(View.VISIBLE);
-        ti02.setVisibility(View.VISIBLE);
-        ti03.setVisibility(View.VISIBLE);
-        ti04.setVisibility(View.VISIBLE);
-        ti05.setVisibility(View.VISIBLE);
-        ti07.setVisibility(View.VISIBLE);
-        ti08.setVisibility(View.VISIBLE);
-        ti09.setVisibility(View.VISIBLE);
-        ti10.setVisibility(View.VISIBLE);
-        ti11.setVisibility(View.VISIBLE);
-
-        ti01.setText(getResources().getString(R.string.podoksenov));
-        ti02.setText(getResources().getString(R.string.lebedeva));
-        ti03.setText(getResources().getString(R.string.belix));
-        ti04.setText(getResources().getString(R.string.kornienko));
-        ti05.setText(getResources().getString(R.string.nikitina));
-        ti06.setText(getResources().getString(R.string.zaiceva));
-        ti07.setText(getResources().getString(R.string.fortunova));
-        ti08.setText(getResources().getString(R.string.gubin));
-
-        ti10.setText(getResources().getString(R.string.igonina));
-        ti11.setText(getResources().getString(R.string.gubin));*/
-
+        objectTable(getString(R.string.teo_ver), getString(R.string.arx_sys), getString(R.string.tex_pr), getString(R.string.teo_game), getString(R.string.os)
+                , getString(R.string.fkl), getString(R.string.com_tip), getString(R.string.za_ob_d), getString(R.string.tex_v_c), null,
+                null, null, null, null, zacot, examen, zacot, examen, examen, zacot, zacot, zacot, zacot, null, null, null, null, null);
     }
 
     public void NE_21() {
@@ -636,11 +753,9 @@ public class Exzam extends Fragment {
     public void IiVT_31() {
 
 
-
     }
 
     public void NE_31() {
-
 
 
     }
@@ -661,7 +776,6 @@ public class Exzam extends Fragment {
     }
 
     public void IiVT_41() {
-
 
 
     }

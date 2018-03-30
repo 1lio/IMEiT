@@ -17,8 +17,6 @@ import java.util.ArrayList;
 
 import ru.vyaacheslav.suhov.imeit.R;
 
-//TODO: Добавить кнопки с настройками и со списком.
-
 public class Note extends AppCompatActivity {
 
     private static final String TAG = "ListDataActivity";
@@ -31,7 +29,7 @@ public class Note extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
-        mListView = (ListView) findViewById(R.id.listView);
+        mListView = findViewById(R.id.listView);
         mDatabaseHelper = new DatabaseHelper(this);
 
         populateListView();
@@ -67,6 +65,7 @@ public class Note extends AppCompatActivity {
                     editScreenIntent.putExtra("id",itemID);
                     editScreenIntent.putExtra("name",name);
                     startActivity(editScreenIntent);
+                    toastMessage("TRUE");
                 }
                 else{
                     toastMessage("No ID associated with that name");
