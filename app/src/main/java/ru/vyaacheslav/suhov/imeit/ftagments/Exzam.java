@@ -403,12 +403,7 @@ public class Exzam extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
 
-                Comment comment = dataSnapshot.getValue(Comment.class);
-
-                ch01.setText(comment.getTextContent());
-
-
-            }
+                }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
@@ -477,10 +472,10 @@ public class Exzam extends Fragment {
 */
     public void Pm_11() {
 
-        objectTable(getString(R.string.langM), getString(R.string.m_analis), getString(R.string.algebra_a_geo), getString(R.string.physics), getString(R.string.arx_com)
+    /*    objectTable(getString(R.string.langM), getString(R.string.m_analis), getString(R.string.algebra_a_geo), getString(R.string.physics), getString(R.string.arx_com)
                 , getString(R.string.lang_progr), getString(R.string.bjd), getString(R.string.russian_lang), getString(R.string.fkl), getString(R.string.vvod_v_analis),
                 getString(R.string.com_gra), getString(R.string.comt_tex_zad), null, null, zacot, examen, zacot, examen, zacot, examen, zacot, zacot, zacot, examen, zacot, zacot, null, null);
-
+*/
     }
 
     public void IiVT_12() {
