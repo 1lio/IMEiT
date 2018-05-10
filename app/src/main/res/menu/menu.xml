@@ -2,7 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/weekIndicator"
-        android:icon="@drawable/ze"
         android:orderInCategory="0"
         android:title="@string/week"
         app:showAsAction="ifRoom" />

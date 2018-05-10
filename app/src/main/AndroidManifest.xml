@@ -35,7 +35,6 @@
         <activity android:name=".db.Docks" />
         <activity android:name=".db.Note"/>
         <activity android:name=".db.EditDataActivity"/>
-        <activity android:name=".EditExam"/>
 
 
     </application>

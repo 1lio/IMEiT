@@ -1,36 +1,19 @@
 package ru.vyaacheslav.suhov.imeit.ftagments;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-
-import org.w3c.dom.Comment;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-import ru.vyaacheslav.suhov.imeit.EditExam;
 import ru.vyaacheslav.suhov.imeit.R;
-
-import static android.content.ContentValues.TAG;
 
 public class Exzam extends Fragment {
 
@@ -57,9 +40,6 @@ public class Exzam extends Fragment {
             this.type = type;
         }
     }
-
-    public FirebaseDatabase database;
-    public DatabaseReference myRef;
 
 
     @Override
@@ -124,16 +104,6 @@ public class Exzam extends Fragment {
         ti10 = v.findViewById(R.id.ki10);
         ti11 = v.findViewById(R.id.ki11);
 
-        Button btn = v.findViewById(R.id.button2);
-        btn.setVisibility(View.GONE);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), EditExam.class);
-                startActivity(intent);
-
-            }
-        });
 
         loadMethod();
         MasterDepos();
@@ -329,12 +299,10 @@ public class Exzam extends Fragment {
         ty13.setText(t13);
         ty14.setText(t14);
 
-        database = FirebaseDatabase.getInstance();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String position = prefs.getString(getString(R.string.pref_style), "");
-        myRef = database.getReference(position).child("Экзамены");
-        myRef.removeValue();
+
 
         Item item = new Item(c1, t1);
         Item item2 = new Item(c2, t2);
@@ -351,21 +319,6 @@ public class Exzam extends Fragment {
         Item item13 = new Item(c13, t13);
         Item item14 = new Item(c14, t14);
 
-
-        myRef.push().setValue(item);
-        myRef.push().setValue(item2);
-        myRef.push().setValue(item3);
-        myRef.push().setValue(item4);
-        myRef.push().setValue(item5);
-        myRef.push().setValue(item6);
-        myRef.push().setValue(item7);
-        myRef.push().setValue(item8);
-        myRef.push().setValue(item9);
-        myRef.push().setValue(item10);
-        myRef.push().setValue(item11);
-        myRef.push().setValue(item12);
-        myRef.push().setValue(item13);
-        myRef.push().setValue(item14);
 
         ch01.setText(item.name);
         ty01.setText(item.type);
@@ -396,33 +349,6 @@ public class Exzam extends Fragment {
         ch14.setText(item14.name);
         ty14.setText(item14.type);
 
-
-
-        ChildEventListener childEventListener = new ChildEventListener() {
-            // Он отдает нам 4 колбэка (onChildAdded, onChildChanged, onChildRemoved, onChildMoved)
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-
-                }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        };
-
-        myRef.addChildEventListener(childEventListener);
     }
 
     public void FMiI_11() {
@@ -454,22 +380,6 @@ public class Exzam extends Fragment {
 
     }
 
-    /*public void exMassive(String[] exMassivs){
-
-        ch01.setText(exMassivs[0]);
-        ch02.setText(exMassivs[1]);
-        ch03.setText(exMassivs[2]);
-        ch04.setText(exMassivs[3]);
-        ch05.setText(exMassivs[4]);
-        ch06.setText(exMassivs[5]);
-        ch07.setText(exMassivs[6]);
-        ch08.setText(exMassivs[7]);
-        ch09.setText(exMassivs[8]);
-        ch10.setText(exMassivs[9]);
-        ch11.setText(exMassivs[10]);
-        ch12.setText(exMassivs[11]);
-    }
-*/
     public void Pm_11() {
 
     /*    objectTable(getString(R.string.langM), getString(R.string.m_analis), getString(R.string.algebra_a_geo), getString(R.string.physics), getString(R.string.arx_com)

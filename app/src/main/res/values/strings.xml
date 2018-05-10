@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ИМЕиТ</string>
+<string name="app_name">ИМЕиТ</string>
 
     <string name="ob_ex_phys">Общая и экспериментальная физика</string>
     <string name="rech_zad_pm">РЕШЕНИЕ ЗАДАЧ ЛИНЕЙНОЙ АЛГЕБРЫ И АНАЛИТИЧЕСКОЙ ГЕОМЕТРИИ С ПОМОЩЬЮ МАТЕМАТИЧЕСКИХ ПАКЕТОВ</string>
@@ -657,7 +657,7 @@
     <string name="thema">Тема</string>
     <string name="save_group">Сохранить текущую группу</string>
 
-    <string name="pref_style">Стиль</string>
+    <string name="pref_style">Groupe</string>
 
     <string name="pref_chek1">Английский</string>
     <string name="pref_chek2">Немецкий</string>

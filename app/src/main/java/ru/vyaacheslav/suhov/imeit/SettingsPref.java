@@ -39,6 +39,7 @@ public class SettingsPref extends PreferenceActivity {
             setTheme(R.style.ThemeDark);
         }
         super.onCreate(savedInstanceState);
+
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
 
         getDelegate().installViewFactory();

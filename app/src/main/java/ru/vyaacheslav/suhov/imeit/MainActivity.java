@@ -18,14 +18,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Calendar;
 import java.util.Objects;
 
 import ru.vyaacheslav.suhov.imeit.ftagments.Exzam;
-import ru.vyaacheslav.suhov.imeit.ftagments.TimeClock;
 import ru.vyaacheslav.suhov.imeit.maps.MapsFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,18 +29,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public ActionBarDrawerToggle toggle;
     public java.util.Calendar calendar;
     public FragmentTransaction FT;
-    public FragmentManager FM;
-    public SharedPreferences   prefs;
+    private FragmentManager FM;
+    private SharedPreferences   prefs;
     public String typeTheme,typeWeek, typeGroupe;
-    public Intent settingsIntent;
+    private Intent settingsIntent;
     public Toolbar tb;
     public NavigationView nv;
-    int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+    private int weekYear = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
     private Menu menu;
     private DrawerLayout dl;
-
-    public FirebaseDatabase database;
-    public DatabaseReference  myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (Objects.equals(typeTheme, "Светлая")) {
                 setTheme(R.style.ThemeWrithe);
             }
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            if(Objects.equals(typeTheme, "Темная")) {
+            else {
                 setTheme(R.style.ThemeDark);
             }
         }
@@ -98,9 +89,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         settingsIntent = new Intent(MainActivity.this, SettingsPref.class);
         loadName(); // Загрузка имени группы согласно настройкам;
-
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("items");
     }
 
     @Override
@@ -114,9 +102,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
             case R.id.settings:
                 startActivity(settingsIntent);
                 finish();
@@ -164,13 +149,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public void onBackPressed() {
-        if (FM.getBackStackEntryCount() > 0)
-            FM.popBackStack();
-        else
-            finish();
-    }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -187,17 +165,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.time_alarm:
                 MainActivity.this.tb.setSubtitle("Время звонков");
                 FragmentTransaction ft3 = FM.beginTransaction();
-                ft3.replace(R.id.containerView, new TimeClock()).commit();
+                ft3.replace(R.id.containerView, new Tclass()).commit();
                 break;
             case R.id.exzam:
                 MainActivity.this.tb.setSubtitle("Экзаменационная сессия");
                 FragmentTransaction ft4 = FM.beginTransaction();
                 ft4.replace(R.id.containerView, new Exzam()).commit();
                 break;
-          /*      case R.id.note:
-                    Intent intent = new Intent(this, Note.class);
-                    startActivity(intent);
-                break;*/
             default:
                 break;
         }
@@ -205,6 +179,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
 
     }
-
-
 }

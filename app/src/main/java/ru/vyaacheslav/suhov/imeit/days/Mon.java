@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit.days;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import ru.vyaacheslav.suhov.imeit.db.Docks;
 import ru.vyaacheslav.suhov.imeit.R;
 
 public class Mon extends Fragment{
@@ -86,7 +84,7 @@ public class Mon extends Fragment{
         m_p1_tz.setText(tz);
         m_p1_kz.setText(rz);
 
-        final String para = "1 пара";
+     /*   final String para = "1 пара";
         mm1.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -108,7 +106,7 @@ public class Mon extends Fragment{
                 startActivity(intent);
                 return false;
             }
-        });
+        });*/
     }
 
     public void Less2(String l, String p, String t, String r, String lz,
@@ -144,7 +142,7 @@ public class Mon extends Fragment{
         m_p2_tz.setText(tz);
         m_p2_kz.setText(rz);
 
-        final String para = "2 пара";
+     /*   final String para = "2 пара";
         mm2.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -168,7 +166,7 @@ public class Mon extends Fragment{
             }
         });
 
-
+*/
 
     }
     public void Less3(String l, String p, String t, String r, String lz,
@@ -205,7 +203,7 @@ public class Mon extends Fragment{
         m_p3_tz.setText(tz);
         m_p3_kz.setText(rz);
 
-        final String para = "3 пара";
+      /*  final String para = "3 пара";
         mm3.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -227,7 +225,7 @@ public class Mon extends Fragment{
                 startActivity(intent);
                 return false;
             }
-        });
+        });*/
     }
     public void Less4(String l, String p, String t, String r, String lz,
                       String pz, String tz, String rz, boolean i) {
@@ -259,7 +257,7 @@ public class Mon extends Fragment{
         m_p4_tz.setText(tz);
         m_p4_kz.setText(rz);
 
-        final String para = "4 пара";
+      /*  final String para = "4 пара";
         mm4.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -281,7 +279,7 @@ public class Mon extends Fragment{
                 startActivity(intent);
                 return false;
             }
-        });
+        });*/
     }
     public void Less5(String l, String p, String t, String r) {
 
@@ -293,7 +291,7 @@ public class Mon extends Fragment{
         m_p5_t.setText(t);
         m_p5_k.setText(r);
 
-        final String para = "5 пара";
+      /*  final String para = "5 пара";
         mm5.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -309,13 +307,13 @@ public class Mon extends Fragment{
 
                 intent.putExtra("zname", p5.getText().toString());
                 intent.putExtra("zsubname", p5a.getText().toString());
-             /*   intent.putExtra("ztype", m_p5_tz.getText().toString());
-                intent.putExtra("zcorp", m_p5_kz.getText().toString());*/
+             *//*   intent.putExtra("ztype", m_p5_tz.getText().toString());
+                intent.putExtra("zcorp", m_p5_kz.getText().toString());*//*
 
                 startActivity(intent);
                 return false;
             }
-        });
+        });*/
     }
     // нужно оптимизировать эту херню.
     public void loadMethod() {

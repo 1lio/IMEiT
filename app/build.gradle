@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     signingConfigs {
@@ -27,9 +29,12 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.0'
-    implementation 'com.android.support:support-v4:27.1.0'
-    implementation 'com.android.support:design:27.1.0'
-    implementation 'com.google.firebase:firebase-database:12.0.1'
+    implementation "com.android.support:appcompat-v7:$support"
+    implementation "com.android.support:support-v4:$support"
+    implementation "com.android.support:design:$support"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
 }
-apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}
