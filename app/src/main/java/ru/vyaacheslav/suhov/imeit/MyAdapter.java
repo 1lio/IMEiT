@@ -14,7 +14,6 @@ import static ru.vyaacheslav.suhov.imeit.TabFragment.int_items;
 
  class MyAdapter  extends FragmentPagerAdapter {
 
-
     MyAdapter(FragmentManager fm)
     {
         super(fm);

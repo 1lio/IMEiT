@@ -10,16 +10,18 @@
 
     <TextView
         android:id="@+id/tex1"
+        android:padding="6dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:text="Практикум по школьному курсу математики с углубленным изучением"
         android:gravity="start|center"
         android:textSize="12sp" />
 
     <TextView
         android:id="@+id/tex2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="60dp"
         android:layout_weight="2"
         android:gravity="center"
         android:textSize="12sp" />
