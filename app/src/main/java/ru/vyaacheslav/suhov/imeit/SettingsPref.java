@@ -48,7 +48,7 @@ public class SettingsPref extends PreferenceActivity {
 
     public void onBackPressed() {
 
-        String position = prefs.getString(getString(R.string.pref_style), "");
+        String position = prefs.getString(getString(R.string.pref_groupe), "");
 
         if (Objects.equals(position, "")) {
             Toast.makeText(getApplicationContext(), "Выберите группу", Toast.LENGTH_SHORT).show();
@@ -87,6 +87,7 @@ public class SettingsPref extends PreferenceActivity {
     }
 
     @Override
+
     public void setContentView(View view) {
         getDelegate().setContentView(view);
     }
@@ -164,7 +165,7 @@ public class SettingsPref extends PreferenceActivity {
                     startActivity(intent);
                 }
             });
-            groupe = (ListPreference) findPreference(getString(R.string.pref_style));
+            groupe = (ListPreference) findPreference(getString(R.string.pref_groupe));
             theme = (ListPreference) findPreference(getString(R.string.pref_theme));
             week = (ListPreference) findPreference(getString(R.string.week_i));
 

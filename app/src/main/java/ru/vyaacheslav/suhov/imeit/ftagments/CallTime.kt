@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit
+package ru.vyaacheslav.suhov.imeit.ftagments
 
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -10,13 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import kotlinx.android.synthetic.main.time_clock.*
+import ru.vyaacheslav.suhov.imeit.R
 import java.util.*
 
-class Tclass : Fragment() {
+class CallTime : Fragment() {
 
     lateinit var prefs: SharedPreferences
     lateinit var regular: String
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -32,7 +33,6 @@ class Tclass : Fragment() {
         val w4: TextView = v.findViewById(R.id.w4)
         val w5: TextView = v.findViewById(R.id.w5)
         val w6: TextView = v.findViewById(R.id.w6)
-
         val t5: TextView = v.findViewById(R.id.t5)
         val t6: TextView = v.findViewById(R.id.t6)
         val t7: TextView = v.findViewById(R.id.t7)
@@ -63,38 +63,38 @@ class Tclass : Fragment() {
             "Светлая" -> lss.background = ResourcesCompat.getDrawable(resources, R.color.colorPrimaryA, null)
             "Темная" -> lss.background = ResourcesCompat.getDrawable(resources, R.color.colorPrimary, null)
         }
-        // Обоссаный календарь не хочет работать в 24 часовом формате если явно указать HOUR_OF_DAY, ему еще нужно указть локаль.
+        // Обоссаный календарь не хочет работать в 24 часовом формате, если явно указать HOUR_OF_DAY, ему еще нужно указть локаль.
         val time = Calendar.getInstance(Locale("RU", "ru"))
         val hour: Int = time.get(Calendar.HOUR_OF_DAY)
         val min: Int = time.get(Calendar.MINUTE)
 
         when {
-            (hour == 8) && (min > 30) -> stColor(listOf(w1, t5, t6, t7, t8))
-            (hour == 9) && (min < 59) -> stColor(listOf(w1, t5, t6, t7, t8))
+            (hour == 8) && (min > 30) -> itemColor(listOf(w1, t5, t6, t7, t8))
+            (hour == 9) && (min < 59) -> itemColor(listOf(w1, t5, t6, t7, t8))
 
-            (hour == 10) && (min > 15) -> stColor(listOf(w2, t10, t11, t12, t13))
-            (hour == 11) && (min < 50) -> stColor(listOf(w2, t10, t11, t12, t13))
+            (hour == 10) && (min > 15) -> itemColor(listOf(w2, t10, t11, t12, t13))
+            (hour == 11) && (min < 50) -> itemColor(listOf(w2, t10, t11, t12, t13))
 
-            (hour == 12) && (min > 30) -> stColor(listOf(w3, t14, t15, t16, t17))
-            (hour == 13) && (min > 1) -> stColor(listOf(w3, t14, t15, t16, t17))
+            (hour == 12) && (min > 30) -> itemColor(listOf(w3, t14, t15, t16, t17))
+            (hour == 13) && (min > 1) -> itemColor(listOf(w3, t14, t15, t16, t17))
 
-            (hour == 14) && (min > 15) -> stColor(listOf(w4, t19, t20, t21, t22))
-            (hour == 15) && (min < 50) -> stColor(listOf(w4, t19, t20, t21, t22))
+            (hour == 14) && (min > 15) -> itemColor(listOf(w4, t19, t20, t21, t22))
+            (hour == 15) && (min < 50) -> itemColor(listOf(w4, t19, t20, t21, t22))
 
-            (hour == 16) && (min < 59) -> stColor(listOf(w5, t24, t25, t26, t27))
-            (hour == 17) && (min < 1) -> stColor(listOf(w5, t24, t25, t26, t27))
+            (hour == 16) && (min < 59) -> itemColor(listOf(w5, t24, t25, t26, t27))
+            (hour == 17) && (min < 45) -> itemColor(listOf(w5, t24, t25, t26, t27))
 
-            (hour == 17) && (min < 45) -> stColor(listOf(w6, t29, t30, t31, t32))
-            (hour == 18) && (min < 59) -> stColor(listOf(w6, t29, t30, t31, t32))
-
+            (hour == 17) && (min > 45) -> itemColor(listOf(w6, t29, t30, t31, t32))
+            (hour == 18) && (min < 59) -> itemColor(listOf(w6, t29, t30, t31, t32))
         }
         return v
     }
 
-    fun stColor(vs: List<TextView>) {
+   private fun itemColor(vs: List<TextView>) {
 
+       // API 26 ругается что метод getColor устраел, однако судя по статистике телов с андроидом 8.0 ни у кого нет, так что пока менять не буду
         when (regular) {
-            "Светлая" -> vs.forEach { it.setTextColor(resources.getColor(R.color.colorAccentA)) } // Сраный forEach идет по всему списку, как же я тебя долго искал сука..
+            "Светлая" -> vs.forEach { it.setTextColor(resources.getColor(R.color.colorAccentA)) } //  forEach идет по всему списку, как же я тебя долго искал сука..
             "Темная" -> vs.forEach { it.setTextColor(resources.getColor(R.color.colorAccent)) }
         }
 

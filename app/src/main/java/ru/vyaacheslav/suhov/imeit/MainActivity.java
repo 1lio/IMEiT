@@ -21,7 +21,8 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Objects;
 
-import ru.vyaacheslav.suhov.imeit.ftagments.Exzam;
+import ru.vyaacheslav.suhov.imeit.ftagments.CallTime;
+import ru.vyaacheslav.suhov.imeit.ftagments.Session;
 import ru.vyaacheslav.suhov.imeit.maps.MapsFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         typeTheme = prefs.getString(getString(R.string.pref_theme), "");
         typeWeek = prefs.getString(getString(R.string.week_i), "");
-        typeGroupe = prefs.getString(getString(R.string.pref_style), "");
+        typeGroupe = prefs.getString(getString(R.string.pref_groupe), "");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if (Objects.equals(typeTheme, "Светлая")) {
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void loadName() {
         // В качестве подзоголовка берем имя выбранной группы.
-        typeGroupe = prefs.getString(getString(R.string.pref_style), "");
+        typeGroupe = prefs.getString(getString(R.string.pref_groupe), "");
         MainActivity.this.tb.setSubtitle(typeGroupe);
         // Если пользователь очистил память в окне настроек, то строка будет пуста. Делаем проверку.
         if ((typeGroupe.length() == 0)){
@@ -165,12 +166,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.time_alarm:
                 MainActivity.this.tb.setSubtitle("Время звонков");
                 FragmentTransaction ft3 = FM.beginTransaction();
-                ft3.replace(R.id.containerView, new Tclass()).commit();
+                ft3.replace(R.id.containerView, new CallTime()).commit();
                 break;
             case R.id.exzam:
                 MainActivity.this.tb.setSubtitle("Экзаменационная сессия");
                 FragmentTransaction ft4 = FM.beginTransaction();
-                ft4.replace(R.id.containerView, new Exzam()).commit();
+                ft4.replace(R.id.containerView, new Session()).commit();
                 break;
             default:
                 break;

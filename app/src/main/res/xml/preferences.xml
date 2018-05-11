@@ -5,7 +5,7 @@
             android:dialogTitle="@string/your_groupe"
             android:entries="@array/bak_groops"
             android:entryValues="@array/bak_groops"
-            android:key="@string/pref_style"
+            android:key="@string/pref_groupe"
             android:summary="@string/gr_inf"
             android:title="@string/you_goupe" />
         <ListPreference

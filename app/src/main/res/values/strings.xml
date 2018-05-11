@@ -657,7 +657,7 @@
     <string name="thema">Тема</string>
     <string name="save_group">Сохранить текущую группу</string>
 
-    <string name="pref_style">Groupe</string>
+    <string name="pref_groupe">Groupe</string>
 
     <string name="pref_chek1">Английский</string>
     <string name="pref_chek2">Немецкий</string>
@@ -1006,7 +1006,7 @@
     <string name="inf_par_week">Отображение отностительно дня недели</string>
     <string name="sett_theme">Настройки темы</string>
     <string name="main_theme">Основная тема приложения</string>
-    <string name="theme">Тема</string>
+    <string name="theme">Тема приложения</string>
     <string name="you_goupe">Ваша группа</string>
     <string name="two_subnet">II Полугодие</string>
     <string name="zametki">Новая заметка</string>

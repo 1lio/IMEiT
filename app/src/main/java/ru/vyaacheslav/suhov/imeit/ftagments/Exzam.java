@@ -33,7 +33,8 @@ public class Exzam extends Fragment {
         public String name;
         public String type;
 
-        public Item() {}
+        public Item() {
+        }
 
         Item(String name, String type) {
             this.name = name;
@@ -62,30 +63,30 @@ public class Exzam extends Fragment {
         mod13 = v.findViewById(R.id.mod13);
         mod14 = v.findViewById(R.id.mod14);
 
-        ch01 = v.findViewById(R.id.m1);
-        ch02 = v.findViewById(R.id.m2);
-        ch03 = v.findViewById(R.id.m3);
-        ch04 = v.findViewById(R.id.m4);
-        ch05 = v.findViewById(R.id.m5);
-        ch06 = v.findViewById(R.id.m6);
-        ch07 = v.findViewById(R.id.m7);
-        ch08 = v.findViewById(R.id.m8);
-        ch09 = v.findViewById(R.id.m9);
+        ch01 = v.findViewById(R.id.m01);
+        ch02 = v.findViewById(R.id.m02);
+        ch03 = v.findViewById(R.id.m03);
+        ch04 = v.findViewById(R.id.m04);
+        ch05 = v.findViewById(R.id.m05);
+        ch06 = v.findViewById(R.id.m06);
+        ch07 = v.findViewById(R.id.m07);
+        ch08 = v.findViewById(R.id.m08);
+        ch09 = v.findViewById(R.id.m09);
         ch10 = v.findViewById(R.id.m10);
         ch11 = v.findViewById(R.id.m11);
         ch12 = v.findViewById(R.id.m12);
         ch13 = v.findViewById(R.id.m13);
         ch14 = v.findViewById(R.id.m14);
 
-        ty01 = v.findViewById(R.id.z1);
-        ty02 = v.findViewById(R.id.z2);
-        ty03 = v.findViewById(R.id.z3);
-        ty04 = v.findViewById(R.id.z4);
-        ty05 = v.findViewById(R.id.z5);
-        ty06 = v.findViewById(R.id.z6);
-        ty07 = v.findViewById(R.id.z7);
-        ty08 = v.findViewById(R.id.z8);
-        ty09 = v.findViewById(R.id.z9);
+        ty01 = v.findViewById(R.id.z01);
+        ty02 = v.findViewById(R.id.z02);
+        ty03 = v.findViewById(R.id.z03);
+        ty04 = v.findViewById(R.id.z04);
+        ty05 = v.findViewById(R.id.z05);
+        ty06 = v.findViewById(R.id.z06);
+        ty07 = v.findViewById(R.id.z07);
+        ty08 = v.findViewById(R.id.z08);
+        ty09 = v.findViewById(R.id.z09);
         ty10 = v.findViewById(R.id.z10);
         ty11 = v.findViewById(R.id.z11);
         ty12 = v.findViewById(R.id.z12);
@@ -112,7 +113,7 @@ public class Exzam extends Fragment {
 
     public void loadMethod() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String position = prefs.getString(getString(R.string.pref_style), "");
+        String position = prefs.getString(getString(R.string.pref_groupe), "");
 
         switch (position) {
             case "ФМиИ-11":
@@ -301,7 +302,7 @@ public class Exzam extends Fragment {
 
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String position = prefs.getString(getString(R.string.pref_style), "");
+        String position = prefs.getString(getString(R.string.pref_groupe), "");
 
 
         Item item = new Item(c1, t1);
@@ -381,11 +382,10 @@ public class Exzam extends Fragment {
     }
 
     public void Pm_11() {
-
-    /*    objectTable(getString(R.string.langM), getString(R.string.m_analis), getString(R.string.algebra_a_geo), getString(R.string.physics), getString(R.string.arx_com)
+        objectTable(getString(R.string.langM), getString(R.string.m_analis), getString(R.string.algebra_a_geo), getString(R.string.physics), getString(R.string.arx_com)
                 , getString(R.string.lang_progr), getString(R.string.bjd), getString(R.string.russian_lang), getString(R.string.fkl), getString(R.string.vvod_v_analis),
                 getString(R.string.com_gra), getString(R.string.comt_tex_zad), null, null, zacot, examen, zacot, examen, zacot, examen, zacot, zacot, zacot, examen, zacot, zacot, null, null);
-*/
+
     }
 
     public void IiVT_12() {
@@ -457,20 +457,6 @@ public class Exzam extends Fragment {
         ch11.setText(getResources().getString(R.string.fkl));
         ch12.setText(getResources().getString(R.string.vop_dif));
         ch13.setText(getResources().getString(R.string.kursovaya));
-
-        ty01.setText(getResources().getString(R.string.exam));
-        ty02.setText(getResources().getString(R.string.exam));
-        ty03.setText(getResources().getString(R.string.zacot));
-        ty04.setText(getResources().getString(R.string.zacot));
-        ty05.setText(getResources().getString(R.string.zacot));
-        ty06.setText(getResources().getString(R.string.examen));
-        ty07.setText(getResources().getString(R.string.examen));
-        ty08.setText(getResources().getString(R.string.zacot));
-        ty09.setText(getResources().getString(R.string.zacot));
-        ty10.setText(getResources().getString(R.string.zac_oc));
-        ty10.setText(getResources().getString(R.string.zacot));
-
-        ty13.setText(getResources().getString(R.string.ocenka));
 
     }
 
@@ -604,8 +590,7 @@ public class Exzam extends Fragment {
         ch09.setText(getResources().getString(R.string.rad_eco));
         ch10.setText(getResources().getString(R.string.k_mir));
 
-        ty01.setText(getResources().getString(R.string.zacot));
-        ty02.setText(getResources().getString(R.string.zacot));
+
         ty03.setText(getResources().getString(R.string.zac_exam));
         ty04.setText(getResources().getString(R.string.zacot));
         ty05.setText(getResources().getString(R.string.zacot));

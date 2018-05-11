@@ -299,7 +299,7 @@ public class Fri extends Fragment {
 
     public void loadMethod() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String position = prefs.getString(getString(R.string.pref_style), "");
+        String position = prefs.getString(getString(R.string.pref_groupe), "");
 
         switch (position) {
             case "ФМиИ-11":
