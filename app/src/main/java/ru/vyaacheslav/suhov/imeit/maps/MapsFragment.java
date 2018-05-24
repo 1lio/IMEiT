@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import ru.vyaacheslav.suhov.imeit.R;
+import ru.vyaacheslav.suhov.imeit.adapters.MapAdapter;
 
 public class MapsFragment extends Fragment {
 
@@ -27,7 +28,7 @@ public class MapsFragment extends Fragment {
         tabLayout = v.findViewById(R.id.tabs);
         viewPager = v.findViewById(R.id.viewpager);
         times = v.findViewById(R.id.times);
-        viewPager.setAdapter(new MapsAdapter(getChildFragmentManager()));
+        viewPager.setAdapter(new MapAdapter(getChildFragmentManager()));
         tabLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -40,8 +41,6 @@ public class MapsFragment extends Fragment {
         params.width = 0;
         times.setLayoutParams(params);
 
-
         return v;
     }
-
 }

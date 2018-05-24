@@ -22,7 +22,6 @@ import java.util.Calendar;
 import java.util.Objects;
 
 import ru.vyaacheslav.suhov.imeit.ftagments.CallTime;
-import ru.vyaacheslav.suhov.imeit.ftagments.Exzam;
 import ru.vyaacheslav.suhov.imeit.ftagments.Session;
 import ru.vyaacheslav.suhov.imeit.maps.MapsFragment;
 
@@ -172,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.exzam:
                 MainActivity.this.tb.setSubtitle("Экзаменационная сессия");
                 FragmentTransaction ft4 = FM.beginTransaction();
-                ft4.replace(R.id.containerView, new Exzam()).commit();
+                ft4.replace(R.id.containerView, new Session()).commit();
                 break;
             default:
                 break;

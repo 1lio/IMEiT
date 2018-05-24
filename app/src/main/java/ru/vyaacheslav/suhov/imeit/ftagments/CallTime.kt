@@ -18,7 +18,6 @@ class CallTime : Fragment() {
     lateinit var prefs: SharedPreferences
     lateinit var regular: String
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
 
@@ -91,12 +90,10 @@ class CallTime : Fragment() {
     }
 
    private fun itemColor(vs: List<TextView>) {
-
        // API 26 ругается что метод getColor устраел, однако судя по статистике телов с андроидом 8.0 ни у кого нет, так что пока менять не буду
         when (regular) {
             "Светлая" -> vs.forEach { it.setTextColor(resources.getColor(R.color.colorAccentA)) } //  forEach идет по всему списку, как же я тебя долго искал сука..
             "Темная" -> vs.forEach { it.setTextColor(resources.getColor(R.color.colorAccent)) }
         }
-
     }
 }

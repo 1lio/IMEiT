@@ -77,7 +77,57 @@
         <item>ФСм-21</item>
 
     </string-array>
+    <string-array name="bak_groops_eng">
 
+        <item>FMiI11</item>
+        <item>PM11</item>
+        <item>IiVT11</item>
+        <item>ISiI12</item>
+
+        <item>МИ-21</item>
+        <item>МФ-21</item>
+        <item>ПМ-21</item>
+        <item>БИ-21</item>
+        <item>ИиВТ-21</item>
+        <item>ИСиТ-21</item>
+        <item>НЭ-21</item>
+        <item>БХ-21</item>
+        <item>ЕГ-21</item>
+
+        <item>МФ-31</item>
+        <item>ПМ-31</item>
+        <item>ИиВТ-31</item>
+        <item>НЭ-31</item>
+
+        <item>М-41</item>
+        <item>ФМ-41</item>
+        <item>ПМ-41</item>
+        <item>ИиВТ-41</item>
+        <item>НЭ-41</item>
+
+        <item>МиИТм-11</item>
+        <item>ПМм-11</item>
+        <item>ИиВтМ-11</item>
+        <item>Мм-21</item>
+        <item>ПМм-21</item>
+        <item>ИиВТм-21</item>
+
+        <item>ХБиГ-11</item>
+        <item>ФС-11</item>
+        <item>ФР-11</item>
+        <item>ФР-12</item>
+        <item>ФС-21</item>
+        <item>ФР-21</item>
+        <item>БХ-31</item>
+        <item>МЕ-31</item>
+        <item>ФС-31</item>
+        <item>ФР-31</item>
+        <item>ФС-41</item>
+        <item>ФР-41</item>
+        <item>ФСм-11</item>
+        <item>ФСм-21</item>
+
+    </string-array>
     <string name="pr_asoi">Проектирование АСОИУ</string>
     <string name="set_protocol">Сетевые протоколы и интернет-технологии</string>
     <string name="paket_asu">Пакеты прикладных программ</string>

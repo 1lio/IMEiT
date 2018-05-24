@@ -1,6 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.ftagments
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,6 @@ import android.widget.ListView
 import android.widget.SimpleAdapter
 import ru.vyaacheslav.suhov.imeit.R
 import java.io.IOException
-import java.util.*
 
 class Session : Fragment() {
 
@@ -17,6 +17,11 @@ class Session : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fragment_exzam, container, false)
+
+        val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
+
+        //TODO: Подставить имя группы в DB
+        val position = prefs.getString(getString(R.string.pref_groupe), "")
         val mDBHelper = DatabaseHelper(activity)
 
         try {
@@ -35,19 +40,21 @@ class Session : Fragment() {
         while (!cursor.isAfterLast) {
             client = HashMap()
             client["name"] = cursor.getString(1)
-            client["age"] = cursor.getString(2)
+            client["type"] = cursor.getString(2)
+            client["time"] = cursor.getString(3)
+            client["build"] = cursor.getString(4)
+            client["date"] = cursor.getString(5)
             clients.add(client)
             cursor.moveToNext()
         }
         cursor.close()
 
-        val from = arrayOf("name", "age")
-        val to = intArrayOf(R.id.tex1, R.id.tex2)
+        val from = arrayOf("name", "type","time","build","date")
+        val to = intArrayOf(R.id.tex1, R.id.tex2,R.id.tex3,R.id.tex4,R.id.tex5)
 
         val adapter = SimpleAdapter(activity, clients, R.layout.custom_list, from, to)
         val listView = v.findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
-
         return v
     }
 }
