@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public java.util.Calendar calendar;
     public FragmentTransaction FT;
     private FragmentManager FM;
-    private SharedPreferences   prefs;
-    public String typeTheme,typeWeek, typeGroupe;
+    private SharedPreferences prefs;
+    public String typeTheme, typeWeek, typeGroupe;
     private Intent settingsIntent;
     public Toolbar tb;
     public NavigationView nv;
@@ -51,8 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if (Objects.equals(typeTheme, "Светлая")) {
                 setTheme(R.style.ThemeWrithe);
-            }
-            else {
+            } else {
                 setTheme(R.style.ThemeDark);
             }
         }
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         this.menu = menu;
         getMenuInflater().inflate(R.menu.menu, menu);
-        WeekIndicator();
+        weekIndicator();
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -108,43 +107,46 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 return true;
             case R.id.weekIndicator:
-                WeekIndicator();
+                weekIndicator();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public void WeekIndicator() {
-        if(typeWeek.equals("Числитель")){
+    public void weekIndicator() {
 
-            if(weekYear% 2 == 0){
+            if (weekYear % 2 == 0) {
                 Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
                 menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
-            }
-            else {
+            } else {
                 Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
                 menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
-            }
-        }
-        else {
-            if(weekYear% 2 == 0){
-                Toast.makeText(getApplicationContext(), "Текущая неделя: Знаменатель", Toast.LENGTH_SHORT).show();
-                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ze));
-            }
-            else {
-                Toast.makeText(getApplicationContext(), "Текущая неделя: Числитель", Toast.LENGTH_SHORT).show();
-                menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ch));
-            }
         }
     }
 
     public void loadName() {
-        // В качестве подзоголовка берем имя выбранной группы.
+        // В качестве подзоголовка берем значение выбранной группы.
         typeGroupe = prefs.getString(getString(R.string.pref_groupe), "");
-        MainActivity.this.tb.setSubtitle(typeGroupe);
-        // Если пользователь очистил память в окне настроек, то строка будет пуста. Делаем проверку.
-        if ((typeGroupe.length() == 0)){
+        // Для DB имена групп указаны английским алфавитом без пробелов и символов
+        // Поэтому создаем второй массив на русском, сравниваем их по id
+
+        String[] asu = getResources().getStringArray(R.array.groups_value);
+        String[] names = getResources().getStringArray(R.array.all_group);
+
+        int index = -1;
+
+        for (int i = 0; (i < asu.length) && (index == -1); i++) {
+
+            if (asu[i].equals(typeGroupe)) {
+                index = i;
+            }
+        }
+        // затем подставляем значение в качестве заголовка
+        MainActivity.this.tb.setSubtitle(names[index]);
+
+        // Если пользователь очистил данные в окне настроек, то строка будет пуста. Делаем проверку.
+        if ((typeGroupe.length() == 0)) {
             startActivity(settingsIntent);
             finish();
         }

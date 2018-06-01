@@ -3,8 +3,8 @@
     <PreferenceCategory android:title="Настройки расписания">
         <ListPreference
             android:dialogTitle="@string/your_groupe"
-            android:entries="@array/bak_groops"
-            android:entryValues="@array/bak_groops"
+            android:entries="@array/all_group"
+            android:entryValues="@array/groups_value"
             android:key="@string/pref_groupe"
             android:summary="@string/gr_inf"
             android:title="@string/you_goupe" />

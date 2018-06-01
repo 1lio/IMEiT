@@ -20,7 +20,6 @@ class Session : Fragment() {
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
 
-        //TODO: Подставить имя группы в DB
         val position = prefs.getString(getString(R.string.pref_groupe), "")
         val mDBHelper = DatabaseHelper(activity)
 
@@ -34,7 +33,7 @@ class Session : Fragment() {
         val clients = ArrayList<HashMap<String, Any>>()
         var client: HashMap<String, Any>
 
-        val cursor = mDb.rawQuery("SELECT * FROM FMiI11", null)
+        val cursor = mDb.rawQuery("SELECT * FROM $position", null)
         cursor.moveToFirst()
 
         while (!cursor.isAfterLast) {

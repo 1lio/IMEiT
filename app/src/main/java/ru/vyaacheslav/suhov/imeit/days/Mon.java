@@ -320,7 +320,20 @@ public class Mon extends Fragment{
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String position = prefs.getString(getString(R.string.pref_groupe), "");
 
-        switch (position) {
+        String[] asu = getResources().getStringArray(R.array.groups_value);
+        String[] names = getResources().getStringArray(R.array.all_group);
+
+        int index = -1;
+
+        for (int i = 0; (i < asu.length) && (index == -1); i++) {
+
+            if (asu[i].equals(position)) {
+                index = i;
+            }
+        }
+
+
+        switch (names[index]) {
             case "ФМиИ-11":
                 FMiI_11();
                 break;

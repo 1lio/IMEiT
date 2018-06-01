@@ -5,9 +5,9 @@
     <color name="colorPrimaryDark">#16191d</color>004b9f
     <color name="colorAccent">#659801</color>1976d1
 
-    <color name="colorPrimaryA">#1976d1</color>1976d1
-    <color name="colorPrimaryDarkA">#004b9f</color>004b9f
-    <color name="colorAccentA">#1976d1</color>1976d1
+    <color name="colorPrimaryA">#1976D2</color>1976d1
+    <color name="colorPrimaryDarkA">#0D47A1</color>004b9f
+    <color name="colorAccentA">#FFAB00</color>1976d1
 
     <color name="colorTextSub">#61676e</color>
     <color name="colorTextBlack">#101010</color>

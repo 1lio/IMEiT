@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/tex2"
-        android:layout_width="60dp"
+        android:layout_width="68dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="12sp" />
@@ -33,14 +33,14 @@
 
     <TextView
         android:id="@+id/tex4"
-        android:layout_width="40dp"
+        android:layout_width="68dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="12sp" />
 
     <TextView
         android:id="@+id/tex5"
-        android:layout_width="50dp"
+        android:layout_width="68dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="12sp" />

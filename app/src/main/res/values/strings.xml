@@ -22,12 +22,189 @@
         <item>Числитель</item>
         <item>Знаменатель</item>
     </string-array>
-
     <string name="auto">Числитель</string>
     <string name="week_i">Числитель</string>
 
-    <string-array name="bak_groops">
+    <string-array name="institutes">
+        <item>ИМЕиТ</item>
+    </string-array>
 
+    <string-array name="imet_facultet">
+        <item>Инжинерно-Физический</item>
+        <item>Физико-Математический</item>
+    </string-array>
+
+    <string name="m_e">Инжинерно-Физический</string>
+    <string name="m_f">Физико-Математический</string>
+
+    <string-array name="education">
+        <item>Бакалавриат</item>
+        <item>Магистратура</item>
+        <item>Аспирантура</item>
+    </string-array>
+
+    <string name="bak">Бакалавриат</string>
+    <string name="mag">Магистратура</string>
+    <string name="asp">Аспирантура</string>
+
+    <string-array name="bak_m_groups">
+        <item>ФМиИ-11</item>
+        <item>ПМ-11</item>
+        <item>ИиВТ-12</item>
+        <item>ИСиТ-11</item>
+        <item>МИ-21</item>
+        <item>МФ-21</item>
+        <item>ПМ-21</item>
+        <item>БИ-21</item>
+        <item>ИиВТ-21</item>
+        <item>ИСиТ-21</item>
+        <item>НЭ-21</item>
+        <item>МФ-31</item>
+        <item>ПМ-31</item>
+        <item>ИиВТ-31</item>
+        <item>НЭ-31</item>
+        <item>М-41</item>
+        <item>ФМ-41</item>
+        <item>ПМ-41</item>
+        <item>ИиВТ-41</item>
+        <item>НЭ-41</item>
+    </string-array>
+    <string-array name="bak_m_groups_val">
+        <item>FMiI11</item>
+        <item>PM11</item>
+        <item>IiVT11</item>
+        <item>ISiI12</item>
+        <item>МI21</item>
+        <item>MF21</item>
+        <item>PM21</item>
+        <item>BI21</item>
+        <item>IiVT21</item>
+        <item>ISiT21</item>
+        <item>NE21</item>
+        <item>BX21</item>
+        <item>EG21</item>
+        <item>MF31</item>
+        <item>PM31</item>
+        <item>IiVT31</item>
+        <item>NE31</item>
+        <item>M41</item>
+        <item>FM41</item>
+        <item>PM41</item>
+        <item>IiVT41</item>
+        <item>NE41</item>
+    </string-array>
+
+    <string-array name="bak_e_groups">
+
+        <item>ХБиГ-11</item>
+        <item>ФС-11</item>
+        <item>ФР-11</item>
+        <item>ФР-12</item>
+        <item>БХ-21</item>
+        <item>ЕГ-21</item>
+        <item>ФС-21</item>
+        <item>ФР-21</item>
+        <item>БХ-31</item>
+        <item>МЕ-31</item>
+        <item>ФС-31</item>
+        <item>ФР-31</item>
+        <item>ФС-41</item>
+        <item>ФР-41</item>
+
+    </string-array>
+    <string-array name="bak_e_groups_val">
+
+        <item>XbiG11</item>
+        <item>FC11</item>
+        <item>FP11</item>
+        <item>FR12</item>
+        <item>BX21</item>
+        <item>EG21</item>
+        <item>FC21</item>
+        <item>FR21</item>
+        <item>BX31</item>
+        <item>ME31</item>
+        <item>FC31</item>
+        <item>FR31</item>
+        <item>FC41</item>
+        <item>FP41</item>
+
+    </string-array>
+    <string-array name="mag_m_groups">
+
+        <item>МиИТм-11</item>
+        <item>ПМм-11</item>
+        <item>ИиВтМ-11</item>
+        <item>Мм-21</item>
+        <item>ПМм-21</item>
+        <item>ИиВТм-21</item>
+
+    </string-array>
+    <string-array name="mag_m_groups_val">
+
+        <item>MiITm-11</item>
+        <item>PMm11</item>
+        <item>IiVTm11</item>
+        <item>Mm21</item>
+        <item>Pmm21</item>
+        <item>IiVTm21</item>
+
+    </string-array>
+    <string-array name="mag_e_groups">
+        <item>ФСм-11</item>
+        <item>ФСм-21</item>
+    </string-array>
+    <string-array name="mag_e_groups_val">
+        <item>FCm11</item>
+        <item>FCm21</item>
+    </string-array>
+    <string-array name="groups_value">
+        <item>FMiI11</item>
+        <item>PM11</item>
+        <item>IiVT11</item>
+        <item>ISiI12</item>
+        <item>МI21</item>
+        <item>MF21</item>
+        <item>PM21</item>
+        <item>BI21</item>
+        <item>IiVT21</item>
+        <item>ISiT21</item>
+        <item>NE21</item>
+        <item>BX21</item>
+        <item>EG21</item>
+        <item>MF31</item>
+        <item>PM31</item>
+        <item>IiVT31</item>
+        <item>NE31</item>
+        <item>M41</item>
+        <item>FM41</item>
+        <item>PM41</item>
+        <item>IiVT41</item>
+        <item>NE41</item>
+        <item>MiITm-11</item>
+        <item>PMm11</item>
+        <item>IiVTm11</item>
+        <item>Mm21</item>
+        <item>Pmm21</item>
+        <item>IiVTm21</item>
+        <item>XbiG11</item>
+        <item>FC11</item>
+        <item>FP11</item>
+        <item>FR12</item>
+        <item>FC21</item>
+        <item>FR21</item>
+        <item>BX31</item>
+        <item>ME31</item>
+        <item>FC31</item>
+        <item>FR31</item>
+        <item>FC41</item>
+        <item>FP41</item>
+        <item>FCm11</item>
+        <item>FCm21</item>
+
+    </string-array>
+
+    <string-array name="all_group">
         <item>ФМиИ-11</item>
         <item>ПМ-11</item>
         <item>ИиВТ-12</item>
@@ -40,8 +217,6 @@
         <item>ИиВТ-21</item>
         <item>ИСиТ-21</item>
         <item>НЭ-21</item>
-        <item>БХ-21</item>
-        <item>ЕГ-21</item>
 
         <item>МФ-31</item>
         <item>ПМ-31</item>
@@ -60,11 +235,12 @@
         <item>Мм-21</item>
         <item>ПМм-21</item>
         <item>ИиВТм-21</item>
-
         <item>ХБиГ-11</item>
         <item>ФС-11</item>
         <item>ФР-11</item>
         <item>ФР-12</item>
+        <item>БХ-21</item>
+        <item>ЕГ-21</item>
         <item>ФС-21</item>
         <item>ФР-21</item>
         <item>БХ-31</item>
@@ -73,61 +249,17 @@
         <item>ФР-31</item>
         <item>ФС-41</item>
         <item>ФР-41</item>
-        <item>ФСм-11</item>
-        <item>ФСм-21</item>
-
-    </string-array>
-    <string-array name="bak_groops_eng">
-
-        <item>FMiI11</item>
-        <item>PM11</item>
-        <item>IiVT11</item>
-        <item>ISiI12</item>
-
-        <item>МИ-21</item>
-        <item>МФ-21</item>
-        <item>ПМ-21</item>
-        <item>БИ-21</item>
-        <item>ИиВТ-21</item>
-        <item>ИСиТ-21</item>
-        <item>НЭ-21</item>
-        <item>БХ-21</item>
-        <item>ЕГ-21</item>
-
-        <item>МФ-31</item>
-        <item>ПМ-31</item>
-        <item>ИиВТ-31</item>
-        <item>НЭ-31</item>
-
-        <item>М-41</item>
-        <item>ФМ-41</item>
-        <item>ПМ-41</item>
-        <item>ИиВТ-41</item>
-        <item>НЭ-41</item>
-
         <item>МиИТм-11</item>
         <item>ПМм-11</item>
         <item>ИиВтМ-11</item>
         <item>Мм-21</item>
         <item>ПМм-21</item>
         <item>ИиВТм-21</item>
-
-        <item>ХБиГ-11</item>
-        <item>ФС-11</item>
-        <item>ФР-11</item>
-        <item>ФР-12</item>
-        <item>ФС-21</item>
-        <item>ФР-21</item>
-        <item>БХ-31</item>
-        <item>МЕ-31</item>
-        <item>ФС-31</item>
-        <item>ФР-31</item>
-        <item>ФС-41</item>
-        <item>ФР-41</item>
         <item>ФСм-11</item>
         <item>ФСм-21</item>
 
     </string-array>
+
     <string name="pr_asoi">Проектирование АСОИУ</string>
     <string name="set_protocol">Сетевые протоколы и интернет-технологии</string>
     <string name="paket_asu">Пакеты прикладных программ</string>
@@ -700,14 +832,21 @@
     <string name="met_or_let_ot">Методика организации летнего отдыха у детей</string>
     <string name="rasp_ob_inf">Распределенная обработка информации</string>
     <string name="lnaglage_is">Изучаемый язык</string>
+
     <string name="eng">Английский</string>
     <string name="nem">Немецкий</string>
+    <string name="fra">Французкий</string>
+    <string name="chin">Китайский</string>
+
     <string name="dark">Темная</string>
     <string name="writ_t">Светлая</string>
     <string name="thema">Тема</string>
     <string name="save_group">Сохранить текущую группу</string>
 
     <string name="pref_groupe">Groupe</string>
+    <string name="pref_facul">Facul</string>
+    <string name="pref_inst">Inst</string>
+    <string name="pref_education">Edu</string>
 
     <string name="pref_chek1">Английский</string>
     <string name="pref_chek2">Немецкий</string>
@@ -1048,7 +1187,7 @@
 
     <string name="info_danger">При включении отображать только пару текущей недели. В отключенном состоянии отображается числитель и занменатель</string>
     <string name="your_groupe">Выберите группу</string>
-    <string name="gr_inf">Отображение расписания выбранной группы</string>
+    <string name="gr_inf">Группа в которой вы учитесь</string>
     <string name="filter_r">Фильтрация расписания</string>
     <string name="lan_rasp">Отображать данный язык в расписании</string>
     <string name="null_par">Если нет пар пропускать строку</string>

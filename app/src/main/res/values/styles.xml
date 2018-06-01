@@ -8,33 +8,31 @@
     <style name="ThemeWrithe" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimaryA</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkA</item>
-        <item name="colorAccent">@color/colorPrimaryA</item>
+        <item name="colorAccent">@color/colorAccentA</item>
         <item name="android:textColor">@color/colorTextBlack</item>
         <item name="android:textColorSecondary">@color/colorTextSub</item>
-        <!--Костыль colorError в роли атрибута для NavView -->
+
         <item name="colorError">@color/colorWhite</item>
         <item name="colorButtonNormal">@color/colorIconTint</item>
-        <item name="colorControlActivated">@color/colorWhite</item>
-        <!--Костыль-->
+        <item name="colorControlActivated">@color/colorAccentA</item>
+
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
     <style name="ThemeDark" parent="Theme.AppCompat">
+
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textColorSecondary">@color/colorTextSub</item>
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
-        <!--ColorPrimary устанавливается в качестве заголовка тулбар-->
         <item name="android:textColorPrimary">@color/colorWhite</item>
+        <item name="android:textColorSecondary">@color/colorTextSub</item>
 
-        <!--Костыль-->
         <item name="colorError">@color/colorPrimaryDark</item>
         <item name="colorButtonNormal">@color/colorWhite</item>
         <item name="colorControlActivated">@color/colorAccent</item>
-        <!--Костыль-->
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -55,6 +53,7 @@
     <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">12sp</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

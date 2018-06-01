@@ -172,7 +172,6 @@ public class SettingsPref extends PreferenceActivity {
             groupe.setSummary(groupe.getEntry());
             theme.setSummary(theme.getEntry());
             week.setSummary(week.getEntry());
-
         }
 
         @Override
@@ -181,12 +180,11 @@ public class SettingsPref extends PreferenceActivity {
 
             int horizontalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
             int verticalMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
-            int topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (int) getResources().getDimension(R.dimen.activity_vertical_margin) + 30, getResources().getDisplayMetrics());
+            int topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, (int) getResources().getDimension(R.dimen.activity_vertical_margin) + 10, getResources().getDisplayMetrics());
 
             assert view != null;
             view.setPadding(horizontalMargin, topMargin, horizontalMargin, verticalMargin);
             return view;
         }
-
     }
 }
