@@ -157,7 +157,6 @@ public class SettingsPref extends PreferenceActivity {
             Toolbar bar = (Toolbar) LayoutInflater.from(getActivity()).inflate(R.layout.toolbar, root, false);
             root.addView(bar, 0); // insert at top
 
-
             bar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

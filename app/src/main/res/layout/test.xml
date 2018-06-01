@@ -2,87 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Настройки расписания" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:entries="@array/institutes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/bunin"
+        app:civ_border_color="#ffffff"
+        app:civ_border_width="2dp" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="ЕГУ им. И.А.Бунина" />
 
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <Spinner
-        android:id="@+id/spinner4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Switch" />
-
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Switch" />
-
-    <Switch
-        android:id="@+id/switch3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Switch" />
-
-    <Switch
-        android:id="@+id/switch4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Switch" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <Spinner
-        android:id="@+id/spinner5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 </LinearLayout>
