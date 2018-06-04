@@ -15,7 +15,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -32,6 +31,7 @@ public class SettingsPref extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String regular = prefs.getString(getString(R.string.pref_theme), "");
+
         if (Objects.equals(regular, "Светлая")) {
             setTheme(R.style.ThemeWrithe);
         }
@@ -63,16 +63,6 @@ public class SettingsPref extends PreferenceActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         getDelegate().onPostCreate(savedInstanceState);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @NonNull
@@ -150,18 +140,24 @@ public class SettingsPref extends PreferenceActivity {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
             addPreferencesFromResource(R.xml.preferences);
 
             LinearLayout root = (LinearLayout) getActivity().findViewById(android.R.id.list).getParent().getParent().getParent();
             Toolbar bar = (Toolbar) LayoutInflater.from(getActivity()).inflate(R.layout.toolbar, root, false);
-            root.addView(bar, 0); // insert at top
+            root.addView(bar, 0);
 
             bar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    String position = prefs.getString(getString(R.string.pref_groupe), "");
+
+                    if (Objects.equals(position, "")) {
+                        Toast.makeText(getActivity(), "Выберите группу", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent i = new Intent(getActivity(), MainActivity.class);
+                        startActivity(i);
+                    }
                 }
             });
             groupe = (ListPreference) findPreference(getString(R.string.pref_groupe));

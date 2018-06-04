@@ -48,8 +48,8 @@ class Session : Fragment() {
         }
         cursor.close()
 
-        val from = arrayOf("name", "type","time","build","date")
-        val to = intArrayOf(R.id.tex1, R.id.tex2,R.id.tex3,R.id.tex4,R.id.tex5)
+        val from = arrayOf("name", "type", "time", "build", "date")
+        val to = intArrayOf(R.id.tex1, R.id.tex2, R.id.tex3, R.id.tex4, R.id.tex5)
 
         val adapter = SimpleAdapter(activity, clients, R.layout.custom_list, from, to)
         val listView = v.findViewById<ListView>(R.id.listView)

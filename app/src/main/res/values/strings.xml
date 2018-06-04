@@ -72,8 +72,8 @@
     <string-array name="bak_m_groups_val">
         <item>FMiI11</item>
         <item>PM11</item>
-        <item>IiVT11</item>
-        <item>ISiI12</item>
+        <item>IiVT12</item>
+        <item>ISiI11</item>
         <item>МI21</item>
         <item>MF21</item>
         <item>PM21</item>
@@ -158,12 +158,14 @@
         <item>FCm11</item>
         <item>FCm21</item>
     </string-array>
+
     <string-array name="groups_value">
         <item>FMiI11</item>
         <item>PM11</item>
-        <item>IiVT11</item>
-        <item>ISiI12</item>
-        <item>МI21</item>
+        <item>IiVT21</item>
+        <item>ISiI11</item>
+
+        <item>MI21</item>
         <item>MF21</item>
         <item>PM21</item>
         <item>BI21</item>
@@ -203,7 +205,6 @@
         <item>FCm21</item>
 
     </string-array>
-
     <string-array name="all_group">
         <item>ФМиИ-11</item>
         <item>ПМ-11</item>
