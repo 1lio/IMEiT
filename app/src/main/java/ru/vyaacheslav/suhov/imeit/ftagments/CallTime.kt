@@ -62,7 +62,7 @@ class CallTime : Fragment() {
             "Светлая" -> lss.background = ResourcesCompat.getDrawable(resources, R.color.colorPrimaryA, null)
             "Темная" -> lss.background = ResourcesCompat.getDrawable(resources, R.color.colorPrimary, null)
         }
-        // Обоссаный календарь не хочет работать в 24 часовом формате, если явно указать HOUR_OF_DAY, ему еще нужно указть локаль.
+        // Календарь не хочет работать в 24 часовом формате, если явно указать HOUR_OF_DAY, ему еще нужно указть локаль.
         val time = Calendar.getInstance(Locale("RU", "ru"))
         val hour: Int = time.get(Calendar.HOUR_OF_DAY)
         val min: Int = time.get(Calendar.MINUTE)

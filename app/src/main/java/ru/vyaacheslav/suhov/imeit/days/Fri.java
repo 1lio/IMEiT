@@ -313,7 +313,6 @@ public class Fri extends Fragment {
             }
         }
 
-
         switch (names[index]) {
             case "ФМиИ-11":
                 FMiI_11();

@@ -144,12 +144,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         // затем подставляем значение в качестве заголовка
         MainActivity.this.tb.setSubtitle(names[index]);
-
-        // Если пользователь очистил данные в окне настроек, то строка будет пуста. Делаем проверку.
-        if ((typeGroupe.length() == 0)) {
-            startActivity(settingsIntent);
-            finish();
-        }
     }
 
     @Override

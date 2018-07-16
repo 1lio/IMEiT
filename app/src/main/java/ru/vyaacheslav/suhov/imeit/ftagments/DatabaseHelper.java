@@ -1,4 +1,6 @@
-package ru.vyaacheslav.suhov.imeit.ftagments;import android.content.Context;
+package ru.vyaacheslav.suhov.imeit.ftagments;
+
+import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -14,7 +16,7 @@ import ru.vyaacheslav.suhov.imeit.R;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static String DB_NAME = "info.db";
     private static String DB_PATH = "";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     private SQLiteDatabase mDataBase;
     private final Context mContext;
@@ -60,7 +62,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     private void copyDBFile() throws IOException {
-        //InputStream mInput = mContext.getAssets().open(DB_NAME);
         InputStream mInput = mContext.getResources().openRawResource(R.raw.info);
         OutputStream mOutput = new FileOutputStream(DB_PATH + DB_NAME);
         byte[] mBuffer = new byte[1024];
@@ -85,7 +86,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {}
+    public void onCreate(SQLiteDatabase db) {
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
