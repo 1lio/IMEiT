@@ -55,8 +55,8 @@
                     android:id="@+id/mm1"
                     android:layout_width="match_parent"
                     android:layout_height="128dp"
-                    android:divider="?android:dividerVertical"
                     android:orientation="horizontal"
+                    android:divider="?android:dividerVertical"
                     android:showDividers="middle">
 
                     <LinearLayout

@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit;
+package ru.vyaacheslav.suhov.imeit.activites;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,8 +21,10 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Objects;
 
-import ru.vyaacheslav.suhov.imeit.ftagments.CallTime;
+import ru.vyaacheslav.suhov.imeit.R;
 import ru.vyaacheslav.suhov.imeit.ftagments.Session;
+import ru.vyaacheslav.suhov.imeit.ftagments.TabFragment;
+import ru.vyaacheslav.suhov.imeit.ftagments.time.TimeListFragment;
 import ru.vyaacheslav.suhov.imeit.maps.MapsFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Интент для запуска окна с настройками
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
         if (prefs.getBoolean("isFirstRun", true)) {
-            Intent intent = new Intent(MainActivity.this, SettingsPref.class);
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
         }
         prefs.edit().putBoolean("isFirstRun", false).apply();
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Обработка нажатий на пункты меню.
         nv.setNavigationItemSelectedListener(this);
 
-        settingsIntent = new Intent(MainActivity.this, SettingsPref.class);
+        settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
         loadName(); // Загрузка имени группы согласно настройкам;
     }
 
@@ -165,10 +167,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 FragmentTransaction ft2 = FM.beginTransaction();
                 ft2.replace(R.id.containerView, new MapsFragment()).commit();
                 break;
-            case R.id.time_alarm:
+          case R.id.time_alarm:
                 MainActivity.this.tb.setSubtitle("Время звонков");
                 FragmentTransaction ft3 = FM.beginTransaction();
-                ft3.replace(R.id.containerView, new CallTime()).commit();
+                ft3.replace(R.id.containerView, new TimeListFragment()).commit();
                 break;
             case R.id.exzam:
                 MainActivity.this.tb.setSubtitle("Экзаменационная сессия");

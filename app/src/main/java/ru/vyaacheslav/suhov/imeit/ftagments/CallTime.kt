@@ -1,17 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.ftagments
 
-import android.content.SharedPreferences
-import android.os.Bundle
-import android.preference.PreferenceManager
-import android.support.v4.app.Fragment
-import android.support.v4.content.res.ResourcesCompat
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
-import ru.vyaacheslav.suhov.imeit.R
-import java.util.*
+/*
 
 class CallTime : Fragment() {
 
@@ -32,9 +21,9 @@ class CallTime : Fragment() {
         val w4: TextView = v.findViewById(R.id.w4)
         val w5: TextView = v.findViewById(R.id.w5)
         val w6: TextView = v.findViewById(R.id.w6)
-        val t5: TextView = v.findViewById(R.id.t5)
+        val t5: TextView = v.findViewById(R.id.item_time_bottom)
         val t6: TextView = v.findViewById(R.id.t6)
-        val t7: TextView = v.findViewById(R.id.t7)
+        val t7: TextView = v.findViewById(R.id.item_out_top)
         val t8: TextView = v.findViewById(R.id.t8)
         val t10: TextView = v.findViewById(R.id.t10)
         val t11: TextView = v.findViewById(R.id.t11)
@@ -96,4 +85,4 @@ class CallTime : Fragment() {
             "Темная" -> vs.forEach { it.setTextColor(resources.getColor(R.color.colorAccent)) }
         }
     }
-}
+*/

@@ -54,6 +54,7 @@ class Session : Fragment() {
         val adapter = SimpleAdapter(activity, clients, R.layout.custom_list, from, to)
         val listView = v.findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
+
         return v
     }
 }
