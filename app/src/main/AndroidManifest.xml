@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activites.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -26,9 +26,9 @@
         </activity>
 
         <activity
-            android:name=".SettingsPref"
+            android:name=".activites.SettingsActivity"
             android:label="@string/settings"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activites.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeWrithe" />
     </application>

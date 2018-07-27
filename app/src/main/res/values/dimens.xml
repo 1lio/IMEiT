@@ -6,6 +6,11 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="time_card_width">56dp</dimen>
+    <dimen name="time_card_height">80dp</dimen>
+
+    <dimen name="margin">16dp</dimen>
+
     <dimen name="padding">20dp</dimen>
     <dimen name="padding_small">10dp</dimen>
     <dimen name="big_text">30sp</dimen>

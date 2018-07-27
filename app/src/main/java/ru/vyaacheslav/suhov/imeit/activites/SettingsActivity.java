@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit;
+package ru.vyaacheslav.suhov.imeit.activites;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,7 +22,9 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
-public class SettingsPref extends PreferenceActivity {
+import ru.vyaacheslav.suhov.imeit.R;
+
+public class SettingsActivity extends PreferenceActivity {
 
     SharedPreferences prefs;
     private AppCompatDelegate mDelegate;

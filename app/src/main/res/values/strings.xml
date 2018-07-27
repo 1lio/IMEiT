@@ -1,5 +1,28 @@
 <resources>
-<string name="app_name">ИМЕиТ</string>
+    <string name="app_name">ИМЕиТ</string>
+
+    <!-- Ресурсы Фрагмента "Расписание звонков" -->
+    <string name="pair">Пара</string>
+    <string name="lesson">Занятие</string>
+    <string name="timeout">Перерыв</string>
+
+    <string name="min05">5 минут</string>
+    <string name="min10">10 минут</string>
+    <string name="min40">40 минут</string>
+
+    <string name="time01">08:30 – 09:15</string>
+    <string name="time02">09:20 – 10:05</string>
+    <string name="time03">10:15 – 11:00</string>
+    <string name="time04">11:05 – 11:50</string>
+    <string name="time05">12:30 – 13:15</string>
+    <string name="time06">13:20 – 14:05</string>
+    <string name="time07">14:15 – 15:00</string>
+    <string name="time08">15:05 – 15:50</string>
+    <string name="time09">16:00 – 16:45</string>
+    <string name="time10">16:50 – 17:35</string>
+    <string name="time11">17:45 – 18:30</string>
+    <string name="time12">18:35 – 19:20</string>
+
 
     <string name="ob_ex_phys">Общая и экспериментальная физика</string>
     <string name="rech_zad_pm">РЕШЕНИЕ ЗАДАЧ ЛИНЕЙНОЙ АЛГЕБРЫ И АНАЛИТИЧЕСКОЙ ГЕОМЕТРИИ С ПОМОЩЬЮ МАТЕМАТИЧЕСКИХ ПАКЕТОВ</string>
@@ -554,13 +577,7 @@
     <string name="maple">Решение задач математического моделирования в Maple</string>
     <string name="otchot">Отчетность в след. семестре</string>
     <string name="ii_ex">Системы искуственный интилекта и экспертыне системы</string>
-    <string name="one">1</string>
-
     <string name="sys_bez_serv">Система безопасности сервисной деятельности</string>
-    <string name="two">2</string>
-    <string name="tree">3</string>
-    <string name="four">4</string>
-
     <string name="app_sys">Приложения и системы программирования</string>
     <string name="graf_dising">Проектирование в графическом дизайне</string>
     <string name="met_crypto">Методы криптографической защиты информации</string>
@@ -680,12 +697,7 @@
     <string name="e_mail">Написать нам:</string>
     <string name="dek_f_mail_ru">DEK_F@MAIL.RU</string>
     <string name="autor">Сухов Вячеслав 2017г.</string>
-    <string name="para">Пара</string>
-    <string name="zan">Занятие</string>
     <string name="admins">Администрирование компьютерных сетей</string>
-    <string name="pereriv">Перерыв</string>
-    <string name="min_10">10 минут</string>
-    <string name="min_5">5 минут</string>
     <string name="ofiice_tex">Офисные информационные технологии</string>
     <string name="ped_practic">Педагогическая практика</string>
     <string name="mod_phys_pro">Моделирование физических процессов</string>
@@ -842,22 +854,7 @@
     <string name="pref_chek2">Немецкий</string>
     <string name="pref_theme">Тема</string>
     <string name="znam">Знаменатель</string>
-    <string name="time001">08:30 – 09:15</string>
-    <string name="time002">09:20 – 10:05</string>
-    <string name="time003">10:15 – 11:00</string>
-    <string name="min5">5 минут</string>
-    <string name="min_40">40 минут</string>
-    <string name="time004">11:05 – 11:50</string>
-    <string name="tome005">12:30 – 13:15</string>
-    <string name="time006">13:20 – 14:05</string>
-    <string name="time007">14:15 – 15:00</string>
-    <string name="time008">15:05 – 15:50</string>
-    <string name="five">5</string>
-    <string name="time009">16:00 – 16:45</string>
-    <string name="time010">16:50 – 17:35</string>
-    <string name="six">6</string>
-    <string name="time011">17:45 – 18:30</string>
-    <string name="time012">18:35 – 19:20</string>
+
 
     <string name="zac_oc">Зачет с оценкой</string>
     <string name="zacot">Зачет</string>
