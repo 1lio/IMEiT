@@ -42,7 +42,7 @@
                 android:showDividers="middle">
 
                 <LinearLayout
-                    android:id="@+id/times"
+                    android:id="@+id/timesa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:divider="?android:dividerHorizontal"

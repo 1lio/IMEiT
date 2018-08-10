@@ -1,4 +1,5 @@
 <resources>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -11,14 +12,13 @@
         <item name="colorAccent">@color/colorAccentA</item>
         <item name="android:textColor">@color/colorTextBlack</item>
         <item name="android:textColorSecondary">@color/colorTextSub</item>
-
         <item name="colorError">@color/colorWhite</item>
         <item name="colorButtonNormal">@color/colorIconTint</item>
         <item name="colorControlActivated">@color/colorAccentA</item>
-
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
 
     <style name="ThemeDark" parent="Theme.AppCompat">
 
@@ -26,6 +26,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorWhite</item>
+
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
         <item name="android:textColorPrimary">@color/colorWhite</item>
         <item name="android:textColorSecondary">@color/colorTextSub</item>
@@ -38,18 +39,15 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Ff1SpinnerViewStyle" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="ToolbarTitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18sp</item>
     </style>
+
     <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">12sp</item>
     </style>

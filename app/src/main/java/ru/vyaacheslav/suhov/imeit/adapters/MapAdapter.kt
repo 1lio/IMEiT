@@ -3,30 +3,29 @@ package ru.vyaacheslav.suhov.imeit.adapters
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import ru.vyaacheslav.suhov.imeit.maps.Maps_Camus
-import ru.vyaacheslav.suhov.imeit.maps.Maps_Inst
-import ru.vyaacheslav.suhov.imeit.maps.Maps_Other
+import ru.vyaacheslav.suhov.imeit.ftagments.maps.MapsList
+import ru.vyaacheslav.suhov.imeit.ftagments.maps.MapsLocation
 
 internal class MapAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment? {
         when (position) {
-            0 -> return Maps_Inst()
-            1 -> return Maps_Camus()
-            2 -> return Maps_Other()
+
+            0 -> return MapsLocation()
+            1 -> return MapsList()
         }
         return null
     }
 
     override fun getCount(): Int {
-        return 3
+        return 2
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
+
         when (position) {
-            0 -> return "Институты"
-            1 -> return "Корпуса"
-            2 -> return "Прочее"
+            0 -> return "Корпуса"
+            1 -> return "Список"
         }
         return null
     }

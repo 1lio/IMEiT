@@ -1,0 +1,98 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="?android:dividerHorizontal"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="?android:dividerVertical"
+        android:orientation="horizontal"
+        android:showDividers="middle">
+
+        <TextView
+            android:id="@+id/num_time_item"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="?android:dividerVertical"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                android:divider="?android:dividerVertical"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+
+                <TextView
+                    android:id="@+id/item_time_top"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    tools:ignore="NestedWeights" />
+
+
+                <TextView
+                    android:id="@+id/item_out_top"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|end"
+                    android:paddingRight="16dp"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                android:divider="?android:dividerVertical"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+
+                <TextView
+                    android:id="@+id/item_time_bottom"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    tools:ignore="NestedWeights" />
+
+                <TextView
+                    android:id="@+id/item_out_bottom"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|end"
+                    android:paddingRight="16dp"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+</LinearLayout>

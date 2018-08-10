@@ -6,15 +6,8 @@
             android:entries="@array/all_group"
             android:entryValues="@array/groups_value"
             android:key="@string/pref_groupe"
-            android:summary="@string/gr_inf"
             android:title="@string/you_goupe" />
-        <ListPreference
-            android:defaultValue="@string/auto"
-            android:dialogTitle="Текущая неделя"
-            android:entries="@array/weeks"
-            android:entryValues="@array/weeks"
-            android:key="@string/week_i"
-            android:title="Текущая неделя" />
+
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/filter_r">
         <CheckBoxPreference

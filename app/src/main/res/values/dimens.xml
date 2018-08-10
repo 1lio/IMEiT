@@ -14,4 +14,6 @@
     <dimen name="padding">20dp</dimen>
     <dimen name="padding_small">10dp</dimen>
     <dimen name="big_text">30sp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>
