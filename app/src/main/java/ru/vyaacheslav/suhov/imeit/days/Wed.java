@@ -300,7 +300,7 @@ public class Wed extends Fragment {
 
     public void loadMethod() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String position = prefs.getString(getString(R.string.pref_groupe), "");
+        String position = prefs.getString(getString(R.string.pref_key_group), "");
 
         String[] asu = getResources().getStringArray(R.array.groups_value);
         String[] names = getResources().getStringArray(R.array.all_group);

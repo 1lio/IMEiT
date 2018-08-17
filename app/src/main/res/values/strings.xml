@@ -1,60 +1,57 @@
 <resources>
     <string name="app_name">ИМЕиТ</string>
     <!-- Основное меню -->
-    <string name="time_lessons">Звонки</string>
-    <string name="ras">Расписание</string>
-    <string name="maps">Корпуса</string>
+    <string name="menu_time">Звонки</string>
+    <string name="menu_schedule">Расписание</string>
+    <string name="menu_maps">Корпуса</string>
     <!-- Ресурсы Фрагмента "Расписание звонков" -->
-    <string name="pair">Пара</string>
-    <string name="lesson">Занятие</string>
-    <string name="timeout">Перерыв</string>
-    <string name="residue">До конца пары осталось:</string>
-    <string name="this_time">Текущее время:</string>
+    <string name="time_pair">Пара</string>
+    <string name="time_lesson">Занятие</string>
+    <string name="time_timeout">Перерыв</string>
+    <string name="time_residue">До конца пары осталось:</string>
+    <string name="time_this_time">Текущее время:</string>
     <!-- Ресурсы Фрагмента "Корпуса" -->
-    <string name="map">Карта</string>
+    <string name="map_maps">Карта</string>
     <string name="map_list">Список</string>
+    <!-- Окно настроек-->
+    <string name="settings">Настройки</string>
+    <string name="pref_name_take_group">Выберите группу</string>
+    <string name="pref_name_group">Ваша группа</string>
+    <string name="pref_name_filter">Фильтрация расписания</string>
+    <string name="pref_name_theme">Тема приложения</string>
+    <string name="pref_schedule">Кнопка скачать расписание</string>
+    <string name="pref_schedule_summary">Отображать кнопку скачать расписание на главном окне</string>
+    <string name="pref_sum_theme">Настройки темы</string>
+    <string name="pref_sum_main_theme">Основная тема приложения</string>
+    <string name="pref_lang_eng">Английский</string>
+    <string name="pref_lang_dec">Немецкий</string>
+    <!-- Preference key-->
+    <string name="pref_key_theme_dark">dark</string>
+    <string name="pref_key_theme_writhe">writhe</string>
+    <string name="pref_key_group">group</string>
+    <string name="pref_key_theme">theme</string>
+    <string name="pref_key_check_eng">eng</string>
+    <string name="pref_key_check_dec">dec</string>
+    <string name="pref_key_check_fab">fab</string>
 
-    <string name="ras2">Настр. расписание</string>
-    <string name="groope">Ваша группа:</string>
-
-    <string name="welcome">Добро пожаловать!</string>
-    <string name="invent">Выберите группу из списка.</string>
-    <string name="welcome2">Если группы нет в списке нажмите <b>здесь</b></string>
-
-
+    <string-array name="pref_name_themes">
+        <item>Светлая</item>
+        <item>Темная</item>
+    </string-array>
     <string-array name="groups_value">
-        <item>AAA</item>
+        <item>isNot</item>
+        <item>ISiT31</item>
     </string-array>
     <string-array name="all_group">
-        <item>AAA</item>
+        <item>Нет группы</item>
+        <item>ИСиТ-31</item>
     </string-array>
-
-    <string name="lnaglage_is">Изучаемый язык</string>
-
-    <string name="eng">Английский</string>
-    <string name="nem">Немецкий</string>
-
-    <string name="dark">Темная</string>
-    <string name="writ_t">Светлая</string>
-    <string name="thema">Тема</string>
-
-
-    <string name="pref_groupe">Groupe</string>
-    <string name="pref_facul">Facul</string>
-    <string name="pref_inst">Inst</string>
-    <string name="pref_education">Edu</string>
-
-    <string name="pref_chek1">Английский</string>
-    <string name="pref_chek2">Немецкий</string>
-    <string name="pref_theme">Тема</string>
-
 
     <string name="t_08">08</string>
     <string name="min_30">30</string>
     <string name="t_10_05">10:05</string>
     <string name="t_10">10</string>
     <string name="t_15">15</string>
-
     <string name="t_11_50">11:50</string>
     <string name="t_12">12</string>
     <string name="t_30">30</string>
@@ -64,25 +61,8 @@
     <string name="t_16">16</string>
     <string name="t_00">00</string>
     <string name="t_17_35">17:35</string>
-
-    <array name="themes">
-        <item>Светлая</item>
-        <item>Темная</item>
-    </array>
-
-    <string name="week">Текущая неделя</string>
-    <string name="depos">depos</string>
-    <string name="danger">danger</string>
-
-    <string name="your_groupe">Выберите группу</string>
-    <string name="filter_r">Фильтрация расписания</string>
-    <string name="sett_theme">Настройки темы</string>
-    <string name="main_theme">Основная тема приложения</string>
-    <string name="theme">Тема приложения</string>
-    <string name="you_goupe">Ваша группа</string>
-    <string name="settings">Настройки</string>
-    <string name="temporary_schedule">Временное расписание!\nНажмите здесь, чтобы скачать расписание в формате .xls</string>
+    <!-- Other -->
+    <string name="temporary_schedule">Временное расписание!\nНажмите на значок, чтобы скачать расписание в формате .xls</string>
+    <!-- Type-->
     <string name="img">img</string>
-
-
 </resources>

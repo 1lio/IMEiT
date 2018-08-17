@@ -6,10 +6,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="104dp"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -21,7 +23,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/this_time"
+                android:text="@string/time_this_time"
                 android:textColor="@color/colorWhite"
                 android:textSize="14sp" />
 
@@ -38,7 +40,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/residue"
+                android:text="@string/time_residue"
                 android:textColor="@color/colorWhite"
                 android:textSize="14sp" />
 
@@ -71,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
             android:layout_weight="1"
-            android:text="@string/pair"
+            android:text="@string/time_pair"
             android:textColor="@color/colorWhite" />
 
         <TextView
@@ -79,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/lesson"
+            android:text="@string/time_lesson"
             android:textColor="@color/colorWhite" />
 
         <TextView
@@ -88,7 +90,7 @@
             android:layout_marginEnd="@dimen/margin"
             android:layout_weight="1"
             android:gravity="end"
-            android:text="@string/timeout"
+            android:text="@string/time_timeout"
             android:textColor="@color/colorWhite" />
 
     </LinearLayout>

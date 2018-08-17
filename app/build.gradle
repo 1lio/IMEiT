@@ -15,8 +15,8 @@ android {
         applicationId "ru.vyaacheslav.suhov.imeit_rsp"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 19
-        versionName "2.8.1"
+        versionCode 20
+        versionName "2.9.0"
     }
     buildTypes {
         release {

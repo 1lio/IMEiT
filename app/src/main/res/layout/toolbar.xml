@@ -9,5 +9,7 @@
     app:navigationContentDescription="@string/abc_action_bar_up_description"
     app:navigationIcon="?attr/homeAsUpIndicator"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:subtitleTextAppearance="@style/ToolbarSubtitleAppearance"
+    app:titleTextAppearance="@style/ToolbarTitleAppearance"
     app:title="Настройки"
     />

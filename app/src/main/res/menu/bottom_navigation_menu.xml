@@ -5,18 +5,18 @@
         android:id="@+id/times"
         android:enabled="true"
         android:icon="@drawable/ic_notifications"
-        android:title="@string/time_lessons"
+        android:title="@string/menu_time"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/schedule"
         android:enabled="true"
         android:icon="@drawable/ic_schedule"
-        android:title="@string/ras"
+        android:title="@string/menu_schedule"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/location"
         android:enabled="true"
         android:icon="@drawable/ic_location"
-        android:title="@string/maps"
+        android:title="@string/menu_maps"
         app:showAsAction="ifRoom" />
 </menu>

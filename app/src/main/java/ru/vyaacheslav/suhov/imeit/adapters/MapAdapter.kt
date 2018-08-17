@@ -6,11 +6,12 @@ import android.support.v4.app.FragmentPagerAdapter
 import ru.vyaacheslav.suhov.imeit.ftagments.maps.MapsList
 import ru.vyaacheslav.suhov.imeit.ftagments.maps.MapsLocation
 
+/** Адаптер фрагментов Карты*/
 internal class MapAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment? {
         when (position) {
-
+            // Фрагменты
             0 -> return MapsLocation()
             1 -> return MapsList()
         }
@@ -22,7 +23,7 @@ internal class MapAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-
+        // Названия табов
         when (position) {
             0 -> return "Корпуса"
             1 -> return "Список"

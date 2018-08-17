@@ -12,8 +12,6 @@ class TemporarySchedule : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fragment_not_shedule, container, false)
-
-        // TODO: Add url excel file for schedule | Add forum
         return v
     }
 }

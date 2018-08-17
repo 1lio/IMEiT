@@ -2,32 +2,37 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Настройки расписания">
         <ListPreference
-            android:dialogTitle="@string/your_groupe"
+            android:dialogTitle="@string/pref_name_take_group"
             android:entries="@array/all_group"
             android:entryValues="@array/groups_value"
-            android:key="@string/pref_groupe"
-            android:title="@string/you_goupe" />
+            android:key="@string/pref_key_group"
+            android:title="@string/pref_name_group" />
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/filter_r">
+    <PreferenceCategory android:title="@string/pref_name_filter">
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="@string/pref_chek1"
-            android:title="@string/eng" />
+            android:key="@string/pref_key_check_eng"
+            android:title="@string/pref_lang_eng" />
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="@string/pref_chek2"
-            android:title="@string/nem" />
+            android:key="@string/pref_key_check_dec"
+            android:title="@string/pref_lang_dec" />
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/sett_theme">
+    <PreferenceCategory android:title="@string/pref_sum_theme">
         <ListPreference
-            android:defaultValue="@string/writ_t"
+            android:defaultValue="@string/pref_key_theme_writhe"
             android:dialogTitle="Выберите тему"
-            android:entries="@array/themes"
-            android:entryValues="@array/themes"
-            android:key="@string/pref_theme"
-            android:summary="@string/main_theme"
-            android:title="@string/theme" />
+            android:entries="@array/pref_name_themes"
+            android:entryValues="@array/pref_name_themes"
+            android:key="@string/pref_key_theme"
+            android:summary="@string/pref_sum_main_theme"
+            android:title="@string/pref_name_theme" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_check_fab"
+            android:summary="@string/pref_schedule_summary"
+            android:title="@string/pref_schedule" />
     </PreferenceCategory>
 </PreferenceScreen>

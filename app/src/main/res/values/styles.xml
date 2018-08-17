@@ -13,7 +13,6 @@
         <item name="android:textColor">@color/colorTextBlack</item>
         <item name="android:textColorSecondary">@color/colorTextSub</item>
         <item name="colorError">@color/colorWhite</item>
-        <item name="colorButtonNormal">@color/colorIconTint</item>
         <item name="colorControlActivated">@color/colorAccentA</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -30,9 +29,7 @@
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
         <item name="android:textColorPrimary">@color/colorWhite</item>
         <item name="android:textColorSecondary">@color/colorTextSub</item>
-
-        <item name="colorError">@color/colorPrimaryDark</item>
-        <item name="colorButtonNormal">@color/colorWhite</item>
+        <item name="colorError">@color/colorTextSub</item>
         <item name="colorControlActivated">@color/colorAccent</item>
 
         <item name="windowActionBar">false</item>
@@ -46,6 +43,7 @@
 
     <style name="ToolbarTitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
     <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
