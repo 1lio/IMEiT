@@ -21,12 +21,15 @@ class MapsList : Fragment() {
         val v = inflater.inflate(R.layout.map_list, container, false)
 
         val s = DB(this.context!!).dbMaps()
+
         // Формируем список мз двух полей БД
         val from = arrayOf("name", "address")
         val to = intArrayOf(R.id.text1, R.id.text2)
+
         // Формируем и выводим в UI
         val adapter = SimpleAdapter(activity, s, R.layout.maps_item, from, to)
         val listView = v.findViewById<ListView>(R.id.mapListView)
+
         // Обрабатываем нажатия по элементам списка
         listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, _, id ->
             // Создаем интент и отправляем на гугл карты

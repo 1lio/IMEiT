@@ -17,11 +17,13 @@ class BellsFragment : Fragment() {
 
     lateinit var residue: TextView
     lateinit var listView: ListView
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         val v = inflater.inflate(R.layout.fragment_clock, container, false)
         residue = v.findViewById(R.id.is_time)
         listView = v.findViewById(R.id.time_list)
+        listView.isEnabled = false
         calc()
         connectionDB()
         return v
@@ -62,5 +64,6 @@ class BellsFragment : Fragment() {
 
         val adapter = SimpleAdapter(activity, lessons, R.layout.item_clock, from, to)
         listView.adapter = adapter
+
     }
 }

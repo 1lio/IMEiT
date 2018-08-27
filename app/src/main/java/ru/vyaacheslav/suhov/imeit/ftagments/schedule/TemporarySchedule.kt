@@ -11,7 +11,6 @@ class TemporarySchedule : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val v = inflater.inflate(R.layout.fragment_not_shedule, container, false)
-        return v
+        return inflater.inflate(R.layout.fragment_not_shedule, container, false)
     }
 }

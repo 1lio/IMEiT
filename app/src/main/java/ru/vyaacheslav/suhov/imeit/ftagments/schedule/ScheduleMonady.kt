@@ -11,7 +11,10 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.data.DB
 
 class ScheduleMonady : Fragment() {
+
     lateinit var listView: ListView
+
+    private val day: String = "MON"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -24,11 +27,16 @@ class ScheduleMonady : Fragment() {
 
     private fun connectionDB() {
 
-        val lessons = DB(this.context!!).dbTimeSchedule()
-        val from = arrayOf("text1", "text2", "text3")
-        val to = intArrayOf(R.id.tex1, R.id.tex2, R.id.tex3)
+        val schedule = DB(this.context!!).dbSchedule("ISiT31", day)
 
-        val adapter = SimpleAdapter(activity, lessons, R.layout.item_schedule, from, to)
-        listView.adapter = adapter
+        val fromS = arrayOf("name", "subname", "type", "build",
+                "name_out", "subname_out", "type_out", "build_out", "tex1", "tex2", "tex3")
+
+        val toS = intArrayOf(R.id.s_name, R.id.s_subname, R.id.s_type, R.id.s_build,
+                R.id.s_name_d, R.id.s_subname_d, R.id.s_type_d, R.id.s_build_d, R.id.tex1, R.id.tex2, R.id.tex3)
+
+        val adapter2 = SimpleAdapter(activity, schedule, R.layout.item_schedule, fromS, toS)
+
+        listView.adapter = adapter2
     }
 }

@@ -9,17 +9,17 @@
             android:title="@string/pref_name_group" />
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_name_filter">
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="@string/pref_key_check_eng"
-            android:title="@string/pref_lang_eng" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="@string/pref_key_check_dec"
-            android:title="@string/pref_lang_dec" />
+    <!--    <PreferenceCategory android:title="@string/pref_name_filter">
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="@string/pref_key_check_eng"
+                android:title="@string/pref_lang_eng" />
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="@string/pref_key_check_dec"
+                android:title="@string/pref_lang_dec" />
 
-    </PreferenceCategory>
+        </PreferenceCategory>-->
     <PreferenceCategory android:title="@string/pref_sum_theme">
         <ListPreference
             android:defaultValue="@string/pref_key_theme_writhe"
@@ -34,5 +34,10 @@
             android:key="@string/pref_key_check_fab"
             android:summary="@string/pref_schedule_summary"
             android:title="@string/pref_schedule" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_check_week"
+            android:summary="@string/pref_week_summary"
+            android:title="@string/pref_week" />
     </PreferenceCategory>
 </PreferenceScreen>

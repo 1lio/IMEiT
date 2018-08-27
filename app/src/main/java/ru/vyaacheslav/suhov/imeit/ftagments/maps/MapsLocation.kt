@@ -9,7 +9,6 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import ru.vyaacheslav.suhov.imeit.R
@@ -31,7 +30,7 @@ class MapsLocation : Fragment(), OnMapReadyCallback {
         // В цикле перебераем коодинаты и приводм к типу LatLng
         // Затем создаем point на карте и присваиваем имя из БД
 
-        val colorPoint = 81f // Цвет маркера на карте
+        /*   val colorPoint = 136f // Цвет маркера на карте*/
         var i = 0
 
         while (i < dbLocate.size) {
@@ -43,7 +42,7 @@ class MapsLocation : Fragment(), OnMapReadyCallback {
 
             googleMap.addMarker(MarkerOptions().position(location)
                     .title("${dbLocate[i]["name"]}")
-                    .icon(BitmapDescriptorFactory.defaultMarker(colorPoint)))
+                    /* .icon(BitmapDescriptorFactory.defaultMarker(colorPoint))*/)
             i++
         }
 

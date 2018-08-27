@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.preference.PreferenceManager
 import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.FloatingActionButton
@@ -17,7 +18,9 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.ftagments.bells.BellsFragment
 import ru.vyaacheslav.suhov.imeit.ftagments.maps.MapsFragment
@@ -34,10 +37,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var prefTh: String
     private lateinit var prefGr: String
     private var prefFab: Boolean = true
+    private var prefWeek: Boolean = true
     private lateinit var settingsIntent: Intent
     private lateinit var tb: Toolbar
+    lateinit var week: TextView
 
-    val schedule: String = "https://yadi.sk/i/nmVC7BzX3aFLWd"
+    val schedule: String = "https://yadi.sk/d/SRZmnHWF3aabGA"
 
     @SuppressLint("CommitTransaction")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         prefTh = prefs.getString(getString(R.string.pref_key_theme), "")
         prefGr = prefs.getString(getString(R.string.pref_key_group), "")
         prefFab = prefs.getBoolean(getString(R.string.pref_key_check_fab), true)
+        prefWeek = prefs.getBoolean(getString(R.string.pref_key_check_week), true)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if (prefTh == "Светлая") {
@@ -54,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                 setTheme(R.style.ThemeDark)
             }
         }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -65,6 +72,8 @@ class MainActivity : AppCompatActivity() {
         }
         prefs.edit().putBoolean("isFirstRun", false).apply()
 
+        week = findViewById(R.id.week)
+        isWeek()
         // Стандартная инициализация компонетов
         tb = findViewById(R.id.toolbar)
         calendar = Calendar.getInstance()
@@ -77,7 +86,7 @@ class MainActivity : AppCompatActivity() {
 
         // Обработка нажатий на пункты меню.
         settingsIntent = Intent(this, SettingsActivity::class.java)
-        loadName("Расписание") // Загрузка имени группы согласно настройкам;
+        groupName("Расписание") // Загрузка имени группы согласно настройкам;
 
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
@@ -95,20 +104,20 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.times -> {
-                    loadName("Время звонков")
+                    groupName("Время звонков")
                     val ft3 = fm.beginTransaction()
                     ft3.replace(R.id.container, BellsFragment()).commit()
                     invisibleView(fab)
                 }
                 R.id.schedule -> {
                     isGroupConnected()
-                    loadName("Расписание")
+                    groupName("Расписание")
                     visibleFab(fab)
                 }
                 R.id.location -> {
                     val ft2 = fm.beginTransaction()
                     ft2.replace(R.id.container, MapsFragment()).commit()
-                    loadName("Корпуса")
+                    groupName("Корпуса")
                     invisibleView(fab)
                 }
             }
@@ -132,7 +141,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //TODO: Использовать функцию как проверку на наличие расписания для группы в БД
     private fun isGroupConnected() {
 
         val ft1 = fm.beginTransaction()
@@ -143,7 +151,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadName(s: String) {
+
+    private fun groupName(s: String?): String {
         // В качестве подзоголовка берем значение выбранной группы.
         prefGr = prefs.getString(getString(R.string.pref_key_group), "")
         // Для DB имена групп указаны английским алфавитом без пробелов и символов
@@ -160,13 +169,34 @@ class MainActivity : AppCompatActivity() {
             i++
         }
         // затем подставляем значение в качестве заголовка
-        this.tb.subtitle = names[index] + " | $s"
+        if (names[index] == "Нет группы") {
+            this.tb.subtitle = s
+        } else {
+            this.tb.subtitle = names[index] + " | $s"
+        }
+
+        return index.toString()
+    }
+
+    private fun isWeek() {
+        if (prefWeek) {
+            week.visibility = View.VISIBLE
+            week.text = "Числитель"
+            val fallingAnimation: Animation = AnimationUtils.loadAnimation(this, R.anim.falling)
+            week.startAnimation(fallingAnimation)
+
+            Handler().postDelayed({
+                invisibleView(week)
+                week.visibility = View.GONE
+            }, 3000)
+        } else week.visibility = View.GONE
+
     }
 
     private fun visibleFab(view: View) {
         if (prefFab) {
             view.visibility = View.VISIBLE
-            val animation = AnimationUtils.loadAnimation(applicationContext, R.anim.view_visable)
+            val animation = AnimationUtils.loadAnimation(applicationContext, R.anim.view_alpha_visable)
             view.startAnimation(animation)
         } else view.visibility = View.GONE
     }
@@ -174,9 +204,9 @@ class MainActivity : AppCompatActivity() {
     private fun invisibleView(view: View) {
 
         if (prefFab) {
-            val animation = AnimationUtils.loadAnimation(applicationContext, R.anim.view_out)
+            val animation = AnimationUtils.loadAnimation(applicationContext, R.anim.view_alpha_gone)
             if (view.visibility != View.GONE) {
-                view.isEnabled = false
+
                 view.startAnimation(animation)
                 view.visibility = View.GONE
             }

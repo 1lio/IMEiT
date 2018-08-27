@@ -15,9 +15,10 @@ class MapsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Инициализация
-        val v = inflater.inflate(R.layout.tabs, container, false)
-        val tabLayout = v.findViewById<TabLayout>(R.id.tabss)
-        val viewPager = v.findViewById<ViewPager>(R.id.viewpagerr)
+        val v = inflater.inflate(R.layout.fragment_tab, container, false)
+        val tabLayout = v.findViewById<TabLayout>(R.id.tabs)
+        val viewPager = v.findViewById<ViewPager>(R.id.viewpager)
+
         // Подключаем адаптер в viewPager
         viewPager.adapter = MapAdapter(childFragmentManager)
         tabLayout.post { tabLayout.setupWithViewPager(viewPager) }

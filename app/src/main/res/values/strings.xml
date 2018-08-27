@@ -20,7 +20,10 @@
     <string name="pref_name_filter">Фильтрация расписания</string>
     <string name="pref_name_theme">Тема приложения</string>
     <string name="pref_schedule">Кнопка скачать расписание</string>
+    <string name="pref_week">Текущаяя неделя</string>
+
     <string name="pref_schedule_summary">Отображать кнопку скачать расписание на главном окне</string>
+    <string name="pref_week_summary">Отображать в течении 5 сек. какая сейчас неделя</string>
     <string name="pref_sum_theme">Настройки темы</string>
     <string name="pref_sum_main_theme">Основная тема приложения</string>
     <string name="pref_lang_eng">Английский</string>
@@ -34,6 +37,8 @@
     <string name="pref_key_check_dec">dec</string>
     <string name="pref_key_check_fab">fab</string>
 
+    <string name="pref_key_check_week">week</string>
+
     <string-array name="pref_name_themes">
         <item>Светлая</item>
         <item>Темная</item>
@@ -44,8 +49,9 @@
     </string-array>
     <string-array name="all_group">
         <item>Нет группы</item>
-        <item>ИСиТ-31</item>
     </string-array>
+
+    <string name="writhe">Светлая</string>
 
     <string name="t_08">08</string>
     <string name="min_30">30</string>
