@@ -20,17 +20,16 @@ import android.view.MenuItem
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.FrameLayout
 import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.ftagments.bells.BellsFragment
 import ru.vyaacheslav.suhov.imeit.ftagments.maps.MapsFragment
 import ru.vyaacheslav.suhov.imeit.ftagments.schedule.ScheduleFragment
 import ru.vyaacheslav.suhov.imeit.ftagments.schedule.TemporarySchedule
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var calendar: java.util.Calendar
     private lateinit var ft: FragmentTransaction
     private lateinit var fm: FragmentManager
     private lateinit var prefs: SharedPreferences
@@ -41,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var settingsIntent: Intent
     private lateinit var tb: Toolbar
     lateinit var week: TextView
+    lateinit var container: FrameLayout
 
     val schedule: String = "https://yadi.sk/d/SRZmnHWF3aabGA"
 
@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         // Интент для запуска окна с настройками
         val prefs = getPreferences(Context.MODE_PRIVATE)
         if (prefs.getBoolean("isFirstRun", true)) {
@@ -73,10 +72,10 @@ class MainActivity : AppCompatActivity() {
         prefs.edit().putBoolean("isFirstRun", false).apply()
 
         week = findViewById(R.id.week)
+        container = findViewById(R.id.container)
         isWeek()
         // Стандартная инициализация компонетов
         tb = findViewById(R.id.toolbar)
-        calendar = Calendar.getInstance()
         setSupportActionBar(tb)
 
         // Инициализация транзакции фрагментов
@@ -151,46 +150,63 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun groupName(s: String?) {
+        prefGr = prefs.getString(getString(R.string.pref_key_group), "")
 
-    private fun groupName(s: String?): String {
+        /*  val name = DB(this).groups()*/
+
+        /* Log.i("HS","" + str)*/
+        // затем подставляем значение в качестве заголовка
+
+
+        /* var i = 0
+         while (i < name.size) {
+             val str: String = name[i]["value"].toString() // HashMap  со всеми группами
+             i++
+
+             if (prefGr == "Нет группы") {
+                 this.tb.subtitle = s
+             } else {
+                 this.tb.subtitle = "$str | $s"
+             }
+         }*/
+
+
         // В качестве подзоголовка берем значение выбранной группы.
         prefGr = prefs.getString(getString(R.string.pref_key_group), "")
         // Для DB имена групп указаны английским алфавитом без пробелов и символов
         // Поэтому создаем второй массив на русском, сравниваем их по id
         val asu = resources.getStringArray(R.array.groups_value)
         val names = resources.getStringArray(R.array.all_group)
-        var index = 0
-
+        var index = -1
         var i = 0
-        while (i < asu.size && index == 0) {
+        while (i < asu.size && index == -1) {
             if (asu[i] == prefGr) {
                 index = i
             }
             i++
         }
         // затем подставляем значение в качестве заголовка
-        if (names[index] == "Нет группы") {
-            this.tb.subtitle = s
-        } else {
-            this.tb.subtitle = names[index] + " | $s"
-        }
-
-        return index.toString()
+        this.tb.subtitle = names[index] + " | $s"
     }
 
     private fun isWeek() {
+        val fallingAnimation: Animation = AnimationUtils.loadAnimation(this, R.anim.falling)
+        val top: Animation = AnimationUtils.loadAnimation(this, R.anim.top)
+        val bottom: Animation = AnimationUtils.loadAnimation(this, R.anim.bottom)
         if (prefWeek) {
             week.visibility = View.VISIBLE
             week.text = "Числитель"
-            val fallingAnimation: Animation = AnimationUtils.loadAnimation(this, R.anim.falling)
+
             week.startAnimation(fallingAnimation)
+            container.startAnimation(bottom)
 
             Handler().postDelayed({
                 invisibleView(week)
-                week.visibility = View.GONE
+                container.startAnimation(top)
             }, 3000)
-        } else week.visibility = View.GONE
-
+        } else
+            week.visibility = View.GONE
     }
 
     private fun visibleFab(view: View) {

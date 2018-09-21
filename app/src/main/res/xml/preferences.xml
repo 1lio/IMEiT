@@ -3,9 +3,9 @@
     <PreferenceCategory android:title="Настройки расписания">
         <ListPreference
             android:dialogTitle="@string/pref_name_take_group"
+            android:key="@string/pref_key_group"
             android:entries="@array/all_group"
             android:entryValues="@array/groups_value"
-            android:key="@string/pref_key_group"
             android:title="@string/pref_name_group" />
 
     </PreferenceCategory>

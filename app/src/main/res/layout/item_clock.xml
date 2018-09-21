@@ -14,7 +14,7 @@
         android:showDividers="middle">
 
         <TextView
-            android:id="@+id/num_time_item"
+            android:id="@+id/num_time"
             android:layout_width="60dp"
             android:layout_height="80dp"
             android:gravity="center"
@@ -40,7 +40,7 @@
 
 
                 <TextView
-                    android:id="@+id/item_time_top"
+                    android:id="@+id/time_top"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -50,7 +50,7 @@
 
 
                 <TextView
-                    android:id="@+id/item_out_top"
+                    android:id="@+id/out_top"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:gravity="center|end"
@@ -71,7 +71,7 @@
 
 
                 <TextView
-                    android:id="@+id/item_time_bottom"
+                    android:id="@+id/time_bottom"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -80,7 +80,7 @@
                     tools:ignore="NestedWeights" />
 
                 <TextView
-                    android:id="@+id/item_out_bottom"
+                    android:id="@+id/out_bottom"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:gravity="center|end"

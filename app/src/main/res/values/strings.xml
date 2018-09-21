@@ -43,15 +43,19 @@
         <item>Светлая</item>
         <item>Темная</item>
     </string-array>
+
     <string-array name="groups_value">
         <item>isNot</item>
         <item>ISiT31</item>
+        <item>MF31</item>
+        <item>MI31</item>
     </string-array>
     <string-array name="all_group">
         <item>Нет группы</item>
+        <item>ИСиТ-31</item>
+        <item>МФ-31</item>
+        <item>МИ-31</item>
     </string-array>
-
-    <string name="writhe">Светлая</string>
 
     <string name="t_08">08</string>
     <string name="min_30">30</string>
@@ -68,7 +72,7 @@
     <string name="t_00">00</string>
     <string name="t_17_35">17:35</string>
     <!-- Other -->
-    <string name="temporary_schedule">Временное расписание!\nНажмите на значок, чтобы скачать расписание в формате .xls</string>
+    <string name="temporary_schedule">Нет расписания!\nНажмите на значок, чтобы скачать расписание в формате .xls</string>
     <!-- Type-->
     <string name="img">img</string>
 </resources>

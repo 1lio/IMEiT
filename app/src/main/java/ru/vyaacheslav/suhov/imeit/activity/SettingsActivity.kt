@@ -142,6 +142,21 @@ class SettingsActivity : PreferenceActivity() {
             groupe = findPreference(getString(R.string.pref_key_group)) as ListPreference
             theme = findPreference(getString(R.string.pref_key_theme)) as ListPreference
 
+            var i = 0
+
+            /*    var group: Array<String> = arrayOf()
+                var key: Array<String> = arrayOf()
+                val name = DB(activity).groups()
+
+                while (i < name.size) {
+                    group = arrayOf(name[i]["value"].toString()) // HashMap  со всеми группами
+                    key = arrayOf(name[i]["key"].toString()) // HashMap  со всеми группами
+                    i++
+                }*//*
+
+            groupe.entries = group
+        // groupe.entryValues = key*/
+
             groupe.summary = groupe.entry
             theme.summary = theme.entry
         }

@@ -3,18 +3,18 @@ package ru.vyaacheslav.suhov.imeit.adapters
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import ru.vyaacheslav.suhov.imeit.ftagments.schedule.ScheduleMonady
+import ru.vyaacheslav.suhov.imeit.ftagments.schedule.*
 
 internal class DayAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment? {
         when (position) {
 
-            0 -> return ScheduleMonady()
-            1 -> return ScheduleMonady()
-            2 -> return ScheduleMonady()
-            3 -> return ScheduleMonady()
-            4 -> return ScheduleMonady()
+            0 -> return ScheduleMonday()
+            1 -> return ScheduleTuesday()
+            2 -> return ScheduleWedneday()
+            3 -> return ScheduleThursday()
+            4 -> return ScheduleFriday()
         }
         return null
     }

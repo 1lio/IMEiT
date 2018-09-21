@@ -3,7 +3,7 @@ package ru.vyaacheslav.suhov.imeit.data
 import android.content.Context
 import java.io.IOException
 
-class DB(context: Context) {
+class DB(context: Context?) {
 
     private val mDBHelper = DatabaseHelper(context)
 
@@ -19,9 +19,7 @@ class DB(context: Context) {
 
         val cursor = mDb.rawQuery("SELECT * FROM MAPS", null)
 
-
         cursor.moveToFirst()
-
         while (!cursor.isAfterLast) {
             client = HashMap()
             client["name"] = cursor.getString(1)
@@ -35,7 +33,7 @@ class DB(context: Context) {
         return clients
     }
 
-    fun dbSchedule(groupe: String, day: String): ArrayList<HashMap<String, Any>> {
+    fun dbSchedule(group: String, day: String): ArrayList<HashMap<String, Any>> {
 
         try {
             mDBHelper.updateDataBase()
@@ -47,7 +45,7 @@ class DB(context: Context) {
         val times = java.util.ArrayList<java.util.HashMap<String, Any>>()
         var time: java.util.HashMap<String, Any>
 
-        val cursor = mDb.rawQuery("SELECT * FROM $groupe$day", null)
+        val cursor = mDb.rawQuery("SELECT * FROM $group$day", null)
         cursor.moveToFirst()
 
         while (!cursor.isAfterLast) {
@@ -65,7 +63,6 @@ class DB(context: Context) {
             time["type_out"] = cursor.getString(8)
             time["build_out"] = cursor.getString(9)
 
-            // TODO: Убрать время
             // Время
             time["tex1"] = cursor.getString(10)
             time["tex2"] = cursor.getString(11)
@@ -87,10 +84,10 @@ class DB(context: Context) {
         }
 
         val mDb = mDBHelper.writableDatabase
+        val cursor = mDb.rawQuery("SELECT * FROM LESSON", null)
         val lessons = java.util.ArrayList<java.util.HashMap<String, Any>>()
         var less: java.util.HashMap<String, Any>
 
-        val cursor = mDb.rawQuery("SELECT * FROM LESSON", null)
         cursor.moveToFirst()
 
         while (!cursor.isAfterLast) {
@@ -106,5 +103,30 @@ class DB(context: Context) {
         cursor.close()
 
         return lessons
+    }
+
+
+    fun groups(): ArrayList<HashMap<String, Any>> {
+
+        val mDb = mDBHelper.writableDatabase
+        val cursor = mDb.rawQuery("select * from GROUPS", null)
+
+        val groups = java.util.ArrayList<java.util.HashMap<String, Any>>()
+        var count: java.util.HashMap<String, Any>
+
+        cursor.moveToFirst()
+
+        while (!cursor.isAfterLast) {
+            count = java.util.HashMap()
+            count["_id"] = cursor.getString(0)
+            count["value"] = cursor.getString(1)
+            count["key"] = cursor.getString(2)
+
+            groups.add(count)
+            cursor.moveToNext()
+        }
+        cursor.close()
+
+        return groups
     }
 }

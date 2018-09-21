@@ -23,7 +23,6 @@ class BellsFragment : Fragment() {
         val v = inflater.inflate(R.layout.fragment_clock, container, false)
         residue = v.findViewById(R.id.is_time)
         listView = v.findViewById(R.id.time_list)
-        listView.isEnabled = false
         calc()
         connectionDB()
         return v
@@ -60,7 +59,7 @@ class BellsFragment : Fragment() {
     private fun connectionDB() {
         val lessons = DB(this.context!!).dbTimes()
         val from = arrayOf("_id", "time_top", "time_out", "pre_top", "pre_out")
-        val to = intArrayOf(R.id.num_time_item, R.id.item_time_top, R.id.item_time_bottom, R.id.item_out_top, R.id.item_out_bottom)
+        val to = intArrayOf(R.id.num_time, R.id.time_top, R.id.time_bottom, R.id.out_top, R.id.out_bottom)
 
         val adapter = SimpleAdapter(activity, lessons, R.layout.item_clock, from, to)
         listView.adapter = adapter
