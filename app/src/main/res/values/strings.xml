@@ -1,19 +1,20 @@
 <resources>
     <string name="app_name">ИМЕиТ</string>
-    <!-- Основное меню -->
+    <!-- Navigation bottom -->
     <string name="menu_time">Звонки</string>
     <string name="menu_schedule">Расписание</string>
     <string name="menu_maps">Корпуса</string>
-    <!-- Ресурсы Фрагмента "Расписание звонков" -->
+    <!-- Strings a fragment ~Time -->
     <string name="time_pair">Пара</string>
     <string name="time_lesson">Занятие</string>
     <string name="time_timeout">Перерыв</string>
     <string name="time_residue">До конца пары осталось:</string>
+    <string name="time_lunch">Большая перемена:</string>
     <string name="time_this_time">Текущее время:</string>
-    <!-- Ресурсы Фрагмента "Корпуса" -->
+    <!-- Strings a fragment Maps -->
     <string name="map_maps">Карта</string>
     <string name="map_list">Список</string>
-    <!-- Окно настроек-->
+    <!-- Activity Settings-->
     <string name="settings">Настройки</string>
     <string name="pref_name_take_group">Выберите группу</string>
     <string name="pref_name_group">Ваша группа</string>
@@ -21,9 +22,11 @@
     <string name="pref_name_theme">Тема приложения</string>
     <string name="pref_schedule">Кнопка скачать расписание</string>
     <string name="pref_week">Текущаяя неделя</string>
+    <string name="pref_anim">Анимации в окнах</string>
 
     <string name="pref_schedule_summary">Отображать кнопку скачать расписание на главном окне</string>
     <string name="pref_week_summary">Отображать в течении 5 сек. какая сейчас неделя</string>
+    <string name="pref_anim_summary">Отображать различные анимации</string>
     <string name="pref_sum_theme">Настройки темы</string>
     <string name="pref_sum_main_theme">Основная тема приложения</string>
     <string name="pref_lang_eng">Английский</string>
@@ -38,6 +41,7 @@
     <string name="pref_key_check_fab">fab</string>
 
     <string name="pref_key_check_week">week</string>
+    <string name="pref_key_check_animate">animation</string>
 
     <string-array name="pref_name_themes">
         <item>Светлая</item>

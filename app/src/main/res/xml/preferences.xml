@@ -39,5 +39,11 @@
             android:key="@string/pref_key_check_week"
             android:summary="@string/pref_week_summary"
             android:title="@string/pref_week" />
+        <!-- пока анимация не нужна -->
+     <!--   <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_check_animate"
+            android:summary="@string/pref_anim_summary"
+            android:title="@string/pref_anim" />-->
     </PreferenceCategory>
 </PreferenceScreen>

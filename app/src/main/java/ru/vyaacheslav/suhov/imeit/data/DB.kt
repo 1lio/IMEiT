@@ -75,7 +75,7 @@ class DB(context: Context?) {
 
     }
 
-    fun dbTimes(): ArrayList<HashMap<String, Any>> {
+    fun dbTimes(): ArrayList<HashMap<String, String>> {
 
         try {
             mDBHelper.updateDataBase()
@@ -85,8 +85,8 @@ class DB(context: Context?) {
 
         val mDb = mDBHelper.writableDatabase
         val cursor = mDb.rawQuery("SELECT * FROM LESSON", null)
-        val lessons = java.util.ArrayList<java.util.HashMap<String, Any>>()
-        var less: java.util.HashMap<String, Any>
+        val lessons = ArrayList<HashMap<String, String>>()
+        var less: java.util.HashMap<String, String>
 
         cursor.moveToFirst()
 
@@ -103,30 +103,5 @@ class DB(context: Context?) {
         cursor.close()
 
         return lessons
-    }
-
-
-    fun groups(): ArrayList<HashMap<String, Any>> {
-
-        val mDb = mDBHelper.writableDatabase
-        val cursor = mDb.rawQuery("select * from GROUPS", null)
-
-        val groups = java.util.ArrayList<java.util.HashMap<String, Any>>()
-        var count: java.util.HashMap<String, Any>
-
-        cursor.moveToFirst()
-
-        while (!cursor.isAfterLast) {
-            count = java.util.HashMap()
-            count["_id"] = cursor.getString(0)
-            count["value"] = cursor.getString(1)
-            count["key"] = cursor.getString(2)
-
-            groups.add(count)
-            cursor.moveToNext()
-        }
-        cursor.close()
-
-        return groups
     }
 }

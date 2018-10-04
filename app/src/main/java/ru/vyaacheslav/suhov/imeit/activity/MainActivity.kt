@@ -69,7 +69,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
+
         prefs.edit().putBoolean("isFirstRun", false).apply()
+
 
         week = findViewById(R.id.week)
         container = findViewById(R.id.container)

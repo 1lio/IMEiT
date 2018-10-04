@@ -1,68 +1,125 @@
 package ru.vyaacheslav.suhov.imeit.ftagments.bells
 
-import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
-import android.widget.SimpleAdapter
 import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.adapters.RecyclerAdapter
 import ru.vyaacheslav.suhov.imeit.data.DB
 import java.util.*
 
 class BellsFragment : Fragment() {
 
-    lateinit var residue: TextView
-    lateinit var listView: ListView
+    private lateinit var residueTextView: TextView      // Вью для вывода остатка
+    private lateinit var pairStatus: TextView           // Статус состояния
+    lateinit var mAdapter: RecyclerView.Adapter<*>      // Адаптер для списка
+    private lateinit var textTimer: String              // Строка для Таймера
+    private val handler: Handler = Handler()            // создадим объект класса Handler
+    private var status: String = ""                     // Текущий статус пара или перемена
 
+    // Выполним работу не связанную с интерфейсом
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Обновляем данные таймера
+        timerUpdater()
+
+        //  Подготовим адаптер для списка
+        val lessons = DB(this.context!!).dbTimes()
+
+        val num: ArrayList<String> = arrayListOf()
+        val top1: ArrayList<String> = arrayListOf()
+        val bot1: ArrayList<String> = arrayListOf()
+        val top2: ArrayList<String> = arrayListOf()
+        val bot2: ArrayList<String> = arrayListOf()
+
+        for (i in 0..5) {
+            val c = lessons[i]
+            num.add(i, c["_id"].toString())
+            top1.add(i, c["time_top"].toString())
+            bot1.add(i, c["pre_top"].toString())
+            top2.add(i, c["time_out"].toString())
+            bot2.add(i, c["pre_out"].toString())
+        }
+        mAdapter = RecyclerAdapter(context!!, num, top1, bot1, top2, bot2)
+    }
+
+    /* Метод onCreate должен быть наименне нагуржен */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        val v = inflater.inflate(R.layout.fragment_clock, container, false)
-        residue = v.findViewById(R.id.is_time)
-        listView = v.findViewById(R.id.time_list)
-        calc()
-        connectionDB()
+        val v = inflater.inflate(R.layout.fr_time, container, false)
+        // Инициализация компоненттов
+        residueTextView = v.findViewById(R.id.textTime)        // Остаток времени до конца пары
+        pairStatus = v.findViewById(R.id.pair_status)          // Вью для статуса: пара или перемена
+        val mRecyclerView: RecyclerView = v.findViewById(R.id.time_list)      // Список таблица с временем пар
+        // Присваивание занчений
+        residueTextView.text = textTimer
+        pairStatus.text = status
+
+
+        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
+        mRecyclerView.layoutManager = mLayoutManager
+
+        mRecyclerView.adapter = mAdapter
+        // Делаем плавную анимацию прокуртки
+        val itemAnimator = DefaultItemAnimator()
+        mRecyclerView.itemAnimator = itemAnimator
+
+        mRecyclerView.setHasFixedSize(true)
+        val linearLayoutManager = LinearLayoutManager(activity)
+        val dividerItemDecoration = DividerItemDecoration(mRecyclerView.context, linearLayoutManager.orientation)
+
+        mRecyclerView.addItemDecoration(dividerItemDecoration)
+        // Запускаем отдельный поток при старте активити
+        handler.removeCallbacks(timeUpdaterRunnable)
+        handler.postDelayed(timeUpdaterRunnable, 100)    // Запустим с задержкой 100 миллисекунд
+
         return v
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun calc() {
-        val calendar = GregorianCalendar.getInstance()
-        val hour: Int = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute: Int = calendar.get(Calendar.MINUTE)
-
-        val times: Array<Int> = arrayOf(605, 710, 845, 950, 1055, 1160)
-        val x = hour * 60 + minute // Получаем текущее время и переводим в минуты
-        val c: Int // Значение для вычислений
-        // Проверяем попадает время в промежуток, затем подставляем значение
-        c = when (x) {
-            in 510..605 -> times[0] - x
-            in 615..710 -> times[1] - x
-            in 750..845 -> times[2] - x
-            in 855..950 -> times[3] - x
-            in 960..1055 -> times[4] - x
-            in 1065..1160 -> times[5] - x
-            else -> 0
-        }
-        val ost: Int = c - 60
-
-        if (c < 60) {
-            residue.text = "0 ч. $c мин." // Если значение меньше, то подставляем его в минуты
-        } else {
-            residue.text = "1 ч. $ost мин."
-        }
+    override fun onPause() {
+        // Удаляем Runnable-объект для прекращения задачи
+        handler.removeCallbacks(timeUpdaterRunnable)
+        super.onPause()
     }
 
-    private fun connectionDB() {
-        val lessons = DB(this.context!!).dbTimes()
-        val from = arrayOf("_id", "time_top", "time_out", "pre_top", "pre_out")
-        val to = intArrayOf(R.id.num_time, R.id.time_top, R.id.time_bottom, R.id.out_top, R.id.out_bottom)
+    override fun onResume() {
+        super.onResume()
+        // Возобнавляем Runnable-объект
+        handler.postDelayed(timeUpdaterRunnable, 100)
+    }
 
-        val adapter = SimpleAdapter(activity, lessons, R.layout.item_clock, from, to)
-        listView.adapter = adapter
+    private fun timerUpdater() {
 
+        val nunPair = BellsUtils().getNumberCurrentPair()
+        // Используем строковые ресурсы, чтобы в дальнейшем сделать локализацию
+        status = if (nunPair == 9) resources.getString(R.string.time_lunch) else resources.getString(R.string.time_residue)
+
+        // Проверяем попадает время в промежуток, затем подставляем значение
+        // В начале хотел переберать всё в цикле, но получилась страшная конструкция с кучей проверок
+        val result = BellsUtils().getResidueTimePair()
+        // Форматируем значение и присваиваем строке
+        val format: String = if ((result < 10)) "0$result" else result.toString()
+        textTimer = if ((format.toInt() < 59)) "00:$format" else "01:${format.toInt() - 60}"
+    }
+
+    private val timeUpdaterRunnable = object : Runnable {
+        override fun run() {
+            // Вызовем обновление нашего таймера
+            timerUpdater()
+            // Обновляем щзначения
+            residueTextView.text = textTimer
+            pairStatus.text = status
+
+            // повторяем через каждые 3 секунды
+            handler.postDelayed(this, 3000)
+        }
     }
 }
