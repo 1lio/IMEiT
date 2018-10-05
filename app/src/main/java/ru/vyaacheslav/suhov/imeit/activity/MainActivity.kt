@@ -91,11 +91,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener {
-            val address = Uri.parse(schedule)
-            val openLinkIntent = Intent(Intent.ACTION_VIEW, address)
-            startActivity(openLinkIntent)
-        }
+
 
         visibleFab(fab)
 
@@ -108,12 +104,23 @@ class MainActivity : AppCompatActivity() {
                     groupName("Время звонков")
                     val ft3 = fm.beginTransaction()
                     ft3.replace(R.id.container, BellsFragment()).commit()
+           /*         fab.setImageResource(R.drawable.ic_assessment)
+                    visibleFab(fab)
+                    fab.setOnClickListener {
+                        // Анализ расписания
+                    }*/
                     invisibleView(fab)
                 }
                 R.id.schedule -> {
                     isGroupConnected()
                     groupName("Расписание")
+                    fab.setImageResource(R.drawable.ic_download)
                     visibleFab(fab)
+                    fab.setOnClickListener {
+                        val address = Uri.parse(schedule)
+                        val openLinkIntent = Intent(Intent.ACTION_VIEW, address)
+                        startActivity(openLinkIntent)
+                    }
                 }
                 R.id.location -> {
                     val ft2 = fm.beginTransaction()
@@ -213,9 +220,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun visibleFab(view: View) {
         if (prefFab) {
-            view.visibility = View.VISIBLE
-            val animation = AnimationUtils.loadAnimation(applicationContext, R.anim.view_alpha_visable)
-            view.startAnimation(animation)
+                view.visibility = View.VISIBLE
+                val animation = AnimationUtils.loadAnimation(applicationContext, R.anim.view_alpha_visable)
+                view.startAnimation(animation)
+
         } else view.visibility = View.GONE
     }
 

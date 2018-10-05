@@ -1,6 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.data
 
 import android.content.Context
+import ru.vyaacheslav.suhov.imeit.core.BellsTable
 import java.io.IOException
 
 class DB(context: Context?) {
@@ -75,7 +76,13 @@ class DB(context: Context?) {
 
     }
 
-    fun dbTimes(): ArrayList<HashMap<String, String>> {
+
+
+    /** @see dbTimes - Примнимает имя таблицы с временем звонков по умолчанию <Def_Bells>,
+     * Таблица для редоктирования называется Bells
+     * @return Список */
+
+    fun dbTimes(nameBellTable: String = "BELLS"): List<BellsTable> {
 
         try {
             mDBHelper.updateDataBase()
@@ -84,24 +91,25 @@ class DB(context: Context?) {
         }
 
         val mDb = mDBHelper.writableDatabase
-        val cursor = mDb.rawQuery("SELECT * FROM LESSON", null)
-        val lessons = ArrayList<HashMap<String, String>>()
-        var less: java.util.HashMap<String, String>
+        val cursor = mDb.rawQuery("SELECT * FROM $nameBellTable", null)
+
+        val listBell: MutableList<BellsTable> = mutableListOf()
 
         cursor.moveToFirst()
 
         while (!cursor.isAfterLast) {
-            less = java.util.HashMap()
-            less["_id"] = cursor.getString(0)
-            less["time_top"] = cursor.getString(1)
-            less["time_out"] = cursor.getString(2)
-            less["pre_top"] = cursor.getString(3)
-            less["pre_out"] = cursor.getString(4)
-            lessons.add(less)
+
+            val bellsTable = BellsTable(cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4))
+
+            listBell.add(bellsTable)
             cursor.moveToNext()
         }
         cursor.close()
 
-        return lessons
+        return listBell
     }
 }

@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.ftagments.bells
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
@@ -7,11 +8,10 @@ import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.activity.SettingsActivity
 import ru.vyaacheslav.suhov.imeit.adapters.RecyclerAdapter
 import ru.vyaacheslav.suhov.imeit.data.DB
 import java.util.*
@@ -40,15 +40,19 @@ class BellsFragment : Fragment() {
         val top2: ArrayList<String> = arrayListOf()
         val bot2: ArrayList<String> = arrayListOf()
 
+        val stMin = " минут"
+
         for (i in 0..5) {
             val c = lessons[i]
-            num.add(i, c["_id"].toString())
-            top1.add(i, c["time_top"].toString())
-            bot1.add(i, c["pre_top"].toString())
-            top2.add(i, c["time_out"].toString())
-            bot2.add(i, c["pre_out"].toString())
+            num.add(i, c.num.toString())
+            top1.add(i, c.topStr)
+            bot1.add(i, c.botInt.toString() + stMin)
+            top2.add(i, c.outStr)
+            bot2.add(i, c.outBotInt.toString() + stMin)
         }
         mAdapter = RecyclerAdapter(context!!, num, top1, bot1, top2, bot2)
+
+        setHasOptionsMenu(true)
     }
 
     /* Метод onCreate должен быть наименне нагуржен */
@@ -94,6 +98,33 @@ class BellsFragment : Fragment() {
         super.onResume()
         // Возобнавляем Runnable-объект
         handler.postDelayed(timeUpdaterRunnable, 100)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+
+        val fav:MenuItem = menu.add(Menu.NONE, 12, 0, resources.getString(R.string.statistic))
+        fav.setIcon(R.drawable.ic_assessment)
+        fav.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
+
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        return when (item!!.itemId) {
+            R.id.settings -> {
+                val settingsIntent = Intent(activity, SettingsActivity::class.java)
+                startActivity(settingsIntent)
+                super.onOptionsItemSelected(item)
+            }
+            12 -> {
+                // Отобразим статистику
+                super.onOptionsItemSelected(item)
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun timerUpdater() {

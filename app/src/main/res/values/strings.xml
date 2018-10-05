@@ -16,6 +16,8 @@
     <string name="map_list">Список</string>
     <!-- Activity Settings-->
     <string name="settings">Настройки</string>
+    <string name="statistic">Статистика</string>
+
     <string name="pref_name_take_group">Выберите группу</string>
     <string name="pref_name_group">Ваша группа</string>
     <string name="pref_name_filter">Фильтрация расписания</string>

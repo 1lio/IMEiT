@@ -39,6 +39,7 @@
             android:key="@string/pref_key_check_week"
             android:summary="@string/pref_week_summary"
             android:title="@string/pref_week" />
+
         <!-- пока анимация не нужна -->
      <!--   <CheckBoxPreference
             android:defaultValue="true"
@@ -46,4 +47,12 @@
             android:summary="@string/pref_anim_summary"
             android:title="@string/pref_anim" />-->
     </PreferenceCategory>
+
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="key"
+        android:summary="Подключаться к удаленным базам. По умолчанию всё храниться локально"
+        android:title="Синхронизировать данные" />
+
 </PreferenceScreen>
