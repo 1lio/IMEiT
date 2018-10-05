@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="?android:dividerVertical"
+    android:orientation="horizontal"
+    android:showDividers="middle">
+
+    <TextView
+        android:id="@+id/t_num"
+        android:layout_width="56dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="?android:dividerVertical"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:divider="?android:dividerVertical"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+
+            <TextView
+                android:id="@+id/t_top"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="12sp"
+                tools:ignore="NestedWeights" />
+
+
+            <TextView
+                android:id="@+id/t_o_top"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                android:paddingEnd="16dp"
+                android:textSize="12sp"
+                tools:ignore="RtlSymmetry" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:divider="?android:dividerVertical"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+
+            <TextView
+                android:id="@+id/t_bott"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="12sp"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/t_o_bott"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                android:paddingEnd="16dp"
+                android:textSize="12sp"
+                tools:ignore="RtlSymmetry" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
