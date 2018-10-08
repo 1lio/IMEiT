@@ -3,6 +3,7 @@ package ru.vyaacheslav.suhov.imeit.core
 import java.util.*
 
 //TODO: Данный клас должен быть в отдельном модуле
+//TODO: Переделать!!!
 
 /** Данный класс реализует полную работу с времннными диапазонами учебного процесса :з
  *  @author Sukhov Viacheslav
