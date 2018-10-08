@@ -5,6 +5,7 @@
     <color name="colorPrimaryDark">#16191d</color>004b9f
     <color name="colorAccent">#659801</color>1976d1
 
+    <color name="colorTransparent">#8d344955</color>
     <color name="colorPrimaryA">#344955</color>1976d1
     <color name="colorPrimaryDarkA">#232F34</color>004b9f
     <color name="colorAccentA">#ffc800</color>1976d1

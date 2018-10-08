@@ -1,6 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.data
 
 import android.content.Context
+import ru.vyaacheslav.suhov.imeit.core.BellsTable
 import java.io.IOException
 
 class DB(context: Context?) {
@@ -75,7 +76,13 @@ class DB(context: Context?) {
 
     }
 
-    fun dbTimes(): ArrayList<HashMap<String, Any>> {
+
+
+    /** @see dbTimes - Примнимает имя таблицы с временем звонков по умолчанию <Def_Bells>,
+     * Таблица для редоктирования называется Bells
+     * @return Список */
+
+    fun dbTimes(nameBellTable: String = "BELLS"): List<BellsTable> {
 
         try {
             mDBHelper.updateDataBase()
@@ -84,49 +91,25 @@ class DB(context: Context?) {
         }
 
         val mDb = mDBHelper.writableDatabase
-        val cursor = mDb.rawQuery("SELECT * FROM LESSON", null)
-        val lessons = java.util.ArrayList<java.util.HashMap<String, Any>>()
-        var less: java.util.HashMap<String, Any>
+        val cursor = mDb.rawQuery("SELECT * FROM $nameBellTable", null)
+
+        val listBell: MutableList<BellsTable> = mutableListOf()
 
         cursor.moveToFirst()
 
         while (!cursor.isAfterLast) {
-            less = java.util.HashMap()
-            less["_id"] = cursor.getString(0)
-            less["time_top"] = cursor.getString(1)
-            less["time_out"] = cursor.getString(2)
-            less["pre_top"] = cursor.getString(3)
-            less["pre_out"] = cursor.getString(4)
-            lessons.add(less)
+
+            val bellsTable = BellsTable(cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4))
+
+            listBell.add(bellsTable)
             cursor.moveToNext()
         }
         cursor.close()
 
-        return lessons
-    }
-
-
-    fun groups(): ArrayList<HashMap<String, Any>> {
-
-        val mDb = mDBHelper.writableDatabase
-        val cursor = mDb.rawQuery("select * from GROUPS", null)
-
-        val groups = java.util.ArrayList<java.util.HashMap<String, Any>>()
-        var count: java.util.HashMap<String, Any>
-
-        cursor.moveToFirst()
-
-        while (!cursor.isAfterLast) {
-            count = java.util.HashMap()
-            count["_id"] = cursor.getString(0)
-            count["value"] = cursor.getString(1)
-            count["key"] = cursor.getString(2)
-
-            groups.add(count)
-            cursor.moveToNext()
-        }
-        cursor.close()
-
-        return groups
+        return listBell
     }
 }

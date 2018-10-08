@@ -33,6 +33,9 @@ class MapsLocation : Fragment(), OnMapReadyCallback {
         /*   val colorPoint = 136f // Цвет маркера на карте*/
         var i = 0
 
+
+
+
         while (i < dbLocate.size) {
             val hh = dbLocate[i]["locate"].toString()
             val latLong = hh.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
