@@ -1,5 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.ftagments.bells
 
+
+//TODO: ПЕРЕДЕЛАТЬ!
 import android.content.Context
 import ru.vyaacheslav.suhov.imeit.R
 import java.lang.Exception
@@ -44,7 +46,7 @@ class BellsUtils {
         /** Переменная в которой вернем время до конца пары в минутах */
         var minutes = 0
         /** Переберем значения: если наше время входит в диапозон то врени остаток до конца пары*/
-        for (x in 0..pairIntervals.size) {
+        for (x in 0..(pairIntervals.size-1)) {
             if (thisTime in pairIntervals[x]) {
                 minutes = pairMinutes[x] - thisTime
                 break
@@ -57,7 +59,7 @@ class BellsUtils {
      *  @return 9 - Большая перемена*/
     fun getNumberCurrentPair(): Int {
         var numPair = 0
-        for (x in 0..pairIntervals.size) {
+        for (x in 0..(pairIntervals.size -1)) {
             if (thisTime in pairIntervals[x]) {
                 numPair = x
                 break

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/nameSett"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/count_pair" />
+
+    <EditText
+        android:id="@+id/editTextBells"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        tools:ignore="Autofill,LabelFor" />
+
+    <CheckBox
+        android:id="@+id/ch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:checked="true"
+        android:text="@string/ch"
+        android:textSize="8sp"
+        android:visibility="gone" />
+
+    <CheckBox
+        android:id="@+id/md"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:checked="true"
+        android:text="@string/md"
+        android:textSize="8sp"
+        android:visibility="gone" />
+</LinearLayout>

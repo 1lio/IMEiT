@@ -13,6 +13,8 @@ import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.activity.SettingsActivity
 import ru.vyaacheslav.suhov.imeit.adapters.RecyclerAdapter
+import ru.vyaacheslav.suhov.imeit.core.CountBells
+import ru.vyaacheslav.suhov.imeit.core.PreferencesBells
 import ru.vyaacheslav.suhov.imeit.data.DB
 import java.util.*
 
@@ -34,23 +36,11 @@ class BellsFragment : Fragment() {
         //  Подготовим адаптер для списка
         val lessons = DB(this.context!!).dbTimes()
 
-        val num: ArrayList<String> = arrayListOf()
-        val top1: ArrayList<String> = arrayListOf()
-        val bot1: ArrayList<String> = arrayListOf()
-        val top2: ArrayList<String> = arrayListOf()
-        val bot2: ArrayList<String> = arrayListOf()
+        // Используем дефолтные настройки
+        val defPref = PreferencesBells()
+        val check = PreferencesBells().convertToCountBells(defPref)
 
-        val stMin = " минут"
-
-        for (i in 0..5) {
-            val c = lessons[i]
-            num.add(i, c.num.toString())
-            top1.add(i, c.topStr)
-            bot1.add(i, c.botInt.toString() + stMin)
-            top2.add(i, c.outStr)
-            bot2.add(i, c.outBotInt.toString() + stMin)
-        }
-        mAdapter = RecyclerAdapter(context!!, num, top1, bot1, top2, bot2)
+        mAdapter = RecyclerAdapter(context!!, check)
 
         setHasOptionsMenu(true)
     }
@@ -103,7 +93,7 @@ class BellsFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater?) {
         super.onCreateOptionsMenu(menu, inflater)
 
-        val fav:MenuItem = menu.add(Menu.NONE, 12, 0, resources.getString(R.string.statistic))
+        val fav: MenuItem = menu.add(Menu.NONE, 12, 0, resources.getString(R.string.statistic))
         fav.setIcon(R.drawable.ic_assessment)
         fav.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
 

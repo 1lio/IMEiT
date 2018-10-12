@@ -4,6 +4,7 @@
     <string name="menu_time">Звонки</string>
     <string name="menu_schedule">Расписание</string>
     <string name="menu_maps">Корпуса</string>
+    <string name="min">\u0020минут</string>
     <!-- Strings a fragment ~Time -->
     <string name="time_pair">Пара</string>
     <string name="time_lesson">Занятие</string>
@@ -29,7 +30,7 @@
     <string name="pref_schedule_summary">Отображать кнопку скачать расписание на главном окне</string>
     <string name="pref_week_summary">Отображать в течении 5 сек. какая сейчас неделя</string>
     <string name="pref_anim_summary">Отображать различные анимации</string>
-    <string name="pref_sum_theme">Настройки темы</string>
+    <string name="pref_sum_theme">Настройки внешнего вида</string>
     <string name="pref_sum_main_theme">Основная тема приложения</string>
     <string name="pref_lang_eng">Английский</string>
     <string name="pref_lang_dec">Немецкий</string>
@@ -38,9 +39,11 @@
     <string name="pref_key_theme_writhe">writhe</string>
     <string name="pref_key_group">group</string>
     <string name="pref_key_theme">theme</string>
+    <string name="pref_key_pair">pair</string>
     <string name="pref_key_check_eng">eng</string>
     <string name="pref_key_check_dec">dec</string>
     <string name="pref_key_check_fab">fab</string>
+    <string name="pref_key_admin">admin</string>
 
     <string name="pref_key_check_week">week</string>
     <string name="pref_key_check_animate">animation</string>
@@ -81,4 +84,17 @@
     <string name="temporary_schedule">Нет расписания!\nНажмите на значок, чтобы скачать расписание в формате .xls</string>
     <!-- Type-->
     <string name="img">img</string>
+    <string name="ch">Ch</string>
+    <string name="md">Md</string>
+    <string name="count_pair">Колличество пар:</string>
+
+    <string-array name="settings_pair">
+        <item>Колличество пар:</item>
+        <item>Начало занятий в (мин):</item>
+        <item>Длинна урока:</item>
+        <item>Длинна перемены:</item>
+        <item>Длинна большой перемены:</item>
+        <item>Длинна перемены между парами:</item>
+        <item>Большая перемена после(номер пары):</item>
+    </string-array>
 </resources>
