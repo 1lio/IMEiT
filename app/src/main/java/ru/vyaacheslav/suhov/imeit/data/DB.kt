@@ -1,7 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.data
 
 import android.content.Context
-import ru.vyaacheslav.suhov.imeit.core.BellsTable
+import ru.vyaacheslav.suhov.imeit.core.CountBells
 import java.io.IOException
 
 class DB(context: Context?) {
@@ -82,7 +82,7 @@ class DB(context: Context?) {
      * Таблица для редоктирования называется Bells
      * @return Список */
 
-    fun dbTimes(nameBellTable: String = "BELLS"): List<BellsTable> {
+    fun dbTimes(nameBellTable: String = "BELLS"): List<CountBells> {
 
         try {
             mDBHelper.updateDataBase()
@@ -93,17 +93,17 @@ class DB(context: Context?) {
         val mDb = mDBHelper.writableDatabase
         val cursor = mDb.rawQuery("SELECT * FROM $nameBellTable", null)
 
-        val listBell: MutableList<BellsTable> = mutableListOf()
+        val listBell: MutableList<CountBells> = mutableListOf()
 
         cursor.moveToFirst()
 
         while (!cursor.isAfterLast) {
 
-            val bellsTable = BellsTable(cursor.getInt(0),
+            val bellsTable = CountBells(cursor.getString(0),
                     cursor.getString(1),
                     cursor.getString(2),
-                    cursor.getInt(3),
-                    cursor.getInt(4))
+                    cursor.getString(3),
+                    cursor.getString(4))
 
             listBell.add(bellsTable)
             cursor.moveToNext()

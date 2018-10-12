@@ -14,9 +14,8 @@ class EducationalProcess {
      *  @param table - Обязательное поле которое принимает
      *  @return Вернет всю статистику у виде ArrayList<Int> данные в минутах*/
 
-    fun getAllStatistic(table: List<BellsTable>): Array<Int> {
-        /** Конвертируем данные */
-        convertingData(table)
+    fun getAllStatistic(table: List<CountBells>): Array<Int> {
+
         /** Возвращаем полученную статистику */
         return getPairInfo()
     }
@@ -48,36 +47,6 @@ class EducationalProcess {
     /** @see convertingResult - Переменная для хранения результата конвертации
      *@see convertingData - Функция конвертации данных из БД*/
     var convertingResult: List<Pair> = listOf()
-
-    /**  @param watchConverting - Ожидает ArrayList полученный из БД*/
-    private fun convertingData(watchConverting: List<BellsTable>): List<Pair> {
-
-        val listPair: MutableList<Pair> = mutableListOf()
-
-
-        for (x in 0..watchConverting.size) {
-
-            val startFirstLesson = watchConverting[x].topStr.toInt(1)
-
-            val endFirstLesson: Int = 0
-
-            val breakLesson = watchConverting[x].botInt
-
-            val startLastLesson: Int = 0
-            val endLastLesson: Int = 0
-
-            val betweenPair: Int = watchConverting[x].outBotInt
-
-
-            val pair = Pair(x, startFirstLesson, endFirstLesson, breakLesson, startLastLesson, endLastLesson, betweenPair)
-            listPair.add(pair)
-        }
-
-
-
-        convertingResult = listPair
-        return listPair
-    }
 
 
     /** @see getPairInfo - Вернем информацию ввиде массива*/

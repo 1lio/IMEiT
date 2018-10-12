@@ -1,14 +1,15 @@
 package ru.vyaacheslav.suhov.imeit.activity
 
+import android.annotation.SuppressLint
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
-import android.preference.ListPreference
-import android.preference.PreferenceActivity
-import android.preference.PreferenceFragment
-import android.preference.PreferenceManager
+import android.preference.*
 import android.support.annotation.LayoutRes
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatDelegate
 import android.support.v7.widget.Toolbar
 import android.util.TypedValue
@@ -16,14 +17,22 @@ import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
+import org.jetbrains.anko.toast
 import ru.vyaacheslav.suhov.imeit.R
 
+@SuppressLint("ExportedPreferenceActivity")
 class SettingsActivity : PreferenceActivity() {
 
     private lateinit var prefs: SharedPreferences
     private var mDelegate: AppCompatDelegate? = null
+
+    lateinit var editPass: EditText
+    lateinit var btnOk: Button
+    lateinit var btnCancel: Button
 
     private val delegate: AppCompatDelegate
         get() {
@@ -50,6 +59,44 @@ class SettingsActivity : PreferenceActivity() {
 
         delegate.installViewFactory()
         delegate.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateDialog(id: Int): Dialog {
+        val adb = AlertDialog.Builder(this)
+
+        val view = layoutInflater
+                .inflate(R.layout.dialog_pass, null) as LinearLayout
+        adb.setView(view)
+
+        // Инициализируем view
+        editPass = view.findViewById(R.id.edit)
+        btnOk = view.findViewById(R.id.diOk)
+        btnCancel = view.findViewById(R.id.diCancel)
+
+
+        return adb.create()
+    }
+
+    override fun onPrepareDialog(id: Int, dialog: Dialog?) {
+        super.onPrepareDialog(id, dialog)
+
+        if (id == 1) {
+            btnOk.setOnClickListener {
+                if (editPass.text.toString() == "admin") {
+                    toast("Права администратора активированы до следующего перезауска!")
+                    val admin = getSharedPreferences(resources.getString(R.string.pref_key_admin), Context.MODE_PRIVATE)
+
+                    val editor: SharedPreferences.Editor = admin.edit()
+                    editor.putString(resources.getString(R.string.pref_key_admin), "admin_trues")
+                    editor.apply()
+
+                    dialog?.dismiss()
+
+                } else
+                    toast("Неверный пароль!")
+            }
+            btnCancel.setOnClickListener { dialog?.dismiss() }
+        }
     }
 
     override fun onBackPressed() {
@@ -119,6 +166,9 @@ class SettingsActivity : PreferenceActivity() {
 
         private lateinit var groupe: ListPreference
         lateinit var theme: ListPreference
+        lateinit var pair: Preference
+        lateinit var admin: Preference
+
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -141,25 +191,32 @@ class SettingsActivity : PreferenceActivity() {
             }
             groupe = findPreference(getString(R.string.pref_key_group)) as ListPreference
             theme = findPreference(getString(R.string.pref_key_theme)) as ListPreference
+            pair = findPreference(getString(R.string.pref_key_pair)) as Preference
+            admin = findPreference(getString(R.string.pref_key_admin)) as Preference
 
-            var i = 0
+            val intent = Intent(activity, SettingsBells::class.java)
 
-            /*    var group: Array<String> = arrayOf()
-                var key: Array<String> = arrayOf()
-                val name = DB(activity).groups()
+            pair.setOnPreferenceClickListener {
+                startActivity(intent)
+                false
+            }
 
-                while (i < name.size) {
-                    group = arrayOf(name[i]["value"].toString()) // HashMap  со всеми группами
-                    key = arrayOf(name[i]["key"].toString()) // HashMap  со всеми группами
-                    i++
-                }*//*
+            admin.setOnPreferenceClickListener {
 
-            groupe.entries = group
-        // groupe.entryValues = key*/
+                val panel = activity.getSharedPreferences(getString(R.string.pref_key_admin), Context.MODE_PRIVATE)
+                val editor:SharedPreferences.Editor = panel.edit()
+                editor.putString(getString(R.string.pref_key_admin), "admin_true")
+                editor.apply()
+                toast("Права администратора активированы до следующего перезауска!")
+
+
+                false
+            }
 
             groupe.summary = groupe.entry
             theme.summary = theme.entry
         }
+
 
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
             val view = super.onCreateView(inflater, container, savedInstanceState)

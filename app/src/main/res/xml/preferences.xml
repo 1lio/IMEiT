@@ -49,10 +49,23 @@
     </PreferenceCategory>
 
 
-    <CheckBoxPreference
+<!--    <CheckBoxPreference
         android:defaultValue="false"
+        android:checked="false"
+        android:clickable="false"
         android:key="key"
         android:summary="Подключаться к удаленным базам. По умолчанию всё храниться локально"
-        android:title="Синхронизировать данные" />
+        android:title="Синхронизировать данные" />-->
+
+    <PreferenceCategory android:title="Тонкая настройка">
+    </PreferenceCategory>
+    <Preference
+        android:title="Настрока времени звонков"
+        android:key="@string/pref_key_pair">
+    </Preference>
+    <Preference
+        android:title="Админ панель"
+        android:key="@string/pref_key_admin">
+    </Preference>
 
 </PreferenceScreen>

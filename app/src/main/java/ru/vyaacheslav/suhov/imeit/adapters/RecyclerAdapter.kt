@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
@@ -8,15 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.core.CountBells
 import java.util.*
 
 class RecyclerAdapter(
         private val context: Context,
-        private val num: ArrayList<String>,
-        private val top1: ArrayList<String>,
-        private val bot1: ArrayList<String>,
-        private val top2: ArrayList<String>,
-        private val bot2: ArrayList<String>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+        private val list: List<CountBells>
+
+     ) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+
+    lateinit var min: String
 
     // класс view holder-а с помощью которого мы получаем ссылку на каждый элемент
     // отдельного пункта списка
@@ -36,6 +38,7 @@ class RecyclerAdapter(
         // create a new view
         val v = LayoutInflater.from(parent.context)
                 .inflate(R.layout.it_time, parent, false)
+        min = v.resources.getString(R.string.min)
 
         // тут можно программно менять атрибуты лэйаута (size, margins, paddings и др.)
 
@@ -43,13 +46,15 @@ class RecyclerAdapter(
     }
 
     // Заменяет контент отдельного view (вызывается layout manager-ом)
+
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.num.text = num[position]
-        holder.less1top.text = top1[position]
-        holder.less1bot.text = bot1[position]
-        holder.less2top.text = top2[position]
-        holder.less2bot.text = bot2[position]
+        holder.num.text = list[position].num
+        holder.less1top.text = list[position].topStr
+        holder.less1bot.text = list[position].topOut + min
+        holder.less2top.text = list[position].botStr
+        holder.less2bot.text = list[position].botOut + min
 
         val numTime = getPair()
         val color = ContextCompat.getColor(context, R.color.colorTransparent)
@@ -60,7 +65,7 @@ class RecyclerAdapter(
 
     // Возвращает размер данных (вызывается layout manager-ом)
     override fun getItemCount(): Int {
-        return num.size
+        return list.size
     }
 
     private fun getPair(): Int {
