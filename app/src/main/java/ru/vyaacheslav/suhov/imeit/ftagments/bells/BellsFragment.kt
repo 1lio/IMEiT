@@ -13,10 +13,9 @@ import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.activity.SettingsActivity
 import ru.vyaacheslav.suhov.imeit.adapters.RecyclerAdapter
-import ru.vyaacheslav.suhov.imeit.core.CountBells
 import ru.vyaacheslav.suhov.imeit.core.PreferencesBells
+import ru.vyaacheslav.suhov.imeit.core.utils.BellsUtils
 import ru.vyaacheslav.suhov.imeit.data.DB
-import java.util.*
 
 class BellsFragment : Fragment() {
 
@@ -27,6 +26,7 @@ class BellsFragment : Fragment() {
     private val handler: Handler = Handler()            // создадим объект класса Handler
     private var status: String = ""                     // Текущий статус пара или перемена
 
+    private val defPref = PreferencesBells()
     // Выполним работу не связанную с интерфейсом
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +37,8 @@ class BellsFragment : Fragment() {
         val lessons = DB(this.context!!).dbTimes()
 
         // Используем дефолтные настройки
-        val defPref = PreferencesBells()
-        val check = PreferencesBells().convertToCountBells(defPref)
+
+        val check = BellsUtils(defPref).convertToCountBells()
 
         mAdapter = RecyclerAdapter(context!!, check)
 
@@ -119,13 +119,13 @@ class BellsFragment : Fragment() {
 
     private fun timerUpdater() {
 
-        val nunPair = BellsUtils().getNumberCurrentPair()
+        val nunPair = BellsUtils(defPref).getNumberCurrentPair()
         // Используем строковые ресурсы, чтобы в дальнейшем сделать локализацию
         status = if (nunPair == 9) resources.getString(R.string.time_lunch) else resources.getString(R.string.time_residue)
 
         // Проверяем попадает время в промежуток, затем подставляем значение
         // В начале хотел переберать всё в цикле, но получилась страшная конструкция с кучей проверок
-        val result = BellsUtils().getResidueTimePair()
+        val result = BellsUtils(defPref).getResidueTimePair()
         // Форматируем значение и присваиваем строке
         val format: String = if ((result < 10)) "0$result" else result.toString()
         textTimer = if ((format.toInt() < 59)) "00:$format" else "01:${format.toInt() - 60}"
@@ -143,4 +143,6 @@ class BellsFragment : Fragment() {
             handler.postDelayed(this, 3000)
         }
     }
+
+
 }

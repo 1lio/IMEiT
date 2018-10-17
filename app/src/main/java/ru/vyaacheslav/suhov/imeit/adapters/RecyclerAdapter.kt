@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.core.CountBells
+import ru.vyaacheslav.suhov.imeit.core.PreferencesBells
+import ru.vyaacheslav.suhov.imeit.core.utils.BellsUtils
 import java.util.*
 
 class RecyclerAdapter(
@@ -56,7 +58,8 @@ class RecyclerAdapter(
         holder.less2top.text = list[position].botStr
         holder.less2bot.text = list[position].botOut + min
 
-        val numTime = getPair()
+        val pref = PreferencesBells()
+        val numTime = getPair(pref)
         val color = ContextCompat.getColor(context, R.color.colorTransparent)
         if (numTime == position) {
             holder.itemView.setBackgroundColor(color)
@@ -68,12 +71,11 @@ class RecyclerAdapter(
         return list.size
     }
 
-    private fun getPair(): Int {
+    private fun getPair(pref:PreferencesBells): Int {
 
         // Коллекции массивов времени продолжительности пар и интервалов между ними
         // Время пар в минутах с отчетом от первой пары
-        val intervals: Array<IntRange> = arrayOf((510..605), (615..710), (711..749), (750..845),
-                (855..950), (960..1055), (1065..1160)) // Диапозоны времени пар
+        val intervals = BellsUtils(pref).getPairRange()
 
         val calendar: Calendar = GregorianCalendar.getInstance()
         val hour: Int = calendar.get(Calendar.HOUR_OF_DAY)
@@ -82,8 +84,6 @@ class RecyclerAdapter(
         val x = hour * 60 + min         // Получаем текущее время и переводим в минуты
 
         // Проверяем попадает время в промежуток, затем подставляем значение
-        // В начале хотел переберать всё в цикле, но получилась страшная конструкция с кучей проверок
-
         return when (x) {
 
             in intervals[0] -> 0

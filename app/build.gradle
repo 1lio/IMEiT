@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.dokka'
 
 android {
     signingConfigs {
@@ -24,6 +25,22 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
+        }
+    }
+    dokka {
+        outputFormat = 'html'
+        outputDirectory = "$buildDir/javadoc"
+
+        skipDeprecated = true
+        reportUndocumented = true
+    }
+    
+    task deleteUnusedDokkaAssets(type: Delete) {
+        file("$rootDir/docs").listFiles().each {
+            if( it.name.contains("android.R" ) ) projects.delete it
+            if( it.name.contains("android.support" ) ) projects.delete it
+            if( it.name.contains("com.google" ) ) projects.delete it
+            if( it.name.contains("com.crashlytics" ) ) projects.delete it
         }
     }
 }
