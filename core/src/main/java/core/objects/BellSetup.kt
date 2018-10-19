@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.core
+package core.objects
 
 /** В данном классе описываются поля данных для формирования списка BellsList
  * @author SukhovViacheslav
@@ -13,9 +13,9 @@ package ru.vyaacheslav.suhov.imeit.core
  * @param lengthBreakPair -Продолжительность перемены между парами
  * @param lunchStart - Большая перемена после <номер пары>
  * @param date - Дата изменеия по дефолту 0
- * @param isChanged - Поле изменяемое*/
+ * @param isChanged - Настройки изменяемое*/
 
-data class PreferencesBells(
+data class BellSetup(
 
         val id: Int = 0,
         val countPairs: Int = 6,
@@ -26,4 +26,5 @@ data class PreferencesBells(
         val lengthBreakPair: Int = 10,
         val lunchStart: Int = 2,
         val date: Int = 0,
-        val isChanged: Boolean = true)
+        val isChanged: Int = 1
+)

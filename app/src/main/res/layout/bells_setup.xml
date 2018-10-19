@@ -85,7 +85,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="16dp"
-        android:padding="16dp" />
+        android:padding="16dp" >
+
+    </android.support.v7.widget.RecyclerView>
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="6dp"
+        android:text="Отображать 12-часовой формат времени" />
 
     <LinearLayout
         android:layout_width="match_parent"

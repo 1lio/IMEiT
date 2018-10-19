@@ -16,7 +16,8 @@ import kotlinx.android.synthetic.main.bells_setup.*
 import org.jetbrains.anko.toast
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.adapters.SettingsBellsAdapter
-import ru.vyaacheslav.suhov.imeit.core.ui.SettingsPoly
+import ru.vyaacheslav.suhov.imeit.objects.SettingsPoly
+
 
 class SettingsBells : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
     lateinit var mAdapter: RecyclerView.Adapter<*>

@@ -10,11 +10,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
+import core.objects.BellSetup
+import core.util.BellListUtils
+import core.util.BellsGeneratorList
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.activity.SettingsActivity
 import ru.vyaacheslav.suhov.imeit.adapters.RecyclerAdapter
-import ru.vyaacheslav.suhov.imeit.core.PreferencesBells
-import ru.vyaacheslav.suhov.imeit.core.utils.BellsUtils
 import ru.vyaacheslav.suhov.imeit.data.DB
 
 class BellsFragment : Fragment() {
@@ -25,22 +26,30 @@ class BellsFragment : Fragment() {
     private lateinit var textTimer: String              // Строка для Таймера
     private val handler: Handler = Handler()            // создадим объект класса Handler
     private var status: String = ""                     // Текущий статус пара или перемена
+    var setup: BellSetup = BellSetup()
 
-    private val defPref = PreferencesBells()
     // Выполним работу не связанную с интерфейсом
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Обновляем данные таймера
         timerUpdater()
 
+        //TODO: Получить номер позиции с настроек
+        val settingsPosition: Int = 0
+
         //  Подготовим адаптер для списка
-        val lessons = DB(this.context!!).dbTimes()
+        setup = try {
+            // беру данные из базы, либо дефолтные
+            DB(this.context!!).dbTimes()[settingsPosition]
+        } catch (e: Exception) {
+            // В случае exception дефолтные настройки
+            BellSetup()
+        }
 
-        // Используем дефолтные настройки
+        val data = BellsGeneratorList(setup).convertToCountBells()
 
-        val check = BellsUtils(defPref).convertToCountBells()
-
-        mAdapter = RecyclerAdapter(context!!, check)
+        val numPair = BellListUtils(setup).getNumberCurrentPair()
+        mAdapter = RecyclerAdapter(context!!, data, numPair)
 
         setHasOptionsMenu(true)
     }
@@ -119,13 +128,13 @@ class BellsFragment : Fragment() {
 
     private fun timerUpdater() {
 
-        val nunPair = BellsUtils(defPref).getNumberCurrentPair()
+        val nunPair = BellListUtils(setup).getNumberCurrentPair()
         // Используем строковые ресурсы, чтобы в дальнейшем сделать локализацию
         status = if (nunPair == 9) resources.getString(R.string.time_lunch) else resources.getString(R.string.time_residue)
 
         // Проверяем попадает время в промежуток, затем подставляем значение
         // В начале хотел переберать всё в цикле, но получилась страшная конструкция с кучей проверок
-        val result = BellsUtils(defPref).getResidueTimePair()
+        val result = BellListUtils(setup).getResidueTimePair()
         // Форматируем значение и присваиваем строке
         val format: String = if ((result < 10)) "0$result" else result.toString()
         textTimer = if ((format.toInt() < 59)) "00:$format" else "01:${format.toInt() - 60}"
@@ -143,6 +152,4 @@ class BellsFragment : Fragment() {
             handler.postDelayed(this, 3000)
         }
     }
-
-
 }

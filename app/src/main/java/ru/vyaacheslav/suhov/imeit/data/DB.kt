@@ -1,13 +1,14 @@
 package ru.vyaacheslav.suhov.imeit.data
 
 import android.content.Context
-import ru.vyaacheslav.suhov.imeit.core.CountBells
+import core.objects.BellCount
+import core.objects.BellSetup
 import java.io.IOException
 
 class DB(context: Context?) {
 
     private val mDBHelper = DatabaseHelper(context)
-
+    //TODO: ГОВНОКОД
     fun dbMaps(): ArrayList<HashMap<String, Any>> {
         try {
             mDBHelper.updateDataBase()
@@ -33,7 +34,7 @@ class DB(context: Context?) {
 
         return clients
     }
-
+    //TODO: ГОВНОКОД
     fun dbSchedule(group: String, day: String): ArrayList<HashMap<String, Any>> {
 
         try {
@@ -77,39 +78,25 @@ class DB(context: Context?) {
     }
 
 
-
-    /** @see dbTimes - Примнимает имя таблицы с временем звонков по умолчанию <Def_Bells>,
-     * Таблица для редоктирования называется Bells
+    /** @see dbTimes - Функция берет из базы таблицу и формирует список
      * @return Список */
 
-    fun dbTimes(nameBellTable: String = "BELLS"): List<CountBells> {
-
-        try {
-            mDBHelper.updateDataBase()
-        } catch (mIOException: IOException) {
-            throw Error("UnableToUpdateDatabase")
-        }
+    fun dbTimes(nameBellTable: String = "BELLS"): List<BellSetup> {
 
         val mDb = mDBHelper.writableDatabase
         val cursor = mDb.rawQuery("SELECT * FROM $nameBellTable", null)
 
-        val listBell: MutableList<CountBells> = mutableListOf()
-
+        val listBell: MutableList<BellSetup> = mutableListOf()
         cursor.moveToFirst()
 
-        while (!cursor.isAfterLast) {
-
-            val bellsTable = CountBells(cursor.getString(0),
-                    cursor.getString(1),
-                    cursor.getString(2),
-                    cursor.getString(3),
-                    cursor.getString(4))
-
-            listBell.add(bellsTable)
-            cursor.moveToNext()
+        for (x in 0..9) {
+            if (!cursor.isAfterLast) {
+                val bellsTable = BellSetup(cursor.getInt(x))
+                listBell.add(bellsTable)
+                cursor.moveToNext()
+            }
         }
         cursor.close()
-
         return listBell
     }
 }
