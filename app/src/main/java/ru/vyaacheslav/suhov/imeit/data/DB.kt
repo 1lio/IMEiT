@@ -1,8 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.data
 
 import android.content.Context
-import core.objects.BellCount
-import core.objects.BellSetup
+import core.objects.BellSettings
 import java.io.IOException
 
 class DB(context: Context?) {
@@ -78,24 +77,25 @@ class DB(context: Context?) {
     }
 
 
-    /** @see dbTimes - Функция берет из базы таблицу и формирует список
-     * @return Список */
+    /** @see dbBellsSettings - Функция берет из базы таблицу и формирует список
+     *  @return Список настройками для формирования расписания звонков */
 
-    fun dbTimes(nameBellTable: String = "BELLS"): List<BellSetup> {
+    fun dbBellsSettings(nameBellTable: String = "BELLS"): List<BellSettings> {
 
         val mDb = mDBHelper.writableDatabase
         val cursor = mDb.rawQuery("SELECT * FROM $nameBellTable", null)
 
-        val listBell: MutableList<BellSetup> = mutableListOf()
+        val listBell: MutableList<BellSettings> = mutableListOf()
         cursor.moveToFirst()
 
         for (x in 0..9) {
             if (!cursor.isAfterLast) {
-                val bellsTable = BellSetup(cursor.getInt(x))
+                val bellsTable = BellSettings(cursor.getInt(x))
                 listBell.add(bellsTable)
                 cursor.moveToNext()
             }
         }
+
         cursor.close()
         return listBell
     }

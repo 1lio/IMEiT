@@ -1,12 +1,8 @@
 package core.objects
 
-/**@author SukhovViacheslav
- * @version 1.0
- *
- * This object a table is for android, web and others. */
-
+/** @see BellCount Объект описывает ячейку времени звонков*/
 data class BellCount(var num: String,
-                     var topStr: String,
-                     var botStr: String,
-                     var topOut: String,
-                     var botOut: String)
+                     var topLesson: String,
+                     var bottomLesson: String,
+                     var topBreak: Int,
+                     var bottomBreak: Int)

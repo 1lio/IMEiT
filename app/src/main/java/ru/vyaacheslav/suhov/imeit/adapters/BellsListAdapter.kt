@@ -11,8 +11,8 @@ import android.widget.TextView
 import core.objects.BellCount
 import ru.vyaacheslav.suhov.imeit.R
 
-class RecyclerAdapter(private val context: Context,private val list: List<BellCount>,
-        private val countPair:Int) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class BellsListAdapter(private val context: Context, private val list: List<BellCount>,
+                       private val countPair: Int) : RecyclerView.Adapter<BellsListAdapter.ViewHolder>() {
 
     lateinit var min: String
 
@@ -23,11 +23,10 @@ class RecyclerAdapter(private val context: Context,private val list: List<BellCo
         val less1bot: TextView = itemView.findViewById(R.id.t_o_top)
         val less2top: TextView = itemView.findViewById(R.id.t_bott)
         val less2bot: TextView = itemView.findViewById(R.id.t_o_bott)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): RecyclerAdapter.ViewHolder {
+                                    viewType: Int): BellsListAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context)
                 .inflate(R.layout.it_time, parent, false)
         min = v.resources.getString(R.string.min)
@@ -39,10 +38,10 @@ class RecyclerAdapter(private val context: Context,private val list: List<BellCo
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.num.text = list[position].num
-        holder.less1top.text = list[position].topStr
-        holder.less1bot.text = list[position].topOut + min
-        holder.less2top.text = list[position].botStr
-        holder.less2bot.text = list[position].botOut + min
+        holder.less1top.text = list[position].topLesson
+        holder.less1bot.text = list[position].topBreak.toString() + min
+        holder.less2top.text = list[position].bottomLesson
+        holder.less2bot.text = list[position].bottomBreak.toString() + min
 
         val color = ContextCompat.getColor(context, R.color.colorTransparent)
         if (countPair == position) {

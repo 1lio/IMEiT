@@ -1,6 +1,5 @@
 package core
 
-import core.objects.BellCount
 import java.util.*
 
 /** Данный класс реализует полную работу с времннными диапазонами учебного процесса :з
@@ -13,11 +12,12 @@ class EducationalProcess {
      *  @param table - Обязательное поле которое принимает
      *  @return Вернет всю статистику у виде ArrayList<Int> данные в минутах*/
 
-    fun getAllStatistic(table: List<BellCount>): Array<Int> {
+/*    fun getAllStatistic(table: List<BellCount>): Array<Int> {
 
-        /** Возвращаем полученную статистику */
+        */
+    /** Возвращаем полученную статистику *//*
         return getPairInfo()
-    }
+    }*/
 
     /** @see isVacation - Проверка: есть ли сейчас каникулы | Вхождение для логики
      *  @see getNumCurrentSemester - Получим номер текущего полугодия
