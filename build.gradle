@@ -4,6 +4,9 @@ buildscript {
     ext.kotlin_version = '1.2.71'
     ext.anko_version = '0.10.5'
     ext.support = '27+'
+
+    ext.dokkaVersion = '0.9.17'
+
     repositories {
         jcenter()
         google()
@@ -16,6 +19,7 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'com.google.gms:google-services:3.1.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:$dokkaVersion"
     }
 }
 

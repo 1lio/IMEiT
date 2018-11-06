@@ -10,11 +10,11 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.core.SettingsPoly
+import ru.vyaacheslav.suhov.imeit.objects.SettingsPoly
 
 class SettingsBellsAdapter(
         private val context: Context,
-        private val list: List<SettingsPoly>
+       private val list: List<SettingsPoly>
 
 ) : RecyclerView.Adapter<SettingsBellsAdapter.ViewHolder>() {
 
@@ -44,17 +44,18 @@ class SettingsBellsAdapter(
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.name.text = list[position].name
-       holder.value.setText(list[position].data.toString(), TextView.BufferType.EDITABLE)
+      /*  holder.name.text = list[position].name
+        holder.value.setText(list[position].data.toString(), TextView.BufferType.EDITABLE)*/
     }
 
     // Возвращает размер данных (вызывается layout manager-ом)
     override fun getItemCount(): Int {
-        return list.size
+      /*  return list.size*/
+        return 0
     }
 
 
-    fun dontWritheUser(holder: ViewHolder, position: Int){
+    fun dontWritheUser(holder: ViewHolder, position: Int) {
 
         holder.value.isClickable = false
     }
