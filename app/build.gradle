@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'org.jetbrains.dokka'
 
 android {
     signingConfigs {
@@ -27,13 +26,7 @@ android {
             signingConfig signingConfigs.config
         }
     }
-    dokka {
-        outputFormat = 'html'
-        outputDirectory = "$buildDir/javadoc"
 
-        skipDeprecated = true
-        reportUndocumented = true
-    }
 }
 
 dependencies {
@@ -45,6 +38,7 @@ dependencies {
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation project(':core')
 }
 

@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.objects
+package core.entity
 
 data class SettingsPoly(
 

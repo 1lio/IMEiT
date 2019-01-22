@@ -1,6 +1,6 @@
 package core.util
 
-import core.objects.BellSettings
+import core.entity.BellSettings
 import java.util.*
 
 /** Данный класс работает обрабатывает дополнительные возможности при созданнии списка

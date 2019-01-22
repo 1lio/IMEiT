@@ -1,7 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.data
 
 import android.content.Context
-import core.objects.BellSettings
+import core.entity.BellSettings
 import java.io.IOException
 
 class DB(context: Context?) {

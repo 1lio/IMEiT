@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit.activity
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -9,19 +8,15 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.preference.PreferenceManager
-import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.FrameLayout
-import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.intentFor
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.ftagments.bells.BellsFragment
 import ru.vyaacheslav.suhov.imeit.ftagments.maps.MapsFragment
@@ -37,14 +32,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var prefGr: String
     private var prefFab: Boolean = true
     private var prefWeek: Boolean = true
+
     private lateinit var settingsIntent: Intent
-    private lateinit var tb: Toolbar
-    lateinit var week: TextView
-    lateinit var container: FrameLayout
 
     val schedule: String = "https://yadi.sk/d/SRZmnHWF3aabGA"
 
-    @SuppressLint("CommitTransaction")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         prefs = PreferenceManager.getDefaultSharedPreferences(applicationContext)
@@ -65,20 +57,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         // Интент для запуска окна с настройками
         val prefs = getPreferences(Context.MODE_PRIVATE)
-        if (prefs.getBoolean("isFirstRun", true)) {
-            val intent = Intent(this, SettingsActivity::class.java)
-            startActivity(intent)
-        }
-
+        if (prefs.getBoolean("isFirstRun", true)) startActivity(intentFor<SettingsActivity>())
         prefs.edit().putBoolean("isFirstRun", false).apply()
 
-
-        week = findViewById(R.id.week)
-        container = findViewById(R.id.container)
         isWeek()
         // Стандартная инициализация компонетов
-        tb = findViewById(R.id.toolbar)
-        setSupportActionBar(tb)
+        setSupportActionBar(toolbar)
 
         // Инициализация транзакции фрагментов
         fm = supportFragmentManager
@@ -89,21 +73,15 @@ class MainActivity : AppCompatActivity() {
         settingsIntent = Intent(this, SettingsActivity::class.java)
         groupName("Расписание") // Загрузка имени группы согласно настройкам;
 
-
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-
-
         visibleFab(fab)
-
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNavigationView.selectedItemId = R.id.schedule
-
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        bottom_navigation.selectedItemId = R.id.schedule
+        bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.times -> {
                     groupName("Время звонков")
                     val ft3 = fm.beginTransaction()
                     ft3.replace(R.id.container, BellsFragment()).commit()
+
            /*         fab.setImageResource(R.drawable.ic_assessment)
                     visibleFab(fab)
                     fab.setOnClickListener {
@@ -117,9 +95,7 @@ class MainActivity : AppCompatActivity() {
                     fab.setImageResource(R.drawable.ic_download)
                     visibleFab(fab)
                     fab.setOnClickListener {
-                        val address = Uri.parse(schedule)
-                        val openLinkIntent = Intent(Intent.ACTION_VIEW, address)
-                        startActivity(openLinkIntent)
+                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(schedule)))
                     }
                 }
                 R.id.location -> {
@@ -164,10 +140,6 @@ class MainActivity : AppCompatActivity() {
 
         /*  val name = DB(this).groups()*/
 
-        /* Log.i("HS","" + str)*/
-        // затем подставляем значение в качестве заголовка
-
-
         /* var i = 0
          while (i < name.size) {
              val str: String = name[i]["value"].toString() // HashMap  со всеми группами
@@ -179,7 +151,6 @@ class MainActivity : AppCompatActivity() {
                  this.tb.subtitle = "$str | $s"
              }
          }*/
-
 
         // В качестве подзоголовка берем значение выбранной группы.
         prefGr = prefs.getString(getString(R.string.pref_key_group), "")
@@ -196,23 +167,19 @@ class MainActivity : AppCompatActivity() {
             i++
         }
         // затем подставляем значение в качестве заголовка
-        this.tb.subtitle = names[index] + " | $s"
+        this.toolbar.subtitle = names[index] + " | $s"
     }
 
     private fun isWeek() {
-        val fallingAnimation: Animation = AnimationUtils.loadAnimation(this, R.anim.falling)
-        val top: Animation = AnimationUtils.loadAnimation(this, R.anim.top)
-        val bottom: Animation = AnimationUtils.loadAnimation(this, R.anim.bottom)
         if (prefWeek) {
             week.visibility = View.VISIBLE
             week.text = "Числитель"
 
-            week.startAnimation(fallingAnimation)
-            container.startAnimation(bottom)
-
+            week.startAnimation(AnimationUtils.loadAnimation(this, R.anim.falling))
+            container.startAnimation(AnimationUtils.loadAnimation(this, R.anim.bottom))
             Handler().postDelayed({
                 invisibleView(week)
-                container.startAnimation(top)
+                container.startAnimation(AnimationUtils.loadAnimation(this, R.anim.top))
             }, 3000)
         } else
             week.visibility = View.GONE
@@ -221,19 +188,15 @@ class MainActivity : AppCompatActivity() {
     private fun visibleFab(view: View) {
         if (prefFab) {
                 view.visibility = View.VISIBLE
-                val animation = AnimationUtils.loadAnimation(applicationContext, R.anim.view_alpha_visable)
-                view.startAnimation(animation)
-
+                view.startAnimation(AnimationUtils.loadAnimation(applicationContext, R.anim.view_alpha_visable))
         } else view.visibility = View.GONE
     }
 
     private fun invisibleView(view: View) {
 
         if (prefFab) {
-            val animation = AnimationUtils.loadAnimation(applicationContext, R.anim.view_alpha_gone)
             if (view.visibility != View.GONE) {
-
-                view.startAnimation(animation)
+                view.startAnimation( AnimationUtils.loadAnimation(applicationContext, R.anim.view_alpha_gone))
                 view.visibility = View.GONE
             }
         } else view.visibility = View.GONE

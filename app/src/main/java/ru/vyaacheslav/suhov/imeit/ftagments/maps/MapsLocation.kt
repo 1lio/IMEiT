@@ -33,9 +33,6 @@ class MapsLocation : Fragment(), OnMapReadyCallback {
         /*   val colorPoint = 136f // Цвет маркера на карте*/
         var i = 0
 
-
-
-
         while (i < dbLocate.size) {
             val hh = dbLocate[i]["locate"].toString()
             val latLong = hh.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
@@ -49,8 +46,8 @@ class MapsLocation : Fragment(), OnMapReadyCallback {
             i++
         }
 
-        val center = LatLng(52.625338, 38.495109) // Сентрируем карту чтобы были на карте точки всех корпусов
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(center))
+        val center = LatLng(52.625338, 38.495109)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(center))// Сентрируем карту чтобы были на карте точки всех корпусов
         googleMap.setMinZoomPreference(13.0f) // Устанавливаем пораметры зума
         googleMap.setMaxZoomPreference(17.0f)
     }

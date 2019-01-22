@@ -1,7 +1,7 @@
 package core.util
 
-import core.objects.BellCount
-import core.objects.BellSettings
+import core.entity.BellCount
+import core.entity.BellSettings
 
 /** Данный класс генерирует лист с расписанием звонков
  *  @param setup - настроки для расписания из класса*/

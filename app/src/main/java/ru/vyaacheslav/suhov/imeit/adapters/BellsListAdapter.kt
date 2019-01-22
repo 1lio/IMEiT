@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import core.objects.BellCount
+import core.entity.BellCount
 import ru.vyaacheslav.suhov.imeit.R
 
 class BellsListAdapter(private val context: Context, private val list: List<BellCount>,

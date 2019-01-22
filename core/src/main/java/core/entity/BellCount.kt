@@ -1,4 +1,4 @@
-package core.objects
+package core.entity
 
 /** @see BellCount Объект описывает ячейку времени звонков*/
 data class BellCount(var num: String,

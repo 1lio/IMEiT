@@ -1,4 +1,4 @@
-package core.objects
+package core.entity
 
 /** В данном классе описываются поля данных для формирования списка BellsList
  * @author SukhovViacheslav

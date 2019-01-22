@@ -9,10 +9,10 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
-import android.widget.TextView
-import core.objects.BellSettings
+import core.entity.BellSettings
 import core.util.BellListUtils
 import core.util.BellsGenerator
+import kotlinx.android.synthetic.main.fr_time.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.activity.SettingsActivity
 import ru.vyaacheslav.suhov.imeit.adapters.BellsListAdapter
@@ -20,13 +20,13 @@ import ru.vyaacheslav.suhov.imeit.data.DB
 
 class BellsFragment : Fragment() {
 
-    private lateinit var residueTextView: TextView      // Вью для вывода остатка
-    private lateinit var pairStatus: TextView           // Статус состояния
+    //TODO: ПЕРЕДЕЛАТЬ ПОД MVVM
+
     private lateinit var adapter: RecyclerView.Adapter<*>      // Адаптер для списка
     private lateinit var textTimer: String              // Строка для Таймера
     private val handler: Handler = Handler()            // создадим объект класса Handler
     private var status: String = ""                     // Текущий статус пара или перемена
-    var settings: BellSettings = BellSettings()
+    private var settings: BellSettings = BellSettings()
 
     /** @see onCreate Выполним работу не связанную с интерфейсом */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,24 +35,19 @@ class BellsFragment : Fragment() {
         // Обновляем данные таймера
         timerUpdater()
 
-        //TODO: Создать запрос из настроек и получить позицию с последними изменениями в БД
+        //TODO: Создать запрос из настроек и получить позицию с последними изменениями из БД
         val settingsPosition = 0 // Пока 0
 
         //  Подготовим адаптер для списка
         settings = try {
-
-            // беру данные из базы
-            DB(this.context!!).dbBellsSettings()[settingsPosition]
+            DB(this.context!!).dbBellsSettings()[settingsPosition] // беру данные из базы
         } catch (e: Exception) {
-            // В случае exception используем дефолтные настройки
-            BellSettings()
+            BellSettings()    // В случае exception используем дефолтные настройки
         }
 
         // Получим лист в ячейками
         val data = BellsGenerator(settings).getBellsList()
-
-        // Получим номер пары
-        val numPair = BellListUtils(settings).getNumberCurrentPair().second
+        val numPair = BellListUtils(settings).getNumberCurrentPair().second // Получим номер пары
         adapter = BellsListAdapter(context!!, data, numPair)
 
         // Вызовем метод для создания меню
@@ -62,32 +57,26 @@ class BellsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         val v = inflater.inflate(R.layout.fr_time, container, false)
-        // Инициализация компоненттов
-        residueTextView = v.findViewById(R.id.textTime)                  // Остаток времени до конца пары
-        pairStatus = v.findViewById(R.id.pair_status)                    // Вью для статуса: пара или перемена
-        val recycler: RecyclerView = v.findViewById(R.id.time_list)      // Список таблица с временем пар
+
         // Присваивание занчений
-        residueTextView.text = textTimer
-        pairStatus.text = status
+        textTime.text = textTimer   // Остаток времени до конца пары
+        pair_status.text = status // Вью для статуса: пара или перемена
 
         // Инициализируем LayoutManager для работы с recycler
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
-        recycler.layoutManager = mLayoutManager
+        time_list.layoutManager = mLayoutManager
 
         // Подключаемся к нашему адаптеру
-        recycler.adapter = adapter
+        time_list.adapter = adapter
 
         // Делаем плавную анимацию прокуртки
-        val itemAnimator = DefaultItemAnimator()
-        recycler.itemAnimator = itemAnimator
+        time_list.itemAnimator = DefaultItemAnimator()
 
         // Подтверждаем что размер нашего recycler не измениться
-        recycler.setHasFixedSize(true) // Вроде улучшает производительность
+        time_list.setHasFixedSize(true) // Вроде улучшает производительность
 
         // Добавляем вертикальный разделитель, так как напрямую в разметке его сделать нельзя
-        val linearLayoutManager = LinearLayoutManager(activity)
-        val dividerItemDecoration = DividerItemDecoration(recycler.context, linearLayoutManager.orientation)
-        recycler.addItemDecoration(dividerItemDecoration)
+        time_list.addItemDecoration(DividerItemDecoration(time_list.context, LinearLayoutManager(activity).orientation))
 
         // Запускаем отдельный поток при старте активити для определения остатка времени до события
         handler.removeCallbacks(timeUpdaterRunnable)
@@ -117,7 +106,6 @@ class BellsFragment : Fragment() {
         fav.setIcon(R.drawable.ic_assessment)
         fav.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
     }
-
 
     // TODO: Добавить обработчик кнопокк в меню
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -152,11 +140,10 @@ class BellsFragment : Fragment() {
     /** @see timeUpdaterRunnable запускаем поток каждые 3 секунды, сравнивающий текущее время со списками*/
     private val timeUpdaterRunnable = object : Runnable {
         override fun run() {
-            // Вызовем функцию для обновление нашего таймера
-            timerUpdater()
-            // Обновляем щзначения
-            residueTextView.text = textTimer
-            pairStatus.text = status
+            timerUpdater()  // Вызовем функцию для обновление нашего таймера
+            // Обновляем значения
+            textTime.text = textTimer
+            pair_status.text = status
             // запускаем поток через каждые 3 секунды
             handler.postDelayed(this, 3000)
         }
