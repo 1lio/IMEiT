@@ -1,25 +1,25 @@
 package ru.vyaacheslav.suhov.imeit.temp.ftagments.schedule
 
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.view.ViewPager
+import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.temp.adapters.DayAdapter
+import ru.vyaacheslav.suhov.imeit.temp.adapters.NumDayAdapter
 import java.util.*
 
-class ScheduleFragment : Fragment() {
+class ScheduleFragment : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_tab, container, false)
         val tabLayout = v.findViewById<TabLayout>(R.id.tabs)
-        val viewPager = v.findViewById<ViewPager>(R.id.viewpager)
+        val viewPager = v.findViewById<androidx.viewpager.widget.ViewPager>(R.id.viewpager)
 
-        viewPager.adapter = DayAdapter(childFragmentManager)
+        viewPager.adapter = NumDayAdapter(childFragmentManager)
         tabLayout.post { tabLayout.setupWithViewPager(viewPager) }
 
         val c = Calendar.getInstance()

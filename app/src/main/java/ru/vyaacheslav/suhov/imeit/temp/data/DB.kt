@@ -88,7 +88,7 @@ class DB(context: Context?) {
         val listBell: MutableList<BellSettings> = mutableListOf()
         cursor.moveToFirst()
 
-        for (x in 0..9) {
+        for (x in 0..4) {
             if (!cursor.isAfterLast) {
                 val bellsTable = BellSettings(cursor.getInt(x))
                 listBell.add(bellsTable)

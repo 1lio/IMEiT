@@ -1,64 +1,25 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="AppTheme.Launcher">
-        <item name="android:windowBackground">@drawable/launch_screen</item>
-        <item name="colorPrimaryDark">@android:color/white</item>
-    </style>
-
-    <style name="ThemeWrithe" parent="Theme.AppCompat.Light.DarkActionBar">
-
-        <item name="android:typeface">sans</item>
-        <item name="colorPrimary">@color/colorPrimaryA</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkA</item>
-        <item name="colorAccent">@color/colorAccentA</item>
-        <item name="android:textColor">@color/colorTextBlack</item>
-        <item name="android:textColorSecondary">@color/colorTextSub</item>
-        <item name="colorError">@color/colorWhite</item>
-        <item name="colorControlActivated">@color/colorAccentA</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-
-    <style name="ThemeDark" parent="Theme.AppCompat">
-
-        <item name="android:typeface">sans</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColor">@color/colorWhite</item>
-
-        <item name="android:windowBackground">@color/colorPrimaryDark</item>
-        <item name="android:textColorPrimary">@color/colorWhite</item>
-        <item name="android:textColorSecondary">@color/colorTextSub</item>
-        <item name="colorError">@color/colorTextSub</item>
-        <item name="colorControlActivated">@color/colorAccent</item>
-
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="ToolbarTitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColor">@color/white</item>
+
     </style>
 
     <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/gray</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="BottomBarStyle" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:itemBackground">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/time_this_time"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="14sp" />
 
                 <DigitalClock
@@ -62,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/time_residue"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/white"
                     android:textSize="14sp" />
 
                 <TextView
@@ -101,7 +100,7 @@
             android:layout_marginStart="@dimen/margin"
             android:layout_weight="1"
             android:text="@string/time_pair"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -109,7 +108,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/time_lesson"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -118,13 +117,13 @@
             android:layout_weight="1"
             android:gravity="end"
             android:text="@string/time_timeout"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/time_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

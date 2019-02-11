@@ -2,8 +2,7 @@ package ru.vyaacheslav.suhov.imeit.temp.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +11,11 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.domain.entity.BellCount
 
 class BellsListAdapter(private val context: Context, private val list: List<BellCount>,
-                       private val countPair: Int) : RecyclerView.Adapter<BellsListAdapter.ViewHolder>() {
+                       private val countPair: Int) : androidx.recyclerview.widget.RecyclerView.Adapter<BellsListAdapter.ViewHolder>() {
 
     lateinit var min: String
 
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+    inner class ViewHolder(v: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(v) {
 
         val num: TextView = itemView.findViewById(R.id.t_num)
         val less1top: TextView = itemView.findViewById(R.id.t_top)
@@ -43,7 +42,7 @@ class BellsListAdapter(private val context: Context, private val list: List<Bell
         holder.less2top.text = list[position].bottomLesson
         holder.less2bot.text = list[position].bottomBreak.toString() + min
 
-        val color = ContextCompat.getColor(context, R.color.colorTransparent)
+        val color = ContextCompat.getColor(context, R.color.gray)
         if (countPair == position) {
             holder.itemView.setBackgroundColor(color)
         }

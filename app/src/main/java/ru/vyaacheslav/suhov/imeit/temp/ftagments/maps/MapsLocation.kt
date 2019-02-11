@@ -1,7 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.temp.ftagments.maps
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +15,7 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.temp.data.DB
 
 /** Фрагмент с картой */
-class MapsLocation : Fragment(), OnMapReadyCallback {
+class MapsLocation : androidx.fragment.app.Fragment(), OnMapReadyCallback {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

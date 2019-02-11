@@ -19,5 +19,5 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
-        android:textColor="@color/colorTextSub" />
+        android:textColor="@color/gray" />
 </LinearLayout>

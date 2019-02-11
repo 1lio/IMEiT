@@ -1,21 +1,16 @@
 package ru.vyaacheslav.suhov.imeit.temp.adapters
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import ru.vyaacheslav.suhov.imeit.temp.ftagments.maps.MapsList
 import ru.vyaacheslav.suhov.imeit.temp.ftagments.maps.MapsLocation
 
 /** Адаптер фрагментов Карты*/
-internal class MapAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+internal class MapAdapter(fm:FragmentManager) : FragmentPagerAdapter(fm) {
 
-    override fun getItem(position: Int): Fragment? {
-        when (position) {
-            // Фрагменты
-            0 -> return MapsLocation()
-            1 -> return MapsList()
-        }
-        return null
+    override fun getItem(position: Int): Fragment {
+        return if (position == 0) MapsLocation() else MapsList()
     }
 
     override fun getCount(): Int {

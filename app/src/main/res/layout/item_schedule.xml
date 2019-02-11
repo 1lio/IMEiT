@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/colorTextSub"
+                    android:textColor="@color/gray"
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
@@ -108,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="start|center"
                         android:paddingStart="6dp"
-                        android:textColor="@color/colorTextSub"
+                        android:textColor="@color/gray"
                         android:textSize="10sp"
                         tools:ignore="RtlSymmetry,SmallSp" />
                 </LinearLayout>
@@ -133,7 +133,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textColor="@color/colorTextSub"
+                        android:textColor="@color/gray"
                         android:textSize="10sp"
                         tools:ignore="SmallSp" />
                 </LinearLayout>
@@ -172,7 +172,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="start|center"
                         android:paddingStart="6dp"
-                        android:textColor="@color/colorTextSub"
+                        android:textColor="@color/gray"
                         android:textSize="10sp"
                         tools:ignore="RtlSymmetry,SmallSp" />
                 </LinearLayout>
@@ -197,7 +197,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textColor="@color/colorTextSub"
+                        android:textColor="@color/gray"
                         android:textSize="10sp"
                         tools:ignore="SmallSp" />
                 </LinearLayout>
