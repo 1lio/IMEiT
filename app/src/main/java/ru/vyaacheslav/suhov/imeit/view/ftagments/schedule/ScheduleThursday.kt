@@ -5,7 +5,7 @@ import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.monday.*
+import kotlinx.android.synthetic.main.day.*
 import ru.vyaacheslav.suhov.imeit.R
 
 class ScheduleThursday : androidx.fragment.app.Fragment() {
@@ -14,8 +14,8 @@ class ScheduleThursday : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val v = inflater.inflate(R.layout.monday, container, false)
-        connectionDB()
+        val v = inflater.inflate(R.layout.day, container, false)
+      //  connectionDB()
         return v
     }
 

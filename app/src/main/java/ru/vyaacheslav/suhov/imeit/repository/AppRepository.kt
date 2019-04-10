@@ -9,6 +9,7 @@ class AppRepository(context: Context) {
     private val dbHelper = DatabaseHelper(context).writableDatabase
 
     fun getListGroup(): Array<String> {
+
         return arrayOf("Без группы")
     }
 
@@ -21,8 +22,6 @@ class AppRepository(context: Context) {
         dbHelper.insert("MAPS",null,values)
 
     }
-
-
 
     fun getMapList(): List<MapLocation> {
 

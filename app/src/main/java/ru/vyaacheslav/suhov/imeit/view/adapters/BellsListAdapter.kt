@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.BellCount
+import ru.vyaacheslav.suhov.imeit.util.BellCount
 
 class BellsListAdapter(private val context: Context, private val list: List<BellCount>,
                        private val countPair: Int) : RecyclerView.Adapter<BellsListAdapter.ViewHolder>() {

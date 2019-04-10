@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit
+package ru.vyaacheslav.suhov.imeit.util
 
 import java.util.*
 

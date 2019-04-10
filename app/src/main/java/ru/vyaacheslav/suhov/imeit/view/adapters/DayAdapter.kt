@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.Schedule
+import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 
 
 class DayAdapter(private val list: List<Schedule>)

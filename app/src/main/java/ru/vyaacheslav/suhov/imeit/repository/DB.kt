@@ -1,8 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.repository
 
 import android.content.Context
-import ru.vyaacheslav.suhov.imeit.BellSettings
-import java.io.IOException
+import ru.vyaacheslav.suhov.imeit.util.BellSettings
 
 class DB(context: Context) {
 

@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fr_time.*
-import ru.vyaacheslav.suhov.imeit.BellListUtils
-import ru.vyaacheslav.suhov.imeit.BellsGenerator
+import ru.vyaacheslav.suhov.imeit.util.BellListUtils
+import ru.vyaacheslav.suhov.imeit.util.BellsGenerator
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.BellSettings
+import ru.vyaacheslav.suhov.imeit.util.BellSettings
 import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListAdapter
 import ru.vyaacheslav.suhov.imeit.repository.DB
 
@@ -53,16 +53,16 @@ class BellsFragment : Fragment() {
         val adapter = BellsListAdapter(context!!, data, numPair)
 
         // Инициализируем LayoutManager для работы с recycler
-        time_list.layoutManager = LinearLayoutManager(context)
+        recyclerTime.layoutManager = LinearLayoutManager(context)
         // Подключаемся к нашему адаптеру
-        time_list.adapter = adapter
+        recyclerTime.adapter = adapter
         // Делаем плавную анимацию прокуртки
-        time_list.itemAnimator = DefaultItemAnimator()
+        recyclerTime.itemAnimator = DefaultItemAnimator()
         // Подтверждаем что размер нашего recycler не измениться
-        time_list.setHasFixedSize(true) // Вроде улучшает производительность
+        recyclerTime.setHasFixedSize(true) // Вроде улучшает производительность
 
         // Добавляем вертикальный разделитель, так как напрямую в разметке его сделать нельзя
-        time_list.addItemDecoration(DividerItemDecoration(time_list.context, LinearLayoutManager(activity).orientation))
+        recyclerTime.addItemDecoration(DividerItemDecoration(recyclerTime.context, LinearLayoutManager(activity).orientation))
 
         // Запускаем отдельный поток при старте активити для определения остатка времени до события
         handler.removeCallbacks(timeUpdaterRunnable)

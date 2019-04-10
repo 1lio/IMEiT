@@ -1,29 +1,28 @@
 package ru.vyaacheslav.suhov.imeit.view
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_main.*
-import ru.vyaacheslav.suhov.imeit.Constants.DEF_FIST_RUN
-import ru.vyaacheslav.suhov.imeit.Constants.DEF_GROUP_ID
-import ru.vyaacheslav.suhov.imeit.Constants.DEF_GROUP_NAME
-import ru.vyaacheslav.suhov.imeit.Constants.KEY_FIST_RUN
-import ru.vyaacheslav.suhov.imeit.Constants.KEY_GROUP_ID
-import ru.vyaacheslav.suhov.imeit.Constants.KEY_GROUP_NAME
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.AppRepository
-import ru.vyaacheslav.suhov.imeit.repository.entity.MapLocation
-import ru.vyaacheslav.suhov.imeit.view.ftagments.*
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_FIST_RUN
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP_ID
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP_NAME
+import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_FIST_RUN
+import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_GROUP_ID
+import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_GROUP_NAME
+import ru.vyaacheslav.suhov.imeit.view.ftagments.BellsFragment
+import ru.vyaacheslav.suhov.imeit.view.ftagments.MapsFragment
+import ru.vyaacheslav.suhov.imeit.view.ftagments.ScheduleFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private val listGroups = AppRepository(this).getListGroup()
+    private lateinit var listGroups: Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,19 +30,16 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(bottom_bar)
         loadPreferences() // Загружаем настройки
 
-        AppRepository(this).addMap(MapLocation("TEST","S","4565.21"))
-
+        listGroups = AppRepository(this).getListGroup()
         // Обрабатываем нажатие на FAB
-        fab.setOnClickListener {
-            supportFragmentManager.beginTransaction().replace(R.id.container, ScheduleFragment()).commit()
-        }
+        fab.setOnClickListener { fragmentTransaction( ScheduleFragment()) }
     }
 
     // Данный метод позволяет выбрать группу
     private fun setupGroup() {
         // Создаем диалог в котором пользователь выбирает группу
-        val builder = AlertDialog.Builder(this@MainActivity)
-        builder.setTitle(R.string.group)
+        AlertDialog.Builder(this@MainActivity)
+                .setTitle(R.string.group)
                 // Возможность начать по пустому месту и отменить
                 .setCancelable(true)
                 // Устанавиливаем кнопку с функццией отмены диалога
@@ -54,12 +50,9 @@ class MainActivity : AppCompatActivity() {
                     toolbar.subtitle = listGroups[item]         // Меняем subTitle у Toolbar
                     Hawk.put(KEY_GROUP_NAME, listGroups[item])  // Сохраняем в Hawk имя гуппы
                     Hawk.put(KEY_GROUP_ID, item)                // И id
-                    d.cancel()                                  // Закрываем диалог
-                }
-
-        val alert = builder.create()
-        alert.show()
-        alert.getButton(DialogInterface.BUTTON_NEUTRAL).setTextColor(ContextCompat.getColor(this, R.color.white))
+                    d.cancel()}                                 // Закрываем диалог
+                .create()
+                .show()
     }
 
     // Подключаем разметку меню
@@ -81,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     // Загружаем настройки
     private fun loadPreferences() {
         // Название Института
-        toolbar.title = resources.getString(R.string.app_name) // Название Института
+        toolbar.title = resources.getString(R.string.app_name)
 
         // Делаем проверку на первый запуск
         if (Hawk.get(KEY_FIST_RUN, DEF_FIST_RUN)) {

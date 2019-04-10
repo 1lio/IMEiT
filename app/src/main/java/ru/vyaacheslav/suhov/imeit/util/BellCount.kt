@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit
+package ru.vyaacheslav.suhov.imeit.util
 
 /** @see BellCount Объект описывает ячейку времени звонков*/
 data class BellCount(var num: String,

@@ -9,7 +9,7 @@
     <!-- Strings a fragment Time -->
     <string name="time_pair">Пара</string>
     <string name="time_lesson">Занятие</string>
-    <string name="time_timeout">Перерыв</string>
+    <string name="time_break">Перерыв</string>
     <string name="time_residue">До конца пары осталось:</string>
     <string name="time_lunch">Большая перемена:</string>
     <string name="time_this_time">Текущее время:</string>

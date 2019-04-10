@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit
+package ru.vyaacheslav.suhov.imeit.repository.entity
 
 data class Schedule(
 

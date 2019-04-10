@@ -1,8 +1,5 @@
-package ru.vyaacheslav.suhov.imeit
+package ru.vyaacheslav.suhov.imeit.util
 
-
-import ru.vyaacheslav.suhov.imeit.BellCount
-import ru.vyaacheslav.suhov.imeit.BellSettings
 
 /** Данный класс генерирует лист с расписанием звонков
  *  @param setup - настроки для расписания из класса*/

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.monday.*
+import kotlinx.android.synthetic.main.day.*
 import ru.vyaacheslav.suhov.imeit.R
 
 class ScheduleMonday : Fragment() {
@@ -15,7 +15,7 @@ class ScheduleMonday : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val v = inflater.inflate(R.layout.monday, container, false)
+        val v = inflater.inflate(R.layout.day, container, false)
 
        // connectionDB()
         return v
