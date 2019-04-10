@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/group_setup"
+        android:icon="@drawable/ic_group"
+        android:title="@string/group"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/bells_info"
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/menu_time"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/build_location"
+        android:icon="@drawable/ic_location"
+        android:title="@string/menu_maps"
+        app:showAsAction="ifRoom" />
+
+</menu>
