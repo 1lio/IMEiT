@@ -10,7 +10,7 @@ import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.AppRepository
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_FIST_RUN
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_FIRST_RUN
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP_ID
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP_NAME
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_FIST_RUN
@@ -27,10 +27,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(bottom_bar)
+
+        setSupportActionBar(bottom_bar) // подключаем нижний толбар
         loadPreferences() // Загружаем настройки
 
-        listGroups = AppRepository(this).getListGroup()
+        // Инициализируем репозиторий
+        listGroups = AppRepository(this@MainActivity).getListGroup()
+
         // Обрабатываем нажатие на FAB
         fab.setOnClickListener { fragmentTransaction( ScheduleFragment()) }
     }
@@ -77,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.title = resources.getString(R.string.app_name)
 
         // Делаем проверку на первый запуск
-        if (Hawk.get(KEY_FIST_RUN, DEF_FIST_RUN)) {
+        if (Hawk.get(KEY_FIST_RUN, DEF_FIRST_RUN)) {
             setupGroup()
             Hawk.put(KEY_FIST_RUN, false) // Записываем что запуск не первый
         } else {

@@ -16,7 +16,7 @@ class BellsListAdapter(private val context: Context, private val list: List<Bell
 
     lateinit var min: String
 
-    inner class ViewHolder(v: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(v) {
+    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         val num: TextView = itemView.findViewById(R.id.t_num)
         val less1top: TextView = itemView.findViewById(R.id.t_top)
@@ -26,7 +26,7 @@ class BellsListAdapter(private val context: Context, private val list: List<Bell
     }
 
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): BellsListAdapter.ViewHolder {
+                                    viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
                 .inflate(R.layout.it_time, parent, false)
         min = v.resources.getString(R.string.min)

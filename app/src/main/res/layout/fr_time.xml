@@ -1,86 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/time_this_time"
-                    android:textColor="@color/white" />
-
-                <DigitalClock
-                    android:id="@+id/digitalClock"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="end|center"
-                    android:paddingEnd="16dp"
-                    android:textColor="?attr/colorAccent"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/pair_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/time_residue"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:id="@+id/textTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end|center"
-                    android:paddingEnd="16dp"
-                    android:textColor="?attr/colorAccent"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <AnalogClock
-            android:id="@+id/analogClock1"
-            android:layout_width="64dp"
-            android:layout_height="64dp" />
-
-    </LinearLayout>
-
+        <ru.vyaacheslav.suhov.imeit.view.view.TimeView
+            android:id="@+id/time_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"

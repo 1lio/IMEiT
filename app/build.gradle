@@ -36,6 +36,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha4'
     implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha04'
 
+    // LifeCycle 
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+
     // Библиотека для хранения небольших данных примитивных типов
     implementation "com.orhanobut:hawk:2.0.1"
 }

@@ -13,14 +13,13 @@
     <string name="time_residue">До конца пары осталось:</string>
     <string name="time_lunch">Большая перемена:</string>
     <string name="time_this_time">Текущее время:</string>
-    <string name="time_this_less">До начала занятий осталось:</string>
+    <string name="time_before">До начала занятий осталось:</string>
     <!-- Strings a fragment Maps -->
     <string name="map_maps">Карта</string>
     <string name="map_list">Список</string>
     <!-- Activity Settings-->
     <string name="settings">Настройки</string>
     <string name="statistic">Статистика</string>
-
 
     <string name="cancel">Отмена</string>
 

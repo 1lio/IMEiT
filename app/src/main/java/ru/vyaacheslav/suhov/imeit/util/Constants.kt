@@ -8,9 +8,10 @@ object Constants {
     const val DEF_GROUP_NAME = "empty"
 
     const val DEF_GROUP_ID = 0
-    const val DEF_FIST_RUN = false
+    const val DEF_FIRST_RUN = false
 
     const val MAPS = "MAPS"
     const val BELLS = "BELLS"
     const val GROUPS = "GROUPS"
+    const val EXCEPTIONS = "EXCEPTIONS"
 }

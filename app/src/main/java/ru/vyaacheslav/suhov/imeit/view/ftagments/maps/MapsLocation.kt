@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -14,7 +15,7 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.DB
 
 /** Фрагмент с картой */
-class MapsLocation : androidx.fragment.app.Fragment(), OnMapReadyCallback {
+class MapsLocation : Fragment(), OnMapReadyCallback {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -26,6 +27,7 @@ class MapsLocation : androidx.fragment.app.Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         val dbLocate = DB(this.context!!).dbMaps()  // Подключаемся к базе к таблице с картой
+
         // В цикле перебераем коодинаты и приводм к типу LatLng
         // Затем создаем point на карте и присваиваем имя из БД
 
@@ -45,9 +47,9 @@ class MapsLocation : androidx.fragment.app.Fragment(), OnMapReadyCallback {
             i++
         }
 
-        val center = LatLng(52.625338, 38.495109)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(center))// Сентрируем карту чтобы были на карте точки всех корпусов
-        googleMap.setMinZoomPreference(13.0f) // Устанавливаем пораметры зума
+        val center = LatLng(52.625338, 38.495109) // Сентрируем карту чтобы были на карте точки всех корпусов
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(center))
+        googleMap.setMinZoomPreference(13.0f) //  параметры зума
         googleMap.setMaxZoomPreference(17.0f)
     }
 }

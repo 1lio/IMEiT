@@ -26,13 +26,15 @@ class BellListUtils(private val pref: BellSettings) {
         var pairFrom: Int = pref.start
 
         // создаем лист в цикле, отнимаем 1 потому что счет начинается с нуля
-        for (x in 0..(pref.count - 1)) {
+        for (x in 0 until pref.count) {
             // Добовляем первую пару
             val pairTo = pairFrom + ((pref.lengthLesson * 2) + pref.lengthBreak)
             val pairRange: IntRange = pairFrom..pairTo
             list.add(x, pairRange)
             // добовляем перемену
-            val changeRange = if (x != (pref.lunchStart - 1)) pairTo + 1..(pairTo + pref.lengthBreakPair) else pairTo + 1..pairTo + pref.lengthLunch
+            val changeRange = if (x != (pref.lunchStart - 1)) pairTo + 1..(pairTo + pref.lengthBreakPair)
+            else pairTo + 1..pairTo + pref.lengthLunch
+
             pause.add((x + 1), changeRange)
             // обновляем счетчик
             pairFrom = (pairFrom + (pref.lengthLesson * 2) + pref.lengthBreak) + pref.lengthBreakPair
@@ -69,20 +71,25 @@ class BellListUtils(private val pref: BellSettings) {
         return Pair(type, number)
     }
 
+    fun getThisTime(): String = getCurrentTime.timeFormat()
+
     /**@see getResidueTime Функция которая возвращает скользо времени осталось до конца пары или перемены*/
-    val getResidueTime: String =
-            if (getNumberCurrentPair().first == TimeEvent.LESSON) {
-                // Вернем время до окончания пар
-                ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()
-            } else {
-                // Вернем время до конца перемены
-                if (getNumberCurrentPair().second != pref.count) {
-                    ((generateListsRange().second[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()
-                } else ((1440 - getCurrentTime) + pref.start).timeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
-            }
+    fun getResidueTime(): String {
+
+        return if (getNumberCurrentPair().first == TimeEvent.LESSON) {
+            // Вернем время до окончания пар
+            ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()
+        } else {
+            // Вернем время до конца перемены
+            if (getNumberCurrentPair().second != pref.count) {
+                ((generateListsRange().second[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()
+            } else ((1440 - getCurrentTime) + pref.start).timeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
+        }
+
+    }
 
     /** @return Функция-расширение возвращает строку в 24-часовом формате времени <00:00> */
-    private fun Int.timeFormat(): String {
+     fun Int.timeFormat(): String {
 
         val hour = this / 60   // Часы
         val min = this % 60    // Минуты
