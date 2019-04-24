@@ -12,8 +12,7 @@ package ru.vyaacheslav.suhov.imeit.util
  * @param lengthLunch Продолжительность большой перемены
  * @param lengthBreakPair Продолжительность перемены между парами
  * @param lunchStart Большая перемена после <номер пары>
- * @param date Дата изменеия по дефолту 0
- * @param isChanged Настройки изменяемое */
+*/
 
 data class BellData(
 
@@ -24,7 +23,5 @@ data class BellData(
         val lengthBreak: Int = 5,
         val lengthLunch: Int = 40,
         val lengthBreakPair: Int = 10,
-        val lunchStart: Int = 2,
-        val date: Int = 0,
-        val isChanged: Boolean = true
+        val lunchStart: Int = 2
 )

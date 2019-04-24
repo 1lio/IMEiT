@@ -21,9 +21,8 @@ class ScheduleFragment : androidx.fragment.app.Fragment() {
         tabLayout.post { tabLayout.setupWithViewPager(viewPager) }
 
         val c = Calendar.getInstance()
-        val dayOfWeek = c.get(Calendar.DAY_OF_WEEK)
 
-        when (dayOfWeek) {
+        when (c.get(Calendar.DAY_OF_WEEK)) {
             Calendar.MONDAY -> viewPager.setCurrentItem(0, true)
             Calendar.TUESDAY -> viewPager.setCurrentItem(1, true)
             Calendar.WEDNESDAY -> viewPager.setCurrentItem(2, true)
