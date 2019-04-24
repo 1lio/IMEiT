@@ -1,7 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.repository
 
 import android.content.Context
-import ru.vyaacheslav.suhov.imeit.util.BellSettings
+import ru.vyaacheslav.suhov.imeit.util.BellData
 
 class DB(context: Context) {
 
@@ -67,17 +67,17 @@ class DB(context: Context) {
     /** @see dbBellsSettings - Функция берет из базы таблицу и формирует список
      *  @return Список настройками для формирования расписания звонков */
 
-    fun dbBellsSettings(nameBellTable: String = "BELLS"): List<BellSettings> {
+    fun dbBellsSettings(nameBellTable: String = "BELLS"): List<BellData> {
 
         val mDb = mDBHelper.writableDatabase
         val cursor = mDb.rawQuery("SELECT * FROM $nameBellTable", null)
 
-        val listBell: MutableList<BellSettings> = mutableListOf()
+        val listBell: MutableList<BellData> = mutableListOf()
         cursor.moveToFirst()
 
         for (x in 0..4) {
             if (!cursor.isAfterLast) {
-                listBell.add(BellSettings(cursor.getInt(x)))
+                listBell.add(BellData(cursor.getInt(x)))
                 cursor.moveToNext()
             }
         }

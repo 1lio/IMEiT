@@ -4,7 +4,7 @@ package ru.vyaacheslav.suhov.imeit.util
 /** Данный класс генерирует лист с расписанием звонков
  *  @param setup - настроки для расписания из класса*/
 
-class BellsGenerator(private val setup: BellSettings) {
+class BellsGenerator(private val setup: BellData) {
 
     /** @see getBellsList - Функция конвертирует входящие данные и возвращает лист с расписанием звонков*/
     fun getBellsList(): List<BellCount> {

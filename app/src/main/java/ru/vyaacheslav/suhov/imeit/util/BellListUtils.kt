@@ -5,7 +5,7 @@ import java.util.*
 /** Данный класс работает обрабатывает дополнительные возможности при созданнии списка
  *  @param pref Вы должны передать настроки */
 
-class BellListUtils(private val pref: BellSettings) {
+class BellListUtils(private val pref: BellData) {
 
     /** @see TimeEvent Типы состоянияний времени */
     enum class TimeEvent { LESSON, BREAK, LUNCH }

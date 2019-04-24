@@ -15,7 +15,7 @@ package ru.vyaacheslav.suhov.imeit.util
  * @param date Дата изменеия по дефолту 0
  * @param isChanged Настройки изменяемое */
 
-data class BellSettings(
+data class BellData(
 
         val id: Int = 0,
         val count: Int = 6,

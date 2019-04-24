@@ -1,11 +1,13 @@
 package ru.vyaacheslav.suhov.imeit.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.FirebaseDatabase
 import com.orhanobut.hawk.Hawk
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.vyaacheslav.suhov.imeit.R
@@ -35,7 +37,15 @@ class MainActivity : AppCompatActivity() {
         listGroups = AppRepository(this@MainActivity).getListGroup()
 
         // Обрабатываем нажатие на FAB
-        fab.setOnClickListener { fragmentTransaction( ScheduleFragment()) }
+        fab.setOnClickListener { fragmentTransaction(ScheduleFragment()) }
+
+        // Write a message to the database
+        val database = FirebaseDatabase.getInstance()
+        val ref = database.getReference("time").child("lengthLesson")
+
+
+        Log.d("TAGH", ref.toString())
+
     }
 
     // Данный метод позволяет выбрать группу
@@ -53,7 +63,8 @@ class MainActivity : AppCompatActivity() {
                     toolbar.subtitle = listGroups[item]         // Меняем subTitle у Toolbar
                     Hawk.put(KEY_GROUP_NAME, listGroups[item])  // Сохраняем в Hawk имя гуппы
                     Hawk.put(KEY_GROUP_ID, item)                // И id
-                    d.cancel()}                                 // Закрываем диалог
+                    d.cancel()
+                }                                 // Закрываем диалог
                 .create()
                 .show()
     }

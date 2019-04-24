@@ -14,7 +14,7 @@ import ru.vyaacheslav.suhov.imeit.util.BellListUtils
 import ru.vyaacheslav.suhov.imeit.util.BellsGenerator
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.app.App
-import ru.vyaacheslav.suhov.imeit.util.BellSettings
+import ru.vyaacheslav.suhov.imeit.util.BellData
 import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListAdapter
 import ru.vyaacheslav.suhov.imeit.repository.DB
 import ru.vyaacheslav.suhov.imeit.util.Constants.EXCEPTIONS
@@ -22,7 +22,7 @@ import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 
 class BellsFragment : Fragment() {
 
-    private var settings: BellSettings = BellSettings()
+    private var settings: BellData = BellData()
     private val handler: Handler = Handler()
 
     private lateinit var viewModel: CallTimeViewModel
@@ -35,7 +35,7 @@ class BellsFragment : Fragment() {
             DB(App().appContext).dbBellsSettings()[0]  // берем данные из базы
         } catch (e: Exception) {
             Log.e(EXCEPTIONS, "Data obtained from default settings. Error: $e")
-            BellSettings()
+            BellData()
         }
     }
 
