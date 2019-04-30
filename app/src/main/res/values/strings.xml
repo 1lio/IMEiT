@@ -39,4 +39,7 @@
     <string name="t_17_35">17:35</string>
 
     <string name="group">Группа</string>
+    <string name="empty_group">Группа не выбрана</string>
+    <string name="load_group">Загрузка группы…</string>
+
 </resources>
