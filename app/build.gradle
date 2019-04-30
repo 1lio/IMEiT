@@ -43,4 +43,5 @@ dependencies {
     // Библиотека для хранения небольших данных примитивных типов
     implementation "com.orhanobut:hawk:2.0.1"
     implementation 'com.google.firebase:firebase-database:16.1.0'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
 }

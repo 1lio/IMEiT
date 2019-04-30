@@ -65,8 +65,11 @@ class MainActivity : AppCompatActivity() {
                 .show()                                                                             // Выводим на экран
     }
 
-    private fun loadPreferences() {
-        if (Hawk.get(KEY_FIST_RUN, DEF_FIRST_RUN)) Hawk.put(KEY_FIST_RUN, false)                    // Проверку на первый запуск.
+    private fun loadPreferences() {                                                                 // Проверку на первый запуск.
+        if (Hawk.get(KEY_FIST_RUN, DEF_FIRST_RUN)) {
+            setupGroup()
+            Hawk.put(KEY_FIST_RUN, false)
+        }
         else pushFragment(ScheduleFragment())                                                       // Если запуск не первый грузим фрагмент с расписанием
     }
 
