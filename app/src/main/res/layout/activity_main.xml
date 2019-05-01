@@ -27,15 +27,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.bottomappbar.BottomAppBar
+        <ru.vyaacheslav.suhov.imeit.view.view.BottomToolbar
             android:id="@+id/bottom_bar"
             style="@style/Widget.MaterialComponents.BottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:backgroundTint="@color/colorPrimary"
-            app:fabAlignmentMode="end"
-            app:menu="@menu/menu" />
+          />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"

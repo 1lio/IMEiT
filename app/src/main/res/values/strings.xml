@@ -19,7 +19,6 @@
     <string name="map_list">Список</string>
     <!-- Activity Settings-->
     <string name="settings">Настройки</string>
-    <string name="statistic">Статистика</string>
 
     <string name="cancel">Отмена</string>
 
@@ -40,10 +39,10 @@
 
     <string name="group">Группа</string>
     <string name="empty_group">Группа не выбрана</string>
-    <string name="load_group">Загрузка группы…</string>
     <string name="back">Назат</string>
     <string name="next">Далее</string>
     <string name="you_institute">Ваш нститут:</string>
     <string name="image">image</string>
+    <string name="set_down_schedule">Нажмие чтобы скачать расписание</string>
 
 </resources>
