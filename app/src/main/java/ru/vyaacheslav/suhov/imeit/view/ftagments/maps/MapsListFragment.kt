@@ -9,16 +9,16 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
+import androidx.fragment.app.Fragment
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.DB
 
 /** Фрагмент список с положением всех корпусов ЕГУ */
-class MapsList : androidx.fragment.app.Fragment() {
+class MapsListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.map_list, container, false)
-
+        val v = inflater.inflate(R.layout.fr_map_list, container, false)
         val s = DB(this.context!!).dbMaps()
 
         // Формируем список мз двух полей БД
@@ -26,7 +26,7 @@ class MapsList : androidx.fragment.app.Fragment() {
         val to = intArrayOf(R.id.text1, R.id.text2)
 
         // Формируем и выводим в UI
-        val adapter = SimpleAdapter(activity, s, R.layout.maps_item, from, to)
+        val adapter = SimpleAdapter(activity, s, R.layout.item_maps, from, to)
         val listView = v.findViewById<ListView>(R.id.mapListView)
 
         // Обрабатываем нажатия по элементам списка

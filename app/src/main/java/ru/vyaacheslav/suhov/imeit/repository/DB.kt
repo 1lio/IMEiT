@@ -1,7 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.repository
 
 import android.content.Context
-import ru.vyaacheslav.suhov.imeit.util.BellData
+import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
 
 class DB(context: Context) {
 
@@ -47,15 +47,11 @@ class DB(context: Context) {
             time["type"] = cursor.getString(4)
             time["build"] = cursor.getString(5)
             // Знаменатель
-            time["name_out"] = cursor.getString(6)
-            time["surname_out"] = cursor.getString(7)
-            time["type_out"] = cursor.getString(8)
-            time["build_out"] = cursor.getString(9)
+            time["nameOut"] = cursor.getString(6)
+            time["surnameOut"] = cursor.getString(7)
+            time["typeOut"] = cursor.getString(8)
+            time["buildOut"] = cursor.getString(9)
 
-            // Время
-            time["tex1"] = cursor.getString(10)
-            time["tex2"] = cursor.getString(11)
-            time["tex3"] = cursor.getString(12)
             times.add(time)
             cursor.moveToNext()
         }

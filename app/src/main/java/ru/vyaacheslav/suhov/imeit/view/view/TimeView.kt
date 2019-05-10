@@ -9,18 +9,17 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.time_view.view.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
-import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.BellsTimeViewModel
 
 class TimeView : LinearLayout {
-
-    private val activity = context as MainActivity
-    private val viewModel = ViewModelProviders.of(activity)[CallTimeViewModel::class.java]
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
-    init {
+    private val activity = context as MainActivity
+    private val viewModel = ViewModelProviders.of(activity)[BellsTimeViewModel::class.java]
 
+    init {
         LayoutInflater.from(context).inflate(R.layout.time_view, this)
 
         viewModel.observePairStatus(activity, Observer { pair_status.text = it })

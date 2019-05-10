@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view.ftagments
+package ru.vyaacheslav.suhov.imeit.view.ftagments.bells
 
 import android.os.Bundle
 import android.os.Handler
@@ -10,31 +10,31 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.vyaacheslav.suhov.imeit.util.BellListUtils
-import ru.vyaacheslav.suhov.imeit.util.BellsGenerator
+import ru.vyaacheslav.suhov.imeit.repository.BellListGenerator
+import ru.vyaacheslav.suhov.imeit.repository.BellsGenerator
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.app.App
-import ru.vyaacheslav.suhov.imeit.util.BellData
-import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListAdapter
+import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
+import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListFragmentAdapter
 import ru.vyaacheslav.suhov.imeit.repository.DB
-import ru.vyaacheslav.suhov.imeit.util.AppConfig.DEBUG_EXCEPTIONS
-import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEBUG_APP
+import ru.vyaacheslav.suhov.imeit.viewmodel.BellsTimeViewModel
 
 class BellsFragment : Fragment() {
 
     private var settings: BellData = BellData()
     private val handler: Handler = Handler()
 
-    private lateinit var viewModel: CallTimeViewModel
+    private lateinit var viewModel: BellsTimeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Грузим данные из БД
         settings = try {
-            DB(App().appContext).dbBellsSettings()[0]  // берем данные из базы
+            DB(App().applicationContext).dbBellsSettings()[0]  // берем данные из базы
         } catch (e: Exception) {
-            Log.e(DEBUG_EXCEPTIONS, "Data obtained from default settings. Error: $e")
+            Log.e(DEBUG_APP, "Data obtained from default settings. Error: $e")
             BellData()
         }
     }
@@ -43,11 +43,11 @@ class BellsFragment : Fragment() {
                               savedInstanceState: Bundle?): View {
         val v = inflater.inflate(R.layout.fr_time, container, false)
 
-        viewModel = ViewModelProviders.of(activity!!)[CallTimeViewModel::class.java]
+        viewModel = ViewModelProviders.of(activity!!)[BellsTimeViewModel::class.java]
 
         val recycler: RecyclerView = v.findViewById(R.id.recyclerTime)
         recycler.layoutManager = LinearLayoutManager(context)  // Инициализируем LayoutManager для работы с recycler
-        recycler.adapter = BellsListAdapter(context!!, BellsGenerator(settings).getBellsList(), BellListUtils(settings).getNumberCurrentPair().second)  // Подключаемся к нашему адаптеру
+        recycler.adapter = BellsListFragmentAdapter(BellsGenerator(settings).getBellsList())  // Подключаемся к нашему адаптеру
         recycler.itemAnimator = DefaultItemAnimator() // Делаем плавную анимацию прокуртки
         recycler.setHasFixedSize(true)
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation)) // Добавляем вертикальный разделитель
@@ -73,15 +73,14 @@ class BellsFragment : Fragment() {
 
     /** @see timeUpdaterRunnable запускаем поток каждые 3 секунды, сравнивающий текущее время со списками*/
     private val timeUpdaterRunnable = object : Runnable {
-
         override fun run() {
             // Обновляем значения во viewModel
-            viewModel.setTime(BellListUtils(settings).getThisTime())
-            viewModel.setTimeLeft(BellListUtils(settings).getResidueTime())
+            viewModel.setTime(BellListGenerator(settings).getThisTime())
+            viewModel.setTimeLeft(BellListGenerator(settings).getResidueTime())
             viewModel.setPairStatus(
-                    when (BellListUtils(settings).getNumberCurrentPair().first) {
-                        BellListUtils.TimeEvent.LUNCH -> resources.getString(R.string.time_lunch)
-                        BellListUtils.TimeEvent.BREAK -> resources.getString(R.string.time_before)
+                    when (BellListGenerator(settings).getNumberCurrentPair().first) {
+                        BellListGenerator.TimeEvent.LUNCH -> resources.getString(R.string.time_lunch)
+                        BellListGenerator.TimeEvent.BREAK -> resources.getString(R.string.time_before)
                         else -> resources.getString(R.string.time_residue)
                     })
 

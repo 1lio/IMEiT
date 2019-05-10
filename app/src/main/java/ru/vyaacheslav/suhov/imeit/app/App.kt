@@ -1,21 +1,21 @@
 package ru.vyaacheslav.suhov.imeit.app
 
 import android.app.Application
-import android.content.Context
 import com.orhanobut.hawk.Hawk
+import ru.vyaacheslav.suhov.imeit.app.di.AppComponent
+import ru.vyaacheslav.suhov.imeit.app.di.DaggerAppComponent
 
 // Основной класс приложения
 class App : Application() {
 
-    lateinit var appContext:Context
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        appContext = applicationContext
+        appComponent = DaggerAppComponent.builder().build()
 
         // Инициализация библиотеки Hawk.
-        // Библитека нужна для хранения не особо важных данных
-        Hawk.init(appContext).build()
+        Hawk.init(applicationContext).build()
     }
 }

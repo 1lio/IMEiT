@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view.ftagments
+package ru.vyaacheslav.suhov.imeit.view.ftagments.other
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ class FirstRunFragmen : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fragment_first_run, container,false)
+        val v = inflater.inflate(R.layout.fr_first_run, container,false)
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }

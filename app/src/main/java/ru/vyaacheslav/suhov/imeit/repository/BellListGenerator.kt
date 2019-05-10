@@ -1,11 +1,12 @@
-package ru.vyaacheslav.suhov.imeit.util
+package ru.vyaacheslav.suhov.imeit.repository
 
+import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
 import java.util.*
 
 /** Данный класс работает обрабатывает дополнительные возможности при созданнии списка
  *  @param pref Вы должны передать настроки */
 
-class BellListUtils(private val pref: BellData) {
+class BellListGenerator(private val pref: BellData) {
 
     /** @see TimeEvent Типы состоянияний времени */
     enum class TimeEvent { LESSON, BREAK, LUNCH }
@@ -89,7 +90,7 @@ class BellListUtils(private val pref: BellData) {
     }
 
     /** @return Функция-расширение возвращает строку в 24-часовом формате времени <00:00> */
-     fun Int.timeFormat(): String {
+     private fun Int.timeFormat(): String {
 
         val hour = this / 60   // Часы
         val min = this % 60    // Минуты

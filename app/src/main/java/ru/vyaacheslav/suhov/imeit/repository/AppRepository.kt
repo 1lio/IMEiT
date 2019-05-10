@@ -2,8 +2,8 @@ package ru.vyaacheslav.suhov.imeit.repository
 
 import com.orhanobut.hawk.Hawk
 import ru.vyaacheslav.suhov.imeit.repository.entity.MapLocation
-import ru.vyaacheslav.suhov.imeit.util.AppConfig.KEY_GROUP
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
+import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_GROUP
 
 class AppRepository {
 
@@ -11,7 +11,7 @@ class AppRepository {
 
     fun getListGroup(): Array<String> {
 
-        return arrayOf("Без группы","ИиВТ-11")
+        return arrayOf("Без группы","ИиВТ-11","TEST")
     }
 
     fun getGroupId(): Int {
@@ -19,8 +19,9 @@ class AppRepository {
         val list = getListGroup()
 
         var id = 0
+
         for (i in 0..list.size) {
-            if (Hawk.get(KEY_GROUP, DEF_GROUP) == list[id]) {
+            if (Hawk.get(KEY_NAME_GROUP, DEF_NAME_GROUP) == list[id]) {
                 id = i
                 break
             }

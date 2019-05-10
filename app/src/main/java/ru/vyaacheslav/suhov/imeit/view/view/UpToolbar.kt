@@ -7,7 +7,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.viewmodel.MainViewModel
 
@@ -21,11 +20,11 @@ class UpToolbar : Toolbar {
 
     init {
         // Инициализируем свойства Toolbar
-        setTitleTextAppearance(activity, R.style.ToolbarTitleAppearance)              // Параемтры Title
-        setSubtitleTextAppearance(activity, R.style.ToolbarSubtitleAppearance)        // Параметры SubTitle
-        setTitleTextColor(ContextCompat.getColor(activity, R.color.white))            // Цвет Title
-        setSubtitleTextColor(ContextCompat.getColor(activity, R.color.gray))          // Цвет SubTile
-        setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))    // Цвет Toolbar
+        this@UpToolbar.setTitleTextAppearance(activity, R.style.ToolbarTitleAppearance)              // Параемтры Title
+        this@UpToolbar.setSubtitleTextAppearance(activity, R.style.ToolbarSubtitleAppearance)        // Параметры SubTitle
+        this@UpToolbar.setTitleTextColor(ContextCompat.getColor(activity, R.color.white))            // Цвет Title
+        this@UpToolbar.setSubtitleTextColor(ContextCompat.getColor(activity, R.color.gray))          // Цвет SubTile
+        this@UpToolbar.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))    // Цвет Toolbar
 
         // Добавляем observer на Title и Subtitle
         model.observeTitle(activity, Observer { title = it })                         // Обсервер на Title

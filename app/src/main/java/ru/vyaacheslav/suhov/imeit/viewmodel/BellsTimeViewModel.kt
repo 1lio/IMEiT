@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 
-class CallTimeViewModel: ViewModel() {
+class BellsTimeViewModel: ViewModel() {
 
     private val pairStatus = MutableLiveData<String>()
     private val timeLeft = MutableLiveData<String>()
@@ -27,17 +27,15 @@ class CallTimeViewModel: ViewModel() {
         currentTime.postValue(time)
     }
 
-    fun getPairStatus(): String {
-        return pairStatus.value ?: "error"
-    }
+    fun getPairStatus(): String = pairStatus.value ?: "error"
+
 
     fun setPairStatus(status:String){
         pairStatus.postValue(status)
     }
 
-    fun getTimeLeft() : String {
-        return timeLeft.value ?: "error"
-    }
+    fun getTimeLeft() : String = timeLeft.value ?: "error"
+
 
     fun setTimeLeft(time: String) {
         timeLeft.postValue(time)

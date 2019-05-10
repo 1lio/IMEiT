@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
-import kotlinx.android.synthetic.main.day.*
+import kotlinx.android.synthetic.main.fr_day.*
 import ru.vyaacheslav.suhov.imeit.R
 
 class ScheduleTuesday : androidx.fragment.app.Fragment() {
@@ -16,7 +16,7 @@ class ScheduleTuesday : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val v = inflater.inflate(R.layout.day, container, false)
+        val v = inflater.inflate(R.layout.fr_day, container, false)
 
         //connectionDB()
         return v
@@ -26,13 +26,11 @@ class ScheduleTuesday : androidx.fragment.app.Fragment() {
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
        // val typeGroup = prefs.getString(getString(R.string.pref_key_group), getString(R.string.pref_key_group))
-      //  val schedule = DB(this.context!!).dbSchedule(typeGroup, day)
+      //  val schedule = DB(this.context!!).dbSchedule(typeGroup, fr_day)
 
         recycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
-      //  recycler.adapter = DayAdapter(schedule)
+      //  recycler.adapter = DayFragmentAdapter(schedule)
         recycler.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
         recycler.setHasFixedSize(true)
-
-
     }
 }

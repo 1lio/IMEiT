@@ -9,12 +9,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.util.BellCount
+import ru.vyaacheslav.suhov.imeit.repository.BellListGenerator
+import ru.vyaacheslav.suhov.imeit.repository.BellsGenerator
+import ru.vyaacheslav.suhov.imeit.repository.entity.BellCount
+import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
 
-class BellsListAdapter(private val context: Context, private val list: List<BellCount>,
-                       private val countPair: Int) : RecyclerView.Adapter<BellsListAdapter.ViewHolder>() {
+class BellsListFragmentAdapter(private val list: List<BellCount>) : RecyclerView.Adapter<BellsListFragmentAdapter.ViewHolder>() {
 
-    lateinit var min: String
+    private lateinit var min: String
+    private lateinit var ctx: Context
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
@@ -25,14 +28,13 @@ class BellsListAdapter(private val context: Context, private val list: List<Bell
         val less2bot: TextView = itemView.findViewById(R.id.t_o_bott)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.it_time, parent, false)
+                .inflate(R.layout.item_bells, parent, false)
         min = v.resources.getString(R.string.min)
+        ctx = parent.context
         return ViewHolder(v)
     }
-
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -43,10 +45,11 @@ class BellsListAdapter(private val context: Context, private val list: List<Bell
         holder.less2top.text = list[position].bottomLesson
         holder.less2bot.text = list[position].bottomBreak.toString() + min
 
-        val color = ContextCompat.getColor(context, R.color.gray)
-        if (countPair == position) {
-            holder.itemView.setBackgroundColor(color)
-        }
+        val color = ContextCompat.getColor(ctx, R.color.colorSelect)
+
+        val currentPair = BellListGenerator(BellData()).getNumberCurrentPair().second
+        if (currentPair == position) holder.itemView.setBackgroundColor(color)
+
     }
 
     override fun getItemCount(): Int = list.size

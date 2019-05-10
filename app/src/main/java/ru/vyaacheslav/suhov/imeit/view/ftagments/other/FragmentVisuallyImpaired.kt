@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view.ftagments
+package ru.vyaacheslav.suhov.imeit.view.ftagments.other
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.vyaacheslav.suhov.imeit.R
 
-class EmptyGroupFragment : Fragment() {
+class FragmentVisuallyImpaired : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.empty_fragment,container, false)
+        val v = inflater.inflate(R.layout.fr_setings_vi, container)
+        return v
     }
 }

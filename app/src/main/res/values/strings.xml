@@ -5,7 +5,7 @@
     <string name="menu_time">Звонки</string>
     <string name="menu_schedule">Расписание</string>
     <string name="menu_maps">Корпуса</string>
-    <string name="min">\u0020минут</string>
+
     <!-- Strings a fragment Time -->
     <string name="time_pair">Пара</string>
     <string name="time_lesson">Занятие</string>
@@ -14,11 +14,17 @@
     <string name="time_lunch">Большая перемена:</string>
     <string name="time_this_time">Текущее время:</string>
     <string name="time_before">До начала занятий осталось:</string>
+
     <!-- Strings a fragment Maps -->
     <string name="map_maps">Карта</string>
     <string name="map_list">Список</string>
-    <!-- Activity Settings-->
-    <string name="settings">Настройки</string>
+
+    <!-- Day -->
+    <string name="day_mon">"Пн"</string>
+    <string name="day_tue">"Вт"</string>
+    <string name="day_wed">"Ср"</string>
+    <string name="day_thu"> "Чт"</string>
+    <string name="day_fri">"Пт"</string>
 
     <string name="cancel">Отмена</string>
 
@@ -37,12 +43,14 @@
     <string name="t_00">00</string>
     <string name="t_17_35">17:35</string>
 
+    <!-- Events -->
     <string name="group">Группа</string>
     <string name="empty_group">Группа не выбрана</string>
     <string name="back">Назат</string>
     <string name="next">Далее</string>
     <string name="you_institute">Ваш нститут:</string>
-    <string name="image">image</string>
     <string name="set_down_schedule">Нажмие чтобы скачать расписание</string>
 
+    <string name="image">image</string>
+    <string name="min">\u0020минут</string>
 </resources>

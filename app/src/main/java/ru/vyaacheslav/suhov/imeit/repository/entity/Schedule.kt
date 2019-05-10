@@ -1,7 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.repository.entity
 
 data class Schedule(
-
         val together: Int = 0,
         val name: String = "",
         val surname: String = "",
@@ -11,9 +10,5 @@ data class Schedule(
         val surname_out: String = "",
         val type_out: String = "",
         val build_out: String = "",
-        val tex1: String = "",
-        val tex2: String = "",
-        val tex3: String = "",
         val note: String = ""
-
 )

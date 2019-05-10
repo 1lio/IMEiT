@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.util
+package ru.vyaacheslav.suhov.imeit.repository.entity
 
 /** В данном классе описываются поля данных для формирования списка BellsList
  * @author SukhovViacheslav

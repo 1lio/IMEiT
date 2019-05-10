@@ -15,13 +15,12 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.DB
 
 /** Фрагмент с картой */
-class MapsLocation : Fragment(), OnMapReadyCallback {
+class MapsMapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        val v = inflater.inflate(R.layout.fragment_maps, container, false)
-        val mapFragment: SupportMapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        val v = inflater.inflate(R.layout.fr_maps, container, false)
+        (childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment).getMapAsync(this)
         return v
     }
 
