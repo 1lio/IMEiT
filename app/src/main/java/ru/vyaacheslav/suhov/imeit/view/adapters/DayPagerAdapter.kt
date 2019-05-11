@@ -9,12 +9,12 @@ class DayPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> ScheduleMonday()
-            1 -> ScheduleTuesday()
-            2 -> ScheduleWednesday()
-            3 -> ScheduleThursday()
-            4 -> ScheduleFriday()
-            else -> ScheduleMonday()
+            0 -> FragmentDay("mon")
+            1 -> FragmentDay("tue")
+            2 -> FragmentDay("wed")
+            3 -> FragmentDay("thu")
+            4 -> FragmentDay("fri")
+            else -> FragmentDay("mon")
         }
     }
 

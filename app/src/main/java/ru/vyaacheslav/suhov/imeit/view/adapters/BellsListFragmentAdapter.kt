@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.BellListGenerator
-import ru.vyaacheslav.suhov.imeit.repository.BellsGenerator
 import ru.vyaacheslav.suhov.imeit.repository.entity.BellCount
 import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
 
@@ -51,6 +50,5 @@ class BellsListFragmentAdapter(private val list: List<BellCount>) : RecyclerView
         if (currentPair == position) holder.itemView.setBackgroundColor(color)
 
     }
-
     override fun getItemCount(): Int = list.size
 }

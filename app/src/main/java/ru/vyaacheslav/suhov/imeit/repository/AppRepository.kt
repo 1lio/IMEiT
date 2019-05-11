@@ -1,58 +1,60 @@
 package ru.vyaacheslav.suhov.imeit.repository
 
-import com.orhanobut.hawk.Hawk
-import ru.vyaacheslav.suhov.imeit.repository.entity.MapLocation
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
-import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_GROUP
+import android.util.Log
+import com.google.firebase.database.*
+import io.reactivex.Observable
+import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
+import ru.vyaacheslav.suhov.imeit.util.Constants.FACULTY
+import ru.vyaacheslav.suhov.imeit.util.Constants.GROUPS
+import ru.vyaacheslav.suhov.imeit.util.Constants.INSTITUTES
 
 class AppRepository {
 
-    // private val dbHelper = DatabaseHelper(context).writableDatabase
+    private val db = FirebaseDatabase.getInstance()
 
-    fun getListGroup(): Array<String> {
+    private val institute: String = "imeit"
+    private val faculty: String = "FizMat"
 
-        return arrayOf("Без группы","ИиВТ-11","TEST")
-    }
+    fun getListGroups(): Observable<ArrayList<String>> {
 
-    fun getGroupId(): Int {
+        return Observable.create {
+            db.getReference(INSTITUTES).child(institute).child(FACULTY).child(faculty).child(GROUPS)
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val list = arrayListOf("Группа не выбрана")
+                            for (s: DataSnapshot in snapshot.children) {
+                                list.add(s.key!!)
+                            }
 
-        val list = getListGroup()
+                            it.onNext(list)
+                        }
+                        override fun onCancelled(snapshot: DatabaseError) {}
+                    })
 
-        var id = 0
-
-        for (i in 0..list.size) {
-            if (Hawk.get(KEY_NAME_GROUP, DEF_NAME_GROUP) == list[id]) {
-                id = i
-                break
-            }
         }
-        return id
-
     }
 
-    /* fun addMap(map: MapLocation) {
-         val values = ContentValues()
-         values.put("name",map.name)
-         values.put("address",map.address)
-         values.put("locate",map.locate)
-         dbHelper.insert("MAPS",null,values)
+    fun getScheduleDay(day: String, group: String): Observable<ArrayList<Schedule>> {
+        return Observable.create {
+            db.getReference(INSTITUTES).child(institute).child(FACULTY).child(faculty).child(GROUPS).child(group).child("mon")
+                    .addValueEventListener(object : ValueEventListener {
 
-     }*/
+                        override fun onDataChange(snapshot: DataSnapshot) {
 
-    fun getMapList(): List<MapLocation> {
+                            val list = ArrayList<Schedule>()
 
-        val list: MutableList<MapLocation> = mutableListOf()
-        /*   val cursor = dbHelper.rawQuery("SELECT * FROM MAPS", null)
+                           list.add(snapshot.child("pair1").getValue(Schedule::class.java) ?: Schedule())
 
-           cursor.moveToFirst()
-           while (!cursor.isAfterLast) {
-               list.add(cursor.position, MapLocation(cursor.getString(1),
-                       cursor.getString(2),
-                       cursor.getString(3)))
-               cursor.moveToNext()
-           }
-           cursor.close()*/
 
-        return list
+                           /*  for (s:DataSnapshot in snapshot.children){
+                                 list.add(snapshot.getValue(Schedule::class.java) ?: Schedule())
+                             }*/
+                            Log.d("TESTA2", list.toString())
+
+                        }
+
+                        override fun onCancelled(snapshot: DatabaseError) {}
+                    })
+        }
     }
 }

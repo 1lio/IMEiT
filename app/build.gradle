@@ -29,7 +29,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
-    implementation "androidx.viewpager2:viewpager2:1.0.0-alpha04"
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+
     // Библиотека для доступа к google maps
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
 
@@ -38,15 +39,20 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha05'
 
-    // LifeCycle 
+    // LifeCycle
     implementation 'android.arch.lifecycle:extensions:1.1.1'
+
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
 
     // Библиотека для хранения небольших данных примитивных типов
     implementation "com.orhanobut:hawk:2.0.1"
+
+    //FireBaseRealtimeDatabase
     implementation 'com.google.firebase:firebase-database:17.0.0'
-    implementation 'androidx.viewpager:viewpager:1.0.0'
 
     // Dagger
-    implementation 'com.google.dagger:dagger:2.16'
-    kapt 'com.google.dagger:dagger-compiler:2.16'
+   // implementation 'com.google.dagger:dagger:2.16'
+    //kapt 'com.google.dagger:dagger-compiler:2.16'
 }

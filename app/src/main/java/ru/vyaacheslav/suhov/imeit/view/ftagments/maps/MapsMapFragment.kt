@@ -10,9 +10,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.repository.DB
 
 /** Фрагмент с картой */
 class MapsMapFragment : Fragment(), OnMapReadyCallback {
@@ -25,13 +23,13 @@ class MapsMapFragment : Fragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        val dbLocate = DB(this.context!!).dbMaps()  // Подключаемся к базе к таблице с картой
+      //  val dbLocate = DB(this.context!!).dbMaps()  // Подключаемся к базе к таблице с картой
 
         // В цикле перебераем коодинаты и приводм к типу LatLng
         // Затем создаем point на карте и присваиваем имя из БД
 
         /*   val colorPoint = 136f // Цвет маркера на карте*/
-        var i = 0
+ /*       var i = 0
 
         while (i < dbLocate.size) {
             val hh = dbLocate[i]["locate"].toString()
@@ -41,10 +39,10 @@ class MapsMapFragment : Fragment(), OnMapReadyCallback {
             val location = LatLng(latitude, longitude)
 
             googleMap.addMarker(MarkerOptions().position(location)
-                    .title("${dbLocate[i]["name"]}")
-                    /* .icon(BitmapDescriptorFactory.defaultMarker(colorPoint))*/)
+                    .title("${dbLocate[i]["lesson"]}")
+                    *//* .icon(BitmapDescriptorFactory.defaultMarker(colorPoint))*//*)
             i++
-        }
+        }*/
 
         val center = LatLng(52.625338, 38.495109) // Сентрируем карту чтобы были на карте точки всех корпусов
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(center))

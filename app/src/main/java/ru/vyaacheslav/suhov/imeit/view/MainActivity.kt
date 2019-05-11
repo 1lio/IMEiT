@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
 
         model = ViewModelProviders.of(this@MainActivity)[MainViewModel::class.java]
         setSupportActionBar(bottom_bar)
-
         loadStartFragment()                              // Загружаем стартовый фрагмент
         fab.setOnClickListener { pushFabFragment() }     // Обработка нажатия на FAB
     }

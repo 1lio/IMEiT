@@ -1,14 +1,14 @@
 package ru.vyaacheslav.suhov.imeit.repository.entity
 
 data class Schedule(
-        val together: Int = 0,
-        val name: String = "",
-        val surname: String = "",
-        val type: String = "",
-        val build: String = "",
-        val name_out: String = "",
-        val surname_out: String = "",
-        val type_out: String = "",
-        val build_out: String = "",
-        val note: String = ""
+        var lesson: String = "",
+        var teacher: String = "",
+        var type: String = "",
+        var building: String = "",
+        var lesson2: String = "",
+        var teacher2: String = "",
+        var type2: String = "",
+        var building2: String = "",
+        var together: Int = 0,
+        var note: String = ""
 )

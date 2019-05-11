@@ -29,16 +29,13 @@ class BellsTimeViewModel: ViewModel() {
 
     fun getPairStatus(): String = pairStatus.value ?: "error"
 
-
     fun setPairStatus(status:String){
         pairStatus.postValue(status)
     }
 
     fun getTimeLeft() : String = timeLeft.value ?: "error"
 
-
     fun setTimeLeft(time: String) {
         timeLeft.postValue(time)
     }
-
 }

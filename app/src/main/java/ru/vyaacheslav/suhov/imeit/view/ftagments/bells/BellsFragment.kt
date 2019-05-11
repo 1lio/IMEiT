@@ -16,7 +16,6 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.app.App
 import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
 import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListFragmentAdapter
-import ru.vyaacheslav.suhov.imeit.repository.DB
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEBUG_APP
 import ru.vyaacheslav.suhov.imeit.viewmodel.BellsTimeViewModel
 
@@ -31,18 +30,13 @@ class BellsFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // Грузим данные из БД
-        settings = try {
-            DB(App().applicationContext).dbBellsSettings()[0]  // берем данные из базы
-        } catch (e: Exception) {
-            Log.e(DEBUG_APP, "Data obtained from default settings. Error: $e")
-            BellData()
-        }
+        settings = BellData()
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         val v = inflater.inflate(R.layout.fr_time, container, false)
-
         viewModel = ViewModelProviders.of(activity!!)[BellsTimeViewModel::class.java]
 
         val recycler: RecyclerView = v.findViewById(R.id.recyclerTime)

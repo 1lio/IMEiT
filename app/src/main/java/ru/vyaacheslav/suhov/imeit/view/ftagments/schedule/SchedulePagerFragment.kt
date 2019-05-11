@@ -1,16 +1,15 @@
 package ru.vyaacheslav.suhov.imeit.view.ftagments.schedule
 
 import android.os.Bundle
-import android.view.*
-import com.google.android.material.tabs.TabLayout
-import androidx.core.content.ContextCompat
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.tabs.TabLayout
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.adapters.DayPagerAdapter
 import java.util.*
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 
 class SchedulePagerFragment : Fragment() {
 
@@ -20,13 +19,6 @@ class SchedulePagerFragment : Fragment() {
 
         val tabLayout = v.findViewById<TabLayout>(R.id.tabs)
         val viewPager = v.findViewById<ViewPager>(R.id.viewpager)
-        val fab: FloatingActionButton = activity!!.findViewById(R.id.fab)
-
-       // val params = fab.layoutParams as CoordinatorLayout.LayoutParams
-       // params.anchorId = View.NO_ID
-
-       // fab.setImageDrawable(ContextCompat.getDrawable(activity!!, R.drawable.ic_schedule))
-     //   fab.visibility = View.GONE
 
         viewPager.adapter = DayPagerAdapter(childFragmentManager)
         tabLayout.post { tabLayout.setupWithViewPager(viewPager) }
@@ -38,6 +30,7 @@ class SchedulePagerFragment : Fragment() {
             Calendar.FRIDAY -> viewPager.setCurrentItem(4, true)
             else -> viewPager.setCurrentItem(0, true)
         }
+
         return v
     }
 }

@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view.ftagments.maps
+package ru.vyaacheslav.suhov.imeit.view.ftagments.schedule
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,25 +12,27 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.view.adapters.MapsListAdapter
-import ru.vyaacheslav.suhov.imeit.viewmodel.MapsListViewModel
+import ru.vyaacheslav.suhov.imeit.view.adapters.DayFragmentAdapter
+import ru.vyaacheslav.suhov.imeit.viewmodel.DayViewModel
 
-/** Фрагмент список с положением всех корпусов ЕГУ */
-class MapsListFragment : Fragment() {
+class FragmentDay(private val day: String): Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    private lateinit var recycler: RecyclerView
+    private lateinit var model: DayViewModel
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         val v = inflater.inflate(R.layout.fr_recycler, container, false)
-        val recycler = v.findViewById<RecyclerView>(R.id.recycler)
+        recycler = v.findViewById(R.id.recycler)
 
-        val model: MapsListViewModel = ViewModelProviders.of(this)[MapsListViewModel::class.java]
+        model = ViewModelProviders.of(this)[DayViewModel::class.java]
+        model.day = day // Передаем день
 
-        model.observeListBuilding(this, Observer {
+        model.observeSchedule(this, Observer {
 
-            val adapter = MapsListAdapter(it)
+            val adapter = DayFragmentAdapter(it)
             recycler.adapter = adapter
             adapter.notifyDataSetChanged()
-
         })
 
         recycler.layoutManager = LinearLayoutManager(context)
