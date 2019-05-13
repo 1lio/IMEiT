@@ -11,17 +11,23 @@ import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.repository.FirebaseRealtimeRepository
 import ru.vyaacheslav.suhov.imeit.repository.MainInteractor
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_FACULTY
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_INSTITUTE
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
+import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_INSTITUTE
+import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_FACULTY
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_GROUP
 import java.util.*
 import kotlin.collections.ArrayList
 
 class DayViewModel : ViewModel() {
 
-    private val dayLiveData = MutableLiveData<String>()
-    private val nameCurrentGroup = Hawk.get(KEY_NAME_GROUP, DEF_NAME_GROUP)
+    private val currentGroup = Hawk.get(KEY_NAME_GROUP, DEF_NAME_GROUP)
+    private val currentInstitute = Hawk.get(KEY_INSTITUTE, DEF_INSTITUTE)
+    private val currentFaculty = Hawk.get(KEY_NAME_FACULTY, DEF_FACULTY)
     private val listSchedule: ArrayList<Schedule> = arrayListOf()
     private val interactor = MainInteractor(FirebaseRealtimeRepository().getInstance())
+    private val dayLiveData = MutableLiveData<String>()
     private val scheduleListLiveData = MutableLiveData<ArrayList<Schedule>>()
     private val compositeDisposable = CompositeDisposable()
 
@@ -35,7 +41,8 @@ class DayViewModel : ViewModel() {
             else -> "mon"
         })
 
-        interactor.getScheduleDay(getDay(), nameCurrentGroup).subscribeOn(Schedulers.io())
+        interactor.getScheduleDay(currentInstitute, currentFaculty, getDay(), currentGroup)
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     listSchedule.addAll(it)
@@ -45,8 +52,20 @@ class DayViewModel : ViewModel() {
     }
 
     private fun getDay() = dayLiveData.value ?: "mon"
-
     fun setDay(day: String) = dayLiveData.postValue(day)
+
+    fun setSchedule(day: String) {
+        interactor.getScheduleDay(currentInstitute, currentFaculty, day, currentGroup)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    //Ошибка из-за добовления
+                    listSchedule.clear()
+                    listSchedule.addAll(it)
+                    scheduleListLiveData.postValue(listSchedule)
+                }.apply { compositeDisposable.add(this) }
+
+    }
 
     fun observeSchedule(owner: LifecycleOwner, observer: Observer<ArrayList<Schedule>>) {
         scheduleListLiveData.observe(owner, observer)

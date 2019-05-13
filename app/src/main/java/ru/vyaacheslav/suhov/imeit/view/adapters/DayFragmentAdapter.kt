@@ -10,7 +10,7 @@ import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 
 class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.Adapter<DayFragmentAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(p: ViewGroup, viewType: Int): ViewHolder =
+    override fun onCreateViewHolder(p: ViewGroup, t: Int) =
             ViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -24,16 +24,16 @@ class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.A
         holder.building2.text = list[position].building2
     }
 
-    override fun getItemCount(): Int = list.size
+    override fun getItemCount() = list.size
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        var lesson: TextView = v.findViewById(R.id.s_name)
-        var teacher: TextView = v.findViewById(R.id.s_subname)
-        var type: TextView = v.findViewById(R.id.s_type)
-        var building: TextView = v.findViewById(R.id.s_build)
-        var lesson2: TextView = v.findViewById(R.id.s_name_d)
-        var teacher2: TextView = v.findViewById(R.id.s_subname_d)
-        var type2: TextView = v.findViewById(R.id.s_type_d)
-        var building2: TextView = v.findViewById(R.id.s_build_d)
+        val lesson: TextView = v.findViewById(R.id.s_name)
+        val teacher: TextView = v.findViewById(R.id.s_subname)
+        val type: TextView = v.findViewById(R.id.s_type)
+        val building: TextView = v.findViewById(R.id.s_build)
+        val lesson2: TextView = v.findViewById(R.id.s_name_d)
+        val teacher2: TextView = v.findViewById(R.id.s_subname_d)
+        val type2: TextView = v.findViewById(R.id.s_type_d)
+        val building2: TextView = v.findViewById(R.id.s_build_d)
     }
 }

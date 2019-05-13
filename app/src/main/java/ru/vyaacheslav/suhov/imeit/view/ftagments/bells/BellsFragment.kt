@@ -2,7 +2,9 @@ package ru.vyaacheslav.suhov.imeit.view.ftagments.bells
 
 import android.os.Bundle
 import android.os.Handler
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -38,8 +40,8 @@ class BellsFragment : Fragment() {
         recycler.layoutManager = LinearLayoutManager(context)  // Инициализируем LayoutManager для работы с recycler
         recycler.adapter = BellsListFragmentAdapter(BellsGenerator(settings).getBellsList())  // Подключаемся к нашему адаптеру
         recycler.itemAnimator = DefaultItemAnimator() // Делаем плавную анимацию прокуртки
-        recycler.setHasFixedSize(true)
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation)) // Добавляем вертикальный разделитель
+        recycler.setHasFixedSize(true)
 
         // Запускаем отдельный поток при старте активити для определения остатка времени до события
         handler.removeCallbacks(timeUpdaterRunnable)

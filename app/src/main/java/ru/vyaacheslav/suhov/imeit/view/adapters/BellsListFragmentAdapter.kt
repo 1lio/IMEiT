@@ -13,7 +13,8 @@ import ru.vyaacheslav.suhov.imeit.repository.BellListGenerator
 import ru.vyaacheslav.suhov.imeit.repository.entity.BellCount
 import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
 
-class BellsListFragmentAdapter(private val list: List<BellCount>) : RecyclerView.Adapter<BellsListFragmentAdapter.ViewHolder>() {
+class BellsListFragmentAdapter(private val list: List<BellCount>) :
+        RecyclerView.Adapter<BellsListFragmentAdapter.ViewHolder>() {
 
     private lateinit var min: String
     private lateinit var ctx: Context
@@ -45,10 +46,10 @@ class BellsListFragmentAdapter(private val list: List<BellCount>) : RecyclerView
         holder.less2bot.text = list[position].bottomBreak.toString() + min
 
         val color = ContextCompat.getColor(ctx, R.color.colorSelect)
-
         val currentPair = BellListGenerator(BellData()).getNumberCurrentPair().second
+
         if (currentPair == position) holder.itemView.setBackgroundColor(color)
 
     }
-    override fun getItemCount(): Int = list.size
+    override fun getItemCount() = list.size
 }

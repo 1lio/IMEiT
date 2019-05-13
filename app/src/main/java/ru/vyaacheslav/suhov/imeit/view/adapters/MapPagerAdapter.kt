@@ -12,5 +12,5 @@ class MapPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getCount() = 2
 
-    override fun getPageTitle(position: Int): CharSequence? = if (position == 0) "Корпуса" else "Список"
+    override fun getPageTitle(position: Int) = if (position == 0) "Корпуса" else "Список"
 }

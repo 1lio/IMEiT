@@ -10,6 +10,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.repository.FirebaseRealtimeRepository
 import ru.vyaacheslav.suhov.imeit.repository.MainInteractor
+import ru.vyaacheslav.suhov.imeit.util.Constants
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_FIRST_RUN
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP_ID
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_INSTITUTE
@@ -33,6 +34,9 @@ class MainViewModel : ViewModel() {
     // Настройки
     private val selectedListId = MutableLiveData<Int>()
     private val day = MutableLiveData<String>()
+    // Сохраненные  данные
+    private val currentFaculty = Hawk.get(Constants.KEY_NAME_FACULTY, Constants.DEF_FACULTY)
+    private val currentInstitute = Hawk.get(KEY_INSTITUTE, DEF_INSTITUTE)
     // Лист со всеми группами
     private val listGroups = MutableLiveData<Array<String>>()
 
@@ -51,7 +55,7 @@ class MainViewModel : ViewModel() {
         }
 
         // Лист со всеми группами выбранного института
-        interactor.getListGroups()
+        interactor.getListGroups(currentInstitute,currentFaculty)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { listGroups.postValue(it.toTypedArray()) }
