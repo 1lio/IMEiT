@@ -1,6 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.view.ftagments.schedule
 
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -16,21 +17,21 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.adapters.DayFragmentAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.DayViewModel
 
-class FragmentDay(private val day: String) : Fragment() {
+class ScheduleFriday (private val day: String) : Fragment() {
 
     private lateinit var model: DayViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         model = ViewModelProviders.of(this)[DayViewModel::class.java]
-        model.setDay("mon")
+        model.setDay("fri")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fr_recycler, container, false)
         val recycler: RecyclerView = v.findViewById(R.id.recycler)
 
-        model.observeSchedule( this, Observer {
+        model.observeSchedule("fri",this, Observer {
             val adapter = DayFragmentAdapter(it)
             recycler.adapter = adapter
             adapter.notifyDataSetChanged()
@@ -40,8 +41,6 @@ class FragmentDay(private val day: String) : Fragment() {
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
 
-
-        Log.d("TESTA",day)
         return v
     }
 }

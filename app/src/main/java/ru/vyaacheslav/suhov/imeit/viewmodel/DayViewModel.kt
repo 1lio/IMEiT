@@ -14,39 +14,39 @@ import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_GROUP
 import java.util.*
+import kotlin.collections.ArrayList
 
 class DayViewModel : ViewModel() {
 
+    private val dayLiveData = MutableLiveData<String>()
+    private val nameCurrentGroup = Hawk.get(KEY_NAME_GROUP, DEF_NAME_GROUP)
+    private val listSchedule: ArrayList<Schedule> = arrayListOf()
     private val interactor = MainInteractor(FirebaseRealtimeRepository().getInstance())
+    private val scheduleListLiveData = MutableLiveData<ArrayList<Schedule>>()
     private val compositeDisposable = CompositeDisposable()
 
-    private val group = Hawk.get(KEY_NAME_GROUP, DEF_NAME_GROUP)
-
-    private val scheduleList: ArrayList<Schedule> = arrayListOf()
-    private val scheduleListLiveData = MutableLiveData<ArrayList<Schedule>>()
-
-    var day :String = ""
-
     init {
-
         // При инициализации вытаскиваем текущий день недели
-        day = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
+        dayLiveData.postValue(when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
             Calendar.TUESDAY -> "tue"
             Calendar.WEDNESDAY -> "wed"
             Calendar.THURSDAY -> "thu"
             Calendar.FRIDAY -> "fri"
             else -> "mon"
-        }
+        })
 
-        interactor.getScheduleDay(day, group)
-                .subscribeOn(Schedulers.io())
+        interactor.getScheduleDay(getDay(), nameCurrentGroup).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    scheduleList.addAll(it)
-                    scheduleListLiveData.postValue(it)
+                    listSchedule.addAll(it)
+                    scheduleListLiveData.postValue(listSchedule)
                 }.apply { compositeDisposable.add(this) }
 
     }
+
+    private fun getDay() = dayLiveData.value ?: "mon"
+
+    fun setDay(day: String) = dayLiveData.postValue(day)
 
     fun observeSchedule(owner: LifecycleOwner, observer: Observer<ArrayList<Schedule>>) {
         scheduleListLiveData.observe(owner, observer)

@@ -19,7 +19,7 @@ class MapsListViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
     init {
-        interactor.getListBuildings.subscribeOn(Schedulers.io())
+        interactor.getListBuildings().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     listMap.addAll(it)

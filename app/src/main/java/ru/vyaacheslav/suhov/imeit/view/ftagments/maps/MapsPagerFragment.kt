@@ -16,7 +16,7 @@ class MapsPagerFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Инициализация
         val v = inflater.inflate(R.layout.fr_tab, container, false)
-        val tabLayout = v.findViewById<TabLayout>(R.id.tabs)
+        val tabLayout = v.findViewById<TabLayout>(R.id.tab_layout)
         val viewPager = v.findViewById<ViewPager>(R.id.viewpager)
 
         // Подключаем адаптер в viewPager

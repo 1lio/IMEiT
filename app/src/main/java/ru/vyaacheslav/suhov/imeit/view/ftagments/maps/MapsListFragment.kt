@@ -15,7 +15,7 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.adapters.MapsListAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.MapsListViewModel
 
-/** Фрагмент список с положением всех корпусов ЕГУ */
+/** Фрагмент список с положением всех корпусов */
 class MapsListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -26,18 +26,15 @@ class MapsListFragment : Fragment() {
         val model: MapsListViewModel = ViewModelProviders.of(this)[MapsListViewModel::class.java]
 
         model.observeListBuilding(this, Observer {
-
             val adapter = MapsListAdapter(it)
             recycler.adapter = adapter
             adapter.notifyDataSetChanged()
-
         })
 
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.setHasFixedSize(true)
-
         return v
     }
 }

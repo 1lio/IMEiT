@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.time_view.view.*
+import kotlinx.android.synthetic.main.v_time_check.view.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.viewmodel.BellsTimeViewModel
@@ -20,7 +20,7 @@ class TimeView : LinearLayout {
     private val viewModel = ViewModelProviders.of(activity)[BellsTimeViewModel::class.java]
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.time_view, this)
+        LayoutInflater.from(context).inflate(R.layout.v_time_check, this)
 
         viewModel.observePairStatus(activity, Observer { pair_status.text = it })
         viewModel.observeTimeLeft(activity, Observer { text_time.text = it })

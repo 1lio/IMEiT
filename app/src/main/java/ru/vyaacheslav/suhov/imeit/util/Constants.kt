@@ -12,13 +12,15 @@ object Constants {
     const val DEF_GROUP_ID = 0
     const val DEF_FIRST_RUN = true
 
-    const val DEBUG_APP = "DEBUG_APP"
-
     const val FACULTY = "faculty"
     const val GROUPS = "groups"
     const val INSTITUTES = "Institutes"
 
     const val MON = "mon"
+    const val TUE = "tue"
+    const val WED = "wed"
+    const val THU = "thu"
+    const val FRI = "fri"
 
     const val MAP_REFERENCE = "map"
 }

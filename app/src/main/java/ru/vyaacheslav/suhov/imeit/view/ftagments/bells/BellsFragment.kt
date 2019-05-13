@@ -2,7 +2,6 @@ package ru.vyaacheslav.suhov.imeit.view.ftagments.bells
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -13,10 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.repository.BellListGenerator
 import ru.vyaacheslav.suhov.imeit.repository.BellsGenerator
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.app.App
 import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
 import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListFragmentAdapter
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEBUG_APP
 import ru.vyaacheslav.suhov.imeit.viewmodel.BellsTimeViewModel
 
 class BellsFragment : Fragment() {
@@ -28,10 +25,8 @@ class BellsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         // Грузим данные из БД
         settings = BellData()
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

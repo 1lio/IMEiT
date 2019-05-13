@@ -16,21 +16,21 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.adapters.DayFragmentAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.DayViewModel
 
-class FragmentDay(private val day: String) : Fragment() {
+class ScheduleWednesday(private val day: String) : Fragment() {
 
     private lateinit var model: DayViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         model = ViewModelProviders.of(this)[DayViewModel::class.java]
-        model.setDay("mon")
+        model.setDay("wed")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fr_recycler, container, false)
         val recycler: RecyclerView = v.findViewById(R.id.recycler)
 
-        model.observeSchedule( this, Observer {
+        model.observeSchedule("wed",this, Observer {
             val adapter = DayFragmentAdapter(it)
             recycler.adapter = adapter
             adapter.notifyDataSetChanged()
@@ -39,9 +39,7 @@ class FragmentDay(private val day: String) : Fragment() {
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
-
-
-        Log.d("TESTA",day)
+        recycler.setHasFixedSize(true)
         return v
     }
 }
