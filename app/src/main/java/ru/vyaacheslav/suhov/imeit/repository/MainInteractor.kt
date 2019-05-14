@@ -14,6 +14,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         return Observable.create {
             repository.getRefListEducationBuildings()
                     .addValueEventListener(object : ValueEventListener {
+
                         override fun onDataChange(snapshot: DataSnapshot) {
                             val list = arrayListOf<Buildings>()
                             for (s: DataSnapshot in snapshot.children) {
@@ -21,44 +22,47 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                             }
                             it.onNext(list)
                         }
+
                         override fun onCancelled(snapshot: DatabaseError) {}
                     })
         }
     }
 
-    fun getListGroups(institute: String, faculty: String): Observable<ArrayList<String>> =
-            Observable.create {
-                repository.getRefListGroups(institute, faculty)
-                        .addValueEventListener(object : ValueEventListener {
-                            override fun onDataChange(snapshot: DataSnapshot) {
-                                val list = arrayListOf("Группа не выбрана")
-                                for (s: DataSnapshot in snapshot.children) {
-                                    list.add(s.key!!)
-                                }
-                                it.onNext(list)
+    fun getListGroups(institute: String, faculty: String): Observable<ArrayList<String>> {
+        return Observable.create {
+            repository.getRefListGroups(institute, faculty)
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val list = arrayListOf("Группа не выбрана")
+                            for (s: DataSnapshot in snapshot.children) {
+                                list.add(s.key!!)
+                            }
+                            it.onNext(list)
+                        }
+
+                        override fun onCancelled(snapshot: DatabaseError) {}
+                    })
+        }
+    }
+
+    fun getScheduleDay(institute: String, faculty: String, day: String, group: String): Observable<ArrayList<Schedule>> {
+
+        return Observable.create {
+            repository.getRefListSchedule(institute, faculty, group, day)
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+
+                            val list = ArrayList<Schedule>()
+
+                            for (x in 1..4) {
+                                list.add(snapshot.child("pair$x").getValue(Schedule::class.java) ?: Schedule())
                             }
 
-                            override fun onCancelled(snapshot: DatabaseError) {}
-                        })
+                            it.onNext(list)
+                        }
 
-            }
-
-    fun getScheduleDay(institute: String, faculty: String, day: String, group: String): Observable<ArrayList<Schedule>> =
-            Observable.create {
-                repository.getRefListSchedule(institute, faculty, group, day)
-                        .addValueEventListener(object : ValueEventListener {
-                            override fun onDataChange(snapshot: DataSnapshot) {
-
-                                val list = ArrayList<Schedule>()
-
-                                for (x in 1..4) {
-                                    list.add(snapshot.child("pair$x").getValue(Schedule::class.java) ?: Schedule())
-                                }
-
-                                it.onNext(list)
-                            }
-
-                            override fun onCancelled(snapshot: DatabaseError) {}
-                        })
-            }
+                        override fun onCancelled(snapshot: DatabaseError) {}
+                    })
+        }
+    }
 }

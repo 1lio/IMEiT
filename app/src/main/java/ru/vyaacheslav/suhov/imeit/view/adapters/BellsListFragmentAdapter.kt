@@ -10,8 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.BellListGenerator
-import ru.vyaacheslav.suhov.imeit.repository.entity.BellCount
-import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellCount
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellData
 
 class BellsListFragmentAdapter(private val list: List<BellCount>) :
         RecyclerView.Adapter<BellsListFragmentAdapter.ViewHolder>() {

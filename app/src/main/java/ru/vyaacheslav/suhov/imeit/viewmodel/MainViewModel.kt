@@ -61,7 +61,7 @@ class MainViewModel : ViewModel() {
                 .subscribe { listGroups.postValue(it.toTypedArray()) }
                 .apply { compositeDisposable.add(this) }
 
-        selectedListId.postValue(Hawk.get(KEY_GROUP_ID, DEF_GROUP_ID))       // ID Группы
+        selectedListId.postValue(Hawk.get(KEY_GROUP_ID, DEF_GROUP_ID))        // ID Группы
 
         titleToolbar.value = Hawk.get(KEY_INSTITUTE, DEF_INSTITUTE)           // Институт
         subtitleToolbar.value = Hawk.get(KEY_NAME_GROUP, DEF_NAME_GROUP)      // Группа
@@ -90,17 +90,15 @@ class MainViewModel : ViewModel() {
     fun observeTitle(owner: LifecycleOwner, observer: Observer<String>) {
         titleToolbar.observe(owner, observer)
     }
+
     fun observeSubtitle(owner: LifecycleOwner, observer: Observer<String>) {
         subtitleToolbar.observe(owner, observer)
     }
 
-    private fun setSubtitle(group: String) {
-        subtitleToolbar.postValue(group)
-    }
+    private fun setSubtitle(group: String) { subtitleToolbar.postValue(group) }
 
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.dispose()
-        compositeDisposable.clear() // Береженого Бог...
     }
 }

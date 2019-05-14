@@ -1,6 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.repository
 
-import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellData
 import java.util.*
 
 /** Данный класс работает обрабатывает дополнительные возможности при созданнии списка
@@ -76,7 +76,6 @@ class BellListGenerator(private val pref: BellData) {
 
     /**@see getResidueTime Функция которая возвращает скользо времени осталось до конца пары или перемены*/
     fun getResidueTime(): String {
-
         return if (getNumberCurrentPair().first == TimeEvent.LESSON) {
             // Вернем время до окончания пар
             ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()

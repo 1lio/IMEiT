@@ -7,8 +7,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 
 class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.Adapter<DayFragmentAdapter.ViewHolder>() {
+
+    private val listTime: List<TimeData> = listOf(TimeData("","",""))
 
     override fun onCreateViewHolder(p: ViewGroup, t: Int) =
             ViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
@@ -22,6 +25,10 @@ class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.A
         holder.teacher2.text = list[position].teacher2
         holder.type2.text = list[position].type2
         holder.building2.text = list[position].building2
+
+        holder.time1.text = listTime[position].tex1
+        holder.time2.text = listTime[position].tex2
+        holder.time3.text = listTime[position].tex3
     }
 
     override fun getItemCount() = list.size
@@ -35,5 +42,9 @@ class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.A
         val teacher2: TextView = v.findViewById(R.id.s_subname_d)
         val type2: TextView = v.findViewById(R.id.s_type_d)
         val building2: TextView = v.findViewById(R.id.s_build_d)
+
+        val time1: TextView = v.findViewById(R.id.tex1)
+        val time2: TextView = v.findViewById(R.id.tex2)
+        val time3: TextView = v.findViewById(R.id.tex3)
     }
 }

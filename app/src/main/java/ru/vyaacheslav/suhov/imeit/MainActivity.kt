@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view
+package ru.vyaacheslav.suhov.imeit
 
 import android.os.Bundle
 import android.view.Menu
@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
-import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.ftagments.bells.BellsFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsPagerFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.EmptyGroupFragment
@@ -50,15 +49,11 @@ class MainActivity : AppCompatActivity() {
 
         when {
             // Проверка на первый запуск
-            model.isFirstRun() -> {
-                showDialogSelectGroup(); pushFragment(EmptyGroupFragment())
-            } // -> pushFragment(FirstRunFragment())
-
+            model.isFirstRun() -> { showDialogSelectGroup(); pushFragment(EmptyGroupFragment()) }
             // Проверка выбрана ли группа
             !model.isSelectedGroup() -> pushFragment(EmptyGroupFragment())
 
-            // В других случаях грузим фрагмент с расписанием
-            else -> pushFragment(SchedulePagerFragment())
+            else -> pushFragment(SchedulePagerFragment())     // В других случаях грузим фрагмент с расписанием
         }
     }
 

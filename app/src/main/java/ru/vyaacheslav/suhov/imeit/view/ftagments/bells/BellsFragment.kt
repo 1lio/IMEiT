@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.repository.BellListGenerator
 import ru.vyaacheslav.suhov.imeit.repository.BellsGenerator
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.repository.entity.BellData
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellData
 import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListFragmentAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.BellsTimeViewModel
 

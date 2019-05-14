@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.repository.entity
+package ru.vyaacheslav.suhov.imeit.view.adapters.entity
 
 data class BellCount(var num: String,
                      var topLesson: String,

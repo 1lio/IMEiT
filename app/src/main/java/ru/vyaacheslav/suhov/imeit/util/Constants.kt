@@ -8,8 +8,8 @@ object Constants {
     const val KEY_NAME_FACULTY = "key_name_faculty"
     const val KEY_GROUP_ID = "key_group_id"
 
-    const val DEF_INSTITUTE = "imeit"
-    const val DEF_FACULTY = "FizMat"
+    const val DEF_INSTITUTE = "ИМЕиТ"
+    const val DEF_FACULTY = "ФизМат"
     const val DEF_NAME_GROUP = "Группа не выбрана"
     const val DEF_GROUP_ID = 0
     const val DEF_FIRST_RUN = true

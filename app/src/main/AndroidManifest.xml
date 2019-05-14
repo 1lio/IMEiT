@@ -23,7 +23,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="ru.vyaacheslav.suhov.imeit.view.MainActivity">
+            android:name="ru.vyaacheslav.suhov.imeit.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -38,5 +38,4 @@
             android:value="AIzaSyBGKkIuy0yVE4M4OYxuao3nTuiLWn1J64Y" />
 
     </application>
-
 </manifest>
