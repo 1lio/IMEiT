@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentStart="true"
+    android:minHeight="128dp"
     android:layout_alignParentTop="true"
     android:layout_marginLeft="1dp"
     android:layout_marginRight="1dp"
@@ -14,7 +15,7 @@
     <LinearLayout
         android:id="@+id/time_clock"
         android:layout_width="60dp"
-        android:layout_height="128dp"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -73,8 +74,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:divider="?android:dividerVertical"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:showDividers="middle"
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -132,9 +136,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/znamenatel"
+            android:divider="?android:dividerVertical"
+            android:showDividers="middle"
+            android:id="@+id/denominator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:baselineAligned="false"
             android:gravity="center_vertical"
             android:orientation="horizontal"
@@ -144,7 +151,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:orientation="vertical"
                 android:padding="6dp">
 

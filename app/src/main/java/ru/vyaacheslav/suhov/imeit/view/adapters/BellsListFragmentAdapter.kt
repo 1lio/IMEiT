@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.repository.BellListGenerator
+import ru.vyaacheslav.suhov.imeit.util.BellListGenerator
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellCount
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellData
 

@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.repository
+package ru.vyaacheslav.suhov.imeit.util
 
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellCount
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellData

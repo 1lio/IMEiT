@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.repository
+package ru.vyaacheslav.suhov.imeit.util
 
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellData
 import java.util.*
@@ -47,6 +47,7 @@ class BellListGenerator(private val pref: BellData) {
 
     /** @see getNumberCurrentPair - Функция проверяет входит ли текущее время в диапазоны пар или перемен
      *  @return тип и номер */
+
     fun getNumberCurrentPair(): Pair<TimeEvent, Int> {
 
         var number = 0  // Номер пары

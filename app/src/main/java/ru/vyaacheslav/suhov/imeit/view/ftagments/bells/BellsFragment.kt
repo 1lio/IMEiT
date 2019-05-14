@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.vyaacheslav.suhov.imeit.repository.BellListGenerator
-import ru.vyaacheslav.suhov.imeit.repository.BellsGenerator
+import ru.vyaacheslav.suhov.imeit.util.BellListGenerator
+import ru.vyaacheslav.suhov.imeit.util.BellsGenerator
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellData
 import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListFragmentAdapter

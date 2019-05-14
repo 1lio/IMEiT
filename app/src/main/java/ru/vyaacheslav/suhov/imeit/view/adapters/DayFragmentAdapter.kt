@@ -11,7 +11,9 @@ import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 
 class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.Adapter<DayFragmentAdapter.ViewHolder>() {
 
-    private val listTime: List<TimeData> = listOf(TimeData("","",""))
+    private val listTime: List<TimeData> = listOf(TimeData("8","30","10:05"),
+            TimeData("10","15","11:50"),TimeData("12","30","14:05"),
+            TimeData("14","15","15:50"))
 
     override fun onCreateViewHolder(p: ViewGroup, t: Int) =
             ViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
