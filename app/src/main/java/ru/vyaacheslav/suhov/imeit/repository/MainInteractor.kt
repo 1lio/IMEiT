@@ -4,21 +4,24 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
-import ru.vyaacheslav.suhov.imeit.repository.entity.Buildings
+import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
-    fun getListBuildings(): Observable<ArrayList<Buildings>> {
+    fun getListBuildings(): Observable<ArrayList<MapData>> {
 
         return Observable.create {
             repository.getRefListEducationBuildings()
-                    .addValueEventListener(object : ValueEventListener {
+                    // Запрос выполниться один раз8
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
 
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            val list = arrayListOf<Buildings>()
+                            val list = arrayListOf<MapData>()
                             for (s: DataSnapshot in snapshot.children) {
-                                list.add(Buildings(s.key!!, s.value.toString()))
+                                for (x in 1..12){
+                                    list.add(snapshot.child("building$x").getValue(MapData::class.java)?: MapData())
+                                }
                             }
                             it.onNext(list)
                         }

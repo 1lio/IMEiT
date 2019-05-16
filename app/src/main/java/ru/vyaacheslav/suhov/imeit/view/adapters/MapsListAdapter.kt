@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.repository.entity.Buildings
+import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 
-class MapsListAdapter(private val list: ArrayList<Buildings>) : RecyclerView.Adapter<MapsListAdapter.ViewHolder>() {
+class MapsListAdapter(private val list: ArrayList<MapData>) : RecyclerView.Adapter<MapsListAdapter.ViewHolder>() {
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val name: TextView = itemView.findViewById(R.id.text1)

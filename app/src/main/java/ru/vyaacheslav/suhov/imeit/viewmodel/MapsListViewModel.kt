@@ -9,12 +9,12 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.repository.FirebaseRealtimeRepository
 import ru.vyaacheslav.suhov.imeit.repository.MainInteractor
-import ru.vyaacheslav.suhov.imeit.repository.entity.Buildings
+import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 
 class MapsListViewModel : ViewModel() {
 
-    private val listMap: ArrayList<Buildings> = arrayListOf()
-    private val listLiveData = MutableLiveData<ArrayList<Buildings>>()
+    private val listMap: ArrayList<MapData> = arrayListOf()
+    private val listLiveData = MutableLiveData<ArrayList<MapData>>()
     private val interactor = MainInteractor(FirebaseRealtimeRepository().getInstance())
     private val compositeDisposable = CompositeDisposable()
 
@@ -22,14 +22,17 @@ class MapsListViewModel : ViewModel() {
         interactor.getListBuildings().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
+                    listMap.clear()
                     listMap.addAll(it)
                     listLiveData.postValue(listMap)
                 }.apply { compositeDisposable.add(this) }
     }
 
-    fun observeListBuilding(owner: LifecycleOwner, observer: Observer<ArrayList<Buildings>>) {
+    fun observeListBuilding(owner: LifecycleOwner, observer: Observer<ArrayList<MapData>>) {
         listLiveData.observe(owner, observer)
     }
+
+    fun getListBuilding():List<MapData> = listLiveData.value ?: arrayListOf()
 
     override fun onCleared() {
         super.onCleared()
