@@ -6,6 +6,7 @@ import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
+import ru.vyaacheslav.suhov.imeit.util.Constants.MAX_PAIR
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
@@ -13,15 +14,16 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
         return Observable.create {
             repository.getRefListEducationBuildings()
+
                     // Запрос выполниться один раз8
                     .addListenerForSingleValueEvent(object : ValueEventListener {
-
                         override fun onDataChange(snapshot: DataSnapshot) {
+
                             val list = arrayListOf<MapData>()
-                            for (s: DataSnapshot in snapshot.children) {
-                                for (x in 1..12){
-                                    list.add(snapshot.child("building$x").getValue(MapData::class.java)?: MapData())
-                                }
+
+                            // Все существующие элементы узла
+                            for (x:DataSnapshot in snapshot.children) {
+                                list.add( x.getValue(MapData::class.java) ?: MapData())
                             }
                             it.onNext(list)
                         }
@@ -36,13 +38,13 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
             repository.getRefListGroups(institute, faculty)
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
+
                             val list = arrayListOf("Группа не выбрана")
                             for (s: DataSnapshot in snapshot.children) {
                                 list.add(s.key!!)
                             }
                             it.onNext(list)
                         }
-
                         override fun onCancelled(snapshot: DatabaseError) {}
                     })
         }
@@ -57,8 +59,9 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
                             val list = ArrayList<Schedule>()
 
-                            for (x in 1..4) {
-                                list.add(snapshot.child("pair$x").getValue(Schedule::class.java) ?: Schedule())
+                            // Берем данные c
+                            for (x in 1..MAX_PAIR) {
+                                list.add(snapshot.child("pair$x").getValue(Schedule::class.java) ?: Schedule()) // <- косяк ("pair$x")
                             }
 
                             it.onNext(list)

@@ -32,8 +32,6 @@ class MapsListViewModel : ViewModel() {
         listLiveData.observe(owner, observer)
     }
 
-    fun getListBuilding():List<MapData> = listLiveData.value ?: arrayListOf()
-
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.dispose()

@@ -54,7 +54,7 @@ class BellsListFragmentAdapter(private val list: List<BellCount>) :
 
     private fun currentPair(holder: ViewHolder) {
 
-        holder.itemView.setBackgroundColor(ContextCompat.getColor(ctx, R.color.colorAccent))
+        holder.itemView.setBackgroundColor(ContextCompat.getColor(ctx, R.color.gray))
 
         holder.num.styleAppearance()
         holder.less1top.styleAppearance()

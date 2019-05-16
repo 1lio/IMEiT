@@ -24,5 +24,7 @@ object Constants {
     const val THU = "thu"
     const val FRI = "fri"
 
+    const val MAX_PAIR = 6
+
     const val MAP_REFERENCE = "map"
 }

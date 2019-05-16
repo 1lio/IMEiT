@@ -5,7 +5,7 @@
     <color name="colorPrimaryDark">#16191d</color>
     <color name="colorAccent">#0093fe</color>
 
-    <color name="colorSelect">#B20093FE</color>
+    <color name="colorSelect">#0093fe</color>
 
     <color name="grayToolbar">#a6a6a6</color>
     <color name="gray">#686868</color>

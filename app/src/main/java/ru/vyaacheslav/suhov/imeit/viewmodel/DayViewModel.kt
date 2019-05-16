@@ -59,7 +59,6 @@ class DayViewModel : ViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    //Ошибка из-за добовления
                     listSchedule.clear()
                     listSchedule.addAll(it)
                     scheduleListLiveData.postValue(listSchedule)
