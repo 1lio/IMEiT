@@ -17,6 +17,8 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_INSTITUTE
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_FACULTY
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_GROUP
+import ru.vyaacheslav.suhov.imeit.util.UtilBell
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -30,6 +32,7 @@ class DayViewModel : ViewModel() {
     private val dayLiveData = MutableLiveData<String>()
     private val scheduleListLiveData = MutableLiveData<ArrayList<Schedule>>()
     private val compositeDisposable = CompositeDisposable()
+    private val currentPair = MutableLiveData<Int>()
 
     init {
         // При инициализации вытаскиваем текущий день недели
@@ -49,6 +52,7 @@ class DayViewModel : ViewModel() {
                     scheduleListLiveData.postValue(listSchedule)
                 }.apply { compositeDisposable.add(this) }
 
+        currentPair.postValue(UtilBell(BellPref()).getNumberCurrentPair().second)
     }
 
     private fun getDay() = dayLiveData.value ?: "mon"
@@ -64,6 +68,10 @@ class DayViewModel : ViewModel() {
                     scheduleListLiveData.postValue(listSchedule)
                 }.apply { compositeDisposable.add(this) }
 
+    }
+
+    fun observePair(owner:LifecycleOwner,observer:Observer<Int>) {
+        currentPair.observe(owner, observer)
     }
 
     fun observeSchedule(owner: LifecycleOwner, observer: Observer<ArrayList<Schedule>>) {

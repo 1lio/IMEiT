@@ -1,27 +1,37 @@
 package ru.vyaacheslav.suhov.imeit.view.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
+import ru.vyaacheslav.suhov.imeit.util.UtilBell
+import ru.vyaacheslav.suhov.imeit.util.styleAppearance
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 
 class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.Adapter<DayFragmentAdapter.ViewHolder>() {
 
-    private val listTime: List<TimeData> = listOf(TimeData("8","30","10:05"),
-            TimeData("10","15","11:50"),TimeData("12","30","14:05"),
-            TimeData("14","15","15:50"),
+    private val listTime: List<TimeData> = UtilBell().getListTime()
+    private lateinit var context: Context
 
-            TimeData("12","30","14:05"),
-            TimeData("12","30","14:05"))
+    override fun onCreateViewHolder(p: ViewGroup, t: Int): ViewHolder {
 
-    override fun onCreateViewHolder(p: ViewGroup, t: Int) =
-            ViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
+        val v = ViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
+        context = p.context
+
+        return v
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+        val currentPair = UtilBell(BellPref()).getNumberCurrentPair().second
+        if (currentPair == position) decorateItem(holder)
+
         holder.lesson.text = list[position].lesson
         holder.teacher.text = list[position].teacher
         holder.type.text = list[position].type
@@ -37,6 +47,15 @@ class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.A
     }
 
     override fun getItemCount() = list.size
+
+    private fun decorateItem(holder: ViewHolder) {
+
+        holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.gray))
+
+        listOf(holder.lesson, holder.teacher, holder.type, holder.building, holder.lesson2,
+                holder.teacher2, holder.type2, holder.building2, holder.time1, holder.time2, holder.time3
+        ).forEach { it.styleAppearance(context) }
+    }
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val lesson: TextView = v.findViewById(R.id.s_name)

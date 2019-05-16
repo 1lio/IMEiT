@@ -34,7 +34,6 @@ class MapsMapFragment : Fragment(), OnMapReadyCallback {
         // В цикле перебераем коодинаты и приводм к типу LatLng
         // Затем создаем point на карте и присваиваем имя из БД
 
-        /*   val colorPoint = 136f // Цвет маркера на карте*/
         model.observeListBuilding(this, Observer { list ->
 
             var i = 0
@@ -52,8 +51,6 @@ class MapsMapFragment : Fragment(), OnMapReadyCallback {
                 )
                 i++
             }
-
-
         })
 
         val center = LatLng(52.625338, 38.495109) // Сентрируем карту чтобы были на карте точки всех корпусов

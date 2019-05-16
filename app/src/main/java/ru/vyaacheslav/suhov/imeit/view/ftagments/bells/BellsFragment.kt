@@ -11,16 +11,16 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.vyaacheslav.suhov.imeit.util.BellListGenerator
+import ru.vyaacheslav.suhov.imeit.util.UtilBell
 import ru.vyaacheslav.suhov.imeit.util.BellsGenerator
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellData
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
 import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListFragmentAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.BellsTimeViewModel
 
 class BellsFragment : Fragment() {
 
-    private var settings: BellData = BellData()
+    private var settings: BellPref = BellPref()
     private val handler: Handler = Handler()
 
     private lateinit var viewModel: BellsTimeViewModel
@@ -28,7 +28,7 @@ class BellsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Грузим данные из БД
-        settings = BellData()
+        settings = BellPref()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -66,12 +66,12 @@ class BellsFragment : Fragment() {
     private val timeUpdaterRunnable = object : Runnable {
         override fun run() {
             // Обновляем значения во viewModel
-            viewModel.setTime(BellListGenerator(settings).getThisTime())
-            viewModel.setTimeLeft(BellListGenerator(settings).getResidueTime())
+            viewModel.setTime(UtilBell(settings).getThisTime())
+            viewModel.setTimeLeft(UtilBell(settings).getResidueTime())
             viewModel.setPairStatus(
-                    when (BellListGenerator(settings).getNumberCurrentPair().first) {
-                        BellListGenerator.TimeEvent.LUNCH -> resources.getString(R.string.time_lunch)
-                        BellListGenerator.TimeEvent.BREAK -> resources.getString(R.string.time_before)
+                    when (UtilBell(settings).getNumberCurrentPair().first) {
+                        UtilBell.TimeEvent.LUNCH -> resources.getString(R.string.time_lunch)
+                        UtilBell.TimeEvent.BREAK -> resources.getString(R.string.time_before)
                         else -> resources.getString(R.string.time_residue)
                     })
 

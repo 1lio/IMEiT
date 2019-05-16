@@ -12,7 +12,7 @@ package ru.vyaacheslav.suhov.imeit.view.adapters.entity
  * @param lunchStart Большая перемена после <номер пары>
  */
 
-data class BellData(
+data class BellPref(
         val id: Int = 0,
         val count: Int = 6,
         val start: Int = 510,

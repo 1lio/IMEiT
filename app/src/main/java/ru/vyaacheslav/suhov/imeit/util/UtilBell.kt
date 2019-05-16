@@ -1,12 +1,13 @@
 package ru.vyaacheslav.suhov.imeit.util
 
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellData
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 import java.util.*
 
 /** Данный класс работает обрабатывает дополнительные возможности при созданнии списка
  *  @param pref Вы должны передать настроки */
 
-class BellListGenerator(private val pref: BellData) {
+class UtilBell(private val pref: BellPref = BellPref()) {
 
     /** @see TimeEvent Типы состоянияний времени */
     enum class TimeEvent { LESSON, BREAK, LUNCH }
@@ -31,6 +32,7 @@ class BellListGenerator(private val pref: BellData) {
             // Добовляем первую пару
             val pairTo = pairFrom + ((pref.lengthLesson * 2) + pref.lengthBreak)
             val pairRange: IntRange = pairFrom..pairTo
+
             list.add(x, pairRange)
             // добовляем перемену
             val changeRange = if (x != (pref.lunchStart - 1)) pairTo + 1..(pairTo + pref.lengthBreakPair)
@@ -46,8 +48,7 @@ class BellListGenerator(private val pref: BellData) {
     }
 
     /** @see getNumberCurrentPair - Функция проверяет входит ли текущее время в диапазоны пар или перемен
-     *  @return тип и номер */
-
+     *  @return Pair<тип, номер> */
     fun getNumberCurrentPair(): Pair<TimeEvent, Int> {
 
         var number = 0  // Номер пары
@@ -69,7 +70,6 @@ class BellListGenerator(private val pref: BellData) {
             // вернем первую пару если, пары закончались или еще не начинались
             if (number == pref.count) number = 0
         }
-
         return Pair(type, number)
     }
 
@@ -81,16 +81,13 @@ class BellListGenerator(private val pref: BellData) {
             // Вернем время до окончания пар
             ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()
         } else {
-            // Вернем время до конца перемены
-            if (getNumberCurrentPair().second != pref.count) {
-                ((generateListsRange().second[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()
-            } else ((1440 - getCurrentTime) + pref.start).timeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
+            ((1440 - getCurrentTime) + pref.start).timeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
         }
 
     }
 
     /** @return Функция-расширение возвращает строку в 24-часовом формате времени <00:00> */
-     private fun Int.timeFormat(): String {
+    private fun Int.timeFormat(): String {
 
         val hour = this / 60   // Часы
         val min = this % 60    // Минуты
@@ -101,5 +98,29 @@ class BellListGenerator(private val pref: BellData) {
 
         // Вернем строку
         return "$hourStr:$minStr"
+    }
+
+    /** @return Список отформатированный под TimeData*/
+    fun getListTime(): List<TimeData> {
+
+        val list: MutableList<TimeData> = mutableListOf()
+        var time: Int = pref.start
+
+        for (x in 1..pref.count) {
+
+            // Строка сверху
+            val hour = (time / 60).toString()
+            val min = time % 60
+            val text = (time + pref.lengthBreak + (pref.lengthLesson * 2))
+
+            val minText = if (min == 0) "00" else min.toString()
+            list.add(TimeData(hour, minText, text.timeFormat()))
+
+            time = (time + pref.lengthBreak + (pref.lengthLesson * 2) + pref.lengthBreakPair)
+
+            // Большая перемена
+            if (x == pref.lunchStart) time = (time + pref.lengthLunch - pref.lengthBreakPair)
+        }
+        return list
     }
 }

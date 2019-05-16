@@ -23,7 +23,7 @@ class UpToolbar : Toolbar {
         this@UpToolbar.setTitleTextAppearance(activity, R.style.ToolbarTitleAppearance)              // Параемтры Title
         this@UpToolbar.setSubtitleTextAppearance(activity, R.style.ToolbarSubtitleAppearance)        // Параметры SubTitle
         this@UpToolbar.setTitleTextColor(ContextCompat.getColor(activity, R.color.white))            // Цвет Title
-        this@UpToolbar.setSubtitleTextColor(ContextCompat.getColor(activity, R.color.grayToolbar))   // Цвет SubTile
+        this@UpToolbar.setSubtitleTextColor(ContextCompat.getColor(activity, R.color.grayLight))   // Цвет SubTile
         this@UpToolbar.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))    // Цвет Toolbar
 
         // Добавляем observer на Title и Subtitle

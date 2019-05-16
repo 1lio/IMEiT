@@ -10,12 +10,12 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.MAX_PAIR
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
+    /** @return - Список всех корпусов */
     fun getListBuildings(): Observable<ArrayList<MapData>> {
-
         return Observable.create {
             repository.getRefListEducationBuildings()
 
-                    // Запрос выполниться один раз8
+                    // Запрос выполниться один раз
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -33,6 +33,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         }
     }
 
+    /** @return - Список всех групп */
     fun getListGroups(institute: String, faculty: String): Observable<ArrayList<String>> {
         return Observable.create {
             repository.getRefListGroups(institute, faculty)
@@ -41,7 +42,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
                             val list = arrayListOf("Группа не выбрана")
                             for (s: DataSnapshot in snapshot.children) {
-                                list.add(s.key!!)
+                                list.add(s.key.toString()) // Список по ключам!
                             }
                             it.onNext(list)
                         }
@@ -50,16 +51,15 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         }
     }
 
+    /** @return - Список в парами к текущему дню */
+    // Наверно слишком ного параметров | Переделать
     fun getScheduleDay(institute: String, faculty: String, day: String, group: String): Observable<ArrayList<Schedule>> {
-
         return Observable.create {
             repository.getRefListSchedule(institute, faculty, group, day)
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
 
                             val list = ArrayList<Schedule>()
-
-                            // Берем данные c
                             for (x in 1..MAX_PAIR) {
                                 list.add(snapshot.child("pair$x").getValue(Schedule::class.java) ?: Schedule()) // <- косяк ("pair$x")
                             }
