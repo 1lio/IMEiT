@@ -1,17 +1,17 @@
 package ru.vyaacheslav.suhov.imeit.util
 
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellItem
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
+import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 
 /** Данный класс генерирует лист с расписанием звонков
  *  @param pref - настроки для расписания из класса*/
 
-class BellsGenerator(private val pref: BellPref) {
+class BellsGenerator(private val pref: CallPref) {
 
     /** @see getBellsList - Функция конвертирует входящие данные и возвращает лист с расписанием звонков*/
-    fun getBellsList(): List<BellItem> {
+    fun getBellsList(): ArrayList<BellItem> {
 
-        val list: MutableList<BellItem> = mutableListOf()
+        val list: ArrayList<BellItem> = arrayListOf()
         var time: Int = pref.start // Начинать формирование расписание со значения начала пар,
 
         // В цикле соберм лист с расписанием
@@ -42,16 +42,4 @@ class BellsGenerator(private val pref: BellPref) {
 
     /** @see toLesson - Функция-свойство форматирует строку <10:15 - 11:00> */
     val toLesson = { t: Int -> "${t.timeFormat()} - ${(t + pref.lengthLesson).timeFormat()}" }
-
-    /** @return Функция-расширение возвращает строку в 24-часовом формате <00:00> */
-    private fun Int.timeFormat(): String {
-        // Получим остаток от текущего значения
-        val hour = this / 60   // Часы
-        val min = this % 60    // Минуты
-        // Сформатируем строку
-        val hh: String = if (hour < 10) "0$hour" else "$hour"
-        val mm: String = if (min < 10) "0$min" else "$min"
-        // Вернем отформатированную строку
-        return "$hh:$mm"
-    }
 }

@@ -13,7 +13,7 @@
         android:title="@string/menu_time"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/build_location"
+        android:id="@+id/location"
         android:icon="@drawable/ic_location"
         android:title="@string/menu_maps"
         app:showAsAction="ifRoom" />
@@ -23,4 +23,19 @@
         android:title="@string/menu_schedule"
         app:showAsAction="never" />
 
+    <!-- Пока так, потом вынести в отдельное меню-->
+
+    <item
+        android:id="@+id/bells_pref"
+        android:title="@string/setup_call"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/location_pref"
+        android:title="@string/location_pref"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/schedule_pref"
+        android:title="@string/schedule_pref"
+        app:showAsAction="never" />
 </menu>

@@ -12,7 +12,7 @@ import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
 import ru.vyaacheslav.suhov.imeit.util.styleAppearance
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
+import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 
 class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHolder>() {
@@ -62,7 +62,7 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHold
         holder.time2.text = listTime[position].tex2
         holder.time3.text = listTime[position].tex3
 
-        val currentPair = UtilBell(BellPref()).getNumberCurrentPair().second
+        val currentPair = UtilBell(CallPref()).getNumberCurrentPair().second
         if (currentPair == position) decorateItem(holder)
 
     }

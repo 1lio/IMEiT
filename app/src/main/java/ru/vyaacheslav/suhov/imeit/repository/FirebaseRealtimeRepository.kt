@@ -2,6 +2,9 @@ package ru.vyaacheslav.suhov.imeit.repository
 
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import ru.vyaacheslav.suhov.imeit.util.Constants.CALL_REFERENCE
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEFAULT
+import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
 import ru.vyaacheslav.suhov.imeit.util.Constants.FACULTY
 import ru.vyaacheslav.suhov.imeit.util.Constants.GROUPS
 import ru.vyaacheslav.suhov.imeit.util.Constants.INSTITUTES
@@ -41,6 +44,16 @@ class FirebaseRealtimeRepository {
                 .child(FACULTY).child(faculty)
                 .child(GROUPS).child(group)
                 .child(day)
+    }
+
+    /** @return Стандартные настройки для звонков */
+    fun getRefDefaultPreferencesCall():DatabaseReference {
+        return FirebaseDatabase.getInstance().getReference(CALL_REFERENCE).child(DEFAULT)
+    }
+
+    /** @return Измененые настройки для звонков */
+    fun getRefPreferencesCall():DatabaseReference{
+        return FirebaseDatabase.getInstance().getReference(CALL_REFERENCE).child(CUSTOM)
     }
 
     fun getInstance() = this.instance ?: FirebaseRealtimeRepository()

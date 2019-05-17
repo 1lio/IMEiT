@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.v_time_check.view.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.MainActivity
-import ru.vyaacheslav.suhov.imeit.viewmodel.BellsTimeViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 
 class TimeView : LinearLayout {
 
@@ -17,7 +17,7 @@ class TimeView : LinearLayout {
     constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val activity = context as MainActivity
-    private val viewModel = ViewModelProviders.of(activity)[BellsTimeViewModel::class.java]
+    private val viewModel = ViewModelProviders.of(activity)[CallTimeViewModel::class.java]
 
     init {
         LayoutInflater.from(context).inflate(R.layout.v_time_check, this)

@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
+import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 
-class BellsTimeViewModel : ViewModel() {
+class CallTimeViewModel : ViewModel() {
 
     private val pairStatus = MutableLiveData<String>()
     private val timeLeft = MutableLiveData<String>()
@@ -16,7 +16,7 @@ class BellsTimeViewModel : ViewModel() {
 
 
     init {
-        currentPair.postValue(UtilBell(BellPref()).getNumberCurrentPair().second)
+        currentPair.postValue(UtilBell(CallPref()).getNumberCurrentPair().second)
     }
 
 

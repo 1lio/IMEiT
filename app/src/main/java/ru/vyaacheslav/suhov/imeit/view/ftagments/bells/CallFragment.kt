@@ -14,29 +14,30 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
 import ru.vyaacheslav.suhov.imeit.util.BellsGenerator
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
-import ru.vyaacheslav.suhov.imeit.view.adapters.BellsListFragmentAdapter
-import ru.vyaacheslav.suhov.imeit.viewmodel.BellsTimeViewModel
+import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.view.adapters.CallListFragmentAdapter
+import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 
-class BellsFragment : Fragment() {
+class CallFragment : Fragment() {
 
-    private var settings: BellPref = BellPref()
+    private var settings: CallPref = CallPref()
     private val handler: Handler = Handler()
 
-    private lateinit var viewModel: BellsTimeViewModel
+    private lateinit var viewModel: CallTimeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Грузим данные из БД
-        settings = BellPref()
+        settings = CallPref()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         val v = inflater.inflate(R.layout.fr_time, container, false)
-        viewModel = ViewModelProviders.of(activity!!)[BellsTimeViewModel::class.java]
-        val adapter = BellsListFragmentAdapter()
+        viewModel = ViewModelProviders.of(activity!!)[CallTimeViewModel::class.java]
+        val adapter = CallListFragmentAdapter()
         val recycler: RecyclerView = v.findViewById(R.id.recyclerTime)
+
         recycler.layoutManager = LinearLayoutManager(context)  // Инициализируем LayoutManager для работы с recycler
         recycler.adapter = adapter  // Подключаемся к нашему адаптеру
         adapter.addAllAndNotify(BellsGenerator(settings).getBellsList())

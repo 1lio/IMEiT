@@ -7,6 +7,7 @@ import io.reactivex.Observable
 import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.util.Constants.MAX_PAIR
+import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
@@ -22,8 +23,8 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                             val list = arrayListOf<MapData>()
 
                             // Все существующие элементы узла
-                            for (x:DataSnapshot in snapshot.children) {
-                                list.add( x.getValue(MapData::class.java) ?: MapData())
+                            for (x: DataSnapshot in snapshot.children) {
+                                list.add(x.getValue(MapData::class.java) ?: MapData())
                             }
                             it.onNext(list)
                         }
@@ -46,13 +47,14 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                             }
                             it.onNext(list)
                         }
+
                         override fun onCancelled(snapshot: DatabaseError) {}
                     })
         }
     }
 
     /** @return - Список в парами к текущему дню */
-    // Наверно слишком ного параметров | Переделать
+    // Слишком ного параметров | Переделать
     fun getScheduleDay(institute: String, faculty: String, day: String, group: String): Observable<ArrayList<Schedule>> {
         return Observable.create {
             repository.getRefListSchedule(institute, faculty, group, day)
@@ -61,7 +63,8 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
                             val list = ArrayList<Schedule>()
                             for (x in 1..MAX_PAIR) {
-                                list.add(snapshot.child("pair$x").getValue(Schedule::class.java) ?: Schedule()) // <- косяк ("pair$x")
+                                list.add(snapshot.child("pair$x").getValue(Schedule::class.java)
+                                        ?: Schedule()) // <- косяк ("pair$x")
                             }
 
                             it.onNext(list)
@@ -70,5 +73,46 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                         override fun onCancelled(snapshot: DatabaseError) {}
                     })
         }
+    }
+
+    /** @return - Стандартные настройки звонков */
+    fun getDefaultCallPref(): Observable<CallPref> {
+        return Observable.create {
+            repository.getRefDefaultPreferencesCall()
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+
+                        override fun onDataChange(p0: DataSnapshot) {
+                            it.onNext(p0.getValue(CallPref::class.java) ?: CallPref())
+                        }
+
+                        override fun onCancelled(p0: DatabaseError) {
+                            it.onError(Throwable(p0.toString()))
+                        }
+
+                    })
+        }
+    }
+
+    /** @return - Изменненные установки  звонков*/
+    fun getCustomCallPref(): Observable<CallPref> {
+        return Observable.create {
+            repository.getRefPreferencesCall()
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+
+                        override fun onDataChange(p0: DataSnapshot) {
+                            it.onNext(p0.getValue(CallPref::class.java) ?: CallPref())
+                        }
+
+                        override fun onCancelled(p0: DatabaseError) {
+                            it.onError(Throwable(p0.toString()))
+                        }
+                    })
+        }
+    }
+
+    /**  Просто отправляем новые новые установки для звонков
+     * @param pref - Установки для передачи */
+    fun setCustomCallPref(pref: CallPref) {
+        repository.getRefPreferencesCall().push().setValue(pref)
     }
 }

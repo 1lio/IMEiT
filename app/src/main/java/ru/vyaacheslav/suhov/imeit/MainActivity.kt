@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
-import ru.vyaacheslav.suhov.imeit.view.ftagments.bells.BellsFragment
+import ru.vyaacheslav.suhov.imeit.view.ftagments.bells.CallFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsPagerFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.EmptyGroupFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
@@ -35,12 +35,13 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.group_setup -> showDialogSelectGroup()
-            R.id.bells_info -> pushFragment(BellsFragment())
-            R.id.build_location -> pushFragment(MapsPagerFragment())
+            R.id.bells_info -> pushFragment(CallFragment())
+            R.id.location -> pushFragment(MapsPagerFragment())
             R.id.schedule -> {
                 if (model.isSelectedGroup()) pushFragment(SchedulePagerFragment())
                 else pushFragment(EmptyGroupFragment())
             }
+            R.id.bells_pref -> pushFabFragment() // TODO: Доделать!!1
         }
         return true
     }

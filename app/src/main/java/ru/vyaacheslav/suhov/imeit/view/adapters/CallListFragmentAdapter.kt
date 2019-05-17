@@ -12,9 +12,9 @@ import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
 import ru.vyaacheslav.suhov.imeit.util.styleAppearance
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellItem
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
+import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 
-class BellsListFragmentAdapter : BaseAdapter<BellItem, BellsListFragmentAdapter.TestViewHolder>() {
+class CallListFragmentAdapter : BaseAdapter<BellItem, CallListFragmentAdapter.TestViewHolder>() {
 
     private var min: String = ""
     private lateinit var context: Context
@@ -46,7 +46,7 @@ class BellsListFragmentAdapter : BaseAdapter<BellItem, BellsListFragmentAdapter.
 
     override fun onBindViewHolder(holder: TestViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
-        val currentPair = UtilBell(BellPref()).getNumberCurrentPair().second
+        val currentPair = UtilBell(CallPref()).getNumberCurrentPair().second
         if (currentPair == position) decorateItem(holder)
 
         holder.less2bot.text = if (position != list.lastIndex) list[position].bottomBreak + min

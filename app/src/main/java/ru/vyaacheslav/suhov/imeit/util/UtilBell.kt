@@ -1,13 +1,13 @@
 package ru.vyaacheslav.suhov.imeit.util
 
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
+import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 import java.util.*
 
 /** Данный класс работает обрабатывает дополнительные возможности при созданнии списка
  *  @param pref Вы должны передать настроки */
 
-class UtilBell(private val pref: BellPref = BellPref()) {
+class UtilBell(private val pref: CallPref = CallPref()) {
 
     /** @see TimeEvent Типы состоянияний времени */
     enum class TimeEvent { LESSON, BREAK, LUNCH }
@@ -84,20 +84,6 @@ class UtilBell(private val pref: BellPref = BellPref()) {
             ((1440 - getCurrentTime) + pref.start).timeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
         }
 
-    }
-
-    /** @return Функция-расширение возвращает строку в 24-часовом формате времени <00:00> */
-    private fun Int.timeFormat(): String {
-
-        val hour = this / 60   // Часы
-        val min = this % 60    // Минуты
-
-        // Форматируем строку
-        val hourStr: String = if (hour < 10) "0$hour" else hour.toString()
-        val minStr: String = if (min < 10) "0$min" else min.toString()
-
-        // Вернем строку
-        return "$hourStr:$minStr"
     }
 
     /** @return Список отформатированный под TimeData*/

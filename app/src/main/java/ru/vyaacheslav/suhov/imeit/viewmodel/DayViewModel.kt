@@ -18,7 +18,7 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_INSTITUTE
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_FACULTY
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_GROUP
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
+import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -52,7 +52,7 @@ class DayViewModel : ViewModel() {
                     scheduleListLiveData.postValue(listSchedule)
                 }.apply { compositeDisposable.add(this) }
 
-        currentPair.postValue(UtilBell(BellPref()).getNumberCurrentPair().second)
+        currentPair.postValue(UtilBell(CallPref()).getNumberCurrentPair().second)
     }
 
     private fun getDay() = dayLiveData.value ?: "mon"

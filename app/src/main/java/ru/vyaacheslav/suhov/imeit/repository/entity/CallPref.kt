@@ -1,8 +1,8 @@
-package ru.vyaacheslav.suhov.imeit.view.adapters.entity
+package ru.vyaacheslav.suhov.imeit.repository.entity
 
-/** В данном классе описываются поля данных для формирования списка BellsList
-
- * @param id Порядковый номер
+/** В данном классе описываются поля данных для формирования списка CallList
+ * CallPref - Установки для времени вонков
+ *
  * @param count Колличество пар
  * @param start Начало занятий
  * @param lengthLesson Продолжительность урока
@@ -12,13 +12,12 @@ package ru.vyaacheslav.suhov.imeit.view.adapters.entity
  * @param lunchStart Большая перемена после <номер пары>
  */
 
-data class BellPref(
-        val id: Int = 0,
-        val count: Int = 6,
-        val start: Int = 510,
-        val lengthLesson: Int = 45,
-        val lengthBreak: Int = 5,
-        val lengthLunch: Int = 40,
-        val lengthBreakPair: Int = 10,
-        val lunchStart: Int = 2
+data class CallPref(
+        var count: Int = 6,
+        var start: Int = 510,
+        var lengthLesson: Int = 45,
+        var lengthBreak: Int = 5,
+        var lengthLunch: Int = 40,
+        var lengthBreakPair: Int = 10,
+        var lunchStart: Int = 2
 )
