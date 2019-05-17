@@ -53,4 +53,5 @@
 
     <string name="image">image</string>
     <string name="min">\u0020минут</string>
+    <string name="delete_item">Удалить пункт</string>
 </resources>

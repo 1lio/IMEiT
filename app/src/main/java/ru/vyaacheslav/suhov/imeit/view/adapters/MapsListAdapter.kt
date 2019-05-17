@@ -3,26 +3,30 @@ package ru.vyaacheslav.suhov.imeit.view.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.base.BaseAdapter
+import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
 import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 
-class MapsListAdapter(private val list: ArrayList<MapData>) : RecyclerView.Adapter<MapsListAdapter.ViewHolder>() {
+class MapsListAdapter : BaseAdapter<MapData, MapsListAdapter.TestViewHolder>() {
 
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val name: TextView = itemView.findViewById(R.id.text1)
-        val address: TextView = itemView.findViewById(R.id.text2)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestViewHolder {
+        return TestViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_maps, parent, false))
     }
 
-    override fun onCreateViewHolder(p: ViewGroup, t: Int) =
-            ViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_maps, p, false))
+    inner class TestViewHolder(itemView: View) : BaseViewHolder<MapData>(itemView) {
 
+        private val name: TextView = itemView.findViewById(R.id.text1)
+        private val address: TextView = itemView.findViewById(R.id.text2)
+        private val iconDelete: ImageView = itemView.findViewById(R.id.delItem)
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.name.text = list[position].name
-        holder.address.text = list[position].address
+        override fun bind(item: MapData) {
+            name.text = item.name
+            address.text = item.address
+            iconDelete.visibility = if (isEdited) View.VISIBLE else View.GONE
+        }
     }
-
-    override fun getItemCount() = list.size
 }

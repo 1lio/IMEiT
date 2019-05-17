@@ -1,6 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.util
 
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellCount
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellItem
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
 
 /** Данный класс генерирует лист с расписанием звонков
@@ -9,9 +9,9 @@ import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
 class BellsGenerator(private val pref: BellPref) {
 
     /** @see getBellsList - Функция конвертирует входящие данные и возвращает лист с расписанием звонков*/
-    fun getBellsList(): List<BellCount> {
+    fun getBellsList(): List<BellItem> {
 
-        val list: MutableList<BellCount> = mutableListOf()
+        val list: MutableList<BellItem> = mutableListOf()
         var time: Int = pref.start // Начинать формирование расписание со значения начала пар,
 
         // В цикле соберм лист с расписанием
@@ -27,8 +27,8 @@ class BellsGenerator(private val pref: BellPref) {
             // Большая перемена
             if (x == pref.lunchStart) time = (time + pref.lengthLunch - pref.lengthBreakPair)
 
-            // Создаем и добовляем BellCount в список
-            list.add(BellCount(x.toString(), firstLesson, lastLesson, pref.lengthBreak.toString(), pref.lengthBreakPair.toString()))
+            // Создаем и добовляем BellItem в список
+            list.add(BellItem(x.toString(), firstLesson, lastLesson, pref.lengthBreak.toString(), pref.lengthBreakPair.toString()))
         }
 
         // Находим где должна быть большая перемена делаем замену

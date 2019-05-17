@@ -24,11 +24,11 @@ class MapsListFragment : Fragment() {
         val recycler = v.findViewById<RecyclerView>(R.id.recycler)
 
         val model: MapsListViewModel = ViewModelProviders.of(this)[MapsListViewModel::class.java]
+        val adapter = MapsListAdapter()
+        recycler.adapter = adapter
 
         model.observeListBuilding(this, Observer {
-            val adapter = MapsListAdapter(it)
-            recycler.adapter = adapter
-            adapter.notifyDataSetChanged()
+            adapter.addAllAndNotify(it)
         })
 
         recycler.layoutManager = LinearLayoutManager(context)

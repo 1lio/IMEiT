@@ -35,10 +35,11 @@ class BellsFragment : Fragment() {
                               savedInstanceState: Bundle?): View {
         val v = inflater.inflate(R.layout.fr_time, container, false)
         viewModel = ViewModelProviders.of(activity!!)[BellsTimeViewModel::class.java]
-
+        val adapter = BellsListFragmentAdapter()
         val recycler: RecyclerView = v.findViewById(R.id.recyclerTime)
         recycler.layoutManager = LinearLayoutManager(context)  // Инициализируем LayoutManager для работы с recycler
-        recycler.adapter = BellsListFragmentAdapter(BellsGenerator(settings).getBellsList())  // Подключаемся к нашему адаптеру
+        recycler.adapter = adapter  // Подключаемся к нашему адаптеру
+        adapter.addAllAndNotify(BellsGenerator(settings).getBellsList())
         recycler.itemAnimator = DefaultItemAnimator() // Делаем плавную анимацию прокуртки
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation)) // Добавляем вертикальный разделитель
         recycler.setHasFixedSize(true)

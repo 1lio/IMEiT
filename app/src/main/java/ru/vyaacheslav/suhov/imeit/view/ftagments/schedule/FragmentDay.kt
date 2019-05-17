@@ -27,14 +27,14 @@ class FragmentDay(private val day: String) : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fr_recycler, container, false)
+
         val recycler: RecyclerView = v.findViewById(R.id.recycler)
+        val adapter = DayFragmentAdapter()
+        recycler.adapter = adapter
 
         model.setSchedule(day)
-
-        model.observeSchedule(this, Observer { list ->
-            val adapter = DayFragmentAdapter(list)
-            recycler.adapter = adapter
-            adapter.notifyDataSetChanged()
+        model.observeSchedule(this, Observer {
+            adapter.addAllAndNotify(it)
         })
 
         recycler.layoutManager = LinearLayoutManager(context)

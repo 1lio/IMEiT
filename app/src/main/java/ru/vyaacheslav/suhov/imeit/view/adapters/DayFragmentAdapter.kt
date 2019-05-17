@@ -6,58 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.base.BaseAdapter
+import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
 import ru.vyaacheslav.suhov.imeit.util.styleAppearance
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellPref
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 
-class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.Adapter<DayFragmentAdapter.ViewHolder>() {
+class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHolder>() {
 
     private val listTime: List<TimeData> = UtilBell().getListTime()
     private lateinit var context: Context
 
-    override fun onCreateViewHolder(p: ViewGroup, t: Int): ViewHolder {
-
-        val v = ViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
+    override fun onCreateViewHolder(p: ViewGroup, t: Int): TestViewHolder {
         context = p.context
-
-        return v
+        return TestViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    inner class TestViewHolder(v: View) : BaseViewHolder<Schedule>(v) {
 
-        val currentPair = UtilBell(BellPref()).getNumberCurrentPair().second
-        if (currentPair == position) decorateItem(holder)
-
-        holder.lesson.text = list[position].lesson
-        holder.teacher.text = list[position].teacher
-        holder.type.text = list[position].type
-        holder.building.text = list[position].building
-        holder.lesson2.text = list[position].lesson2
-        holder.teacher2.text = list[position].teacher2
-        holder.type2.text = list[position].type2
-        holder.building2.text = list[position].building2
-
-        holder.time1.text = listTime[position].tex1
-        holder.time2.text = listTime[position].tex2
-        holder.time3.text = listTime[position].tex3
-    }
-
-    override fun getItemCount() = list.size
-
-    private fun decorateItem(holder: ViewHolder) {
-
-        holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.gray))
-
-        listOf(holder.lesson, holder.teacher, holder.type, holder.building, holder.lesson2,
-                holder.teacher2, holder.type2, holder.building2, holder.time1, holder.time2, holder.time3
-        ).forEach { it.styleAppearance(context) }
-    }
-
-    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val lesson: TextView = v.findViewById(R.id.s_name)
         val teacher: TextView = v.findViewById(R.id.s_subname)
         val type: TextView = v.findViewById(R.id.s_type)
@@ -70,5 +39,41 @@ class DayFragmentAdapter(private val list: ArrayList<Schedule>) : RecyclerView.A
         val time1: TextView = v.findViewById(R.id.tex1)
         val time2: TextView = v.findViewById(R.id.tex2)
         val time3: TextView = v.findViewById(R.id.tex3)
+
+
+        override fun bind(item: Schedule) {
+
+            lesson.text = item.lesson
+            teacher.text = item.teacher
+            type.text = item.type
+            building.text = item.building
+            lesson2.text = item.lesson2
+            teacher2.text = item.teacher2
+            type2.text = item.type2
+            building2.text = item.building2
+        }
+
     }
+
+    override fun onBindViewHolder(holder: TestViewHolder, position: Int) {
+        super.onBindViewHolder(holder, position)
+
+        holder.time1.text = listTime[position].tex1
+        holder.time2.text = listTime[position].tex2
+        holder.time3.text = listTime[position].tex3
+
+        val currentPair = UtilBell(BellPref()).getNumberCurrentPair().second
+        if (currentPair == position) decorateItem(holder)
+
+    }
+
+    private fun decorateItem(holder: TestViewHolder) {
+
+        holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.gray))
+
+        listOf(holder.lesson, holder.teacher, holder.type, holder.building, holder.lesson2,
+                holder.teacher2, holder.type2, holder.building2, holder.time1, holder.time2, holder.time3
+        ).forEach { it.styleAppearance(context) }
+    }
+
 }
