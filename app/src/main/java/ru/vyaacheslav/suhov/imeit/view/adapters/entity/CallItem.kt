@@ -1,6 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.view.adapters.entity
 
-data class BellItem(var num: String,
+data class CallItem(var num: String,
                     var topLesson: String,
                     var bottomLesson: String,
                     var topBreak: String,

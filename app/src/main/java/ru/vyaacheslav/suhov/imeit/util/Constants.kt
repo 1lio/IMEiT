@@ -7,7 +7,7 @@ object Constants {
     const val KEY_NAME_GROUP = "key_name_group"
     const val KEY_NAME_FACULTY = "key_name_faculty"
     const val KEY_GROUP_ID = "key_group_id"
-    const val KEY_IS_EDITED_CALL = "key_edited_call"
+    const val KEY_EDITED_CALL = "key_edited_call"
 
     const val DEF_INSTITUTE = "ИМЕиТ"
     const val DEF_FACULTY = "ФизМат"

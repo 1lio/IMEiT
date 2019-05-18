@@ -3,28 +3,12 @@ package ru.vyaacheslav.suhov.imeit.viewmodel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import com.orhanobut.hawk.Hawk
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import ru.vyaacheslav.suhov.imeit.repository.FirebaseRealtimeRepository
-import ru.vyaacheslav.suhov.imeit.repository.MainInteractor
-import ru.vyaacheslav.suhov.imeit.util.Constants
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_FIRST_RUN
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP_ID
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_INSTITUTE
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
-import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_FIST_RUN
-import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_GROUP_ID
-import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_INSTITUTE
-import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_GROUP
-import java.util.*
+import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 
-class MainViewModel : ViewModel() {
+class MainViewModel : BaseViewModel() {
 
-    private val interactor = MainInteractor(FirebaseRealtimeRepository().getInstance())
-    private val compositeDisposable = CompositeDisposable()
     // Проверки
     private val isFirstRun = MutableLiveData<Boolean>()
     private val isSelectedGroup = MutableLiveData<Boolean>()
@@ -33,54 +17,53 @@ class MainViewModel : ViewModel() {
     private val subtitleToolbar = MutableLiveData<String>()
     // Настройки
     private val selectedListId = MutableLiveData<Int>()
-    private val day = MutableLiveData<String>()
-    // Сохраненные  данные
-    private val currentFaculty = Hawk.get(Constants.KEY_NAME_FACULTY, Constants.DEF_FACULTY)
-    private val currentInstitute = Hawk.get(KEY_INSTITUTE, DEF_INSTITUTE)
+    // Сохраненные  данные | Институт и факультет почти не используются. В дальнейшем будут.
+    private val currentFaculty = localRepository.faculty
+    private val currentInstitute = localRepository.institute
+    private val currentGroup = localRepository.group
     // Лист со всеми группами
-    private val listGroups = MutableLiveData<Array<String>>()
+    private val listGroupsData = MutableLiveData<Array<String>>()
+    private val listGroup: ArrayList<String> = arrayListOf()
 
     init {
-
-        isFirstRun.value = Hawk.get(KEY_FIST_RUN, DEF_FIRST_RUN)             // Первый запуск
-        isSelectedGroup.value = Hawk.get(KEY_GROUP_ID, DEF_GROUP_ID) != 0    // Проверка выбрана ли группа
-
-        // Текущий день недели
-        day.value = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
-            Calendar.TUESDAY -> "tue"
-            Calendar.WEDNESDAY -> "wed"
-            Calendar.THURSDAY -> "thu"
-            Calendar.FRIDAY -> "fri"
-            else -> "mon"
-        }
+        isFirstRun.value = localRepository.isFirstRun              // Проверка на первый запуск
+        isSelectedGroup.value = localRepository.isSelectedGroup    // Проверка выбрана ли группа
 
         // Лист со всеми группами выбранного института
-        interactor.getListGroups(currentInstitute,currentFaculty)
+        interactor.getListGroups(currentInstitute, currentFaculty)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { listGroups.postValue(it.toTypedArray()) }
+                .subscribe {
+                    listGroup.addAll(it)
+                    listGroupsData.postValue(listGroup.toTypedArray())
+                }
                 .apply { compositeDisposable.add(this) }
 
-        selectedListId.postValue(Hawk.get(KEY_GROUP_ID, DEF_GROUP_ID))        // ID Группы
+        selectedListId.postValue(localRepository.groupID)     // ID Группы
 
-        titleToolbar.value = Hawk.get(KEY_INSTITUTE, DEF_INSTITUTE)           // Институт
-        subtitleToolbar.value = Hawk.get(KEY_NAME_GROUP, DEF_NAME_GROUP)      // Группа
+        titleToolbar.value = currentInstitute                 // Институт
+        subtitleToolbar.value = currentGroup                  // Группа
     }
 
-    fun getListGroups(): Array<String> = listGroups.value ?: arrayOf("Группа не выбрана")
+    fun getListGroups(): Array<String> = listGroupsData.value ?: arrayOf("Группа не выбрана")
 
     fun getSelectedId(): Int = selectedListId.value ?: 0
 
     fun setSelectedId(id: Int) {
 
-        Hawk.put(KEY_FIST_RUN, false)                        // Если хотябы раз было вызвано, ставим что не первый запуск
+        // Если хотябы раз было вызвано, ставим что не первый запуск
+        localRepository.isFirstRun = false
         isSelectedGroup.value = id > 0
 
-        Hawk.put(KEY_NAME_GROUP, getListGroups()[id])        // Сохраняем имя выбранной группы
-        Hawk.put(KEY_GROUP_ID, id)                           // Сохраняем ID выбранной группы
+        // Сохраняем имя выбранной группы и ID
+        localRepository.group = getListGroups()[id]
+        localRepository.groupID = id
 
-        selectedListId.value = id                            // Сохраяняем в LiveData выбранный ID
-        setSubtitle(getListGroups()[getSelectedId()])        // В качестве подзаголовка ставим имя выбранной группы
+        // Сохраяняем в LiveData выбранный ID
+        selectedListId.value = id
+
+        // В качестве подзаголовка ставим имя выбранной группы
+        setSubtitle(getListGroups()[getSelectedId()])
     }
 
     fun isFirstRun(): Boolean = isFirstRun.value ?: false
@@ -96,9 +79,4 @@ class MainViewModel : ViewModel() {
     }
 
     private fun setSubtitle(group: String) { subtitleToolbar.postValue(group) }
-
-    override fun onCleared() {
-        super.onCleared()
-        compositeDisposable.dispose()
-    }
 }

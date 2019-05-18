@@ -14,18 +14,18 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.viewmodel.MapsListViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.LocationViewModel
 
 /** Фрагмент с картой */
 class MapsMapFragment : Fragment(), OnMapReadyCallback {
 
-    private lateinit var model: MapsListViewModel
+    private lateinit var model: LocationViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         val v = inflater.inflate(R.layout.fr_maps, container, false)
         (childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment).getMapAsync(this)
-        model = ViewModelProviders.of(this)[MapsListViewModel::class.java]
+        model = ViewModelProviders.of(this)[LocationViewModel::class.java]
         return v
     }
 

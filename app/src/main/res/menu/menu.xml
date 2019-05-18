@@ -29,7 +29,7 @@
         android:id="@+id/bells_pref"
         android:title="@string/setup_call"
         app:showAsAction="never" />
-    <item
+   <!-- <item
         android:id="@+id/location_pref"
         android:title="@string/location_pref"
         app:showAsAction="never" />
@@ -37,5 +37,5 @@
     <item
         android:id="@+id/schedule_pref"
         android:title="@string/schedule_pref"
-        app:showAsAction="never" />
+        app:showAsAction="never" />-->
 </menu>

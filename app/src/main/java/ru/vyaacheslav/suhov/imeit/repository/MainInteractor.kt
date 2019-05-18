@@ -8,6 +8,7 @@ import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.util.Constants.MAX_PAIR
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
@@ -110,9 +111,20 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         }
     }
 
-    /**  Просто отправляем новые новые установки для звонков
+    /**  Просто отправляем новые установки для звонков
      * @param pref - Установки для передачи */
     fun setCustomCallPref(pref: CallPref) {
-        repository.getRefPreferencesCall().push().setValue(pref)
+        // В данном случае изменяется конкретный референс и push() не подходит, т.к. ключ создасться за нас
+        // push() можно прикрутить для создания списка с локациями
+
+        // Попытка заменить данные. Не получилось
+        // repository.getRefPreferencesCall().setValue(pref)
+
+        // Пробуем так
+        //val testPref = CallPref(3,500,20,10,40,2,2)
+        // Не пашет
+        val map = HashMap<String, Any>()
+        map[CUSTOM] = pref
+        repository.getRefPreferencesCall().updateChildren(map)
     }
 }

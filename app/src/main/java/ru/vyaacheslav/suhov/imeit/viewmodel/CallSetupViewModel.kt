@@ -1,90 +1,90 @@
 package ru.vyaacheslav.suhov.imeit.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import com.orhanobut.hawk.Hawk
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import ru.vyaacheslav.suhov.imeit.repository.FirebaseRealtimeRepository
-import ru.vyaacheslav.suhov.imeit.repository.MainInteractor
+import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
-import ru.vyaacheslav.suhov.imeit.util.BellsGenerator
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_EDITED_CALL
-import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_IS_EDITED_CALL
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellItem
+import ru.vyaacheslav.suhov.imeit.util.CallGenerator
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 
-class CallSetupViewModel : ViewModel() {
-
-    private val interactor = MainInteractor(FirebaseRealtimeRepository().getInstance())
-    private val compositeDisposable = CompositeDisposable()
+class CallSetupViewModel : BaseViewModel() {
 
     private val currentCallPref = MutableLiveData<CallPref>()
+    private val previewListData = MutableLiveData<ArrayList<CallItem>>()
 
-    private val previewList = MutableLiveData<ArrayList<BellItem>>()   //LiveData Готовый лист
-    private val currentList = MutableLiveData<ArrayList<BellItem>>()
-
-    private var pref: CallPref = CallPref()
-    private var defaultPref: CallPref = CallPref()
+    // Установки с которыми будем работать
+    private var pref: CallPref = CallPref() // Инициализируем по умолчанию
+    private val prefData = MutableLiveData<CallPref>()
 
     init {
-        // Инициализируем...
-        // Получаем стандартные данные из БД
+        // Получилось частичное дублирование с CallTimeViewModel <- Исправить
+
+        // В начале нужно проверить измененно ли расписание звонков
+        prefData.postValue(if (localRepository.isCustomScheduleCall) customPref() else defaultPref())
+
+        // Заполняем лист с превью
+        previewListData.postValue(generateList(pref))
+    }
+
+    fun getPref(): CallPref = currentCallPref.value ?: pref
+    fun setPref(preferences: CallPref) = currentCallPref.postValue(preferences)
+
+    fun observePreviewList(owner: LifecycleOwner, observer: Observer<ArrayList<CallItem>>) {
+        previewListData.observe(owner, observer)
+    }
+
+    fun observePref(owner: LifecycleOwner, observer: Observer<CallPref>) {
+        currentCallPref.observe(owner, observer)
+    }
+    // Функция вернет сгенерированный лист
+    private fun generateList(pref: CallPref): ArrayList<CallItem> = CallGenerator(prefData.value
+            ?: pref).getCallsList()
+
+    fun saveAndPush() {
+        // Ставим что у нас кастомные настройки звонков
+        localRepository.isCustomScheduleCall = true
+
+        // Отправляем данные
+        interactor.setCustomCallPref(pref)
+        Log.d("TEST", pref.toString()) // Данные отправляются, но
+    }
+
+    fun setDefaultPreferences() {
+        defaultPref() // устанвливаем дефолтные настройки
+        previewListData.postValue(generateList(pref)) // Перегенирируем список
+        localRepository.isCustomScheduleCall = false  // Флаг на дефолтные
+    }
+
+    private fun defaultPref(): CallPref {
+        // Тут можно проверить дефолтны ли дефолтные настройки и в след раз не лезть на сервер
+        // и использовать просто CallPref()
+        var preferences = CallPref()
         interactor.getDefaultCallPref()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    defaultPref = it
-                    currentCallPref.postValue(defaultPref)
+                    preferences = it
+                    prefData.postValue(pref)
                 }.apply { compositeDisposable.add(this) }
-
-
-        if (Hawk.get(KEY_IS_EDITED_CALL, DEF_EDITED_CALL) == false) {
-            // Грузим дефолтные настройки
-            // В случае изменения дефолтных настртоек грузить из RealtimeDataBase
-            pref = if (CallPref() == defaultPref) CallPref() else defaultPref // TODO:...и Отписаться от потока
-        } else {
-            // Грузим из БД
-            interactor.getCustomCallPref()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe {
-                        pref = it
-                        currentCallPref.postValue(pref)
-                    }.apply { compositeDisposable.add(this) }
-        }
-
-        // Заполняем текущий лист
-        currentList.postValue(generateList(pref)) // Лист заполенный по умолчанию
-        // Заполняем лист с превью
-        previewList.postValue(generateList(pref))
+        return preferences
     }
 
-    fun observePreviewList(owner: LifecycleOwner, observer: Observer<ArrayList<BellItem>>) {
-        previewList.observe(owner, observer)
-    }
+    private fun customPref(): CallPref {
 
-    fun getPreferences(): CallPref = currentCallPref.value!!
-
-    fun setPref(preferences: CallPref) = currentCallPref.postValue(preferences)
-
-    // Функция вернет сгенерированный лист
-    private fun generateList(pref: CallPref): ArrayList<BellItem> = BellsGenerator(pref).getBellsList()
-
-    fun save() {
-        // Отправляем данные
-        interactor.setCustomCallPref(currentCallPref.value!!)
-    }
-
-    fun cancel() {
-        // Сброс до начальных данных перед изменением
-        previewList.postValue(currentList.value)
-    }
-
-    fun setupDefaultPreferences() {
-        previewList.postValue(generateList(defaultPref))
-        Hawk.put(KEY_IS_EDITED_CALL, false)
+        var preferences = CallPref()
+        // Пользовательские установки
+        // Вообще все пользовательское будет храниться только локально, делаю так для ДЗ
+        interactor.getCustomCallPref()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    preferences = it
+                    prefData.postValue(pref)
+                }.apply { compositeDisposable.add(this) }
+        return preferences
     }
 }

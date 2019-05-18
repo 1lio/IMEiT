@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view.ftagments.bells
+package ru.vyaacheslav.suhov.imeit.view.ftagments.calls
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -28,12 +29,15 @@ class CallPreviewFragment : Fragment() {
         model = ViewModelProviders.of(activity!!)[CallSetupViewModel::class.java]
 
         val adapter = CallListFragmentAdapter()
-        val recycler: RecyclerView = v.findViewById(R.id.recyclerTime)
+        val recycler: RecyclerView = v.findViewById(R.id.recycler)
 
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.adapter = adapter
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
+
+
+       // val pref = Transformations.switchMap(CallSetupViewModel().getPref()){}
 
         model.observePreviewList(this, Observer { adapter.addAllAndNotify(it) })
         return v

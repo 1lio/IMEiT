@@ -11,10 +11,10 @@ import ru.vyaacheslav.suhov.imeit.base.BaseAdapter
 import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
 import ru.vyaacheslav.suhov.imeit.util.styleAppearance
-import ru.vyaacheslav.suhov.imeit.view.adapters.entity.BellItem
+import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 
-class CallListFragmentAdapter : BaseAdapter<BellItem, CallListFragmentAdapter.TestViewHolder>() {
+class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.TestViewHolder>() {
 
     private var min: String = ""
     private lateinit var context: Context
@@ -27,7 +27,7 @@ class CallListFragmentAdapter : BaseAdapter<BellItem, CallListFragmentAdapter.Te
         return TestViewHolder(v)
     }
 
-    inner class TestViewHolder(v: View) : BaseViewHolder<BellItem>(v) {
+    inner class TestViewHolder(v: View) : BaseViewHolder<CallItem>(v) {
 
         val num: TextView = itemView.findViewById(R.id.t_num)
         val less1top: TextView = itemView.findViewById(R.id.t_top)
@@ -35,7 +35,7 @@ class CallListFragmentAdapter : BaseAdapter<BellItem, CallListFragmentAdapter.Te
         val less2top: TextView = itemView.findViewById(R.id.t_bott)
         val less2bot: TextView = itemView.findViewById(R.id.t_o_bott)
 
-        override fun bind(item: BellItem) {
+        override fun bind(item: CallItem) {
             num.text = item.num
             less1top.text = item.topLesson
             less1bot.text = (item.topBreak + min)

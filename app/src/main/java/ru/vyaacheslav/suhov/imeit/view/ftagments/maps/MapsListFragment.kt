@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.adapters.MapsListAdapter
-import ru.vyaacheslav.suhov.imeit.viewmodel.MapsListViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.LocationViewModel
 
 /** Фрагмент список с положением всех корпусов */
 class MapsListFragment : Fragment() {
@@ -23,7 +23,7 @@ class MapsListFragment : Fragment() {
         val v = inflater.inflate(R.layout.fr_recycler, container, false)
         val recycler = v.findViewById<RecyclerView>(R.id.recycler)
 
-        val model: MapsListViewModel = ViewModelProviders.of(this)[MapsListViewModel::class.java]
+        val model: LocationViewModel = ViewModelProviders.of(this)[LocationViewModel::class.java]
         val adapter = MapsListAdapter()
         recycler.adapter = adapter
 

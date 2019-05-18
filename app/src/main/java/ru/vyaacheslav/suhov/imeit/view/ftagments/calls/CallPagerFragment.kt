@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view.ftagments.bells
+package ru.vyaacheslav.suhov.imeit.view.ftagments.calls
 
 import android.os.Bundle
 import android.view.LayoutInflater
