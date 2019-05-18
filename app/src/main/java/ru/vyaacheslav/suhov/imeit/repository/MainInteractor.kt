@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.repository
 
+import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -117,14 +118,16 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         // В данном случае изменяется конкретный референс и push() не подходит, т.к. ключ создасться за нас
         // push() можно прикрутить для создания списка с локациями
 
-        // Попытка заменить данные. Не получилось
-        // repository.getRefPreferencesCall().setValue(pref)
+        // Через push() данные добавляются в качестве дочернего элемента
 
-        // Пробуем так
+        // Попытка заменить данные. Не получилось
+        repository.getRefPreferencesCall().setValue(pref)
+        Log.d("TEST", "Interactor: $pref") // Данные отправляются правильные
         //val testPref = CallPref(3,500,20,10,40,2,2)
-        // Не пашет
-        val map = HashMap<String, Any>()
-        map[CUSTOM] = pref
-        repository.getRefPreferencesCall().updateChildren(map)
+
+        // Пробуем так. тоже не робит
+        /*  val map = HashMap<String, Any>()
+          map[CUSTOM] = pref
+          repository.getRefPreferencesCall().updateChildren(map)*/
     }
 }
