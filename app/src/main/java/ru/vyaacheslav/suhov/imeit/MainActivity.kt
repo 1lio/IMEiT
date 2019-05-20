@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadStartFragment() {
-
         when {
             // Проверка на первый запуск
             model.isFirstRun() -> {
