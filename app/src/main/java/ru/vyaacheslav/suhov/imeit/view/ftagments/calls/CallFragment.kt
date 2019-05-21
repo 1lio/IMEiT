@@ -15,7 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
-import ru.vyaacheslav.suhov.imeit.util.EducationEvent
+import ru.vyaacheslav.suhov.imeit.util.EducationEvent.BREAK
+import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LUNCH
 import ru.vyaacheslav.suhov.imeit.view.adapters.CallListFragmentAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 
@@ -81,8 +82,8 @@ class CallFragment : Fragment() {
             // Текущий статус пары
             viewModel.setPairStatus(
                     when (utils.getNumberCurrentPair().first) {
-                        EducationEvent.LUNCH -> resources.getString(R.string.time_lunch)
-                        EducationEvent.BREAK -> resources.getString(R.string.time_before)
+                        LUNCH -> resources.getString(R.string.time_lunch)
+                        BREAK -> resources.getString(R.string.time_before)
                         else -> resources.getString(R.string.time_residue)
                     })
 

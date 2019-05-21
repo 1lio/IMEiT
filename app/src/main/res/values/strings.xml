@@ -67,5 +67,7 @@
     <string name="start_lesson_to">Занятия начинаются в:</string>
     <string name="save_settings">Настройки сохранены!</string>
     <string name="def_settings">Настройки возвращены в исхдное состояние</string>
+    <string name="exit_of_app">Выйти из приложения</string>
+    <string name="yes">Да</string>
 
 </resources>

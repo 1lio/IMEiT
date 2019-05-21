@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            android.R.id.home -> onBackPressed()
             R.id.group_setup -> showDialogSelectGroup()
             R.id.bells_info -> pushFragment(CallFragment())
             R.id.location -> pushFragment(MapsPagerFragment())
@@ -51,7 +52,8 @@ class MainActivity : AppCompatActivity() {
         when {
             // Проверка на первый запуск
             model.isFirstRun() -> {
-                showDialogSelectGroup(); pushFragment(EmptyGroupFragment())
+                showDialogSelectGroup()
+                pushFragment(EmptyGroupFragment())
             }
             // Проверка выбрана ли группа
             !model.isSelectedGroup() -> pushFragment(EmptyGroupFragment())
@@ -70,6 +72,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDialogSelectGroup() {
+
         AlertDialog.Builder(this@MainActivity)
                 .setTitle(R.string.group)
                 .setNeutralButton(resources.getString(R.string.cancel)) { d, _ -> d.cancel() }
@@ -81,4 +84,19 @@ class MainActivity : AppCompatActivity() {
                 }
                 .create().show()
     }
+
+
+/*    override fun onBackPressed() {
+        super.onBackPressed()
+        // по нажатию кнопки "назат" вернуть на предыдущий фрагмент
+        // Тут возможна проблема, т.к. есть  фрагменты содержащие в себе другие фрагменты
+        val fm = supportFragmentManager
+        if (fm.backStackEntryCount > 0) fm.popBackStack() else finish()
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }*/
 }

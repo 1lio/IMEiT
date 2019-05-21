@@ -1,6 +1,8 @@
 package ru.vyaacheslav.suhov.imeit.util
 
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.util.EducationEvent.BREAK
+import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LESSON
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 import java.util.*
 
@@ -47,10 +49,10 @@ class UtilBell(private val pref: CallPref = CallPref()) {
 
     /** @see getNumberCurrentPair - Функция проверяет входит ли текущее время в диапазоны пар или перемен
      *  @return Pair<тип, номер> */
-    fun getNumberCurrentPair(): Pair<EducationEvent, Int> {
+    fun getNumberCurrentPair(): Pair<Int, Int> {
 
         var number = 0  // Номер пары
-        var type: EducationEvent = EducationEvent.BREAK// Тип. Пара или перемена
+        var type: Int = BREAK// Тип. Пара или перемена
 
         // Проверяем есть ли наше число в листе с диапазонами пар
         val isInclude = generateListsRange().first.any { intRange -> getCurrentTime in intRange }
@@ -58,13 +60,13 @@ class UtilBell(private val pref: CallPref = CallPref()) {
         if (isInclude) {
             generateListsRange().first.forEachIndexed { index, intRange ->
                 if (getCurrentTime in intRange) number = index
-                type = EducationEvent.LESSON
+                type = LESSON
             }
         } else {
             generateListsRange().second.forEachIndexed { index, intRange ->
                 if (getCurrentTime in intRange) number = index
             }
-            type = if (number != pref.lunchStart) EducationEvent.BREAK else EducationEvent.LUNCH
+            type = if (number != pref.lunchStart) BREAK else EducationEvent.LUNCH
             // вернем первую пару если, пары закончались или еще не начинались
             if (number == pref.count) number = 0
         }
@@ -75,7 +77,7 @@ class UtilBell(private val pref: CallPref = CallPref()) {
 
     /**@see getResidueTime Функция которая возвращает скользо времени осталось до конца пары или перемены*/
     fun getResidueTime(): String {
-        return if (getNumberCurrentPair().first == EducationEvent.LESSON) {
+        return if (getNumberCurrentPair().first == LESSON) {
             // Вернем время до окончания пар
             ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()
         } else {
