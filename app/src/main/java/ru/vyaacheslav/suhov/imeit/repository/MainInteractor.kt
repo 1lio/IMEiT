@@ -9,7 +9,6 @@ import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.util.Constants.MAX_PAIR
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
-import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
 

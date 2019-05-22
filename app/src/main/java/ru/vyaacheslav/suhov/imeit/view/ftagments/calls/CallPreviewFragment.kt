@@ -37,7 +37,7 @@ class CallPreviewFragment : Fragment() {
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
 
 
-       // val pref = Transformations.switchMap(CallSetupViewModel().getPref()){}
+       // val pref = Transformations.switchMap(CallSetupViewModel().getPrefData()){}
 
         model.observePreviewList(this, Observer { adapter.addAllAndNotify(it) })
         return v

@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -13,7 +12,6 @@ import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 
 class CallSetupViewModel : BaseViewModel() {
 
-    private val currentCallPref = MutableLiveData<CallPref>()
     private val previewListData = MutableLiveData<ArrayList<CallItem>>()
 
     // Установки с которыми будем работать
@@ -30,27 +28,26 @@ class CallSetupViewModel : BaseViewModel() {
         previewListData.postValue(generateList(pref))
     }
 
-    fun getPref(): CallPref = currentCallPref.value ?: pref
-    fun setPref(preferences: CallPref) = currentCallPref.postValue(preferences)
+    fun getPrefData(): CallPref = prefData.value ?: pref
+
+    fun setPref(preferences: CallPref) = prefData.postValue(preferences)
 
     fun observePreviewList(owner: LifecycleOwner, observer: Observer<ArrayList<CallItem>>) {
         previewListData.observe(owner, observer)
     }
 
     fun observePref(owner: LifecycleOwner, observer: Observer<CallPref>) {
-        currentCallPref.observe(owner, observer)
+        prefData.observe(owner, observer)
     }
     // Функция вернет сгенерированный лист
-    private fun generateList(pref: CallPref): ArrayList<CallItem> = CallGenerator(prefData.value
-            ?: pref).getCallsList()
+    private fun generateList(pref: CallPref): ArrayList<CallItem> =
+            CallGenerator(prefData.value ?: pref).getCallsList()
 
     fun saveAndPush() {
         // Ставим что у нас кастомные настройки звонков
         localRepository.isCustomScheduleCall = true
-
         // Отправляем данные
         interactor.setCustomCallPref(pref)
-        Log.d("TEST", pref.toString()) // Данные отправляются, но
     }
 
     fun setDefaultPreferences() {

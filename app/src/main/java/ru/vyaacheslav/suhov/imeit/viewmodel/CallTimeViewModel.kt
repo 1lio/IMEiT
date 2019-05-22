@@ -9,35 +9,74 @@ import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.CallGenerator
+import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEFAULT
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
 import ru.vyaacheslav.suhov.imeit.view.view.TimeView
 
 /** Данную вью модель используют [CallFragment] и [TimeView]*/
-
 class CallTimeViewModel : BaseViewModel() {
 
     private val pairStatus = MutableLiveData<String>()
     private val timeLeft = MutableLiveData<String>()
+
     private val currentPair = MutableLiveData<Int>()
     private val currentTime = MutableLiveData<String>()
 
-    private var pref = CallPref()
     private val prefData = MutableLiveData<CallPref>()
     private val listData = MutableLiveData<ArrayList<CallItem>>()
 
+    private var pref: CallPref = CallPref()
+    private var list: ArrayList<CallItem> = arrayListOf()
+
     init {
-        // В начале нужно проверить измененно ли расписание звонков
-        // затем грузим из FirebaseRealtimeDatabase нужные данные
-        if (localRepository.isCustomScheduleCall) customPref() else defaultPref()
-
-        // генерируем лист из полученных настроек
-        listData.postValue(CallGenerator(pref).getCallsList())
-
+        // В начале нужно проверить измененно ли расписание звонков и загрузить нужные данные
+        if (localRepository.isCustomScheduleCall) getPref(CUSTOM) else getPref(DEFAULT)
         // Получаем номер текущей пары
-        currentTime
         currentPair.postValue(UtilBell(CallPref()).getNumberCurrentPair().second)
     }
+
+    //<editor-fold desc="SETTERS">
+
+    //Устанавливаем текущее время
+    fun setTime(time: String) {
+        currentTime.postValue(time)
+    }
+
+    fun setPairStatus(status: String) {
+        pairStatus.postValue(status)
+    }
+
+
+    fun setTimeLeft(time: String) {
+        timeLeft.postValue(time)
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="GETTERS">
+
+    fun getPrefData() = prefData.value ?: pref
+
+    private fun getPref(type: String) {
+
+        if (type == DEFAULT) interactor.getDefaultCallPref() else interactor.getCustomCallPref()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    pref = it
+
+                    list.clear()
+                    list = CallGenerator(it).getCallsList()
+
+                    prefData.postValue(pref)
+                    listData.postValue(CallGenerator(it).getCallsList())
+                }.apply { compositeDisposable.add(this) }
+    }
+
+    //</editor-fold>
+
+    //<editor-fold desc="OBSERVERS">
 
     // Статус текущей пары
     fun observePairStatus(owner: LifecycleOwner, observer: Observer<String>) {
@@ -58,45 +97,5 @@ class CallTimeViewModel : BaseViewModel() {
     fun observeListCalls(owner: LifecycleOwner, observer: Observer<ArrayList<CallItem>>) {
         listData.observe(owner, observer)
     }
-
-    //Устанавливаем текущее время
-    fun setTime(time: String) {
-        currentTime.postValue(time)
-    }
-
-    fun setPairStatus(status: String) {
-        pairStatus.postValue(status)
-    }
-
-    fun getPref() = prefData.value ?: CallPref()  // <- Умышленный Косяк!! | Переделать
-
-    fun setTimeLeft(time: String) {
-        timeLeft.postValue(time)
-    }
-
-    private fun defaultPref() {
-
-        // Тут можно проверить дефолтны ли дефолтные настройки и в след раз не лезть на сервер
-        // и использовать просто CallPref()
-
-        interactor.getDefaultCallPref()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    pref = it
-                    prefData.postValue(pref)
-                }.apply { compositeDisposable.add(this) }
-    }
-
-    private fun customPref() {
-        // Пользовательские установки
-        // Вообще все пользовательское будет храниться только локально, делаю так для ДЗ
-        interactor.getCustomCallPref()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    pref = it
-                    prefData.postValue(pref)
-                }.apply { compositeDisposable.add(this) }
-    }
+    //</editor-fold>
 }

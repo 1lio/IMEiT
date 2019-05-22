@@ -41,6 +41,14 @@ class CallSetupFragment : Fragment() {
     private var startTime: Int = 0
     private var listEditTexts = arrayListOf<EditText>()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        model = ViewModelProviders.of(this)[CallSetupViewModel::class.java]
+        pref = model.getPrefData()
+        startTime = pref.start
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val v = inflater.inflate(R.layout.fr_call_setup, container, false)
@@ -65,7 +73,7 @@ class CallSetupFragment : Fragment() {
     }
 
     private fun setupCurrentPref() {
-        val preferences: CallPref = model.getPref()
+        val preferences: CallPref = model.getPrefData()
         listEditTexts.forEach {
             val t = when (it) {
                 edCount -> preferences.count.toString()
@@ -151,10 +159,6 @@ class CallSetupFragment : Fragment() {
     }
 
     private fun initViews(v: View) {
-        model = ViewModelProviders.of(this)[CallSetupViewModel::class.java]
-        pref = model.getPref()
-        startTime = pref.start
-
         // Можно прикуртить DataBinding
         edCount = v.findViewById(R.id.ed_count_call)
         edBreak = v.findViewById(R.id.ed_length_break)

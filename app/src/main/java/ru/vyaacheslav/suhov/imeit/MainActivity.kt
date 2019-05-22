@@ -84,19 +84,4 @@ class MainActivity : AppCompatActivity() {
                 }
                 .create().show()
     }
-
-
-/*    override fun onBackPressed() {
-        super.onBackPressed()
-        // по нажатию кнопки "назат" вернуть на предыдущий фрагмент
-        // Тут возможна проблема, т.к. есть  фрагменты содержащие в себе другие фрагменты
-        val fm = supportFragmentManager
-        if (fm.backStackEntryCount > 0) fm.popBackStack() else finish()
-
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }*/
 }

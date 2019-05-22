@@ -24,7 +24,7 @@ class CallFragment : Fragment() {
 
     private lateinit var viewModel: CallTimeViewModel
     private val handler: Handler = Handler()
-    private var pref: CallPref = CallPref()
+    private lateinit var pref: CallPref
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -32,7 +32,7 @@ class CallFragment : Fragment() {
         val recycler: RecyclerView = v.findViewById(R.id.recyclerTime)
 
         viewModel = ViewModelProviders.of(activity!!)[CallTimeViewModel::class.java]
-        pref = viewModel.getPref()
+        pref = viewModel.getPrefData()
         val adapter = CallListFragmentAdapter()
 
         recycler.layoutManager = LinearLayoutManager(context)
@@ -47,8 +47,6 @@ class CallFragment : Fragment() {
         recycler.itemAnimator = DefaultItemAnimator()
         // Добавляем вертикальный разделитель
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
-        // Устанавливаем фиксированный размер
-        recycler.setHasFixedSize(true)
 
         // Запускаем отдельный поток при старте активити для определения остатка времени до события
         handler.removeCallbacks(timeUpdaterRunnable)
