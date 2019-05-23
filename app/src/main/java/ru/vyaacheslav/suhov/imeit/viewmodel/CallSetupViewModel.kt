@@ -8,21 +8,21 @@ import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.CallGenerator
+import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEFAULT
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 
 class CallSetupViewModel : BaseViewModel() {
 
-    private val previewListData = MutableLiveData<ArrayList<CallItem>>()
-
+    private val previewListData = MutableLiveData<ArrayList<CallItem>>() // Лист с превью
+    private var previewList = ArrayList<CallItem>()
     // Установки с которыми будем работать
-    private var pref: CallPref = CallPref() // Инициализируем по умолчанию
+    private var pref: CallPref = CallPref() // Установки
     private val prefData = MutableLiveData<CallPref>()
 
     init {
-        // Получилось частичное дублирование с CallTimeViewModel <- Исправить
-
-        // В начале нужно проверить измененно ли расписание звонков
-        prefData.postValue(if (localRepository.isCustomScheduleCall) customPref() else defaultPref())
+        // В начале нужно проверить измененно ли расписание звонков и загрузить нужные данные
+        if (localRepository.isCustomScheduleCall) getPref(CUSTOM) else getPref(DEFAULT)
 
         // Заполняем лист с превью
         previewListData.postValue(generateList(pref))
@@ -36,52 +36,38 @@ class CallSetupViewModel : BaseViewModel() {
         previewListData.observe(owner, observer)
     }
 
-    fun observePref(owner: LifecycleOwner, observer: Observer<CallPref>) {
-        prefData.observe(owner, observer)
-    }
     // Функция вернет сгенерированный лист
     private fun generateList(pref: CallPref): ArrayList<CallItem> =
             CallGenerator(prefData.value ?: pref).getCallsList()
 
-    fun saveAndPush() {
+    fun saveAndPush(preferences: CallPref) {
         // Ставим что у нас кастомные настройки звонков
         localRepository.isCustomScheduleCall = true
+        // Сохраняем колличество пар
+        localRepository.countPair = pref.count
         // Отправляем данные
-        interactor.setCustomCallPref(pref)
+        interactor.setCustomCallPref(preferences)
     }
 
     fun setDefaultPreferences() {
-        defaultPref() // устанвливаем дефолтные настройки
+        getPref(DEFAULT) // устанвливаем дефолтные настройки
         previewListData.postValue(generateList(pref)) // Перегенирируем список
         localRepository.isCustomScheduleCall = false  // Флаг на дефолтные
+        localRepository.countPair = pref.count // Сохраняем колличество пар
     }
 
-    private fun defaultPref(): CallPref {
-        // Тут можно проверить дефолтны ли дефолтные настройки и в след раз не лезть на сервер
-        // и использовать просто CallPref()
-        var preferences = CallPref()
-        interactor.getDefaultCallPref()
+    private fun getPref(type: String) {
+        if (type == DEFAULT) interactor.getDefaultCallPref() else interactor.getCustomCallPref()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    preferences = it
-                    prefData.postValue(pref)
-                }.apply { compositeDisposable.add(this) }
-        return preferences
-    }
+                    pref = it
 
-    private fun customPref(): CallPref {
+                    previewList.clear()
+                    previewList = CallGenerator(pref).getCallsList()
 
-        var preferences = CallPref()
-        // Пользовательские установки
-        // Вообще все пользовательское будет храниться только локально, делаю так для ДЗ
-        interactor.getCustomCallPref()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    preferences = it
                     prefData.postValue(pref)
+                    previewListData.postValue(CallGenerator(it).getCallsList())
                 }.apply { compositeDisposable.add(this) }
-        return preferences
     }
 }

@@ -12,7 +12,6 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.vyaacheslav.suhov.imeit.MainActivity
@@ -25,9 +24,8 @@ import java.util.*
 
 class CallSetupFragment : Fragment() {
 
-    private var calendar = Calendar.getInstance()
-    private lateinit var model: CallSetupViewModel
-    private lateinit var pref: CallPref
+    private lateinit var viewModelSetup: CallSetupViewModel
+    private lateinit var pref: CallPref // установки которые получаем
 
     private lateinit var edCount: EditText
     private lateinit var edBreak: EditText
@@ -36,17 +34,15 @@ class CallSetupFragment : Fragment() {
     private lateinit var edLengthBreakPair: EditText
     private lateinit var edLunchStart: EditText
     private lateinit var textStart: TextView
-    private lateinit var defBtn:Button
+    private lateinit var defBtn: Button
 
-    private var startTime: Int = 0
     private var listEditTexts = arrayListOf<EditText>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        model = ViewModelProviders.of(this)[CallSetupViewModel::class.java]
-        pref = model.getPrefData()
-        startTime = pref.start
+        viewModelSetup = ViewModelProviders.of(context as MainActivity)[CallSetupViewModel::class.java]
+        pref = viewModelSetup.getPrefData()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -57,10 +53,6 @@ class CallSetupFragment : Fragment() {
         // заполняем EditText-ы
         setupCurrentPref()
 
-        model.observePref(activity!!, Observer {
-            listEditTexts.forEach { if ((it.text.isEmpty())) it.error = "Поле не должно быть пустым" }
-        })
-
         //Смотрим за полями и обновляем liveData
         getDataForEditText()
 
@@ -68,33 +60,34 @@ class CallSetupFragment : Fragment() {
         fabClick()
         defBtnClick()
         timePickerClick()
-
         return v
     }
 
     private fun setupCurrentPref() {
-        val preferences: CallPref = model.getPrefData()
+        val startPref: CallPref = viewModelSetup.getPrefData()
+
         listEditTexts.forEach {
             val t = when (it) {
-                edCount -> preferences.count.toString()
-                edLengthLesson -> preferences.lengthLesson.toString()
-                edBreak -> preferences.lengthBreak.toString()
-                edLengthLunch -> preferences.lengthLunch.toString()
-                edLengthBreakPair -> preferences.lengthBreakPair.toString()
-                edLunchStart -> preferences.lunchStart.toString()
+                edCount -> startPref.count.toString()
+                edLengthLesson -> startPref.lengthLesson.toString()
+                edBreak -> startPref.lengthBreak.toString()
+                edLengthLunch -> startPref.lengthLunch.toString()
+                edLengthBreakPair -> startPref.lengthBreakPair.toString()
+                edLunchStart -> startPref.lunchStart.toString()
                 else -> ""
             }
             it.setText(t, TextView.BufferType.EDITABLE)
         }
-        textStart.text = pref.start.timeFormat()
+        textStart.text = startPref.start.timeFormat()
     }
 
     // установка обработчика выбора времени
+    private var calendar = Calendar.getInstance()
     private var onTimeSetListener = TimePickerDialog.OnTimeSetListener { _, h, m ->
         calendar.set(Calendar.HOUR_OF_DAY, h)
         calendar.set(Calendar.MINUTE, m)
 
-        startTime = (h * 60 + m)
+        pref.start = (h * 60 + m)
         textStart.text = pref.start.timeFormat()
     }
 
@@ -104,17 +97,16 @@ class CallSetupFragment : Fragment() {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
                     when (it) {
-                        edCount -> pref.count = s!!.convertToInt()
-                        edLengthLesson -> pref.lengthLesson = s!!.convertToInt()
-                        edBreak -> pref.lengthBreak = s!!.convertToInt()
-                        edLengthLunch -> pref.lengthLunch = s!!.convertToInt()
-                        edLengthBreakPair -> pref.lengthBreakPair = s!!.convertToInt()
-                        edLunchStart -> pref.lunchStart = s!!.convertToInt()
+                        edCount -> pref.count = s.toString().toInt()
+                        edLengthLesson -> pref.lengthLesson =  s.toString().toInt()
+                        edBreak -> pref.lengthBreak =  s.toString().toInt()
+                        edLengthLunch -> pref.lengthLunch =  s.toString().toInt()
+                        edLengthBreakPair -> pref.lengthBreakPair =  s.toString().toInt()
+                        edLunchStart -> pref.lunchStart =  s.toString().toInt()
                     }
-                    pref.start = startTime
-                    model.setPref(pref)
+
+                    viewModelSetup.setPref(pref)
                 }
 
                 override fun afterTextChanged(s: Editable?) {}
@@ -131,7 +123,7 @@ class CallSetupFragment : Fragment() {
         fab.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_save))
 
         fab.setOnClickListener {
-            model.saveAndPush()
+            viewModelSetup.saveAndPush(pref)
             toast(activity, R.string.save_settings)
         }
     }
@@ -139,16 +131,15 @@ class CallSetupFragment : Fragment() {
     // Обработка кнопки "стнадарные"
     private fun defBtnClick() {
         defBtn.setOnClickListener {
-            model.setDefaultPreferences()
+            viewModelSetup.setDefaultPreferences()
             toast(context!!, R.string.def_settings)
         }
     }
 
     //TimePicker
-    private fun timePickerClick(){
+    private fun timePickerClick() {
         // отображаем диалоговое окно для выбора времени
         textStart.setOnClickListener {
-
             TimePickerDialog(
                     activity,
                     onTimeSetListener,
@@ -171,12 +162,5 @@ class CallSetupFragment : Fragment() {
 
         listEditTexts.addAll(arrayOf(edCount, edLengthLesson, edBreak, edLengthLunch,
                 edLengthBreakPair, edLunchStart))
-    }
-
-    // TODO: КОСТЫЛЬ ПЕРЕДЕЛАТЬ!!!
-    fun CharSequence.convertToInt(): Int = try {
-        this.toString().toInt()
-    } catch (e: Exception) {
-        0
     }
 }

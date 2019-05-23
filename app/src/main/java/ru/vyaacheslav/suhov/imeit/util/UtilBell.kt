@@ -2,7 +2,9 @@ package ru.vyaacheslav.suhov.imeit.util
 
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.BREAK
+import ru.vyaacheslav.suhov.imeit.util.EducationEvent.END
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LESSON
+import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LUNCH
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 import java.util.*
 
@@ -63,10 +65,14 @@ class UtilBell(private val pref: CallPref = CallPref()) {
                 type = LESSON
             }
         } else {
-            generateListsRange().second.forEachIndexed { index, intRange ->
-                if (getCurrentTime in intRange) number = index
+            generateListsRange().second.forEachIndexed { i, r -> if (getCurrentTime in r) number = i }
+
+            type = when {
+                number == pref.lunchStart -> LUNCH
+                getCurrentTime > generateListsRange().first[pref.count - 1].endInclusive -> END
+                else -> BREAK
             }
-            type = if (number != pref.lunchStart) BREAK else EducationEvent.LUNCH
+
             // вернем первую пару если, пары закончались или еще не начинались
             if (number == pref.count) number = 0
         }
@@ -103,7 +109,6 @@ class UtilBell(private val pref: CallPref = CallPref()) {
             list.add(TimeData(hour, minText, text.timeFormat()))
 
             time = (time + pref.lengthBreak + (pref.lengthLesson * 2) + pref.lengthBreakPair)
-
             // Большая перемена
             if (x == pref.lunchStart) time = (time + pref.lengthLunch - pref.lengthBreakPair)
         }

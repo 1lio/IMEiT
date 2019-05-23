@@ -7,10 +7,14 @@ import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
-import ru.vyaacheslav.suhov.imeit.util.Constants.MAX_PAIR
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
+
+    private val localRepository = LocalRepository().getInstance()
+    private val institute = localRepository.institute
+    private val faculty = localRepository.faculty
+    private val group = localRepository.group
 
     /** @return - Список всех корпусов */
     fun getListBuildings(): Observable<ArrayList<MapData>> {
@@ -56,18 +60,20 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
     /** @return - Список в парами к текущему дню */
     // Слишком ного параметров | Переделать
-    fun getScheduleDay(institute: String, faculty: String, day: String, group: String): Observable<ArrayList<Schedule>> {
+
+    fun getScheduleDay(day: String): Observable<ArrayList<Schedule>> {
         return Observable.create {
             repository.getRefListSchedule(institute, faculty, group, day)
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
 
                             val list = ArrayList<Schedule>()
-                            for (x in 1..MAX_PAIR) {
+                            for (x in 1..localRepository.countPair) {
                                 list.add(snapshot.child("pair$x").getValue(Schedule::class.java)
-                                        ?: Schedule()) // <- косяк ("pair$x")
+                                        ?: Schedule()) // <- косяк ("pair$x"); просто по пройтись по дочерним нельзя,
+                                // т.к. может быть пустая пара и пужно получить индекс пустой
+                                // можно кончено просто менять последний char; получается почти тоже самое.
                             }
-
                             it.onNext(list)
                         }
 
@@ -79,6 +85,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
     /** @return - Стандартные настройки звонков */
     fun getDefaultCallPref(): Observable<CallPref> {
         return Observable.create {
+            // Запрос выполнитья один раз
             repository.getRefDefaultPreferencesCall()
                     .addListenerForSingleValueEvent(object : ValueEventListener {
 
@@ -98,7 +105,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
     fun getCustomCallPref(): Observable<CallPref> {
         return Observable.create {
             repository.getRefPreferencesCall()
-                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                    .addValueEventListener(object : ValueEventListener {
 
                         override fun onDataChange(p0: DataSnapshot) {
                             it.onNext(p0.getValue(CallPref::class.java) ?: CallPref())
@@ -114,19 +121,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
     /**  Просто отправляем новые установки для звонков
      * @param pref - Установки для передачи */
     fun setCustomCallPref(pref: CallPref) {
-        // В данном случае изменяется конкретный референс и push() не подходит, т.к. ключ создасться за нас
-        // push() можно прикрутить для создания списка с локациями
-
-        // Через push() данные добавляются в качестве дочернего элемента
-
-        // Попытка заменить данные. Не получилось
         repository.getRefPreferencesCall().setValue(pref)
-        Log.d("TEST", "Interactor: $pref") // Данные отправляются правильные
-        //val testPref = CallPref(3,500,20,10,40,2,2)
-
-        // Пробуем так. тоже не робит
-        /*  val map = HashMap<String, Any>()
-          map[CUSTOM] = pref
-          repository.getRefPreferencesCall().updateChildren(map)*/
+        Log.d("TESTA", pref.toString())
     }
 }
