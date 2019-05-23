@@ -19,11 +19,12 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.timeFormat
 import ru.vyaacheslav.suhov.imeit.util.toast
-import ru.vyaacheslav.suhov.imeit.viewmodel.CallSetupViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 import java.util.*
+import kotlin.collections.ArrayList
 
 class CallSetupFragment : Fragment(), View.OnClickListener {
-    private lateinit var viewModelSetup: CallSetupViewModel
+    private lateinit var viewModelSetup: CallTimeViewModel
 
     private lateinit var pref: CallPref // установки которые получаем
     private lateinit var edCount: EditText
@@ -36,7 +37,8 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
     private lateinit var textStart: TextView
     private lateinit var defBtn: Button
     private lateinit var fab: FloatingActionButton
-    private var listEditTexts = arrayListOf<EditText>()
+
+    private var listEditTexts = ArrayList<EditText>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -44,7 +46,7 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
         initViews(v)
 
         // заполняем EditText-ы
-        setupCurrentPref(viewModelSetup.getPrefData())
+        setupCurrentPref()
 
         //Смотрим за полями и обновляем liveData
         getDataForEditText()
@@ -52,30 +54,28 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
         fab.setOnClickListener(this)
         defBtn.setOnClickListener(this)
         textStart.setOnClickListener(this)
-
         return v
     }
 
-    private fun setupCurrentPref(p: CallPref) {
+    private fun setupCurrentPref() {
+        pref = viewModelSetup.getPrefData()
         listEditTexts.forEach {
-            val t = when (it) {
-                edCount.text -> p.count.toString()
-                edLengthLesson.text -> p.lengthLesson.toString()
-                edBreak.text -> p.lengthBreak.toString()
-                edLengthLunch.text -> p.lengthLunch.toString()
-                edLengthBreakPair.text -> p.lengthBreakPair.toString()
-                edLunchStart.text -> p.lunchStart.toString()
-                else -> ""
+            when (it) {
+                edCount -> it.setText(pref.count.toString())
+                edLengthLesson -> it.setText(pref.lengthLesson.toString(), TextView.BufferType.EDITABLE)
+                edBreak -> it.setText(pref.lengthBreak.toString())
+                edLengthLunch -> it.setText(pref.lengthLunch.toString())
+                edLengthBreakPair -> it.setText(pref.lengthBreakPair.toString())
+                edLunchStart -> it.setText(pref.lunchStart.toString())
+
             }
-            it.setText(t, TextView.BufferType.EDITABLE)
         }
-        textStart.text = p.start.timeFormat()
+        textStart.text = pref.start.timeFormat()
     }
 
     private var onTimeSetListener = TimePickerDialog.OnTimeSetListener { _, h, m ->
         Calendar.getInstance().set(Calendar.HOUR_OF_DAY, h)
         Calendar.getInstance().set(Calendar.MINUTE, m)
-
         pref.start = (h * 60 + m)
         textStart.text = pref.start.timeFormat()
     }
@@ -93,7 +93,6 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
                         edLengthBreakPair -> if (s.validDateCallPref(it)) pref.lengthBreakPair = s.toString().toInt()
                         edLunchStart -> if (s.validDateCallPref(it)) pref.lunchStart = s.toString().toInt()
                     }
-                    viewModelSetup.setPref(pref)
                 }
 
                 override fun afterTextChanged(s: Editable?) {}
@@ -103,46 +102,41 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
     }
 
     private fun CharSequence.validDateCallPref(ed: EditText): Boolean {
-        return when {
 
+        val isCorrect: Boolean = when {
             this.toString() == "" -> {
                 ed.error = resources.getString(R.string.poly_is_empty)
-                fabIsEnabled(false)
                 false
             }
 
             this.toString().toInt() == 0 -> {
                 ed.error = resources.getString(R.string.max_0)
-                fabIsEnabled(false)
                 false
             }
             this.toString().toInt() > 60 -> {
                 ed.error = resources.getString(R.string.max_60)
-                fabIsEnabled(false)
                 false
             }
 
             this.toString().toInt() > 10 && ed == edCount -> {
                 ed.error = resources.getString(R.string.max_pair)
-                fabIsEnabled(false)
                 false
             }
 
             this.toString().toInt() > pref.start - 1 && ed == edLunchStart -> {
                 ed.error = resources.getString(R.string.max2)
-                fabIsEnabled(false)
                 false
             }
-            else -> {
-                fabIsEnabled(true)
-                true
-            }
+            else -> true
         }
+
+        fab.isEnabled = isCorrect
+        return isCorrect
     }
 
     private fun initViews(v: View) {
-        viewModelSetup = ViewModelProviders.of(context as MainActivity)[CallSetupViewModel::class.java]
-        pref = viewModelSetup.getPrefData()
+        viewModelSetup = ViewModelProviders.of(context as MainActivity)[CallTimeViewModel::class.java]
+        viewModelSetup.getPref()
 
         fab = activity!!.findViewById(R.id.fab)
         fab.setImageDrawable(ContextCompat.getDrawable(activity!!, R.drawable.ic_save))
@@ -160,17 +154,6 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
                 edLengthBreakPair, edLunchStart))
     }
 
-    private fun fabIsEnabled(state: Boolean) {
-
-        if (state) {
-            fab.isEnabled = true
-            fab.background.mutate().setTint(ContextCompat.getColor(context!!, R.color.colorAccent))
-        } else {
-            fab.isEnabled = false
-            fab.background.mutate().setTint(ContextCompat.getColor(context!!, R.color.gray))
-        }
-    }
-
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.time_start -> {
@@ -178,16 +161,18 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
                         activity,
                         onTimeSetListener,
                         pref.start / 60,
-                        pref.start % 60, true)
+                        pref.start % 60,
+                        true)
                         .show()
             }
             R.id.btn_def_call -> {
                 viewModelSetup.setDefaultPreferences()
-                setupCurrentPref(viewModelSetup.getPrefData())
+                setupCurrentPref() // Без костылей не обошлось
                 toast(context!!, R.string.def_settings)
             }
             R.id.fab -> {
                 viewModelSetup.saveAndPush(pref)
+                setupCurrentPref()
                 toast(activity!!, R.string.save_settings)
             }
         }

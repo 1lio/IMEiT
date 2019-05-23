@@ -26,7 +26,8 @@ fun TextView.styleAppearance(context: Context) {
 /** @return Функция-расширение возвращает строку в 24-часовом формате <00:00> */
 fun Int.timeFormat(): String {
     // Получим остаток от текущего значения
-    val hour = this / 60   // Часы
+    var hour = this / 60   // Часы
+    if (hour > 24) hour = (this / 60) - 24
     val min = this % 60    // Минуты
     // Сформатируем строку
     val hh: String = if (hour < 10) "0$hour" else "$hour"
@@ -44,6 +45,6 @@ fun getDayAcronym(): String = when (Calendar.getInstance().get(Calendar.DAY_OF_W
     else -> MON
 }
 
-fun toast(context: Context, msg:Int) {
-    Toast.makeText(context,msg,Toast.LENGTH_SHORT).show()
+fun toast(context: Context, msg: Int) {
+    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
 }

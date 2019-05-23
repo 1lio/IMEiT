@@ -51,7 +51,7 @@ class LocalRepository {
         get() = Hawk.get(KEY_GROUP_ID, DEF_GROUP_ID) != 0
 
     // Изменены ли настройки времени звонков
-    var isCustomScheduleCall:Boolean
+    var isChangedPref:Boolean
         set(value) {Hawk.put(KEY_EDITED_CALL,value)}
         get() = Hawk.get(KEY_EDITED_CALL, DEF_EDITED_CALL)
 

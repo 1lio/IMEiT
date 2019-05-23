@@ -88,7 +88,7 @@ class UtilBell(private val pref: CallPref = CallPref()) {
             // Вернем время до окончания пар
             ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()
         } else {
-            ((1440 - getCurrentTime) + pref.start).timeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
+            (1440 - getCurrentTime + pref.start).timeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
         }
 
     }
@@ -103,6 +103,7 @@ class UtilBell(private val pref: CallPref = CallPref()) {
 
             // Строка сверху
             val hour = (time / 60).toString()
+
             val min = time % 60
             val text = (time + pref.lengthBreak + (pref.lengthLesson * 2))
 
