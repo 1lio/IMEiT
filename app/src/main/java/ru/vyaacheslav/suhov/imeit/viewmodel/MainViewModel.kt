@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
 
 class MainViewModel : BaseViewModel() {
 
@@ -45,7 +46,7 @@ class MainViewModel : BaseViewModel() {
         subtitleToolbar.value = currentGroup                  // Группа
     }
 
-    fun getListGroups(): Array<String> = listGroupsData.value ?: arrayOf("Группа не выбрана")
+    fun getListGroups(): Array<String> = listGroupsData.value ?: arrayOf(DEF_NAME_GROUP)
 
     fun getSelectedId(): Int = selectedListId.value ?: 0
 

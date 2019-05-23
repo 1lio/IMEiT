@@ -10,6 +10,7 @@
     <string name="time_pair">Пара</string>
     <string name="time_lesson">Занятие</string>
     <string name="time_break">Перерыв</string>
+
     <string name="time_residue">До конца пары осталось:</string>
     <string name="time_lunch">Большая перемена:</string>
     <string name="time_this_time">Текущее время:</string>
@@ -27,21 +28,6 @@
     <string name="day_fri">"Пт"</string>
 
     <string name="cancel">Отмена</string>
-
-    <string name="t_08">08</string>
-    <string name="min_30">30</string>
-    <string name="t_10_05">10:05</string>
-    <string name="t_10">10</string>
-    <string name="t_15">15</string>
-    <string name="t_11_50">11:50</string>
-    <string name="t_12">12</string>
-    <string name="t_30">30</string>
-    <string name="t_14_05">14:05</string>
-    <string name="t_14">14</string>
-    <string name="t_15_50">15:50</string>
-    <string name="t_16">16</string>
-    <string name="t_00">00</string>
-    <string name="t_17_35">17:35</string>
 
     <!-- Events -->
     <string name="group">Группа</string>
@@ -69,5 +55,10 @@
     <string name="def_settings">Настройки возвращены в исхдное состояние</string>
     <string name="exit_of_app">Выйти из приложения</string>
     <string name="yes">Да</string>
+    <string name="poly_is_empty">Поле не должно быть пустым</string>
+    <string name="max_pair">Колличество пар не может быть больше 10</string>
+    <string name="max_60">Максимум 60</string>
+    <string name="max_0">Не может быть нулем</string>
+    <string name="max2">Не может быть больше колличества пар</string>
 
 </resources>

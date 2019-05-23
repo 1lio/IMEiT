@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallPagerFragment
+import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallSetupFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsPagerFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.EmptyGroupFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                 if (model.isSelectedGroup()) pushFragment(SchedulePagerFragment())
                 else pushFragment(EmptyGroupFragment())
             }
-            R.id.bells_pref -> pushFragment(CallPagerFragment())
+            R.id.bells_pref -> pushFragment(CallSetupFragment())
         }
         return true
     }
@@ -84,19 +85,4 @@ class MainActivity : AppCompatActivity() {
                 }
                 .create().show()
     }
-
-
-/*    override fun onBackPressed() {
-        super.onBackPressed()
-        // по нажатию кнопки "назат" вернуть на предыдущий фрагмент
-        // Тут возможна проблема, т.к. есть  фрагменты содержащие в себе другие фрагменты
-        val fm = supportFragmentManager
-        if (fm.backStackEntryCount > 0) fm.popBackStack() else finish()
-
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }*/
 }

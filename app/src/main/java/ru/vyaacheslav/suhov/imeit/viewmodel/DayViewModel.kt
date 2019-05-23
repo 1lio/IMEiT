@@ -11,10 +11,6 @@ import ru.vyaacheslav.suhov.imeit.util.getDayAcronym
 
 class DayViewModel : BaseViewModel() {
 
-    // Текушие настройки
-    private val currentGroup = localRepository.group
-    private val currentInstitute = localRepository.institute
-    private val currentFaculty = localRepository.faculty
     // LiveData
     private val dayLiveData = MutableLiveData<String>()
     private val scheduleListLiveData = MutableLiveData<ArrayList<Schedule>>()
@@ -33,7 +29,7 @@ class DayViewModel : BaseViewModel() {
 
     fun setSchedule(day: String) {
 
-        interactor.getScheduleDay(currentInstitute, currentFaculty, day, currentGroup)
+        interactor.getScheduleDay(day)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {

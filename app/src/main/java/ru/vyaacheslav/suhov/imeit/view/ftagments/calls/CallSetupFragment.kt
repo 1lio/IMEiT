@@ -12,7 +12,6 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.vyaacheslav.suhov.imeit.MainActivity
@@ -20,26 +19,26 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.timeFormat
 import ru.vyaacheslav.suhov.imeit.util.toast
-import ru.vyaacheslav.suhov.imeit.viewmodel.CallSetupViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 import java.util.*
+import kotlin.collections.ArrayList
 
-class CallSetupFragment : Fragment() {
+class CallSetupFragment : Fragment(), View.OnClickListener {
+    private lateinit var viewModelSetup: CallTimeViewModel
 
-    private var calendar = Calendar.getInstance()
-    private lateinit var model: CallSetupViewModel
-    private lateinit var pref: CallPref
-
+    private lateinit var pref: CallPref // установки которые получаем
     private lateinit var edCount: EditText
+
     private lateinit var edBreak: EditText
     private lateinit var edLengthLesson: EditText
     private lateinit var edLengthLunch: EditText
     private lateinit var edLengthBreakPair: EditText
     private lateinit var edLunchStart: EditText
     private lateinit var textStart: TextView
-    private lateinit var defBtn:Button
+    private lateinit var defBtn: Button
+    private lateinit var fab: FloatingActionButton
 
-    private var startTime: Int = 0
-    private var listEditTexts = arrayListOf<EditText>()
+    private var listEditTexts = ArrayList<EditText>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -49,44 +48,35 @@ class CallSetupFragment : Fragment() {
         // заполняем EditText-ы
         setupCurrentPref()
 
-        model.observePref(activity!!, Observer {
-            listEditTexts.forEach { if ((it.text.isEmpty())) it.error = "Поле не должно быть пустым" }
-        })
-
         //Смотрим за полями и обновляем liveData
         getDataForEditText()
 
-        // Нажатия
-        fabClick()
-        defBtnClick()
-        timePickerClick()
-
+        fab.setOnClickListener(this)
+        defBtn.setOnClickListener(this)
+        textStart.setOnClickListener(this)
         return v
     }
 
     private fun setupCurrentPref() {
-        val preferences: CallPref = model.getPref()
+        pref = viewModelSetup.getPrefData()
         listEditTexts.forEach {
-            val t = when (it) {
-                edCount -> preferences.count.toString()
-                edLengthLesson -> preferences.lengthLesson.toString()
-                edBreak -> preferences.lengthBreak.toString()
-                edLengthLunch -> preferences.lengthLunch.toString()
-                edLengthBreakPair -> preferences.lengthBreakPair.toString()
-                edLunchStart -> preferences.lunchStart.toString()
-                else -> ""
+            when (it) {
+                edCount -> it.setText(pref.count.toString())
+                edLengthLesson -> it.setText(pref.lengthLesson.toString(), TextView.BufferType.EDITABLE)
+                edBreak -> it.setText(pref.lengthBreak.toString())
+                edLengthLunch -> it.setText(pref.lengthLunch.toString())
+                edLengthBreakPair -> it.setText(pref.lengthBreakPair.toString())
+                edLunchStart -> it.setText(pref.lunchStart.toString())
+
             }
-            it.setText(t, TextView.BufferType.EDITABLE)
         }
         textStart.text = pref.start.timeFormat()
     }
 
-    // установка обработчика выбора времени
     private var onTimeSetListener = TimePickerDialog.OnTimeSetListener { _, h, m ->
-        calendar.set(Calendar.HOUR_OF_DAY, h)
-        calendar.set(Calendar.MINUTE, m)
-
-        startTime = (h * 60 + m)
+        Calendar.getInstance().set(Calendar.HOUR_OF_DAY, h)
+        Calendar.getInstance().set(Calendar.MINUTE, m)
+        pref.start = (h * 60 + m)
         textStart.text = pref.start.timeFormat()
     }
 
@@ -94,19 +84,15 @@ class CallSetupFragment : Fragment() {
         // Смотрим за изменениями и публикуем в liveData
         listEditTexts.forEach {
             it.addTextChangedListener(object : TextWatcher {
-
-                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                     when (it) {
-                        edCount -> pref.count = s!!.convertToInt()
-                        edLengthLesson -> pref.lengthLesson = s!!.convertToInt()
-                        edBreak -> pref.lengthBreak = s!!.convertToInt()
-                        edLengthLunch -> pref.lengthLunch = s!!.convertToInt()
-                        edLengthBreakPair -> pref.lengthBreakPair = s!!.convertToInt()
-                        edLunchStart -> pref.lunchStart = s!!.convertToInt()
+                        edCount -> if (s.validDateCallPref(it)) pref.count = s.toString().toInt()
+                        edBreak -> if (s.validDateCallPref(it)) pref.lengthBreak = s.toString().toInt()
+                        edLengthLesson -> if (s.validDateCallPref(it)) pref.lengthLesson = s.toString().toInt()
+                        edLengthLunch -> if (s.validDateCallPref(it)) pref.lengthLunch = s.toString().toInt()
+                        edLengthBreakPair -> if (s.validDateCallPref(it)) pref.lengthBreakPair = s.toString().toInt()
+                        edLunchStart -> if (s.validDateCallPref(it)) pref.lunchStart = s.toString().toInt()
                     }
-                    pref.start = startTime
-                    model.setPref(pref)
                 }
 
                 override fun afterTextChanged(s: Editable?) {}
@@ -115,46 +101,45 @@ class CallSetupFragment : Fragment() {
         }
     }
 
-    // Обработка Fab
-    private fun fabClick() {
-        val activity = context as MainActivity
-        val fab: FloatingActionButton = activity.findViewById(R.id.fab)
+    private fun CharSequence.validDateCallPref(ed: EditText): Boolean {
 
-        fab.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_save))
+        val isCorrect: Boolean = when {
+            this.toString() == "" -> {
+                ed.error = resources.getString(R.string.poly_is_empty)
+                false
+            }
 
-        fab.setOnClickListener {
-            model.saveAndPush()
-            toast(activity, R.string.save_settings)
+            this.toString().toInt() == 0 -> {
+                ed.error = resources.getString(R.string.max_0)
+                false
+            }
+            this.toString().toInt() > 60 -> {
+                ed.error = resources.getString(R.string.max_60)
+                false
+            }
+
+            this.toString().toInt() > 10 && ed == edCount -> {
+                ed.error = resources.getString(R.string.max_pair)
+                false
+            }
+
+            this.toString().toInt() > pref.start - 1 && ed == edLunchStart -> {
+                ed.error = resources.getString(R.string.max2)
+                false
+            }
+            else -> true
         }
-    }
 
-    // Обработка кнопки "стнадарные"
-    private fun defBtnClick() {
-        defBtn.setOnClickListener {
-            model.setDefaultPreferences()
-            toast(context!!, R.string.def_settings)
-        }
-    }
-
-    //TimePicker
-    private fun timePickerClick(){
-        // отображаем диалоговое окно для выбора времени
-        textStart.setOnClickListener {
-
-            TimePickerDialog(
-                    activity,
-                    onTimeSetListener,
-                    pref.start / 60,
-                    pref.start % 60, true)
-                    .show()
-        }
+        fab.isEnabled = isCorrect
+        return isCorrect
     }
 
     private fun initViews(v: View) {
-        model = ViewModelProviders.of(this)[CallSetupViewModel::class.java]
-        pref = model.getPref()
-        startTime = pref.start
+        viewModelSetup = ViewModelProviders.of(context as MainActivity)[CallTimeViewModel::class.java]
+        viewModelSetup.getPref()
 
+        fab = activity!!.findViewById(R.id.fab)
+        fab.setImageDrawable(ContextCompat.getDrawable(activity!!, R.drawable.ic_save))
         // Можно прикуртить DataBinding
         edCount = v.findViewById(R.id.ed_count_call)
         edBreak = v.findViewById(R.id.ed_length_break)
@@ -169,10 +154,26 @@ class CallSetupFragment : Fragment() {
                 edLengthBreakPair, edLunchStart))
     }
 
-    // TODO: КОСТЫЛЬ ПЕРЕДЕЛАТЬ!!!
-    fun CharSequence.convertToInt(): Int = try {
-        this.toString().toInt()
-    } catch (e: Exception) {
-        0
+    override fun onClick(v: View?) {
+        when (v!!.id) {
+            R.id.time_start -> {
+                TimePickerDialog(
+                        activity,
+                        onTimeSetListener,
+                        pref.start / 60,
+                        pref.start % 60,
+                        true)
+                        .show()
+            }
+            R.id.btn_def_call -> {
+                viewModelSetup.setDefaultPreferences()
+                setupCurrentPref() // Без костылей не обошлось
+                toast(context!!, R.string.def_settings)
+            }
+            R.id.fab -> {
+                viewModelSetup.saveAndPush(pref)
+                toast(activity!!, R.string.save_settings)
+            }
+        }
     }
 }
