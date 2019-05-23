@@ -9,15 +9,14 @@ import androidx.core.content.ContextCompat
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseAdapter
 import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
+import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.util.UtilBell
 import ru.vyaacheslav.suhov.imeit.util.styleAppearance
-import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 
 class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHolder>() {
 
-    private val listTime: List<TimeData> = UtilBell().getListTime()
     private lateinit var context: Context
 
     override fun onCreateViewHolder(p: ViewGroup, t: Int): TestViewHolder {
@@ -57,6 +56,7 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHold
 
     override fun onBindViewHolder(holder: TestViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
+        val listTime: List<TimeData> = UtilBell().getListTime()
 
         holder.time1.text = listTime[position].tex1
         holder.time2.text = listTime[position].tex2
@@ -64,7 +64,6 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHold
 
         val currentPair = UtilBell(CallPref()).getNumberCurrentPair().second
         if (currentPair == position) decorateItem(holder)
-
     }
 
     private fun decorateItem(holder: TestViewHolder) {
@@ -75,5 +74,4 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHold
                 holder.teacher2, holder.type2, holder.building2, holder.time1, holder.time2, holder.time3
         ).forEach { it.styleAppearance(context) }
     }
-
 }

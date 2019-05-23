@@ -24,6 +24,7 @@ class CallPreviewFragment : Fragment() {
 
         val v = inflater.inflate(R.layout.fr_recycler, container, false)
         val model = ViewModelProviders.of(context as MainActivity)[CallSetupViewModel::class.java]
+
         val adapter = CallListFragmentAdapter()
         val recycler: RecyclerView = v.findViewById(R.id.recycler)
         val decoration = DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation)
@@ -33,7 +34,7 @@ class CallPreviewFragment : Fragment() {
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.addItemDecoration(decoration)
 
-        model.observePreviewList(this, Observer { adapter.addAllAndNotify(it) })
+      //  model.observePreviewList(this, Observer { adapter.addAllAndNotify(it) })
         return v
     }
 }

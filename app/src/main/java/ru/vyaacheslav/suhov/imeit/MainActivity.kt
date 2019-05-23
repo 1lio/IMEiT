@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallPagerFragment
+import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallSetupFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsPagerFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.EmptyGroupFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                 if (model.isSelectedGroup()) pushFragment(SchedulePagerFragment())
                 else pushFragment(EmptyGroupFragment())
             }
-            R.id.bells_pref -> pushFragment(CallPagerFragment())
+            R.id.bells_pref -> pushFragment(CallSetupFragment())
         }
         return true
     }

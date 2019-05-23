@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.util
 
+import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.BREAK
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.END
@@ -98,7 +99,7 @@ class UtilBell(private val pref: CallPref = CallPref()) {
         val list: MutableList<TimeData> = mutableListOf()
         var time: Int = pref.start
 
-        for (x in 1..pref.count) {
+        for (x in 1..LocalRepository().countPair) {
 
             // Строка сверху
             val hour = (time / 60).toString()

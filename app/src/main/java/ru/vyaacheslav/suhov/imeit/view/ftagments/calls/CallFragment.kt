@@ -30,8 +30,7 @@ class CallFragment : Fragment() {
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
 
-
-        viewModel.observeListCalls(this, Observer { adapter.addAllAndNotify(it) })
+        viewModel.observeListCalls(activity!!, Observer { adapter.addAllAndNotify(it) })
         return v
     }
 }

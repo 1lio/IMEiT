@@ -31,6 +31,8 @@ class CallTimeViewModel : BaseViewModel() {
     private var list: ArrayList<CallItem> = arrayListOf()
     private val utils = UtilBell(pref)
 
+    private val isCustomCallPref = MutableLiveData<Boolean>()
+
     init {
         // В начале нужно проверить измененно ли расписание звонков и загрузить нужные данные
         if (localRepository.isCustomScheduleCall) getPref(CUSTOM) else getPref(DEFAULT)
@@ -44,10 +46,13 @@ class CallTimeViewModel : BaseViewModel() {
         timeLeft.postValue(utils.getResidueTime())
         // Текущий статус пары
         pairStatus.postValue(utils.getNumberCurrentPair().first)
+
+        isCustomCallPref.postValue(localRepository.isCustomScheduleCall)
     }
 
     private fun getPref(type: String) {
-        if (type == DEFAULT) interactor.getDefaultCallPref() else interactor.getCustomCallPref()
+
+        if (type == DEFAULT)  interactor.getCallPref(DEFAULT) else interactor.getCallPref(CUSTOM)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {

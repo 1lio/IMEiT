@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit.repository
 
-import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -8,6 +7,7 @@ import io.reactivex.Observable
 import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
@@ -21,12 +21,10 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         return Observable.create {
             repository.getRefListEducationBuildings()
 
-                    // Запрос выполниться один раз
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
 
                             val list = arrayListOf<MapData>()
-
                             // Все существующие элементы узла
                             for (x: DataSnapshot in snapshot.children) {
                                 list.add(x.getValue(MapData::class.java) ?: MapData())
@@ -60,7 +58,6 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
     /** @return - Список в парами к текущему дню */
     // Слишком ного параметров | Переделать
-
     fun getScheduleDay(day: String): Observable<ArrayList<Schedule>> {
         return Observable.create {
             repository.getRefListSchedule(institute, faculty, group, day)
@@ -76,35 +73,17 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                             }
                             it.onNext(list)
                         }
-
                         override fun onCancelled(snapshot: DatabaseError) {}
                     })
         }
     }
 
-    /** @return - Стандартные настройки звонков */
-    fun getDefaultCallPref(): Observable<CallPref> {
+
+    /**@param type - Тип установок DEFAULT или CUSTOM (Пользовательские)
+     * @return - Установки  звонков*/
+    fun getCallPref(type:String): Observable<CallPref> {
         return Observable.create {
-            // Запрос выполнитья один раз
-            repository.getRefDefaultPreferencesCall()
-                    .addListenerForSingleValueEvent(object : ValueEventListener {
-
-                        override fun onDataChange(p0: DataSnapshot) {
-                            it.onNext(p0.getValue(CallPref::class.java) ?: CallPref())
-                        }
-
-                        override fun onCancelled(p0: DatabaseError) {
-                            it.onError(Throwable(p0.toString()))
-                        }
-
-                    })
-        }
-    }
-
-    /** @return - Изменненные установки  звонков*/
-    fun getCustomCallPref(): Observable<CallPref> {
-        return Observable.create {
-            repository.getRefPreferencesCall()
+            repository.getRefPreferencesCall(type)
                     .addValueEventListener(object : ValueEventListener {
 
                         override fun onDataChange(p0: DataSnapshot) {
@@ -121,7 +100,6 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
     /**  Просто отправляем новые установки для звонков
      * @param pref - Установки для передачи */
     fun setCustomCallPref(pref: CallPref) {
-        repository.getRefPreferencesCall().setValue(pref)
-        Log.d("TESTA", pref.toString())
+        repository.getRefPreferencesCall(CUSTOM).setValue(pref)
     }
 }

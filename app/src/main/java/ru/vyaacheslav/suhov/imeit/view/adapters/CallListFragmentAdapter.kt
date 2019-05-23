@@ -55,7 +55,6 @@ class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.Te
     }
 
     private fun decorateItem(holder: TestViewHolder) {
-
         holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.gray))
         listOf(holder.num, holder.less1top, holder.less1bot, holder.less2top, holder.less2bot)
                 .forEach { it.styleAppearance(context) }
