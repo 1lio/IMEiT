@@ -172,7 +172,6 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
             }
             R.id.fab -> {
                 viewModelSetup.saveAndPush(pref)
-                setupCurrentPref()
                 toast(activity!!, R.string.save_settings)
             }
         }
