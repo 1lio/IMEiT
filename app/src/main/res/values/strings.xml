@@ -60,5 +60,6 @@
     <string name="max_60">Максимум 60</string>
     <string name="max_0">Не может быть нулем</string>
     <string name="max2">Не может быть больше колличества пар</string>
+    <string name="exit_for_profile">Выйти из профиля</string>
 
 </resources>

@@ -9,6 +9,7 @@ object Constants {
     const val KEY_GROUP_ID = "key_group_id"
     const val KEY_EDITED_CALL = "key_edited_call"
     const val KEY_COUNT_PAIR = "key_count_pair"
+    const val KEY_USER = "key_user"
 
     const val DEF_INSTITUTE = "ИМЕиТ"
     const val DEF_FACULTY = "ФизМат"
@@ -17,6 +18,7 @@ object Constants {
     const val DEF_FIRST_RUN = true
     const val DEF_EDITED_CALL = false
     const val DEF_COUNT_PAIR = 6
+    const val DEF_USER = "user"
 
     const val FACULTY = "faculty"
     const val GROUPS = "groups"

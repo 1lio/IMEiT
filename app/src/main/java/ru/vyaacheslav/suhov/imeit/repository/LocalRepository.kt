@@ -8,6 +8,7 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_FIRST_RUN
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP_ID
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_INSTITUTE
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_USER
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_COUNT_PAIR
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_EDITED_CALL
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_FIST_RUN
@@ -15,10 +16,16 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_GROUP_ID
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_INSTITUTE
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_FACULTY
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_GROUP
+import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_USER
 
 /** Здесь храним локальные данные */
 class LocalRepository {
     private val instance: LocalRepository? = null
+
+    // Имя пользователя
+    var userName:String
+        set(value) {Hawk.put(KEY_USER,value)}
+        get() = Hawk.get(KEY_USER, DEF_USER)
 
     // Факультет
     var faculty: String

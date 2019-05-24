@@ -8,9 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
-import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallSetupFragment
-import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsPagerFragment
+import ru.vyaacheslav.suhov.imeit.view.ftagments.other.BottomNavigationDrawerFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.EmptyGroupFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
 import ru.vyaacheslav.suhov.imeit.viewmodel.MainViewModel
@@ -35,14 +34,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            android.R.id.home -> onBackPressed()
-            R.id.group_setup -> showDialogSelectGroup()
-            R.id.bells_info -> pushFragment(CallFragment())
-            R.id.location -> pushFragment(MapsPagerFragment())
-            R.id.schedule -> {
-                if (model.isSelectedGroup()) pushFragment(SchedulePagerFragment())
-                else pushFragment(EmptyGroupFragment())
+            android.R.id.home -> {
+                val bottomNavDrawerFragment = BottomNavigationDrawerFragment()
+                bottomNavDrawerFragment.show(supportFragmentManager, bottomNavDrawerFragment.tag)
             }
+            R.id.group_setup -> showDialogSelectGroup()
             R.id.bells_pref -> pushFragment(CallSetupFragment())
         }
         return true
