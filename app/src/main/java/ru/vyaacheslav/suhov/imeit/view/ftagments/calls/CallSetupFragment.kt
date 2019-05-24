@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.timeFormat
 import ru.vyaacheslav.suhov.imeit.util.toast
@@ -58,19 +59,34 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
     }
 
     private fun setupCurrentPref() {
-        pref = viewModelSetup.getPrefData()
-        listEditTexts.forEach {
-            when (it) {
-                edCount -> it.setText(pref.count.toString())
-                edLengthLesson -> it.setText(pref.lengthLesson.toString(), TextView.BufferType.EDITABLE)
-                edBreak -> it.setText(pref.lengthBreak.toString())
-                edLengthLunch -> it.setText(pref.lengthLunch.toString())
-                edLengthBreakPair -> it.setText(pref.lengthBreakPair.toString())
-                edLunchStart -> it.setText(pref.lunchStart.toString())
 
+        var count = 1 // Ставим счетчик чтобы обсервер не обновл данные когда не нужно
+
+        pref = viewModelSetup.getPrefData() // Получаем данные
+
+        // Устанавливаем значения в поля
+        fun setUp(c: CallPref) {
+
+            listEditTexts.forEach {
+                when (it) {
+                    edCount -> it.setText(c.count.toString())
+                    edLengthLesson -> it.setText(c.lengthLesson.toString(), TextView.BufferType.EDITABLE)
+                    edBreak -> it.setText(c.lengthBreak.toString())
+                    edLengthLunch -> it.setText(c.lengthLunch.toString())
+                    edLengthBreakPair -> it.setText(pref.lengthBreakPair.toString())
+                    edLunchStart -> it.setText(c.lunchStart.toString())
+                }
             }
+            textStart.text = pref.start.timeFormat()
         }
-        textStart.text = pref.start.timeFormat()
+
+        // Наблюдаем за настройками
+        viewModelSetup.observeCalls(activity!!, androidx.lifecycle.Observer { c ->
+            if (count == 1) setUp(c)
+            if (!LocalRepository().isChangedPref) setUp(viewModelSetup.getPrefData())
+        })
+
+        count++
     }
 
     private var onTimeSetListener = TimePickerDialog.OnTimeSetListener { _, h, m ->
@@ -136,7 +152,7 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
 
     private fun initViews(v: View) {
         viewModelSetup = ViewModelProviders.of(context as MainActivity)[CallTimeViewModel::class.java]
-        viewModelSetup.getPref()
+        viewModelSetup.getCurrentPref()
 
         fab = activity!!.findViewById(R.id.fab)
         fab.setImageDrawable(ContextCompat.getDrawable(activity!!, R.drawable.ic_save))
@@ -167,7 +183,6 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
             }
             R.id.btn_def_call -> {
                 viewModelSetup.setDefaultPreferences()
-                setupCurrentPref() // Без костылей не обошлось
                 toast(context!!, R.string.def_settings)
             }
             R.id.fab -> {

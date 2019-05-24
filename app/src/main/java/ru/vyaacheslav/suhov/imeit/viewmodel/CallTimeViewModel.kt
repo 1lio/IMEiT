@@ -21,7 +21,7 @@ class CallTimeViewModel : BaseViewModel() {
     private val pairStatus = MutableLiveData<Int>()
     private val timeLeft = MutableLiveData<String>()
 
-    private val currentPair = MutableLiveData<Int>()
+    private val numberPair = MutableLiveData<Int>()
     private val currentTime = MutableLiveData<String>()
 
     private var pref: CallPref = CallPref()
@@ -30,45 +30,39 @@ class CallTimeViewModel : BaseViewModel() {
     private var list: ArrayList<CallItem> = arrayListOf()
     private val listData = MutableLiveData<ArrayList<CallItem>>()
 
-    private val utils = UtilBell(pref)
-
+    // Дефолтные настройки
     private val defPrefData = MutableLiveData<CallPref>()
     private var defPref = CallPref()
 
     init {
-        // В начале нужно проверить измененно ли расписание звонков и загрузить нужные данные
-        if (localRepository.isChangedPref) getPref() else getDefaultPref()
 
-        // Получаем номер текущей пары
-        currentPair.postValue(utils.getNumberCurrentPair().second)
-        // Обновляем значения во viewModel
-        // Текущее форматированное время
-        currentTime.postValue(utils.getThisTime())
-        // Соклько осталось
-        timeLeft.postValue(utils.getResidueTime())
-        // Текущий статус пары
-        pairStatus.postValue(utils.getNumberCurrentPair().first)
+        // В начале нужно проверить измененно ли расписание звонков и загрузить нужные данные
+        getCurrentPref()
+
+        updateTime()
+
+        // Грузим дефолтные настройки в любом случае
+        getDefaultPref()
     }
 
     fun getPrefData(): CallPref = prefData.value ?: pref
 
     fun saveAndPush(preferences: CallPref) {
-        // Ставим что у нас кастомные настройки звонков
-        localRepository.isChangedPref = true
         // Сохраняем колличество пар
         localRepository.countPair = pref.count
         // Отправляем данные
         interactor.setCustomCallPref(preferences)
+        updateTime()
     }
 
     fun setDefaultPreferences() {
-       // getDefaultPref()
-        prefData.value = defPref
+        pref = defPrefData.value ?: defPref
+        prefData.postValue(pref)
         saveAndPush(defPref)  // Кастомные настройки затираем дефолтными
-        localRepository.isChangedPref = false
+        updateTime()
     }
 
-    fun getPref() {
+    fun getCurrentPref() {
         interactor.getCallPref(CUSTOM)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -89,14 +83,22 @@ class CallTimeViewModel : BaseViewModel() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     defPref = it
-
-                    list.clear()
-                    list = CallGenerator(it).getCallsList()
-
                     defPrefData.postValue(defPref)
-                    listData.postValue(CallGenerator(it).getCallsList())
                 }.apply { compositeDisposable.add(this) }
-        setDefaultPreferences()
+       if (!localRepository.isChangedPref) setDefaultPreferences()
+    }
+
+    private fun updateTime() {
+        val utils = UtilBell(pref)
+        // Получаем номер текущей пары
+        numberPair.postValue(utils.getNumberCurrentPair().second)
+        // Обновляем значения во viewModel
+        // Текущее форматированное время
+        currentTime.postValue(utils.getThisTime())
+        // Соклько осталось
+        timeLeft.postValue(utils.getResidueTime())
+        // Текущий статус пары
+        pairStatus.postValue(utils.getNumberCurrentPair().first)
     }
 
     // Наблюдатель статус текущей пары
@@ -117,5 +119,10 @@ class CallTimeViewModel : BaseViewModel() {
     // Наблюдатель списка звонков
     fun observeListCalls(owner: LifecycleOwner, observer: Observer<ArrayList<CallItem>>) {
         listData.observe(owner, observer)
+    }
+
+    // Наблюдатель за настройками
+    fun observeCalls(owner: LifecycleOwner, observer: Observer<CallPref>) {
+        prefData.observe(owner, observer)
     }
 }
