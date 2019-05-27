@@ -26,12 +26,12 @@ class MainViewModel : BaseViewModel() {
     private val listGroupsData = MutableLiveData<Array<String>>()
     private val listGroup: ArrayList<String> = arrayListOf()
     // Login
-    private val isSigned = MutableLiveData<Boolean>()
     private val currentUser = MutableLiveData<String?>()
 
     init {
 
-        isSigned.value = localRepository.isSinged                  // Авторизация
+
+        localRepository.isSinged = true                            // Авторизация
         currentUser.value = localRepository.userName               // Пользователь
 
         isFirstRun.value = localRepository.isFirstRun              // Проверка на первый запуск
@@ -74,18 +74,9 @@ class MainViewModel : BaseViewModel() {
         setSubtitle(getListGroups()[getSelectedId()])
     }
 
-
-    fun setSigned(b: Boolean) {
-        isSigned.postValue(b)
-    }
-
     fun isFirstRun(): Boolean = isFirstRun.value ?: false
 
     fun isSelectedGroup(): Boolean = isSelectedGroup.value ?: false
-
-    fun observeSigned(owner: LifecycleOwner, observer: Observer<Boolean>) {
-        isSigned.observe(owner, observer)
-    }
 
     fun observeTitle(owner: LifecycleOwner, observer: Observer<String>) {
         titleToolbar.observe(owner, observer)

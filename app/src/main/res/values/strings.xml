@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ИМЕиТ</string>
 
-   <!-- Navigation bottom -->
+    <!-- Navigation bottom -->
     <string name="menu_time">Звонки</string>
     <string name="menu_schedule">Расписание</string>
     <string name="menu_maps">Корпуса</string>
@@ -67,8 +67,12 @@
     <string name="exit_for_profile">Выйти из профиля</string>
     <string name="sing_in">Вход</string>
     <string name="logo">logo</string>
-    <string name="sing_up">Регистрация</string>
-    <string name="dont_have_acc">Нет аккаунта?</string>
+    <string name="sing_up">Нет аккаунта? <b>Регистрация</b></string>
     <string name="user_pass">Пароль</string>
+
+    <string name="is_not_empty">Поле не должно быть пустым!</string>
+    <string name="is_never_email">Некорректный email</string>
+
+    <string name="error_sign_in">Неверный логин или пароль</string>
 
 </resources>

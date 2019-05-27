@@ -17,8 +17,7 @@ import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 
 class CallFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val v = inflater.inflate(R.layout.fr_time, container, false)
 
         val recycler: RecyclerView = v.findViewById(R.id.recyclerTime)

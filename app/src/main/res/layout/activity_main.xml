@@ -25,6 +25,7 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
+        android:id="@+id/bottom_view"
         android:layout_height="match_parent">
 
         <ru.vyaacheslav.suhov.imeit.view.view.BottomToolbar
