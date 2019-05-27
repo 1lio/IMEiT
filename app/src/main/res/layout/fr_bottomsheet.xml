@@ -4,17 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ru.vyaacheslav.suhov.imeit.view.view.UserPreview
-        android:id="@+id/user_pr"
-        android:layout_width="0dp"
-        android:layout_height="120dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="match_parent"

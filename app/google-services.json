@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1057132410131-7f1hnhn5bjne98thiukfs42be62h8l8f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.vyaacheslav.suhov.imeit_rsp",
+            "certificate_hash": "6372950ffda5fa975761d203c6f47066519d2b22"
+          }
+        },
+        {
           "client_id": "1057132410131-r0oife8rodci2cuq1d65m5guk1uoupkf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

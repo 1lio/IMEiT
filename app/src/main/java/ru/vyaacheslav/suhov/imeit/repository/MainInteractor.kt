@@ -7,6 +7,7 @@ import io.reactivex.Observable
 import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.repository.entity.User
 import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
@@ -73,6 +74,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                             }
                             it.onNext(list)
                         }
+
                         override fun onCancelled(snapshot: DatabaseError) {}
                     })
         }
@@ -81,7 +83,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
     /**@param type - Тип установок DEFAULT или CUSTOM (Пользовательские)
      * @return - Установки  звонков*/
-    fun getCallPref(type:String): Observable<CallPref> {
+    fun getCallPref(type: String): Observable<CallPref> {
         return Observable.create {
             repository.getRefPreferencesCall(type)
                     .addValueEventListener(object : ValueEventListener {
@@ -101,5 +103,26 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
      * @param pref - Установки для передачи */
     fun setCustomCallPref(pref: CallPref) {
         repository.getRefPreferencesCall(CUSTOM).setValue(pref)
+    }
+
+    fun getUser(uId: String): Observable<User> {
+        return Observable.create {
+
+            repository.getRefUser(uId)
+                    .addValueEventListener(object : ValueEventListener {
+
+                        override fun onDataChange(p0: DataSnapshot) {
+                            it.onNext(p0.getValue(User::class.java) ?: User())
+                        }
+
+                        override fun onCancelled(p0: DatabaseError) {
+                            it.onError(Throwable(p0.toString()))
+                        }
+                    })
+        }
+    }
+
+    fun setUser(user: User) {
+        repository.getRefUser(user.uId).setValue(user)
     }
 }

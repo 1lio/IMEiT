@@ -2,7 +2,9 @@ package ru.vyaacheslav.suhov.imeit.util
 
 object Constants {
 
+    const val KEY_SIGN_IN = "Fy*yq4sUc_ddJ"
     const val KEY_FIST_RUN = "is_first_run"
+
     const val KEY_INSTITUTE = "key_institute_name"
     const val KEY_NAME_GROUP = "key_name_group"
     const val KEY_NAME_FACULTY = "key_name_faculty"
@@ -11,6 +13,7 @@ object Constants {
     const val KEY_COUNT_PAIR = "key_count_pair"
     const val KEY_USER = "key_user"
 
+    const val DEF_SIGN_IN = false
     const val DEF_INSTITUTE = "ИМЕиТ"
     const val DEF_FACULTY = "ФизМат"
     const val DEF_NAME_GROUP = "Группа не выбрана"
@@ -32,6 +35,7 @@ object Constants {
 
     const val MAP_REFERENCE = "map"
     const val CALL_REFERENCE = "time"
+    const val USER_REFERENCE = "users"
 
     const val DEFAULT = "DEFAULT"
     const val CUSTOM = "CUSTOM"

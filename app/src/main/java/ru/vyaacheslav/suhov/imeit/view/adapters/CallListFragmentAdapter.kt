@@ -51,7 +51,6 @@ class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.Te
 
         holder.less2bot.text = if (position != list.lastIndex) list[position].bottomBreak + min
         else list[position].bottomBreak
-
     }
 
     private fun decorateItem(holder: TestViewHolder) {

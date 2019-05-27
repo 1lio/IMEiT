@@ -3,11 +3,14 @@ package ru.vyaacheslav.suhov.imeit
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignInFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallSetupFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.BottomNavigationDrawerFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.EmptyGroupFragment
@@ -24,7 +27,21 @@ class MainActivity : AppCompatActivity() {
 
         model = ViewModelProviders.of(this@MainActivity)[MainViewModel::class.java]
         setSupportActionBar(bottom_bar)
-        loadStartFragment()                              // Загружаем стартовый фрагмент
+
+        model.observeSigned(this, Observer {
+            if (it) {
+                toolbar.visibility = View.VISIBLE
+                bottom_bar.visibility = View.VISIBLE
+                fab.visibility = View.VISIBLE
+                loadStartFragment()
+
+            } else {
+                toolbar.visibility = View.GONE
+                bottom_bar.visibility = View.GONE
+                fab.visibility = View.GONE
+                pushFragment(SignInFragment())
+            }
+        })
         fab.setOnClickListener { fabOnClick() }          // Обработка нажатия на FAB
     }
 

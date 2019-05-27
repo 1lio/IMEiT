@@ -37,6 +37,10 @@
     <string name="you_institute">Ваш нститут:</string>
     <string name="set_down_schedule">Нажмие чтобы скачать расписание</string>
 
+    <string name="user_name">Имя пользователя</string>
+    <string name="user_email">E-mail</string>
+    <string name="ok">OK</string>
+
     <string name="image">image</string>
     <string name="min">\u0020минут</string>
     <string name="delete_item">Удалить пункт</string>
@@ -61,5 +65,10 @@
     <string name="max_0">Не может быть нулем</string>
     <string name="max2">Не может быть больше колличества пар</string>
     <string name="exit_for_profile">Выйти из профиля</string>
+    <string name="sing_in">Вход</string>
+    <string name="logo">logo</string>
+    <string name="sing_up">Регистрация</string>
+    <string name="dont_have_acc">Нет аккаунта?</string>
+    <string name="user_pass">Пароль</string>
 
 </resources>
