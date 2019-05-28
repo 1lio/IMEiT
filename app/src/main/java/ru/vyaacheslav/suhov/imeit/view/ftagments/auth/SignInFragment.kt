@@ -56,7 +56,7 @@ class SignInFragment : Fragment(), View.OnClickListener {
         activity = context as LoginActivity
         model = ViewModelProviders.of(activity)[LoginViewModel::class.java]
 
-        singInButton = v.findViewById(R.id.btn_sign_in)
+        singInButton = v.findViewById(R.id.btn_next)
         fieldEmail = v.findViewById(R.id.ed_email)
         fieldPassword = v.findViewById(R.id.ed_pass)
         signUp = v.findViewById(R.id.sign_up)
@@ -67,14 +67,15 @@ class SignInFragment : Fragment(), View.OnClickListener {
 
         singInButton.setOnClickListener(this)
         signUp.setOnClickListener(this)
+
         return v
     }
 
     override fun onClick(v: View?) {
 
         when (v!!.id) {
-            R.id.btn_sign_in -> signIn(fieldEmail.text.toString(), fieldPassword.text.toString())
-            R.id.sign_up -> fragmentManager!!.beginTransaction().replace(R.id.login_container, SignUpFragment())
+            R.id.btn_next -> signIn(fieldEmail.text.toString(), fieldPassword.text.toString())
+            R.id.sign_up -> fragmentManager!!.beginTransaction().replace(R.id.login_container, SignUpFragment()).commit()
         }
     }
 
@@ -94,6 +95,7 @@ class SignInFragment : Fragment(), View.OnClickListener {
                         toast(context!!, R.string.error_sign_in)
                         login(null)
                     }
+
                     showDialog(false)
                 }
 

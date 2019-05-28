@@ -29,8 +29,8 @@ class LocalRepository {
         set(value) {Hawk.put(KEY_SIGN_IN,value)}
         get() = Hawk.get(KEY_SIGN_IN, DEF_SIGN_IN)
 
-    // Имя пользователя
-    var userName:String
+    // ID пользователя
+    var userId:String
         set(value) {Hawk.put(KEY_USER,value)}
         get() = Hawk.get(KEY_USER, DEF_USER)
 

@@ -74,5 +74,7 @@
     <string name="is_never_email">Некорректный email</string>
 
     <string name="error_sign_in">Неверный логин или пароль</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="user_re_pass">Повторите пароль</string>
 
 </resources>

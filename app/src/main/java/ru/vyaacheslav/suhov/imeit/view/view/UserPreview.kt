@@ -25,7 +25,7 @@ class UserPreview : RelativeLayout {
     init {
         LayoutInflater.from(context).inflate(R.layout.v_user_preview, this)
 
-        userName = repository.userName
+        userName = repository.userId
         userGroup = "${repository.faculty}|${repository.group}"
 
         u_name.text = userName

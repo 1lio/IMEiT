@@ -25,14 +25,8 @@ class MainViewModel : BaseViewModel() {
     // Лист со всеми группами
     private val listGroupsData = MutableLiveData<Array<String>>()
     private val listGroup: ArrayList<String> = arrayListOf()
-    // Login
-    private val currentUser = MutableLiveData<String?>()
 
     init {
-
-
-        localRepository.isSinged = true                            // Авторизация
-        currentUser.value = localRepository.userName               // Пользователь
 
         isFirstRun.value = localRepository.isFirstRun              // Проверка на первый запуск
         isSelectedGroup.value = localRepository.isSelectedGroup    // Проверка выбрана ли группа
