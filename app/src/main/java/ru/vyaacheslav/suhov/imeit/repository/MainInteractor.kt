@@ -7,6 +7,7 @@ import io.reactivex.Observable
 import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.repository.entity.User
 import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
@@ -33,6 +34,43 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                         }
 
                         override fun onCancelled(snapshot: DatabaseError) {}
+                    })
+        }
+    }
+
+    /** @return - Список всех институтов*/
+    fun getListInstitutes(): Observable<ArrayList<String>> {
+        return Observable.create {
+            repository.getRefInstitutes()
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onCancelled(p0: DatabaseError) {}
+                        override fun onDataChange(snapshot: DataSnapshot) {
+
+                            val list: ArrayList<String> = arrayListOf()
+                            for (s: DataSnapshot in snapshot.children) {
+                                list.add(s.key.toString()) // Список по ключам!
+                            }
+                            it.onNext(list)
+                        }
+                    })
+        }
+    }
+
+    /** @param insitute - необходимо указать родительский институт
+     *  @return - Список всех факультетов данного института */
+    fun getListFaculty(insitute: String): Observable<ArrayList<String>> {
+        return  Observable.create {
+            repository.getRefFacultys(institute)
+                    .addValueEventListener(object :ValueEventListener {
+
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val list: ArrayList<String> = arrayListOf()
+                            for (s: DataSnapshot in snapshot.children) {
+                                list.add(s.key.toString()) // Список по ключам!
+                            }
+                            it.onNext(list)
+                        }
+                        override fun onCancelled(p0: DatabaseError) {}
                     })
         }
     }
@@ -73,6 +111,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                             }
                             it.onNext(list)
                         }
+
                         override fun onCancelled(snapshot: DatabaseError) {}
                     })
         }
@@ -81,7 +120,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
     /**@param type - Тип установок DEFAULT или CUSTOM (Пользовательские)
      * @return - Установки  звонков*/
-    fun getCallPref(type:String): Observable<CallPref> {
+    fun getCallPref(type: String): Observable<CallPref> {
         return Observable.create {
             repository.getRefPreferencesCall(type)
                     .addValueEventListener(object : ValueEventListener {
@@ -101,5 +140,26 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
      * @param pref - Установки для передачи */
     fun setCustomCallPref(pref: CallPref) {
         repository.getRefPreferencesCall(CUSTOM).setValue(pref)
+    }
+
+    fun getUser(uId: String): Observable<User> {
+        return Observable.create {
+
+            repository.getRefUser(uId)
+                    .addValueEventListener(object : ValueEventListener {
+
+                        override fun onDataChange(p0: DataSnapshot) {
+                            it.onNext(p0.getValue(User::class.java) ?: User())
+                        }
+
+                        override fun onCancelled(p0: DatabaseError) {
+                            it.onError(Throwable(p0.toString()))
+                        }
+                    })
+        }
+    }
+
+    fun setUser(user: User) {
+        repository.getRefUser(user.uId).setValue(user)
     }
 }

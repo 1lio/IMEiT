@@ -35,7 +35,6 @@ class CallTimeViewModel : BaseViewModel() {
     private var defPref = CallPref()
 
     init {
-
         // В начале нужно проверить измененно ли расписание звонков и загрузить нужные данные
         getCurrentPref()
 
@@ -85,7 +84,6 @@ class CallTimeViewModel : BaseViewModel() {
                     defPref = it
                     defPrefData.postValue(defPref)
                 }.apply { compositeDisposable.add(this) }
-       if (!localRepository.isChangedPref) setDefaultPreferences()
     }
 
     private fun updateTime() {

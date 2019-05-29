@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ИМЕиТ</string>
 
-   <!-- Navigation bottom -->
+    <!-- Navigation bottom -->
     <string name="menu_time">Звонки</string>
     <string name="menu_schedule">Расписание</string>
     <string name="menu_maps">Корпуса</string>
@@ -34,8 +34,12 @@
     <string name="empty_group">Группа не выбрана</string>
     <string name="back">Назат</string>
     <string name="next">Далее</string>
-    <string name="you_institute">Ваш нститут:</string>
+    <string name="institute">Ваш нститут:</string>
     <string name="set_down_schedule">Нажмие чтобы скачать расписание</string>
+
+    <string name="user_name">Имя пользователя</string>
+    <string name="user_email">E-mail</string>
+    <string name="ok">OK</string>
 
     <string name="image">image</string>
     <string name="min">\u0020минут</string>
@@ -55,10 +59,25 @@
     <string name="def_settings">Настройки возвращены в исхдное состояние</string>
     <string name="exit_of_app">Выйти из приложения</string>
     <string name="yes">Да</string>
-    <string name="poly_is_empty">Поле не должно быть пустым</string>
+    <string name="is_empty">Поле не должно быть пустым</string>
     <string name="max_pair">Колличество пар не может быть больше 10</string>
     <string name="max_60">Максимум 60</string>
     <string name="max_0">Не может быть нулем</string>
     <string name="max2">Не может быть больше колличества пар</string>
+    <string name="exit_for_profile">Выйти из профиля</string>
+    <string name="sing_in">Вход</string>
+    <string name="logo">logo</string>
+    <string name="sing_up">Нет аккаунта? <b>Регистрация</b></string>
+    <string name="user_pass">Пароль</string>
+
+    <string name="is_not_empty">Поле не должно быть пустым!</string>
+    <string name="is_never_email">Некорректный email</string>
+
+    <string name="error_sign_in">Неверный логин или пароль</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="user_re_pass">Повторите пароль</string>
+    <string name="network_is_available">Разрыв соединения!</string>
+    <string name="faculty">Ваш факультет</string>
+    <string name="pass_do_not_match">Пароли не совпадают!</string>
 
 </resources>

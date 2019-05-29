@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit.repository
 
-import android.util.Log
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import ru.vyaacheslav.suhov.imeit.util.Constants.CALL_REFERENCE
@@ -8,6 +7,7 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.FACULTY
 import ru.vyaacheslav.suhov.imeit.util.Constants.GROUPS
 import ru.vyaacheslav.suhov.imeit.util.Constants.INSTITUTES
 import ru.vyaacheslav.suhov.imeit.util.Constants.MAP_REFERENCE
+import ru.vyaacheslav.suhov.imeit.util.Constants.USER_REFERENCE
 
 class FirebaseRealtimeRepository {
 
@@ -17,6 +17,21 @@ class FirebaseRealtimeRepository {
      *  @return Reference на список всех корпусов*/
 
     fun getRefListEducationBuildings() = FirebaseDatabase.getInstance().getReference(MAP_REFERENCE)
+
+    /** Референс на институты*/
+    fun getRefInstitutes(): DatabaseReference {
+        return FirebaseDatabase.getInstance()
+                .getReference(INSTITUTES)
+    }
+
+    /** @param institute - Родительский институт
+     * @return Референс на факультеты */
+
+    fun getRefFacultys(institute: String): DatabaseReference {
+        return FirebaseDatabase.getInstance()
+                .getReference(INSTITUTES).child(institute)
+                .child(FACULTY)
+    }
 
     /** @see getRefListGroups
      *  @param institute - Текущий институт
@@ -46,9 +61,13 @@ class FirebaseRealtimeRepository {
     }
 
     /** @return Настройки для звонков */
-    fun getRefPreferencesCall(type:String):DatabaseReference{
-        Log.d("TESTA", "${FirebaseDatabase.getInstance().getReference(CALL_REFERENCE).child(type)}")
+    fun getRefPreferencesCall(type: String): DatabaseReference {
         return FirebaseDatabase.getInstance().getReference(CALL_REFERENCE).child(type)
+    }
+
+    /** @return Данные пользователя */
+    fun getRefUser(userId: String): DatabaseReference {
+        return FirebaseDatabase.getInstance().getReference(USER_REFERENCE).child(userId)
     }
 
     fun getInstance() = this.instance ?: FirebaseRealtimeRepository()

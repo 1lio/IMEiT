@@ -45,6 +45,4 @@ fun getDayAcronym(): String = when (Calendar.getInstance().get(Calendar.DAY_OF_W
     else -> MON
 }
 
-fun toast(context: Context, msg: Int) {
-    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-}
+fun toast(context: Context, msg: Int) { Toast.makeText(context, msg, Toast.LENGTH_SHORT).show() }

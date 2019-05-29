@@ -14,20 +14,20 @@ import ru.vyaacheslav.suhov.imeit.util.styleAppearance
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 
-class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.TestViewHolder>() {
+class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.ViewHolder>() {
 
     private var min: String = ""
     private lateinit var context: Context
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_bells, parent, false)
         min = v.resources.getString(R.string.min)
         context = parent.context
-        return TestViewHolder(v)
+        return ViewHolder(v)
     }
 
-    inner class TestViewHolder(v: View) : BaseViewHolder<CallItem>(v) {
+    inner class ViewHolder(v: View) : BaseViewHolder<CallItem>(v) {
 
         val num: TextView = itemView.findViewById(R.id.t_num)
         val less1top: TextView = itemView.findViewById(R.id.t_top)
@@ -44,17 +44,16 @@ class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.Te
     }
 
 
-    override fun onBindViewHolder(holder: TestViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val currentPair = UtilBell(CallPref()).getNumberCurrentPair().second
         if (currentPair == position) decorateItem(holder)
 
         holder.less2bot.text = if (position != list.lastIndex) list[position].bottomBreak + min
         else list[position].bottomBreak
-
     }
 
-    private fun decorateItem(holder: TestViewHolder) {
+    private fun decorateItem(holder: ViewHolder) {
         holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.gray))
         listOf(holder.num, holder.less1top, holder.less1bot, holder.less2top, holder.less2bot)
                 .forEach { it.styleAppearance(context) }

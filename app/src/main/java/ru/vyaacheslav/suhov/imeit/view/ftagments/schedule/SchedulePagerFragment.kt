@@ -4,14 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
-import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.util.toast
 import ru.vyaacheslav.suhov.imeit.view.adapters.DayPagerAdapter
 import java.util.*
 

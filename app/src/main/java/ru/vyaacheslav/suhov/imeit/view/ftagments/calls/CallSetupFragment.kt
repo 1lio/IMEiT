@@ -13,23 +13,22 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.timeFormat
 import ru.vyaacheslav.suhov.imeit.util.toast
+import ru.vyaacheslav.suhov.imeit.view.view.Fab
 import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
 class CallSetupFragment : Fragment(), View.OnClickListener {
+
     private lateinit var viewModelSetup: CallTimeViewModel
-
-    private lateinit var pref: CallPref // установки которые получаем
+    private lateinit var pref: CallPref    // установки которые получаем
     private lateinit var edCount: EditText
-
     private lateinit var edBreak: EditText
     private lateinit var edLengthLesson: EditText
     private lateinit var edLengthLunch: EditText
@@ -37,12 +36,13 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
     private lateinit var edLunchStart: EditText
     private lateinit var textStart: TextView
     private lateinit var defBtn: Button
-    private lateinit var fab: FloatingActionButton
+    private lateinit var fab: Fab
 
     private var listEditTexts = ArrayList<EditText>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
+
         val v = inflater.inflate(R.layout.fr_call_setup, container, false)
         initViews(v)
 
@@ -55,7 +55,19 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
         fab.setOnClickListener(this)
         defBtn.setOnClickListener(this)
         textStart.setOnClickListener(this)
+
+        fab.show()
         return v
+    }
+
+    override fun onPause() {
+        super.onPause()
+        fab.hide()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fab.show()
     }
 
     private fun setupCurrentPref() {
@@ -97,8 +109,9 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
     }
 
     private fun getDataForEditText() {
+
         // Смотрим за изменениями и публикуем в liveData
-        listEditTexts.forEach {
+       listEditTexts.forEach {
             it.addTextChangedListener(object : TextWatcher {
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                     when (it) {
@@ -121,7 +134,7 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
 
         val isCorrect: Boolean = when {
             this.toString() == "" -> {
-                ed.error = resources.getString(R.string.poly_is_empty)
+                ed.error = resources.getString(R.string.is_empty)
                 false
             }
 
@@ -155,6 +168,7 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
         viewModelSetup.getCurrentPref()
 
         fab = activity!!.findViewById(R.id.fab)
+
         fab.setImageDrawable(ContextCompat.getDrawable(activity!!, R.drawable.ic_save))
         // Можно прикуртить DataBinding
         edCount = v.findViewById(R.id.ed_count_call)

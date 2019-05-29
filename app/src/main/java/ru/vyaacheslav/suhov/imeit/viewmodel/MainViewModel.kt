@@ -27,6 +27,7 @@ class MainViewModel : BaseViewModel() {
     private val listGroup: ArrayList<String> = arrayListOf()
 
     init {
+
         isFirstRun.value = localRepository.isFirstRun              // Проверка на первый запуск
         isSelectedGroup.value = localRepository.isSelectedGroup    // Проверка выбрана ли группа
 
@@ -79,5 +80,7 @@ class MainViewModel : BaseViewModel() {
         subtitleToolbar.observe(owner, observer)
     }
 
-    private fun setSubtitle(group: String) { subtitleToolbar.postValue(group) }
+    private fun setSubtitle(group: String) {
+        subtitleToolbar.postValue(group)
+    }
 }

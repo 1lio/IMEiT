@@ -1,6 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.app
 
 import android.app.Application
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.orhanobut.hawk.Hawk
 
@@ -15,5 +16,7 @@ class App : Application() {
 
         // Включаем работу RealtimeDatabase в offline
         FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+
+        FirebaseAuth.getInstance()
     }
 }
