@@ -7,6 +7,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.repository.entity.User
+import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
 
 class SignUpLastStepModel : BaseViewModel() {
 
@@ -38,17 +39,10 @@ class SignUpLastStepModel : BaseViewModel() {
     }
 
     fun setGroup(item: Int) {
-        group.value = groupsData.value?.get(item) ?: ""
+        group.value = groupsData.value?.get(item) ?: DEF_NAME_GROUP
         getGroup()
     }
 
-    fun setUserName(name:String) {
-        userName.postValue(name)
-    }
-
-    fun observeUserName(owner: LifecycleOwner,observer: Observer<String>) {
-        userName.observe(owner, observer)
-    }
 
 
     private fun getInstitutes(): Array<String> {
@@ -107,6 +101,14 @@ class SignUpLastStepModel : BaseViewModel() {
                 .apply { compositeDisposable.add(this) }
 
         return groupsData.value ?: arrayOf()
+    }
+
+    fun setUserName(name:String) {
+        userName.postValue(name)
+    }
+
+    fun observeUserName(owner: LifecycleOwner,observer: Observer<String>) {
+        userName.observe(owner, observer)
     }
 
     fun createUser() {
