@@ -39,7 +39,6 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHold
         val time2: TextView = v.findViewById(R.id.tex2)
         val time3: TextView = v.findViewById(R.id.tex3)
 
-
         override fun bind(item: Schedule) {
 
             lesson.text = item.lesson

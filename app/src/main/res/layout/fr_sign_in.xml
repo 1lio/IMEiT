@@ -5,17 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <ru.vyaacheslav.suhov.imeit.view.view.AvatarView
         android:id="@+id/imageView"
         android:layout_width="@dimen/logo_size"
         android:layout_height="@dimen/logo_size"
         android:layout_marginTop="64dp"
         android:contentDescription="@string/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/group" />
+        app:srcCompat="@drawable/not_net"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="2dp"
+        app:isOnline="false"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_email"

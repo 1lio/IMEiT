@@ -4,20 +4,20 @@ import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.VectorDrawable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import ru.vyaacheslav.suhov.imeit.R
 
-/** Custom view - User Avatar with Network Status
- *  @author Sukhov Viacheslav */
+/** Custom view - User Avatar with Network Status */
 
 class AvatarView : AppCompatImageView {
 
     // Дефолтные значения
     companion object {
         private const val DEF_SPACING = 16f             // Отступ
-        private const val DEF_STROKE_COLOR =  62141784  // Цвет обводки в binary
+        private const val DEF_STROKE_COLOR = 62141784   // Цвет обводки в binary
         private const val DEF_STROKE_WIDTH = 0          // Размер обводки
         private const val DEF_INDICATOR_SIZE = 10       // Размер идикатора (Меньше вью в 10 раз)
     }
@@ -39,7 +39,8 @@ class AvatarView : AppCompatImageView {
     private var isInitialized: Boolean = false
     // Статус пользователя
     var isVisibilityStatus: Boolean = true
-    var isCheckedStatus:Boolean = false
+    var isCheckedStatus: Boolean = false
+
     // Конструкторы
     constructor(context: Context) : super(context)
 
@@ -101,8 +102,13 @@ class AvatarView : AppCompatImageView {
     // Рисуем цветной круг вместо картинки
     private fun drawOvalFullColor(canvas: Canvas) {
         paint(Paint.Style.FILL_AND_STROKE)
-        val colorDrawable = this.drawable as ColorDrawable
-        paint.color = colorDrawable.color
+        val colorDrawable = try {
+            this@AvatarView.drawable as ColorDrawable
+        } catch (e: Exception) {
+            this@AvatarView.drawable as VectorDrawable
+        }
+
+        paint.color = if (colorDrawable is ColorDrawable) colorDrawable.color else ContextCompat.getColor(context, R.color.white)
         val circleCenter = width.toFloat() / 2
         canvas.drawCircle(circleCenter, circleCenter, circleCenter - 4.0f, paint)
     }
@@ -132,6 +138,6 @@ class AvatarView : AppCompatImageView {
         paint.style = style       // стиль
         paint.strokeWidth = width // размер
         paint.isAntiAlias = true  // Включить сглаживание
-        paint.color = if(isCheckedStatus) ContextCompat.getColor(context,R.color.colorAccent) else strokeColor
+        paint.color = if (isCheckedStatus) ContextCompat.getColor(context, R.color.colorAccent) else strokeColor
     }
 }

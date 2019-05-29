@@ -11,5 +11,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         supportFragmentManager.beginTransaction().replace(R.id.login_container, SignInFragment()).commit()
+
+
     }
 }
