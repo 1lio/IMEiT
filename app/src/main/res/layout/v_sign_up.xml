@@ -30,7 +30,7 @@
         app:startIconDrawable="@drawable/ic_account">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_email"
+            android:id="@+id/ed_email_u"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
         app:startIconDrawable="@drawable/ic_key">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_pass"
+            android:id="@+id/ed_pass_u"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,12 +65,13 @@
             tools:targetApi="o" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/btn_next"
+    <Button
+        android:id="@+id/btn_next_u"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorAccent"
         android:text="@string/next"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,7 +94,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:hint="@string/user_re_pass" />
+            android:hint="@string/user_re_pass"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

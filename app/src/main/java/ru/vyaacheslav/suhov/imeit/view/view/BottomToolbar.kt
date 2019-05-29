@@ -15,7 +15,7 @@ class BottomToolbar : BottomAppBar {
     init {
         overflowIcon!!.setColorFilter(ContextCompat.getColor(context, R.color.white), PorterDuff.Mode.SRC_ATOP)
         replaceMenu(R.menu.menu)
-        fabAlignmentMode = FAB_ALIGNMENT_MODE_END
+        fabAlignmentMode = FAB_ALIGNMENT_MODE_CENTER
         backgroundTint = ContextCompat.getColorStateList(context, R.color.colorPrimary)
     }
 }

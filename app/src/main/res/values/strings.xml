@@ -34,7 +34,7 @@
     <string name="empty_group">Группа не выбрана</string>
     <string name="back">Назат</string>
     <string name="next">Далее</string>
-    <string name="you_institute">Ваш нститут:</string>
+    <string name="institute">Ваш нститут:</string>
     <string name="set_down_schedule">Нажмие чтобы скачать расписание</string>
 
     <string name="user_name">Имя пользователя</string>
@@ -59,7 +59,7 @@
     <string name="def_settings">Настройки возвращены в исхдное состояние</string>
     <string name="exit_of_app">Выйти из приложения</string>
     <string name="yes">Да</string>
-    <string name="poly_is_empty">Поле не должно быть пустым</string>
+    <string name="is_empty">Поле не должно быть пустым</string>
     <string name="max_pair">Колличество пар не может быть больше 10</string>
     <string name="max_60">Максимум 60</string>
     <string name="max_0">Не может быть нулем</string>
@@ -76,5 +76,8 @@
     <string name="error_sign_in">Неверный логин или пароль</string>
     <string name="sign_up">Регистрация</string>
     <string name="user_re_pass">Повторите пароль</string>
+    <string name="network_is_available">Разрыв соединения!</string>
+    <string name="faculty">Ваш факультет</string>
+    <string name="pass_do_not_match">Пароли не совпадают!</string>
 
 </resources>

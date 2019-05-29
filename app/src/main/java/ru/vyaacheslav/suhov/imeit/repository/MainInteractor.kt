@@ -38,6 +38,43 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         }
     }
 
+    /** @return - Список всех институтов*/
+    fun getListInstitutes(): Observable<ArrayList<String>> {
+        return Observable.create {
+            repository.getRefInstitutes()
+                    .addValueEventListener(object : ValueEventListener {
+                        override fun onCancelled(p0: DatabaseError) {}
+                        override fun onDataChange(snapshot: DataSnapshot) {
+
+                            val list: ArrayList<String> = arrayListOf()
+                            for (s: DataSnapshot in snapshot.children) {
+                                list.add(s.key.toString()) // Список по ключам!
+                            }
+                            it.onNext(list)
+                        }
+                    })
+        }
+    }
+
+    /** @param insitute - необходимо указать родительский институт
+     *  @return - Список всех факультетов данного института */
+    fun getListFaculty(insitute: String): Observable<ArrayList<String>> {
+        return  Observable.create {
+            repository.getRefFacultys(institute)
+                    .addValueEventListener(object :ValueEventListener {
+
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val list: ArrayList<String> = arrayListOf()
+                            for (s: DataSnapshot in snapshot.children) {
+                                list.add(s.key.toString()) // Список по ключам!
+                            }
+                            it.onNext(list)
+                        }
+                        override fun onCancelled(p0: DatabaseError) {}
+                    })
+        }
+    }
+
     /** @return - Список всех групп */
     fun getListGroups(institute: String, faculty: String): Observable<ArrayList<String>> {
         return Observable.create {

@@ -18,6 +18,21 @@ class FirebaseRealtimeRepository {
 
     fun getRefListEducationBuildings() = FirebaseDatabase.getInstance().getReference(MAP_REFERENCE)
 
+    /** Референс на институты*/
+    fun getRefInstitutes(): DatabaseReference {
+        return FirebaseDatabase.getInstance()
+                .getReference(INSTITUTES)
+    }
+
+    /** @param institute - Родительский институт
+     * @return Референс на факультеты */
+
+    fun getRefFacultys(institute: String): DatabaseReference {
+        return FirebaseDatabase.getInstance()
+                .getReference(INSTITUTES).child(institute)
+                .child(FACULTY)
+    }
+
     /** @see getRefListGroups
      *  @param institute - Текущий институт
      *  @param faculty - Факультет
@@ -46,12 +61,12 @@ class FirebaseRealtimeRepository {
     }
 
     /** @return Настройки для звонков */
-    fun getRefPreferencesCall(type:String):DatabaseReference{
+    fun getRefPreferencesCall(type: String): DatabaseReference {
         return FirebaseDatabase.getInstance().getReference(CALL_REFERENCE).child(type)
     }
 
     /** @return Данные пользователя */
-    fun getRefUser(userId:String):DatabaseReference {
+    fun getRefUser(userId: String): DatabaseReference {
         return FirebaseDatabase.getInstance().getReference(USER_REFERENCE).child(userId)
     }
 

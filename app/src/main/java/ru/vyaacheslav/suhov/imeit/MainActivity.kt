@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallSetupFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.BottomNavigationDrawerFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.EmptyGroupFragment
@@ -19,6 +21,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var model: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (!LocalRepository().getInstance().isSinged) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

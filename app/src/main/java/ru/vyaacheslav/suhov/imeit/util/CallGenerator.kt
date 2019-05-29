@@ -34,7 +34,7 @@ class CallGenerator(private val pref: CallPref) {
         }
 
         // Находим где должна быть большая перемена делаем замену
-        list[pref.lunchStart - 1].bottomBreak = pref.lengthLunch.toString()
+        if (list.size >= 2) list[pref.lunchStart - 1].bottomBreak = pref.lengthLunch.toString()
 
         // Находим последюю перемену и затираем
         list[pref.count - 1].bottomBreak = ""

@@ -10,8 +10,6 @@ import ru.vyaacheslav.suhov.imeit.repository.entity.User
 
 class LoginViewModel : BaseViewModel() {
 
-    // TODO: ПЕРЕДЕЛАТЬ ЭТОТ БАРДАК!!!
-
     private val userData = MutableLiveData<User>()
     private var userId: String = ""
     private var user = User()
@@ -25,16 +23,23 @@ class LoginViewModel : BaseViewModel() {
     private val listGroupsData = MutableLiveData<Array<String>>()
     private val listGroup: ArrayList<String> = arrayListOf()
 
+
+    private val userEmail = MutableLiveData<String>()
+    private val userPass = MutableLiveData<String>()
+
     init {
         userId = localRepository.userId
         getUser()
     }
 
-    private fun observeUser(owner: LifecycleOwner, observer: Observer<User>) {
+    fun observePolys(owner: LifecycleOwner, observer: Observer<Boolean>) {}
+
+
+    fun observeUser(owner: LifecycleOwner, observer: Observer<User>) {
         userData.observe(owner, observer)
     }
 
-    private fun getGroups() {
+    fun getGroups() {
         // Лист со всеми группами выбранного института
         interactor.getListGroups(currentInstitute, currentFaculty)
                 .subscribeOn(Schedulers.io())
@@ -48,8 +53,14 @@ class LoginViewModel : BaseViewModel() {
         selectedListId.postValue(localRepository.groupID)     // ID Группы
     }
 
+    fun setUserLogin(email: String, pass: String) {
 
-    private fun getUser(): User {
+        userEmail.value = email
+        userPass.value = pass
+    }
+
+
+    fun getUser(): User {
         interactor.getUser(userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -62,7 +73,7 @@ class LoginViewModel : BaseViewModel() {
         return user
     }
 
-    private fun serUserId(id: String) {
+    fun serUserId(id: String) {
         localRepository.userId = id
         userId = id
     }

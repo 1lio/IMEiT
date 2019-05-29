@@ -24,19 +24,18 @@
 
         <activity
             android:name="ru.vyaacheslav.suhov.imeit.MainActivity">
-        </activity>
-
-        <activity
-            android:name="ru.vyaacheslav.suhov.imeit.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity android:name="ru.vyaacheslav.suhov.imeit.LoginActivity"/>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBGKkIuy0yVE4M4OYxuao3nTuiLWn1J64Y" />

@@ -21,6 +21,7 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.util.toast
 import ru.vyaacheslav.suhov.imeit.LoginActivity
+import ru.vyaacheslav.suhov.imeit.util.NetworkUtil
 import ru.vyaacheslav.suhov.imeit.viewmodel.LoginViewModel
 
 /** Фрагмент с логином */
@@ -35,19 +36,16 @@ class SignInFragment : Fragment(), View.OnClickListener {
     private lateinit var singInButton: Button
     private lateinit var signUp: TextView
     private lateinit var progressBar: ProgressBar
+    private lateinit var status: TextView
 
     private lateinit var layoutEmail: TextInputLayout
     private lateinit var layoutPass: TextInputLayout
-
-    private val isSigned = LocalRepository().getInstance().isSinged
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         auth = FirebaseAuth.getInstance()
-
-        // Проверяем входил ли пользователь
-        if (isSigned) login(auth.currentUser) else auth.signOut()
+        if (LocalRepository().getInstance().isSinged) login(auth.currentUser) else auth.signOut()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -56,6 +54,7 @@ class SignInFragment : Fragment(), View.OnClickListener {
         activity = context as LoginActivity
         model = ViewModelProviders.of(activity)[LoginViewModel::class.java]
 
+        status = v.findViewById(R.id.status)
         singInButton = v.findViewById(R.id.btn_next)
         fieldEmail = v.findViewById(R.id.ed_email)
         fieldPassword = v.findViewById(R.id.ed_pass)
@@ -75,7 +74,7 @@ class SignInFragment : Fragment(), View.OnClickListener {
 
         when (v!!.id) {
             R.id.btn_next -> signIn(fieldEmail.text.toString(), fieldPassword.text.toString())
-            R.id.sign_up -> fragmentManager!!.beginTransaction().replace(R.id.login_container, SignUpFragment()).commit()
+            R.id.sign_up -> fragmentManager!!.beginTransaction().replace(R.id.login_container, SignUpFirstStepFragment()).commit()
         }
     }
 
@@ -83,6 +82,16 @@ class SignInFragment : Fragment(), View.OnClickListener {
 
         if (!validateForm()) return
         showDialog(true)
+
+        if (!NetworkUtil(activity).isConnected()) {
+            status.text = resources.getText(R.string.network_is_available)
+            status.visibility = View.VISIBLE
+            singInButton.isEnabled = false
+        } else {
+            status.text = resources.getText(R.string.network_is_available)
+            status.visibility = View.GONE
+            singInButton.isEnabled = true
+        }
 
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
@@ -98,8 +107,6 @@ class SignInFragment : Fragment(), View.OnClickListener {
 
                     showDialog(false)
                 }
-
-
     }
 
     private fun showDialog(show: Boolean) {
@@ -145,8 +152,8 @@ class SignInFragment : Fragment(), View.OnClickListener {
     }
 
     private fun login(user: FirebaseUser?) {
-
         if (user != null) {
+            LocalRepository().getInstance().isSinged = true
             startActivity(Intent(activity, MainActivity::class.java))
             activity.finish()
         }
