@@ -15,7 +15,6 @@ class Fab : FloatingActionButton {
 
     init {
 
-
         if (isEnabled) {
             setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent))
         } else {

@@ -18,14 +18,13 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_toolbar"
         android:layout_marginBottom="@dimen/margin_toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
         android:id="@+id/bottom_view"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ru.vyaacheslav.suhov.imeit.view.view.BottomToolbar

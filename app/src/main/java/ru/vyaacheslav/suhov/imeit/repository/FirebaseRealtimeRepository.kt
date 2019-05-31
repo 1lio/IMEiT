@@ -27,7 +27,7 @@ class FirebaseRealtimeRepository {
     /** @param institute - Родительский институт
      * @return Референс на факультеты */
 
-    fun getRefFacultys(institute: String): DatabaseReference {
+    fun getRefFaculty(institute: String): DatabaseReference {
         return FirebaseDatabase.getInstance()
                 .getReference(INSTITUTES).child(institute)
                 .child(FACULTY)

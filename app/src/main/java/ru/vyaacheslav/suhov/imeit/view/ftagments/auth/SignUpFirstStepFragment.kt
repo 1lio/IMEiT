@@ -8,7 +8,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.textfield.TextInputEditText
-import ru.vyaacheslav.suhov.imeit.LoginActivity
+import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.viewmodel.LoginViewModel
 
@@ -19,7 +19,7 @@ class SignUpFirstStepFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fr_sign_up1, container, false)
 
-        model = ViewModelProviders.of(context as LoginActivity)[LoginViewModel::class.java]
+        model = ViewModelProviders.of(context as MainActivity)[LoginViewModel::class.java]
 
         val btnNext: Button = v.findViewById(R.id.btn_next_u)
 
@@ -32,7 +32,7 @@ class SignUpFirstStepFragment : Fragment() {
             val e = email.text.toString() // <- Косяк ?!
 
             model.setUserLogin(e, p)
-            fragmentManager!!.beginTransaction().replace(R.id.login_container, SingUpLastStepFragment()).commit()
+            fragmentManager!!.beginTransaction().replace(R.id.container, SingUpLastStepFragment()).commit()
         }
 
         return v

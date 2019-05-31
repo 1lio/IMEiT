@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ИМЕиТ</string>
+    <string name="app_name">Студ.Ассистент</string>
 
     <!-- Navigation bottom -->
     <string name="menu_time">Звонки</string>
@@ -57,7 +57,7 @@
     <string name="start_lesson_to">Занятия начинаются в:</string>
     <string name="save_settings">Настройки сохранены!</string>
     <string name="def_settings">Настройки возвращены в исхдное состояние</string>
-    <string name="exit_of_app">Выйти из приложения</string>
+    <string name="exit_of_app">Выйти из приложения?</string>
     <string name="yes">Да</string>
     <string name="is_empty">Поле не должно быть пустым</string>
     <string name="max_pair">Колличество пар не может быть больше 10</string>
@@ -79,5 +79,6 @@
     <string name="network_is_available">Разрыв соединения!</string>
     <string name="faculty">Ваш факультет</string>
     <string name="pass_do_not_match">Пароли не совпадают!</string>
+    <string name="error_min_length_pass">Минимальная длинная пароля 6 символов</string>
 
 </resources>

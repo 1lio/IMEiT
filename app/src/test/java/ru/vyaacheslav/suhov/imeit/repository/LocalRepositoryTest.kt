@@ -44,7 +44,7 @@ class LocalRepositoryTest {
         instance = LocalRepository()
         faculty = Hawk.get(Constants.KEY_NAME_FACULTY, DEF_FACULTY)
         institute = Hawk.get(Constants.KEY_INSTITUTE, DEF_INSTITUTE)
-        group = Hawk.get(Constants.KEY_NAME_GROUP, Constants.DEF_NAME_GROUP)
+        group = Hawk.get(Constants.KEY_NAME_GROUP, Constants.NOT_SELECT)
         groupID = Hawk.get(Constants.KEY_GROUP_ID, Constants.DEF_GROUP_ID)
         isFirstRun = Hawk.get(Constants.KEY_FIST_RUN, Constants.DEF_FIRST_RUN)
         isSelectedGroup = Hawk.get(Constants.KEY_GROUP_ID, Constants.DEF_GROUP_ID) != 0
@@ -115,13 +115,13 @@ class LocalRepositoryTest {
         Assert.assertTrue(isFirstRun is Boolean)
 
         // Выбрана ли группа
-        Assert.assertFalse("isSelectedGroup: null", isSelectedGroup == null)
-        Assert.assertFalse("isSelectedGroup: неверныей тип", isSelectedGroup is Boolean)
+        Assert.assertFalse("isExistsGroup: null", isSelectedGroup == null)
+        Assert.assertFalse("isExistsGroup: неверныей тип", isSelectedGroup is Boolean)
         Assert.assertTrue(isFirstRun is Boolean)
 
         // Кастоные насторойки времени звонков
-        Assert.assertFalse("isSelectedGroup: null", isCustomScheduleCall == null)
-        Assert.assertFalse("isSelectedGroup: неверныей тип", isCustomScheduleCall is Boolean)
+        Assert.assertFalse("isExistsGroup: null", isCustomScheduleCall == null)
+        Assert.assertFalse("isExistsGroup: неверныей тип", isCustomScheduleCall is Boolean)
         Assert.assertTrue(isFirstRun is Boolean)
     }
 

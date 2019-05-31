@@ -20,12 +20,11 @@ import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.util.toast
-import ru.vyaacheslav.suhov.imeit.LoginActivity
 import ru.vyaacheslav.suhov.imeit.util.NetworkUtil
 import ru.vyaacheslav.suhov.imeit.viewmodel.LoginViewModel
 
 /** Фрагмент с логином */
-class SignInFragment : Fragment(), View.OnClickListener {
+class FragmentLogin : Fragment(), View.OnClickListener {
 
     private lateinit var activity: AppCompatActivity
     private lateinit var auth: FirebaseAuth
@@ -45,13 +44,14 @@ class SignInFragment : Fragment(), View.OnClickListener {
         super.onActivityCreated(savedInstanceState)
 
         auth = FirebaseAuth.getInstance()
-        if (LocalRepository().getInstance().isSinged) login(auth.currentUser) else auth.signOut()
+        if (LocalRepository().getInstance().isAuth) login(auth.currentUser) else auth.signOut()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fr_sign_in, container, false)
 
-        activity = context as LoginActivity
+        activity = context as MainActivity
+
         model = ViewModelProviders.of(activity)[LoginViewModel::class.java]
 
         status = v.findViewById(R.id.status)
@@ -74,7 +74,7 @@ class SignInFragment : Fragment(), View.OnClickListener {
 
         when (v!!.id) {
             R.id.btn_next -> signIn(fieldEmail.text.toString(), fieldPassword.text.toString())
-            R.id.sign_up -> fragmentManager!!.beginTransaction().replace(R.id.login_container, SignUpFirstStepFragment()).commit()
+            R.id.sign_up -> fragmentManager!!.beginTransaction().replace(R.id.container, SignUpFirstStepFragment()).commit()
         }
     }
 
@@ -153,7 +153,7 @@ class SignInFragment : Fragment(), View.OnClickListener {
 
     private fun login(user: FirebaseUser?) {
         if (user != null) {
-            LocalRepository().getInstance().isSinged = true
+            LocalRepository().getInstance().isAuth = true
             startActivity(Intent(activity, MainActivity::class.java))
             activity.finish()
         }

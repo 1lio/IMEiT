@@ -46,7 +46,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                         override fun onCancelled(p0: DatabaseError) {}
                         override fun onDataChange(snapshot: DataSnapshot) {
 
-                            val list: ArrayList<String> = arrayListOf()
+                            val list: ArrayList<String> = arrayListOf("Не выбрано")
                             for (s: DataSnapshot in snapshot.children) {
                                 list.add(s.key.toString()) // Список по ключам!
                             }
@@ -56,17 +56,17 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         }
     }
 
-    /** @param insitute - необходимо указать родительский институт
+    /** @param institute - необходимо указать родительский институт
      *  @return - Список всех факультетов данного института */
-    fun getListFaculty(insitute: String): Observable<ArrayList<String>> {
+    fun getListFaculty(institute: String): Observable<ArrayList<String>> {
         return  Observable.create {
-            repository.getRefFacultys(institute)
+            repository.getRefFaculty(institute)
                     .addValueEventListener(object :ValueEventListener {
 
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            val list: ArrayList<String> = arrayListOf()
+                            val list: ArrayList<String> = arrayListOf("Не выбрано")
                             for (s: DataSnapshot in snapshot.children) {
-                                list.add(s.key.toString()) // Список по ключам!
+                                list.add(s.key.toString())
                             }
                             it.onNext(list)
                         }
@@ -95,7 +95,6 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
     }
 
     /** @return - Список в парами к текущему дню */
-    // Слишком ного параметров | Переделать
     fun getScheduleDay(day: String): Observable<ArrayList<Schedule>> {
         return Observable.create {
             repository.getRefListSchedule(institute, faculty, group, day)
@@ -105,9 +104,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                             val list = ArrayList<Schedule>()
                             for (x in 1..localRepository.countPair) {
                                 list.add(snapshot.child("pair$x").getValue(Schedule::class.java)
-                                        ?: Schedule()) // <- косяк ("pair$x"); просто по пройтись по дочерним нельзя,
-                                // т.к. может быть пустая пара и пужно получить индекс пустой
-                                // можно кончено просто менять последний char; получается почти тоже самое.
+                                        ?: Schedule())
                             }
                             it.onNext(list)
                         }

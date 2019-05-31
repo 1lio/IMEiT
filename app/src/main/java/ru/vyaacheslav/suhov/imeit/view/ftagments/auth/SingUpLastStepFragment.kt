@@ -9,10 +9,10 @@ import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import ru.vyaacheslav.suhov.imeit.LoginActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpLastStepModel
 import android.widget.AdapterView
+import ru.vyaacheslav.suhov.imeit.MainActivity
 
 class SingUpLastStepFragment : Fragment() {
 
@@ -25,7 +25,7 @@ class SingUpLastStepFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fr_sign_up2, container, false)
-        val activity = context as LoginActivity
+        val activity = context as MainActivity
 
         model = ViewModelProviders.of(activity)[SignUpLastStepModel::class.java]
 
@@ -38,24 +38,51 @@ class SingUpLastStepFragment : Fragment() {
         spinners.forEach { s ->
             when (s) {
                 spinInstitute -> {
+
+                    val adapter = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item)
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                    spinInstitute.adapter = adapter
+
                     model.observeInstitutes(activity, Observer {
-                        spinInstitute.adapter = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, it)
+                        val list: MutableList<String> = it.toMutableList()
+                        adapter.addAll(list)
                     })
                 }
 
-                spinFaculty -> {
-                    model.observeFaculty(activity, Observer {
-                        spinFaculty.adapter = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, it)
-                    })
-                }
+
                 spinGroup -> {
+                    val adapter = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item)
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                     model.observeGroup(activity, Observer {
-                        spinGroup.adapter = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, it)
+                        val list: MutableList<String> = it.toMutableList()
+
+                        adapter.addAll(list)
                     })
                 }
             }
             itemSelectedListener(s)
         }
+
+        spinInstitute.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+
+                model.setInstitute(position)
+                model.getFaculty()
+
+                val adapter = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item)
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinFaculty.adapter = adapter
+
+                model.observeFaculty(activity, Observer {
+                    adapter.clear()
+                    adapter.addAll(it.toMutableList())
+                })
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+
 
         return v
     }

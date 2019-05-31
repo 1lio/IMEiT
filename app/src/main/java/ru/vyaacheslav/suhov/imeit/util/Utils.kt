@@ -2,6 +2,7 @@ package ru.vyaacheslav.suhov.imeit.util
 
 import android.content.Context
 import android.os.Build
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import ru.vyaacheslav.suhov.imeit.R
@@ -46,3 +47,11 @@ fun getDayAcronym(): String = when (Calendar.getInstance().get(Calendar.DAY_OF_W
 }
 
 fun toast(context: Context, msg: Int) { Toast.makeText(context, msg, Toast.LENGTH_SHORT).show() }
+
+fun View.visible() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.gone() {
+    this.visibility = View.GONE
+}

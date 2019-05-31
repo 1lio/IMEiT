@@ -7,7 +7,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.repository.entity.User
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_NAME_GROUP
+import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
 class SignUpLastStepModel : BaseViewModel() {
 
@@ -30,23 +30,20 @@ class SignUpLastStepModel : BaseViewModel() {
     }
 
     fun setInstitute(item: Int) {
-        institute.value = institutesData.value?.get(item) ?: ""
+        institute.value = institutesData.value?.get(item) ?: NOT_SELECT
     }
 
     fun setFaculty(item: Int) {
-        faculty.value = facultyData.value?.get(item) ?: ""
+        faculty.value = facultyData.value?.get(item) ?: NOT_SELECT
         getFaculty()
     }
 
     fun setGroup(item: Int) {
-        group.value = groupsData.value?.get(item) ?: DEF_NAME_GROUP
+        group.value = groupsData.value?.get(item) ?: NOT_SELECT
         getGroup()
     }
 
-
-
     private fun getInstitutes(): Array<String> {
-
         interactor.getListInstitutes()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -56,7 +53,7 @@ class SignUpLastStepModel : BaseViewModel() {
                 }
                 .apply { compositeDisposable.add(this) }
 
-        return institutesData.value ?: arrayOf("TEST")
+        return institutesData.value ?: arrayOf(NOT_SELECT)
     }
 
 

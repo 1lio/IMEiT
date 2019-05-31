@@ -6,5 +6,4 @@ data class User(
         var institute: String = "",
         var faculty: String = "",
         var group: String = ""
-//...
 )

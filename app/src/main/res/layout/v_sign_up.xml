@@ -9,7 +9,7 @@
         android:id="@+id/imageView"
         android:layout_width="@dimen/logo_size"
         android:layout_height="@dimen/logo_size"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="52dp"
         android:contentDescription="@string/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

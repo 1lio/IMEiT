@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view.view
+package ru.vyaacheslav.suhov.imeit.view.view.auth
 
 import android.content.Context
 import android.text.Editable
@@ -10,13 +10,13 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.v_sign_up.view.*
-import ru.vyaacheslav.suhov.imeit.LoginActivity
+import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpFirstStepModel
 
-class SingUpFirst(context: Context, attr: AttributeSet) : ConstraintLayout(context, attr) {
+class SignUpFirstView(context: Context, attr: AttributeSet) : ConstraintLayout(context, attr) {
 
-    private val activity = context as LoginActivity
+    private val activity = context as MainActivity
     private val model = ViewModelProviders.of(activity)[SignUpFirstStepModel::class.java]
 
     init {
@@ -67,6 +67,11 @@ class SingUpFirst(context: Context, attr: AttributeSet) : ConstraintLayout(conte
 
             ed_pass_u.text.toString().isEmpty() -> {
                 ed_pass_u.error = resources.getString(R.string.is_empty)
+                false
+            }
+
+            ed_pass_u.text.toString().length < 6 -> {
+                ed_pass_u.error = resources.getString(R.string.error_min_length_pass)
                 false
             }
 

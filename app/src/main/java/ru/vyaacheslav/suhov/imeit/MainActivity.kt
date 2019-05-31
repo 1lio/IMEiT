@@ -1,36 +1,38 @@
 package ru.vyaacheslav.suhov.imeit
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.activity_main.*
-import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
+import ru.vyaacheslav.suhov.imeit.util.gone
+import ru.vyaacheslav.suhov.imeit.util.visible
+import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.FragmentLogin
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallSetupFragment
-import ru.vyaacheslav.suhov.imeit.view.ftagments.other.BottomNavigationDrawerFragment
-import ru.vyaacheslav.suhov.imeit.view.ftagments.other.EmptyGroupFragment
+import ru.vyaacheslav.suhov.imeit.view.ftagments.other.BottomNavFragment
+import ru.vyaacheslav.suhov.imeit.view.ftagments.other.FragmentEmptyGroup
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
+import ru.vyaacheslav.suhov.imeit.view.view.UpToolbar
 import ru.vyaacheslav.suhov.imeit.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var model: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if (!LocalRepository().getInstance().isSinged) {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(bottom_bar)
 
         model = ViewModelProviders.of(this@MainActivity)[MainViewModel::class.java]
-        setSupportActionBar(bottom_bar)
-        loadStartFragment()
+        model.observeAuth(this@MainActivity, Observer { if (!it) FragmentLogin().show() })
+
+        if (model.isAuth()) loadStartFragment() else FragmentLogin().show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -40,33 +42,17 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                val bottomNavDrawerFragment = BottomNavigationDrawerFragment()
-                bottomNavDrawerFragment.show(supportFragmentManager, bottomNavDrawerFragment.tag)
+                val navDrawerFragment = BottomNavFragment()
+                navDrawerFragment.show(supportFragmentManager, navDrawerFragment.tag)
             }
             R.id.group_setup -> showDialogSelectGroup()
-            R.id.bells_pref -> pushFragment(CallSetupFragment())
+            R.id.bells_pref -> CallSetupFragment().show()
         }
         return true
     }
 
     private fun loadStartFragment() {
-
-        when {
-            // Проверка на первый запуск
-            model.isFirstRun() -> {
-                showDialogSelectGroup()
-                pushFragment(EmptyGroupFragment())
-            }
-            // Проверка выбрана ли группа
-            !model.isSelectedGroup() -> pushFragment(EmptyGroupFragment())
-
-            else -> pushFragment(SchedulePagerFragment())     // В других случаях грузим фрагмент с расписанием
-        }
-
-    }
-
-    private fun pushFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
+        if (model.isExistsGroup()) SchedulePagerFragment().show() else FragmentEmptyGroup().show()
     }
 
     private fun showDialogSelectGroup() {
@@ -76,11 +62,38 @@ class MainActivity : AppCompatActivity() {
                 .setSingleChoiceItems(model.getListGroups(), model.getSelectedId())
                 { d, i ->
                     model.setSelectedId(i)
-
-                    if (model.isSelectedGroup()) pushFragment(SchedulePagerFragment())
-                    else pushFragment(EmptyGroupFragment())
-
+                    loadStartFragment()
                     d.cancel()
-                }.create().show()
+                }
+                .create()
+                .show()
+    }
+
+    private fun showDialogExit() {
+        AlertDialog.Builder(this@MainActivity)
+                .setTitle(resources.getString(R.string.exit_of_app))
+                .setNeutralButton(resources.getString(R.string.cancel)) { d, _ -> d.cancel() }
+                .setPositiveButton(resources.getString(R.string.yes)) { d, _ -> d.dismiss(); finish() }
+                .create()
+                .show()
+    }
+
+    private fun Fragment.show() {
+
+        val toolbar: UpToolbar = findViewById(R.id.toolbar)
+        val bottomView: CoordinatorLayout = findViewById(R.id.bottom_view)
+
+        arrayOf(toolbar, bottomView).forEach { if (model.isAuth()) it.visible() else it.gone() }
+
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, this@show, this@show.tag)
+                .commit()
+    }
+
+    override fun onBackPressed() {
+
+        // TODO: Сделать возврат фрагментов, на последнем диалог выхода из приложения
+        showDialogExit()
     }
 }
