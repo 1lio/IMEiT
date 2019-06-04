@@ -22,15 +22,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity
-            android:name="ru.vyaacheslav.suhov.imeit.MainActivity">
+        <activity android:name="ru.vyaacheslav.suhov.imeit.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="ru.vyaacheslav.suhov.imeit.LoginActivity"/>
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -39,6 +36,5 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBGKkIuy0yVE4M4OYxuao3nTuiLWn1J64Y" />
-
     </application>
 </manifest>

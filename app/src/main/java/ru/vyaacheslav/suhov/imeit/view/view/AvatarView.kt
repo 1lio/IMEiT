@@ -10,7 +10,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import ru.vyaacheslav.suhov.imeit.R
 
-/** Custom view - User Avatar with Network Status */
+/** Custom view - User Avatar */
 
 class AvatarView : AppCompatImageView {
 
@@ -19,7 +19,6 @@ class AvatarView : AppCompatImageView {
         private const val DEF_SPACING = 16f             // Отступ
         private const val DEF_STROKE_COLOR = 62141784   // Цвет обводки в binary
         private const val DEF_STROKE_WIDTH = 0          // Размер обводки
-        private const val DEF_INDICATOR_SIZE = 10       // Размер идикатора (Меньше вью в 10 раз)
     }
 
     // Переменные рисования.
@@ -38,12 +37,10 @@ class AvatarView : AppCompatImageView {
     // Статус инициализации
     private var isInitialized: Boolean = false
     // Статус пользователя
-    var isVisibilityStatus: Boolean = true
     var isCheckedStatus: Boolean = false
 
     // Конструкторы
     constructor(context: Context) : super(context)
-
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
 
         // Прикручиваем атрибуты
@@ -53,7 +50,6 @@ class AvatarView : AppCompatImageView {
             // инициализируем атрибуты
             strokeColor = a.getColor(R.styleable.AvatarView_strokeColor, DEF_STROKE_COLOR)
             strokeWidth = a.getDimensionPixelSize(R.styleable.AvatarView_strokeWidth, DEF_STROKE_WIDTH).toFloat()
-            isVisibilityStatus = a.getBoolean(R.styleable.AvatarView_isOnline, true)
 
         } finally {
             // recycle() должен выполниться в любом случае
@@ -80,7 +76,6 @@ class AvatarView : AppCompatImageView {
         // Рисуем аватарку если тип не совподает рисуем цвет
         if (this.drawable is BitmapDrawable) drawImage(canvas) else drawOvalFullColor(canvas)
         drawStroke(canvas)  // Рисуем обводку, поверх аватарки
-        drawStatus(canvas)  // Рисуем кружочек статуса
     }
 
     // Рисуем картинку
@@ -122,16 +117,6 @@ class AvatarView : AppCompatImageView {
             canvas.drawCircle(center, center, center - 4.0f, paint)
         }
     }
-
-    // Рисуем кружочек статуса)
-    private fun drawStatus(canvas: Canvas) {
-        if (isVisibilityStatus) {
-            paint(Paint.Style.FILL_AND_STROKE) // Возьмем кисть "Обводка с закраской"
-            canvas.drawCircle(width.toFloat() / 1.2f, width.toFloat() / 1.2f,
-                    width.toFloat() / DEF_INDICATOR_SIZE, paint)
-        }
-    }
-
 
     private fun paint(style: Paint.Style, width: Float = 0f) {
         paint.reset()             // сбросим нашу кисть

@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view.view
+package ru.vyaacheslav.suhov.imeit.view.view.auth
 
 import android.content.Context
 import android.text.Editable
@@ -6,23 +6,22 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.v_sign_up.view.*
-import ru.vyaacheslav.suhov.imeit.LoginActivity
+import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpFirstStepModel
 
-class SingUpFirst(context: Context, attr: AttributeSet) : ConstraintLayout(context, attr) {
+class SignUpFirstView(context: Context, attr: AttributeSet) : ConstraintLayout(context, attr) {
 
-    private val activity = context as LoginActivity
+    private val activity = context as MainActivity
     private val model = ViewModelProviders.of(activity)[SignUpFirstStepModel::class.java]
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.v_sign_up, this)
 
-        model.observeValidAll(activity, Observer { isEnabledNext(it) })
+        LayoutInflater.from(context).inflate(R.layout.v_sign_up, this)
+        model.observeValidAll(activity, Observer { btn_next_u.isEnabled = it })
 
         arrayOf(ed_email_u, ed_pass_u, ed_re_pass).forEach {
             it.addTextChangedListener(object : TextWatcher {
@@ -35,7 +34,6 @@ class SingUpFirst(context: Context, attr: AttributeSet) : ConstraintLayout(conte
                     model.setValidAll(validatePass() && validateEmail())
                 }
             })
-
         }
     }
 
@@ -70,6 +68,11 @@ class SingUpFirst(context: Context, attr: AttributeSet) : ConstraintLayout(conte
                 false
             }
 
+            ed_pass_u.text.toString().length < 6 -> {
+                ed_pass_u.error = resources.getString(R.string.error_min_length_pass)
+                false
+            }
+
             ed_pass_u.text.toString() != ed_re_pass.text.toString() -> {
                 ed_re_pass.error = resources.getString(R.string.pass_do_not_match)
                 false
@@ -84,17 +87,4 @@ class SingUpFirst(context: Context, attr: AttributeSet) : ConstraintLayout(conte
 
     }
 
-    private fun isEnabledNext(enabled: Boolean) {
-
-        btn_next_u.isEnabled = enabled
-
-        if (enabled) {
-            btn_next_u.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent))
-            btn_next_u.setTextColor(ContextCompat.getColor(context, R.color.white))
-        } else {
-            btn_next_u.setBackgroundColor(ContextCompat.getColor(context, R.color.grayLight))
-            btn_next_u.setTextColor(ContextCompat.getColor(context, R.color.gray))
-        }
-
-    }
 }

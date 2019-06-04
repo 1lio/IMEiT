@@ -2,8 +2,11 @@ package ru.vyaacheslav.suhov.imeit.util
 
 import android.content.Context
 import android.os.Build
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.Constants.FRI
 import ru.vyaacheslav.suhov.imeit.util.Constants.MON
@@ -46,3 +49,15 @@ fun getDayAcronym(): String = when (Calendar.getInstance().get(Calendar.DAY_OF_W
 }
 
 fun toast(context: Context, msg: Int) { Toast.makeText(context, msg, Toast.LENGTH_SHORT).show() }
+
+fun View.visible() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.gone() {
+    this.visibility = View.GONE
+}
+
+fun Fragment.pushFragment(fm:FragmentManager) {
+    fm.beginTransaction().replace(R.id.container,this, this.tag).commit()
+}

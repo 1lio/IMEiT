@@ -8,8 +8,9 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.textfield.TextInputEditText
-import ru.vyaacheslav.suhov.imeit.LoginActivity
+import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.util.pushFragment
 import ru.vyaacheslav.suhov.imeit.viewmodel.LoginViewModel
 
 class SignUpFirstStepFragment : Fragment() {
@@ -17,11 +18,12 @@ class SignUpFirstStepFragment : Fragment() {
     private lateinit var model: LoginViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fr_sign_up1, container, false)
+        val v = inflater.inflate(R.layout.fr_sign_first, container, false)
 
-        model = ViewModelProviders.of(context as LoginActivity)[LoginViewModel::class.java]
+        model = ViewModelProviders.of(context as MainActivity)[LoginViewModel::class.java]
 
         val btnNext: Button = v.findViewById(R.id.btn_next_u)
+        val btnCancel: Button = v.findViewById(R.id.cancel)
 
         val pass = v.findViewById<TextInputEditText>(R.id.ed_pass_u)
         val email = v.findViewById<TextInputEditText>(R.id.ed_email_u)
@@ -29,12 +31,13 @@ class SignUpFirstStepFragment : Fragment() {
         btnNext.setOnClickListener {
 
             val p = pass.text.toString()
-            val e = email.text.toString() // <- Косяк ?!
+            val e = email.text.toString()
 
             model.setUserLogin(e, p)
-            fragmentManager!!.beginTransaction().replace(R.id.login_container, SingUpLastStepFragment()).commit()
+            fragmentManager!!.beginTransaction().replace(R.id.container, SignUpLastStepFragment()).commit()
         }
 
+        btnCancel.setOnClickListener { FragmentLogin().pushFragment(fragmentManager!!) }
         return v
     }
 }

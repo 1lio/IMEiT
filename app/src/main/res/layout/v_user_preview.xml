@@ -1,49 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:orientation="vertical"
-    tools:parentTag="android.widget.RelativeLayout">
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+
+    tools:parentTag="android.widget.FrameLayout">
 
     <ru.vyaacheslav.suhov.imeit.view.view.AvatarView
+        android:layout_margin="@dimen/activity_vertical_margin"
         android:id="@+id/avatar"
         android:layout_width="76dp"
         android:layout_height="76dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:src="@drawable/group"
+        android:layout_gravity="start|center"
         app:strokeColor="@color/colorAccent"
         app:strokeWidth="2dp"
-        app:isOnline="false"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/exit"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="@string/exit_for_profile"
-        android:tint="@color/gray"
-        app:srcCompat="@drawable/ic_exit" />
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_toStartOf="@+id/exit"
-        android:layout_toEndOf="@+id/avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -62,4 +41,14 @@
             tools:text="ISiT-31" />
     </LinearLayout>
 
-</RelativeLayout>
+    <ImageView
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:id="@+id/exit"
+        android:layout_width="36dp"
+        android:layout_gravity="end|center"
+        android:layout_height="36dp"
+        android:contentDescription="@string/exit_for_profile"
+        android:tint="@color/gray"
+        app:srcCompat="@drawable/ic_exit" />
+
+</merge>

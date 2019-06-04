@@ -10,14 +10,13 @@ import ru.vyaacheslav.suhov.imeit.base.BaseAdapter
 import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
 import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 
-class MapsListAdapter : BaseAdapter<MapData, MapsListAdapter.TestViewHolder>() {
+class MapsListAdapter : BaseAdapter<MapData, MapsListAdapter.ViewHolder>() {
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestViewHolder {
-        return TestViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_maps, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_maps, parent, false))
     }
 
-    inner class TestViewHolder(itemView: View) : BaseViewHolder<MapData>(itemView) {
+    inner class ViewHolder(itemView: View) : BaseViewHolder<MapData>(itemView) {
 
         private val name: TextView = itemView.findViewById(R.id.text1)
         private val address: TextView = itemView.findViewById(R.id.text2)

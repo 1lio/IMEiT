@@ -3,6 +3,5 @@
     <declare-styleable name="AvatarView">
         <attr name="strokeColor" format="color" />
         <attr name="strokeWidth" format="dimension" />
-        <attr name="isOnline" format="boolean" />
     </declare-styleable>
 </resources>

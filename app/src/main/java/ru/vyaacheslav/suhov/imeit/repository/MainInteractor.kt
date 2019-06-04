@@ -9,6 +9,7 @@ import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.repository.entity.User
 import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
+import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
@@ -46,7 +47,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                         override fun onCancelled(p0: DatabaseError) {}
                         override fun onDataChange(snapshot: DataSnapshot) {
 
-                            val list: ArrayList<String> = arrayListOf()
+                            val list: ArrayList<String> = arrayListOf(NOT_SELECT)
                             for (s: DataSnapshot in snapshot.children) {
                                 list.add(s.key.toString()) // Список по ключам!
                             }
@@ -56,17 +57,17 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         }
     }
 
-    /** @param insitute - необходимо указать родительский институт
+    /** @param institute - необходимо указать родительский институт
      *  @return - Список всех факультетов данного института */
-    fun getListFaculty(insitute: String): Observable<ArrayList<String>> {
+    fun getListFaculty(institute: String): Observable<ArrayList<String>> {
         return  Observable.create {
-            repository.getRefFacultys(institute)
+            repository.getRefFaculty(institute)
                     .addValueEventListener(object :ValueEventListener {
 
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            val list: ArrayList<String> = arrayListOf()
+                            val list: ArrayList<String> = arrayListOf(NOT_SELECT)
                             for (s: DataSnapshot in snapshot.children) {
-                                list.add(s.key.toString()) // Список по ключам!
+                                list.add(s.key.toString())
                             }
                             it.onNext(list)
                         }
@@ -82,7 +83,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
 
-                            val list = arrayListOf("Группа не выбрана")
+                            val list = arrayListOf(NOT_SELECT)
                             for (s: DataSnapshot in snapshot.children) {
                                 list.add(s.key.toString()) // Список по ключам!
                             }
@@ -95,7 +96,6 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
     }
 
     /** @return - Список в парами к текущему дню */
-    // Слишком ного параметров | Переделать
     fun getScheduleDay(day: String): Observable<ArrayList<Schedule>> {
         return Observable.create {
             repository.getRefListSchedule(institute, faculty, group, day)
@@ -105,9 +105,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                             val list = ArrayList<Schedule>()
                             for (x in 1..localRepository.countPair) {
                                 list.add(snapshot.child("pair$x").getValue(Schedule::class.java)
-                                        ?: Schedule()) // <- косяк ("pair$x"); просто по пройтись по дочерним нельзя,
-                                // т.к. может быть пустая пара и пужно получить индекс пустой
-                                // можно кончено просто менять последний char; получается почти тоже самое.
+                                        ?: Schedule())
                             }
                             it.onNext(list)
                         }
@@ -144,10 +142,8 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
     fun getUser(uId: String): Observable<User> {
         return Observable.create {
-
             repository.getRefUser(uId)
                     .addValueEventListener(object : ValueEventListener {
-
                         override fun onDataChange(p0: DataSnapshot) {
                             it.onNext(p0.getValue(User::class.java) ?: User())
                         }
@@ -159,7 +155,5 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         }
     }
 
-    fun setUser(user: User) {
-        repository.getRefUser(user.uId).setValue(user)
-    }
+    fun setUser(user: User) { repository.getRefUser(user.uId).setValue(user) }
 }

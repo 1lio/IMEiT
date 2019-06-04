@@ -19,7 +19,6 @@
         android:focusable="false"
         app:strokeWidth="2dp"
         app:strokeColor="@color/colorAccent"
-        app:isOnline="false"
         app:srcCompat="@drawable/group" />
 
     <TextView
