@@ -22,7 +22,7 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 class LocalRepository {
     private val instance: LocalRepository? = null
 
-    // Воход
+    // Вход
     var isAuth:Boolean
         set(value) {Hawk.put(KEY_SIGN_IN,value)}
         get() = Hawk.get(KEY_SIGN_IN, DEF_SIGN_IN)

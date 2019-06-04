@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.adapters.CallListFragmentAdapter
-import ru.vyaacheslav.suhov.imeit.viewmodel.view.CallTimeViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 
 class CallFragment : Fragment() {
 

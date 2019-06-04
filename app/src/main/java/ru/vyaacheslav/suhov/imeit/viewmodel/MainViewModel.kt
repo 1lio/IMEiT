@@ -18,7 +18,8 @@ class MainViewModel : BaseViewModel() {
     private val subtitleToolbar = MutableLiveData<String>()
     // Настройки
     private val selectedListId = MutableLiveData<Int>()
-    // Сохраненные  данные | Институт и факультет почти не используются. В дальнейшем будут.
+
+    // Сохраненные  данные
     private val currentFaculty = localRepository.faculty
     private val currentInstitute = localRepository.institute
     private val currentGroup = localRepository.group
@@ -28,7 +29,7 @@ class MainViewModel : BaseViewModel() {
 
     init {
         isAuthData.value = localRepository.isAuth
-        isSelectedGroup.value = localRepository.isSelectedGroup    // Проверка выбрана ли группа
+        isSelectedGroup.value = localRepository.isSelectedGroup    // выбрана ли группа
 
         // Лист со всеми группами выбранного института
         interactor.getListGroups(currentInstitute, currentFaculty)
@@ -80,7 +81,7 @@ class MainViewModel : BaseViewModel() {
     }
 
     var isAuth: Boolean
-        set(value) { isAuthData.value = value }
+        set(value) { isAuthData.value = value ; localRepository.isAuth = value}
         get() = isAuthData.value ?: false
 
     private fun setSubtitle(group: String) {

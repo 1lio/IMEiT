@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.viewmodel.view
+package ru.vyaacheslav.suhov.imeit.viewmodel
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData

@@ -28,25 +28,20 @@ class SignInView : LinearLayout {
 
         LayoutInflater.from(context).inflate(R.layout.v_sign_in, this@SignInView)
 
-        model.observeForms(activity, Observer {
+        arrayOf(ed_email, ed_pass).forEach { edit ->
+            edit.addTextChangedListener(object : TextWatcher {
 
-            sign_in.isEnabled = it
+                override fun afterTextChanged(s: Editable?) {}
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
-            arrayOf(ed_email, ed_pass).forEach { edit ->
-                edit.addTextChangedListener(object : TextWatcher {
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    model.setEnabledAll(validateForm())
+                    model.setUserLogin(ed_email.text.toString(), ed_pass.text.toString())
+                }
 
-                    override fun afterTextChanged(s: Editable?) {}
-                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                        model.setEnabledAll(validateForm())
-                        model.setUserLogin(ed_email.text.toString(), ed_pass.text.toString())
-                    }
-
-                })
-            }
-        })
-
+            })
+        }
+        model.observeForms(activity, Observer { sign_in.isEnabled = it })
         model.observeLogin(activity, Observer { showDialog(it) })
     }
 

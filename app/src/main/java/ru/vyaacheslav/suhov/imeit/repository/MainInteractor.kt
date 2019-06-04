@@ -142,10 +142,8 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
     fun getUser(uId: String): Observable<User> {
         return Observable.create {
-
             repository.getRefUser(uId)
                     .addValueEventListener(object : ValueEventListener {
-
                         override fun onDataChange(p0: DataSnapshot) {
                             it.onNext(p0.getValue(User::class.java) ?: User())
                         }

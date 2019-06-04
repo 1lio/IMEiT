@@ -13,7 +13,7 @@ import ru.vyaacheslav.suhov.imeit.util.EducationEvent.BREAK
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.END
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LESSON
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LUNCH
-import ru.vyaacheslav.suhov.imeit.viewmodel.view.CallTimeViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 
 class TimeView : LinearLayout {
 

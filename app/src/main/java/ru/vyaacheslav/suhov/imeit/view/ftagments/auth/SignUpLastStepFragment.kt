@@ -5,13 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.util.pushFragment
+import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
 import ru.vyaacheslav.suhov.imeit.viewmodel.LoginViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.MainViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpLastStepModel
 
 class SignUpLastStepFragment : Fragment() {
@@ -52,12 +57,28 @@ class SignUpLastStepFragment : Fragment() {
                         // Если все хорошо, создаем учетку пользователя
                         modelLast.createUser(auth.currentUser!!.uid)
 
-
+                        // и логинемся
+                        login(auth.currentUser)
                     } else {
-
-
+                        // Сообщение об ошибке
+                        Toast.makeText(activity, "ERROR", Toast.LENGTH_SHORT).show()
                     }
                 }
 
+    }
+
+    private fun login(user: FirebaseUser?) {
+
+        val localRepository = LocalRepository().getInstance()
+        val mainModel = ViewModelProviders.of(context as MainActivity)[MainViewModel::class.java]
+
+        if (user != null) {
+            mainModel.isAuth = true
+            localRepository.isAuth = true
+            localRepository.userId = auth.currentUser!!.uid
+            SchedulePagerFragment().pushFragment(fragmentManager!!)
+        } else {
+            localRepository.userId = ""
+        }
     }
 }

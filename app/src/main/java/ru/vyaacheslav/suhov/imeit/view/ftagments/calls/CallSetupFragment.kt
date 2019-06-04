@@ -20,7 +20,7 @@ import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.timeFormat
 import ru.vyaacheslav.suhov.imeit.util.toast
-import ru.vyaacheslav.suhov.imeit.viewmodel.view.CallTimeViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 

@@ -18,12 +18,11 @@ import ru.vyaacheslav.suhov.imeit.viewmodel.MainViewModel
 
 class BottomNavFragment : BottomSheetDialogFragment() {
 
-    private lateinit var navigation:NavigationView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fr_bottomsheet, container, false)
-        navigation = v.findViewById(R.id.navigation_view)
+        val navigation: NavigationView = v.findViewById(R.id.navigation_view)
         navigation.addHeaderView(UserHeader(activity!!))
         return v
     }

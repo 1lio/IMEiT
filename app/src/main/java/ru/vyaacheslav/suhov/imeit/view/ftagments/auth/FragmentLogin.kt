@@ -25,7 +25,6 @@ class FragmentLogin : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         auth = FirebaseAuth.getInstance()
         if (LocalRepository().getInstance().isAuth) login(auth.currentUser) else auth.signOut()
     }
@@ -41,12 +40,16 @@ class FragmentLogin : Fragment() {
         signUp.setOnClickListener { SignUpFirstStepFragment().pushFragment(fragmentManager!!) }
         singIn.setOnClickListener {
 
-            model.login(true)
             auth.signInWithEmailAndPassword(model.getEmail(), model.getPass())
                     .addOnCompleteListener {
 
-                        if (it.isSuccessful) login(auth.currentUser)
-                        else toast(context!!, R.string.error_sign_in)
+                        if (it.isSuccessful) {
+                            model.login(true)
+                            login(auth.currentUser)
+                        } else {
+                            model.login(false)
+                            toast(context!!, R.string.error_sign_in)
+                        }
                     }
         }
 
@@ -54,13 +57,18 @@ class FragmentLogin : Fragment() {
     }
 
     private fun login(user: FirebaseUser?) {
+
+        val localRepository = LocalRepository().getInstance()
+        val mainModel = ViewModelProviders.of(context as MainActivity)[MainViewModel::class.java]
+
         if (user != null) {
-            val mainModel = ViewModelProviders.of(context as MainActivity)[MainViewModel::class.java]
             mainModel.isAuth = true
-            LocalRepository().getInstance().isAuth = true
+            localRepository.isAuth = true
+            localRepository.userId = auth.currentUser!!.uid
             SchedulePagerFragment().pushFragment(fragmentManager!!)
         } else {
             model.login(false)
+            localRepository.userId = ""
         }
     }
 }
