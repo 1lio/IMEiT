@@ -9,6 +9,7 @@ import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.repository.entity.User
 import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
+import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
 class MainInteractor(val repository: FirebaseRealtimeRepository) {
 
@@ -46,7 +47,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                         override fun onCancelled(p0: DatabaseError) {}
                         override fun onDataChange(snapshot: DataSnapshot) {
 
-                            val list: ArrayList<String> = arrayListOf("Не выбрано")
+                            val list: ArrayList<String> = arrayListOf(NOT_SELECT)
                             for (s: DataSnapshot in snapshot.children) {
                                 list.add(s.key.toString()) // Список по ключам!
                             }
@@ -64,7 +65,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                     .addValueEventListener(object :ValueEventListener {
 
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            val list: ArrayList<String> = arrayListOf("Не выбрано")
+                            val list: ArrayList<String> = arrayListOf(NOT_SELECT)
                             for (s: DataSnapshot in snapshot.children) {
                                 list.add(s.key.toString())
                             }
@@ -82,7 +83,7 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
                     .addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
 
-                            val list = arrayListOf("Группа не выбрана")
+                            val list = arrayListOf(NOT_SELECT)
                             for (s: DataSnapshot in snapshot.children) {
                                 list.add(s.key.toString()) // Список по ключам!
                             }
@@ -156,7 +157,5 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
         }
     }
 
-    fun setUser(user: User) {
-        repository.getRefUser(user.uId).setValue(user)
-    }
+    fun setUser(user: User) { repository.getRefUser(user.uId).setValue(user) }
 }

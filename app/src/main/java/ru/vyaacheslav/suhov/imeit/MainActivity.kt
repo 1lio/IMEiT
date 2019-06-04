@@ -30,9 +30,12 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(bottom_bar)
 
         model = ViewModelProviders.of(this@MainActivity)[MainViewModel::class.java]
-        model.observeAuth(this@MainActivity, Observer { if (!it) FragmentLogin().show() })
+        model.observeAuth(this@MainActivity, Observer {
+            if (!it) FragmentLogin().show()
+            visibleUI(it)
+        })
 
-        if (model.isAuth()) loadStartFragment() else FragmentLogin().show()
+        if (model.isAuth) loadStartFragment() else FragmentLogin().show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -79,21 +82,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun Fragment.show() {
-
-        val toolbar: UpToolbar = findViewById(R.id.toolbar)
-        val bottomView: CoordinatorLayout = findViewById(R.id.bottom_view)
-
-        arrayOf(toolbar, bottomView).forEach { if (model.isAuth()) it.visible() else it.gone() }
-
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.container, this@show, this@show.tag)
                 .commit()
     }
 
-    override fun onBackPressed() {
+    private fun visibleUI(v: Boolean) {
 
-        // TODO: Сделать возврат фрагментов, на последнем диалог выхода из приложения
+        val toolbar: UpToolbar = findViewById(R.id.toolbar)
+        val bottomView: CoordinatorLayout = findViewById(R.id.bottom_view)
+
+        val toolbars = arrayOf(toolbar, bottomView)
+        if (v) toolbars.forEach { it.visible() } else toolbars.forEach { it.gone() }
+    }
+
+    override fun onBackPressed() {
         showDialogExit()
     }
 }

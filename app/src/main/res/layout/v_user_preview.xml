@@ -17,7 +17,6 @@
         android:layout_gravity="start|center"
         app:strokeColor="@color/colorAccent"
         app:strokeWidth="2dp"
-        app:isOnline="false"
         tools:srcCompat="@tools:sample/avatars" />
 
     <LinearLayout

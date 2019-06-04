@@ -12,7 +12,6 @@ import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
 
 class MapsListAdapter : BaseAdapter<MapData, MapsListAdapter.ViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_maps, parent, false))
     }

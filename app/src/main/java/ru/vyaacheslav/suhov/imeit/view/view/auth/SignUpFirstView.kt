@@ -6,7 +6,6 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.v_sign_up.view.*
@@ -20,9 +19,9 @@ class SignUpFirstView(context: Context, attr: AttributeSet) : ConstraintLayout(c
     private val model = ViewModelProviders.of(activity)[SignUpFirstStepModel::class.java]
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.v_sign_up, this)
 
-        model.observeValidAll(activity, Observer { isEnabledNext(it) })
+        LayoutInflater.from(context).inflate(R.layout.v_sign_up, this)
+        model.observeValidAll(activity, Observer { btn_next_u.isEnabled = it })
 
         arrayOf(ed_email_u, ed_pass_u, ed_re_pass).forEach {
             it.addTextChangedListener(object : TextWatcher {
@@ -35,7 +34,6 @@ class SignUpFirstView(context: Context, attr: AttributeSet) : ConstraintLayout(c
                     model.setValidAll(validatePass() && validateEmail())
                 }
             })
-
         }
     }
 
@@ -89,17 +87,4 @@ class SignUpFirstView(context: Context, attr: AttributeSet) : ConstraintLayout(c
 
     }
 
-    private fun isEnabledNext(enabled: Boolean) {
-
-        btn_next_u.isEnabled = enabled
-
-        if (enabled) {
-            btn_next_u.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent))
-            btn_next_u.setTextColor(ContextCompat.getColor(context, R.color.white))
-        } else {
-            btn_next_u.setBackgroundColor(ContextCompat.getColor(context, R.color.grayLight))
-            btn_next_u.setTextColor(ContextCompat.getColor(context, R.color.gray))
-        }
-
-    }
 }

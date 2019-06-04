@@ -8,8 +8,13 @@ import androidx.lifecycle.ViewModel
 class SignUpFirstStepModel : ViewModel() {
 
     private val isValidateAll = MutableLiveData<Boolean>()
+    private val emailData = MutableLiveData<String>()
+    private val passData = MutableLiveData<String>()
 
     init {
+        emailData.value = ""
+        passData.value = ""
+
         isValidateAll.value = false
     }
 

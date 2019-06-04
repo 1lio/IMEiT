@@ -13,14 +13,14 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.timeFormat
 import ru.vyaacheslav.suhov.imeit.util.toast
-import ru.vyaacheslav.suhov.imeit.view.view.Fab
-import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.view.CallTimeViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -36,7 +36,7 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
     private lateinit var edLunchStart: EditText
     private lateinit var textStart: TextView
     private lateinit var defBtn: Button
-    private lateinit var fab: Fab
+    private lateinit var fab: FloatingActionButton
 
     private var listEditTexts = ArrayList<EditText>()
 

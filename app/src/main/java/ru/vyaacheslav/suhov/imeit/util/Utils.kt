@@ -5,6 +5,8 @@ import android.os.Build
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.Constants.FRI
 import ru.vyaacheslav.suhov.imeit.util.Constants.MON
@@ -54,4 +56,8 @@ fun View.visible() {
 
 fun View.gone() {
     this.visibility = View.GONE
+}
+
+fun Fragment.pushFragment(fm:FragmentManager) {
+    fm.beginTransaction().replace(R.id.container,this, this.tag).commit()
 }

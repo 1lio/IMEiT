@@ -35,8 +35,9 @@
             android:layout_gravity="bottom"
             app:navigationIcon="@drawable/ic_menu" />
 
-        <ru.vyaacheslav.suhov.imeit.view.view.Fab
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/menu_schedule"

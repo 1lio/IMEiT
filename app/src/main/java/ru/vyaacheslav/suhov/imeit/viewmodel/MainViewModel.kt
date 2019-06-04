@@ -75,11 +75,13 @@ class MainViewModel : BaseViewModel() {
         subtitleToolbar.observe(owner, observer)
     }
 
-     fun observeAuth(owner: LifecycleOwner, observer: Observer<Boolean>) {
-        isAuthData.observe(owner,observer)
+    fun observeAuth(owner: LifecycleOwner, observer: Observer<Boolean>) {
+        isAuthData.observe(owner, observer)
     }
 
-    fun isAuth(): Boolean = isAuthData.value ?: false
+    var isAuth: Boolean
+        set(value) { isAuthData.value = value }
+        get() = isAuthData.value ?: false
 
     private fun setSubtitle(group: String) {
         subtitleToolbar.postValue(group)

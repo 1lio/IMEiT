@@ -24,8 +24,10 @@ class SignUpLastStepModel : BaseViewModel() {
     private val listGroup: ArrayList<String> = arrayListOf()
 
     private val userName = MutableLiveData<String>()
+    private val signUpButton = MutableLiveData<Boolean>()
 
     init {
+        signUpButton.value = false
         getInstitutes()
     }
 
@@ -35,12 +37,10 @@ class SignUpLastStepModel : BaseViewModel() {
 
     fun setFaculty(item: Int) {
         faculty.value = facultyData.value?.get(item) ?: NOT_SELECT
-        getFaculty()
     }
 
     fun setGroup(item: Int) {
         group.value = groupsData.value?.get(item) ?: NOT_SELECT
-        getGroup()
     }
 
     private fun getInstitutes(): Array<String> {
@@ -56,23 +56,31 @@ class SignUpLastStepModel : BaseViewModel() {
         return institutesData.value ?: arrayOf(NOT_SELECT)
     }
 
+    fun setSignUpButton(value: Boolean) {
+        signUpButton.value = value
+    }
 
-    fun observeInstitutes(owner: LifecycleOwner,observer: Observer<Array<String>>) {
+    fun observeSignUpButton(owner: LifecycleOwner, observer: Observer<Boolean>) {
+        signUpButton.observe(owner, observer)
+    }
+
+
+    fun observeInstitutes(owner: LifecycleOwner, observer: Observer<Array<String>>) {
         institutesData.observe(owner, observer)
     }
 
-    fun observeFaculty(owner: LifecycleOwner,observer: Observer<Array<String>>) {
+    fun observeFaculty(owner: LifecycleOwner, observer: Observer<Array<String>>) {
         facultyData.observe(owner, observer)
     }
 
-    fun observeGroup(owner: LifecycleOwner,observer: Observer<Array<String>>) {
+    fun observeGroup(owner: LifecycleOwner, observer: Observer<Array<String>>) {
         groupsData.observe(owner, observer)
     }
 
 
-    fun getFaculty(): Array<String> {
+    fun getFacultyList(): Array<String> {
 
-        interactor.getListFaculty(institute.value!!)
+        interactor.getListFaculty(getInstitute())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
@@ -85,34 +93,31 @@ class SignUpLastStepModel : BaseViewModel() {
         return facultyData.value ?: arrayOf()
     }
 
-    fun getGroup(): Array<String> {
+    fun getGroupList(): Array<String> {
 
-        interactor.getListGroups(institute.value!!, faculty.value!!)
+        interactor.getListGroups(getInstitute(), getFaculty())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     listGroup.clear()
                     listGroup.addAll(it)
                     groupsData.postValue(listGroup.toTypedArray())
-                }
-                .apply { compositeDisposable.add(this) }
+                }.apply { compositeDisposable.add(this) }
 
         return groupsData.value ?: arrayOf()
     }
 
-    fun setUserName(name:String) {
+    fun setUserName(name: String) {
         userName.postValue(name)
     }
 
-    fun observeUserName(owner: LifecycleOwner,observer: Observer<String>) {
-        userName.observe(owner, observer)
+
+    fun createUser(uid:String) {
+        interactor.setUser(User(uid,getName(),getInstitute(),getFaculty(),getGroup()))
     }
 
-    fun createUser() {
-
-        val user= User()
-
-        interactor.setUser(user)
-    }
-
+    private fun getInstitute(): String = institute.value ?: NOT_SELECT
+    private fun getFaculty(): String = faculty.value ?: NOT_SELECT
+    private fun getGroup(): String = group.value ?: NOT_SELECT
+    private fun getName(): String = userName.value ?: NOT_SELECT
 }
