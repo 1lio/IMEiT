@@ -19,6 +19,13 @@ import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
 import ru.vyaacheslav.suhov.imeit.view.view.UpToolbar
 import ru.vyaacheslav.suhov.imeit.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_CONNECTIONS
+import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_CREATE_ACCOUNT
+import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_EMAIL
+import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_LOGIN
+import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_PASS
+import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_SERVER
+import ru.vyaacheslav.suhov.imeit.util.toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,12 +37,22 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(bottom_bar)
 
         model = ViewModelProviders.of(this@MainActivity)[MainViewModel::class.java]
+
+        model.observeFirstRun(this@MainActivity, Observer {
+            if (it) {
+                model.setFirstRun(false)
+                loadStartFragment()
+            }
+        })
+
         model.observeAuth(this@MainActivity, Observer {
             if (!it) FragmentLogin().show()
             visibleUI(it)
         })
 
+
         if (model.isAuth) loadStartFragment() else FragmentLogin().show()
+        observeErrorMsg()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -93,8 +110,25 @@ class MainActivity : AppCompatActivity() {
         val toolbar: UpToolbar = findViewById(R.id.toolbar)
         val bottomView: CoordinatorLayout = findViewById(R.id.bottom_view)
 
-        val toolbars = arrayOf(toolbar, bottomView)
-        if (v) toolbars.forEach { it.visible() } else toolbars.forEach { it.gone() }
+        arrayOf(toolbar, bottomView).forEach { if (v) it.visible() else it.gone() }
+    }
+
+    // Вынести в отдельное вью с ошибками!! ^D-D^
+
+    private fun observeErrorMsg() {
+
+        model.observeErrorMsg(this@MainActivity, Observer {
+            val msg: Int = when (it) {
+                ERROR_CONNECTIONS -> R.string.error_connections
+                ERROR_PASS -> R.string.error_pass
+                ERROR_EMAIL -> R.string.error_email
+                ERROR_LOGIN -> R.string.error_login
+                ERROR_SERVER -> R.string.error_server
+                ERROR_CREATE_ACCOUNT -> R.string.error_create_account
+                else -> 0
+            }
+            toast(this, msg)
+        })
     }
 
     override fun onBackPressed() {

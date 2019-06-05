@@ -19,18 +19,14 @@ import java.util.*
 
 /** @return Стиль текста подсвеченого item например: номер текущей пары или локация */
 fun TextView.styleAppearance(context: Context) {
-    if (Build.VERSION.SDK_INT < 23) {
-        this.setTextAppearance(context, R.style.TextCurrentPair)
-    } else {
-        this.setTextAppearance(R.style.TextCurrentPair)
-    }
+    if (Build.VERSION.SDK_INT < 23) this.setTextAppearance(context, R.style.TextCurrentPair)
+    else this.setTextAppearance(R.style.TextCurrentPair)
 }
 
 /** @return Функция-расширение возвращает строку в 24-часовом формате <00:00> */
 fun Int.timeFormat(): String {
     // Получим остаток от текущего значения
-    var hour = this / 60   // Часы
-    if (hour > 24) hour = (this / 60) - 24
+    val hour = if ((this / 60) > 24) (this / 60) - 24 else this / 60   // Часы
     val min = this % 60    // Минуты
     // Сформатируем строку
     val hh: String = if (hour < 10) "0$hour" else "$hour"
@@ -48,16 +44,14 @@ fun getDayAcronym(): String = when (Calendar.getInstance().get(Calendar.DAY_OF_W
     else -> MON
 }
 
-fun toast(context: Context, msg: Int) { Toast.makeText(context, msg, Toast.LENGTH_SHORT).show() }
-
-fun View.visible() {
-    this.visibility = View.VISIBLE
+fun toast(context: Context, msg: Int) {
+    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
 }
 
-fun View.gone() {
-    this.visibility = View.GONE
-}
+fun View.visible() { this.visibility = View.VISIBLE }
 
-fun Fragment.pushFragment(fm:FragmentManager) {
-    fm.beginTransaction().replace(R.id.container,this, this.tag).commit()
+fun View.gone() { this.visibility = View.GONE }
+
+fun Fragment.pushFragment(fm: FragmentManager) {
+    fm.beginTransaction().replace(R.id.container, this, this.tag).commit()
 }

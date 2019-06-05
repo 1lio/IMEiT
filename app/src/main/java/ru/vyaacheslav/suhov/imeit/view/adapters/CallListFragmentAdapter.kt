@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseAdapter
 import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
-import ru.vyaacheslav.suhov.imeit.util.UtilBell
+import ru.vyaacheslav.suhov.imeit.util.CallUtil
 import ru.vyaacheslav.suhov.imeit.util.styleAppearance
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
@@ -46,7 +46,7 @@ class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.Vi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
-        val currentPair = UtilBell(CallPref()).getNumberCurrentPair().second
+        val currentPair = CallUtil(CallPref()).getNumberCurrentPair().second
         if (currentPair == position) decorateItem(holder)
 
         holder.less2bot.text = if (position != list.lastIndex) list[position].bottomBreak + min

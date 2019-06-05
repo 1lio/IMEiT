@@ -18,7 +18,6 @@ import ru.vyaacheslav.suhov.imeit.viewmodel.MainViewModel
 
 class BottomNavFragment : BottomSheetDialogFragment() {
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fr_bottomsheet, container, false)

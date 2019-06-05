@@ -10,6 +10,7 @@ class LoginViewModel : ViewModel() {
     private val isCorrectSignForm = MutableLiveData<Boolean>()
     private val userEmail = MutableLiveData<String>()
     private val userPass = MutableLiveData<String>()
+
     private val isAuthorization = MutableLiveData<Boolean>()
 
     init {

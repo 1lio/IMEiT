@@ -37,6 +37,15 @@
     <string name="institute">Ваш нститут:</string>
     <string name="set_down_schedule">Нажмие чтобы скачать расписание</string>
 
+    <!-- ERRORS -->
+
+    <string name="error_connections">Проверьте интернет соединение</string>
+    <string name="error_pass">Неверный пароль</string>
+    <string name="error_email">Данный адрес уже занят</string>
+    <string name="error_login">Неверный логин или пароль</string>
+    <string name="error_server">Ошибка сервера</string>
+    <string name="error_create_account">Ошибка создания аккаунта</string>
+
     <string name="user_name">Имя пользователя</string>
     <string name="user_email">E-mail</string>
     <string name="ok">OK</string>

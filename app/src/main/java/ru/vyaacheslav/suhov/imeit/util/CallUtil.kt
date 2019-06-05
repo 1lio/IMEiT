@@ -12,7 +12,7 @@ import java.util.*
 /** Данный класс работает обрабатывает дополнительные возможности при созданнии списка
  *  @param pref Вы должны передать настроки */
 
-class UtilBell(private val pref: CallPref = CallPref()) {
+class CallUtil(private val pref: CallPref = CallPref()) {
 
 
     /** @see getCurrentTime текущее время*/
@@ -52,10 +52,10 @@ class UtilBell(private val pref: CallPref = CallPref()) {
 
     /** @see getNumberCurrentPair - Функция проверяет входит ли текущее время в диапазоны пар или перемен
      *  @return Pair<тип, номер> */
-    fun getNumberCurrentPair(): Pair<Int, Int> {
+    fun getNumberCurrentPair(): Pair<Byte, Int> {
 
         var number = 0  // Номер пары
-        var type: Int = BREAK// Тип. Пара или перемена
+        var type = BREAK// Тип. Пара или перемена
 
         // Проверяем есть ли наше число в листе с диапазонами пар
         val isInclude = generateListsRange().first.any { intRange -> getCurrentTime in intRange }

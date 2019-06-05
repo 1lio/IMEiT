@@ -3,8 +3,8 @@ package ru.vyaacheslav.suhov.imeit.util
 /** Типы состояния учебного процесса */
 
 object EducationEvent {
-    const val LESSON = 0
-    const val BREAK = 1
-    const val LUNCH = 2
-    const val END = 4
+    const val LESSON: Byte = 0
+    const val BREAK: Byte = 1
+    const val LUNCH: Byte = 2
+    const val END: Byte = 4
 }

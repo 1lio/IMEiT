@@ -5,22 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.textfield.TextInputEditText
-import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.base.BaseLoginFragment
 import ru.vyaacheslav.suhov.imeit.util.pushFragment
-import ru.vyaacheslav.suhov.imeit.viewmodel.LoginViewModel
+import ru.vyaacheslav.suhov.imeit.view.view.auth.SignUpFirstView
 
-class SignUpFirstStepFragment : Fragment() {
-
-    private lateinit var model: LoginViewModel
+class SignUpFirstStepFragment : BaseLoginFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fr_sign_first, container, false)
 
-        model = ViewModelProviders.of(context as MainActivity)[LoginViewModel::class.java]
+        val v = SignUpFirstView(context!!)
 
         val btnNext: Button = v.findViewById(R.id.btn_next_u)
         val btnCancel: Button = v.findViewById(R.id.cancel)
@@ -33,7 +28,7 @@ class SignUpFirstStepFragment : Fragment() {
             val p = pass.text.toString()
             val e = email.text.toString()
 
-            model.setUserLogin(e, p)
+            loginViewModel.setUserLogin(e, p)
             fragmentManager!!.beginTransaction().replace(R.id.container, SignUpLastStepFragment()).commit()
         }
 
