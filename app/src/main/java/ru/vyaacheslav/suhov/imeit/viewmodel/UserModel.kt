@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -20,8 +19,6 @@ class UserModel : BaseViewModel() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     user = it
-
-                    Log.d("TEST", it.toString())
                     userData.postValue(user)
                 }
                 .apply { compositeDisposable.add(this) }

@@ -16,7 +16,10 @@ import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpLastStepModel
 
-class SignUpLastView(context: Context, attr: AttributeSet) : ConstraintLayout(context, attr) {
+class SignUpLastView : ConstraintLayout {
+
+    constructor(context: Context):super(context)
+    constructor(context: Context,attr:AttributeSet):super(context,attr)
 
     private val activity = context as MainActivity
     private val model = ViewModelProviders.of(activity)[SignUpLastStepModel::class.java]
@@ -36,13 +39,13 @@ class SignUpLastView(context: Context, attr: AttributeSet) : ConstraintLayout(co
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (validName()) model.setUserName(s.toString())
+                if (isValidName()) model.setUserName(s.toString())
             }
         })
 
     }
 
-    private fun validName(): Boolean {
+    private fun isValidName(): Boolean {
 
         return when {
             ed_user_name.text.toString().isEmpty() -> {

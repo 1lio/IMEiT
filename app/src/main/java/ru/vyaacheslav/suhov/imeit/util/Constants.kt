@@ -5,6 +5,7 @@ object Constants {
     //TODO: Куча захарткоженых строк !!!
 
     const val KEY_SIGN_IN = "Fy*yq4sUc_ddJ"
+    const val KEY_FIRST_RUN = "SdE3R32%f"
 
     const val KEY_INSTITUTE = "key_institute_name"
     const val KEY_NAME_GROUP = "key_name_group"
@@ -15,6 +16,8 @@ object Constants {
     const val KEY_COUNT_PAIR = "key_count_pair"
 
     const val KEY_USER = "key_user"
+
+    const val DEF_FIRST_RUN = false
     const val DEF_SIGN_IN = false
 
     const val DEF_INSTITUTE = "ИМЕиТ"

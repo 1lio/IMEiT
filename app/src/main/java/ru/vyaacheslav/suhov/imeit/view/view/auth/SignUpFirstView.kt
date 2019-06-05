@@ -13,7 +13,10 @@ import ru.vyaacheslav.suhov.imeit.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpFirstStepModel
 
-class SignUpFirstView(context: Context, attr: AttributeSet) : ConstraintLayout(context, attr) {
+class SignUpFirstView : ConstraintLayout {
+
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val activity = context as MainActivity
     private val model = ViewModelProviders.of(activity)[SignUpFirstStepModel::class.java]

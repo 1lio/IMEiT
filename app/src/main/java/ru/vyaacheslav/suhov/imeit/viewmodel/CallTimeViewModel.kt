@@ -10,7 +10,7 @@ import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.CallGenerator
 import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEFAULT
-import ru.vyaacheslav.suhov.imeit.util.UtilBell
+import ru.vyaacheslav.suhov.imeit.util.CallUtil
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
 import ru.vyaacheslav.suhov.imeit.view.view.TimeView
@@ -18,7 +18,7 @@ import ru.vyaacheslav.suhov.imeit.view.view.TimeView
 /** Данную вью модель используют [CallFragment] и [TimeView]*/
 class CallTimeViewModel : BaseViewModel() {
 
-    private val pairStatus = MutableLiveData<Int>()
+    private val pairStatus = MutableLiveData<Byte>()
     private val timeLeft = MutableLiveData<String>()
 
     private val numberPair = MutableLiveData<Int>()
@@ -87,7 +87,7 @@ class CallTimeViewModel : BaseViewModel() {
     }
 
     private fun updateTime() {
-        val utils = UtilBell(pref)
+        val utils = CallUtil(pref)
         // Получаем номер текущей пары
         numberPair.postValue(utils.getNumberCurrentPair().second)
         // Обновляем значения во viewModel
@@ -100,7 +100,7 @@ class CallTimeViewModel : BaseViewModel() {
     }
 
     // Наблюдатель статус текущей пары
-    fun observePairStatus(owner: LifecycleOwner, observer: Observer<Int>) {
+    fun observePairStatus(owner: LifecycleOwner, observer: Observer<Byte>) {
         pairStatus.observe(owner, observer)
     }
 

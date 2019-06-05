@@ -10,7 +10,10 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
 class MainViewModel : BaseViewModel() {
 
+    // Не асинхронные данные подтягиваю data.value
+
     // Проверки
+    private val isFirsRunData = MutableLiveData<Boolean>()
     private val isAuthData = MutableLiveData<Boolean>()
     private val isSelectedGroup = MutableLiveData<Boolean>()
     //Toolbar
@@ -27,7 +30,10 @@ class MainViewModel : BaseViewModel() {
     private val listGroupsData = MutableLiveData<Array<String>>()
     private val listGroup: ArrayList<String> = arrayListOf()
 
+    private val msgErrorsData = MutableLiveData<Byte>()
+
     init {
+        isFirsRunData.value = localRepository.isFirstRun
         isAuthData.value = localRepository.isAuth
         isSelectedGroup.value = localRepository.isSelectedGroup    // выбрана ли группа
 
@@ -81,10 +87,28 @@ class MainViewModel : BaseViewModel() {
     }
 
     var isAuth: Boolean
-        set(value) { isAuthData.value = value ; localRepository.isAuth = value}
+        set(value) {
+            isAuthData.value = value; localRepository.isAuth = value
+        }
         get() = isAuthData.value ?: false
 
     private fun setSubtitle(group: String) {
         subtitleToolbar.postValue(group)
+    }
+
+     fun setFirstRun(v: Boolean) {
+        isFirsRunData.value = v
+    }
+
+     fun observeFirstRun(owner: LifecycleOwner, observer: Observer<Boolean>) {
+        isFirsRunData.observe(owner, observer)
+    }
+
+    fun setErrorMsg(numError: Byte) {
+        msgErrorsData.value = numError
+    }
+
+    fun observeErrorMsg(owner: LifecycleOwner, observer: Observer<Byte>) {
+        msgErrorsData.observe(owner, observer)
     }
 }
