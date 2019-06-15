@@ -6,15 +6,16 @@ import androidx.lifecycle.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
-import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
+import ru.vyaacheslav.suhov.imeit.entity.EduLocation
 
 class LocationViewModel : BaseViewModel() {
 
-    private val listLiveData = MutableLiveData<ArrayList<MapData>>()
-    private val listMap: ArrayList<MapData> = arrayListOf()
+    private val listLiveData = MutableLiveData<ArrayList<EduLocation>>()
+    private val listMap: ArrayList<EduLocation> = arrayListOf()
 
     init {
-        interactor.getListBuildings().subscribeOn(Schedulers.io())
+        interactor
+                .getListBuildings().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     listMap.clear()
@@ -23,7 +24,7 @@ class LocationViewModel : BaseViewModel() {
                 }.apply { compositeDisposable.add(this) }
     }
 
-    fun observeListBuilding(owner: LifecycleOwner, observer: Observer<ArrayList<MapData>>) {
+    fun observeListBuilding(owner: LifecycleOwner, observer: Observer<ArrayList<EduLocation>>) {
         listLiveData.observe(owner, observer)
     }
 }

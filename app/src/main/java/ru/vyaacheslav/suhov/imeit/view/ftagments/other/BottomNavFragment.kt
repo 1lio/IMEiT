@@ -4,47 +4,45 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.fr_bottomsheet.*
+import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
-import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsPagerFragment
-import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
+import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_CALLS
+import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_MAPS
 import ru.vyaacheslav.suhov.imeit.view.view.UserHeader
-import ru.vyaacheslav.suhov.imeit.viewmodel.MainViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.ControlViewModel
 
 class BottomNavFragment : BottomSheetDialogFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    private lateinit var controlModel: ControlViewModel
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fr_bottomsheet, container, false)
+        val activity = context as MainActivity
         val navigation: NavigationView = v.findViewById(R.id.navigation_view)
-        navigation.addHeaderView(UserHeader(activity!!))
+
+        controlModel = ViewModelProviders.of(activity)[ControlViewModel::class.java]
+        navigation.addHeaderView(UserHeader(activity))
+
         return v
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val model = ViewModelProviders.of(this)[MainViewModel::class.java]
 
-        navigation_view.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.bells_info -> pushFragment(CallFragment())
-                R.id.location -> pushFragment(MapsPagerFragment())
-                R.id.schedule -> {
-                    if (model.isExistsGroup()) pushFragment(SchedulePagerFragment())
-                    else pushFragment(FragmentEmptyGroup())
-                }
-            }
+        navigation_view.setNavigationItemSelectedListener {
+            controlModel.setFragmentId(
+                    when (it.itemId) {
+                        R.id.bells_info -> FRAGMENT_CALLS
+                        R.id.location -> FRAGMENT_MAPS
+                        else -> controlModel.getFragmentSchedule()
+                    })
+
             this.dismiss()
             true
         }
-    }
-
-    private fun pushFragment(fragment: Fragment) {
-        fragmentManager!!.beginTransaction().replace(R.id.container, fragment).commit()
     }
 }

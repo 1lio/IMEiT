@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
@@ -12,20 +13,22 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.v_sign_last.view.*
-import ru.vyaacheslav.suhov.imeit.MainActivity
+import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.util.AppConstants.LOG_ACCOUNT
+import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpLastStepModel
 
 class SignUpLastView : ConstraintLayout {
 
-    constructor(context: Context):super(context)
-    constructor(context: Context,attr:AttributeSet):super(context,attr)
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val activity = context as MainActivity
     private val model = ViewModelProviders.of(activity)[SignUpLastStepModel::class.java]
+    private val authModel = ViewModelProviders.of(activity)[AuthViewModel::class.java]
 
     init {
-
         LayoutInflater.from(context).inflate(R.layout.v_sign_last, this)
         ed_user_name.error = resources.getString(R.string.is_empty)
 
@@ -39,7 +42,11 @@ class SignUpLastView : ConstraintLayout {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (isValidName()) model.setUserName(s.toString())
+                if (isValidName()) {
+                    model.setUserName(s.toString())
+                    authModel.setUserData(model.getUser())
+                    Log.d(LOG_ACCOUNT, model.getUser().toString())
+                }
             }
         })
 
@@ -126,6 +133,7 @@ class SignUpLastView : ConstraintLayout {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 model.setGroup(position)
             }
+
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
     }

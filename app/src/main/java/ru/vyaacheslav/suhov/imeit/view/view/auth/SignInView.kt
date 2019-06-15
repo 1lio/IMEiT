@@ -10,11 +10,12 @@ import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.v_sign_in.view.*
-import ru.vyaacheslav.suhov.imeit.MainActivity
+import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.gone
 import ru.vyaacheslav.suhov.imeit.util.visible
-import ru.vyaacheslav.suhov.imeit.viewmodel.LoginViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignInViewModel
 
 class SignInView : LinearLayout {
 
@@ -22,37 +23,39 @@ class SignInView : LinearLayout {
     constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val activity = context as MainActivity
-    private val model = ViewModelProviders.of(activity)[LoginViewModel::class.java]
+    private val model = ViewModelProviders.of(activity)[SignInViewModel::class.java]
+    private val authModel = ViewModelProviders.of(activity)[AuthViewModel::class.java]
 
     init {
-
         LayoutInflater.from(context).inflate(R.layout.v_sign_in, this@SignInView)
 
-        arrayOf(ed_email, ed_pass).forEach { edit ->
-            edit.addTextChangedListener(object : TextWatcher {
+        model.observeForms(activity, Observer { sign_in.isEnabled = it }) // Доступность кнопки логин
+        authModel.observeTryAuth(activity, Observer { showDialog(it) })   // Попытка авторизации
+
+        arrayOf(ed_email, ed_pass).forEach {
+            it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     model.setEnabledAll(validateForm())
-                    model.setUserLogin(ed_email.text.toString(), ed_pass.text.toString())
+
+                    val email = ed_email.text.toString()
+                    val pass = ed_pass.text.toString()
+                    authModel.setSignInLogin(email, pass)
                 }
 
             })
         }
-        model.observeForms(activity, Observer { sign_in.isEnabled = it })
-        model.observeLogin(activity, Observer { showDialog(it) })
     }
 
     private fun showDialog(show: Boolean) {
-
         val views = arrayOf(layout_email, layout_pass, sign_in, sign_up)
 
         if (show) {
             progressBar.visible()
             views.forEach { it.gone() }
-
         } else {
             progressBar.gone()
             views.forEach { it.visible() }

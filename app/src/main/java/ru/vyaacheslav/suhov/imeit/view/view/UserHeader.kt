@@ -1,16 +1,15 @@
 package ru.vyaacheslav.suhov.imeit.view.view
 
 import android.content.Context
-import android.content.Intent
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.v_user_preview.view.*
-import ru.vyaacheslav.suhov.imeit.MainActivity
+import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
-import ru.vyaacheslav.suhov.imeit.viewmodel.UserModel
+import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 
 class UserHeader : FrameLayout {
 
@@ -21,24 +20,20 @@ class UserHeader : FrameLayout {
     private var subTitle: String? = null
 
     private val activity = context as MainActivity
-    private val model = ViewModelProviders.of(activity)[UserModel::class.java]
-    private val repository = LocalRepository().getInstance()
+    private val model = ViewModelProviders.of(activity)[AuthViewModel::class.java]
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.v_user_preview, this)
-        val user = model.getUser()
 
-        title = user.name
-        subTitle = "${user.faculty}|${user.group}"
+        LayoutInflater.from(context).inflate(R.layout.v_user_preview, this)
+
+        model.observeUser(activity, Observer {
+            title = it.name
+            subTitle = "${it.faculty}|${it.group}"
+        })
 
         u_name.text = title
         u_group.text = subTitle
 
-        exit.setOnClickListener {
-            repository.isAuth = false
-            activity.startActivity(Intent(activity, MainActivity::class.java))
-            activity.finish()
-        }
+        exit.setOnClickListener { model.signOut() }
     }
-
 }

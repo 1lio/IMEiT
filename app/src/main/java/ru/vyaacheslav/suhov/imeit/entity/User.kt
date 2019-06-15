@@ -1,7 +1,7 @@
-package ru.vyaacheslav.suhov.imeit.repository.entity
+package ru.vyaacheslav.suhov.imeit.entity
 
 data class User(
-        var uId: String = "",
+        var uId: String? = "",
         var name: String = "",
         var institute: String = "",
         var faculty: String = "",

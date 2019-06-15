@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
-import ru.vyaacheslav.suhov.imeit.repository.entity.User
+import ru.vyaacheslav.suhov.imeit.entity.User
 import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
 class SignUpLastStepModel : BaseViewModel() {
@@ -77,7 +77,6 @@ class SignUpLastStepModel : BaseViewModel() {
         groupsData.observe(owner, observer)
     }
 
-
     fun getFacultyList(): Array<String> {
 
         interactor.getListFaculty(getInstitute())
@@ -107,14 +106,8 @@ class SignUpLastStepModel : BaseViewModel() {
         return groupsData.value ?: arrayOf()
     }
 
-    fun setUserName(name: String) {
-        userName.postValue(name)
-    }
-
-
-    fun createUser(uid:String) {
-        interactor.setUser(User(uid,getName(),getInstitute(),getFaculty(),getGroup()))
-    }
+    fun setUserName(name: String) { userName.value = name }
+    fun getUser(): User = User(null, getName(), getInstitute(), getFaculty(), getGroup())
 
     private fun getInstitute(): String = institute.value ?: NOT_SELECT
     private fun getFaculty(): String = faculty.value ?: NOT_SELECT

@@ -8,13 +8,9 @@ import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
-class MainViewModel : BaseViewModel() {
-
-    // Не асинхронные данные подтягиваю data.value
+class ActivityViewModel : BaseViewModel() {
 
     // Проверки
-    private val isFirsRunData = MutableLiveData<Boolean>()
-    private val isAuthData = MutableLiveData<Boolean>()
     private val isSelectedGroup = MutableLiveData<Boolean>()
     //Toolbar
     private val titleToolbar = MutableLiveData<String>()
@@ -33,8 +29,6 @@ class MainViewModel : BaseViewModel() {
     private val msgErrorsData = MutableLiveData<Byte>()
 
     init {
-        isFirsRunData.value = localRepository.isFirstRun
-        isAuthData.value = localRepository.isAuth
         isSelectedGroup.value = localRepository.isSelectedGroup    // выбрана ли группа
 
         // Лист со всеми группами выбранного института
@@ -72,7 +66,7 @@ class MainViewModel : BaseViewModel() {
         setSubtitle(getListGroups()[getSelectedId()])
     }
 
-    fun isExistsGroup(): Boolean = isSelectedGroup.value ?: false
+    fun isSelectedGroup(): Boolean = isSelectedGroup.value ?: false
 
     fun observeTitle(owner: LifecycleOwner, observer: Observer<String>) {
         titleToolbar.observe(owner, observer)
@@ -82,26 +76,8 @@ class MainViewModel : BaseViewModel() {
         subtitleToolbar.observe(owner, observer)
     }
 
-    fun observeAuth(owner: LifecycleOwner, observer: Observer<Boolean>) {
-        isAuthData.observe(owner, observer)
-    }
-
-    var isAuth: Boolean
-        set(value) {
-            isAuthData.value = value; localRepository.isAuth = value
-        }
-        get() = isAuthData.value ?: false
-
     private fun setSubtitle(group: String) {
         subtitleToolbar.postValue(group)
-    }
-
-     fun setFirstRun(v: Boolean) {
-        isFirsRunData.value = v
-    }
-
-     fun observeFirstRun(owner: LifecycleOwner, observer: Observer<Boolean>) {
-        isFirsRunData.observe(owner, observer)
     }
 
     fun setErrorMsg(numError: Byte) {

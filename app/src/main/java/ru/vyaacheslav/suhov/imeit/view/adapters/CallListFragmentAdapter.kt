@@ -12,7 +12,7 @@ import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
 import ru.vyaacheslav.suhov.imeit.util.CallUtil
 import ru.vyaacheslav.suhov.imeit.util.styleAppearance
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
-import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.entity.CallPref
 
 class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.ViewHolder>() {
 

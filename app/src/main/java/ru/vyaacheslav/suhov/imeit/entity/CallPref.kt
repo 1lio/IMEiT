@@ -1,7 +1,6 @@
-package ru.vyaacheslav.suhov.imeit.repository.entity
+package ru.vyaacheslav.suhov.imeit.entity
 
-/** В данном классе описываются поля данных для формирования списка CallList
- * CallPref - Установки для времени вонков
+/** CallPref - Установки для времени вонков
  *
  * @param count Колличество пар
  * @param start Начало занятий

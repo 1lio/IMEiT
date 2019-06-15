@@ -9,8 +9,8 @@ import androidx.core.content.ContextCompat
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseAdapter
 import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
-import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
-import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
+import ru.vyaacheslav.suhov.imeit.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.util.CallUtil
 import ru.vyaacheslav.suhov.imeit.util.styleAppearance
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData

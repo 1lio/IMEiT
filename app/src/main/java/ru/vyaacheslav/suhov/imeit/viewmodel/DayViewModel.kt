@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
-import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
+import ru.vyaacheslav.suhov.imeit.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.util.getDayAcronym
 
 class DayViewModel : BaseViewModel() {
@@ -29,7 +29,8 @@ class DayViewModel : BaseViewModel() {
 
     fun setSchedule(day: String) {
 
-        interactor.getScheduleDay(day)
+        interactor
+                .getScheduleDay(day)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {

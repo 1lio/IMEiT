@@ -1,7 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.util
 
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
-import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.entity.CallPref
 
 /** Данный класс генерирует лист с расписанием звонков
  *  @param pref - настроки для расписания из класса [CallPref]*/

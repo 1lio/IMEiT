@@ -7,13 +7,13 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.MainActivity
-import ru.vyaacheslav.suhov.imeit.viewmodel.MainViewModel
+import ru.vyaacheslav.suhov.imeit.view.MainActivity
+import ru.vyaacheslav.suhov.imeit.viewmodel.ActivityViewModel
 
 class UpToolbar(context: Context,attr:AttributeSet) : Toolbar(context,attr) {
     
     private val activity = context as MainActivity
-    private val model = ViewModelProviders.of(activity)[MainViewModel::class.java]
+    private val model = ViewModelProviders.of(activity)[ActivityViewModel::class.java]
 
     init {
         // Инициализируем свойства Toolbar

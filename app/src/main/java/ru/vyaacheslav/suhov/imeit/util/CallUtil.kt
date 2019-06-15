@@ -1,7 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.util
 
 import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
-import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.BREAK
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.END
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LESSON

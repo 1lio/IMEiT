@@ -8,21 +8,21 @@ import android.widget.TextView
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseAdapter
 import ru.vyaacheslav.suhov.imeit.base.BaseViewHolder
-import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
+import ru.vyaacheslav.suhov.imeit.entity.EduLocation
 
-class MapsListAdapter : BaseAdapter<MapData, MapsListAdapter.ViewHolder>() {
+class MapsListAdapter : BaseAdapter<EduLocation, MapsListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_maps, parent, false))
     }
 
-    inner class ViewHolder(itemView: View) : BaseViewHolder<MapData>(itemView) {
+    inner class ViewHolder(itemView: View) : BaseViewHolder<EduLocation>(itemView) {
 
         private val name: TextView = itemView.findViewById(R.id.text1)
         private val address: TextView = itemView.findViewById(R.id.text2)
         private val iconDelete: ImageView = itemView.findViewById(R.id.delItem)
 
-        override fun bind(item: MapData) {
+        override fun bind(item: EduLocation) {
             name.text = item.name
             address.text = item.address
             iconDelete.visibility = if (isEdited) View.VISIBLE else View.GONE

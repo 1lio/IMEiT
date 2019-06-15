@@ -7,7 +7,7 @@ import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.v_progress.view.*
-import ru.vyaacheslav.suhov.imeit.MainActivity
+import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.ProgressBarViewModel
 
 class ProgressBar : LinearLayout {

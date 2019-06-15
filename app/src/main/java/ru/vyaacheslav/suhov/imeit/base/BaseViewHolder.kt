@@ -3,6 +3,7 @@ package ru.vyaacheslav.suhov.imeit.base
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
+/** Базовый ViewHolder */
 abstract class BaseViewHolder<T>( itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun setOnClickListener(listener: View.OnClickListener) {
@@ -11,7 +12,4 @@ abstract class BaseViewHolder<T>( itemView: View) : RecyclerView.ViewHolder(item
 
     abstract fun bind(item: T)
 
-    fun bind(item: T, position: Int) {
-        bind(item)
-    }
 }

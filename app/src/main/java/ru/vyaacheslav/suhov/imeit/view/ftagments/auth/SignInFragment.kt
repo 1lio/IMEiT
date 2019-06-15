@@ -7,19 +7,19 @@ import android.view.ViewGroup
 import android.widget.Button
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseLoginFragment
-import ru.vyaacheslav.suhov.imeit.util.pushFragment
+import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_FIRST
 import ru.vyaacheslav.suhov.imeit.view.view.auth.SignInView
 
-class FragmentLogin : BaseLoginFragment() {
+/** Фрагмент авторизации */
+class SignInFragment : BaseLoginFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = SignInView(context!!)
+        val v = SignInView(activity!!)
+        val btnSingIn: Button = v.findViewById(R.id.sign_in)
+        val btnSignUp: View = v.findViewById(R.id.sign_up)
 
-        val singIn: Button = v.findViewById(R.id.sign_in)
-        val signUp: View = v.findViewById(R.id.sign_up)
-
-        signUp.setOnClickListener { SignUpFirstStepFragment().pushFragment(fragmentManager!!) }
-        singIn.setOnClickListener { loginViewModel.login(true)}
+        btnSignUp.setOnClickListener { controlModel.setFragmentId(FRAGMENT_SIGN_UP_FIRST) }
+        btnSingIn.setOnClickListener { accountModel.signIn() }
         return v
     }
 }

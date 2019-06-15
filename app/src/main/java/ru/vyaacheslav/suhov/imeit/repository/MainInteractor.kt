@@ -4,10 +4,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
-import ru.vyaacheslav.suhov.imeit.repository.entity.MapData
-import ru.vyaacheslav.suhov.imeit.repository.entity.Schedule
-import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
-import ru.vyaacheslav.suhov.imeit.repository.entity.User
+import ru.vyaacheslav.suhov.imeit.entity.EduLocation
+import ru.vyaacheslav.suhov.imeit.entity.Schedule
+import ru.vyaacheslav.suhov.imeit.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
 import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
@@ -19,17 +18,17 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
     private val group = localRepository.group
 
     /** @return - Список всех корпусов */
-    fun getListBuildings(): Observable<ArrayList<MapData>> {
+    fun getListBuildings(): Observable<ArrayList<EduLocation>> {
         return Observable.create {
             repository.getRefListEducationBuildings()
 
                     .addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
 
-                            val list = arrayListOf<MapData>()
+                            val list = arrayListOf<EduLocation>()
                             // Все существующие элементы узла
                             for (x: DataSnapshot in snapshot.children) {
-                                list.add(x.getValue(MapData::class.java) ?: MapData())
+                                list.add(x.getValue(EduLocation::class.java) ?: EduLocation())
                             }
                             it.onNext(list)
                         }
@@ -139,21 +138,4 @@ class MainInteractor(val repository: FirebaseRealtimeRepository) {
     fun setCustomCallPref(pref: CallPref) {
         repository.getRefPreferencesCall(CUSTOM).setValue(pref)
     }
-
-    fun getUser(uId: String): Observable<User> {
-        return Observable.create {
-            repository.getRefUser(uId)
-                    .addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(p0: DataSnapshot) {
-                            it.onNext(p0.getValue(User::class.java) ?: User())
-                        }
-
-                        override fun onCancelled(p0: DatabaseError) {
-                            it.onError(Throwable(p0.toString()))
-                        }
-                    })
-        }
-    }
-
-    fun setUser(user: User) { repository.getRefUser(user.uId).setValue(user) }
 }

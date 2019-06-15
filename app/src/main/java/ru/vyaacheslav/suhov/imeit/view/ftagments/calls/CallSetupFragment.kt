@@ -11,30 +11,33 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import ru.vyaacheslav.suhov.imeit.MainActivity
+import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
+import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
-import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.timeFormat
 import ru.vyaacheslav.suhov.imeit.util.toast
 import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CallSetupFragment : Fragment(), View.OnClickListener {
+class CallSetupFragment : BaseFragment(), View.OnClickListener {
 
     private lateinit var viewModelSetup: CallTimeViewModel
-    private lateinit var pref: CallPref    // установки которые получаем
+    private lateinit var pref: CallPref
+
     private lateinit var edCount: EditText
     private lateinit var edBreak: EditText
     private lateinit var edLengthLesson: EditText
     private lateinit var edLengthLunch: EditText
     private lateinit var edLengthBreakPair: EditText
     private lateinit var edLunchStart: EditText
+
     private lateinit var textStart: TextView
+
     private lateinit var defBtn: Button
     private lateinit var fab: FloatingActionButton
 
@@ -71,7 +74,6 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
     }
 
     private fun setupCurrentPref() {
-
         var count = 1 // Ставим счетчик чтобы обсервер не обновл данные когда не нужно
 
         pref = viewModelSetup.getPrefData() // Получаем данные
@@ -97,7 +99,6 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
             if (count == 1) setUp(c)
             if (!LocalRepository().isChangedPref) setUp(viewModelSetup.getPrefData())
         })
-
         count++
     }
 
@@ -111,7 +112,7 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
     private fun getDataForEditText() {
 
         // Смотрим за изменениями и публикуем в liveData
-       listEditTexts.forEach {
+        listEditTexts.forEach {
             it.addTextChangedListener(object : TextWatcher {
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                     when (it) {

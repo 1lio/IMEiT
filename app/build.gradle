@@ -39,14 +39,14 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
     implementation 'androidx.viewpager:viewpager:1.0.0'
     // Библиотека для доступа к google maps
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     // Компонетны материального дизайна из Android JetPack
     implementation 'com.google.android.material:material:1.1.0-alpha07'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha05'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha06'
     // LifeCycle
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     //RxJava
@@ -59,14 +59,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:17.0.0'
     // Tests
     testImplementation 'junit:junit:4.13-beta-3'
-    testImplementation 'org.mockito:mockito-core:2.28.2'
-    testImplementation 'android.arch.core:core-testing:1.1.1'
-    testImplementation 'org.hamcrest:hamcrest-library:2.1'
-    testImplementation 'org.robolectric:robolectric:4.3'
+    testImplementation "io.mockk:mockk:1.9.3"
+
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-    // Dagger
-    //implementation 'com.google.dagger:dagger:2.16'
-    //kapt 'com.google.dagger:dagger-compiler:2.16'
 }

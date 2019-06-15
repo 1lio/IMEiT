@@ -4,7 +4,10 @@ import android.app.Application
 import com.google.firebase.database.FirebaseDatabase
 import com.orhanobut.hawk.Hawk
 
-// Основной класс приложения
+/**
+ * Основной класс приложения
+ */
+
 class App : Application() {
 
     override fun onCreate() {

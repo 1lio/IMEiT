@@ -2,8 +2,6 @@ package ru.vyaacheslav.suhov.imeit.util
 
 object Constants {
 
-    //TODO: Куча захарткоженых строк !!!
-
     const val KEY_SIGN_IN = "Fy*yq4sUc_ddJ"
     const val KEY_FIRST_RUN = "SdE3R32%f"
 

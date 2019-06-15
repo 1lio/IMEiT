@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
-import ru.vyaacheslav.suhov.imeit.repository.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.CallGenerator
 import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEFAULT
