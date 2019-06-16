@@ -28,13 +28,11 @@ class MainActivity : AppCompatActivity() {
         model = ViewModelProviders.of(this@MainActivity)[ControlViewModel::class.java]
     }
 
-    /** Меню BottomToolbar */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
-    /** Нажатия на элементы BottomToolbar */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> model.setFragmentId(FRAGMENT_NAVIGATION)
@@ -44,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    /** Нажатие кнопки назат */
     override fun onBackPressed() {
         model.setDialogID(DIALOG_EXIT)
     }

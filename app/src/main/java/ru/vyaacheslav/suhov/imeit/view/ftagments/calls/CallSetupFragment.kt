@@ -7,12 +7,11 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.fr_call_setup.*
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseFragment
@@ -24,22 +23,12 @@ import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
+/** Фрагмент настройки времени звонков */
 class CallSetupFragment : BaseFragment(), View.OnClickListener {
 
     private lateinit var viewModelSetup: CallTimeViewModel
     private lateinit var pref: CallPref
-
-    private lateinit var edCount: EditText
-    private lateinit var edBreak: EditText
-    private lateinit var edLengthLesson: EditText
-    private lateinit var edLengthLunch: EditText
-    private lateinit var edLengthBreakPair: EditText
-    private lateinit var edLunchStart: EditText
-
-    private lateinit var textStart: TextView
-
-    private lateinit var defBtn: Button
-    private lateinit var fab: FloatingActionButton
+    private lateinit var fab:FloatingActionButton
 
     private var listEditTexts = ArrayList<EditText>()
 
@@ -47,7 +36,8 @@ class CallSetupFragment : BaseFragment(), View.OnClickListener {
         super.onCreateView(inflater, container, savedInstanceState)
 
         val v = inflater.inflate(R.layout.fr_call_setup, container, false)
-        initViews(v)
+        viewModelSetup = ViewModelProviders.of(context as MainActivity)[CallTimeViewModel::class.java]
+        fab = activity!!.findViewById(R.id.fab)
 
         // заполняем EditText-ы
         setupCurrentPref()
@@ -55,12 +45,27 @@ class CallSetupFragment : BaseFragment(), View.OnClickListener {
         //Смотрим за полями и обновляем liveData
         getDataForEditText()
 
-        fab.setOnClickListener(this)
-        defBtn.setOnClickListener(this)
-        textStart.setOnClickListener(this)
-
-        fab.show()
         return v
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        listEditTexts.addAll(arrayOf(ed_count_call, ed_length_lesson, ed_length_break, ed_length_lunch,
+                ed_length_break_pair, ed_lunch_start))
+
+        viewModelSetup.getCurrentPref()
+
+        fab.setOnClickListener(this)
+        btn_def_call.setOnClickListener(this)
+        time_start.setOnClickListener(this)
+
+        // заполняем EditText-ы
+        setupCurrentPref()
+
+        //Смотрим за полями и обновляем liveData
+        getDataForEditText()
+        fab.show()
     }
 
     override fun onPause() {
@@ -83,15 +88,15 @@ class CallSetupFragment : BaseFragment(), View.OnClickListener {
 
             listEditTexts.forEach {
                 when (it) {
-                    edCount -> it.setText(c.count.toString())
-                    edLengthLesson -> it.setText(c.lengthLesson.toString(), TextView.BufferType.EDITABLE)
-                    edBreak -> it.setText(c.lengthBreak.toString())
-                    edLengthLunch -> it.setText(c.lengthLunch.toString())
-                    edLengthBreakPair -> it.setText(pref.lengthBreakPair.toString())
-                    edLunchStart -> it.setText(c.lunchStart.toString())
+                    ed_count_call -> it.setText(c.count.toString())
+                    ed_length_lesson -> it.setText(c.lengthLesson.toString(), TextView.BufferType.EDITABLE)
+                    ed_length_break -> it.setText(c.lengthBreak.toString())
+                    ed_length_lunch -> it.setText(c.lengthLunch.toString())
+                    ed_length_break_pair -> it.setText(pref.lengthBreakPair.toString())
+                    ed_lunch_start -> it.setText(c.lunchStart.toString())
                 }
             }
-            textStart.text = pref.start.timeFormat()
+            time_start.text = pref.start.timeFormat()
         }
 
         // Наблюдаем за настройками
@@ -106,22 +111,21 @@ class CallSetupFragment : BaseFragment(), View.OnClickListener {
         Calendar.getInstance().set(Calendar.HOUR_OF_DAY, h)
         Calendar.getInstance().set(Calendar.MINUTE, m)
         pref.start = (h * 60 + m)
-        textStart.text = pref.start.timeFormat()
+        time_start.text = pref.start.timeFormat()
     }
 
     private fun getDataForEditText() {
-
         // Смотрим за изменениями и публикуем в liveData
         listEditTexts.forEach {
             it.addTextChangedListener(object : TextWatcher {
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                     when (it) {
-                        edCount -> if (s.validDateCallPref(it)) pref.count = s.toString().toInt()
-                        edBreak -> if (s.validDateCallPref(it)) pref.lengthBreak = s.toString().toInt()
-                        edLengthLesson -> if (s.validDateCallPref(it)) pref.lengthLesson = s.toString().toInt()
-                        edLengthLunch -> if (s.validDateCallPref(it)) pref.lengthLunch = s.toString().toInt()
-                        edLengthBreakPair -> if (s.validDateCallPref(it)) pref.lengthBreakPair = s.toString().toInt()
-                        edLunchStart -> if (s.validDateCallPref(it)) pref.lunchStart = s.toString().toInt()
+                        ed_count_call -> if (s.validDateCallPref(it)) pref.count = s.toString().toInt()
+                        ed_length_lesson -> if (s.validDateCallPref(it)) pref.lengthBreak = s.toString().toInt()
+                        ed_length_break -> if (s.validDateCallPref(it)) pref.lengthLesson = s.toString().toInt()
+                        ed_length_lunch -> if (s.validDateCallPref(it)) pref.lengthLunch = s.toString().toInt()
+                        ed_length_break_pair -> if (s.validDateCallPref(it)) pref.lengthBreakPair = s.toString().toInt()
+                        ed_lunch_start -> if (s.validDateCallPref(it)) pref.lunchStart = s.toString().toInt()
                     }
                 }
 
@@ -148,12 +152,12 @@ class CallSetupFragment : BaseFragment(), View.OnClickListener {
                 false
             }
 
-            this.toString().toInt() > 10 && ed == edCount -> {
+            this.toString().toInt() > 10 && ed == ed_count_call -> {
                 ed.error = resources.getString(R.string.max_pair)
                 false
             }
 
-            this.toString().toInt() > pref.start - 1 && ed == edLunchStart -> {
+            this.toString().toInt() > pref.start - 1 && ed == ed_lunch_start -> {
                 ed.error = resources.getString(R.string.max2)
                 false
             }
@@ -162,26 +166,6 @@ class CallSetupFragment : BaseFragment(), View.OnClickListener {
 
         fab.isEnabled = isCorrect
         return isCorrect
-    }
-
-    private fun initViews(v: View) {
-        viewModelSetup = ViewModelProviders.of(context as MainActivity)[CallTimeViewModel::class.java]
-        viewModelSetup.getCurrentPref()
-
-        fab = activity!!.findViewById(R.id.fab)
-
-        fab.setImageDrawable(ContextCompat.getDrawable(activity!!, R.drawable.ic_save))
-        edCount = v.findViewById(R.id.ed_count_call)
-        edBreak = v.findViewById(R.id.ed_length_break)
-        edLengthLesson = v.findViewById(R.id.ed_length_lesson)
-        edLengthLunch = v.findViewById(R.id.ed_length_lunch)
-        edLengthBreakPair = v.findViewById(R.id.ed_length_break_pair)
-        edLunchStart = v.findViewById(R.id.ed_lunch_start)
-        textStart = v.findViewById(R.id.time_start)
-        defBtn = v.findViewById(R.id.btn_def_call)
-
-        listEditTexts.addAll(arrayOf(edCount, edLengthLesson, edBreak, edLengthLunch,
-                edLengthBreakPair, edLunchStart))
     }
 
     override fun onClick(v: View?) {

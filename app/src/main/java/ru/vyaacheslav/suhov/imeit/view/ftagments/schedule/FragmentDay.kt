@@ -9,12 +9,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fr_recycler.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.view.adapters.DayFragmentAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.DayViewModel
 
+/** Фрагмент с расписанием для текущего дня*/
 class FragmentDay(private val day: String) : BaseFragment() {
 
     private lateinit var model: DayViewModel
@@ -26,20 +27,19 @@ class FragmentDay(private val day: String) : BaseFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fr_recycler, container, false)
+        return inflater.inflate(R.layout.fr_recycler, container, false)
+    }
 
-        val recycler: RecyclerView = v.findViewById(R.id.recycler)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val adapter = DayFragmentAdapter()
         recycler.adapter = adapter
 
         model.setSchedule(day)
-        model.observeSchedule(this, Observer {
-            adapter.addAllAndNotify(it)
-        })
+        model.observeSchedule(this, Observer { adapter.addAllAndNotify(it) })
 
-        recycler.layoutManager = LinearLayoutManager(context)
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
-        return v
     }
 }

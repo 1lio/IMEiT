@@ -15,6 +15,7 @@ android {
         versionCode 23
         versionName "3.2"
         vectorDrawables.useSupportLibrary = true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -24,6 +25,10 @@ android {
         }
     }
 
+    androidExtensions {
+        experimental = true
+    }
+    
     testOptions {
         unitTests {
             includeAndroidResources = true
@@ -41,26 +46,33 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
     implementation 'androidx.viewpager:viewpager:1.0.0'
+
     // Библиотека для доступа к google maps
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
+
     // Компонетны материального дизайна из Android JetPack
     implementation 'com.google.android.material:material:1.1.0-alpha07'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha06'
+
     // LifeCycle
     implementation 'android.arch.lifecycle:extensions:1.1.1'
+
     //RxJava
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+
     // Библиотека для хранения небольших данных примитивных типов
     implementation "com.orhanobut:hawk:2.0.1"
+
     //Firebase
     implementation 'com.google.firebase:firebase-database:17.0.0'
     implementation 'com.google.firebase:firebase-auth:17.0.0'
+
     // Tests
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     testImplementation 'junit:junit:4.13-beta-3'
     testImplementation "io.mockk:mockk:1.9.3"
-
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

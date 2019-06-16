@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.v_user_preview.view.*
+import kotlinx.android.synthetic.main.v_user_header.view.*
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 
+/** View - Header с минимальной информацией о пользователе*/
 class UserHeader : FrameLayout {
 
     constructor(context: Context) : super(context)
@@ -24,7 +25,7 @@ class UserHeader : FrameLayout {
 
     init {
 
-        LayoutInflater.from(context).inflate(R.layout.v_user_preview, this)
+        LayoutInflater.from(context).inflate(R.layout.v_user_header, this)
 
         model.observeUser(activity, Observer {
             title = it.name

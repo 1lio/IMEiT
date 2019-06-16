@@ -10,21 +10,21 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.viewmodel.ActivityViewModel
 
-class UpToolbar(context: Context,attr:AttributeSet) : Toolbar(context,attr) {
-    
+class UpToolbar(context: Context, attr: AttributeSet) : Toolbar(context, attr) {
+
     private val activity = context as MainActivity
     private val model = ViewModelProviders.of(activity)[ActivityViewModel::class.java]
 
     init {
         // Инициализируем свойства Toolbar
-        setTitleTextAppearance(activity, R.style.ToolbarTitleAppearance)             // Параемтры Title
-        setSubtitleTextAppearance(activity, R.style.ToolbarSubtitleAppearance)       // Параметры SubTitle
-        setTitleTextColor(ContextCompat.getColor(activity, R.color.white))           // Цвет Title
-        setSubtitleTextColor(ContextCompat.getColor(activity, R.color.grayLight))    // Цвет SubTile
-        setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))   // Цвет Toolbar
+        setTitleTextAppearance(activity, R.style.ToolbarTitleAppearance)
+        setSubtitleTextAppearance(activity, R.style.ToolbarSubtitleAppearance)
+        setTitleTextColor(ContextCompat.getColor(activity, R.color.white))
+        setSubtitleTextColor(ContextCompat.getColor(activity, R.color.grayLight))
+        setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
 
         // Добавляем observer на Title и Subtitle
-        model.observeTitle(activity, Observer { title = it })                         // Обсервер на Title
-        model.observeSubtitle(activity, Observer { subtitle = it })                   // Обсервер на SubTitle
+        model.observeTitle(activity, Observer { title = it })
+        model.observeSubtitle(activity, Observer { subtitle = it })
     }
 }

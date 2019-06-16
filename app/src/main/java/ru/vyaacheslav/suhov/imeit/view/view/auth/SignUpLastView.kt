@@ -19,6 +19,7 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.LOG_ACCOUNT
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpLastStepModel
 
+/** View - Второй шаг регистрации */
 class SignUpLastView : ConstraintLayout {
 
     constructor(context: Context) : super(context)
@@ -29,6 +30,7 @@ class SignUpLastView : ConstraintLayout {
     private val authModel = ViewModelProviders.of(activity)[AuthViewModel::class.java]
 
     init {
+
         LayoutInflater.from(context).inflate(R.layout.v_sign_up_last, this)
         ed_user_name.error = resources.getString(R.string.is_empty)
 

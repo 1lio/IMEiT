@@ -24,7 +24,7 @@ class MapsMapFragment : BaseFragment(), OnMapReadyCallback {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         val v = inflater.inflate(R.layout.fr_maps, container, false)
-        (childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment).getMapAsync(this)
+        (childFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment).getMapAsync(this)
         model = ViewModelProviders.of(this)[LocationViewModel::class.java]
         return v
     }
@@ -38,6 +38,7 @@ class MapsMapFragment : BaseFragment(), OnMapReadyCallback {
 
             var i = 0
             while (i < list.size) {
+
                 val point = list[i].coordinate
                 val latLong = point.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                 val latitude = java.lang.Double.parseDouble(latLong[0])
@@ -53,9 +54,14 @@ class MapsMapFragment : BaseFragment(), OnMapReadyCallback {
             }
         })
 
-        val center = LatLng(52.625338, 38.495109) // Сентрируем карту чтобы были на карте точки всех корпусов
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(center))
-        googleMap.setMinZoomPreference(13.0f) //  параметры зума
-        googleMap.setMaxZoomPreference(17.0f)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(CENTER))
+        googleMap.setMinZoomPreference(MIN_ZOOM)
+        googleMap.setMaxZoomPreference(MAX_ZOOM)
+    }
+
+    companion object {
+        val CENTER = LatLng(52.625338, 38.495109)
+        const val MIN_ZOOM = 13.0f
+        const val MAX_ZOOM = 17.0f
     }
 }

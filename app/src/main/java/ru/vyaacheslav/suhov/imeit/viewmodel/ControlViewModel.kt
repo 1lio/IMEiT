@@ -9,10 +9,10 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_EMPTY_SCHEDULE
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SCHEDULE
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_IN
 
+/** Вью модель поведения в активити*/
 class ControlViewModel : ViewModel() {
 
     private val localRepository = LocalRepository().getInstance()
-
     private val currentFragmentID = MutableLiveData<Byte?>()
     private val currentDialogID = MutableLiveData<Byte?>()
     private val visibilityUI = MutableLiveData<Boolean>()

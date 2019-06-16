@@ -13,9 +13,8 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // Инициализация библиотеки Hawk.
         Hawk.init(applicationContext).build()
-
+        
         // Включаем работу RealtimeDatabase в offline
         FirebaseDatabase.getInstance().setPersistenceEnabled(true)
     }

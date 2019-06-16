@@ -7,6 +7,10 @@
     <dimen name="activity_vertical_padding">16dp</dimen>
     <dimen name="item_padding">8dp</dimen>
 
+    <dimen name="min_size_height_schedule">128dp</dimen>
+    <dimen name="size_item_time_schedule">60dp</dimen>
+    <dimen name="size_avatar_header">76dp</dimen>
+    <dimen name="size_btn_exit_header">36dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="margin">16dp</dimen>
 

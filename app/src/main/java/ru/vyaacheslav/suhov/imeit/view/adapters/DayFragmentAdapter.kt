@@ -15,29 +15,29 @@ import ru.vyaacheslav.suhov.imeit.util.CallUtil
 import ru.vyaacheslav.suhov.imeit.util.styleAppearance
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 
-class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHolder>() {
+class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolder>() {
 
     private lateinit var context: Context
 
-    override fun onCreateViewHolder(p: ViewGroup, t: Int): TestViewHolder {
+    override fun onCreateViewHolder(p: ViewGroup, t: Int): DayViewHolder {
         context = p.context
-        return TestViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
+        return DayViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
     }
 
-    inner class TestViewHolder(v: View) : BaseViewHolder<Schedule>(v) {
+    inner class DayViewHolder(v: View) : BaseViewHolder<Schedule>(v) {
 
-        val lesson: TextView = v.findViewById(R.id.s_name)
-        val teacher: TextView = v.findViewById(R.id.s_subname)
-        val type: TextView = v.findViewById(R.id.s_type)
-        val building: TextView = v.findViewById(R.id.s_build)
-        val lesson2: TextView = v.findViewById(R.id.s_name_d)
-        val teacher2: TextView = v.findViewById(R.id.s_subname_d)
-        val type2: TextView = v.findViewById(R.id.s_type_d)
-        val building2: TextView = v.findViewById(R.id.s_build_d)
+        val lesson: TextView = v.findViewById(R.id.text_lesson)
+        val teacher: TextView = v.findViewById(R.id.text_lecturer)
+        val type: TextView = v.findViewById(R.id.text_type)
+        val building: TextView = v.findViewById(R.id.text_build)
+        val lesson2: TextView = v.findViewById(R.id.text_lesson_d)
+        val teacher2: TextView = v.findViewById(R.id.text_lecturer_d)
+        val type2: TextView = v.findViewById(R.id.text_type_d)
+        val building2: TextView = v.findViewById(R.id.text_build_d)
 
-        val time1: TextView = v.findViewById(R.id.tex1)
-        val time2: TextView = v.findViewById(R.id.tex2)
-        val time3: TextView = v.findViewById(R.id.tex3)
+        val time1: TextView = v.findViewById(R.id.text_start_hour)
+        val time2: TextView = v.findViewById(R.id.text_start_min)
+        val time3: TextView = v.findViewById(R.id.text_remained)
 
         override fun bind(item: Schedule) {
 
@@ -53,7 +53,7 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHold
 
     }
 
-    override fun onBindViewHolder(holder: TestViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DayViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val listTime: List<TimeData> = CallUtil().getListTime()
 
@@ -65,7 +65,7 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.TestViewHold
         if (currentPair == position) decorateItem(holder)
     }
 
-    private fun decorateItem(holder: TestViewHolder) {
+    private fun decorateItem(holder: DayViewHolder) {
 
         holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.gray))
 

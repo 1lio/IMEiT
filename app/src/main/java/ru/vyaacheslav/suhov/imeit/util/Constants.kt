@@ -41,4 +41,6 @@ object Constants {
     const val USER_REFERENCE = "users"
 
     const val DEFAULT = "DEFAULT"
+
+    const val MAP_CENTER = ""
 }

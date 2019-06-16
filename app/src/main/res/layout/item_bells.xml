@@ -64,7 +64,7 @@
 
 
             <TextView
-                android:id="@+id/t_bott"
+                android:id="@+id/t_bottom"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -73,7 +73,7 @@
                 tools:ignore="NestedWeights" />
 
             <TextView
-                android:id="@+id/t_o_bott"
+                android:id="@+id/t_o_bottom"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center|end"

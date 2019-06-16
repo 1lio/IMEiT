@@ -154,9 +154,4 @@ class AuthViewModel : BaseViewModel() {
         authErrors.postValue(msgId)
         tryAuthData.postValue(false)
     }
-
-    override fun onCleared() {
-        super.onCleared()
-        compositeDisposable.clear()
-    }
 }

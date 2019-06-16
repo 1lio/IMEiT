@@ -32,8 +32,8 @@ class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.Vi
         val num: TextView = itemView.findViewById(R.id.t_num)
         val less1top: TextView = itemView.findViewById(R.id.t_top)
         val less1bot: TextView = itemView.findViewById(R.id.t_o_top)
-        val less2top: TextView = itemView.findViewById(R.id.t_bott)
-        val less2bot: TextView = itemView.findViewById(R.id.t_o_bott)
+        val less2top: TextView = itemView.findViewById(R.id.t_bottom)
+        val less2bot: TextView = itemView.findViewById(R.id.t_o_bottom)
 
         override fun bind(item: CallItem) {
             num.text = item.num

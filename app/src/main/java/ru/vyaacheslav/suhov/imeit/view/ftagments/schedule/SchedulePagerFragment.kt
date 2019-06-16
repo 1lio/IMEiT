@@ -4,24 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.fr_tab.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.view.adapters.DayPagerAdapter
 import java.util.*
 
+/** Фрагмент с Pager-ом содержащим в себе расписание по дням недели. */
 class SchedulePagerFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fr_tab, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fr_tab, container, false)
+    }
 
-        val tabLayout = v.findViewById<TabLayout>(R.id.tab_layout)
-        val viewPager = v.findViewById<ViewPager>(R.id.viewpager)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        viewPager.adapter = DayPagerAdapter(childFragmentManager,activity!!)
-        tabLayout.post { tabLayout.setupWithViewPager(viewPager) }
+        view_pager.adapter = DayPagerAdapter(childFragmentManager,activity!!)
+        tab_layout.post { tab_layout.setupWithViewPager(view_pager) }
 
         val item:Int = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
             Calendar.TUESDAY -> 1
@@ -31,7 +30,6 @@ class SchedulePagerFragment : BaseFragment() {
             else -> 0
         }
 
-        viewPager.setCurrentItem(item,true)
-        return v
+        view_pager.setCurrentItem(item,true)
     }
 }
