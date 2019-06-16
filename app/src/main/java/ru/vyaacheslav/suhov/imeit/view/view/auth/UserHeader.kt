@@ -1,4 +1,4 @@
-package ru.vyaacheslav.suhov.imeit.view.view
+package ru.vyaacheslav.suhov.imeit.view.view.auth
 
 import android.content.Context
 import android.util.AttributeSet

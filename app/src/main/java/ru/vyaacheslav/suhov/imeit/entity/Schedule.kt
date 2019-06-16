@@ -23,6 +23,6 @@ data class Schedule(
         var type2: String = "",
         var building2: String = "",
         // Прочее
-        var together: Byte = 0,
+        var together: Int = 0,
         var note: String = ""
 )

@@ -23,4 +23,6 @@ object AppConstants {
 
     const val LOG_DEBUG = "LOG_DEBUG_APP"
     const val LOG_ACCOUNT = "LOG_DEBUG_ACCOUNT"
+    const val LOG_CALLS = "LOG_DEBUG_CALLS"
+    const val LOG_BUILDINGS = "LOG_BUILDINGS"
 }

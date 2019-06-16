@@ -26,67 +26,44 @@ class AccountInteractorImpl : AccountInteractor {
     private val db = FirebaseRealtimeRepository().getInstance()
 
     /** Создание аккаунта */
-    override fun createAccountEmail(authData: AuthData): Observable<Boolean> {
+    override fun createAccountEmail(authData: AuthData): Single<Boolean> {
 
         Log.d(LOG_ACCOUNT, "Func. Create Account Email")
-
-        var result = false
-        return Observable.create { subscribe ->
-
-           for (x in 0..2) {
-                auth.createUserWithEmailAndPassword(authData.email, authData.pass)
-                        .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                // Получаем пользователя
-                                auth.currentUser
-                                // Если все хорошо, создаем учетку пользователя
-                                authData.user.updateAccountInDB(getCurrentUserID())
-
-                                Log.d(LOG_ACCOUNT, "Account created")
-                                result = true
-                                subscribe.onNext(result)
-                            }
+        return Single.create { subscribe ->
+            auth.createUserWithEmailAndPassword(authData.email, authData.pass)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            // Получаем пользователя
+                            auth.currentUser
+                            // Если все хорошо, создаем учетку пользователя
+                            Log.d(LOG_ACCOUNT, "Account created")
+                            authData.user.updateAccountInDB(getCurrentUserID())
+                            subscribe.onSuccess(true)
+                        } else {
+                            subscribe.onError(Throwable())
+                            Log.d(LOG_ACCOUNT, "Account is not created")
                         }
-
-                if (x == 2 && !result) {
-                    result = false
-                    Log.d(LOG_ACCOUNT, "Account is not created")
-                    subscribe.onError(Throwable())
-                }
-                Log.d(LOG_ACCOUNT, "Try create account $x: $result $authData")
-                Thread.sleep(1000)
-            }
-            subscribe.onComplete()
+                    }
         }
-
     }
 
     /** Вход пользователя */
-    override fun signIn(email: String, pass: String): Observable<Boolean> {
+    override fun signIn(email: String, pass: String): Single<Boolean> {
 
-        Log.d(LOG_ACCOUNT, "Func. signIn")
-        var result = false
-
-        return Observable.create { subscribe ->
-            for (x in 0..2) {
-                auth.signInWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener {
-                            result = it.isSuccessful
-                            subscribe.onNext(result)
-
-                            if (result) {
-                                auth.currentUser
-                                subscribe.onComplete()
-                                getAccount(getCurrentUserID())
-                            }
-
-                            Log.d(LOG_ACCOUNT, "SignIn attempt $x: $result")
+        Log.d(LOG_ACCOUNT, "Func. SignIn")
+        return Single.create { subscribe ->
+            auth.signInWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            auth.currentUser
+                            getAccount(getCurrentUserID())
+                            Log.d(LOG_ACCOUNT, "SignIn : true")
+                            subscribe.onSuccess(true)
+                        } else {
+                            Log.d(LOG_ACCOUNT, "SignIn : false")
+                            subscribe.onError(Throwable())
                         }
-                Thread.sleep(1000L)
-                if (x == 2 && !result) subscribe.onError(Throwable())
-            }
-
-            Log.d(LOG_ACCOUNT, "SignIn : $result")
+                    }
         }
     }
 
@@ -96,72 +73,69 @@ class AccountInteractorImpl : AccountInteractor {
         Log.d(LOG_ACCOUNT, "Func. getAccount from ID")
 
         return Observable.create {
+            db.getRefUser(uID).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    it.onNext(snapshot.getValue(User::class.java) ?: User())
+                    Log.d(LOG_ACCOUNT, "Return Observable User")
+                }
 
-            db.getRefUser(uID)
-                    .addListenerForSingleValueEvent(object : ValueEventListener {
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            it.onNext(snapshot.getValue(User::class.java) ?: User())
-                            Log.d(LOG_ACCOUNT, "Return Observable User")
-                        }
-
-                        override fun onCancelled(error: DatabaseError) {
-                            it.onError(Throwable(error.toString()))
-                            Log.d(LOG_ACCOUNT, "Observable User Canceled: $error")
-                        }
-                    })
+                override fun onCancelled(error: DatabaseError) {
+                    it.onError(Throwable(error.toString()))
+                    Log.d(LOG_ACCOUNT, "Observable User Canceled: $error")
+                }
+            })
         }
     }
 
     /** Обновление пользовательских данных */
-    override fun updateAccount(uID: String, user: User): Observable<Boolean> {
+    override fun updateAccount(uID: String, user: User): Single<Boolean> {
 
+        Log.d(LOG_ACCOUNT, "Func. updateAccount")
         // Не используетсся
-        return Observable.create {
+        return Single.create {
             Log.d(LOG_ACCOUNT, "Func. updateAccount from ID")
             user.updateAccountInDB(uID)
-            it.onNext(true)
+            it.onSuccess(true)
         }
     }
 
     /** Удаление аккаунта */
-    override fun deleteAccountEmail(uID: String, email: String, pass: String): Observable<Boolean> {
+    override fun deleteAccountEmail(uID: String, email: String, pass: String): Single<Boolean> {
 
+        Log.d(LOG_ACCOUNT, "Func. deleteAccountEmail")
         val user = auth.currentUser
         val credential = EmailAuthProvider.getCredential(email, pass)
-        return Observable.create { subscribe ->
-            for (x in 0..2) {
-                user!!.reauthenticate(credential).addOnCompleteListener { user.delete() }
-                        .addOnCompleteListener {
-                            if (it.isSuccessful) {
-                                db.getRefUser(uID).removeValue()
-                                Log.d(LOG_ACCOUNT, "Account deleted")
-                                subscribe.onNext(true)
-                            } else {
-                                subscribe.onError(Throwable())
-                                Log.d(LOG_ACCOUNT, "Error account deleted")
-                            }
-                        }
-            }
-            subscribe.onComplete()
-        }
 
+        return Single.create { subscribe ->
+            user!!.reauthenticate(credential).addOnCompleteListener { user.delete() }
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            db.getRefUser(uID).removeValue()
+                            Log.d(LOG_ACCOUNT, "Account deleted")
+                            subscribe.onSuccess(true)
+                        } else {
+                            subscribe.onError(Throwable())
+                            Log.d(LOG_ACCOUNT, "Error account deleted")
+                        }
+                    }
+        }
     }
 
     /** Проверка вошел ли пользователь */
-    override fun isSigned(): Observable<Boolean> {
+    override fun isSigned(): Single<Boolean> {
 
         Log.d(LOG_ACCOUNT, "Func. isSigned")
+        return Single.create<Boolean> {
 
-        val signed = Observable.create<Boolean> {
-            for (i in 0..2) {
-                Thread.sleep(1000)
-                it.onNext(auth.currentUser != null)
+            if (auth.currentUser != null) {
+                it.onSuccess(true)
+                Log.d(LOG_ACCOUNT, "is Signed account")
+            } else {
+                it.onError(Throwable())
+                Log.d(LOG_ACCOUNT, "is not Signed account")
             }
-            it.onComplete()
-        }
 
-        Log.d(LOG_ACCOUNT, "isSigned account")
-        return signed
+        }
     }
 
     /** ID Текущего пользователя */
@@ -175,15 +149,15 @@ class AccountInteractorImpl : AccountInteractor {
     override fun signOut(): Single<Boolean> {
         return Single.create {
             auth.signOut()
-            it.onSuccess(true)
             Log.d(LOG_ACCOUNT, "Sign out account")
+            it.onSuccess(true)
         }
     }
 
     /** Создание учетной записи в БД*/
     private fun User.updateAccountInDB(id: String) {
         db.getRefUser(id).setValue(this@updateAccountInDB)
-        Log.d(LOG_ACCOUNT, "Account updated")
+        Log.d(LOG_ACCOUNT, "Account $id updated in DB")
     }
 
     fun getInstance() = this.instance ?: AccountInteractorImpl()

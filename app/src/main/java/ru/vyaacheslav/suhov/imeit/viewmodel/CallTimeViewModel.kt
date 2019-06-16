@@ -7,9 +7,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.entity.CallPref
+import ru.vyaacheslav.suhov.imeit.gateway.TimeCallInteractorImpl
 import ru.vyaacheslav.suhov.imeit.util.CallGenerator
-import ru.vyaacheslav.suhov.imeit.util.Constants.CUSTOM
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEFAULT
 import ru.vyaacheslav.suhov.imeit.util.CallUtil
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
@@ -17,6 +16,8 @@ import ru.vyaacheslav.suhov.imeit.view.view.TimeView
 
 /** Данную вью модель используют [CallFragment] и [TimeView]*/
 class CallTimeViewModel : BaseViewModel() {
+
+    private val interactor = TimeCallInteractorImpl().getInstance()
 
     private val pairStatus = MutableLiveData<Byte>()
     private val timeLeft = MutableLiveData<String>()
@@ -50,19 +51,21 @@ class CallTimeViewModel : BaseViewModel() {
         // Сохраняем колличество пар
         localRepository.countPair = pref.count
         // Отправляем данные
-        interactor.setCustomCallPref(preferences)
-        updateTime()
+        interactor.updateUserCallsPref(preferences, localRepository.userId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe()
+                .apply { compositeDisposable.add(this) }
     }
 
     fun setDefaultPreferences() {
         pref = defPrefData.value ?: defPref
         prefData.postValue(pref)
         saveAndPush(defPref)  // Кастомные настройки затираем дефолтными
-        updateTime()
     }
 
     fun getCurrentPref() {
-        interactor.getCallPref(CUSTOM)
+        interactor.getUserTimePref(localRepository.userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
@@ -77,13 +80,14 @@ class CallTimeViewModel : BaseViewModel() {
     }
 
     private fun getDefaultPref() {
-        interactor.getCallPref(DEFAULT)
+        interactor.getDefaultTimeCallPref()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
+                .subscribe({
                     defPref = it
                     defPrefData.postValue(defPref)
-                }.apply { compositeDisposable.add(this) }
+                }, {})
+                .apply { compositeDisposable.add(this) }
     }
 
     private fun updateTime() {

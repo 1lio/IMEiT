@@ -50,6 +50,10 @@ class SignUpLastView : ConstraintLayout {
             }
         })
 
+        registration.setOnClickListener {
+            authModel.setUserData(model.getUser())
+            authModel.signUp()
+        }
     }
 
     private fun isValidName(): Boolean {

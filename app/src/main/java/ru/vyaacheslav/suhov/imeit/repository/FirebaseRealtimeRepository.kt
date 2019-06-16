@@ -12,11 +12,12 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.USER_REFERENCE
 class FirebaseRealtimeRepository {
 
     private val instance: FirebaseRealtimeRepository? = null
-
+    private val database = FirebaseDatabase.getInstance()
     /** @see getRefListEducationBuildings
      *  @return Reference на список всех корпусов*/
+    fun getRefListEducationBuildings() = database.getReference(MAP_REFERENCE)
 
-    fun getRefListEducationBuildings() = FirebaseDatabase.getInstance().getReference(MAP_REFERENCE)
+    fun getRefEduBuildingsFromId(id:String) = database.getReference(MAP_REFERENCE).child(id)
 
     /** Референс на институты*/
     fun getRefInstitutes(): DatabaseReference {

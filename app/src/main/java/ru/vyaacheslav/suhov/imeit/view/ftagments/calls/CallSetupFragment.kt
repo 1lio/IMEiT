@@ -171,7 +171,6 @@ class CallSetupFragment : BaseFragment(), View.OnClickListener {
         fab = activity!!.findViewById(R.id.fab)
 
         fab.setImageDrawable(ContextCompat.getDrawable(activity!!, R.drawable.ic_save))
-        // Можно прикуртить DataBinding
         edCount = v.findViewById(R.id.ed_count_call)
         edBreak = v.findViewById(R.id.ed_length_break)
         edLengthLesson = v.findViewById(R.id.ed_length_lesson)

@@ -1,13 +1,14 @@
 package ru.vyaacheslav.suhov.imeit.base
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.ControlViewModel
 
 /** Базовый фрагмент для работы с авторизацией */
-abstract class BaseLoginFragment : BaseFragment() {
+abstract class BaseLoginFragment : Fragment() {
 
     lateinit var accountModel: AuthViewModel
     lateinit var controlModel: ControlViewModel

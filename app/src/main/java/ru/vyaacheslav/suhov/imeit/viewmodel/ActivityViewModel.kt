@@ -6,10 +6,12 @@ import androidx.lifecycle.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
+import ru.vyaacheslav.suhov.imeit.gateway.ScheduleInteractorImpl
 import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
 class ActivityViewModel : BaseViewModel() {
 
+    private val interactor = ScheduleInteractorImpl().getInstance()
     // Проверки
     private val isSelectedGroup = MutableLiveData<Boolean>()
     //Toolbar
@@ -25,8 +27,6 @@ class ActivityViewModel : BaseViewModel() {
     // Лист со всеми группами
     private val listGroupsData = MutableLiveData<Array<String>>()
     private val listGroup: ArrayList<String> = arrayListOf()
-
-    private val msgErrorsData = MutableLiveData<Byte>()
 
     init {
         isSelectedGroup.value = localRepository.isSelectedGroup    // выбрана ли группа
@@ -78,13 +78,5 @@ class ActivityViewModel : BaseViewModel() {
 
     private fun setSubtitle(group: String) {
         subtitleToolbar.postValue(group)
-    }
-
-    fun setErrorMsg(numError: Byte) {
-        msgErrorsData.value = numError
-    }
-
-    fun observeErrorMsg(owner: LifecycleOwner, observer: Observer<Byte>) {
-        msgErrorsData.observe(owner, observer)
     }
 }

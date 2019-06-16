@@ -4,33 +4,33 @@ import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.entity.AuthData
-import ru.vyaacheslav.suhov.imeit.gateway.AccountInteractorImpl
-import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.entity.User
+import ru.vyaacheslav.suhov.imeit.gateway.AccountInteractorImpl
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.LOG_ACCOUNT
-import ru.vyaacheslav.suhov.imeit.util.Constants
+import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
+import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_CREATE_ACCOUNT
+import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_LOGIN
+import java.util.concurrent.TimeUnit
 
-class AuthViewModel : ViewModel() {
+class AuthViewModel : BaseViewModel() {
 
     private val interactor = AccountInteractorImpl().getInstance()
-    private val localRepository = LocalRepository().getInstance()
-    private val compositeDisposable = CompositeDisposable()
 
-    private val isAuthData = MutableLiveData<Boolean>()  // Авторизован ди пользователь
+    private val authErrors = MutableLiveData<Byte>()     // Ошибки авторизации
     private val tryAuthData = MutableLiveData<Boolean>() // Попытка авторизации
     private val userData = MutableLiveData<User>()       // Сам пользователь
 
     // Sign In
     private val emailData = MutableLiveData<String>()    // email
     private val passData = MutableLiveData<String>()     // пароль
+    private val isAuthData = MutableLiveData<Boolean>()  // Авторизован ди пользователь
 
     //SignUp
-    private val userAuth = AuthData()
+    private val userAuth = AuthData()                    // данные для регистрации
 
     init {
         isAuthData.value = localRepository.isAuth
@@ -39,58 +39,76 @@ class AuthViewModel : ViewModel() {
 
     /** Авторизация */
     fun signIn() {
-        tryAuthData.value = true
+        tryAuthData.value = true // Флаг, попытка авторизации
 
-        val email = emailData.value ?: Constants.NOT_SELECT
-        val pass = passData.value ?: Constants.NOT_SELECT
+        val email = emailData.value ?: NOT_SELECT
+        val pass = passData.value ?: NOT_SELECT
 
+        // обрабатываем ответ от сервера. Ждем 2 секунды
         interactor
                 .signIn(email, pass)
-                .subscribeOn(Schedulers.newThread())
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ if (it) setAuth(true) },{ setAuth(false) })
+                .delay(2L, TimeUnit.SECONDS)
+                .subscribe({ if (it) setAuth(it) }, { setErrorMsg(ERROR_LOGIN) })
                 .apply { compositeDisposable.add(this) }
     }
 
     /** Регистрация*/
     fun signUp() {
+        tryAuthData.value = true
 
-        interactor.createAccountEmail(userAuth)
-                .subscribeOn(Schedulers.newThread())
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe({if (it) setAuth(true)},{})
+        interactor
+                .createAccountEmail(userAuth)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .delay(2L, TimeUnit.SECONDS)
+                .subscribe({ setAuth(it) }, { setErrorMsg(ERROR_CREATE_ACCOUNT) })
                 .apply { compositeDisposable.add(this) }
-
-        userData.value = userAuth.user
     }
 
+    /** Выход из приложения */
     fun signOut() {
+        // Данную задачу можно кинуть на фон
         interactor.signOut()
-        isAuthData.value = false
-        localRepository.isAuth = false
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    isAuthData.postValue(false)
+                    localRepository.isAuth = false
+                }, {})
+                .apply { compositeDisposable.add(this) }
     }
 
+    /** Установить статус авториззации */
     private fun setAuth(auth: Boolean) {
-        isAuthData.postValue(auth)
-        localRepository.isAuth = auth
 
+        // Так как postValue выполянется в отдельном потоке, а затем публикует в основной
+        // Об авторизации говорим в самом конце
+
+        tryAuthData.postValue(false) // крутиться прогресс
+        // Что-то происходит
+        localRepository.isAuth = auth
         if (auth) {
             localRepository.userId = interactor.getCurrentUserID()
             getUser()
         }
-
-        tryAuthData.value = false
+        userData.postValue(userAuth.user)
+        // Готоврим что все гуд или нет
+        isAuthData.postValue(auth)
     }
 
+    /** Пользовательские данные */
     private fun getUser() {
         interactor
                 .getAccount(localRepository.userId)
-                .subscribeOn(Schedulers.newThread())
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { userData.postValue(it) }
+                .subscribe({ userData.postValue(it) }, {})
                 .apply { compositeDisposable.add(this) }
     }
 
+    /** Проверка на авторизацию */
     fun isSigned(): Boolean = isAuthData.value ?: false
 
     /** Передача пользовательских данных*/
@@ -124,6 +142,17 @@ class AuthViewModel : ViewModel() {
     /** Наблюдение за пользовательскими данными*/
     fun observeUser(owner: LifecycleOwner, observer: Observer<User>) {
         userData.observe(owner, observer)
+    }
+
+    /** наблюдение за ошибками */
+    fun observeAuthErrorsMsg(owner: LifecycleOwner, observer: Observer<Byte>) {
+        authErrors.observe(owner, observer)
+    }
+
+    /** Установить ошибку*/
+    private fun setErrorMsg(msgId: Byte) {
+        authErrors.postValue(msgId)
+        tryAuthData.postValue(false)
     }
 
     override fun onCleared() {

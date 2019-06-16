@@ -4,14 +4,12 @@ import com.orhanobut.hawk.Hawk
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_COUNT_PAIR
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_EDITED_CALL
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_FACULTY
-import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_FIRST_RUN
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_GROUP_ID
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_INSTITUTE
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_SIGN_IN
 import ru.vyaacheslav.suhov.imeit.util.Constants.DEF_USER
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_COUNT_PAIR
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_EDITED_CALL
-import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_FIRST_RUN
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_GROUP_ID
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_INSTITUTE
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_NAME_FACULTY
@@ -63,11 +61,6 @@ class LocalRepository {
     var isChangedPref:Boolean
         set(value) {Hawk.put(KEY_EDITED_CALL,value)}
         get() = Hawk.get(KEY_EDITED_CALL, DEF_EDITED_CALL)
-
-    // Первая авторизация
-    var isFirstRun:Boolean
-        set(value) {Hawk.put(KEY_FIRST_RUN,value)}
-        get() = Hawk.get(KEY_FIRST_RUN, DEF_FIRST_RUN)
 
     // Колличество пар
     var countPair:Int

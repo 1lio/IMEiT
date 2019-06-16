@@ -6,12 +6,14 @@ import androidx.lifecycle.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
-import ru.vyaacheslav.suhov.imeit.entity.EduLocation
+import ru.vyaacheslav.suhov.imeit.entity.EduBuilding
+import ru.vyaacheslav.suhov.imeit.gateway.BuildingsInteractorImpl
 
 class LocationViewModel : BaseViewModel() {
 
-    private val listLiveData = MutableLiveData<ArrayList<EduLocation>>()
-    private val listMap: ArrayList<EduLocation> = arrayListOf()
+    private val interactor = BuildingsInteractorImpl().getInstance()
+    private val listLiveData = MutableLiveData<ArrayList<EduBuilding>>()
+    private val listMap: ArrayList<EduBuilding> = arrayListOf()
 
     init {
         interactor
@@ -24,7 +26,7 @@ class LocationViewModel : BaseViewModel() {
                 }.apply { compositeDisposable.add(this) }
     }
 
-    fun observeListBuilding(owner: LifecycleOwner, observer: Observer<ArrayList<EduLocation>>) {
+    fun observeListBuilding(owner: LifecycleOwner, observer: Observer<ArrayList<EduBuilding>>) {
         listLiveData.observe(owner, observer)
     }
 }

@@ -7,9 +7,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.entity.User
+import ru.vyaacheslav.suhov.imeit.gateway.ScheduleInteractorImpl
 import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
 class SignUpLastStepModel : BaseViewModel() {
+
+    private val interactor = ScheduleInteractorImpl().getInstance()
 
     private val institutesData = MutableLiveData<Array<String>>()
     private val facultyData = MutableLiveData<Array<String>>()

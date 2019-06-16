@@ -148,7 +148,7 @@ class ActivityController(private val activity: AppCompatActivity) {
     }
 
     private fun observeErrorMsg() {
-        mainModel.observeErrorMsg(activity, Observer {
+        authModel.observeAuthErrorsMsg(activity, Observer {
             val msg: Int = when (it) {
                 ErrorEvent.ERROR_CONNECTIONS -> R.string.error_connections
                 ErrorEvent.ERROR_PASS -> R.string.error_pass

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.navigation.NavigationView
@@ -12,7 +13,7 @@ import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_CALLS
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_MAPS
-import ru.vyaacheslav.suhov.imeit.view.view.UserHeader
+import ru.vyaacheslav.suhov.imeit.view.view.auth.UserHeader
 import ru.vyaacheslav.suhov.imeit.viewmodel.ControlViewModel
 
 class BottomNavFragment : BottomSheetDialogFragment() {
@@ -26,7 +27,7 @@ class BottomNavFragment : BottomSheetDialogFragment() {
 
         controlModel = ViewModelProviders.of(activity)[ControlViewModel::class.java]
         navigation.addHeaderView(UserHeader(activity))
-
+        controlModel.observeVisibleUI(activity, Observer { if (!it) this.dismiss() })
         return v
     }
 
