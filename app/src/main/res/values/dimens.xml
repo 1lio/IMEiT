@@ -18,4 +18,9 @@
     <dimen name="margin_toolbar">52dp</dimen>
     <dimen name="sub_bar">36dp</dimen>
     <dimen name="logo_size">156dp</dimen>
+    <dimen name="width_stroke">2dp</dimen>
+    <dimen name="element_top_margin">64dp</dimen>
+    <dimen name="margin_form">32dp</dimen>
+    <dimen name="margin_from_element">8dp</dimen>
+    <dimen name="text_size">18sp</dimen>
 </resources>

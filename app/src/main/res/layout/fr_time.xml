@@ -23,6 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:focusable="false"
             android:layout_marginStart="@dimen/margin"
             android:layout_weight="1"
             android:text="@string/time_pair"
@@ -32,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:focusable="false"
             android:gravity="center"
             android:text="@string/time_lesson"
             android:textColor="@color/white" />
@@ -42,6 +44,7 @@
             android:layout_marginEnd="@dimen/margin"
             android:layout_weight="1"
             android:gravity="end"
+            android:focusable="false"
             android:text="@string/time_break"
             android:textColor="@color/white" />
     </LinearLayout>

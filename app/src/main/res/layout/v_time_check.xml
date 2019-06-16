@@ -8,13 +8,16 @@
     android:padding="16dp">
 
         <LinearLayout
+            android:id="@+id/layout_time_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusable="true"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
                 android:text="@string/time_this_time"
                 android:textColor="@color/white" />
 
@@ -22,6 +25,7 @@
                 android:id="@+id/current_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
                 android:layout_gravity="center_horizontal"
                 android:gravity="end|center"
                 android:textColor="?attr/colorAccent"
@@ -37,6 +41,7 @@
                 android:id="@+id/pair_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:importantForAccessibility="no"
                 android:text="@string/time_residue"
                 android:textColor="@color/white" />
 
@@ -45,8 +50,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end|center"
+                android:importantForAccessibility="no"
                 android:textColor="?attr/colorAccent"
                 android:textStyle="bold"
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
+
 </LinearLayout>

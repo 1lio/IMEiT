@@ -35,6 +35,17 @@ fun Int.timeFormat(): String {
     return "$hh:$mm"
 }
 
+fun Int.remainedTimeFormat(): String {
+    // Получим остаток от текущего значения
+    val hour = if ((this / 60) > 24) (this / 60) - 24 else this / 60   // Часы
+    val min = this % 60    // Минуты
+    // Сформатируем строку
+    val hh: String = if (hour < 10) "0$hour" else "00"
+    val mm: String = if (min < 10) "0$min" else "$min"
+    // Вернем отформатированную строку
+    return "$hh:$mm"
+}
+
 /** @return Вернется строка вида "mon" соответсвующая текущему дню кроме выходных(тогда"mon"). */
 fun getDayAcronym(): String = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
     Calendar.TUESDAY -> TUE

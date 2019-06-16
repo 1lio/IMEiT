@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.v_sign_last.view.*
+import kotlinx.android.synthetic.main.v_sign_up_last.view.*
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.LOG_ACCOUNT
@@ -29,7 +29,7 @@ class SignUpLastView : ConstraintLayout {
     private val authModel = ViewModelProviders.of(activity)[AuthViewModel::class.java]
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.v_sign_last, this)
+        LayoutInflater.from(context).inflate(R.layout.v_sign_up_last, this)
         ed_user_name.error = resources.getString(R.string.is_empty)
 
         model.observeSignUpButton(activity, Observer { registration.isEnabled = it })

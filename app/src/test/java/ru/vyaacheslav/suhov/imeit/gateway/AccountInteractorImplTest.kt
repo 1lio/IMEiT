@@ -47,7 +47,7 @@ class AccountInteractorImplTest {
     fun testSignIn() {
 
         // given:
-        every { interactor.signIn(VALID_EMAIL, VALID_PASS) } returns Observable.just(false, false, true)
+        every { interactor.signIn(VALID_EMAIL, VALID_PASS) } returns Single.just(false)
 
         // when:
         val test = interactor.signIn(VALID_EMAIL, VALID_PASS).test()
@@ -63,7 +63,7 @@ class AccountInteractorImplTest {
     fun createAccountEmail() {
 
         // given:
-        every { interactor.createAccountEmail(authData!!) } returns Observable.just(false, false, true)
+        every { interactor.createAccountEmail(authData!!) } returns Single.just( true)
 
         // when:
         val test = interactor.createAccountEmail(authData!!).test()

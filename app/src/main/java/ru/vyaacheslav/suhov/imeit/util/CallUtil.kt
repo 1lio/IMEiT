@@ -86,9 +86,9 @@ class CallUtil(private val pref: CallPref = CallPref()) {
     fun getResidueTime(): String {
         return if (getNumberCurrentPair().first == LESSON) {
             // Вернем время до окончания пар
-            ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).timeFormat()
+            ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).remainedTimeFormat()
         } else {
-            (1440 - getCurrentTime + pref.start).timeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
+            (1440 - getCurrentTime + pref.start).remainedTimeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
         }
 
     }

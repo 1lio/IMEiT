@@ -26,16 +26,24 @@ class TimeView : LinearLayout {
     init {
         LayoutInflater.from(context).inflate(R.layout.v_time_check, this)
 
-        viewModel.observeTimeLeft(activity, Observer { text_time.text = it })
-        viewModel.observeCurrentTime(activity, Observer { current_time.text = it })
-        viewModel.observePairStatus(activity, Observer {
-            pair_status.text = when (it) {
-                LESSON -> resources.getString(R.string.time_lesson)
-                BREAK -> resources.getString(R.string.time_residue)
-                LUNCH -> resources.getString(R.string.time_lunch)
-                END -> resources.getString(R.string.time_before)
-                else -> ""
-            }
+        viewModel.observePairStatus(activity, Observer { pair_status.text = getNameCurrentPair(it) })
+        viewModel.observeTimeLeft(activity, Observer {
+
+            text_time.text = it
+            layout_time_info.contentDescription = "${pair_status.text} $it"
+
         })
+        viewModel.observeCurrentTime(activity, Observer { current_time.text = it })
+    }
+
+    private fun getNameCurrentPair(t: Byte): String {
+
+        return when (t) {
+            LESSON -> resources.getString(R.string.time_lesson)
+            BREAK -> resources.getString(R.string.time_residue)
+            LUNCH -> resources.getString(R.string.time_lunch)
+            END -> resources.getString(R.string.time_before)
+            else -> ""
+        }
     }
 }

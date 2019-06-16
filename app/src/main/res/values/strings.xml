@@ -90,4 +90,13 @@
     <string name="pass_do_not_match">Пароли не совпадают!</string>
     <string name="error_min_length_pass">Минимальная длинная пароля 6 символов</string>
 
+    <string name="registration">Регистрация</string>
+
+    <string name="accessibility_sign_in_email">Поле ввода email адреса</string>
+    <string name="accessibility_sign_in_pass">Поле ввода пароля</string>
+    <string name="accessibility_sign_in_registration">Создать новый аккаунт</string>
+
+    <string name="remained">осталось</string>
+
+
 </resources>

@@ -59,6 +59,12 @@ class CallTimeViewModel : BaseViewModel() {
     }
 
     fun setDefaultPreferences() {
+        interactor.getDefaultTimeCallPref()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ defPrefData.postValue(it) }, {})
+                .apply { compositeDisposable.add(this) }
+
         pref = defPrefData.value ?: defPref
         prefData.postValue(pref)
         saveAndPush(defPref)  // Кастомные настройки затираем дефолтными
