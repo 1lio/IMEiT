@@ -14,6 +14,7 @@
         android:showDividers="middle">
 
         <TextView
+            android:contentDescription="@string/pair"
             android:id="@+id/num_time"
             android:layout_width="60dp"
             android:layout_height="80dp"

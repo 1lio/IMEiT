@@ -28,15 +28,15 @@ class BuildingsInteractorImpl : BuildingsInteractor {
     /** Получить конкретный корпус*/
     override fun getBuilding(id: String): Single<EduBuilding> {
         Log.d(LOG_BUILDINGS, "getBuilding")
-        return Single.create { subscrube ->
+        return Single.create { subscribe ->
             repository.getRefEduBuildingsFromId(id).addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    subscrube.onSuccess(p0.getValue(EduBuilding::class.java) ?: EduBuilding())
+                    subscribe.onSuccess(p0.getValue(EduBuilding::class.java) ?: EduBuilding())
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
-                    subscrube.onError(Throwable())
+                    subscribe.onError(Throwable())
                 }
             })
 

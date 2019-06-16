@@ -106,6 +106,7 @@
         android:id="@+id/registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:accessibilityTraversalBefore="@+id/spinner_group"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:text="@string/sign_up"

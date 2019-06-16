@@ -37,7 +37,7 @@ class AvatarView : AppCompatImageView {
     // Статус инициализации
     private var isInitialized: Boolean = false
     // Статус пользователя
-    var isCheckedStatus: Boolean = false
+    private var isCheckedStatus: Boolean = false
 
     // Конструкторы
     constructor(context: Context) : super(context)

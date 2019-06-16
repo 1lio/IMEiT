@@ -20,7 +20,7 @@ class SchedulePagerFragment : BaseFragment() {
         val tabLayout = v.findViewById<TabLayout>(R.id.tab_layout)
         val viewPager = v.findViewById<ViewPager>(R.id.viewpager)
 
-        viewPager.adapter = DayPagerAdapter(childFragmentManager)
+        viewPager.adapter = DayPagerAdapter(childFragmentManager,activity!!)
         tabLayout.post { tabLayout.setupWithViewPager(viewPager) }
 
         val item:Int = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {

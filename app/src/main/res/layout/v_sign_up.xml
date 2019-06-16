@@ -74,6 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_form"
         android:layout_marginBottom="16dp"
+        android:accessibilityTraversalBefore="@+id/ed_pass_u"
         android:text="@string/next"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
