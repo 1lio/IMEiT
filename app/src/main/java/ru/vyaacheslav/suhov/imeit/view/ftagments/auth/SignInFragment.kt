@@ -19,7 +19,7 @@ class SignInFragment : BaseLoginFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sign_in.setOnClickListener { accountModel.signIn() }
-        sign_up.setOnClickListener { controlModel.setFragmentId(FRAGMENT_SIGN_UP_FIRST) }
+        btn_sign_in.setOnClickListener { accountModel.signIn() }
+        btn_sign_up.setOnClickListener { controlModel.setFragmentId(FRAGMENT_SIGN_UP_FIRST) }
     }
 }

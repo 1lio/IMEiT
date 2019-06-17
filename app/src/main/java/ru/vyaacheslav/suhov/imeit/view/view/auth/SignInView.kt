@@ -30,7 +30,7 @@ class SignInView : LinearLayout {
     init {
         LayoutInflater.from(context).inflate(R.layout.v_sign_in, this@SignInView)
 
-        model.observeForms(activity, Observer { sign_in.isEnabled = it }) // Доступность кнопки логин
+        model.observeForms(activity, Observer { btn_sign_in.isEnabled = it }) // Доступность кнопки логин
         authModel.observeTryAuth(activity, Observer { showDialog(it) })   // Попытка авторизации
 
         arrayOf(ed_email, ed_pass).forEach {
@@ -52,7 +52,7 @@ class SignInView : LinearLayout {
     }
 
     private fun showDialog(show: Boolean) {
-        val views = arrayOf(layout_email, layout_pass, sign_in, sign_up)
+        val views = arrayOf(layout_email, layout_pass, btn_sign_in, btn_sign_up)
 
         if (show) {
             progressBar.visible()

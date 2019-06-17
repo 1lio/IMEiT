@@ -93,7 +93,7 @@
         app:startIconDrawable="@drawable/ic_key">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_re_pass"
+            android:id="@+id/ed_pass_u_re"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"

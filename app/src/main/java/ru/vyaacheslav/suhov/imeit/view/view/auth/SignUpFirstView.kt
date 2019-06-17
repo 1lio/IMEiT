@@ -28,7 +28,7 @@ class SignUpFirstView : ConstraintLayout {
         LayoutInflater.from(context).inflate(R.layout.v_sign_up, this)
         model.observeValidAll(activity, Observer { btn_next_u.isEnabled = it })
 
-        arrayOf(ed_email_u, ed_pass_u, ed_re_pass).forEach {
+        arrayOf(ed_email_u, ed_pass_u, ed_pass_u_re).forEach {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
@@ -83,14 +83,14 @@ class SignUpFirstView : ConstraintLayout {
                 false
             }
 
-            ed_pass_u.text.toString() != ed_re_pass.text.toString() -> {
-                ed_re_pass.error = resources.getString(R.string.pass_do_not_match)
+            ed_pass_u.text.toString() != ed_pass_u_re.text.toString() -> {
+                ed_pass_u_re.error = resources.getString(R.string.pass_do_not_match)
                 false
             }
 
             else -> {
                 ed_pass_u.error = null
-                ed_re_pass.error = null
+                ed_pass_u_re.error = null
                 true
             }
         }

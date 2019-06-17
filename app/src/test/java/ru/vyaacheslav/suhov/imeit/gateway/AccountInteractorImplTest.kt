@@ -18,18 +18,13 @@ import ru.vyaacheslav.suhov.imeit.interactor.AccountInteractor
 class AccountInteractorImplTest {
 
     // Пытался протестировать Firebase в итоге вообще не нашел инфы
-    // В документации по андроиду про тесты ничего, единственная вкладка про тестирование предлагает это:
-    // https://firebase.google.com/docs/functions/unit-testing
+    // В документации Firebase по андроиду про тесты ничего, единственная вкладка про тестирование предлагает это:
+    // https://firebase.google.com/docs/functions/unit-testing но это уже более высокий уровень.
 
     companion object {
         private const val VALID_UID = "uid"
-        private const val VALID_NAME = "Test"
-        private const val INVALID_NAME = ""
         private const val VALID_EMAIL = "test@test.test"
-        private const val INVALID_EMAIL = "test.test"
         private const val VALID_PASS = "123456"
-        private const val INVALID_PASS = "1234"
-        private const val EMPTY_PASS = ""
     }
 
     @MockK
@@ -45,7 +40,6 @@ class AccountInteractorImplTest {
 
     @Test
     fun testSignIn() {
-
         // given:
         every { interactor.signIn(VALID_EMAIL, VALID_PASS) } returns Single.just(false)
 
@@ -63,7 +57,7 @@ class AccountInteractorImplTest {
     fun createAccountEmail() {
 
         // given:
-        every { interactor.createAccountEmail(authData!!) } returns Single.just( true)
+        every { interactor.createAccountEmail(authData!!) } returns Single.just(true)
 
         // when:
         val test = interactor.createAccountEmail(authData!!).test()
@@ -78,56 +72,31 @@ class AccountInteractorImplTest {
     fun getAccount() {
 
         // given:
-      //  every { interactor.getAccount(VALID_UID) } returns Observable.just(User(()))
-        // when:
-       // val test = Observable.
-        // then:
-
-    }
-
-    @Test
-    fun updateAccount() {
-        // given:
+        every { interactor.getAccount(VALID_UID) } returns Observable.just( User())
 
         // when:
+        interactor.getAccount(VALID_UID)
 
         // then:
-
-    }
-
-    @Test
-    fun deleteAccountEmail() {
-        // given:
-
-        // when:
-
-        // then:
+        verify { interactor.getAccount(VALID_UID) }
 
     }
 
     @Test
     fun isSigned() {
+
         // given:
+        every { interactor.isSigned() } returns Single.just(true)
 
         // when:
+        interactor.isSigned()
 
         // then:
-
-    }
-
-    @Test
-    fun getCurrentUserID() {
-        // given:
-
-        // when:
-
-        // then:
-
+        verify { interactor.signOut() }
     }
 
     @Test
     fun signOut() {
-
         // given:
         every { interactor.signOut() } returns Single.just(true)
 
@@ -137,5 +106,4 @@ class AccountInteractorImplTest {
         // then:
         verify { interactor.signOut() }
     }
-
 }
