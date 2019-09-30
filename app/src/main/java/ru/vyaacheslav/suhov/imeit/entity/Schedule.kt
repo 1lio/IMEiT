@@ -12,6 +12,7 @@ package ru.vyaacheslav.suhov.imeit.entity
  * @param note - Заметка к занятию, личная или информация о переносе */
 
 data class Schedule(
+
         // Числитель
         var lesson: String = "",
         var teacher: String = "",
@@ -24,5 +25,7 @@ data class Schedule(
         var building2: String = "",
         // Прочее
         var together: Int = 0,
-        var note: String = ""
+
+        var note: String = "",
+        var id: String = "-1"
 )

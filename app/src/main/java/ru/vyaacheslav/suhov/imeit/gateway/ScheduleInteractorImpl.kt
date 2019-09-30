@@ -4,22 +4,26 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
+import io.reactivex.Single
 import ru.vyaacheslav.suhov.imeit.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.interactor.ScheduleInteractor
 import ru.vyaacheslav.suhov.imeit.repository.FirebaseRealtimeRepository
 import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.util.Constants
+import java.lang.Exception
 
 class ScheduleInteractorImpl : ScheduleInteractor {
 
-    private val instance: ScheduleInteractorImpl? = null
 
+    private val instance: ScheduleInteractorImpl? = null
     private val localRepository = LocalRepository().getInstance()
+    private val repository = FirebaseRealtimeRepository().getInstance()
+
     private val institute = localRepository.institute
     private val faculty = localRepository.faculty
     private val group = localRepository.group
 
-    private val repository = FirebaseRealtimeRepository().getInstance()
+
     /** @return - Список всех институтов*/
     override fun getListInstitutes(): Observable<ArrayList<String>> {
         return Observable.create {
@@ -97,6 +101,29 @@ class ScheduleInteractorImpl : ScheduleInteractor {
         }
     }
 
-    fun getInstance() = this.instance ?: ScheduleInteractorImpl()
 
+    override fun updateDaySchedule(day: String, schedule: Schedule): Single<Boolean> {
+
+        return Single.create {
+
+            repository.updateDay(day)
+
+        }
+    }
+
+    override fun createSchedule(institute: String, faculty: String, day: String, pair: String, schedule: Schedule): Single<Boolean> {
+      return  Single.create {
+          it.onSuccess(true)
+          it.onError( Exception("error")) }
+    }
+
+
+    override fun deleteSchedule(id: String): Single<Boolean> {
+       return Single.create {
+            it.onSuccess(true)
+            it.onError(Exception("error"))
+       }
+    }
+
+    fun getInstance() = this.instance ?: ScheduleInteractorImpl()
 }

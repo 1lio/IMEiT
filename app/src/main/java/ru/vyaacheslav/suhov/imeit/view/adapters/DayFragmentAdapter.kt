@@ -50,13 +50,12 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolde
             type2.text = item.type2
             building2.text = item.building2
         }
-
     }
 
     override fun onBindViewHolder(holder: DayViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
-        val listTime: List<TimeData> = CallUtil().getListTime()
 
+        val listTime: List<TimeData> = CallUtil().getListTime()
         holder.time1.text = listTime[position].tex1
         holder.time2.text = listTime[position].tex2
         holder.time3.text = listTime[position].tex3
@@ -66,11 +65,20 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolde
     }
 
     private fun decorateItem(holder: DayViewHolder) {
-
         holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.gray))
 
         listOf(holder.lesson, holder.teacher, holder.type, holder.building, holder.lesson2,
                 holder.teacher2, holder.type2, holder.building2, holder.time1, holder.time2, holder.time3
         ).forEach { it.styleAppearance() }
+    }
+
+
+    private fun editShedule(day:Byte, numPair:Byte, item: Schedule) {
+
+        // TODO: Новый диалог в котором отображаються текущие данные
+
+        // TODO: ОТправить изменения на сервер
+
+
     }
 }

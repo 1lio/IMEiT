@@ -15,5 +15,10 @@
             android:id="@+id/schedule"
             android:icon="@drawable/ic_schedule"
             android:title="@string/menu_schedule" />
+
+        <item
+            android:id="@+id/update_schedule"
+            android:icon="@drawable/ic_edit"
+            android:title="Редактор расписания" />
     </group>
 </menu>

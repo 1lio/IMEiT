@@ -9,7 +9,6 @@ import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.entity.Schedule
 import ru.vyaacheslav.suhov.imeit.gateway.ScheduleInteractorImpl
 import ru.vyaacheslav.suhov.imeit.util.getDayAcronym
-import java.util.concurrent.TimeUnit
 
 class DayViewModel : BaseViewModel() {
 
