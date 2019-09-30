@@ -91,9 +91,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_edit_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\Viacheslav\Desktop\account (1).svg" />
+                            <entry key="outputName" value="ic_u" />
+                            <entry key="sourceFile" value="C:\Users\suhov\Desktop\Untitled-2 (1).svg" />
                           </map>
                         </option>
                       </PersistentState>
