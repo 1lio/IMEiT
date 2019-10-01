@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Студ.Ассистент</string>
 
+    <!-- LOGIN -->
+    <string name="login">Логин</string>
+    <string name="registration">Регистрация</string>
+
+
     <!-- Navigation bottom -->
     <string name="menu_time">Звонки</string>
     <string name="menu_schedule">Расписание</string>
@@ -89,8 +94,6 @@
     <string name="faculty">Ваш факультет</string>
     <string name="pass_do_not_match">Пароли не совпадают!</string>
     <string name="error_min_length_pass">Минимальная длинная пароля 6 символов</string>
-
-    <string name="registration">Регистрация</string>
 
     <string name="accessibility_sign_in_email">Поле ввода email адреса</string>
     <string name="accessibility_sign_in_pass">Поле ввода пароля</string>

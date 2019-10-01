@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/IMEiT.iml" filepath="$PROJECT_DIR$/.idea/IMEiT.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feature_auth/feature_auth.iml" filepath="$PROJECT_DIR$/feature_auth/feature_auth.iml" />
     </modules>
   </component>
 </project>

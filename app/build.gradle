@@ -5,13 +5,13 @@ apply plugin: "kotlin-android-extensions"
 apply plugin: "com.google.gms.google-services"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "ru.vyaacheslav.suhov.imeit_rsp"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 23
         versionName "3.2"
         vectorDrawables.useSupportLibrary = true
@@ -47,9 +47,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0-alpha10'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     implementation 'androidx.recyclerview:recyclerview:1.1.0-beta04'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0-beta04'
 
-    // LifeCycle
-    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta04'
 
     //RxJava
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
@@ -61,4 +61,6 @@ dependencies {
     //Firebase
     implementation 'com.google.firebase:firebase-database:19.1.0'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation project(path: ':feature_auth')
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
 }

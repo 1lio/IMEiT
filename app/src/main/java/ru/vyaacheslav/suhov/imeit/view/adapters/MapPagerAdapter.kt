@@ -6,7 +6,7 @@ import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsListFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsMapFragment
 
 /** Адаптер фрагментов Карты*/
-class MapPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class MapPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int) = if (position == 0) MapsMapFragment() else MapsListFragment()
 

@@ -11,7 +11,7 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.TUE
 import ru.vyaacheslav.suhov.imeit.util.Constants.WED
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.FragmentDay
 
-class DayPagerAdapter(fm: FragmentManager, private val context:Context) : FragmentPagerAdapter(fm) {
+class DayPagerAdapter(fm: FragmentManager, private val context:Context) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getItem(position: Int) =
             when (position) {

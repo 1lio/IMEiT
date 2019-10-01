@@ -54,13 +54,13 @@ class SignInView : LinearLayout {
     private fun showDialog(show: Boolean) {
         val views = arrayOf(layout_email, layout_pass, btn_sign_in, btn_sign_up)
 
-        if (show) {
+/*        if (show) {
             progressBar.visible()
             views.forEach { it.gone() }
         } else {
             progressBar.gone()
             views.forEach { it.visible() }
-        }
+        }*/
     }
 
     private fun validateForm(): Boolean {

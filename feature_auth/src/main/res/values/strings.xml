@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FeatureAuth</string>
+
+    <!-- LOGIN -->
+    <string name="sign_in">Логин</string>
+    <string name="sign_up">Регистрация</string>
+
+
+</resources>

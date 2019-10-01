@@ -1,0 +1,63 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="512"
+            android:viewportHeight="800">
+
+            <path
+                android:name="comma"
+                android:fillColor="#E6CAD6DE"
+                android:pathData="M560,696.4l-71.7,-0.2l-80.9,-133l81.4,-132.7l71.2,0.2"
+                android:strokeWidth="1" />
+            <path
+                android:name="se"
+                android:fillColor="#E6A3B8C7"
+                android:pathData="M560,518.4l-81.7,-0.2l-80.9,-133l81.4,-132.7l81.2,0.2"
+                android:strokeWidth="1" />
+
+            <path
+                android:name="de"
+                android:fillColor="#E62C5E7F"
+                android:pathData="M560,372.4l-81.7,-0.2l-80.9,-133l81.4,-132.7l81.2,0.2"
+                android:strokeWidth="1" />
+        </vector>
+    </aapt:attr>
+
+    <target android:name="comma">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="2000"
+                android:propertyName="pathData"
+                android:valueFrom="M560,696.4l-71.7,-0.2l-80.9,-133l81.4,-132.7l71.2,0.2"
+                android:valueTo="M560,650.4l-0.0,-0.2l-80.9,-133l81.4,-132.7l71.2,0.2"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="se">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="2000"
+                android:propertyName="pathData"
+                android:valueFrom="M560,518.4l-81.7,-0.2l-80.9,-133l81.4,-132.7l81.2,0.2"
+                android:valueTo="M560,518.4l-81.0,-0.2l-80.9,-133l81.4,-132.7l81.2,0.2"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="de">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="2000"
+                android:propertyName="pathData"
+                android:valueFrom="M560,372.4l-81.7,-0.2l-80.9,-133l81.4,-132.7l81.2,0.2"
+                android:valueTo="M560 400.4l-11.7,-0.2l-80.9,-133l81.4,-132.7l81.2,0.2"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+
+</animated-vector>

@@ -122,7 +122,7 @@
         android:layout_marginEnd="@dimen/margin_form"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/anim_vector">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ed_user_name"
