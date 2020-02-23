@@ -35,32 +35,31 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ["*.jar"], dir: "libs")
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:1.1.0"
     implementation "androidx.viewpager:viewpager:1.0.0"
 
     // Библиотека для доступа к google maps
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation "com.google.android.gms:play-services-maps:17.0.0"
 
     // Компонетны материального дизайна из Android JetPack
-    implementation 'com.google.android.material:material:1.1.0-alpha10'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta04'
-    implementation 'androidx.viewpager2:viewpager2:1.0.0-beta04'
+    implementation 'com.google.android.material:material:1.2.0-alpha04'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
-    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta04'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
 
     //RxJava
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.18'
 
     // Библиотека для хранения небольших данных примитивных типов
     implementation "com.orhanobut:hawk:2.0.1"
 
     //Firebase
-    implementation 'com.google.firebase:firebase-database:19.1.0'
-    implementation 'com.google.firebase:firebase-auth:19.1.0'
-    implementation project(path: ':feature_auth')
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'com.google.firebase:firebase-database:19.2.1'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation project(path: ":feature_auth")
 }

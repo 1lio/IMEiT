@@ -14,7 +14,6 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_NAVIGATION
 import ru.vyaacheslav.suhov.imeit.viewmodel.ActivityController
 import ru.vyaacheslav.suhov.imeit.viewmodel.ControlViewModel
 
-/** Root Activity */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var model: ControlViewModel
