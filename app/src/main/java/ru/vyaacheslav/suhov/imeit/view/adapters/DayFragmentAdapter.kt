@@ -71,14 +71,4 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolde
                 holder.teacher2, holder.type2, holder.building2, holder.time1, holder.time2, holder.time3
         ).forEach { it.styleAppearance() }
     }
-
-
-    private fun editShedule(day:Byte, numPair:Byte, item: Schedule) {
-
-        // TODO: Новый диалог в котором отображаються текущие данные
-
-        // TODO: ОТправить изменения на сервер
-
-
-    }
 }

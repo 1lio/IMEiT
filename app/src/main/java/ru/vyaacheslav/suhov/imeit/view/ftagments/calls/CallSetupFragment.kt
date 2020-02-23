@@ -9,12 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fr_call_setup.*
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.repository.LocalRepository
 import ru.vyaacheslav.suhov.imeit.entity.CallPref
 import ru.vyaacheslav.suhov.imeit.util.timeFormat
@@ -24,7 +24,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 /** Фрагмент настройки времени звонков */
-class CallSetupFragment : BaseFragment(), View.OnClickListener {
+class CallSetupFragment : Fragment(), View.OnClickListener {
 
     private lateinit var viewModelSetup: CallTimeViewModel
     private lateinit var pref: CallPref

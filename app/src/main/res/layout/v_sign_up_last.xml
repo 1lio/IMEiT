@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ru.vyaacheslav.suhov.imeit.view.view.AvatarView
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/logo_size"
         android:layout_height="@dimen/logo_size"
@@ -16,9 +16,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/group"
-        app:strokeColor="@color/colorAccent"
-        app:strokeWidth="@dimen/width_stroke"/>
+        app:srcCompat="@drawable/ic_account"
+     />
 
     <TextView
         android:id="@+id/textView4"

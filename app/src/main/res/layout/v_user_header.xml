@@ -6,16 +6,13 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical">
 
-    <ru.vyaacheslav.suhov.imeit.view.view.AvatarView
+    <ImageView
         android:id="@+id/avatar"
         android:layout_width="@dimen/size_avatar_header"
         android:layout_height="@dimen/size_avatar_header"
         android:layout_gravity="start|center"
         android:layout_margin="@dimen/activity_vertical_margin"
-        android:src="@drawable/group"
-        app:strokeColor="@color/colorAccent"
-        app:strokeWidth="@dimen/width_stroke"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:src="@drawable/ic_account" />
 
     <LinearLayout
         android:layout_width="wrap_content"

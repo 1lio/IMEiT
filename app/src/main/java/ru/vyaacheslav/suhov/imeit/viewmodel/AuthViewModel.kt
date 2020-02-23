@@ -83,10 +83,7 @@ class AuthViewModel : BaseViewModel() {
     /** Установить статус авториззации */
     private fun setAuth(auth: Boolean) {
 
-        // Так как postValue выполянется в отдельном потоке, а затем публикует в основной
-        // Об авторизации говорим в самом конце
-
-        tryAuthData.postValue(false) // крутиться прогресс
+        tryAuthData.postValue(false)
         // Что-то происходит
         localRepository.isAuth = auth
         if (auth) {

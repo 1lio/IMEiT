@@ -5,7 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.root.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_EXIT
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_GROUP
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.root)
         setSupportActionBar(bottom_bar)
 
         ActivityController(activity = this@MainActivity)
@@ -41,7 +41,5 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onBackPressed() {
-        model.setDialogID(DIALOG_EXIT)
-    }
+    override fun onBackPressed() { model.setDialogID(DIALOG_EXIT) }
 }
