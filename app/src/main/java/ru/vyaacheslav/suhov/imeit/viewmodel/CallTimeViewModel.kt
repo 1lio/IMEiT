@@ -52,18 +52,18 @@ class CallTimeViewModel : BaseViewModel() {
         localRepository.countPair = pref.count
         // Отправляем данные
         interactor.updateUserCallsPref(preferences, localRepository.userId)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
-                .apply { compositeDisposable.add(this) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe()
+            .apply { compositeDisposable.add(this) }
     }
 
     fun setDefaultPreferences() {
         interactor.getDefaultTimeCallPref()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ defPrefData.postValue(it) }, {})
-                .apply { compositeDisposable.add(this) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ defPrefData.postValue(it) }, {})
+            .apply { compositeDisposable.add(this) }
 
         pref = defPrefData.value ?: defPref
         prefData.postValue(pref)
@@ -72,28 +72,28 @@ class CallTimeViewModel : BaseViewModel() {
 
     fun getCurrentPref() {
         interactor.getUserTimePref(localRepository.userId)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    pref = it
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                pref = it
 
-                    list.clear()
-                    list = CallGenerator(pref).getCallsList()
+                list.clear()
+                list = CallGenerator(pref).getCallsList()
 
-                    prefData.postValue(pref)
-                    listData.postValue(CallGenerator(it).getCallsList())
-                }.apply { compositeDisposable.add(this) }
+                prefData.postValue(pref)
+                listData.postValue(CallGenerator(it).getCallsList())
+            }.apply { compositeDisposable.add(this) }
     }
 
     private fun getDefaultPref() {
         interactor.getDefaultTimeCallPref()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    defPref = it
-                    defPrefData.postValue(defPref)
-                }, {})
-                .apply { compositeDisposable.add(this) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                defPref = it
+                defPrefData.postValue(defPref)
+            }, {})
+            .apply { compositeDisposable.add(this) }
     }
 
     private fun updateTime() {

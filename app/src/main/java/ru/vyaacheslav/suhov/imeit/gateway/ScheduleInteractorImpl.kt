@@ -28,17 +28,17 @@ class ScheduleInteractorImpl : ScheduleInteractor {
     override fun getListInstitutes(): Observable<ArrayList<String>> {
         return Observable.create {
             repository.getRefInstitutes()
-                    .addValueEventListener(object : ValueEventListener {
-                        override fun onCancelled(p0: DatabaseError) {}
-                        override fun onDataChange(snapshot: DataSnapshot) {
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {}
+                    override fun onDataChange(snapshot: DataSnapshot) {
 
-                            val list: ArrayList<String> = arrayListOf(Constants.NOT_SELECT)
-                            for (s: DataSnapshot in snapshot.children) {
-                                list.add(s.key.toString()) // Список по ключам!
-                            }
-                            it.onNext(list)
+                        val list: ArrayList<String> = arrayListOf(Constants.NOT_SELECT)
+                        for (s: DataSnapshot in snapshot.children) {
+                            list.add(s.key.toString()) // Список по ключам!
                         }
-                    })
+                        it.onNext(list)
+                    }
+                })
         }
     }
 
@@ -47,18 +47,18 @@ class ScheduleInteractorImpl : ScheduleInteractor {
     override fun getListFaculty(institute: String): Observable<ArrayList<String>> {
         return Observable.create {
             repository.getRefFaculty(institute)
-                    .addValueEventListener(object : ValueEventListener {
+                .addValueEventListener(object : ValueEventListener {
 
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            val list: ArrayList<String> = arrayListOf(Constants.NOT_SELECT)
-                            for (s: DataSnapshot in snapshot.children) {
-                                list.add(s.key.toString())
-                            }
-                            it.onNext(list)
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val list: ArrayList<String> = arrayListOf(Constants.NOT_SELECT)
+                        for (s: DataSnapshot in snapshot.children) {
+                            list.add(s.key.toString())
                         }
+                        it.onNext(list)
+                    }
 
-                        override fun onCancelled(p0: DatabaseError) {}
-                    })
+                    override fun onCancelled(p0: DatabaseError) {}
+                })
         }
     }
 
@@ -66,18 +66,18 @@ class ScheduleInteractorImpl : ScheduleInteractor {
     override fun getListGroups(institute: String, faculty: String): Observable<ArrayList<String>> {
         return Observable.create {
             repository.getRefListGroups(institute, faculty)
-                    .addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(snapshot: DataSnapshot) {
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
 
-                            val list = arrayListOf(Constants.NOT_SELECT)
-                            for (s: DataSnapshot in snapshot.children) {
-                                list.add(s.key.toString()) // Список по ключам!
-                            }
-                            it.onNext(list)
+                        val list = arrayListOf(Constants.NOT_SELECT)
+                        for (s: DataSnapshot in snapshot.children) {
+                            list.add(s.key.toString()) // Список по ключам!
                         }
+                        it.onNext(list)
+                    }
 
-                        override fun onCancelled(snapshot: DatabaseError) {}
-                    })
+                    override fun onCancelled(snapshot: DatabaseError) {}
+                })
         }
     }
 
@@ -85,19 +85,21 @@ class ScheduleInteractorImpl : ScheduleInteractor {
     override fun getScheduleDay(day: String): Observable<ArrayList<Schedule>> {
         return Observable.create {
             repository.getRefListSchedule(institute, faculty, group, day)
-                    .addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(snapshot: DataSnapshot) {
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
 
-                            val list = ArrayList<Schedule>()
-                            for (x in 1..localRepository.countPair) {
-                                list.add(snapshot.child("pair$x").getValue(Schedule::class.java)
-                                        ?: Schedule())
-                            }
-                            it.onNext(list)
+                        val list = ArrayList<Schedule>()
+                        for (x in 1..localRepository.countPair) {
+                            list.add(
+                                snapshot.child("pair$x").getValue(Schedule::class.java)
+                                    ?: Schedule()
+                            )
                         }
+                        it.onNext(list)
+                    }
 
-                        override fun onCancelled(snapshot: DatabaseError) {}
-                    })
+                    override fun onCancelled(snapshot: DatabaseError) {}
+                })
         }
     }
 
@@ -111,18 +113,25 @@ class ScheduleInteractorImpl : ScheduleInteractor {
         }
     }
 
-    override fun createSchedule(institute: String, faculty: String, day: String, pair: String, schedule: Schedule): Single<Boolean> {
-      return  Single.create {
-          it.onSuccess(true)
-          it.onError( Exception("error")) }
+    override fun createSchedule(
+        institute: String,
+        faculty: String,
+        day: String,
+        pair: String,
+        schedule: Schedule
+    ): Single<Boolean> {
+        return Single.create {
+            it.onSuccess(true)
+            it.onError(Exception("error"))
+        }
     }
 
 
     override fun deleteSchedule(id: String): Single<Boolean> {
-       return Single.create {
+        return Single.create {
             it.onSuccess(true)
             it.onError(Exception("error"))
-       }
+        }
     }
 
     fun getInstance() = this.instance ?: ScheduleInteractorImpl()

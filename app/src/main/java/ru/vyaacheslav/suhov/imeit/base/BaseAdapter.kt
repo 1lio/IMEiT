@@ -5,8 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 /** Базовый адаптер для списков*/
 abstract class BaseAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>() {
 
-     var list: List<T> = ArrayList()
-     var isEdited:Boolean = false
+    var list: List<T> = ArrayList()
+    var isEdited: Boolean = false
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.bind(getItem(position))

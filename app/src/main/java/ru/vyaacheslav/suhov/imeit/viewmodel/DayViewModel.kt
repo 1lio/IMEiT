@@ -33,14 +33,14 @@ class DayViewModel : BaseViewModel() {
     fun setSchedule(day: String) {
 
         interactor
-                .getScheduleDay(day)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    listSchedule.clear()
-                    listSchedule.addAll(it)
-                    scheduleListLiveData.postValue(listSchedule)
-                }.apply { compositeDisposable.add(this) }
+            .getScheduleDay(day)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                listSchedule.clear()
+                listSchedule.addAll(it)
+                scheduleListLiveData.postValue(listSchedule)
+            }.apply { compositeDisposable.add(this) }
     }
 
     fun observeSchedule(owner: LifecycleOwner, observer: Observer<ArrayList<Schedule>>) {

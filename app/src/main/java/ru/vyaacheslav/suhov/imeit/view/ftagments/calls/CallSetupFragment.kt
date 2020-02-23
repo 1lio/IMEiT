@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fr_call_setup.*
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
@@ -36,7 +36,7 @@ class CallSetupFragment : BaseFragment(), View.OnClickListener {
         super.onCreateView(inflater, container, savedInstanceState)
 
         val v = inflater.inflate(R.layout.fr_call_setup, container, false)
-        viewModelSetup = ViewModelProviders.of(context as MainActivity)[CallTimeViewModel::class.java]
+        viewModelSetup = ViewModelProvider(context as MainActivity)[CallTimeViewModel::class.java]
         fab = activity!!.findViewById(R.id.fab)
 
         // заполняем EditText-ы

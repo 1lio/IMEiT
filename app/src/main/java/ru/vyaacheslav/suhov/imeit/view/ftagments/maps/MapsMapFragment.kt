@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -21,11 +21,16 @@ class MapsMapFragment : BaseFragment(), OnMapReadyCallback {
 
     private lateinit var model: LocationViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        state: Bundle?
+    ): View {
         val v = inflater.inflate(R.layout.fr_maps, container, false)
-        (childFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment).getMapAsync(this)
-        model = ViewModelProviders.of(this)[LocationViewModel::class.java]
+        (childFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment).getMapAsync(
+            this
+        )
+        model = ViewModelProvider(this)[LocationViewModel::class.java]
         return v
     }
 
@@ -40,15 +45,17 @@ class MapsMapFragment : BaseFragment(), OnMapReadyCallback {
             while (i < list.size) {
 
                 val point = list[i].coordinate
-                val latLong = point.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                val latLong =
+                    point.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                 val latitude = java.lang.Double.parseDouble(latLong[0])
                 val longitude = java.lang.Double.parseDouble(latLong[1])
                 val location = LatLng(latitude, longitude)
 
-                googleMap.addMarker(MarkerOptions()
+                googleMap.addMarker(
+                    MarkerOptions()
                         .position(location)
                         .title(list[i].name)
-                        // .icon(BitmapDescriptorFactory.defaultMarker(colorPoint))
+                    // .icon(BitmapDescriptorFactory.defaultMarker(colorPoint))
                 )
                 i++
             }

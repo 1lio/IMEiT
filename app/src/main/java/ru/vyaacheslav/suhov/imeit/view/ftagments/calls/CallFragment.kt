@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +23,7 @@ class CallFragment : BaseFragment() {
 
         val recycler: RecyclerView = v.findViewById(R.id.recycler_time)
         val adapter = CallListFragmentAdapter()
-        val viewModel = ViewModelProviders.of(activity!!)[CallTimeViewModel::class.java]
+        val viewModel = ViewModelProvider(activity!!)[CallTimeViewModel::class.java]
 
         recycler.layoutManager = LinearLayoutManager(context)
         recycler.adapter = adapter

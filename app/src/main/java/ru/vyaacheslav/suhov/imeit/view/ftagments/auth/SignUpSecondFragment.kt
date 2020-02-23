@@ -12,7 +12,11 @@ import ru.vyaacheslav.suhov.imeit.view.view.auth.SignUpLastView
 /** Последний фрагмент регистрации */
 class SignUpSecondFragment : BaseLoginFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return SignUpLastView(activity!!)
     }
 

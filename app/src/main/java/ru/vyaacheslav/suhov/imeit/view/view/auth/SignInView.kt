@@ -8,12 +8,10 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.v_sign_in.view.*
-import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.util.gone
-import ru.vyaacheslav.suhov.imeit.util.visible
+import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignInViewModel
 
@@ -24,20 +22,28 @@ class SignInView : LinearLayout {
     constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val activity = context as MainActivity
-    private val model = ViewModelProviders.of(activity)[SignInViewModel::class.java]
-    private val authModel = ViewModelProviders.of(activity)[AuthViewModel::class.java]
+    private val model = ViewModelProvider(activity)[SignInViewModel::class.java]
+    private val authModel = ViewModelProvider(activity)[AuthViewModel::class.java]
 
     init {
         LayoutInflater.from(context).inflate(R.layout.v_sign_in, this@SignInView)
 
-        model.observeForms(activity, Observer { btn_sign_in.isEnabled = it }) // Доступность кнопки логин
+        model.observeForms(
+            activity,
+            Observer { btn_sign_in.isEnabled = it }) // Доступность кнопки логин
         authModel.observeTryAuth(activity, Observer { showDialog(it) })   // Попытка авторизации
 
         arrayOf(ed_email, ed_pass).forEach {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     model.setEnabledAll(validateForm())

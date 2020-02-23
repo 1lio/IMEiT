@@ -12,10 +12,13 @@ import ru.vyaacheslav.suhov.imeit.view.adapters.MapPagerAdapter
 /** Главный фрагмент карт, содержит в себе viewPager и позволяет листать два фрагмента */
 class MapsPagerFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fr_tab, container, false)
-    }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        state: Bundle?
+    ): View? =
+        inflater.inflate(R.layout.fr_tab, container, false)
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

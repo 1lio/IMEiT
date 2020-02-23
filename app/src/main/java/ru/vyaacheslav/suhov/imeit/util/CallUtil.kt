@@ -17,7 +17,8 @@ class CallUtil(private val pref: CallPref = CallPref()) {
 
     /** @see getCurrentTime текущее время*/
     private val calendar = GregorianCalendar.getInstance()
-    private val getCurrentTime: Int = (calendar.get(Calendar.HOUR_OF_DAY) * 60 + calendar.get(Calendar.MINUTE))
+    private val getCurrentTime: Int =
+        (calendar.get(Calendar.HOUR_OF_DAY) * 60 + calendar.get(Calendar.MINUTE))
 
     /** @see generateListsRange - Функция создает два листа с диапазонами пар и перемен
      *  @return Pair<<List<Занятия>,List<Перемены>>*/
@@ -38,13 +39,16 @@ class CallUtil(private val pref: CallPref = CallPref()) {
 
             list.add(x, pairRange)
             // добовляем перемену
-            val changeRange = if (x != (pref.lunchStart - 1)) pairTo + 1..(pairTo + pref.lengthBreakPair)
-            else pairTo + 1..pairTo + pref.lengthLunch
+            val changeRange =
+                if (x != (pref.lunchStart - 1)) pairTo + 1..(pairTo + pref.lengthBreakPair)
+                else pairTo + 1..pairTo + pref.lengthLunch
 
             pause.add((x + 1), changeRange)
             // обновляем счетчик
-            pairFrom = (pairFrom + (pref.lengthLesson * 2) + pref.lengthBreak) + pref.lengthBreakPair
-            if (x == (pref.lunchStart - 1)) pairFrom = (pairFrom + pref.lengthLunch) - pref.lengthBreakPair
+            pairFrom =
+                (pairFrom + (pref.lengthLesson * 2) + pref.lengthBreak) + pref.lengthBreakPair
+            if (x == (pref.lunchStart - 1)) pairFrom =
+                (pairFrom + pref.lengthLunch) - pref.lengthBreakPair
         }
 
         return Pair(list, pause)
@@ -66,11 +70,13 @@ class CallUtil(private val pref: CallPref = CallPref()) {
                 type = LESSON
             }
         } else {
-            generateListsRange().second.forEachIndexed { i, r -> if (getCurrentTime in r) number = i }
+            generateListsRange().second.forEachIndexed { i, r ->
+                if (getCurrentTime in r) number = i
+            }
 
             type = when {
                 number == pref.lunchStart -> LUNCH
-                getCurrentTime > generateListsRange().first[pref.count - 1].endInclusive -> END
+                getCurrentTime > generateListsRange().first[pref.count - 1].last -> END
                 else -> BREAK
             }
 
@@ -86,7 +92,7 @@ class CallUtil(private val pref: CallPref = CallPref()) {
     fun getResidueTime(): String {
         return if (getNumberCurrentPair().first == LESSON) {
             // Вернем время до окончания пар
-            ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).remainedTimeFormat()
+            ((generateListsRange().first[getNumberCurrentPair().second].last) - getCurrentTime).remainedTimeFormat()
         } else {
             (1440 - getCurrentTime + pref.start).remainedTimeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
         }

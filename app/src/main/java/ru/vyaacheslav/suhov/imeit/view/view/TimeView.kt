@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.v_time_check.view.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
@@ -22,12 +22,14 @@ class TimeView : LinearLayout {
     constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val activity = context as MainActivity
-    private val viewModel = ViewModelProviders.of(activity)[CallTimeViewModel::class.java]
+    private val viewModel = ViewModelProvider(activity)[CallTimeViewModel::class.java]
 
     init {
         LayoutInflater.from(context).inflate(R.layout.v_time_check, this)
 
-        viewModel.observePairStatus(activity, Observer { pair_status.text = getNameCurrentPair(it) })
+        viewModel.observePairStatus(
+            activity,
+            Observer { pair_status.text = getNameCurrentPair(it) })
         viewModel.observeTimeLeft(activity, Observer {
 
             text_time.text = it

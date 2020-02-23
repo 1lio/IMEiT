@@ -17,14 +17,20 @@ interface ScheduleInteractor {
     fun getListGroups(institute: String, faculty: String): Observable<ArrayList<String>>
 
     /** Создать расписание для данной группы */
-    fun createSchedule(institute: String, faculty: String, day:String, pair:String, schedule: Schedule): Single<Boolean>
+    fun createSchedule(
+        institute: String,
+        faculty: String,
+        day: String,
+        pair: String,
+        schedule: Schedule
+    ): Single<Boolean>
 
     /** @param day - день недели
      * @return - Список в парами к текущему дню */
     fun getScheduleDay(day: String): Observable<ArrayList<Schedule>>
 
     /** Обновить расписание для выбранного дня */
-    fun updateDaySchedule(day:String, schedule: Schedule): Single<Boolean>
+    fun updateDaySchedule(day: String, schedule: Schedule): Single<Boolean>
 
     /** Удалить расписание */
     fun deleteSchedule(id: String): Single<Boolean>

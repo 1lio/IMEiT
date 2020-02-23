@@ -48,13 +48,13 @@ class SignUpLastStepModel : BaseViewModel() {
 
     private fun getInstitutes(): Array<String> {
         interactor.getListInstitutes()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    listInstitutes.addAll(it)
-                    institutesData.postValue(listInstitutes.toTypedArray())
-                }
-                .apply { compositeDisposable.add(this) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                listInstitutes.addAll(it)
+                institutesData.postValue(listInstitutes.toTypedArray())
+            }
+            .apply { compositeDisposable.add(this) }
 
         return institutesData.value ?: arrayOf(NOT_SELECT)
     }
@@ -83,14 +83,14 @@ class SignUpLastStepModel : BaseViewModel() {
     fun getFacultyList(): Array<String> {
 
         interactor.getListFaculty(getInstitute())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    listFaculty.clear()
-                    listFaculty.addAll(it)
-                    facultyData.postValue(listFaculty.toTypedArray())
-                }
-                .apply { compositeDisposable.add(this) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                listFaculty.clear()
+                listFaculty.addAll(it)
+                facultyData.postValue(listFaculty.toTypedArray())
+            }
+            .apply { compositeDisposable.add(this) }
 
         return facultyData.value ?: arrayOf()
     }
@@ -98,18 +98,21 @@ class SignUpLastStepModel : BaseViewModel() {
     fun getGroupList(): Array<String> {
 
         interactor.getListGroups(getInstitute(), getFaculty())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    listGroup.clear()
-                    listGroup.addAll(it)
-                    groupsData.postValue(listGroup.toTypedArray())
-                }.apply { compositeDisposable.add(this) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                listGroup.clear()
+                listGroup.addAll(it)
+                groupsData.postValue(listGroup.toTypedArray())
+            }.apply { compositeDisposable.add(this) }
 
         return groupsData.value ?: arrayOf()
     }
 
-    fun setUserName(name: String) { userName.value = name }
+    fun setUserName(name: String) {
+        userName.value = name
+    }
+
     fun getUser(): User = User(null, getName(), getInstitute(), getFaculty(), getGroup())
 
     private fun getInstitute(): String = institute.value ?: NOT_SELECT

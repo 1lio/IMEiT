@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_EXIT
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(bottom_bar)
 
         ActivityController(activity = this@MainActivity)
-        model = ViewModelProviders.of(this@MainActivity)[ControlViewModel::class.java]
+        model = ViewModelProvider(this@MainActivity)[ControlViewModel::class.java]
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

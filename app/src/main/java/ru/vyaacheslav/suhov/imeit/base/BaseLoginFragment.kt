@@ -2,7 +2,7 @@ package ru.vyaacheslav.suhov.imeit.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.ControlViewModel
 
@@ -15,8 +15,8 @@ abstract class BaseLoginFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        accountModel = ViewModelProviders.of(activity!!)[AuthViewModel::class.java]
-        controlModel = ViewModelProviders.of(activity!!)[ControlViewModel::class.java]
+        accountModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
+        controlModel = ViewModelProvider(activity!!)[ControlViewModel::class.java]
 
         if (accountModel.isSigned()) accountModel.signIn()
     }

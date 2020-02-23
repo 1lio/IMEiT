@@ -1,5 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.util
 
+import android.annotation.TargetApi
 import android.content.Context
 import android.os.Build
 import android.view.View
@@ -18,8 +19,9 @@ import java.util.*
 /** В данном файле хранятся функции которые могут быть вызваны когда-либо мне зависимости от класса*/
 
 /** @return Стиль текста подсвеченого item например: номер текущей пары или локация */
+@TargetApi(Build.VERSION_CODES.M)
 fun TextView.styleAppearance() {
-    if (Build.VERSION.SDK_INT < 23) this.setTextAppearance( R.style.TextCurrentPair)
+    if (Build.VERSION.SDK_INT < 23) this.setTextAppearance(R.style.TextCurrentPair)
     else this.setTextAppearance(R.style.TextCurrentPair)
 }
 
@@ -59,9 +61,13 @@ fun toast(context: Context, msg: Int) {
     Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
 }
 
-fun View.visible() { this.visibility = View.VISIBLE }
+fun View.visible() {
+    this.visibility = View.VISIBLE
+}
 
-fun View.gone() { this.visibility = View.GONE }
+fun View.gone() {
+    this.visibility = View.GONE
+}
 
 fun Fragment.pushFragment(fm: FragmentManager) {
     fm.beginTransaction().replace(R.id.container, this, this.tag).commit()

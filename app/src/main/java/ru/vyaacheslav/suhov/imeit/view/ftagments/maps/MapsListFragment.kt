@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,21 +18,30 @@ import ru.vyaacheslav.suhov.imeit.viewmodel.LocationViewModel
 /** Фрагмент список с положением всех корпусов */
 class MapsListFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fr_recycler, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val model: LocationViewModel = ViewModelProviders.of(this)[LocationViewModel::class.java]
+        val model: LocationViewModel = ViewModelProvider(this)[LocationViewModel::class.java]
         val adapter = MapsListAdapter()
 
         recycler.adapter = adapter
 
         model.observeListBuilding(this@MapsListFragment, Observer { adapter.addAllAndNotify(it) })
 
-        recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
+        recycler.addItemDecoration(
+            DividerItemDecoration(
+                recycler.context,
+                LinearLayoutManager(context).orientation
+            )
+        )
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.setHasFixedSize(true)
     }

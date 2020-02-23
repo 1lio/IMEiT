@@ -13,19 +13,19 @@ package ru.vyaacheslav.suhov.imeit.entity
 
 data class Schedule(
 
-        // Числитель
-        var lesson: String = "",
-        var teacher: String = "",
-        var type: String = "",
-        var building: String = "",
-        // Знаменатель
-        var lesson2: String = "",
-        var teacher2: String = "",
-        var type2: String = "",
-        var building2: String = "",
-        // Прочее
-        var together: Int = 0,
+    // Числитель
+    var lesson: String = "",
+    var teacher: String = "",
+    var type: String = "",
+    var building: String = "",
+    // Знаменатель
+    var lesson2: String = "",
+    var teacher2: String = "",
+    var type2: String = "",
+    var building2: String = "",
+    // Прочее
+    var together: Int = 0,
 
-        var note: String = "",
-        var id: String = "-1"
+    var note: String = "",
+    var id: String = "-1"
 )

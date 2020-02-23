@@ -29,8 +29,12 @@ class CallGenerator(private val pref: CallPref) {
             if (x == pref.lunchStart) time = (time + pref.lengthLunch - pref.lengthBreakPair)
 
             // Создаем и добовляем CallItem в список
-            list.add(CallItem(x.toString(), firstLesson, lastLesson, pref.lengthBreak.toString(),
-                    pref.lengthBreakPair.toString()))
+            list.add(
+                CallItem(
+                    x.toString(), firstLesson, lastLesson, pref.lengthBreak.toString(),
+                    pref.lengthBreakPair.toString()
+                )
+            )
         }
 
         // Находим где должна быть большая перемена делаем замену

@@ -13,16 +13,19 @@ import java.util.*
 /** Фрагмент с Pager-ом содержащим в себе расписание по дням недели. */
 class SchedulePagerFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fr_tab, container, false)
-    }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? =
+        inflater.inflate(R.layout.fr_tab, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        view_pager.adapter = DayPagerAdapter(childFragmentManager,activity!!)
+        view_pager.adapter = DayPagerAdapter(childFragmentManager, activity!!)
         tab_layout.post { tab_layout.setupWithViewPager(view_pager) }
 
-        val item:Int = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
+        val item: Int = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
             Calendar.TUESDAY -> 1
             Calendar.WEDNESDAY -> 2
             Calendar.THURSDAY -> 3
@@ -30,6 +33,6 @@ class SchedulePagerFragment : BaseFragment() {
             else -> 0
         }
 
-        view_pager.setCurrentItem(item,true)
+        view_pager.setCurrentItem(item, true)
     }
 }

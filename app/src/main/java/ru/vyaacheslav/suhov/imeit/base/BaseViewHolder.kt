@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
 /** Базовый ViewHolder */
-abstract class BaseViewHolder<T>( itemView: View) : RecyclerView.ViewHolder(itemView) {
+abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun setOnClickListener(listener: View.OnClickListener) {
         itemView.setOnClickListener(listener)

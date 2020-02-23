@@ -31,19 +31,19 @@ class AccountInteractorImpl : AccountInteractor {
         Log.d(LOG_ACCOUNT, "Func. Create Account Email")
         return Single.create { subscribe ->
             auth.createUserWithEmailAndPassword(authData.email, authData.pass)
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            // Получаем пользователя
-                            auth.currentUser
-                            // Если все хорошо, создаем учетку пользователя
-                            Log.d(LOG_ACCOUNT, "Account created")
-                            authData.user.updateAccountInDB(getCurrentUserID())
-                            subscribe.onSuccess(true)
-                        } else {
-                            subscribe.onError(Throwable())
-                            Log.d(LOG_ACCOUNT, "Account is not created")
-                        }
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        // Получаем пользователя
+                        auth.currentUser
+                        // Если все хорошо, создаем учетку пользователя
+                        Log.d(LOG_ACCOUNT, "Account created")
+                        authData.user.updateAccountInDB(getCurrentUserID())
+                        subscribe.onSuccess(true)
+                    } else {
+                        subscribe.onError(Throwable())
+                        Log.d(LOG_ACCOUNT, "Account is not created")
                     }
+                }
         }
     }
 
@@ -53,17 +53,17 @@ class AccountInteractorImpl : AccountInteractor {
         Log.d(LOG_ACCOUNT, "Func. SignIn")
         return Single.create { subscribe ->
             auth.signInWithEmailAndPassword(email, pass)
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            auth.currentUser
-                            getAccount(getCurrentUserID())
-                            Log.d(LOG_ACCOUNT, "SignIn : true")
-                            subscribe.onSuccess(true)
-                        } else {
-                            Log.d(LOG_ACCOUNT, "SignIn : false")
-                            subscribe.onError(Throwable())
-                        }
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        auth.currentUser
+                        getAccount(getCurrentUserID())
+                        Log.d(LOG_ACCOUNT, "SignIn : true")
+                        subscribe.onSuccess(true)
+                    } else {
+                        Log.d(LOG_ACCOUNT, "SignIn : false")
+                        subscribe.onError(Throwable())
                     }
+                }
         }
     }
 
@@ -108,16 +108,16 @@ class AccountInteractorImpl : AccountInteractor {
 
         return Single.create { subscribe ->
             user!!.reauthenticate(credential).addOnCompleteListener { user.delete() }
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            db.getRefUser(uID).removeValue()
-                            Log.d(LOG_ACCOUNT, "Account deleted")
-                            subscribe.onSuccess(true)
-                        } else {
-                            subscribe.onError(Throwable())
-                            Log.d(LOG_ACCOUNT, "Error account deleted")
-                        }
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        db.getRefUser(uID).removeValue()
+                        Log.d(LOG_ACCOUNT, "Account deleted")
+                        subscribe.onSuccess(true)
+                    } else {
+                        subscribe.onError(Throwable())
+                        Log.d(LOG_ACCOUNT, "Error account deleted")
                     }
+                }
         }
     }
 

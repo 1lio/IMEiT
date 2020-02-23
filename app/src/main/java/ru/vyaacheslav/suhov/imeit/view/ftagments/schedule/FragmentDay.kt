@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,11 +22,15 @@ class FragmentDay(private val day: String) : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        model = ViewModelProviders.of(this)[DayViewModel::class.java]
+        model = ViewModelProvider(this)[DayViewModel::class.java]
         model.setDay(day)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fr_recycler, container, false)
     }
 
@@ -40,6 +44,11 @@ class FragmentDay(private val day: String) : BaseFragment() {
         model.observeSchedule(this, Observer { adapter.addAllAndNotify(it) })
 
         recycler.itemAnimator = DefaultItemAnimator()
-        recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
+        recycler.addItemDecoration(
+            DividerItemDecoration(
+                recycler.context,
+                LinearLayoutManager(context).orientation
+            )
+        )
     }
 }

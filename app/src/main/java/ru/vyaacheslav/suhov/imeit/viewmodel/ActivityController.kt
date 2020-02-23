@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.*
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_EXIT
@@ -34,12 +34,11 @@ import ru.vyaacheslav.suhov.imeit.view.view.UpToolbar
 
 class ActivityController(private val activity: AppCompatActivity) {
 
-    private val controlModel = ViewModelProviders.of(activity)[ControlViewModel::class.java]
-    private val mainModel = ViewModelProviders.of(activity)[ActivityViewModel::class.java]
-    private val authModel = ViewModelProviders.of(activity)[AuthViewModel::class.java]
+    private val controlModel = ViewModelProvider(activity)[ControlViewModel::class.java]
+    private val mainModel = ViewModelProvider(activity)[ActivityViewModel::class.java]
+    private val authModel = ViewModelProvider(activity)[AuthViewModel::class.java]
 
     init {
-
         observeAuth()
         observeVisibleUI()
 
@@ -72,7 +71,7 @@ class ActivityController(private val activity: AppCompatActivity) {
             if (it == FRAGMENT_NAVIGATION) showNavigationFragment()
 
             fragment?.pushFragment(activity.supportFragmentManager)
-                    ?: Log.e(LOG_DEBUG, "Not fragment")
+                ?: Log.e(LOG_DEBUG, "Not fragment")
         })
 
     }
@@ -94,23 +93,23 @@ class ActivityController(private val activity: AppCompatActivity) {
 
     private fun dialogSelectGroup(): AlertDialog {
         return AlertDialog.Builder(activity)
-                .setTitle(R.string.group)
-                .setNeutralButton(activity.resources.getString(R.string.cancel)) { d, _ -> d.cancel() }
-                .setSingleChoiceItems(mainModel.getListGroups(), mainModel.getSelectedId())
-                { d, i ->
-                    mainModel.setSelectedId(i)
-                    loadStartFragment()
-                    d.cancel()
-                }
-                .create()
+            .setTitle(R.string.group)
+            .setNeutralButton(activity.resources.getString(R.string.cancel)) { d, _ -> d.cancel() }
+            .setSingleChoiceItems(mainModel.getListGroups(), mainModel.getSelectedId())
+            { d, i ->
+                mainModel.setSelectedId(i)
+                loadStartFragment()
+                d.cancel()
+            }
+            .create()
     }
 
     private fun dialogExit(): AlertDialog {
         return AlertDialog.Builder(activity)
-                .setTitle(activity.resources.getString(R.string.exit_of_app))
-                .setNeutralButton(activity.resources.getString(R.string.cancel)) { d, _ -> d.cancel() }
-                .setPositiveButton(activity.resources.getString(R.string.yes)) { d, _ -> d.dismiss(); activity.finish() }
-                .create()
+            .setTitle(activity.resources.getString(R.string.exit_of_app))
+            .setNeutralButton(activity.resources.getString(R.string.cancel)) { d, _ -> d.cancel() }
+            .setPositiveButton(activity.resources.getString(R.string.yes)) { d, _ -> d.dismiss(); activity.finish() }
+            .create()
     }
 
     private fun loadStartFragment() {
@@ -130,7 +129,7 @@ class ActivityController(private val activity: AppCompatActivity) {
                 controlModel.setVisibleUI(visibility = true)
                 controlModel.setFragmentId(controlModel.getFragmentSchedule())
             } else {
-             //   navigation.dismiss()
+                //   navigation.dismiss()
                 controlModel.setFragmentId(FRAGMENT_SIGN_IN)
                 controlModel.setVisibleUI(visibility = false)
             }
@@ -158,7 +157,7 @@ class ActivityController(private val activity: AppCompatActivity) {
                 ErrorEvent.ERROR_CREATE_ACCOUNT -> R.string.error_create_account
                 else -> 0
             }
-            toast(context = activity, msg =  msg)
+            toast(context = activity, msg = msg)
         })
     }
 }

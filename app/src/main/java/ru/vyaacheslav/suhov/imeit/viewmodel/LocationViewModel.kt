@@ -17,13 +17,13 @@ class LocationViewModel : BaseViewModel() {
 
     init {
         interactor
-                .getListBuildings().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    listMap.clear()
-                    listMap.addAll(it)
-                    listLiveData.postValue(listMap)
-                }.apply { compositeDisposable.add(this) }
+            .getListBuildings().subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                listMap.clear()
+                listMap.addAll(it)
+                listLiveData.postValue(listMap)
+            }.apply { compositeDisposable.add(this) }
     }
 
     fun observeListBuilding(owner: LifecycleOwner, observer: Observer<ArrayList<EduBuilding>>) {

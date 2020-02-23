@@ -46,12 +46,12 @@ class AuthViewModel : BaseViewModel() {
 
         // обрабатываем ответ от сервера. Ждем 2 секунды
         interactor
-                .signIn(email, pass)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .delay(2L, TimeUnit.SECONDS)
-                .subscribe({ if (it) setAuth(it) }, { setErrorMsg(ERROR_LOGIN) })
-                .apply { compositeDisposable.add(this) }
+            .signIn(email, pass)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .delay(2L, TimeUnit.SECONDS)
+            .subscribe({ if (it) setAuth(it) }, { setErrorMsg(ERROR_LOGIN) })
+            .apply { compositeDisposable.add(this) }
     }
 
     /** Регистрация*/
@@ -59,25 +59,25 @@ class AuthViewModel : BaseViewModel() {
         tryAuthData.value = true
 
         interactor
-                .createAccountEmail(userAuth)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .delay(2L, TimeUnit.SECONDS)
-                .subscribe({ setAuth(it) }, { setErrorMsg(ERROR_CREATE_ACCOUNT) })
-                .apply { compositeDisposable.add(this) }
+            .createAccountEmail(userAuth)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .delay(2L, TimeUnit.SECONDS)
+            .subscribe({ setAuth(it) }, { setErrorMsg(ERROR_CREATE_ACCOUNT) })
+            .apply { compositeDisposable.add(this) }
     }
 
     /** Выход из приложения */
     fun signOut() {
         // Данную задачу можно кинуть на фон
         interactor.signOut()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    isAuthData.postValue(false)
-                    localRepository.isAuth = false
-                }, {})
-                .apply { compositeDisposable.add(this) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                isAuthData.postValue(false)
+                localRepository.isAuth = false
+            }, {})
+            .apply { compositeDisposable.add(this) }
     }
 
     /** Установить статус авториззации */
@@ -101,11 +101,11 @@ class AuthViewModel : BaseViewModel() {
     /** Пользовательские данные */
     private fun getUser() {
         interactor
-                .getAccount(localRepository.userId)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ userData.postValue(it) }, {})
-                .apply { compositeDisposable.add(this) }
+            .getAccount(localRepository.userId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ userData.postValue(it) }, {})
+            .apply { compositeDisposable.add(this) }
     }
 
     /** Проверка на авторизацию */

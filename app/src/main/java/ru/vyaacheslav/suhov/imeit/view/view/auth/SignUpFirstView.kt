@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.v_sign_up.view.*
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
@@ -21,8 +21,8 @@ class SignUpFirstView : ConstraintLayout {
     constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val activity = context as MainActivity
-    private val model = ViewModelProviders.of(activity)[SignUpFirstStepModel::class.java]
-    private val authModel = ViewModelProviders.of(activity)[AuthViewModel::class.java]
+    private val model = ViewModelProvider(activity)[SignUpFirstStepModel::class.java]
+    private val authModel = ViewModelProvider(activity)[AuthViewModel::class.java]
 
     init {
         LayoutInflater.from(context).inflate(R.layout.v_sign_up, this)
@@ -32,7 +32,13 @@ class SignUpFirstView : ConstraintLayout {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (it == ed_email_u) validateEmail() else validatePass()

@@ -29,16 +29,17 @@ class BuildingsInteractorImpl : BuildingsInteractor {
     override fun getBuilding(id: String): Single<EduBuilding> {
         Log.d(LOG_BUILDINGS, "getBuilding")
         return Single.create { subscribe ->
-            repository.getRefEduBuildingsFromId(id).addListenerForSingleValueEvent(object : ValueEventListener {
+            repository.getRefEduBuildingsFromId(id)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
 
-                override fun onDataChange(p0: DataSnapshot) {
-                    subscribe.onSuccess(p0.getValue(EduBuilding::class.java) ?: EduBuilding())
-                }
+                    override fun onDataChange(p0: DataSnapshot) {
+                        subscribe.onSuccess(p0.getValue(EduBuilding::class.java) ?: EduBuilding())
+                    }
 
-                override fun onCancelled(p0: DatabaseError) {
-                    subscribe.onError(Throwable())
-                }
-            })
+                    override fun onCancelled(p0: DatabaseError) {
+                        subscribe.onError(Throwable())
+                    }
+                })
 
         }
     }
@@ -48,20 +49,20 @@ class BuildingsInteractorImpl : BuildingsInteractor {
         Log.d(LOG_BUILDINGS, "getListBuildings")
         return Observable.create {
             repository.getRefListEducationBuildings()
-                    .addListenerForSingleValueEvent(object : ValueEventListener {
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            val list = arrayListOf<EduBuilding>()
-                            // Все существующие элементы узла
-                            for (x: DataSnapshot in snapshot.children) {
-                                list.add(x.getValue(EduBuilding::class.java) ?: EduBuilding())
-                            }
-                            it.onNext(list)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val list = arrayListOf<EduBuilding>()
+                        // Все существующие элементы узла
+                        for (x: DataSnapshot in snapshot.children) {
+                            list.add(x.getValue(EduBuilding::class.java) ?: EduBuilding())
                         }
+                        it.onNext(list)
+                    }
 
-                        override fun onCancelled(snapshot: DatabaseError) {
-                            it.onError(Throwable("cancel"))
-                        }
-                    })
+                    override fun onCancelled(snapshot: DatabaseError) {
+                        it.onError(Throwable("cancel"))
+                    }
+                })
         }
     }
 
@@ -92,5 +93,5 @@ class BuildingsInteractorImpl : BuildingsInteractor {
         }
     }
 
-    fun getInstance() = this.instance ?:BuildingsInteractorImpl()
+    fun getInstance() = this.instance ?: BuildingsInteractorImpl()
 }

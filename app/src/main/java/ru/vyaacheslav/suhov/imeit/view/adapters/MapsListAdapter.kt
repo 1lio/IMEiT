@@ -11,9 +11,9 @@ import ru.vyaacheslav.suhov.imeit.entity.EduBuilding
 
 class MapsListAdapter : BaseAdapter<EduBuilding, MapsListAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_maps, parent, false))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_maps, parent, false))
+
 
     inner class ViewHolder(itemView: View) : BaseViewHolder<EduBuilding>(itemView) {
 

@@ -33,13 +33,13 @@ class ActivityViewModel : BaseViewModel() {
 
         // Лист со всеми группами выбранного института
         interactor.getListGroups(currentInstitute, currentFaculty)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    listGroup.addAll(it)
-                    listGroupsData.postValue(listGroup.toTypedArray())
-                }
-                .apply { compositeDisposable.add(this) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                listGroup.addAll(it)
+                listGroupsData.postValue(listGroup.toTypedArray())
+            }
+            .apply { compositeDisposable.add(this) }
 
         selectedListId.postValue(localRepository.groupID)     // ID Группы
 

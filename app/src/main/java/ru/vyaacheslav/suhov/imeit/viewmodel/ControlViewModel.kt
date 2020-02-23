@@ -36,7 +36,9 @@ class ControlViewModel : ViewModel() {
 
     }
 
-    fun setVisibleUI(visibility:Boolean) {visibilityUI.value = visibility}
+    fun setVisibleUI(visibility: Boolean) {
+        visibilityUI.value = visibility
+    }
 
     fun observeFragmentID(owner: LifecycleOwner, observer: Observer<Byte?>) {
         currentFragmentID.observe(owner, observer)

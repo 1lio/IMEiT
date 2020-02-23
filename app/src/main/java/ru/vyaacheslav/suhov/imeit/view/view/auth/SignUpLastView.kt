@@ -11,7 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.v_sign_up_last.view.*
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
@@ -26,8 +26,8 @@ class SignUpLastView : ConstraintLayout {
     constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val activity = context as MainActivity
-    private val model = ViewModelProviders.of(activity)[SignUpLastStepModel::class.java]
-    private val authModel = ViewModelProviders.of(activity)[AuthViewModel::class.java]
+    private val model = ViewModelProvider(activity)[SignUpLastStepModel::class.java]
+    private val authModel = ViewModelProvider(activity)[AuthViewModel::class.java]
 
     init {
 
@@ -87,7 +87,12 @@ class SignUpLastView : ConstraintLayout {
         })
 
         spinner_institute.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
                 model.setInstitute(position)
                 spinFaculty()
             }
@@ -112,7 +117,12 @@ class SignUpLastView : ConstraintLayout {
 
 
         spinner_faculty.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
                 model.setFaculty(position)
                 spinGroup()
             }
@@ -136,7 +146,12 @@ class SignUpLastView : ConstraintLayout {
         })
 
         spinner_group.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
                 model.setGroup(position)
             }
 

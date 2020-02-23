@@ -9,11 +9,15 @@ class SignInViewModel : ViewModel() {
 
     private val isCorrectSignForm = MutableLiveData<Boolean>()
 
-    init { isCorrectSignForm.value = false }
+    init {
+        isCorrectSignForm.value = false
+    }
 
     fun observeForms(owner: LifecycleOwner, observer: Observer<Boolean>) {
         isCorrectSignForm.observe(owner, observer)
     }
 
-    fun setEnabledAll(b: Boolean) { isCorrectSignForm.value = b }
+    fun setEnabledAll(b: Boolean) {
+        isCorrectSignForm.value = b
+    }
 }

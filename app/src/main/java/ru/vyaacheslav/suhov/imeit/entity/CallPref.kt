@@ -12,11 +12,11 @@ package ru.vyaacheslav.suhov.imeit.entity
  */
 
 data class CallPref(
-        var count: Int = 6,
-        var start: Int = 510,
-        var lengthLesson: Int = 45,
-        var lengthBreak: Int = 5,
-        var lengthLunch: Int = 40,
-        var lengthBreakPair: Int = 10,
-        var lunchStart: Int = 2
+    var count: Int = 6,
+    var start: Int = 510,
+    var lengthLesson: Int = 45,
+    var lengthBreak: Int = 5,
+    var lengthLunch: Int = 40,
+    var lengthBreakPair: Int = 10,
+    var lunchStart: Int = 2
 )

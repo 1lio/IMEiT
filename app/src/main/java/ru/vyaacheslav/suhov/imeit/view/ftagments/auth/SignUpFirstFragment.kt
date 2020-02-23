@@ -13,7 +13,11 @@ import ru.vyaacheslav.suhov.imeit.view.view.auth.SignUpFirstView
 /** Первый фрагмент регистрации */
 class SignUpFirstFragment : BaseLoginFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return SignUpFirstView(activity!!)
     }
 

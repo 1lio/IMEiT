@@ -30,8 +30,8 @@ class FirebaseRealtimeRepository {
 
     fun getRefFaculty(institute: String): DatabaseReference {
         return FirebaseDatabase.getInstance()
-                .getReference(INSTITUTES).child(institute)
-                .child(FACULTY)
+            .getReference(INSTITUTES).child(institute)
+            .child(FACULTY)
     }
 
     /** @see getRefListGroups
@@ -41,9 +41,9 @@ class FirebaseRealtimeRepository {
 
     fun getRefListGroups(institute: String, faculty: String): DatabaseReference {
         return FirebaseDatabase.getInstance()
-                .getReference(INSTITUTES).child(institute)
-                .child(FACULTY).child(faculty)
-                .child(GROUPS)
+            .getReference(INSTITUTES).child(institute)
+            .child(FACULTY).child(faculty)
+            .child(GROUPS)
     }
 
     /** @return Настройки для звонков */
@@ -62,12 +62,17 @@ class FirebaseRealtimeRepository {
      *  @param group - Группа
      *  @param day - День
      *  @return Array<Schedule> | Спиок с расписанием */
-    fun getRefListSchedule(institute: String, faculty: String, group: String, day: String): DatabaseReference {
+    fun getRefListSchedule(
+        institute: String,
+        faculty: String,
+        group: String,
+        day: String
+    ): DatabaseReference {
         return FirebaseDatabase.getInstance()
-                .getReference(INSTITUTES).child(institute)
-                .child(FACULTY).child(faculty)
-                .child(GROUPS).child(group)
-                .child(day)
+            .getReference(INSTITUTES).child(institute)
+            .child(FACULTY).child(faculty)
+            .child(GROUPS).child(group)
+            .child(day)
     }
 
     fun updateDay(day: String): DatabaseReference {

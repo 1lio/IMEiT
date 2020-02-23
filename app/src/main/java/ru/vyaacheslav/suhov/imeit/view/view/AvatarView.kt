@@ -41,6 +41,7 @@ class AvatarView : AppCompatImageView {
 
     // Конструкторы
     constructor(context: Context) : super(context)
+
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
 
         // Прикручиваем атрибуты
@@ -49,7 +50,9 @@ class AvatarView : AppCompatImageView {
         try {
             // инициализируем атрибуты
             strokeColor = a.getColor(R.styleable.AvatarView_strokeColor, DEF_STROKE_COLOR)
-            strokeWidth = a.getDimensionPixelSize(R.styleable.AvatarView_strokeWidth, DEF_STROKE_WIDTH).toFloat()
+            strokeWidth =
+                a.getDimensionPixelSize(R.styleable.AvatarView_strokeWidth, DEF_STROKE_WIDTH)
+                    .toFloat()
 
         } finally {
             // recycle() должен выполниться в любом случае
@@ -60,7 +63,8 @@ class AvatarView : AppCompatImageView {
     // Вызывается когда нашу вью пытаются измерить :з
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         // Размеры вью по минимальной стороне
-        val size = if (widthMeasureSpec <= heightMeasureSpec) widthMeasureSpec else heightMeasureSpec
+        val size =
+            if (widthMeasureSpec <= heightMeasureSpec) widthMeasureSpec else heightMeasureSpec
         // устанавливаем финальный размер
         setMeasuredDimension(size, size)
     }
@@ -68,7 +72,7 @@ class AvatarView : AppCompatImageView {
     // Рисуем нашу view
     override fun onDraw(canvas: Canvas) {
         if (!isInitialized) {
-            val min = Math.min(height, width)
+            val min = height.coerceAtMost(width)
             padding = DEF_SPACING
             radius = min / 2 - padding
             isInitialized = true
@@ -87,7 +91,11 @@ class AvatarView : AppCompatImageView {
         image = bitmapDrawable.bitmap
         // Установим шейдер
         shader = BitmapShader(image, sMode, sMode)
-        shader = BitmapShader(Bitmap.createScaledBitmap(image, canvas.width, canvas.height, false), sMode, sMode)
+        shader = BitmapShader(
+            Bitmap.createScaledBitmap(image, canvas.width, canvas.height, false),
+            sMode,
+            sMode
+        )
         paint.shader = shader
         // Обрезаем шейдер ввиде круга
         val circleCenter = width.toFloat() / 2
@@ -103,7 +111,11 @@ class AvatarView : AppCompatImageView {
             this@AvatarView.drawable as VectorDrawable
         }
 
-        paint.color = if (colorDrawable is ColorDrawable) colorDrawable.color else ContextCompat.getColor(context, R.color.white)
+        paint.color =
+            if (colorDrawable is ColorDrawable) colorDrawable.color else ContextCompat.getColor(
+                context,
+                R.color.white
+            )
         val circleCenter = width.toFloat() / 2
         canvas.drawCircle(circleCenter, circleCenter, circleCenter - 4.0f, paint)
     }
@@ -123,6 +135,9 @@ class AvatarView : AppCompatImageView {
         paint.style = style       // стиль
         paint.strokeWidth = width // размер
         paint.isAntiAlias = true  // Включить сглаживание
-        paint.color = if (isCheckedStatus) ContextCompat.getColor(context, R.color.colorAccent) else strokeColor
+        paint.color = if (isCheckedStatus) ContextCompat.getColor(
+            context,
+            R.color.colorAccent
+        ) else strokeColor
     }
 }

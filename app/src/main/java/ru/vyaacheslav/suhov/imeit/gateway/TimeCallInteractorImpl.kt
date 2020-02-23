@@ -35,17 +35,17 @@ class TimeCallInteractorImpl : TimeCallInteractor {
 
         return Single.create {
             repository.getRefPreferencesCall(DEFAULT)
-                    .addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(p0: DataSnapshot) {
-                            it.onSuccess(p0.getValue(CallPref::class.java) ?: CallPref())
-                            Log.d(LOG_CALLS, "Done")
-                        }
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(p0: DataSnapshot) {
+                        it.onSuccess(p0.getValue(CallPref::class.java) ?: CallPref())
+                        Log.d(LOG_CALLS, "Done")
+                    }
 
-                        override fun onCancelled(p0: DatabaseError) {
-                            it.onError(Throwable(p0.toString()))
-                            Log.d(LOG_CALLS, "Error")
-                        }
-                    })
+                    override fun onCancelled(p0: DatabaseError) {
+                        it.onError(Throwable(p0.toString()))
+                        Log.d(LOG_CALLS, "Error")
+                    }
+                })
         }
     }
 
@@ -55,17 +55,17 @@ class TimeCallInteractorImpl : TimeCallInteractor {
 
         return Observable.create {
             repository.getRefUser(uid).child(CALL_REFERENCE)
-                    .addValueEventListener(object : ValueEventListener {
-                        override fun onDataChange(p0: DataSnapshot) {
-                            it.onNext(p0.getValue(CallPref::class.java) ?: CallPref())
-                            Log.d(LOG_CALLS, "success")
-                        }
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(p0: DataSnapshot) {
+                        it.onNext(p0.getValue(CallPref::class.java) ?: CallPref())
+                        Log.d(LOG_CALLS, "success")
+                    }
 
-                        override fun onCancelled(p0: DatabaseError) {
-                            it.onError(Throwable(p0.toString()))
-                            Log.d(LOG_CALLS, "Error")
-                        }
-                    })
+                    override fun onCancelled(p0: DatabaseError) {
+                        it.onError(Throwable(p0.toString()))
+                        Log.d(LOG_CALLS, "Error")
+                    }
+                })
         }
     }
 

@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.v_user_header.view.*
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
@@ -21,7 +21,7 @@ class UserHeader : FrameLayout {
     private var subTitle: String? = null
 
     private val activity = context as MainActivity
-    private val model = ViewModelProviders.of(activity)[AuthViewModel::class.java]
+    private val model = ViewModelProvider(activity)[AuthViewModel::class.java]
 
     init {
 

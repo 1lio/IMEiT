@@ -5,7 +5,6 @@
     <string name="login">Логин</string>
     <string name="registration">Регистрация</string>
 
-
     <!-- Navigation bottom -->
     <string name="menu_time">Звонки</string>
     <string name="menu_schedule">Расписание</string>
