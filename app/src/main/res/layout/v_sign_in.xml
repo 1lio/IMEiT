@@ -12,24 +12,28 @@
         android:layout_marginTop="@dimen/element_top_margin"
         android:contentDescription="@string/logo"
         android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/group"
         app:strokeColor="@color/colorAccent"
-        app:strokeWidth="@dimen/width_stroke"/>
+        app:strokeWidth="@dimen/width_stroke" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_form"
-        android:layout_marginTop="@dimen/element_top_margin"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="@dimen/margin_form"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/anim_vector"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0"
         app:startIconDrawable="@drawable/ic_account">
 
         <com.google.android.material.textfield.TextInputEditText

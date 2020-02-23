@@ -21,6 +21,7 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_IN
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_FIRST
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_SECOND
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.LOG_DEBUG
+import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignInFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignUpFirstFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignUpSecondFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
@@ -30,7 +31,6 @@ import ru.vyaacheslav.suhov.imeit.view.ftagments.other.BottomNavFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.FragmentEmptyGroup
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
 import ru.vyaacheslav.suhov.imeit.view.view.UpToolbar
-import vi.sukov.feature_auth.fragments.AuthFragment
 
 class ActivityController(private val activity: AppCompatActivity) {
 
@@ -55,7 +55,7 @@ class ActivityController(private val activity: AppCompatActivity) {
 
             val fragment: Fragment? = when (it) {
 
-                FRAGMENT_SIGN_IN -> AuthFragment()
+                FRAGMENT_SIGN_IN -> SignInFragment()
                 FRAGMENT_SIGN_UP_FIRST -> SignUpFirstFragment()
                 FRAGMENT_SIGN_UP_SECOND -> SignUpSecondFragment()
 

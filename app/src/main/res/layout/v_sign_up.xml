@@ -25,11 +25,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="@dimen/element_top_margin"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="@dimen/margin_form"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/anim_vector"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:startIconDrawable="@drawable/ic_account">
 
         <com.google.android.material.textfield.TextInputEditText

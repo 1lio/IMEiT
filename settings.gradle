@@ -1,2 +1,1 @@
-include (":feature_auth")
 include(":app")
