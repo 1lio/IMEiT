@@ -3,7 +3,7 @@ package ru.vyaacheslav.suhov.imeit.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.root.*
+import kotlinx.android.synthetic.main.activity.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_EXIT
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_CALLS
@@ -18,12 +18,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.root)
+        setContentView(R.layout.activity)
 
         ActivityController(activity = this@MainActivity)
         model = ViewModelProvider(this@MainActivity)[ControlViewModel::class.java]
 
-        bottom_bar.setOnNavigationItemSelectedListener {
+        bottomBar.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.account -> model.setFragmentId(FRAGMENT_SCHEDULE)
                 R.id.bells -> model.setFragmentId(FRAGMENT_CALLS)

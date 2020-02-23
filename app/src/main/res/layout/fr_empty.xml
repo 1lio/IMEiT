@@ -36,18 +36,6 @@
         app:layout_constraintTop_toBottomOf="@+id/group_icon"
         app:layout_constraintVertical_bias="0.1" />
 
-    <TextView
-        android:id="@+id/text_set_down_schedule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/set_down_schedule"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/text_empty_group"
-        app:layout_constraintStart_toStartOf="@+id/text_empty_group"
-        app:layout_constraintTop_toBottomOf="@+id/text_empty_group"
-        app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

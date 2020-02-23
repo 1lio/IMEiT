@@ -135,7 +135,7 @@ class ActivityController(private val activity: AppCompatActivity) {
     private fun observeVisibleUI() {
 
 
-        val bottomView: CoordinatorLayout = activity.findViewById(R.id.main_coordinator)
+        val bottomView: CoordinatorLayout = activity.findViewById(R.id.coordinator)
 
         controlModel.observeVisibleUI(activity, Observer { visible ->
             bottomView.visibility = if (visible) View.VISIBLE else View.GONE

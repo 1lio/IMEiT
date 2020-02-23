@@ -19,7 +19,7 @@ class MapsPagerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view_pager.adapter = MapPagerAdapter(childFragmentManager)
-        tab_layout.post { tab_layout.setupWithViewPager(view_pager) }
+        viewPager.adapter = MapPagerAdapter(childFragmentManager)
+        tabLayout.post { tabLayout.setupWithViewPager(viewPager) }
     }
 }

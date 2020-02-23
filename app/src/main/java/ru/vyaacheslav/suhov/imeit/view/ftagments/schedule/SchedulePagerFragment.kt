@@ -18,8 +18,8 @@ class SchedulePagerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        view_pager.adapter = DayPagerAdapter(childFragmentManager, activity!!)
-        tab_layout.post { tab_layout.setupWithViewPager(view_pager) }
+        viewPager.adapter = DayPagerAdapter(childFragmentManager, activity!!)
+        tabLayout.post { tabLayout.setupWithViewPager(viewPager) }
 
         val item: Int = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
             Calendar.TUESDAY -> 1
@@ -29,6 +29,6 @@ class SchedulePagerFragment : Fragment() {
             else -> 0
         }
 
-        view_pager.setCurrentItem(item, true)
+        viewPager.setCurrentItem(item, true)
     }
 }

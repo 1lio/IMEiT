@@ -37,7 +37,7 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
 
         val v = inflater.inflate(R.layout.fr_call_setup, container, false)
         viewModelSetup = ViewModelProvider(context as MainActivity)[CallTimeViewModel::class.java]
-        fab = activity!!.findViewById(R.id.fab)
+
 
         // заполняем EditText-ы
         setupCurrentPref()
@@ -183,10 +183,10 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
                 viewModelSetup.setDefaultPreferences()
                 toast(context!!, R.string.def_settings)
             }
-            R.id.fab -> {
+           /* R.id.fab -> {
                 viewModelSetup.saveAndPush(pref)
                 toast(activity!!, R.string.save_settings)
-            }
+            }*/
         }
     }
 }
