@@ -6,20 +6,20 @@
         <item name="colorSecondary">@color/colorAccent</item>
     </style>
 
-    <style name="ToolbarTitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/white</item>
-
-    </style>
-
-    <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/gray</item>
-    </style>
 
     <style name="TextCurrentPair">
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="itemIconTint">@color/bottom_navigation_colors</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="itemIconSize">28dp</item>
+        <item name="itemTextColor">@color/bottom_navigation_colors</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+        <item name="menu">@menu/menu</item>
+        <item name="android:layout_gravity">bottom</item>
     </style>
 
 </resources>

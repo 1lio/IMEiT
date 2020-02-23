@@ -15,7 +15,6 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_CALLS
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_CALLS_PREF
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_EMPTY_SCHEDULE
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_MAPS
-import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_NAVIGATION
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SCHEDULE
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_IN
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_FIRST
@@ -30,7 +29,6 @@ import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignUpSecondFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallSetupFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsPagerFragment
-import ru.vyaacheslav.suhov.imeit.view.ftagments.other.BottomNavFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.FragmentEmptyGroup
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
 
@@ -70,7 +68,6 @@ class ActivityController(private val activity: AppCompatActivity) {
                 else -> null
             }
 
-            if (it == FRAGMENT_NAVIGATION) showNavigationFragment()
 
             fragment?.pushFragment(activity.supportFragmentManager)
                 ?: Log.e(LOG_DEBUG, "Not fragment")
@@ -119,11 +116,8 @@ class ActivityController(private val activity: AppCompatActivity) {
         else controlModel.setFragmentId(FRAGMENT_EMPTY_SCHEDULE)
     }
 
-    private val navigation = BottomNavFragment()
 
-    private fun showNavigationFragment() {
-        navigation.show(activity.supportFragmentManager, navigation.tag)
-    }
+
 
     private fun observeAuth() {
         authModel.observeAuth(activity, Observer {
@@ -141,7 +135,7 @@ class ActivityController(private val activity: AppCompatActivity) {
     private fun observeVisibleUI() {
 
 
-        val bottomView: CoordinatorLayout = activity.findViewById(R.id.bottom_view)
+        val bottomView: CoordinatorLayout = activity.findViewById(R.id.main_coordinator)
 
         controlModel.observeVisibleUI(activity, Observer { visible ->
             bottomView.visibility = if (visible) View.VISIBLE else View.GONE

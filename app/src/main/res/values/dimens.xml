@@ -26,4 +26,5 @@
     <dimen name="margin_form">32dp</dimen>
     <dimen name="margin_from_element">8dp</dimen>
     <dimen name="text_size">18sp</dimen>
+    <dimen name="bottom_bar_height">48dp</dimen>
 </resources>

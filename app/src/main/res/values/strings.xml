@@ -100,5 +100,6 @@
 
     <string name="remained">осталось</string>
     <string name="pair">Пара</string>
+    <string name="account">Аккаунт</string>
 
 </resources>
