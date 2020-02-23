@@ -7,19 +7,4 @@
         android:icon="@drawable/ic_group"
         app:showAsAction="ifRoom"
         android:title="@string/group" />
-
-    <item
-        android:id="@+id/item_m_calls"
-        android:title="@string/setup_call"
-        app:showAsAction="never" />
-
-   <!-- <item
-        android:id="@+id/location_pref"
-        android:title="@string/location_pref"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/schedule_pref"
-        android:title="@string/schedule_pref"
-        app:showAsAction="never" />-->
 </menu>

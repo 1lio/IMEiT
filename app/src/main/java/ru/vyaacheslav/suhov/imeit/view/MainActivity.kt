@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.root.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_EXIT
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_GROUP
-import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_CALLS_PREF
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_NAVIGATION
 import ru.vyaacheslav.suhov.imeit.viewmodel.ActivityController
 import ru.vyaacheslav.suhov.imeit.viewmodel.ControlViewModel
@@ -35,7 +34,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> model.setFragmentId(FRAGMENT_NAVIGATION)
-            R.id.item_m_calls -> model.setFragmentId(FRAGMENT_CALLS_PREF)
             R.id.item_m_group -> model.setDialogID(DIALOG_GROUP)
         }
         return true

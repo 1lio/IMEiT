@@ -1,6 +1,7 @@
 package ru.vyaacheslav.suhov.imeit.viewmodel
 
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -8,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.util.*
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_EXIT
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_GROUP
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_CALLS
@@ -21,6 +21,9 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_IN
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_FIRST
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_SECOND
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.LOG_DEBUG
+import ru.vyaacheslav.suhov.imeit.util.ErrorEvent
+import ru.vyaacheslav.suhov.imeit.util.pushFragment
+import ru.vyaacheslav.suhov.imeit.util.toast
 import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignInFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignUpFirstFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignUpSecondFragment
@@ -30,7 +33,6 @@ import ru.vyaacheslav.suhov.imeit.view.ftagments.maps.MapsPagerFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.other.BottomNavFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.FragmentEmptyGroup
 import ru.vyaacheslav.suhov.imeit.view.ftagments.schedule.SchedulePagerFragment
-import ru.vyaacheslav.suhov.imeit.view.view.UpToolbar
 
 class ActivityController(private val activity: AppCompatActivity) {
 
@@ -138,11 +140,11 @@ class ActivityController(private val activity: AppCompatActivity) {
 
     private fun observeVisibleUI() {
 
-        val toolbar: UpToolbar = activity.findViewById(R.id.toolbar)
+
         val bottomView: CoordinatorLayout = activity.findViewById(R.id.bottom_view)
 
         controlModel.observeVisibleUI(activity, Observer { visible ->
-            arrayOf(toolbar, bottomView).forEach { if (visible) it.visible() else it.gone() }
+            bottomView.visibility = if (visible) View.VISIBLE else View.GONE
         })
     }
 
