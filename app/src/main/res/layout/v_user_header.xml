@@ -23,7 +23,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/u_name"
+            android:id="@+id/uName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -31,7 +31,7 @@
             tools:text="Viacheslav Sukhov" />
 
         <TextView
-            android:id="@+id/u_group"
+            android:id="@+id/uGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="ISiT-31" />

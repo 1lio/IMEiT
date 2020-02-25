@@ -119,11 +119,6 @@ class CallTimeViewModel : BaseViewModel() {
         timeLeft.observe(owner, observer)
     }
 
-    // Наблюдатель за текущим временем
-    fun observeCurrentTime(owner: LifecycleOwner, observer: Observer<String>) {
-        currentTime.observe(owner, observer)
-    }
-
     // Наблюдатель списка звонков
     fun observeListCalls(owner: LifecycleOwner, observer: Observer<ArrayList<CallItem>>) {
         listData.observe(owner, observer)

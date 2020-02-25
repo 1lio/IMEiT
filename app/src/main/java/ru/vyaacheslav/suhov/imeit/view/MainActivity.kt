@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity.*
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.DIALOG_EXIT
+import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_ACCOUNT
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_CALLS
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_MAPS
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SCHEDULE
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         bottomBar.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.account -> model.setFragmentId(FRAGMENT_SCHEDULE)
+                R.id.account -> model.setFragmentId(FRAGMENT_ACCOUNT)
                 R.id.bells -> model.setFragmentId(FRAGMENT_CALLS)
                 R.id.schedule -> model.setFragmentId(FRAGMENT_SCHEDULE)
                 R.id.maps -> model.setFragmentId(FRAGMENT_MAPS)

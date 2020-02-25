@@ -32,8 +32,8 @@ class UserHeader : FrameLayout {
             subTitle = "${it.faculty}|${it.group}"
         })
 
-        u_name.text = title
-        u_group.text = subTitle
+        uName.text = title
+        uGroup.text = subTitle
 
         exit.setOnClickListener { model.signOut() }
     }

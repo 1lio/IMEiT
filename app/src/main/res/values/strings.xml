@@ -101,5 +101,7 @@
     <string name="remained">осталось</string>
     <string name="pair">Пара</string>
     <string name="account">Аккаунт</string>
+    <string name="current_week">Текущая неделя</string>
+    <string name="bottom_week">Знаменатель</string>
 
 </resources>
