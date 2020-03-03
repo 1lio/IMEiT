@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import ru.suhov.student.viewmodel.AuthViewModel
 import ru.suhov.student.viewmodel.ControlViewModel
 
-/** Базовый фрагмент для работы с авторизацией */
 abstract class BaseLoginFragment : Fragment() {
 
     lateinit var accountModel: AuthViewModel

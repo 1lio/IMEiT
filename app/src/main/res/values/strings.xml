@@ -103,5 +103,6 @@
     <string name="account">Аккаунт</string>
     <string name="current_week">Текущая неделя</string>
     <string name="bottom_week">Знаменатель</string>
+    <string name="notification_stud_tik">Уведомлять каждое полугодие о продлении студенческого билета</string>
 
 </resources>

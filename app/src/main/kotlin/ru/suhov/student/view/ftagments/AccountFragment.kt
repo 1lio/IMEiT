@@ -14,9 +14,8 @@ import ru.suhov.student.viewmodel.AuthViewModel
 
 class AccountFragment : Fragment() {
 
-    private var title: String? = null
-    private var subTitle: String? = null
-
+    private var title: String = ""
+    private var subTitle: String = ""
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
         inflater.inflate(R.layout.account, group, false)

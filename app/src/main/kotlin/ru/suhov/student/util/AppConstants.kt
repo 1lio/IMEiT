@@ -17,7 +17,6 @@ object AppConstants {
 
 
     const val DIALOG_GROUP: Byte = 10
-    const val FRAGMENT_NAVIGATION: Byte = 100
 
     const val DIALOG_EXIT: Byte = 127
 

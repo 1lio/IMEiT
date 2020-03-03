@@ -43,7 +43,6 @@ class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.Vi
         }
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         val currentPair = CallUtil(CallPref()).getNumberCurrentPair().second

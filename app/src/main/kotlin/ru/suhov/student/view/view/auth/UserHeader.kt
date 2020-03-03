@@ -1,5 +1,6 @@
 package ru.suhov.student.view.view.auth
 
+/*
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -11,7 +12,9 @@ import ru.suhov.student.R
 import ru.suhov.student.view.MainActivity
 import ru.suhov.student.viewmodel.AuthViewModel
 
-/** View - Header с минимальной информацией о пользователе*/
+*/
+/** View - Header с минимальной информацией о пользователе*//*
+
 class UserHeader : FrameLayout {
 
     constructor(context: Context) : super(context)
@@ -37,4 +40,4 @@ class UserHeader : FrameLayout {
 
         exit.setOnClickListener { model.signOut() }
     }
-}
+}*/

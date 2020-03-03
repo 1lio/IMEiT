@@ -13,11 +13,8 @@ import ru.suhov.student.util.getDayAcronym
 class DayViewModel : BaseViewModel() {
 
     private val interactor = ScheduleInteractorImpl().getInstance()
-
-    // LiveData
     private val dayLiveData = MutableLiveData<String>()
     private val scheduleListLiveData = MutableLiveData<ArrayList<Schedule>>()
-    // Список с расписанием
     private val listSchedule: ArrayList<Schedule> = arrayListOf()
 
     init {
@@ -31,7 +28,6 @@ class DayViewModel : BaseViewModel() {
     fun setDay(day: String) = dayLiveData.postValue(day)
 
     fun setSchedule(day: String) {
-
         interactor
             .getScheduleDay(day)
             .subscribeOn(Schedulers.io())

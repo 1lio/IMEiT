@@ -1,7 +1,6 @@
 package ru.suhov.student.entity
 
-/** Данные Локации*/
-data class EduBuilding(
+data class EduLocation(
     var id: Int = 0,
     var name: String = "",
     var address: String = "",
