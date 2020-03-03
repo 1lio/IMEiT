@@ -17,20 +17,14 @@ import ru.suhov.student.R
 
 import ru.suhov.student.viewmodel.LocationViewModel
 
-/** Фрагмент с картой */
+// Фрагмент с картой
 class MapsMapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var model: LocationViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        state: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View {
         val v = inflater.inflate(R.layout.fr_maps, container, false)
-        (childFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment).getMapAsync(
-            this
-        )
+        (childFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment).getMapAsync(this)
         model = ViewModelProvider(this)[LocationViewModel::class.java]
         return v
     }

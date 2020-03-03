@@ -105,5 +105,7 @@
     <string name="bottom_week">Знаменатель</string>
     <string name="notification_stud_tik">Уведомлять каждое полугодие о продлении студенческого билета</string>
     <string name="exit">Выйти</string>
+    <string name="gradebook">Виртуальная зачетная книжка</string>
+    <string name="semestr">Семестр №</string>
 
 </resources>
