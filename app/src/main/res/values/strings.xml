@@ -104,5 +104,6 @@
     <string name="current_week">Текущая неделя</string>
     <string name="bottom_week">Знаменатель</string>
     <string name="notification_stud_tik">Уведомлять каждое полугодие о продлении студенческого билета</string>
+    <string name="exit">Выйти</string>
 
 </resources>
