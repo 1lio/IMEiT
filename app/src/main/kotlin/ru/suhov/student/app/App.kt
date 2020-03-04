@@ -9,7 +9,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // TODO: Избавиться от HAWK
         Hawk.init(applicationContext).build()
 
         // Включаем работу RealtimeDatabase в offline
