@@ -18,16 +18,12 @@ import ru.suhov.student.util.AppConstants.FRAGMENT_EMPTY_SCHEDULE
 import ru.suhov.student.util.AppConstants.FRAGMENT_MAPS
 import ru.suhov.student.util.AppConstants.FRAGMENT_SCHEDULE
 import ru.suhov.student.util.AppConstants.FRAGMENT_SIGN_IN
-import ru.suhov.student.util.AppConstants.FRAGMENT_SIGN_UP_FIRST
-import ru.suhov.student.util.AppConstants.FRAGMENT_SIGN_UP_SECOND
 import ru.suhov.student.util.AppConstants.LOG_DEBUG
 import ru.suhov.student.util.ErrorEvent
 import ru.suhov.student.util.pushFragment
 import ru.suhov.student.util.toast
 import ru.suhov.student.view.ftagments.AccountFragment
-import ru.suhov.student.view.ftagments.auth.SignInFragment
-import ru.suhov.student.view.ftagments.auth.SignUpFirstFragment
-import ru.suhov.student.view.ftagments.auth.SignUpSecondFragment
+import ru.suhov.student.view.ftagments.auth.AuthFragment
 import ru.suhov.student.view.ftagments.calls.CallFragment
 import ru.suhov.student.view.ftagments.calls.CallSetupFragment
 import ru.suhov.student.view.ftagments.maps.MapsPagerFragment
@@ -56,9 +52,7 @@ class ActivityController(private val activity: AppCompatActivity) {
 
             val fragment: Fragment? = when (it) {
 
-                FRAGMENT_SIGN_IN -> SignInFragment()
-                FRAGMENT_SIGN_UP_FIRST -> SignUpFirstFragment()
-                FRAGMENT_SIGN_UP_SECOND -> SignUpSecondFragment()
+                FRAGMENT_SIGN_IN -> AuthFragment()
 
                 FRAGMENT_EMPTY_SCHEDULE -> FragmentEmptyGroup()
                 FRAGMENT_SCHEDULE -> SchedulePagerFragment()
@@ -121,7 +115,7 @@ class ActivityController(private val activity: AppCompatActivity) {
     }
 
     private fun observeAuth() {
-        authModel.observeAuth(activity, Observer {
+       /* authModel.observeAuth(activity, Observer {
             if (it) {
                 controlModel.setVisibleUI(visibility = true)
                 controlModel.setFragmentId(controlModel.getFragmentSchedule())
@@ -130,7 +124,7 @@ class ActivityController(private val activity: AppCompatActivity) {
                 controlModel.setFragmentId(FRAGMENT_SIGN_IN)
                 controlModel.setVisibleUI(visibility = false)
             }
-        })
+        })*/
     }
 
     private fun observeVisibleUI() {
@@ -144,7 +138,7 @@ class ActivityController(private val activity: AppCompatActivity) {
     }
 
     private fun observeErrorMsg() {
-        authModel.observeAuthErrorsMsg(activity, Observer {
+       /* authModel.observeAuthErrorsMsg(activity, Observer {
             val msg: Int = when (it) {
                 ErrorEvent.ERROR_CONNECTIONS -> R.string.error_connections
                 ErrorEvent.ERROR_PASS -> R.string.error_pass
@@ -155,6 +149,6 @@ class ActivityController(private val activity: AppCompatActivity) {
                 else -> 0
             }
             toast(context = activity, msg = msg)
-        })
+        })*/
     }
 }

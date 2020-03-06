@@ -46,15 +46,15 @@ class SignUpLastView : ConstraintLayout {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (isValidName()) {
                     model.setUserName(s.toString())
-                    authModel.setUserData(model.getUser())
+               //     authModel.setUserData(model.getUser())
                     Log.d(LOG_ACCOUNT, model.getUser().toString())
                 }
             }
         })
 
         registration.setOnClickListener {
-            authModel.setUserData(model.getUser())
-            authModel.signUp()
+       //     authModel.setUserData(model.getUser())
+        //    authModel.signUp()
         }
     }
 

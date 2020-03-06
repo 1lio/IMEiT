@@ -26,9 +26,9 @@ class SignUpFirstView : ConstraintLayout {
 
     init {
         LayoutInflater.from(context).inflate(R.layout.v_sign_up, this)
-        model.observeValidAll(activity, Observer { btn_next_u.isEnabled = it })
+   //     model.observeValidAll(activity, Observer { btn_next_u.isEnabled = it })
 
-        arrayOf(ed_email_u, ed_pass_u, ed_pass_u_re).forEach {
+    /*    arrayOf(ed_email_u, ed_pass_u, ed_pass_u_re).forEach {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
@@ -46,60 +46,15 @@ class SignUpFirstView : ConstraintLayout {
                     updateSignInData()
                 }
             })
-        }
+        }*/
     }
 
     private fun updateSignInData() {
-        val email = ed_email_u.text.toString()
+    /*    val email = ed_email_u.text.toString()
         val pass = ed_pass_u.text.toString()
 
-        authModel.setSignUpLogin(email, pass)
+        authModel.setSignUpLogin(email, pass)*/
     }
 
-    private fun validateEmail(): Boolean {
-        return when {
-            ed_email_u.text.toString().isEmpty() -> {
-                ed_email_u.error = resources.getString(R.string.is_empty)
-                false
-            }
 
-            !android.util.Patterns.EMAIL_ADDRESS.matcher(ed_email_u.text.toString()).matches() -> {
-                ed_email_u.error = resources.getString(R.string.is_never_email)
-                false
-            }
-
-            else -> {
-                ed_email_u.error = null
-                true
-            }
-        }
-
-    }
-
-    private fun validatePass(): Boolean {
-        return when {
-
-            ed_pass_u.text.toString().isEmpty() -> {
-                ed_pass_u.error = resources.getString(R.string.is_empty)
-                false
-            }
-
-            ed_pass_u.text.toString().length < 6 -> {
-                ed_pass_u.error = resources.getString(R.string.error_min_length_pass)
-                false
-            }
-
-            ed_pass_u.text.toString() != ed_pass_u_re.text.toString() -> {
-                ed_pass_u_re.error = resources.getString(R.string.pass_do_not_match)
-                false
-            }
-
-            else -> {
-                ed_pass_u.error = null
-                ed_pass_u_re.error = null
-                true
-            }
-        }
-
-    }
 }

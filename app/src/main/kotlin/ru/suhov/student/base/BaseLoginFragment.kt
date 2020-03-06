@@ -17,6 +17,6 @@ abstract class BaseLoginFragment : Fragment() {
         accountModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
         controlModel = ViewModelProvider(activity!!)[ControlViewModel::class.java]
 
-        if (accountModel.isSigned()) accountModel.signIn()
+        //if (accountModel.isSigned()) accountModel.signIn()
     }
 }

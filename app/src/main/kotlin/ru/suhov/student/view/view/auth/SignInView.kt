@@ -30,10 +30,10 @@ class SignInView : LinearLayout {
     init {
         LayoutInflater.from(context).inflate(R.layout.v_sign_in, this@SignInView)
 
-        model.observeForms(activity, Observer { btn_sign_in.isEnabled = it }) // Доступность кнопки логин
-        authModel.observeTryAuth(activity, Observer { showDialog(it) })   // Попытка авторизации
+   //     model.observeForms(activity, Observer { btn_sign_in.isEnabled = it }) // Доступность кнопки логин
+     //   authModel.observeTryAuth(activity, Observer { showDialog(it) })   // Попытка авторизации
 
-        arrayOf(ed_email, ed_pass).forEach {
+  /*      arrayOf(ed_email, ed_pass).forEach {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
@@ -54,7 +54,7 @@ class SignInView : LinearLayout {
                 }
 
             })
-        }
+        }*/
     }
 
     private fun showDialog(show: Boolean) {
@@ -63,7 +63,7 @@ class SignInView : LinearLayout {
 
     private fun validateForm(): Boolean {
 
-        return when {
+       /* return when {
             TextUtils.isEmpty(ed_email.text.toString()) -> {
                 ed_email.error = resources.getString(R.string.is_not_empty)
                 false
@@ -84,6 +84,7 @@ class SignInView : LinearLayout {
                 ed_pass.error = null
                 true
             }
-        }
+        }*/
+        return true
     }
 }

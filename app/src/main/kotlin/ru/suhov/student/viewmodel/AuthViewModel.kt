@@ -1,9 +1,7 @@
 package ru.suhov.student.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
+import androidx.lifecycle.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.suhov.student.base.BaseViewModel
@@ -19,10 +17,9 @@ import java.util.concurrent.TimeUnit
 class AuthViewModel : BaseViewModel() {
 
     private val interactor = AccountInteractorImpl().getInstance()
-
     private val authErrors = MutableLiveData<Byte>()     // Ошибки авторизации
     private val tryAuthData = MutableLiveData<Boolean>() // Попытка авторизации
-    private val userData = MutableLiveData<User>()       // Сам пользователь
+    private val userData = MutableLiveData<User>()
 
     // Sign In
     private val emailData = MutableLiveData<String>()    // email
@@ -30,14 +27,60 @@ class AuthViewModel : BaseViewModel() {
     private val isAuthData = MutableLiveData<Boolean>()  // Авторизован ди пользователь
 
     //SignUp
-    private val userAuth = AuthData()                    // данные для регистрации
+    private val userAuth = AuthData()
+
+
+    private val state = MutableLiveData<AuthState>()
+    private val lastState = MutableLiveData<AuthState>()
+
+    private val actionEnabled = MutableLiveData<Boolean>()
+    private val actionName = MutableLiveData<String>()
 
     init {
         isAuthData.value = localRepository.isAuth
         if (localRepository.isAuth) getUser()
+
+        state.value = AuthState.SIGN_IN
+        actionName.value = ""
+        actionEnabled.value = false
     }
 
-    /** Авторизация */
+    fun setLastState(state: AuthState) {
+        lastState.postValue(state)
+    }
+
+    fun getLastState() = lastState.value
+
+    fun setActionName(name: String) {
+        actionName.value = name
+    }
+
+    fun observeActionName(owner: LifecycleOwner, observer: Observer<String>) {
+        actionName.observe(owner, observer)
+    }
+
+    fun setState(state: AuthState) {
+        this.state.postValue(state)
+    }
+
+    fun getState() = state.value
+
+    fun observeState(owner: LifecycleOwner, observer: Observer<AuthState>) {
+        state.observe(owner, observer)
+    }
+
+    fun observeEnableAction(owner: LifecycleOwner, observer: Observer<Boolean>) {
+        actionEnabled.observe(owner, observer)
+    }
+
+    fun setEnableAction(boolean: Boolean) {
+        actionEnabled.value = boolean
+    }
+
+
+    fun getEnableAction() = actionEnabled.value
+
+    // Авторизация
     fun signIn() {
         tryAuthData.value = true // Флаг, попытка авторизации
 
@@ -50,11 +93,11 @@ class AuthViewModel : BaseViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .delay(2L, TimeUnit.SECONDS)
-            .subscribe({ if (it) setAuth(it) }, { setErrorMsg(ERROR_LOGIN) })
+            .subscribe({ if (it) setAuthStatus(it) }, { setErrorMsg(ERROR_LOGIN) })
             .apply { compositeDisposable.add(this) }
     }
 
-    /** Регистрация*/
+    // Регистрация
     fun signUp() {
         tryAuthData.value = true
 
@@ -63,11 +106,12 @@ class AuthViewModel : BaseViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .delay(2L, TimeUnit.SECONDS)
-            .subscribe({ setAuth(it) }, { setErrorMsg(ERROR_CREATE_ACCOUNT) })
+            .subscribe({ setAuthStatus(it) }, { setErrorMsg(ERROR_CREATE_ACCOUNT) })
             .apply { compositeDisposable.add(this) }
     }
 
-    /** Выход из приложения */
+    // Выход из приложения
+
     fun signOut() {
         // Данную задачу можно кинуть на фон
         interactor.signOut()
@@ -80,8 +124,8 @@ class AuthViewModel : BaseViewModel() {
             .apply { compositeDisposable.add(this) }
     }
 
-    /** Установить статус авториззации */
-    private fun setAuth(auth: Boolean) {
+    // Установить статус авториззации
+    private fun setAuthStatus(auth: Boolean) {
 
         tryAuthData.postValue(false)
         // Что-то происходит
@@ -95,7 +139,7 @@ class AuthViewModel : BaseViewModel() {
         isAuthData.postValue(auth)
     }
 
-    /** Пользовательские данные */
+    // Пользовательские данные
     private fun getUser() {
         interactor
             .getAccount(localRepository.userId)
@@ -105,48 +149,48 @@ class AuthViewModel : BaseViewModel() {
             .apply { compositeDisposable.add(this) }
     }
 
-    /** Проверка на авторизацию */
+    // Проверка на авторизацию
     fun isSigned(): Boolean = isAuthData.value ?: false
 
-    /** Передача пользовательских данных*/
+    // Передача пользовательских данных
     fun setUserData(user: User) {
         userAuth.user = user
     }
 
-    /** Передача email и пароля для входа*/
+    // Передача email и пароля для входа
     fun setSignInLogin(email: String, pass: String) {
         emailData.postValue(email)
         passData.postValue(pass)
         Log.d(LOG_ACCOUNT, "$email $pass")
     }
 
-    /** Передача email и пароля для регистрации*/
+    // Передача email и пароля для регистрации
     fun setSignUpLogin(email: String, pass: String) {
         userAuth.email = email
         userAuth.pass = pass
     }
 
-    /** Наблюдение за авторизацией*/
+    // Наблюдение за авторизацией
     fun observeAuth(owner: LifecycleOwner, observer: Observer<Boolean>) {
         isAuthData.observe(owner, observer)
     }
 
-    /** Наблюдение за попыткой авторизации*/
+    // Наблюдение за попыткой авторизации
     fun observeTryAuth(owner: LifecycleOwner, observer: Observer<Boolean>) {
         tryAuthData.observe(owner, observer)
     }
 
-    /** Наблюдение за пользовательскими данными*/
+    // Наблюдение за пользовательскими данными
     fun observeUser(owner: LifecycleOwner, observer: Observer<User>) {
         userData.observe(owner, observer)
     }
 
-    /** наблюдение за ошибками */
+    // наблюдение за ошибками
     fun observeAuthErrorsMsg(owner: LifecycleOwner, observer: Observer<Byte>) {
         authErrors.observe(owner, observer)
     }
 
-    /** Установить ошибку*/
+    // Установить ошибку
     private fun setErrorMsg(msgId: Byte) {
         authErrors.postValue(msgId)
         tryAuthData.postValue(false)
