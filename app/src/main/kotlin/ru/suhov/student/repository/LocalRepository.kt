@@ -21,6 +21,7 @@ import ru.suhov.student.util.Constants.NOT_SELECT
 class LocalRepository {
 
     private val instance: LocalRepository? = null
+
     // Вход
     var isAuth: Boolean
         set(value) {
