@@ -25,9 +25,13 @@ class AuthFragment : Fragment() {
 
     private lateinit var authModel: AuthViewModel
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
+    }
+
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, bundle: Bundle?): View? {
         super.onCreateView(inflater, group, bundle)
-        authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
         return inflater.inflate(R.layout.fr_auth, group, false)
     }
 
@@ -46,9 +50,7 @@ class AuthFragment : Fragment() {
         authModel.observeState(activity!!, Observer {
             updateAnimation(it)
             animationSocial()
-
         })
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,18 +59,20 @@ class AuthFragment : Fragment() {
         connectViewPager()
 
         action.setOnClickListener {
-            fragmentManager!!.beginTransaction().replace(R.id.container, AccountFragment()).commit()
+            childFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, AccountFragment())
+                .commit()
         }
     }
 
     private fun connectViewPager() {
 
-        authPager.adapter = AuthAdapter(fragmentManager!!, lifecycle)
+        authPager.adapter = AuthAdapter(childFragmentManager, lifecycle)
 
         TabLayoutMediator(authTabLayout, authPager,
             TabLayoutMediator.TabConfigurationStrategy { tab, pos ->
-                tab.text =
-                    if (pos == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up)
+                tab.text = if (pos == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up)
             }).attach()
 
         authPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -84,7 +88,6 @@ class AuthFragment : Fragment() {
                 }
             }
         })
-
     }
 
     private fun updateAnimation(state: AuthState) {
