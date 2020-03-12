@@ -1,19 +1,13 @@
 package ru.suhov.student.view.view.auth
 
 import android.content.Context
-import android.text.Editable
-import android.text.TextUtils
-import android.text.TextWatcher
 import android.util.AttributeSet
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.v_sign_in.view.*
 import ru.suhov.student.R
-import ru.suhov.student.view.MainActivity
+import ru.suhov.student.MainActivity
 import ru.suhov.student.viewmodel.AuthViewModel
 import ru.suhov.student.viewmodel.view.SignInViewModel
 

@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.v_sign_up_last.view.*
 import ru.suhov.student.R
-import ru.suhov.student.view.MainActivity
+import ru.suhov.student.MainActivity
 import ru.suhov.student.util.AppConstants.LOG_ACCOUNT
 import ru.suhov.student.viewmodel.AuthViewModel
 import ru.suhov.student.viewmodel.view.SignUpLastStepModel

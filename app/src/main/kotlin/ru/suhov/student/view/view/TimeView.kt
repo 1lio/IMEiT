@@ -11,7 +11,7 @@ import ru.suhov.student.R
 import ru.suhov.student.util.EducationEvent.BREAK
 import ru.suhov.student.util.EducationEvent.LESSON
 import ru.suhov.student.util.EducationEvent.LUNCH
-import ru.suhov.student.view.MainActivity
+import ru.suhov.student.MainActivity
 import ru.suhov.student.viewmodel.CallTimeViewModel
 
 // View отображающее информацию о текущем времени и остаток времени до конца занятия...

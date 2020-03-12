@@ -23,7 +23,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="ru.suhov.student.view.MainActivity"
+            android:name="ru.suhov.student.MainActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

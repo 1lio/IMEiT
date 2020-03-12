@@ -1,10 +1,9 @@
-package ru.suhov.student.view
+package ru.suhov.student
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity.*
-import ru.suhov.student.R
 import ru.suhov.student.util.AppConstants.DIALOG_EXIT
 import ru.suhov.student.util.AppConstants.FRAGMENT_ACCOUNT
 import ru.suhov.student.util.AppConstants.FRAGMENT_CALLS
@@ -34,30 +33,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 
     override fun onBackPressed() {
