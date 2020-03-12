@@ -12,7 +12,7 @@ import io.reactivex.Single
 import ru.suhov.student.core.entity.AuthData
 import ru.suhov.student.features.interactor.AccountInteractor
 import ru.suhov.student.core.entity.User
-import ru.suhov.student.core.util.AppConstants.LOG_ACCOUNT
+import ru.suhov.student.features.AppConstants.LOG_ACCOUNT
 
 import ru.suhov.student.features.viewmodel.AuthViewModel
 

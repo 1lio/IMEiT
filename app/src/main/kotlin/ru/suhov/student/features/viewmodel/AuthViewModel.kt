@@ -8,10 +8,10 @@ import ru.suhov.student.core.platform.BaseViewModel
 import ru.suhov.student.core.entity.AuthData
 import ru.suhov.student.core.entity.User
 import ru.suhov.student.features.gateway.AccountInteractorImpl
-import ru.suhov.student.core.util.AppConstants.LOG_ACCOUNT
-import ru.suhov.student.core.util.Constants.NOT_SELECT
-import ru.suhov.student.core.util.ErrorEvent.ERROR_CREATE_ACCOUNT
-import ru.suhov.student.core.util.ErrorEvent.ERROR_LOGIN
+import ru.suhov.student.features.AppConstants.LOG_ACCOUNT
+import ru.suhov.student.features.Constants.NOT_SELECT
+import ru.suhov.student.features.auth.ErrorEvent.ERROR_CREATE_ACCOUNT
+import ru.suhov.student.features.auth.ErrorEvent.ERROR_LOGIN
 import java.util.concurrent.TimeUnit
 
 class AuthViewModel : BaseViewModel() {

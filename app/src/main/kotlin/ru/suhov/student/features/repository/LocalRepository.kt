@@ -1,22 +1,22 @@
 package ru.suhov.student.features.repository
 
 import com.orhanobut.hawk.Hawk
-import ru.suhov.student.core.util.Constants.DEF_COUNT_PAIR
-import ru.suhov.student.core.util.Constants.DEF_EDITED_CALL
-import ru.suhov.student.core.util.Constants.DEF_FACULTY
-import ru.suhov.student.core.util.Constants.DEF_GROUP_ID
-import ru.suhov.student.core.util.Constants.DEF_INSTITUTE
-import ru.suhov.student.core.util.Constants.DEF_SIGN_IN
-import ru.suhov.student.core.util.Constants.DEF_USER
-import ru.suhov.student.core.util.Constants.KEY_COUNT_PAIR
-import ru.suhov.student.core.util.Constants.KEY_EDITED_CALL
-import ru.suhov.student.core.util.Constants.KEY_GROUP_ID
-import ru.suhov.student.core.util.Constants.KEY_INSTITUTE
-import ru.suhov.student.core.util.Constants.KEY_NAME_FACULTY
-import ru.suhov.student.core.util.Constants.KEY_NAME_GROUP
-import ru.suhov.student.core.util.Constants.KEY_SIGN_IN
-import ru.suhov.student.core.util.Constants.KEY_USER
-import ru.suhov.student.core.util.Constants.NOT_SELECT
+import ru.suhov.student.features.Constants.DEF_COUNT_PAIR
+import ru.suhov.student.features.Constants.DEF_EDITED_CALL
+import ru.suhov.student.features.Constants.DEF_FACULTY
+import ru.suhov.student.features.Constants.DEF_GROUP_ID
+import ru.suhov.student.features.Constants.DEF_INSTITUTE
+import ru.suhov.student.features.Constants.DEF_SIGN_IN
+import ru.suhov.student.features.Constants.DEF_USER
+import ru.suhov.student.features.Constants.KEY_COUNT_PAIR
+import ru.suhov.student.features.Constants.KEY_EDITED_CALL
+import ru.suhov.student.features.Constants.KEY_GROUP_ID
+import ru.suhov.student.features.Constants.KEY_INSTITUTE
+import ru.suhov.student.features.Constants.KEY_NAME_FACULTY
+import ru.suhov.student.features.Constants.KEY_NAME_GROUP
+import ru.suhov.student.features.Constants.KEY_SIGN_IN
+import ru.suhov.student.features.Constants.KEY_USER
+import ru.suhov.student.features.Constants.NOT_SELECT
 
 class LocalRepository {
 

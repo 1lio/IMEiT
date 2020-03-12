@@ -9,7 +9,7 @@ import ru.suhov.student.core.entity.Schedule
 import ru.suhov.student.features.interactor.ScheduleInteractor
 import ru.suhov.student.features.repository.FirebaseRealtimeRepository
 import ru.suhov.student.features.repository.LocalRepository
-import ru.suhov.student.core.util.Constants
+import ru.suhov.student.features.Constants
 import java.lang.Exception
 
 class ScheduleInteractorImpl : ScheduleInteractor {

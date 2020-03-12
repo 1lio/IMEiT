@@ -1,4 +1,4 @@
-package ru.suhov.student.core.util
+package ru.suhov.student.core.extension
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -9,11 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import ru.suhov.student.R
-import ru.suhov.student.core.util.Constants.FRI
-import ru.suhov.student.core.util.Constants.MON
-import ru.suhov.student.core.util.Constants.THU
-import ru.suhov.student.core.util.Constants.TUE
-import ru.suhov.student.core.util.Constants.WED
+import ru.suhov.student.features.Constants.FRI
+import ru.suhov.student.features.Constants.MON
+import ru.suhov.student.features.Constants.THU
+import ru.suhov.student.features.Constants.TUE
+import ru.suhov.student.features.Constants.WED
 import java.util.*
 
 /** В данном файле хранятся функции которые могут быть вызваны когда-либо мне зависимости от класса*/

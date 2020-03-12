@@ -12,8 +12,8 @@ import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.v_sign_in.*
 import ru.suhov.student.features.viewmodel.AuthSignInModel
 import ru.suhov.student.R
-import ru.suhov.student.core.util.isValidEmail
-import ru.suhov.student.core.util.isValidPass
+import ru.suhov.student.core.extension.isValidEmail
+import ru.suhov.student.core.extension.isValidPass
 import ru.suhov.student.features.viewmodel.AuthState
 import java.util.*
 

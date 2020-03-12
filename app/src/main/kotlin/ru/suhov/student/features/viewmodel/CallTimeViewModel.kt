@@ -8,8 +8,8 @@ import io.reactivex.schedulers.Schedulers
 import ru.suhov.student.core.platform.BaseViewModel
 import ru.suhov.student.core.entity.CallPref
 import ru.suhov.student.features.gateway.TimeCallInteractorImpl
-import ru.suhov.student.core.util.CallGenerator
-import ru.suhov.student.core.util.CallUtil
+import ru.suhov.student.features.call.CallGenerator
+import ru.suhov.student.features.call.CallUtil
 import ru.suhov.student.features.call.CallItem
 import ru.suhov.student.features.call.CallFragment
 import ru.suhov.student.features.call.TimeView
@@ -81,7 +81,10 @@ class CallTimeViewModel : BaseViewModel() {
                 list = CallGenerator(pref).getCallsList()
 
                 prefData.postValue(pref)
-                listData.postValue(CallGenerator(it).getCallsList())
+                listData.postValue(
+                    CallGenerator(
+                        it
+                    ).getCallsList())
             }.apply { compositeDisposable.add(this) }
     }
 

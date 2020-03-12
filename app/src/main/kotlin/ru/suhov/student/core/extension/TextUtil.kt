@@ -1,4 +1,4 @@
-package ru.suhov.student.core.util
+package ru.suhov.student.core.extension
 
 import android.widget.EditText
 import ru.suhov.student.R

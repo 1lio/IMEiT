@@ -4,12 +4,11 @@ import android.content.Context
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import ru.suhov.student.R
-import ru.suhov.student.core.util.Constants.FRI
-import ru.suhov.student.core.util.Constants.MON
-import ru.suhov.student.core.util.Constants.THU
-import ru.suhov.student.core.util.Constants.TUE
-import ru.suhov.student.core.util.Constants.WED
-import ru.suhov.student.features.schedule.FragmentDay
+import ru.suhov.student.features.Constants.FRI
+import ru.suhov.student.features.Constants.MON
+import ru.suhov.student.features.Constants.THU
+import ru.suhov.student.features.Constants.TUE
+import ru.suhov.student.features.Constants.WED
 
 class DayPagerAdapter(fm: FragmentManager, private val context:Context) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

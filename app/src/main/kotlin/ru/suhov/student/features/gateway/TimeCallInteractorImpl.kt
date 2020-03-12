@@ -9,9 +9,9 @@ import io.reactivex.Single
 import ru.suhov.student.core.entity.CallPref
 import ru.suhov.student.features.interactor.TimeCallInteractor
 import ru.suhov.student.features.repository.FirebaseRealtimeRepository
-import ru.suhov.student.core.util.AppConstants.LOG_CALLS
-import ru.suhov.student.core.util.Constants.CALL_REFERENCE
-import ru.suhov.student.core.util.Constants.DEFAULT
+import ru.suhov.student.features.AppConstants.LOG_CALLS
+import ru.suhov.student.features.Constants.CALL_REFERENCE
+import ru.suhov.student.features.Constants.DEFAULT
 
 class TimeCallInteractorImpl : TimeCallInteractor {
 

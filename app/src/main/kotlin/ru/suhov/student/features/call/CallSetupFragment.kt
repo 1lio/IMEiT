@@ -17,8 +17,8 @@ import ru.suhov.student.R
 import ru.suhov.student.core.navigation.MainActivity
 import ru.suhov.student.features.repository.LocalRepository
 import ru.suhov.student.core.entity.CallPref
-import ru.suhov.student.core.util.timeFormat
-import ru.suhov.student.core.util.toast
+import ru.suhov.student.core.extension.timeFormat
+import ru.suhov.student.core.extension.toast
 import ru.suhov.student.features.viewmodel.CallTimeViewModel
 import java.util.*
 import kotlin.collections.ArrayList
@@ -181,7 +181,10 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
             }
             R.id.btn_def_call -> {
                 viewModelSetup.setDefaultPreferences()
-                toast(context!!, R.string.def_settings)
+                toast(
+                    context!!,
+                    R.string.def_settings
+                )
             }
            /* R.id.fab -> {
                 viewModelSetup.saveAndPush(pref)

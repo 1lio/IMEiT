@@ -8,9 +8,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.v_time_check.view.*
 import ru.suhov.student.R
-import ru.suhov.student.core.util.EducationEvent.BREAK
-import ru.suhov.student.core.util.EducationEvent.LESSON
-import ru.suhov.student.core.util.EducationEvent.LUNCH
+import ru.suhov.student.features.call.EducationEvent.BREAK
+import ru.suhov.student.features.call.EducationEvent.LESSON
+import ru.suhov.student.features.call.EducationEvent.LUNCH
 import ru.suhov.student.core.navigation.MainActivity
 import ru.suhov.student.features.viewmodel.CallTimeViewModel
 

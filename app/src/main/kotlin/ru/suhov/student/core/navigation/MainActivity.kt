@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity.*
 import ru.suhov.student.R
-import ru.suhov.student.core.util.AppConstants.DIALOG_EXIT
-import ru.suhov.student.core.util.AppConstants.FRAGMENT_ACCOUNT
-import ru.suhov.student.core.util.AppConstants.FRAGMENT_CALLS
-import ru.suhov.student.core.util.AppConstants.FRAGMENT_MAPS
-import ru.suhov.student.core.util.AppConstants.FRAGMENT_SCHEDULE
+import ru.suhov.student.features.AppConstants.DIALOG_EXIT
+import ru.suhov.student.features.AppConstants.FRAGMENT_ACCOUNT
+import ru.suhov.student.features.AppConstants.FRAGMENT_CALLS
+import ru.suhov.student.features.AppConstants.FRAGMENT_MAPS
+import ru.suhov.student.features.AppConstants.FRAGMENT_SCHEDULE
 import ru.suhov.student.features.viewmodel.ActivityController
 import ru.suhov.student.features.viewmodel.ControlViewModel
 

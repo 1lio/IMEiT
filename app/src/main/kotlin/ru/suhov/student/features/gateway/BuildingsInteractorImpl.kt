@@ -9,7 +9,7 @@ import io.reactivex.Single
 import ru.suhov.student.core.entity.EduLocation
 import ru.suhov.student.features.interactor.BuildingsInteractor
 import ru.suhov.student.features.repository.FirebaseRealtimeRepository
-import ru.suhov.student.core.util.AppConstants.LOG_BUILDINGS
+import ru.suhov.student.features.AppConstants.LOG_BUILDINGS
 
 class BuildingsInteractorImpl : BuildingsInteractor {
 

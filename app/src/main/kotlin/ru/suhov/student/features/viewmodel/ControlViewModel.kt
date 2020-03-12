@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import ru.suhov.student.features.repository.LocalRepository
-import ru.suhov.student.core.util.AppConstants.FRAGMENT_EMPTY_SCHEDULE
-import ru.suhov.student.core.util.AppConstants.FRAGMENT_SCHEDULE
-import ru.suhov.student.core.util.AppConstants.FRAGMENT_SIGN_IN
+import ru.suhov.student.features.AppConstants.FRAGMENT_EMPTY_SCHEDULE
+import ru.suhov.student.features.AppConstants.FRAGMENT_SCHEDULE
+import ru.suhov.student.features.AppConstants.FRAGMENT_SIGN_IN
 
 /** Вью модель поведения в активити*/
 class ControlViewModel : ViewModel() {

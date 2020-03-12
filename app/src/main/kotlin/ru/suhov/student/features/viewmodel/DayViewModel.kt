@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 import ru.suhov.student.core.platform.BaseViewModel
 import ru.suhov.student.core.entity.Schedule
 import ru.suhov.student.features.gateway.ScheduleInteractorImpl
-import ru.suhov.student.core.util.getDayAcronym
+import ru.suhov.student.core.extension.getDayAcronym
 
 class DayViewModel : BaseViewModel() {
 

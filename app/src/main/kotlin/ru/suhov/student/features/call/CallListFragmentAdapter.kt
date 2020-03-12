@@ -9,8 +9,7 @@ import androidx.core.content.ContextCompat
 import ru.suhov.student.R
 import ru.suhov.student.core.platform.BaseAdapter
 import ru.suhov.student.core.platform.BaseViewHolder
-import ru.suhov.student.core.util.CallUtil
-import ru.suhov.student.core.util.styleAppearance
+import ru.suhov.student.core.extension.styleAppearance
 import ru.suhov.student.core.entity.CallPref
 
 class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.ViewHolder>() {

@@ -11,8 +11,8 @@ import ru.suhov.student.core.platform.BaseAdapter
 import ru.suhov.student.core.platform.BaseViewHolder
 import ru.suhov.student.core.entity.CallPref
 import ru.suhov.student.core.entity.Schedule
-import ru.suhov.student.core.util.CallUtil
-import ru.suhov.student.core.util.styleAppearance
+import ru.suhov.student.features.call.CallUtil
+import ru.suhov.student.core.extension.styleAppearance
 import ru.suhov.student.features.call.TimeData
 
 class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolder>() {

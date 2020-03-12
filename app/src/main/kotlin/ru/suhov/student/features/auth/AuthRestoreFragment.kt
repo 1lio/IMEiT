@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fr_restore.*
 import ru.suhov.student.R
-import ru.suhov.student.core.util.isValidEmail
+import ru.suhov.student.core.extension.isValidEmail
 import ru.suhov.student.features.viewmodel.AuthRestoreViewModel
 import ru.suhov.student.features.viewmodel.AuthState
 

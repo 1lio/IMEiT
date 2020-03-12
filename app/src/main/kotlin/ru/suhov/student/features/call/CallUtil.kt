@@ -1,12 +1,13 @@
-package ru.suhov.student.core.util
+package ru.suhov.student.features.call
 
 import ru.suhov.student.features.repository.LocalRepository
 import ru.suhov.student.core.entity.CallPref
-import ru.suhov.student.core.util.EducationEvent.BREAK
-import ru.suhov.student.core.util.EducationEvent.END
-import ru.suhov.student.core.util.EducationEvent.LESSON
-import ru.suhov.student.core.util.EducationEvent.LUNCH
-import ru.suhov.student.features.call.TimeData
+import ru.suhov.student.features.call.EducationEvent.BREAK
+import ru.suhov.student.features.call.EducationEvent.END
+import ru.suhov.student.features.call.EducationEvent.LESSON
+import ru.suhov.student.features.call.EducationEvent.LUNCH
+import ru.suhov.student.core.extension.remainedTimeFormat
+import ru.suhov.student.core.extension.timeFormat
 import java.util.*
 
 /** Данный класс работает обрабатывает дополнительные возможности при созданнии списка

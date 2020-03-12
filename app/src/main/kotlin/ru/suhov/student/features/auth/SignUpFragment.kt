@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.v_sign_up.*
 
 import ru.suhov.student.features.viewmodel.AuthSingUpModel
 import ru.suhov.student.R
-import ru.suhov.student.core.util.isValidEmail
-import ru.suhov.student.core.util.isValidPass
+import ru.suhov.student.core.extension.isValidEmail
+import ru.suhov.student.core.extension.isValidPass
 import ru.suhov.student.features.viewmodel.AuthState
 
 

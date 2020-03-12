@@ -1,4 +1,4 @@
-package ru.suhov.student.core.util
+package ru.suhov.student.features
 
 object Constants {
 

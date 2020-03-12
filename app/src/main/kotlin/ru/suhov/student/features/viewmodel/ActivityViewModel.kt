@@ -7,7 +7,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.suhov.student.core.platform.BaseViewModel
 import ru.suhov.student.features.gateway.ScheduleInteractorImpl
-import ru.suhov.student.core.util.Constants.NOT_SELECT
+import ru.suhov.student.features.Constants.NOT_SELECT
 
 class ActivityViewModel : BaseViewModel() {
 
