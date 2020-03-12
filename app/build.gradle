@@ -47,6 +47,10 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "androidx.appcompat:appcompat:1.1.0"
 
+    implementation "com.google.dagger:dagger-android:2.15"
+    kapt "com.google.dagger:dagger-compiler:2.11"
+    compileOnly "javax.annotation:jsr250-api:1.0"
+
     // Библиотека для доступа к google maps
     implementation "com.google.android.gms:play-services-maps:17.0.0"
 
