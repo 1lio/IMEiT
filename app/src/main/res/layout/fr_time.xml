@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ru.suhov.student.view.view.TimeView
+        <ru.suhov.student.features.call.TimeView
             android:id="@+id/time_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
