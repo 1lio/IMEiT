@@ -1,10 +1,9 @@
-package ru.suhov.student.core.navigation
+package ru.suhov.student
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity.*
-import ru.suhov.student.R
 import ru.suhov.student.features.AppConstants.DIALOG_EXIT
 import ru.suhov.student.features.AppConstants.FRAGMENT_ACCOUNT
 import ru.suhov.student.features.AppConstants.FRAGMENT_CALLS
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         ActivityController(activity = this@MainActivity)
         model = ViewModelProvider(this@MainActivity)[ControlViewModel::class.java]
 
-        bottomBar.setOnNavigationItemSelectedListener {
+        appBar.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.account -> model.setFragmentId(FRAGMENT_ACCOUNT)
                 R.id.bells -> model.setFragmentId(FRAGMENT_CALLS)

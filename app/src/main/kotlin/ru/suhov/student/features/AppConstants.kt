@@ -3,8 +3,6 @@ package ru.suhov.student.features
 object AppConstants {
 
     const val FRAGMENT_SIGN_IN: Byte = 0
-    const val FRAGMENT_SIGN_UP_FIRST: Byte = 1
-    const val FRAGMENT_SIGN_UP_SECOND: Byte = 2
 
     const val FRAGMENT_EMPTY_SCHEDULE: Byte = 3
     const val FRAGMENT_SCHEDULE: Byte = 4

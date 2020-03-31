@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fr_call_setup.*
 import ru.suhov.student.R
-import ru.suhov.student.core.navigation.MainActivity
+import ru.suhov.student.MainActivity
 import ru.suhov.student.features.repository.LocalRepository
 import ru.suhov.student.core.entity.CallPref
 import ru.suhov.student.core.extension.timeFormat

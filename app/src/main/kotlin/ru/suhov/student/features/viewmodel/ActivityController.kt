@@ -65,8 +65,7 @@ class ActivityController(private val activity: AppCompatActivity) {
             }
 
 
-            fragment?.pushFragment(activity.supportFragmentManager)
-                ?: Log.e(LOG_DEBUG, "Not fragment")
+            fragment?.pushFragment(activity.supportFragmentManager) ?: Log.e(LOG_DEBUG, "Not fragment")
         })
 
     }
@@ -128,7 +127,7 @@ class ActivityController(private val activity: AppCompatActivity) {
     private fun observeVisibleUI() {
 
 
-        val bottomView: BottomNavigationView = activity.findViewById(R.id.bottomBar)
+        val bottomView: BottomNavigationView = activity.findViewById(R.id.appBar)
 
         controlModel.observeVisibleUI(activity, Observer { visible ->
             bottomView.visibility = if (visible) View.VISIBLE else View.GONE
