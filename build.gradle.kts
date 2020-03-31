@@ -1,3 +1,5 @@
+import Config.kotlinDir
+
 buildscript {
 
     repositories {
@@ -6,9 +8,9 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.71")
-        classpath("com.android.tools.build:gradle:3.6.1")
-        classpath("com.google.gms:google-services:4.3.3")
+        classpath(Config.Plugins.gradleAndroid)
+        classpath(Config.Plugins.gradleKotlin)
+        classpath(Config.Plugins.googleServices)
     }
 }
 
@@ -18,4 +20,42 @@ allprojects {
         jcenter()
         mavenCentral()
     }
+
+    // Configure all gradle modules as android/library
+    if ((group as String).isNotEmpty()) configureAndroid()
+}
+
+tasks.withType<Wrapper>().configureEach {
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+fun Project.configureAndroid() {
+
+    if (name == "app") apply(plugin = "com.android.application") else apply(plugin = "com.android.library")
+
+    configure<com.android.build.gradle.BaseExtension> {
+
+        compileSdkVersion(Config.SdkVersions.compile)
+        buildToolsVersion = Config.buildTools
+
+        defaultConfig {
+
+            minSdkVersion(Config.SdkVersions.min)
+            targetSdkVersion(Config.SdkVersions.target)
+
+            // WARNING: The versions of modules and libraries will be the same
+            versionName = Config.version
+            versionCode = Config.versionCode
+
+            vectorDrawables.useSupportLibrary = true
+
+            testInstrumentationRunner = Config.testRunner
+        }
+
+        sourceSets {
+            getByName("main").java.srcDirs(kotlinDir)
+            getByName("test").java.srcDirs(kotlinDir)
+        }
+    }
+
 }
