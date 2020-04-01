@@ -26,9 +26,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
 
     implementation(Config.Libs.Kotlin.jdk8)
     implementation(Config.Libs.Androidx.appCompat)
+
     implementation(Config.Libs.Androidx.ktx)
 
     //JetPack

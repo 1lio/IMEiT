@@ -1,14 +1,7 @@
 rootProject.buildFileName = "build.gradle.kts"
 rootProject.name = "IMEiT"
 
-include(
+include(":app")
 
-    // Application
-    ":app",
-
-    // Base
-    ":core"
-
-    //Features
-    
-)
+include(":core")
+project(":core").projectDir =  File(rootDir, "/base/core")

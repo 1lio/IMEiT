@@ -43,7 +43,6 @@ fun Project.configureAndroid() {
             minSdkVersion(Config.SdkVersions.min)
             targetSdkVersion(Config.SdkVersions.target)
 
-
             vectorDrawables.useSupportLibrary = true
 
             testInstrumentationRunner = Config.testRunner
