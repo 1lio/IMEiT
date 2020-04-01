@@ -6,7 +6,7 @@ object Config {
     const val versionCode = 24
     const val buildTools = "29.0.3"
 
-    const val applicationID = " ru.suhov.student"
+    const val applicationID = "ru.suhov.student"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
 
     const val kotlinDir = "src/main/kotlin"
@@ -27,11 +27,11 @@ object Config {
     object Libs {
 
         object Kotlin {
-            private const val coroutines = "1.3.2"
+            private const val ver = "1.3.2"
+
             const val jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-            const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
-            const val coroutinesAndroid =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+            const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
+            const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver"
         }
 
         object Androidx {

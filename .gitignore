@@ -13,10 +13,7 @@ local.properties
 
 # Gradle files
 .gradle/
-gradle/
-gradlew
 #gradle.properties
-gradlew.bat
 app/libs
 .externalNativeBuild
 .cxx
