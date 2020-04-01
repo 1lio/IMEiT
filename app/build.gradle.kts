@@ -26,7 +26,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":core"))
 
     implementation(Config.Libs.Kotlin.jdk8)
     implementation(Config.Libs.Androidx.appCompat)
@@ -53,5 +52,7 @@ dependencies {
     //Firebase
     implementation(Config.Libs.Firebase.auth)
     implementation(Config.Libs.Firebase.database)
+
+    implementation(project(":core"))
 
 }
