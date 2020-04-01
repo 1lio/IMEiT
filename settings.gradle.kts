@@ -1,11 +1,14 @@
 rootProject.buildFileName = "build.gradle.kts"
-rootProject.name ="IMEiT"
+rootProject.name = "IMEiT"
 
 include(
 
     // Application
-    ":app"
-    // Core
+    ":app",
+
+    // Base
+    ":core"
 
     //Features
+    
 )

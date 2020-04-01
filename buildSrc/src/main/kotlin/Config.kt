@@ -2,8 +2,9 @@ object Config {
 
     private const val kotlinVersion = "1.3.71"
 
-    const val version = "FINAL"
-    const val versionCode = 24
+    const val appVersion = "FINAL"
+    const val appVersionCode = 24
+
     const val buildTools = "29.0.3"
 
     const val applicationID = "ru.suhov.student"
@@ -101,7 +102,7 @@ object Config {
 
 
         object Test {
-            const val junit = "junit:junit:4.12"
+            const val junit = "junit:junit:4.13"
             const val junitExt = "androidx.test.ext:junit:1.1.1"
             const val espresso = "androidx.test.espresso:espresso-core:3.2.0"
 

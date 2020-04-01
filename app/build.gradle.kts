@@ -8,6 +8,9 @@ android {
 
     defaultConfig {
         applicationId = Config.applicationID
+
+        versionName = Config.appVersion
+        versionCode = Config.appVersionCode
     }
 
     buildTypes {

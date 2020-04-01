@@ -43,9 +43,6 @@ fun Project.configureAndroid() {
             minSdkVersion(Config.SdkVersions.min)
             targetSdkVersion(Config.SdkVersions.target)
 
-            // WARNING: The versions of modules and libraries will be the same
-            versionName = Config.version
-            versionCode = Config.versionCode
 
             vectorDrawables.useSupportLibrary = true
 
