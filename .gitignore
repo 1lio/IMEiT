@@ -17,7 +17,7 @@ local.properties
 app/libs
 .externalNativeBuild
 .cxx
-
+build
 # Signing files
 .signing/
 
@@ -72,3 +72,4 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 lint/reports/
+/build/
