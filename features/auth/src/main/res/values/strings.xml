@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="auth_actions">
+        <item>логин</item>
+        <item>регистрация</item>
+        <item>выход</item>
+        <item>авторизован</item>
+        <item>восттановтиь</item>
+        <item>проверка</item>
+    </string-array>
+
+    <string-array name="auth_errors">
+        <item>Нет соединения</item>
+        <item>Аккаунт не существует</item>
+        <item>Неверный логин</item>
+        <item>Неверный пароль</item>
+    </string-array>
+
+    <!-- LOGIN -->
+    <string name="login">Логин</string>
+    <string name="registration">Регистрация</string>
+
+    <!-- ERRORS -->
+
+    <string name="error_connections">Проверьте интернет соединение</string>
+    <string name="error_pass">Неверный пароль</string>
+    <string name="error_email">Данный адрес уже занят</string>
+    <string name="error_login">Неверный логин или пароль</string>
+    <string name="error_server">Ошибка сервера</string>
+    <string name="error_create_account">Ошибка создания аккаунта</string>
+
+    <string name="user_name">Имя пользователя</string>
+    <string name="user_email">E-mail</string>
+    <string name="ok">OK</string>
+
+    <string name="exit_for_profile">Выйти из профиля</string>
+    <string name="sing_in">Вход</string>
+    <string name="logo">logo</string>
+    <string name="sing_up">Нет аккаунта? <b>Регистрация</b></string>
+    <string name="user_pass">Пароль</string>
+
+    <string name="is_not_empty">Поле не должно быть пустым!</string>
+    <string name="is_never_email">Некорректный email</string>
+
+    <string name="error_sign_in">Неверный логин или пароль</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="user_re_pass">Повторите пароль</string>
+    <string name="network_is_available">Разрыв соединения!</string>
+    <string name="faculty">Ваш факультет</string>
+    <string name="pass_do_not_match">Пароли не совпадают!</string>
+    <string name="error_min_length_pass">Минимальная длинная пароля 6 символов</string>
+
+    <string name="accessibility_sign_in_email">Поле ввода email адреса</string>
+    <string name="accessibility_sign_in_pass">Поле ввода пароля</string>
+    <string name="accessibility_sign_in_registration">Создать новый аккаунт</string>
+
+    <string name="university_name">Елецкий государственный \nуниверситет им. И.А. Бунина</string>
+
+    <!-- LOGIN -->
+    <string name="user_login">E-mail</string>
+    <string name="sign_in">ЛОГИН</string>
+    <string name="licence">Согласен с лицензионным соглашением</string>
+    <string name="incorrect_email">Некорректный email</string>
+    <string name="restore">ВОССТАНОВИТЬ</string>
+    <string name="user_support">Забыли пароль?</string>
+    <string name="restore_msg">Укажите e-mail использованный при регистрации</string>
+    <string name="restore_access">ВОССТАНОВЛЕНИЕ ДОСТУПА</string>
+    <string name="msg_restore">Готово. Проверте вашу почту!</string>
+
+    <!-- Events -->
+    <string name="group">Группа</string>
+    <string name="empty_group">Группа не выбрана</string>
+    <string name="back">Назат</string>
+    <string name="next">Далее</string>
+    <string name="institute">Ваш нститут:</string>
+    <string name="set_down_schedule">Нажмие чтобы скачать расписание</string>
+</resources>
