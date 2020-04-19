@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.account.*
-import ru.suhov.student.R
 import ru.suhov.student.MainActivity
+import ru.suhov.student.R
 import ru.suhov.student.features.viewmodel.AuthViewModel
 
 class AccountFragment : Fragment() {
@@ -36,5 +36,6 @@ class AccountFragment : Fragment() {
 
         exit.setOnClickListener { model.signOut() }
     }
+
 
 }

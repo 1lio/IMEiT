@@ -17,7 +17,7 @@ import ru.suhov.student.features.AppConstants.FRAGMENT_CALLS_PREF
 import ru.suhov.student.features.AppConstants.FRAGMENT_EMPTY_SCHEDULE
 import ru.suhov.student.features.AppConstants.FRAGMENT_MAPS
 import ru.suhov.student.features.AppConstants.FRAGMENT_SCHEDULE
-import ru.suhov.student.features.AppConstants.FRAGMENT_SIGN_IN
+import ru.suhov.student.features.AppConstants.FRAGMENT_AUTH
 import ru.suhov.student.features.AppConstants.LOG_DEBUG
 import ru.suhov.student.core.extension.pushFragment
 import ru.suhov.student.features.account.AccountFragment
@@ -32,7 +32,7 @@ class ActivityController(private val activity: AppCompatActivity) {
 
     private val controlModel = ViewModelProvider(activity)[ControlViewModel::class.java]
     private val mainModel = ViewModelProvider(activity)[ActivityViewModel::class.java]
-    private val authModel = ViewModelProvider(activity)[AuthViewModel::class.java]
+   private val authModel = ViewModelProvider(activity)[AuthViewModel::class.java]
 
     init {
         observeAuth()
@@ -50,7 +50,7 @@ class ActivityController(private val activity: AppCompatActivity) {
 
             val fragment: Fragment? = when (it) {
 
-                FRAGMENT_SIGN_IN -> AuthFragment()
+                FRAGMENT_AUTH -> AuthFragment()
 
                 FRAGMENT_EMPTY_SCHEDULE -> FragmentEmptyGroup()
                 FRAGMENT_SCHEDULE -> SchedulePagerFragment()
@@ -112,24 +112,23 @@ class ActivityController(private val activity: AppCompatActivity) {
     }
 
     private fun observeAuth() {
-       /* authModel.observeAuth(activity, Observer {
+        authModel.observeAuth(activity, Observer {
             if (it) {
                 controlModel.setVisibleUI(visibility = true)
                 controlModel.setFragmentId(controlModel.getFragmentSchedule())
             } else {
-                //   navigation.dismiss()
-                controlModel.setFragmentId(FRAGMENT_SIGN_IN)
+              //  navigation.dismiss()
+                controlModel.setFragmentId(FRAGMENT_AUTH)
                 controlModel.setVisibleUI(visibility = false)
             }
-        })*/
+        })
     }
 
     private fun observeVisibleUI() {
 
-
         val bottomView: BottomNavigationView = activity.findViewById(R.id.appBar)
 
-        controlModel.observeVisibleUI(activity, Observer { visible ->
+       controlModel.observeVisibleUI(activity, Observer { visible ->
             bottomView.visibility = if (visible) View.VISIBLE else View.GONE
         })
     }

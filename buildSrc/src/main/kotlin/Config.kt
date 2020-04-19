@@ -1,6 +1,6 @@
 object Config {
 
-    private const val kotlinVersion = "1.3.71"
+    private const val kotlinVersion = "1.3.72"
 
     const val appVersion = "FINAL"
     const val appVersionCode = 24
@@ -19,9 +19,9 @@ object Config {
     }
 
     object Plugins {
-        const val gradleAndroid = "com.android.tools.build:gradle:3.5.3"
+        const val gradleAndroid = "com.android.tools.build:gradle:3.6.2"
         const val gradleKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        const val googleServices = "com.google.gms:google-services:4.3.1"
+        const val googleServices = "com.google.gms:google-services:4.3.3"
         const val realm = "io.realm:realm-gradle-plugin:5.3.0"
     }
 
@@ -94,12 +94,8 @@ object Config {
             const val glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
 
             const val permissions = "pub.devrel:easypermissions:3.0.0"
-        }
-
-        object Other {
             const val hawk = "com.orhanobut:hawk:2.0.1"
         }
-
 
         object Test {
             const val junit = "junit:junit:4.13"
@@ -119,6 +115,14 @@ object Config {
             private const val version = "26.5.0"
             const val api = "com.android.tools.lint:lint-api:$version"
             const val tests = "com.android.tools.lint:lint-tests:$version"
+        }
+    }
+
+    object Features{
+
+        object Auth{
+            const val versionName = "auth"
+            const val versionCode = 1
         }
     }
 }

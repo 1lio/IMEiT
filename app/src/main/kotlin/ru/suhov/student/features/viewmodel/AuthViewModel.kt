@@ -29,7 +29,6 @@ class AuthViewModel : BaseViewModel() {
     //SignUp
     private val userAuth = AuthData()
 
-
     private val state = MutableLiveData<AuthState>()
     private val lastState = MutableLiveData<AuthState>()
 
@@ -76,7 +75,6 @@ class AuthViewModel : BaseViewModel() {
     fun setEnableAction(boolean: Boolean) {
         actionEnabled.value = boolean
     }
-
 
     fun getEnableAction() = actionEnabled.value
 

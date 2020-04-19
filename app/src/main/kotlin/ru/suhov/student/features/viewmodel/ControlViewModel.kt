@@ -4,10 +4,10 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
-import ru.suhov.student.features.repository.LocalRepository
 import ru.suhov.student.features.AppConstants.FRAGMENT_EMPTY_SCHEDULE
 import ru.suhov.student.features.AppConstants.FRAGMENT_SCHEDULE
-import ru.suhov.student.features.AppConstants.FRAGMENT_SIGN_IN
+import ru.suhov.student.features.AppConstants.FRAGMENT_AUTH
+import ru.suhov.student.features.repository.LocalRepository
 
 /** Вью модель поведения в активити*/
 class ControlViewModel : ViewModel() {
@@ -19,7 +19,7 @@ class ControlViewModel : ViewModel() {
 
     init {
         currentFragmentID.value = getFragmentSchedule()
-        visibilityUI.value = localRepository.isAuth
+        visibilityUI.value = true
         currentDialogID.value = null
     }
 
@@ -33,7 +33,6 @@ class ControlViewModel : ViewModel() {
 
     fun observeVisibleUI(owner: LifecycleOwner, observer: Observer<Boolean>) {
         visibilityUI.observe(owner, observer)
-
     }
 
     fun setVisibleUI(visibility: Boolean) {
@@ -52,7 +51,7 @@ class ControlViewModel : ViewModel() {
         return when {
             localRepository.isAuth && localRepository.isSelectedGroup -> FRAGMENT_SCHEDULE
             localRepository.isAuth && !localRepository.isSelectedGroup -> FRAGMENT_EMPTY_SCHEDULE
-            else -> FRAGMENT_SIGN_IN
+            else -> FRAGMENT_AUTH
         }
     }
 }

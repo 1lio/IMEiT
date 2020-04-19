@@ -46,10 +46,10 @@ class SignInFragment : BaseAuthFragment() {
 
             authModel.setActionName(resources.getString(R.string.restore))
 
-            val fm = childFragmentManager
+            val fm = activity!!.supportFragmentManager
             fm.beginTransaction().replace(R.id.frameLayout,
                 AuthRestoreFragment(fm)
-            ).commit()
+            ).commitNow()
         }
 
         listOf(edSignEmail, edSignPass).forEach {

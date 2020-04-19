@@ -112,14 +112,14 @@
             android:id="@+id/authGoogle"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            app:srcCompat="@drawable/ic_google_plus_box" />
+            app:srcCompat="@drawable/ic_social_google" />
 
         <ImageView
             android:id="@+id/authVk"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_marginStart="8dp"
-            app:srcCompat="@drawable/ic_vk_box" />
+            app:srcCompat="@drawable/ic_social_vk" />
 
         <ImageView
             android:id="@+id/authFacebook"
@@ -133,7 +133,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_marginStart="8dp"
-            app:srcCompat="@drawable/ic_twitter_box" />
+            app:srcCompat="@drawable/ic_social_twitter" />
 
         <ImageView
             android:id="@+id/authGitHub"

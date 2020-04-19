@@ -57,27 +57,26 @@ class AuthFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         connectViewPager()
+        val fm = activity!!.supportFragmentManager
 
         action.setOnClickListener {
-            childFragmentManager
+            fm
                 .beginTransaction()
-                .replace(R.id.container,
-                    AccountFragment()
-                )
+                .replace(R.id.container, AccountFragment())
                 .commit()
         }
     }
 
     private fun connectViewPager() {
 
-        authPager.adapter = AuthAdapter(
-            childFragmentManager,
-            lifecycle
-        )
+        val fm = activity!!.supportFragmentManager
+
+        authPager.adapter = AuthAdapter(fm, lifecycle)
 
         TabLayoutMediator(authTabLayout, authPager,
             TabLayoutMediator.TabConfigurationStrategy { tab, pos ->
-                tab.text = if (pos == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up)
+                tab.text =
+                    if (pos == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up)
             }).attach()
 
         authPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {

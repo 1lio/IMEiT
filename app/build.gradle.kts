@@ -47,12 +47,13 @@ dependencies {
     implementation(Config.Libs.PlayServices.playMaps)
 
     // Библиотека для хранения примитивных типов
-    implementation(Config.Libs.Other.hawk)
+    implementation(Config.Libs.Misc.hawk)
 
     //Firebase
     implementation(Config.Libs.Firebase.auth)
     implementation(Config.Libs.Firebase.database)
 
-    implementation(project(":core"))
+   // implementation(project(":core"))
+    implementation(project(":auth"))
 
 }

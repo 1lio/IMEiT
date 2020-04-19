@@ -11,3 +11,7 @@ project(":network").projectDir =  File(rootDir, "/base/network")
 
 include(":repo")
 project(":repo").projectDir =  File(rootDir, "/base/repo")
+
+
+include(":auth")
+project(":auth").projectDir = File(rootDir, "/features/auth")

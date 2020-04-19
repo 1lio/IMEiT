@@ -16,7 +16,6 @@ import ru.suhov.student.core.extension.isValidEmail
 import ru.suhov.student.core.extension.isValidPass
 import ru.suhov.student.features.viewmodel.AuthState
 
-
 class SignUpFragment : BaseAuthFragment() {
 
     override val state: AuthState = AuthState.SIGN_UP

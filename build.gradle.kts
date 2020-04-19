@@ -1,5 +1,3 @@
-import Config.kotlinDir
-
 buildscript {
 
     repositories {
@@ -15,6 +13,7 @@ buildscript {
 }
 
 allprojects {
+
     repositories {
         google()
         jcenter()
@@ -25,9 +24,6 @@ allprojects {
     if ((group as String).isNotEmpty()) configureAndroid()
 }
 
-tasks.withType<Wrapper>().configureEach {
-    distributionType = Wrapper.DistributionType.ALL
-}
 
 fun Project.configureAndroid() {
 
@@ -46,11 +42,13 @@ fun Project.configureAndroid() {
             vectorDrawables.useSupportLibrary = true
 
             testInstrumentationRunner = Config.testRunner
+
+            consumerProguardFiles("consumer-rules.pro")
         }
 
         sourceSets {
-            getByName("main").java.srcDirs(kotlinDir)
-            getByName("test").java.srcDirs(kotlinDir)
+            getByName("main").java.srcDirs(Config.kotlinDir)
+            getByName("test").java.srcDirs(Config.kotlinDir)
         }
     }
 
