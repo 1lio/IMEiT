@@ -36,7 +36,7 @@ class FragmentDay(private val day: String) : Fragment() {
         recycler.adapter = adapter
 
         model.setSchedule(day)
-        model.observeSchedule(this, Observer { adapter.addAllAndNotify(it) })
+        model.observeSchedule(viewLifecycleOwner, Observer { adapter.addAllAndNotify(it) })
 
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.addItemDecoration(

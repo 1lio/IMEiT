@@ -57,12 +57,7 @@ class SignInFragment : BaseAuthFragment() {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {}
+                override fun beforeTextChanged(s: CharSequence?, t: Int, c: Int, a: Int) {}
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
