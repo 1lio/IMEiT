@@ -22,9 +22,6 @@ class LoginTestUI {
 
     @Rule @JvmField var activityTestRule = ActivityTestRule(MainActivity::class.java)
 
-    // Тесты не пашут. Почему-то не вводиться текст поле, вводиться на половину, скорее всего из-за
-    // Observer-a потторый обновляет дату и вью теряет фокус, но это не точно...
-
     @Test
     fun signIn() {
 
