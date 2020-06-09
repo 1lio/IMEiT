@@ -26,7 +26,6 @@ android {
 }
 
 dependencies {
-
     implementation(Config.Libs.Kotlin.jdk8)
     implementation(Config.Libs.Androidx.appCompat)
 
@@ -55,5 +54,4 @@ dependencies {
 
    // implementation(project(":core"))
     implementation(project(":auth"))
-
 }
