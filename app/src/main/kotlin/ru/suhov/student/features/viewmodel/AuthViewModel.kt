@@ -10,8 +10,6 @@ import ru.suhov.student.core.entity.User
 import ru.suhov.student.features.gateway.AccountInteractorImpl
 import ru.suhov.student.features.AppConstants.LOG_ACCOUNT
 import ru.suhov.student.features.Constants.NOT_SELECT
-import ru.suhov.student.features.auth.ErrorEvent.ERROR_CREATE_ACCOUNT
-import ru.suhov.student.features.auth.ErrorEvent.ERROR_LOGIN
 import java.util.concurrent.TimeUnit
 
 class AuthViewModel : BaseViewModel() {
@@ -91,7 +89,7 @@ class AuthViewModel : BaseViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .delay(2L, TimeUnit.SECONDS)
-            .subscribe({ if (it) setAuthStatus(it) }, { setErrorMsg(ERROR_LOGIN) })
+            .subscribe({ if (it) setAuthStatus(it) }, { setErrorMsg(1) })
             .apply { compositeDisposable.add(this) }
     }
 
@@ -104,7 +102,7 @@ class AuthViewModel : BaseViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .delay(2L, TimeUnit.SECONDS)
-            .subscribe({ setAuthStatus(it) }, { setErrorMsg(ERROR_CREATE_ACCOUNT) })
+            .subscribe({ setAuthStatus(it) }, { setErrorMsg(2) })
             .apply { compositeDisposable.add(this) }
     }
 

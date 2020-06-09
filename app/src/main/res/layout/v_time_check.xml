@@ -22,16 +22,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="end|center"
-        android:textStyle="bold"
         android:textColor="@color/colorAccent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/pairStatus"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlSymmetry" />
+        tools:ignore="RtlSymmetry"
+        tools:text="01:12" />
 
     <TextView
-
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,13 +42,13 @@
         app:layout_constraintTop_toBottomOf="@+id/pairStatus" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textWeekCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textStyle="bold"
         android:text="@string/bottom_week"
         android:textColor="@color/colorAccent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTime" />
 

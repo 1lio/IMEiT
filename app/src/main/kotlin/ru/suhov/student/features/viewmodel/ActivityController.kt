@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import ru.student.assistant.auth.ui.AuthFragment
 import ru.suhov.student.R
 import ru.suhov.student.features.AppConstants.DIALOG_EXIT
 import ru.suhov.student.features.AppConstants.DIALOG_GROUP
@@ -21,7 +22,6 @@ import ru.suhov.student.features.AppConstants.FRAGMENT_AUTH
 import ru.suhov.student.features.AppConstants.LOG_DEBUG
 import ru.suhov.student.core.extension.pushFragment
 import ru.suhov.student.features.account.AccountFragment
-import ru.suhov.student.features.auth.AuthFragment
 import ru.suhov.student.features.call.CallFragment
 import ru.suhov.student.features.call.CallSetupFragment
 import ru.suhov.student.features.map.MapsPagerFragment
