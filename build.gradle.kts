@@ -20,14 +20,13 @@ allprojects {
         mavenCentral()
     }
 
-    // Configure all gradle modules as android/library
     if ((group as String).isNotEmpty()) configureAndroid()
 }
 
-
 fun Project.configureAndroid() {
 
-    if (name == "app") apply(plugin = "com.android.application") else apply(plugin = "com.android.library")
+    if (name == "app") apply(plugin = "com.android.application")
+    else apply(plugin = "com.android.library")
 
     configure<com.android.build.gradle.BaseExtension> {
 
@@ -44,6 +43,11 @@ fun Project.configureAndroid() {
             testInstrumentationRunner = Config.testRunner
 
             consumerProguardFiles("consumer-rules.pro")
+        }
+
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
         }
 
         sourceSets {

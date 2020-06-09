@@ -29,6 +29,6 @@ dependencies {
     implementation(Config.Libs.Androidx.ktx)
 
     testImplementation(Config.Libs.Test.junit)
-    androidTestImplementation(Config.Libs.Test.junitExt)
+    androidTestImplementation(Config.Libs.Test.testRunner)
     androidTestImplementation(Config.Libs.Test.espresso)
 }
