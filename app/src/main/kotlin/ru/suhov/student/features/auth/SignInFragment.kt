@@ -17,6 +17,7 @@ import ru.suhov.student.core.extension.isValidPass
 import ru.suhov.student.features.viewmodel.AuthState
 import java.util.*
 
+/*
 class SignInFragment : BaseAuthFragment() {
 
     override val state: AuthState = AuthState.SIGN_IN
@@ -78,4 +79,4 @@ class SignInFragment : BaseAuthFragment() {
         authModel.setActionName(resources.getString(R.string.sign_in).toUpperCase(Locale.ROOT))
         viewModel.setValidForm(isValid)
     }
-}
+}*/
