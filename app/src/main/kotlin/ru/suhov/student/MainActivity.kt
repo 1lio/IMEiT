@@ -3,6 +3,7 @@ package ru.suhov.student
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.student.assistant.auth.ui.AuthFragment
+import ru.suhov.student.extensions.pushFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,12 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.container, AuthFragment())
-                .commit()
-        }
+        // Грузим фрагмент с авторизацией
+        if (savedInstanceState == null) pushFragment(AuthFragment())
     }
 
 }
