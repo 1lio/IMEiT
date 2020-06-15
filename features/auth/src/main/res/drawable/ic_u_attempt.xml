@@ -2,10 +2,10 @@
     xmlns:aapt="http://schemas.android.com/aapt">
     <aapt:attr name="android:drawable">
         <vector
-            android:width="512dp"
-            android:height="512dp"
+            android:width="480dp"
+            android:height="480dp"
             android:viewportWidth="512"
-            android:viewportHeight="896">
+            android:viewportHeight="1024">
 
             <path
                 android:name="a"

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
@@ -20,60 +22,55 @@ import ru.student.assistant.auth.viewmodel.AuthViewModel
 
 class AuthFragment : Fragment() {
 
-    private lateinit var authViewModel: AuthViewModel
+    private lateinit var authModel: AuthViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
-        super.onCreateView(inflater, group, state)
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, bundle: Bundle?): View? {
+        super.onCreateView(inflater, group, bundle)
+        authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
         return inflater.inflate(R.layout.fr_auth, group, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        authViewModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
     }
 
     override fun onResume() {
         super.onResume()
 
-        authViewModel.observeEnableAction(activity!!, Observer {
+        authModel.observeActionName(activity!!, Observer { action.text = it })
+        authModel.observeEnableAction(activity!!, Observer {
             action.isEnabled = it
-            action.text =
-                resources.getStringArray(R.array.auth_actions)[authViewModel.getState()!!.toInt()]
             action.setTextColor(
                 if (action.isEnabled) ContextCompat.getColor(activity!!, R.color.colorAccent)
                 else ContextCompat.getColor(activity!!, R.color.gray)
             )
         })
 
-        authViewModel.observeState(activity!!, Observer {
+        authModel.observeState(activity!!, Observer {
             updateAnimation(it)
-            // animationSocial()
+            animationSocial()
+
         })
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         connectViewPager()
-        val fm = activity!!.supportFragmentManager
 
         action.setOnClickListener {
-            /*  fm
-                  .beginTransaction()
-                  .replace(
-                      R.id.container,
-                      AccountFragment()
-                  )
-                  .commit()*/
+            //  fragmentManager!!.beginTransaction().replace(R.id.container, AccountFragment()).commit()
         }
     }
 
     private fun connectViewPager() {
 
-        authPager.adapter = AuthPagerAdapter(activity!!.supportFragmentManager, lifecycle)
+        authPager.adapter = AuthPagerAdapter(
+            fragmentManager!!,
+            lifecycle
+        )
 
         TabLayoutMediator(authTabLayout, authPager,
             TabLayoutMediator.TabConfigurationStrategy { tab, pos ->
-                tab.text = if (pos == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up)
+                tab.text =
+                    if (pos == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up)
             }).attach()
 
         authPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -81,15 +78,18 @@ class AuthFragment : Fragment() {
                 super.onPageSelected(position)
 
                 if (position == 0) {
-                    authViewModel.setState(AuthState.SIGN_IN)
+                    authModel.setActionName(resources.getString(R.string.sign_in))
+                    authModel.setState(AuthState.SIGN_IN)
                 } else {
-                    authViewModel.setState(AuthState.SIGN_UP)
+                    authModel.setActionName(resources.getString(R.string.sign_up))
+                    authModel.setState(AuthState.SIGN_UP)
                 }
             }
         })
+
     }
 
-    private fun updateAnimation(state: Byte) {
+    private fun updateAnimation(state: AuthState) {
 
         val aToB = ContextCompat.getDrawable(activity!!, R.drawable.ic_u_start)
         val bToA = ContextCompat.getDrawable(activity!!, R.drawable.ic_u_finish)
@@ -98,11 +98,17 @@ class AuthFragment : Fragment() {
 
         val anim = when (state) {
 
-            AuthState.SIGN_IN -> if (authViewModel.getLastState() == AuthState.SIGN_IN) aToB else bToA
+            AuthState.SIGN_IN -> if (authModel.getLastState() == AuthState.SIGN_IN) aToB else cToB
 
-            AuthState.SIGN_UP -> bToA
+            AuthState.SIGN_UP -> {
+                authModel.setLastState(AuthState.SIGN_IN)
+                bToA
+            }
 
-            AuthState.RESTORE -> bToC
+            AuthState.RESTORE -> {
+                authModel.setLastState(AuthState.RESTORE)
+                bToC
+            }
 
             else -> throw Exception("")
         } as AnimatedVectorDrawable
@@ -112,33 +118,32 @@ class AuthFragment : Fragment() {
         anim.start()
     }
 
-    /*  private fun animationSocial() {
+    private fun animationSocial() {
 
-          val images = listOf(authGoogle, authVk, authFacebook, authTwitter, authGitHub)
-          val animation: Animation =
-              if (authViewModel.getState() == AuthState.RESTORE) AnimationUtils.loadAnimation(
-                  activity,
-                  R.anim.drop_down
-              )
-              else AnimationUtils.loadAnimation(activity, R.anim.drop_up)
+        val images = listOf(authGoogle, authVk, authGitHub)
+        val animation: Animation =
+            if (authModel.getState() == AuthState.RESTORE)
+                AnimationUtils.loadAnimation(activity, R.anim.drop_down)
+            else AnimationUtils.loadAnimation(activity, R.anim.drop_up)
 
-          images.forEach {
+        images.forEach {
 
-              when (AuthState.RESTORE) {
-                  authViewModel.getState() -> {
-                      it.startAnimation(animation)
-                      it.visibility = View.INVISIBLE
-                  }
-                  authViewModel.getLastState() -> {
-                      it.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.drop_up))
-                      it.visibility = View.VISIBLE
-                  }
+            when (AuthState.RESTORE) {
+                authModel.getState() -> {
+                    it.startAnimation(animation)
+                    it.visibility = View.INVISIBLE
+                }
+                authModel.getLastState() -> {
+                    it.startAnimation(AnimationUtils.loadAnimation(activity, R.anim.drop_up))
+                    it.visibility = View.VISIBLE
+                }
 
-                  else -> it.visibility = View.VISIBLE
-              }
-          }
+                else -> it.visibility = View.VISIBLE
+            }
 
-      }*/
+        }
+
+    }
 
     private fun showRestoreMessage() {
         Toast.makeText(context, getString(R.string.msg_restore), Toast.LENGTH_SHORT).show()

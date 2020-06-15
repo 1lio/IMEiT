@@ -2,10 +2,10 @@
     xmlns:aapt="http://schemas.android.com/aapt">
     <aapt:attr name="android:drawable">
         <vector
-            android:width="512dp"
-            android:height="512dp"
+            android:width="480dp"
+            android:height="480dp"
             android:viewportWidth="512"
-            android:viewportHeight="896">
+            android:viewportHeight="1024">
 
             <path
                 android:name="a"
@@ -43,8 +43,8 @@
             <objectAnimator
                 android:duration="1000"
                 android:propertyName="pathData"
-                android:valueTo="M560,800.4l-71.7,-0.2l-80.9,-133l81.4,-132.7l71.2,0.2"
                 android:valueFrom="M560,900.4l-71.7,-0.2l-80.9,-133l81.4,-132.7l71.2,0.2"
+                android:valueTo="M560,800.4l-71.7,-0.2l-80.9,-133l81.4,-132.7l71.2,0.2"
                 android:valueType="pathType" />
         </aapt:attr>
     </target>
@@ -65,8 +65,8 @@
             <objectAnimator
                 android:duration="1000"
                 android:propertyName="pathData"
-                android:valueTo="M560,600.4l-15.7,-0.2l-80.9,-133l81.4,-132.7l71.2,0.2"
                 android:valueFrom="M560,600.4l-71.7,-0.2l-80.9,-133l81.4,-132.7l71.2,0.2"
+                android:valueTo="M560,600.4l-15.7,-0.2l-80.9,-133l81.4,-132.7l71.2,0.2"
                 android:valueType="pathType" />
         </aapt:attr>
     </target>

@@ -15,12 +15,13 @@ import ru.student.assistant.auth.R
 import ru.student.assistant.auth.util.isValidEmail
 import ru.student.assistant.auth.util.isValidPass
 import ru.student.assistant.auth.viewmodel.AuthSignInModel
+import ru.student.assistant.auth.viewmodel.AuthState
 import ru.student.assistant.auth.viewmodel.AuthState.SIGN_IN
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 
 class SignInFragment : Fragment() {
 
-     val state: Byte = SIGN_IN
+    val state: AuthState = SIGN_IN
 
     private lateinit var viewModel: AuthSignInModel
     private lateinit var authViewModel: AuthViewModel
@@ -57,14 +58,7 @@ class SignInFragment : Fragment() {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
-                override fun beforeTextChanged(
-                    s: CharSequence?,
-                    start: Int,
-                    count: Int,
-                    after: Int
-                ) {
-                }
-
+                override fun beforeTextChanged(s: CharSequence?, start: Int, c: Int, a: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
                     if (it == edSignEmail) edSignEmail.isValidEmail() else edSignPass.isValidPass()
@@ -72,7 +66,6 @@ class SignInFragment : Fragment() {
                     isValid = (edSignEmail.isValidEmail() && edSignPass.isValidPass())
                     viewModel.setValidForm(isValid)
                     authViewModel.setEnableAction(isValid && (authViewModel.getState() == SIGN_IN))
-
                 }
             })
 
@@ -82,6 +75,8 @@ class SignInFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         // authViewModel.setActionName(resources.getString(R.string.sign_in).toUpperCase(Locale.ROOT))
+
+        val s = Any().hashCode()
         viewModel.setValidForm(isValid)
     }
 }

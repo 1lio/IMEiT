@@ -3,6 +3,9 @@ package ru.student.assistant.auth.util
 import android.widget.EditText
 import ru.student.assistant.auth.R
 
+const val MIN_PASS_SIZE = 6
+
+
 fun EditText.isValidEmail(): Boolean {
     return when {
         this.text.toString().isEmpty() -> {
@@ -29,7 +32,7 @@ fun EditText.isValidPass(): Boolean {
             false
         }
 
-        this.text.toString().length < 6 -> {
+        this.text.toString().length < MIN_PASS_SIZE -> {
             this.error = resources.getString(R.string.error_min_length_pass)
             false
         }
@@ -48,7 +51,7 @@ fun EditText.isValidPass(childEdit: EditText): Boolean {
             false
         }
 
-        this.text.toString().length < 6 -> {
+        this.text.toString().length < MIN_PASS_SIZE -> {
             this.error = resources.getString(R.string.error_min_length_pass)
             false
         }

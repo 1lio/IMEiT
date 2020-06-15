@@ -14,25 +14,22 @@ import ru.student.assistant.auth.R
 import ru.student.assistant.auth.util.isValidEmail
 import ru.student.assistant.auth.util.isValidPass
 import ru.student.assistant.auth.viewmodel.AuthSingUpModel
+import ru.student.assistant.auth.viewmodel.AuthState
 import ru.student.assistant.auth.viewmodel.AuthState.SIGN_UP
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 
 class SignUpFragment : Fragment() {
-     val state: Byte = SIGN_UP
+    val state: AuthState = SIGN_UP
     private lateinit var viewModel: AuthSingUpModel
     private lateinit var authModel: AuthViewModel
 
     private var isValid = false
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
+        super.onCreateView(inflater, group, state)
         viewModel = ViewModelProvider(this)[AuthSingUpModel::class.java]
         authModel = ViewModelProvider(this)[AuthViewModel::class.java]
-        return inflater.inflate(R.layout.fr_sign_up, container, false)
+        return inflater.inflate(R.layout.fr_sign_up, group, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

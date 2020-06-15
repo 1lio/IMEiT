@@ -44,7 +44,7 @@
     <string name="is_never_email">Некорректный email</string>
 
     <string name="error_sign_in">Неверный логин или пароль</string>
-    <string name="sign_up">Регистрация</string>
+    <string name="sign_up">РЕГИСТРАЦИЯ</string>
     <string name="user_re_pass">Повторите пароль</string>
     <string name="network_is_available">Разрыв соединения!</string>
     <string name="faculty">Ваш факультет</string>
@@ -71,7 +71,7 @@
     <!-- Events -->
     <string name="group">Группа</string>
     <string name="empty_group">Группа не выбрана</string>
-    <string name="back">Назат</string>
+    <string name="back">Назад</string>
     <string name="next">Далее</string>
     <string name="institute">Ваш нститут:</string>
     <string name="set_down_schedule">Нажмие чтобы скачать расписание</string>
