@@ -6,7 +6,11 @@ object Config {
     const val buildTools = "29.0.3"
     const val applicationID = "ru.suhov.student"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
-    const val kotlinDir = "src/main/kotlin"
+
+    const val mainDir = "src/main/kotlin"
+    const val testDir = "src/test/kotlin"
+    const val androidTestDir = "src/androidTest/kotlin"
+
 
     private const val kotlinVersion = "1.3.72"
 

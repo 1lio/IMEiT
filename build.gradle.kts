@@ -51,9 +51,9 @@ fun Project.configureAndroid() {
         }
 
         sourceSets {
-            getByName("androidTest").java.srcDirs(Config.kotlinDir)
-            getByName("main").java.srcDirs(Config.kotlinDir)
-            getByName("test").java.srcDirs(Config.kotlinDir)
+            getByName("androidTest").java.srcDirs(Config.androidTestDir)
+            getByName("main").java.srcDirs(Config.mainDir)
+            getByName("test").java.srcDirs(Config.testDir)
         }
     }
 
