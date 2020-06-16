@@ -1,10 +1,9 @@
-package ru.student.assistant.auth.util
+package ru.student.assistant.auth.extensions
 
 import android.widget.EditText
 import ru.student.assistant.auth.R
 
 const val MIN_PASS_SIZE = 6
-
 
 fun EditText.isValidEmail(): Boolean {
     return when {

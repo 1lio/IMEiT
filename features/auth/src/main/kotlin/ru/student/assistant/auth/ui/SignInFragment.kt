@@ -12,21 +12,21 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fr_sign_in.*
 import ru.student.assistant.auth.R
-import ru.student.assistant.auth.util.isValidEmail
-import ru.student.assistant.auth.util.isValidPass
+import ru.student.assistant.auth.extensions.isValidEmail
+import ru.student.assistant.auth.extensions.isValidPass
+import ru.student.assistant.auth.ui.base.BaseAuthFragment
 import ru.student.assistant.auth.viewmodel.AuthSignInModel
 import ru.student.assistant.auth.viewmodel.AuthState
 import ru.student.assistant.auth.viewmodel.AuthState.SIGN_IN
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 
-class SignInFragment : Fragment() {
+class SignInFragment : BaseAuthFragment() {
 
-    val state: AuthState = SIGN_IN
+    override val state: AuthState = SIGN_IN
 
     private lateinit var viewModel: AuthSignInModel
     private lateinit var authViewModel: AuthViewModel
 
-    private var isValid = false
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, bundle: Bundle?): View? {
         super.onCreateView(inflater, group, bundle)

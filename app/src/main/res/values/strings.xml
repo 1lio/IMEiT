@@ -105,6 +105,7 @@
     <string name="exit">Выйти</string>
     <string name="gradebook">Виртуальная зачетная книжка</string>
     <string name="semestr">Семестр №</string>
+    <string name="loading">Загрузка…</string>
 
 
 </resources>

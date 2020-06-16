@@ -11,8 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fr_sign_up.*
 import ru.student.assistant.auth.R
-import ru.student.assistant.auth.util.isValidEmail
-import ru.student.assistant.auth.util.isValidPass
+import ru.student.assistant.auth.extensions.isValidEmail
+import ru.student.assistant.auth.extensions.isValidPass
 import ru.student.assistant.auth.viewmodel.AuthSingUpModel
 import ru.student.assistant.auth.viewmodel.AuthState
 import ru.student.assistant.auth.viewmodel.AuthState.SIGN_UP
