@@ -1,6 +1,7 @@
 plugins {
     kotlin("android")
     kotlin("android.extensions")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -42,6 +43,7 @@ dependencies {
     // Firebase
     implementation(Config.Libs.Firebase.auth)
     implementation(Config.Libs.Firebase.database)
+    implementation(Config.Libs.Firebase.storage)
 
     // Modules
     implementation(project(":core"))

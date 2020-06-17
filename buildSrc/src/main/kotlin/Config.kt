@@ -49,6 +49,7 @@ object Config {
         object Firebase {
             const val auth = "com.google.firebase:firebase-auth:19.3.0"
             const val database = "com.google.firebase:firebase-database:19.2.1"
+            const val storage = "com.google.firebase:firebase-storage:19.1.1"
         }
 
         object Rx {
