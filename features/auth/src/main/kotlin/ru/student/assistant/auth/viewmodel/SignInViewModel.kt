@@ -2,7 +2,7 @@ package ru.student.assistant.auth.viewmodel
 
 import androidx.lifecycle.*
 
-class AuthSignInModel : ViewModel() {
+class SignInViewModel : ViewModel() {
 
     private val isValidForm = MutableLiveData<Boolean>()
     private val isFocusedForm = MutableLiveData<Boolean>()

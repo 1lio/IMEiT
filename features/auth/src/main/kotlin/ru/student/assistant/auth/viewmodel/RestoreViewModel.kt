@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 
-class AuthRestoreViewModel : ViewModel() {
+class RestoreViewModel : ViewModel() {
 
     private val isValid = MutableLiveData<Boolean>()
 
@@ -17,5 +17,4 @@ class AuthRestoreViewModel : ViewModel() {
         isValid.value = value
     }
 
-    fun getValidForm() = isValid.value
 }

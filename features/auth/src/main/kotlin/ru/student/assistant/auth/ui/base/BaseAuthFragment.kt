@@ -1,7 +1,7 @@
 package ru.student.assistant.auth.ui.base
 
 import androidx.fragment.app.Fragment
-import ru.student.assistant.auth.viewmodel.AuthState
+import ru.student.assistant.auth.viewmodel.enums.AuthState
 
 // По структуре фрагменты авторизации одинаковы, принято решении вынести в базовый фрагмент
 abstract class BaseAuthFragment : Fragment() {

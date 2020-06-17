@@ -17,8 +17,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fr_auth.*
 import ru.student.assistant.auth.R
-import ru.student.assistant.auth.viewmodel.AuthState
 import ru.student.assistant.auth.viewmodel.AuthViewModel
+import ru.student.assistant.auth.viewmodel.enums.AuthState
 
 class AuthFragment : Fragment() {
 
@@ -30,53 +30,63 @@ class AuthFragment : Fragment() {
         return inflater.inflate(R.layout.fr_auth, group, false)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        // Подлючаем ViewPager
+        connectViewPager()
+
+        // Наблюдаем за назавние Action
         authModel.observeActionName(activity!!, Observer { action.text = it })
+
+        // Поведение кнопки Action
         authModel.observeEnableAction(activity!!, Observer {
             action.isEnabled = it
             action.setTextColor(
-                if (action.isEnabled) ContextCompat.getColor(activity!!, R.color.colorAccent)
+                if (it) ContextCompat.getColor(activity!!, R.color.colorAccent)
                 else ContextCompat.getColor(activity!!, R.color.gray)
             )
         })
 
+        // Смотрим за состоянием state
         authModel.observeState(activity!!, Observer {
-            updateAnimation(it)
-            animationSocial()
-
+            updateAnimation(it)                 // Обновляем анимацию
+            animationSocial(it)                 // Обновляем анимацию соцсетей
+            updateActionName(it)                // Обновляем имя
+            processAction(it)                   // Обновляем обработчик
+            authModel.setEnableAction(false)    // Сбрасываем доступность кнопки
         })
-
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun processAction(state: AuthState) {
 
-        connectViewPager()
-
+        // Обрабатываем нажатия
         action.setOnClickListener {
-            //  fragmentManager!!.beginTransaction().replace(R.id.container, AccountFragment()).commit()
+            when (state) {
+                AuthState.SIGN_IN -> signUp()
+                AuthState.SIGN_UP -> signIn()
+                AuthState.RESTORE -> restore()
+                else -> return@setOnClickListener // Прочие не обрабатываются
+            }
         }
     }
 
     private fun connectViewPager() {
 
-        authPager.adapter = AuthPagerAdapter(
-            fragmentManager!!,
-            lifecycle
-        )
+        authPager.adapter = AuthPagerAdapter(activity!!.supportFragmentManager, lifecycle)
 
+        // Настраиваем заголовки
         TabLayoutMediator(authTabLayout, authPager,
-            TabLayoutMediator.TabConfigurationStrategy { tab, pos ->
-                tab.text =
-                    if (pos == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up)
+            TabLayoutMediator.TabConfigurationStrategy { t, p ->
+                t.text =
+                    if (p == 0) resources.getText(R.string.sign_in)
+                    else resources.getText(R.string.sign_up)
             }).attach()
 
+        // Обрабатываем перелистывания
         authPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-
                 if (position == 0) {
                     authModel.setActionName(resources.getString(R.string.sign_in))
                     authModel.setState(AuthState.SIGN_IN)
@@ -86,10 +96,24 @@ class AuthFragment : Fragment() {
                 }
             }
         })
+    }
 
+    private fun updateActionName(state: AuthState) {
+
+        // В зависимости от state обновляем название через viewModel
+        val name = when (state) {
+            AuthState.SIGN_IN -> resources.getString(R.string.sign_in)
+            AuthState.SIGN_UP -> resources.getString(R.string.sign_up)
+            AuthState.RESTORE -> resources.getString(R.string.restore)
+            else -> resources.getString(R.string.sign_in)
+        }
+
+        authModel.setActionName(name)
     }
 
     private fun updateAnimation(state: AuthState) {
+
+        // Делаем красивую анимацию через костыль ViewModel (state , lastState)
 
         val aToB = ContextCompat.getDrawable(activity!!, R.drawable.ic_u_start)
         val bToA = ContextCompat.getDrawable(activity!!, R.drawable.ic_u_finish)
@@ -97,7 +121,6 @@ class AuthFragment : Fragment() {
         val cToB = ContextCompat.getDrawable(activity!!, R.drawable.ic_u_attempt2)
 
         val anim = when (state) {
-
             AuthState.SIGN_IN -> if (authModel.getLastState() == AuthState.SIGN_IN) aToB else cToB
 
             AuthState.SIGN_UP -> {
@@ -109,8 +132,7 @@ class AuthFragment : Fragment() {
                 authModel.setLastState(AuthState.RESTORE)
                 bToC
             }
-
-            else -> throw Exception("")
+            else -> return
         } as AnimatedVectorDrawable
 
         authBackground.setImageDrawable(anim)
@@ -118,12 +140,12 @@ class AuthFragment : Fragment() {
         anim.start()
     }
 
-    private fun animationSocial() {
+    // Кривая анимация выезда соц сетей
+    private fun animationSocial(state: AuthState) {
 
         val images = listOf(authGoogle, authVk, authGitHub)
         val animation: Animation =
-            if (authModel.getState() == AuthState.RESTORE)
-                AnimationUtils.loadAnimation(activity, R.anim.drop_down)
+            if (state == AuthState.RESTORE) AnimationUtils.loadAnimation(activity, R.anim.drop_down)
             else AnimationUtils.loadAnimation(activity, R.anim.drop_up)
 
         images.forEach {
@@ -140,13 +162,25 @@ class AuthFragment : Fragment() {
 
                 else -> it.visibility = View.VISIBLE
             }
-
         }
 
     }
 
+    private fun signIn() {
+        Toast.makeText(context, "SignIN", Toast.LENGTH_LONG).show()
+    }
+
+    private fun signUp() {
+        Toast.makeText(context, "SignUP", Toast.LENGTH_LONG).show()
+    }
+
+    private fun restore() {
+        // Затычка
+        showRestoreMessage()
+    }
+
     private fun showRestoreMessage() {
-        Toast.makeText(context, getString(R.string.msg_restore), Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, getString(R.string.msg_restore) + " ${authModel.getEmail()}", Toast.LENGTH_LONG).show()
     }
 
 }

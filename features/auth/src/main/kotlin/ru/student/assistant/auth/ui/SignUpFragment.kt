@@ -13,22 +13,21 @@ import kotlinx.android.synthetic.main.fr_sign_up.*
 import ru.student.assistant.auth.R
 import ru.student.assistant.auth.extensions.isValidEmail
 import ru.student.assistant.auth.extensions.isValidPass
-import ru.student.assistant.auth.viewmodel.AuthSingUpModel
-import ru.student.assistant.auth.viewmodel.AuthState
-import ru.student.assistant.auth.viewmodel.AuthState.SIGN_UP
 import ru.student.assistant.auth.viewmodel.AuthViewModel
+import ru.student.assistant.auth.viewmodel.SignUpViewModel
+import ru.student.assistant.auth.viewmodel.enums.AuthState
 
 class SignUpFragment : Fragment() {
-    val state: AuthState = SIGN_UP
-    private lateinit var viewModel: AuthSingUpModel
+    val state: AuthState = AuthState.SIGN_UP
+    private lateinit var viewModel: SignUpViewModel
     private lateinit var authModel: AuthViewModel
 
     private var isValid = false
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
         super.onCreateView(inflater, group, state)
-        viewModel = ViewModelProvider(this)[AuthSingUpModel::class.java]
-        authModel = ViewModelProvider(this)[AuthViewModel::class.java]
+        viewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
+        authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
         return inflater.inflate(R.layout.fr_sign_up, group, false)
     }
 
@@ -46,6 +45,7 @@ class SignUpFragment : Fragment() {
             authModel.setEnableAction(isValid)
         }
 
+        edLogin.setText(authModel.getEmail())
         arrayOf(edLogin, edPass, edPass2).forEach {
             it.addTextChangedListener(object : TextWatcher {
 
@@ -56,7 +56,7 @@ class SignUpFragment : Fragment() {
 
                     if (it == edLogin) edLogin.isValidEmail() else edPass.isValidPass(edPass2)
                     viewModel.setValidForm(isValid)
-                    authModel.setEnableAction(isValid && (authModel.getState() == SIGN_UP))
+                    authModel.setEnableAction(isValid && (authModel.getState() == AuthState.SIGN_UP))
                     updateSignInData()
                 }
             })

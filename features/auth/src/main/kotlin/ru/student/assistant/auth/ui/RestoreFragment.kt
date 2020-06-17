@@ -13,16 +13,16 @@ import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fr_restore.*
 import ru.student.assistant.auth.R
 import ru.student.assistant.auth.extensions.isValidEmail
-import ru.student.assistant.auth.viewmodel.AuthRestoreViewModel
-import ru.student.assistant.auth.viewmodel.AuthState
 import ru.student.assistant.auth.viewmodel.AuthViewModel
+import ru.student.assistant.auth.viewmodel.RestoreViewModel
+import ru.student.assistant.auth.viewmodel.enums.AuthState
 
 class RestoreFragment : Fragment() {
 
     val state: AuthState = AuthState.RESTORE
 
     private lateinit var authModel: AuthViewModel
-    private lateinit var viewModel: AuthRestoreViewModel
+    private lateinit var viewModel: RestoreViewModel
 
     private var isValid = false
 
@@ -32,14 +32,10 @@ class RestoreFragment : Fragment() {
         authModel.setState(state)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
-        viewModel = ViewModelProvider(this)[AuthRestoreViewModel::class.java]
-        return inflater.inflate(R.layout.fr_restore, container, false)
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
+        super.onCreateView(inflater, group, state)
+        viewModel = ViewModelProvider(activity!!)[RestoreViewModel::class.java]
+        return inflater.inflate(R.layout.fr_restore, group, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -64,30 +60,30 @@ class RestoreFragment : Fragment() {
             authModel.setState(AuthState.SIGN_IN)
         }
 
+        edRestore.setText(authModel.getEmail())
+
         edRestore.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable?) {}
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(edRestore.text.toString())
-                        .matches()
-                ) {
-                    edRestore.error = resources.getString(R.string.incorrect_email)
-                }
+                if (checkForm(edRestore.text.toString())) edRestore.error = resources.getString(R.string.incorrect_email)
 
                 isValid = edRestore.isValidEmail()
                 viewModel.setValidForm(isValid)
                 authModel.setEnableAction(isValid && (authModel.getState() == AuthState.RESTORE))
-
+                authModel.setEmail(edRestore.text.toString())
             }
         })
     }
+
+    private fun checkForm(text: String) =
+        !android.util.Patterns.EMAIL_ADDRESS.matcher(text).matches()
 
     override fun onResume() {
         super.onResume()
         viewModel.setValidForm(isValid)
     }
-
 
 }

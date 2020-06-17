@@ -5,11 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 
-class AuthSingUpModel : ViewModel() {
+class SignUpViewModel : ViewModel() {
 
     private val isValidForms = MutableLiveData<Boolean>()
     private val checkBox = MutableLiveData<Boolean>()
-
 
     init {
         isValidForms.value = false
@@ -20,18 +19,18 @@ class AuthSingUpModel : ViewModel() {
         isValidForms.observe(owner, observer)
     }
 
-    fun observerCheckBox(owner:LifecycleOwner, observer: Observer<Boolean>){
+    fun observerCheckBox(owner: LifecycleOwner, observer: Observer<Boolean>) {
         checkBox.observe(owner, observer)
     }
 
-    fun getCheck()= checkBox.value ?: false
+    fun getCheck() = checkBox.value ?: false
 
 
     fun setValidForm(b: Boolean) {
         isValidForms.postValue(b)
     }
 
-    fun setCheck(b: Boolean){
+    fun setCheck(b: Boolean) {
         checkBox.value = b
     }
 }
