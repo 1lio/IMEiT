@@ -15,6 +15,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fr_auth.*
 import ru.student.assistant.auth.R
 import ru.student.assistant.auth.viewmodel.AuthViewModel
@@ -23,6 +26,12 @@ import ru.student.assistant.auth.viewmodel.enums.AuthState
 class AuthFragment : Fragment() {
 
     private lateinit var authModel: AuthViewModel
+    private lateinit var auth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        auth = Firebase.auth
+    }
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, bundle: Bundle?): View? {
         super.onCreateView(inflater, group, bundle)

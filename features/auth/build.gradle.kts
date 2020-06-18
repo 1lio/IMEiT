@@ -1,3 +1,10 @@
+import Config.Libs.Androidx
+import Config.Libs.Firebase
+import Config.Libs.Kotlin
+import Config.Libs.Google
+import Config.Libs.Network
+import Config.Proguard
+
 plugins {
     kotlin("android")
     kotlin("android.extensions")
@@ -12,38 +19,37 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        getByName(Config.BuildType.release) {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile(Proguard.file), Proguard.rules)
         }
     }
 }
 
 dependencies {
-    implementation(Config.Libs.Kotlin.jdk8)
-    implementation(Config.Libs.Androidx.appCompat)
+    implementation(Kotlin.jdk8)
 
-    // JetPack
-    implementation(Config.Libs.Androidx.lifecycleExtensions)
-    implementation(Config.Libs.Androidx.constraint)
-    implementation(Config.Libs.Androidx.material)
-    implementation(Config.Libs.Androidx.recyclerView)
-    implementation(Config.Libs.Androidx.viewpager)
-
-    // Rx
-    implementation(Config.Libs.Rx.rxJava)
-    implementation(Config.Libs.Rx.rxAndroid)
-
-    // Библиотека для хранения примитивных типов
-    implementation(Config.Libs.Misc.hawk)
+    // AndroidX
+    implementation(Androidx.appCompat)
+    implementation(Androidx.lifecycleExtensions)
+    implementation(Androidx.constraint)
+    implementation(Androidx.material)
+    implementation(Androidx.viewpager)
+    implementation(Androidx.vectorAnimation)
 
     // Firebase
-    implementation(Config.Libs.Firebase.auth)
-    implementation(Config.Libs.Firebase.database)
-    implementation(Config.Libs.Firebase.storage)
+    implementation(Firebase.auth)
+    implementation(Firebase.authKtx)
+    implementation(Firebase.database)
+    implementation(Firebase.storage)
+
+    // Google
+    implementation(Google.auth)
+
+    // Network
+    implementation(Network.retrofit2)
+    implementation(Network.converterGson)
+    implementation(Network.loggingInterceptor)
 
     // Modules
     implementation(project(":core"))

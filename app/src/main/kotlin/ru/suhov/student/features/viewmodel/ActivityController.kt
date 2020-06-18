@@ -32,7 +32,7 @@ class ActivityController(private val activity: AppCompatActivity) {
 
     private val controlModel = ViewModelProvider(activity)[ControlViewModel::class.java]
     private val mainModel = ViewModelProvider(activity)[ActivityViewModel::class.java]
-   private val authModel = ViewModelProvider(activity)[AuthViewModel::class.java]
+   //private val authModel = ViewModelProvider(activity)[AuthViewModel::class.java]
 
     init {
         observeAuth()
@@ -112,7 +112,7 @@ class ActivityController(private val activity: AppCompatActivity) {
     }
 
     private fun observeAuth() {
-        authModel.observeAuth(activity, Observer {
+       /* authModel.observeAuth(activity, Observer {
             if (it) {
                 controlModel.setVisibleUI(visibility = true)
                 controlModel.setFragmentId(controlModel.getFragmentSchedule())
@@ -121,7 +121,7 @@ class ActivityController(private val activity: AppCompatActivity) {
                 controlModel.setFragmentId(FRAGMENT_AUTH)
                 controlModel.setVisibleUI(visibility = false)
             }
-        })
+        })*/
     }
 
     private fun observeVisibleUI() {

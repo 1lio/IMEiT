@@ -1,4 +1,5 @@
-package ru.suhov.student.features.interactor
+package ru.student.assistant.auth.gateway
+/*
 
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -30,4 +31,4 @@ interface AccountInteractor {
 
     // Выход из аккаунта
     fun signOut(): Single<Boolean>
-}
+}*/

@@ -29,27 +29,49 @@ object Config {
     object Libs {
 
         object Kotlin {
-            //  private const val ver = "1.3.6"
+            private const val ver = "1.3.6"
 
             const val jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-            //  const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
-            //  const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver"
+            const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
+            const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver"
         }
 
         object Androidx {
             const val appCompat = "androidx.appcompat:appcompat:1.1.0"
-            const val ktx = "androidx.core:core-ktx:1.2.0"
+            const val ktx = "androidx.core:core-ktx:1.3.0"
+            const val ktxCollection = "androidx.collection:collection-ktx:1.1.0"
+            const val ktxFragment = "androidx.fragment:fragment-ktx:1.2.5"
             const val constraint = "androidx.constraintlayout:constraintlayout:1.1.3"
             const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
             const val viewpager = "androidx.viewpager:viewpager:1.0.0"
             const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
             const val material = "com.google.android.material:material:1.1.0"
+            const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
         }
 
         object Firebase {
-            const val auth = "com.google.firebase:firebase-auth:19.3.0"
+
+            private const val authVer = "19.3.1"
+
+            const val auth = "com.google.firebase:firebase-auth:$authVer"
             const val database = "com.google.firebase:firebase-database:19.2.1"
             const val storage = "com.google.firebase:firebase-storage:19.1.1"
+
+            // const val databaseKtx = "com.google.firebase:firebase-database-ktx:$authVer"
+            const val authKtx = "com.google.firebase:firebase-auth-ktx:$authVer"
+        }
+
+        object Google {
+            const val auth = "com.google.android.gms:play-services-auth:18.0.0"
+            const val maps = "com.google.android.gms:play-services-maps:17.0.0"
+        }
+
+        object Network {
+            private const val retrofitVer = "2.9.0"
+
+            const val retrofit2 = "com.squareup.retrofit2:retrofit:$retrofitVer"
+            const val converterGson = "com.squareup.retrofit2:converter-gson:$retrofitVer"
+            const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.7.2"
         }
 
         object Rx {
@@ -57,9 +79,6 @@ object Config {
             const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.19"
         }
 
-        object PlayServices {
-            const val playMaps = "com.google.android.gms:play-services-maps:17.0.0"
-        }
 
         object Misc {
             const val hawk = "com.orhanobut:hawk:2.0.1"
@@ -70,6 +89,16 @@ object Config {
             const val testRunner = "androidx.test:runner:1.2.0"
             const val espresso = "androidx.test.espresso:espresso-core:3.2.0"
         }
+    }
+
+    object Proguard {
+        const val file = "proguard-android-optimize.txt"
+        const val rules = "proguard-rules.pro"
+    }
+
+    object BuildType {
+        const val release = "release"
+        const val debug = "debug"
     }
 
     object Features {

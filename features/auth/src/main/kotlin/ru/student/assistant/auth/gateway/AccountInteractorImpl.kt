@@ -1,5 +1,6 @@
-package ru.suhov.student.features.gateway
+package ru.student.assistant.auth.gateway
 
+/*
 import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -16,7 +17,9 @@ import ru.suhov.student.features.AppConstants.LOG_ACCOUNT
 
 import ru.suhov.student.features.viewmodel.AuthViewModel
 
-/** Реализация [AccountInteractor]. Работа в [AuthViewModel] */
+*/
+/** Реализация [AccountInteractor]. Работа в [AuthViewModel] *//*
+
 
 class AccountInteractorImpl : AccountInteractor {
 
@@ -25,7 +28,9 @@ class AccountInteractorImpl : AccountInteractor {
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseRealtimeRepository().getInstance()
 
-    /** Создание аккаунта */
+    */
+/** Создание аккаунта *//*
+
     override fun createAccountEmail(authData: AuthData): Single<Boolean> {
 
         Log.d(LOG_ACCOUNT, "Func. Create Account Email")
@@ -47,7 +52,9 @@ class AccountInteractorImpl : AccountInteractor {
         }
     }
 
-    /** Вход пользователя */
+    */
+/** Вход пользователя *//*
+
     override fun signIn(email: String, pass: String): Single<Boolean> {
 
         Log.d(LOG_ACCOUNT, "Func. SignIn")
@@ -67,7 +74,9 @@ class AccountInteractorImpl : AccountInteractor {
         }
     }
 
-    /** Получение текущего аккаунта */
+    */
+/** Получение текущего аккаунта *//*
+
     override fun getAccount(uID: String): Observable<User> {
 
         Log.d(LOG_ACCOUNT, "Func. getAccount from ID")
@@ -87,7 +96,9 @@ class AccountInteractorImpl : AccountInteractor {
         }
     }
 
-    /** Обновление пользовательских данных */
+    */
+/** Обновление пользовательских данных *//*
+
     override fun updateAccount(uID: String, user: User): Single<Boolean> {
 
         Log.d(LOG_ACCOUNT, "Func. updateAccount")
@@ -99,7 +110,9 @@ class AccountInteractorImpl : AccountInteractor {
         }
     }
 
-    /** Удаление аккаунта */
+    */
+/** Удаление аккаунта *//*
+
     override fun deleteAccountEmail(uID: String, email: String, pass: String): Single<Boolean> {
 
         Log.d(LOG_ACCOUNT, "Func. deleteAccountEmail")
@@ -121,7 +134,9 @@ class AccountInteractorImpl : AccountInteractor {
         }
     }
 
-    /** Проверка вошел ли пользователь */
+    */
+/** Проверка вошел ли пользователь *//*
+
     override fun isSigned(): Single<Boolean> {
 
         Log.d(LOG_ACCOUNT, "Func. isSigned")
@@ -138,14 +153,18 @@ class AccountInteractorImpl : AccountInteractor {
         }
     }
 
-    /** ID Текущего пользователя */
+    */
+/** ID Текущего пользователя *//*
+
     override fun getCurrentUserID(): String {
         val id = auth.currentUser?.uid ?: ""
         Log.d(LOG_ACCOUNT, "Func. getCurrentUserID: $id")
         return id
     }
 
-    /** Выход из учетной записи*/
+    */
+/** Выход из учетной записи*//*
+
     override fun signOut(): Single<Boolean> {
         return Single.create {
             auth.signOut()
@@ -154,11 +173,13 @@ class AccountInteractorImpl : AccountInteractor {
         }
     }
 
-    /** Создание учетной записи в БД*/
+    */
+/** Создание учетной записи в БД*//*
+
     private fun User.updateAccountInDB(id: String) {
         db.getRefUser(id).setValue(this@updateAccountInDB)
         Log.d(LOG_ACCOUNT, "Account $id updated in DB")
     }
 
     fun getInstance() = this.instance ?: AccountInteractorImpl()
-}
+}*/

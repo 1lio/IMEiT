@@ -44,13 +44,13 @@ dependencies {
     implementation(Config.Libs.Rx.rxAndroid)
 
     // PlayServices
-    implementation(Config.Libs.PlayServices.playMaps)
+    implementation(Config.Libs.Google.maps)
 
     // Библиотека для хранения примитивных типов
     implementation(Config.Libs.Misc.hawk)
 
     //Firebase
-    implementation(Config.Libs.Firebase.auth)
+    //implementation(Config.Libs.Firebase.auth)
     implementation(Config.Libs.Firebase.database)
 
     implementation(project(":auth"))
