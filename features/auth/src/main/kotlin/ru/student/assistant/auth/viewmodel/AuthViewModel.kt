@@ -4,7 +4,14 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import ru.student.assistant.auth.gateway.AccountInteractor
 import ru.student.assistant.auth.viewmodel.enums.AuthState
+import ru.student.core.entity.AuthData
+import ru.student.core.entity.User
 
 class AuthViewModel : ViewModel() {
 
@@ -17,9 +24,53 @@ class AuthViewModel : ViewModel() {
     private val email = MutableLiveData<String>()
     private val pass = MutableLiveData<String>()
 
+    private val interactor = AccountInteractor()
+    private val tryAuthData = MutableLiveData<Boolean>() // Попытка авторизации
+    private val userData = MutableLiveData<User>()       // Сам пользователь
+
+    // Coroutine
+    private val viewModelJob = SupervisorJob()
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+
+    //SignUp
+    private val userAuth = AuthData()                    // данные для регистрации
+
     init {
         state.value = AuthState.SIGN_IN
         actionEnabled.value = false
+
+    }
+
+    // Авторизация
+    fun signIn() {
+
+        tryAuthData.value = true // Флаг, попытка авторизации
+
+        // Coroutine
+        uiScope.launch {
+
+            val result = interactor.signIn(getEmail(), getPass())
+
+
+            actionName.postValue(interactor.signIn(getEmail(), getPass()).toString())
+        }
+
+        // RxJava
+        /*   interactor
+               .signIn(email, pass)
+               .subscribeOn(Schedulers.io())
+               .observeOn(AndroidSchedulers.mainThread())
+               .delay(2L, TimeUnit.SECONDS)
+               .subscribe(
+                         { actionName.postValue(interactor.signIn(getEmail(), getPass()).toString()) },
+                         { setErrorMsg(ERROR_LOGIN) })
+               .apply { compositeDisposable.add(this) }*/
+    }
+
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
     }
 
     fun setLastState(state: AuthState) {
@@ -37,7 +88,7 @@ class AuthViewModel : ViewModel() {
     }
 
     fun setState(state: AuthState) {
-        this.state.postValue(state)
+        this.state.value = state
     }
 
     fun getState() = state.value
@@ -57,7 +108,7 @@ class AuthViewModel : ViewModel() {
     // Field
     fun getEmail(): String = email.value ?: ""
 
-    fun getPass(): String = pass.value ?: ""
+    private fun getPass(): String = pass.value ?: ""
 
     fun observeEmail(owner: LifecycleOwner, observer: Observer<String>) {
         email.observe(owner, observer)

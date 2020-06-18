@@ -72,8 +72,8 @@ class AuthFragment : Fragment() {
         // Обрабатываем нажатия
         action.setOnClickListener {
             when (state) {
-                AuthState.SIGN_IN -> signUp()
-                AuthState.SIGN_UP -> signIn()
+                AuthState.SIGN_IN -> signIn()
+                AuthState.SIGN_UP -> signUp()
                 AuthState.RESTORE -> restore()
                 else -> return@setOnClickListener // Прочие не обрабатываются
             }
@@ -176,6 +176,7 @@ class AuthFragment : Fragment() {
     }
 
     private fun signIn() {
+        authModel.signIn()
         Toast.makeText(context, "SignIN", Toast.LENGTH_LONG).show()
     }
 

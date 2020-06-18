@@ -59,7 +59,11 @@ class SignInFragment : BaseAuthFragment() {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
-                override fun beforeTextChanged(s: CharSequence?, start: Int, c: Int, a: Int) {}
+                override fun beforeTextChanged(s: CharSequence?, start: Int, c: Int, a: Int) {
+                    //authViewModel.setEmail(edSignEmail.text.toString())
+                    //authViewModel.setPass(edSignPass.text.toString())
+                }
+
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
                     if (it == edSignEmail) edSignEmail.isValidEmail() else edSignPass.isValidPass()
@@ -67,6 +71,8 @@ class SignInFragment : BaseAuthFragment() {
                     isValid = (edSignEmail.isValidEmail() && edSignPass.isValidPass())
                     viewModel.setValidForm(isValid)
                     authViewModel.setEnableAction(isValid)
+
+
                 }
             })
 
