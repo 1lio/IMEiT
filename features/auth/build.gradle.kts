@@ -27,7 +27,14 @@ android {
 }
 
 dependencies {
+
+    // Kotlin
     implementation(Kotlin.jdk8)
+
+    // Coroutines
+    implementation(Kotlin.coroutinesCore)
+    implementation(Kotlin.coroutinesAndroid)
+    implementation(Kotlin.coroutinesPlayServices)
 
     // AndroidX
     implementation(Androidx.appCompat)
@@ -41,6 +48,7 @@ dependencies {
     implementation(Firebase.auth)
     implementation(Firebase.authKtx)
     implementation(Firebase.database)
+    implementation(Firebase.databaseKtx)
     implementation(Firebase.storage)
 
     // Google
