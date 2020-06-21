@@ -13,7 +13,7 @@ class AccountInteractor : Auth {
 
         var result = false
 
-        auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+     /*   auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
             result = when {
                 it.isSuccessful -> {
                     true
@@ -26,7 +26,7 @@ class AccountInteractor : Auth {
                 }
                 else -> false
             }
-        }
+        }*/
 
 
         return result

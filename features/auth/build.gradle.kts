@@ -41,6 +41,7 @@ dependencies {
     implementation(Androidx.lifecycleExtensions)
     implementation(Androidx.constraint)
     implementation(Androidx.material)
+
     implementation(Androidx.viewpager)
     implementation(Androidx.vectorAnimation)
 

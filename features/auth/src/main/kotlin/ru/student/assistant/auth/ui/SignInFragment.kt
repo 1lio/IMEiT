@@ -49,7 +49,6 @@ class SignInFragment : BaseAuthFragment() {
             fm.beginTransaction().replace(R.id.frameLayout, RestoreFragment()).commit()
         }
 
-
         authViewModel.observeEmail(this, Observer { edSignEmail.setText(it) })
 
         edSignEmail.setText(authViewModel.getEmail())
@@ -59,10 +58,7 @@ class SignInFragment : BaseAuthFragment() {
             it.addTextChangedListener(object : TextWatcher {
 
                 override fun afterTextChanged(s: Editable?) {}
-                override fun beforeTextChanged(s: CharSequence?, start: Int, c: Int, a: Int) {
-                    //authViewModel.setEmail(edSignEmail.text.toString())
-                    //authViewModel.setPass(edSignPass.text.toString())
-                }
+                override fun beforeTextChanged(s: CharSequence?, start: Int, c: Int, a: Int) {}
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
@@ -77,10 +73,20 @@ class SignInFragment : BaseAuthFragment() {
             })
 
         }
+
+        authViewModel.observeTap(activity!!, Observer {
+            if (it) sendFormData()
+        })
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.setValidForm(isValid)
+    }
+
+    private fun sendFormData() {
+        authViewModel.setEmail(edSignEmail.text.toString())
+        authViewModel.setPass(edSignPass.text.toString())
+        authViewModel.setTap(false)
     }
 }

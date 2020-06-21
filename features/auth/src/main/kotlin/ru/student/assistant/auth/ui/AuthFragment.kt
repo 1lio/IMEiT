@@ -49,7 +49,7 @@ class AuthFragment : Fragment() {
         authModel.observeActionName(activity!!, Observer { action.text = it })
 
         // Поведение кнопки Action
-        authModel.observeEnableAction(activity!!, Observer {
+        authModel.observeActionEnabled(activity!!, Observer {
             action.isEnabled = it
             action.setTextColor(
                 if (it) ContextCompat.getColor(activity!!, R.color.colorAccent)
@@ -77,6 +77,7 @@ class AuthFragment : Fragment() {
                 AuthState.RESTORE -> restore()
                 else -> return@setOnClickListener // Прочие не обрабатываются
             }
+            //authModel.setTap(true)
         }
     }
 
