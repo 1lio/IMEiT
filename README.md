@@ -9,7 +9,11 @@ kotlin, RxJava, Firebase (Database, Auth), GoogleMaps, Material, JetPack
 Приложение делал как выпускной проет на OTUS "Разработчик Android" в 2019 году.
 Прогресс выпускного проекта можно посмотеть в [Otus-ветке](https://github.com/1lio/IMEiT/tree/otus)
 
-[Сертификат](art/certificate.pdf) полученный после защиты проекта. 
+Сертификат [OTUS](https://otus.ru/certificate/5fb781ba05b8418a986cc5dfc34d48a5/) полученный после защиты проекта. 
+
+<p align="center">
+  <img src="https://github.com/1lio/IMEiT/blob/master/art/screen-cert.png" />
+</p>
 
 На текущий момент решил дописать приложение:
  * Чат(группы, глобальный, чат старост); 
@@ -17,4 +21,4 @@ kotlin, RxJava, Firebase (Database, Auth), GoogleMaps, Material, JetPack
  * Новый дизайн;
  * Разбил на фиче-модули.
 
-Обновленный стек: KotlinKTS, Coroutines, Room, Socket.io
+И обновить стек: KotlinKTS, Coroutines, Room, Socket.io
