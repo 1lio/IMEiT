@@ -7,7 +7,7 @@ class GradebookPagerAdapter(fm: FragmentManager, private val countSemesters: Byt
 
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    override fun getItem(position: Int) = GradebookFragment(position.toByte())
+    override fun getItem(position: Int) = GradebookFragment()
 
     override fun getCount() = countSemesters.toInt()
 
