@@ -49,7 +49,7 @@ class SignInFragment : BaseAuthFragment() {
             fm.beginTransaction().replace(R.id.frameLayout, RestoreFragment()).commit()
         }
 
-        authViewModel.observeEmail(this, Observer { edSignEmail.setText(it) })
+       // authViewModel.observeEmail(this, Observer { edSignEmail.setText(it) })
 
         edSignEmail.setText(authViewModel.getEmail())
 
@@ -87,6 +87,6 @@ class SignInFragment : BaseAuthFragment() {
     private fun sendFormData() {
         authViewModel.setEmail(edSignEmail.text.toString())
         authViewModel.setPass(edSignPass.text.toString())
-        authViewModel.setTap(false)
+   //     authViewModel.setTap(false)
     }
 }
