@@ -36,8 +36,8 @@ dependencies {
     implementation(Config.Libs.Androidx.viewpager)
 
     //Navigation
-    implementation("android.arch.navigation:navigation-fragment:2.2.2")
-    implementation("android.arch.navigation:navigation-ui:2.2.2")
+    implementation("android.arch.navigation:navigation-fragment:2.2.1")
+    implementation("android.arch.navigation:navigation-ui:2.2.1")
 
     //Rx
     implementation(Config.Libs.Rx.rxJava)

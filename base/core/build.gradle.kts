@@ -1,7 +1,6 @@
 plugins {
     kotlin("android")
     kotlin("android.extensions")
-    //  id("com.google.gms.google-services")
 }
 
 android {
