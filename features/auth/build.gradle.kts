@@ -3,29 +3,8 @@ import Config.Libs.Firebase
 import Config.Libs.Kotlin
 import Config.Libs.Google
 import Config.Libs.Network
-import Config.Proguard
 
-plugins {
-    kotlin("android")
-    kotlin("android.extensions")
-    id("com.google.gms.google-services")
-    //
-}
-
-android {
-
-    defaultConfig {
-        versionName = Config.Features.Auth.versionName
-        versionCode = Config.Features.Auth.versionCode
-    }
-
-    buildTypes {
-        getByName(Config.BuildType.release) {
-            isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile(Proguard.file), Proguard.rules)
-        }
-    }
-}
+apply(plugin = "com.google.gms.google-services")
 
 dependencies {
 
