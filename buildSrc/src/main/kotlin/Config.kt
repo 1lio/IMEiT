@@ -11,8 +11,7 @@ object Config {
     const val testDir = "src/test/kotlin"
     const val androidTestDir = "src/androidTest/kotlin"
 
-
-    private const val kotlinVersion = "1.3.72"
+    private const val kotlinVersion = "1.4.0"
 
     object SdkVersions {
         const val compile = 29
@@ -29,7 +28,7 @@ object Config {
     object Libs {
 
         object Kotlin {
-            private const val ver = "1.3.6"
+            private const val ver = "1.3.9"
 
             const val jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
             const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
@@ -38,15 +37,15 @@ object Config {
         }
 
         object Androidx {
-            const val appCompat = "androidx.appcompat:appcompat:1.1.0"
-            const val ktx = "androidx.core:core-ktx:1.3.0"
+            const val appCompat = "androidx.appcompat:appcompat:1.2.0"
+            const val ktx = "androidx.core:core-ktx:1.3.1"
             const val ktxCollection = "androidx.collection:collection-ktx:1.1.0"
             const val ktxFragment = "androidx.fragment:fragment-ktx:1.2.5"
             const val constraint = "androidx.constraintlayout:constraintlayout:1.1.3"
             const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
             const val viewpager = "androidx.viewpager:viewpager:1.0.0"
             const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
-            const val material = "com.google.android.material:material:1.1.0"
+            const val material = "com.google.android.material:material:1.2.0"
             const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
         }
 
@@ -71,10 +70,9 @@ object Config {
 
         object Network {
             private const val retrofitVer = "2.9.0"
-
             const val retrofit2 = "com.squareup.retrofit2:retrofit:$retrofitVer"
             const val converterGson = "com.squareup.retrofit2:converter-gson:$retrofitVer"
-            const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.7.2"
+            const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.8.1"
         }
 
         object Rx {
