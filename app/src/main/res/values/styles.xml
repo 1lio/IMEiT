@@ -8,13 +8,16 @@
     </style>
 
     <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
-        <item name="itemIconTint">@color/bottom_navigation_colors</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/bottom_bar_height</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:visibility">invisible</item>
         <item name="android:background">@color/colorPrimary</item>
+        <item name="itemIconTint">@color/bottom_navigation_colors</item>
         <item name="itemIconSize">28dp</item>
         <item name="itemTextColor">@color/bottom_navigation_colors</item>
         <item name="labelVisibilityMode">unlabeled</item>
         <item name="menu">@menu/menu</item>
-        <item name="android:layout_gravity">bottom</item>
     </style>
 
     <style name="TabLayoutStyle">
