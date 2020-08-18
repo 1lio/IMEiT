@@ -54,6 +54,7 @@
         android:layout_marginBottom="24dp"
         android:gravity="center"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#00000000"
-            app:elevation="-1dp">
+            app:elevation="0dp">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/authTabLayout"
@@ -124,10 +125,9 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/authPager"
                 android:layout_width="match_parent"
-                android:layout_height="280dp" />
-
+                android:layout_height="280dp"
+                android:overScrollMode="never" />
         </com.google.android.material.appbar.AppBarLayout>
-
     </FrameLayout>
 
     <TextView
@@ -135,6 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_in"
+        android:textAllCaps="true"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"

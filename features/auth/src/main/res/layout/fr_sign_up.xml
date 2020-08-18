@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_email"
@@ -60,12 +60,14 @@
             android:importantForAutofill="noExcludeDescendants"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <CheckBox
         android:id="@+id/checkLicense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/licence" />
-
+        android:checked="true"
+        android:text="@string/licence"
+        android:visibility="invisible" />
 
 </LinearLayout>
