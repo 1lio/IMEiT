@@ -1,31 +1,7 @@
-plugins {
-    kotlin("android")
-    kotlin("android.extensions")
-    id("com.google.gms.google-services")
-}
-
-android {
-
-    defaultConfig {
-        applicationId = Config.applicationID
-
-        versionName = Config.appVersion
-        versionCode = Config.appVersionCode
-    }
-
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-
-}
+apply(plugin = "com.google.gms.google-services")
 
 dependencies {
+
     implementation(Config.Libs.Kotlin.jdk8)
     implementation(Config.Libs.Androidx.appCompat)
 
