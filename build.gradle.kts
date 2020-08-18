@@ -26,8 +26,12 @@ allprojects {
 
 fun Project.configureAndroid() {
 
-    if (name == "app") apply(plugin = "com.android.application")
-    else apply(plugin = "com.android.library")
+    val type = if (name == "app") "application" else "library"
+
+    // Base plugins
+    apply(plugin = "com.android.$type")
+    apply(plugin = "org.jetbrains.kotlin.android")
+    apply(plugin = "org.jetbrains.kotlin.android.extensions")
 
     configure<com.android.build.gradle.BaseExtension> {
 
