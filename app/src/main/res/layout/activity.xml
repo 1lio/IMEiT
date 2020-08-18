@@ -6,8 +6,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/container"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/bottom_bar_height" />
@@ -15,8 +15,5 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/appBar"
         style="@style/BottomNavStyle"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/bottom_bar_height"
-        android:visibility="invisible"
         tools:visibility="visible" />
 </merge>

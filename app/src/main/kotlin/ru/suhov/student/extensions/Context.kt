@@ -8,7 +8,7 @@ infix fun AppCompatActivity.pushFragment(fragment: Fragment) {
 
     this.supportFragmentManager
         .beginTransaction()
-        .replace(R.id.container, fragment)
+        .replace(R.id.mainContainer, fragment)
         .commit()
 }
 

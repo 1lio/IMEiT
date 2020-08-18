@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import ru.student.assistant.auth.ui.AuthFragment
 import ru.suhov.student.extensions.pushFragment
 
-class MainActivity : AppCompatActivity(R.layout.activity) {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity)
         // Грузим фрагмент с авторизацией
-        if (savedInstanceState == null) pushFragment(AuthFragment())
+        pushFragment(AuthFragment())
     }
 
 }
