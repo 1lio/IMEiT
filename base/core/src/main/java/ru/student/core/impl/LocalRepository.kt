@@ -4,7 +4,6 @@ import ru.student.core.base.Repository
 
 class LocalRepository : Repository() {
 
-    override var isAuth: Boolean
-        get() = true
-        set(value) {}
+    override var isAuth: Boolean = true
+
 }
