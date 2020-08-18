@@ -2,16 +2,13 @@ package ru.student.assistant.auth.ui
 
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
@@ -23,7 +20,7 @@ import ru.student.assistant.auth.R
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.enums.AuthState
 
-class AuthFragment : Fragment() {
+class AuthFragment : Fragment(R.layout.fr_auth) {
 
     private lateinit var authModel: AuthViewModel
     private lateinit var auth: FirebaseAuth
@@ -31,12 +28,7 @@ class AuthFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, bundle: Bundle?): View? {
-        super.onCreateView(inflater, group, bundle)
         authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
-        return inflater.inflate(R.layout.fr_auth, group, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,10 +38,10 @@ class AuthFragment : Fragment() {
         connectViewPager()
 
         // Наблюдаем за назавние Action
-        authModel.observeActionName(activity!!, Observer { action.text = it })
+        authModel.observeActionName(activity!!, { action.text = it })
 
         // Поведение кнопки Action
-        authModel.observeActionEnabled(activity!!, Observer {
+        authModel.observeActionEnabled(activity!!, {
             action.isEnabled = it
             action.setTextColor(
                 if (it) ContextCompat.getColor(activity!!, R.color.colorAccent)
@@ -58,7 +50,7 @@ class AuthFragment : Fragment() {
         })
 
         // Смотрим за состоянием state
-        authModel.observeState(activity!!, Observer {
+        authModel.observeState(activity!!, {
             updateAnimation(it)                 // Обновляем анимацию
             animationSocial(it)                 // Обновляем анимацию соцсетей
             updateActionName(it)                // Обновляем имя
@@ -86,12 +78,11 @@ class AuthFragment : Fragment() {
         authPager.adapter = AuthPagerAdapter(activity!!.supportFragmentManager, lifecycle)
 
         // Настраиваем заголовки
-        TabLayoutMediator(authTabLayout, authPager,
-            TabLayoutMediator.TabConfigurationStrategy { t, p ->
-                t.text =
-                    if (p == 0) resources.getText(R.string.sign_in)
-                    else resources.getText(R.string.sign_up)
-            }).attach()
+        TabLayoutMediator(authTabLayout, authPager) { t, p ->
+            t.text =
+                if (p == 0) resources.getText(R.string.sign_in)
+                else resources.getText(R.string.sign_up)
+        }.attach()
 
         // Обрабатываем перелистывания
         authPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -191,7 +182,11 @@ class AuthFragment : Fragment() {
     }
 
     private fun showRestoreMessage() {
-        Toast.makeText(context, getString(R.string.msg_restore) + " ${authModel.getEmail()}", Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            context,
+            getString(R.string.msg_restore) + " ${authModel.getEmail()}",
+            Toast.LENGTH_LONG
+        ).show()
     }
 
 }

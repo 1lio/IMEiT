@@ -1,17 +1,15 @@
 package ru.student.assistant.auth.ui
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fr_restore.*
 import ru.student.assistant.auth.R
+import ru.student.assistant.auth.extensions.BaseTextWatcher
 import ru.student.assistant.auth.extensions.isValidEmail
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.RestoreViewModel
@@ -20,11 +18,11 @@ import ru.student.assistant.auth.viewmodel.enums.AuthState
 class RestoreFragment : Fragment() {
 
     val state: AuthState = AuthState.RESTORE
+    private var isValid = false
 
     private lateinit var authModel: AuthViewModel
     private lateinit var viewModel: RestoreViewModel
 
-    private var isValid = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +42,7 @@ class RestoreFragment : Fragment() {
         isValid = edRestore.isValidEmail()
         viewModel.setValidForm(isValid)
 
-        viewModel.observeForm(this, Observer {
+        viewModel.observeForm(this, {
             authModel.setEnableAction(edRestore.isValidEmail())
         })
 
@@ -62,13 +60,11 @@ class RestoreFragment : Fragment() {
 
         edRestore.setText(authModel.getEmail())
 
-        edRestore.addTextChangedListener(object : TextWatcher {
-
-            override fun afterTextChanged(s: Editable?) {}
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+        edRestore.addTextChangedListener(object : BaseTextWatcher() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (checkForm(edRestore.text.toString())) edRestore.error = resources.getString(R.string.incorrect_email)
+                if (checkForm(edRestore.text.toString())) edRestore.error =
+                    resources.getString(R.string.incorrect_email)
 
                 isValid = edRestore.isValidEmail()
                 viewModel.setValidForm(isValid)
