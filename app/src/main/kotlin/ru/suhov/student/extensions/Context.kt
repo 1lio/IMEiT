@@ -2,13 +2,11 @@ package ru.suhov.student.extensions
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import ru.suhov.student.R
 
-infix fun AppCompatActivity.pushFragment(fragment: Fragment) {
+fun AppCompatActivity.pushFragment(fragment: Fragment, container: Int) {
 
     this.supportFragmentManager
         .beginTransaction()
-        .replace(R.id.mainContainer, fragment)
+        .replace(container, fragment)
         .commit()
 }
-
