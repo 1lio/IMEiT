@@ -1,5 +1,13 @@
 apply(plugin = "com.google.gms.google-services")
 
+android {
+    defaultConfig {
+        applicationId = Config.applicationID
+        versionCode = Config.appVersionCode
+        versionName = Config.appVersionName
+    }
+}
+
 dependencies {
 
     implementation(Config.Libs.Kotlin.jdk8)

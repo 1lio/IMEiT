@@ -1,9 +1,9 @@
 object Config {
 
     // app
-    const val appVersion = "FINAL"
+    const val appVersionName = "3.0"
     const val appVersionCode = 24
-    const val buildTools = "29.0.3"
+    const val buildTools = "30.0.2"
     const val applicationID = "ru.suhov.student"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -14,8 +14,8 @@ object Config {
     private const val kotlinVersion = "1.4.0"
 
     object SdkVersions {
-        const val compile = 29
-        const val target = 29
+        const val compile = 30
+        const val target = 30
         const val min = 23
     }
 
