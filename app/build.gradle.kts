@@ -34,7 +34,6 @@ dependencies {
     implementation(Config.Libs.Misc.hawk)
 
     //Firebase
-    //implementation(Config.Libs.Firebase.auth)
     implementation(Config.Libs.Firebase.database)
 
     implementation(project(":auth"))

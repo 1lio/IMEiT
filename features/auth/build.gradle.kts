@@ -1,8 +1,6 @@
 import Config.Libs.Androidx
 import Config.Libs.Firebase
 import Config.Libs.Kotlin
-import Config.Libs.Google
-import Config.Libs.Network
 
 apply(plugin = "com.google.gms.google-services")
 
@@ -31,14 +29,6 @@ dependencies {
     implementation(Firebase.database)
     implementation(Firebase.databaseKtx)
     implementation(Firebase.storage)
-
-    // Google
-    implementation(Google.auth)
-
-    // Network
-    implementation(Network.retrofit2)
-    implementation(Network.converterGson)
-    implementation(Network.loggingInterceptor)
 
     // Modules
     implementation(project(":core"))
