@@ -25,6 +25,5 @@ project(":calls").projectDir = File(rootDir, "/features/calls")
 include(":maps")
 project(":maps").projectDir = File(rootDir, "/features/maps")
 
-/*
 include(":schedule")
-project(":schedule").projectDir = File(rootDir, "/features/schedule")*/
+project(":schedule").projectDir = File(rootDir, "/features/schedule")
