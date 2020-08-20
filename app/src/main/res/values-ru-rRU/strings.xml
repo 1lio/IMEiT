@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Студ.Ассистент</string>
+    <string name="nav_account">Аккаунт</string>
+    <string name="nav_calls">Звонки</string>
+    <string name="nav_schedule">Расписание</string>
+    <string name="nav_maps">Корпуса</string>
+    <string name="nav_chat">Чат</string>
+</resources>
