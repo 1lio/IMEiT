@@ -2,6 +2,8 @@ package ru.student.core
 
 object AppConstants {
 
+    const val CONTAINER_ID: Int = 1
+
     const val FRAGMENT_AUTH: Byte = 0
 
     const val FRAGMENT_EMPTY_SCHEDULE: Byte = 3
