@@ -1,4 +1,4 @@
-package ru.suhov.student.features.account
+package ru.student.assistant.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.account.*
-import ru.suhov.student.MainActivity
-import ru.suhov.student.R
+import ru.student.assistant.calls.R
 
 class AccountFragment : Fragment() {
 
@@ -20,7 +19,6 @@ class AccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val activity = context as MainActivity
    //     val model = ViewModelProvider(activity)[AuthViewModel::class.java]
 
       /*  model.observeUser(activity, Observer {

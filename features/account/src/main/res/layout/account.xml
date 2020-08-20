@@ -36,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/temp" />
+                    />
 
             </com.google.android.material.circularreveal.cardview.CircularRevealCardView>
 
@@ -80,7 +80,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_settings" />
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -281,11 +281,11 @@
             android:layout_height="36dp"
             android:layout_gravity="end"
             android:contentDescription="@string/exit"
-            android:tint="@color/gray"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_exit" />
+           />
     </FrameLayout>
 
     <TextView
