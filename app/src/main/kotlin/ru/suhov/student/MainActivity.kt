@@ -3,9 +3,9 @@ package ru.suhov.student
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import ru.student.assistant.auth.ui.AuthFragment
-import ru.suhov.student.extensions.pushFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,4 +21,10 @@ class MainActivity : AppCompatActivity() {
         pushFragment(AuthFragment(), container.id)
     }
 
+    private fun AppCompatActivity.pushFragment(fragment: Fragment, container: Int) {
+        this.supportFragmentManager
+            .beginTransaction()
+            .replace(container, fragment)
+            .commit()
+    }
 }

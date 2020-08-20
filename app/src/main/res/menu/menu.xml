@@ -2,28 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-
         <item
             android:id="@+id/account"
             android:icon="@drawable/ic_account"
-            android:title="@string/account" />
+            android:title="@string/nav_account" />
 
         <item
             android:id="@+id/bells"
-            android:icon="@drawable/ic_notifications"
-            android:title="@string/menu_time" />
+            android:icon="@drawable/ic_beslls"
+            android:title="@string/nav_calls" />
         <item
             android:id="@+id/schedule"
             android:icon="@drawable/ic_schedule"
-            android:title="@string/menu_schedule" />
+            android:title="@string/nav_schedule" />
         <item
             android:id="@+id/maps"
             android:icon="@drawable/ic_location"
-            android:title="@string/menu_maps" />
+            android:title="@string/nav_maps" />
 
         <item
             android:id="@+id/chat"
             android:icon="@drawable/ic_chat"
-            android:title="@string/menu_maps" />
+            android:title="@string/nav_chat" />
     </group>
 </menu>
