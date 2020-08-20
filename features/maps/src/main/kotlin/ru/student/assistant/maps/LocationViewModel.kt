@@ -1,12 +1,12 @@
-package ru.suhov.student.features.viewmodel
+package ru.student.assistant.maps
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import ru.student.core.entity.EduLocation
 import ru.suhov.student.core.platform.BaseViewModel
-import ru.suhov.student.core.entity.EduLocation
 import ru.suhov.student.features.gateway.BuildingsInteractorImpl
 
 class LocationViewModel : BaseViewModel() {

@@ -1,4 +1,4 @@
-package ru.suhov.student.features.map
+package ru.student.assistant.maps
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fr_recycler.*
-import ru.suhov.student.R
-import ru.suhov.student.features.viewmodel.LocationViewModel
 
 /** Фрагмент список с положением всех корпусов */
 class MapsListFragment : Fragment() {

@@ -2,8 +2,7 @@ package ru.suhov.student.features.map
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import ru.suhov.student.features.map.MapsListFragment
-import ru.suhov.student.features.map.MapsMapFragment
+import ru.student.assistant.maps.MapsListFragment
 
 class MapPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

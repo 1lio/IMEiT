@@ -1,15 +1,13 @@
 package ru.suhov.student.features.gateway
 
-import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import io.reactivex.Single
-import ru.suhov.student.core.entity.EduLocation
+import ru.student.core.entity.EduLocation
 import ru.suhov.student.features.interactor.BuildingsInteractor
 import ru.suhov.student.features.repository.FirebaseRealtimeRepository
-import ru.suhov.student.features.AppConstants.LOG_BUILDINGS
 
 class BuildingsInteractorImpl : BuildingsInteractor {
 
@@ -18,16 +16,17 @@ class BuildingsInteractorImpl : BuildingsInteractor {
 
     /** Создать корпус*/
     override fun createBuildings(eduBuildings: EduLocation): Single<Boolean> {
-        Log.d(LOG_BUILDINGS, "createBuildings")
+
         return Single.create {
             repository.getRefListEducationBuildings().setValue(eduBuildings)
             it.onSuccess(true)
         }
     }
 
+
     /** Получить конкретный корпус*/
     override fun getBuilding(id: String): Single<EduLocation> {
-        Log.d(LOG_BUILDINGS, "getBuilding")
+
         return Single.create { subscribe ->
             repository.getRefEduBuildingsFromId(id)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
@@ -46,7 +45,7 @@ class BuildingsInteractorImpl : BuildingsInteractor {
 
     /** Лист с корпусами*/
     override fun getListBuildings(): Observable<List<EduLocation>> {
-        Log.d(LOG_BUILDINGS, "getListBuildings")
+
         return Observable.create {
             repository.getRefListEducationBuildings()
                 .addListenerForSingleValueEvent(object : ValueEventListener {
@@ -68,7 +67,6 @@ class BuildingsInteractorImpl : BuildingsInteractor {
 
     /** Обновить данные корпуса */
     override fun updateBuilding(id: String, value: EduLocation): Single<Boolean> {
-        Log.d(LOG_BUILDINGS, "updateBuilding")
         return Single.create {
             repository.getRefListEducationBuildings().child(id).setValue(value)
             it.onSuccess(true)
@@ -77,7 +75,6 @@ class BuildingsInteractorImpl : BuildingsInteractor {
 
     /** Удалить корпус*/
     override fun deleteBuilding(id: String): Single<Boolean> {
-        Log.d(LOG_BUILDINGS, "deleteBuilding")
         return Single.create {
             repository.getRefListEducationBuildings().child(id).removeValue()
             it.onSuccess(true)
@@ -86,7 +83,6 @@ class BuildingsInteractorImpl : BuildingsInteractor {
 
     /** Удалить список корпусов */
     override fun deleteBuildingList(): Single<Boolean> {
-        Log.d(LOG_BUILDINGS, "deleteBuildingList")
         return Single.create {
             repository.getRefListEducationBuildings().removeValue()
             it.onSuccess(true)

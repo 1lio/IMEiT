@@ -1,11 +1,12 @@
-package ru.suhov.student.features.map
+package ru.student.assistant.maps
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fr_tab.*
-import ru.suhov.student.core.platform.BasePagerFragment
+import ru.suhov.student.features.map.MapPagerAdapter
 
-class MapsPagerFragment : BasePagerFragment() {
+class MapsPagerFragment : Fragment(R.layout.fr_tab) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

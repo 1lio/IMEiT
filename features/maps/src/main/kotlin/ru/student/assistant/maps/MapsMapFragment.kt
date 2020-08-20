@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -13,18 +12,23 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import ru.suhov.student.R
-
-import ru.suhov.student.features.viewmodel.LocationViewModel
+import ru.student.assistant.maps.LocationViewModel
+import ru.student.assistant.maps.R
 
 // Фрагмент с картой
 class MapsMapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var model: LocationViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        state: Bundle?
+    ): View {
         val v = inflater.inflate(R.layout.fr_maps, container, false)
-        (childFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment).getMapAsync(this)
+        (childFragmentManager.findFragmentById(R.id.fragment_map) as SupportMapFragment).getMapAsync(
+            this
+        )
         model = ViewModelProvider(this)[LocationViewModel::class.java]
         return v
     }
@@ -34,7 +38,7 @@ class MapsMapFragment : Fragment(), OnMapReadyCallback {
         // В цикле перебераем коодинаты и приводм к типу LatLng
         // Затем создаем point на карте и присваиваем имя из БД
 
-        model.observeListBuilding(this, Observer { list ->
+        model.observeListBuilding(this, { list ->
 
             var i = 0
             while (i < list.size) {
