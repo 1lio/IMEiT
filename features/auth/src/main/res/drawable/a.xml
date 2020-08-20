@@ -4,7 +4,7 @@
         <vector
             android:width="480dp"
             android:height="480dp"
-            android:viewportWidth="512"
+            android:viewportWidth="510"
             android:viewportHeight="1024">
 
             <path
