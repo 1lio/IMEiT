@@ -33,7 +33,8 @@ object Config {
             const val jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
             const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
             const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver"
-            const val coroutinesPlayServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
+            const val coroutinesPlayServices =
+                "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
         }
 
         object Androidx {
@@ -53,10 +54,11 @@ object Config {
 
             private const val authVer = "19.3.1"
             private const val dbVer = "19.3.0"
+            private const val storageVer = "19.1.1"
 
             const val auth = "com.google.firebase:firebase-auth:$authVer"
             const val database = "com.google.firebase:firebase-database:$dbVer"
-            const val storage = "com.google.firebase:firebase-storage:19.1.1"
+            const val storage = "com.google.firebase:firebase-storage:$storageVer"
 
             // const val databaseKtx = "com.google.firebase:firebase-database-ktx:$authVer"
             const val authKtx = "com.google.firebase:firebase-auth-ktx:$authVer"
