@@ -1,4 +1,4 @@
-package ru.suhov.student.features.gateway
+package ru.student.assistant.calls
 
 import android.util.Log
 import com.google.firebase.database.DataSnapshot
@@ -6,12 +6,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import io.reactivex.Single
-import ru.suhov.student.core.entity.CallPref
-import ru.suhov.student.features.interactor.TimeCallInteractor
-import ru.suhov.student.features.repository.FirebaseRealtimeRepository
-import ru.suhov.student.features.AppConstants.LOG_CALLS
-import ru.suhov.student.features.Constants.CALL_REFERENCE
-import ru.suhov.student.features.Constants.DEFAULT
+import ru.student.assistant.calls.repository.FirebaseRealtimeRepository
+import ru.student.core.AppConstants.LOG_CALLS
+import ru.student.core.Constants.CALL_REFERENCE
+import ru.student.core.Constants.DEFAULT
+import ru.student.core.entity.CallPref
 
 class TimeCallInteractorImpl : TimeCallInteractor {
 

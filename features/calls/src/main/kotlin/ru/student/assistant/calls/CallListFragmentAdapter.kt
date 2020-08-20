@@ -1,4 +1,4 @@
-package ru.suhov.student.features.call
+package ru.student.assistant.calls
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,11 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import ru.suhov.student.R
-import ru.suhov.student.core.platform.BaseAdapter
-import ru.suhov.student.core.platform.BaseViewHolder
-import ru.suhov.student.core.extension.styleAppearance
-import ru.suhov.student.core.entity.CallPref
+import ru.student.core.entity.CallPref
 
 class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.ViewHolder>() {
 
@@ -19,7 +15,7 @@ class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.Vi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_bells, parent, false)
+            .inflate(R.layout.item_bells, parent, false)
         min = v.resources.getString(R.string.min)
         context = parent.context
         return ViewHolder(v)
@@ -52,7 +48,12 @@ class CallListFragmentAdapter : BaseAdapter<CallItem, CallListFragmentAdapter.Vi
 
     private fun decorateItem(holder: ViewHolder) {
         holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.gray))
-        listOf(holder.num, holder.less1top, holder.less1bot, holder.less2top, holder.less2bot)
-                .forEach { it.styleAppearance() }
+        listOf(
+            holder.num,
+            holder.less1top,
+            holder.less1bot,
+            holder.less2top,
+            holder.less2bot
+        ).forEach { it.setTextAppearance(R.style.TextCurrentPair) }
     }
 }

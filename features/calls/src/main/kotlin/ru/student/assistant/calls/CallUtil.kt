@@ -1,13 +1,12 @@
-package ru.suhov.student.features.call
+package ru.student.assistant.calls
 
-import ru.suhov.student.features.repository.LocalRepository
-import ru.suhov.student.core.entity.CallPref
-import ru.suhov.student.features.call.EducationEvent.BREAK
-import ru.suhov.student.features.call.EducationEvent.END
-import ru.suhov.student.features.call.EducationEvent.LESSON
-import ru.suhov.student.features.call.EducationEvent.LUNCH
-import ru.suhov.student.core.extension.remainedTimeFormat
-import ru.suhov.student.core.extension.timeFormat
+import ru.student.assistant.calls.EducationEvent.BREAK
+import ru.student.assistant.calls.EducationEvent.END
+import ru.student.assistant.calls.EducationEvent.LESSON
+import ru.student.assistant.calls.EducationEvent.LUNCH
+import ru.student.assistant.calls.repository.LocalRepository
+import ru.student.core.entity.CallPref
+
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -17,7 +16,8 @@ import kotlin.collections.ArrayList
 class CallUtil(private val pref: CallPref = CallPref()) {
 
     private val calendar = GregorianCalendar.getInstance()
-    private val currentTime = (calendar.get(Calendar.HOUR_OF_DAY) * 60 + calendar.get(Calendar.MINUTE))
+    private val currentTime =
+        (calendar.get(Calendar.HOUR_OF_DAY) * 60 + calendar.get(Calendar.MINUTE))
 
     /** @see generateListsRange - Функция создает два листа с диапазонами пар и перемен
      *  @return Pair<<List<Занятия>,List<Перемены>>*/
@@ -48,7 +48,8 @@ class CallUtil(private val pref: CallPref = CallPref()) {
             // обновляем счетчик
             pairFrom =
                 (pairFrom + (pref.lengthLesson * 2) + pref.lengthBreak) + pref.lengthBreakPair
-            if (x == (pref.lunchStart - 1)) pairFrom = (pairFrom + pref.lengthLunch) - pref.lengthBreakPair
+            if (x == (pref.lunchStart - 1)) pairFrom =
+                (pairFrom + pref.lengthLunch) - pref.lengthBreakPair
         }
 
         return Pair(list, pause)
@@ -65,8 +66,9 @@ class CallUtil(private val pref: CallPref = CallPref()) {
         val isInclude = generateListsRange().first.any { intRange -> currentTime in intRange }
         // Если значение текущее время есть среди диапазонов пар, то найди его в списке пар и верни номер
         if (isInclude) {
-            generateListsRange().first.forEachIndexed { i, r -> if (currentTime in r)
-                number = i
+            generateListsRange().first.forEachIndexed { i, r ->
+                if (currentTime in r)
+                    number = i
                 type = LESSON
             }
         } else {

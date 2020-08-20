@@ -1,7 +1,6 @@
-package ru.suhov.student.features.call
+package ru.student.assistant.calls
 
-import ru.suhov.student.core.entity.CallPref
-import ru.suhov.student.core.extension.timeFormat
+import ru.student.core.entity.CallPref
 
 /** Данный класс генерирует лист с расписанием звонков
  *  @param pref - настроки для расписания из класса [CallPref]*/

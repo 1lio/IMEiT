@@ -1,18 +1,16 @@
-package ru.suhov.student.features.call
+package ru.student.assistant.calls
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.suhov.student.R
-import ru.suhov.student.features.viewmodel.CallTimeViewModel
+import ru.student.assistant.calls.viewmodel.CallTimeViewModel
 
 /** Фрагмент показывающий список с расписанием звонков и также View с информацией о текущем времени*/
 class CallFragment : Fragment() {
@@ -29,7 +27,7 @@ class CallFragment : Fragment() {
         recycler.itemAnimator = DefaultItemAnimator()
         recycler.addItemDecoration(DividerItemDecoration(recycler.context, LinearLayoutManager(context).orientation))
 
-        viewModel.observeListCalls(activity!!, Observer { adapter.addAllAndNotify(it) })
+        viewModel.observeListCalls(activity!!, { adapter.addAllAndNotify(it) })
         return v
     }
 }

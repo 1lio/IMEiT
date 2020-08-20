@@ -1,8 +1,8 @@
-package ru.suhov.student.features.interactor
+package ru.student.assistant.calls
 
 import io.reactivex.Observable
 import io.reactivex.Single
-import ru.suhov.student.core.entity.CallPref
+import ru.student.core.entity.CallPref
 
 interface TimeCallInteractor {
 

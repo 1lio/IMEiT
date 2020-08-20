@@ -1,21 +1,25 @@
-package ru.suhov.student.features.viewmodel
+package ru.student.assistant.calls.viewmodel
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import ru.suhov.student.core.platform.BaseViewModel
-import ru.suhov.student.core.entity.CallPref
-import ru.suhov.student.features.gateway.TimeCallInteractorImpl
-import ru.suhov.student.features.call.CallGenerator
-import ru.suhov.student.features.call.CallUtil
-import ru.suhov.student.features.call.CallItem
-import ru.suhov.student.features.call.CallFragment
-import ru.suhov.student.features.call.TimeView
+import ru.student.assistant.calls.CallGenerator
+import ru.student.assistant.calls.CallItem
+import ru.student.assistant.calls.CallUtil
+import ru.student.assistant.calls.TimeCallInteractorImpl
+import ru.student.assistant.calls.repository.LocalRepository
+import ru.student.core.entity.CallPref
 
 /** Данную вью модель используют [CallFragment] и [TimeView]*/
-class CallTimeViewModel : BaseViewModel() {
+class CallTimeViewModel : ViewModel() {
+
+    val compositeDisposable = CompositeDisposable()
+    val localRepository = LocalRepository()
+
 
     private val interactor = TimeCallInteractorImpl().getInstance()
 
@@ -84,7 +88,8 @@ class CallTimeViewModel : BaseViewModel() {
                 listData.postValue(
                     CallGenerator(
                         it
-                    ).getCallsList())
+                    ).getCallsList()
+                )
             }.apply { compositeDisposable.add(this) }
     }
 
@@ -131,4 +136,10 @@ class CallTimeViewModel : BaseViewModel() {
     fun observeCalls(owner: LifecycleOwner, observer: Observer<CallPref>) {
         prefData.observe(owner, observer)
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable.clear()
+    }
+
 }

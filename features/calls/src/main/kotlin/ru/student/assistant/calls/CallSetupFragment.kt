@@ -1,4 +1,4 @@
-package ru.suhov.student.features.call
+package ru.student.assistant.calls
 
 import android.app.TimePickerDialog
 import android.os.Bundle
@@ -13,13 +13,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fr_call_setup.*
-import ru.suhov.student.R
-import ru.suhov.student.MainActivity
-import ru.suhov.student.features.repository.LocalRepository
-import ru.suhov.student.core.entity.CallPref
-import ru.suhov.student.core.extension.timeFormat
-import ru.suhov.student.core.extension.toast
-import ru.suhov.student.features.viewmodel.CallTimeViewModel
+import ru.student.assistant.calls.repository.LocalRepository
+import ru.student.assistant.calls.viewmodel.CallTimeViewModel
+import ru.student.core.entity.CallPref
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -28,15 +24,19 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
 
     private lateinit var viewModelSetup: CallTimeViewModel
     private lateinit var pref: CallPref
-    private lateinit var fab:FloatingActionButton
+    private lateinit var fab: FloatingActionButton
 
     private var listEditTexts = ArrayList<EditText>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
         val v = inflater.inflate(R.layout.fr_call_setup, container, false)
-        viewModelSetup = ViewModelProvider(context as MainActivity)[CallTimeViewModel::class.java]
+        viewModelSetup = ViewModelProvider(requireActivity())[CallTimeViewModel::class.java]
 
 
         // заполняем EditText-ы
@@ -51,8 +51,12 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        listEditTexts.addAll(arrayOf(ed_count_call, ed_length_lesson, ed_length_break, ed_length_lunch,
-                ed_length_break_pair, ed_lunch_start))
+        listEditTexts.addAll(
+            arrayOf(
+                ed_count_call, ed_length_lesson, ed_length_break, ed_length_lunch,
+                ed_length_break_pair, ed_lunch_start
+            )
+        )
 
         viewModelSetup.getCurrentPref()
 
@@ -89,7 +93,10 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
             listEditTexts.forEach {
                 when (it) {
                     ed_count_call -> it.setText(c.count.toString())
-                    ed_length_lesson -> it.setText(c.lengthLesson.toString(), TextView.BufferType.EDITABLE)
+                    ed_length_lesson -> it.setText(
+                        c.lengthLesson.toString(),
+                        TextView.BufferType.EDITABLE
+                    )
                     ed_length_break -> it.setText(c.lengthBreak.toString())
                     ed_length_lunch -> it.setText(c.lengthLunch.toString())
                     ed_length_break_pair -> it.setText(pref.lengthBreakPair.toString())
@@ -100,7 +107,7 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
         }
 
         // Наблюдаем за настройками
-        viewModelSetup.observeCalls(activity!!, androidx.lifecycle.Observer { c ->
+        viewModelSetup.observeCalls(activity!!, { c ->
             if (count == 1) setUp(c)
             if (!LocalRepository().isChangedPref) setUp(viewModelSetup.getPrefData())
         })
@@ -120,17 +127,29 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
             it.addTextChangedListener(object : TextWatcher {
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                     when (it) {
-                        ed_count_call -> if (s.validDateCallPref(it)) pref.count = s.toString().toInt()
-                        ed_length_lesson -> if (s.validDateCallPref(it)) pref.lengthBreak = s.toString().toInt()
-                        ed_length_break -> if (s.validDateCallPref(it)) pref.lengthLesson = s.toString().toInt()
-                        ed_length_lunch -> if (s.validDateCallPref(it)) pref.lengthLunch = s.toString().toInt()
-                        ed_length_break_pair -> if (s.validDateCallPref(it)) pref.lengthBreakPair = s.toString().toInt()
-                        ed_lunch_start -> if (s.validDateCallPref(it)) pref.lunchStart = s.toString().toInt()
+                        ed_count_call -> if (s.validDateCallPref(it)) pref.count =
+                            s.toString().toInt()
+                        ed_length_lesson -> if (s.validDateCallPref(it)) pref.lengthBreak =
+                            s.toString().toInt()
+                        ed_length_break -> if (s.validDateCallPref(it)) pref.lengthLesson =
+                            s.toString().toInt()
+                        ed_length_lunch -> if (s.validDateCallPref(it)) pref.lengthLunch =
+                            s.toString().toInt()
+                        ed_length_break_pair -> if (s.validDateCallPref(it)) pref.lengthBreakPair =
+                            s.toString().toInt()
+                        ed_lunch_start -> if (s.validDateCallPref(it)) pref.lunchStart =
+                            s.toString().toInt()
                     }
                 }
 
                 override fun afterTextChanged(s: Editable?) {}
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
             })
         }
     }
@@ -172,12 +191,13 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
         when (v!!.id) {
             R.id.time_start -> {
                 TimePickerDialog(
-                        activity,
-                        onTimeSetListener,
-                        pref.start / 60,
-                        pref.start % 60,
-                        true)
-                        .show()
+                    activity,
+                    onTimeSetListener,
+                    pref.start / 60,
+                    pref.start % 60,
+                    true
+                )
+                    .show()
             }
             R.id.btn_def_call -> {
                 viewModelSetup.setDefaultPreferences()
@@ -186,10 +206,10 @@ class CallSetupFragment : Fragment(), View.OnClickListener {
                     R.string.def_settings
                 )
             }
-           /* R.id.fab -> {
-                viewModelSetup.saveAndPush(pref)
-                toast(activity!!, R.string.save_settings)
-            }*/
+            /* R.id.fab -> {
+                 viewModelSetup.saveAndPush(pref)
+                 toast(activity!!, R.string.save_settings)
+             }*/
         }
     }
 }

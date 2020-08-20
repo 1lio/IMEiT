@@ -1,4 +1,4 @@
-package ru.suhov.student.core.extension
+package ru.student.assistant.calls
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -6,14 +6,11 @@ import android.os.Build
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import ru.suhov.student.R
-import ru.suhov.student.features.Constants.FRI
-import ru.suhov.student.features.Constants.MON
-import ru.suhov.student.features.Constants.THU
-import ru.suhov.student.features.Constants.TUE
-import ru.suhov.student.features.Constants.WED
+import ru.student.core.Constants.FRI
+import ru.student.core.Constants.MON
+import ru.student.core.Constants.THU
+import ru.student.core.Constants.TUE
+import ru.student.core.Constants.WED
 import java.util.*
 
 /** В данном файле хранятся функции которые могут быть вызваны когда-либо мне зависимости от класса*/
@@ -66,8 +63,4 @@ fun View.visible() {
 
 fun View.gone() {
     this.visibility = View.GONE
-}
-
-fun Fragment.pushFragment(fm: FragmentManager) {
-    fm.beginTransaction().replace(R.id.container, this, this.tag).commit()
 }

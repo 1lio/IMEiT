@@ -1,4 +1,4 @@
-package ru.suhov.student.features.call
+package ru.student.assistant.calls
 
 data class TimeData(
         val tex1: String = "",
