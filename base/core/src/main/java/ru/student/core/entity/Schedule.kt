@@ -1,4 +1,4 @@
-package ru.suhov.student.core.entity
+package ru.student.core.entity
 
 data class Schedule(
 

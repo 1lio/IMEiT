@@ -1,4 +1,4 @@
-package ru.suhov.student.features
+package ru.student.core
 
 object AppConstants {
 
