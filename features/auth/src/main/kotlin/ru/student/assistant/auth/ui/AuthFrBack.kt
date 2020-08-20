@@ -1,5 +1,6 @@
 package ru.student.assistant.auth.ui
 
+
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
 import android.view.View
@@ -15,24 +16,13 @@ import ru.student.assistant.auth.R
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.enums.AuthState
 
-class AuthFragment : Fragment(R.layout.fr_auth) {
+class AuthFrBack : Fragment(R.layout.fr_auth) {
 
     private lateinit var authModel: AuthViewModel
-    private lateinit var aToB: AnimatedVectorDrawable
-    private lateinit var bToA: AnimatedVectorDrawable
-    private lateinit var bToC: AnimatedVectorDrawable
-    private lateinit var cToB: AnimatedVectorDrawable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        aToB = ContextCompat.getDrawable(requireContext(), R.drawable.a) as AnimatedVectorDrawable
-        bToA = ContextCompat.getDrawable(requireContext(), R.drawable.b) as AnimatedVectorDrawable
-        bToC = ContextCompat.getDrawable(requireContext(), R.drawable.c) as AnimatedVectorDrawable
-        cToB = ContextCompat.getDrawable(requireContext(), R.drawable.d) as AnimatedVectorDrawable
-
         authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,7 +45,7 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
         // Смотрим за состоянием state
         authModel.observeState(activity!!, {
             updateAnimation(it)                 // Обновляем анимацию
-            // animationSocial(it)                 // Обновляем анимацию соцсетей
+            // animationSocial(it)              // Обновляем анимацию соцсетей
             updateActionName(it)                // Обновляем имя
             processAction(it)                   // Обновляем обработчик
             authModel.setEnableAction(false)    // Сбрасываем доступность кнопки
@@ -81,8 +71,7 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
         authPager.adapter = AuthPagerAdapter(activity!!.supportFragmentManager, lifecycle)
 
         // Настраиваем заголовки
-        TabLayoutMediator(authTabLayout, authPager) { t, p ->
-            t.text = if (p == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up) }.attach()
+        TabLayoutMediator(authTabLayout, authPager) { t, p -> t.text = if (p == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up) }.attach()
 
         // Обрабатываем перелистывания
         authPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -112,7 +101,24 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
         authModel.setActionName(name)
     }
 
+    private val aToB =
+        ContextCompat.getDrawable(requireContext(), R.drawable.a) as AnimatedVectorDrawable
+    private val bToA = ContextCompat.getDrawable(
+        requireContext(),
+        R.drawable.b
+    ) as AnimatedVectorDrawable
+    private val bToC = ContextCompat.getDrawable(
+        requireContext(),
+        R.drawable.c
+    ) as AnimatedVectorDrawable
+    private val cToB = ContextCompat.getDrawable(
+        requireContext(),
+        R.drawable.d
+    ) as AnimatedVectorDrawable
+
     private fun updateAnimation(state: AuthState) {
+
+        // Делаем красивую анимацию через костыль ViewModel (state , lastState)
 
         val anim = when (state) {
             AuthState.SIGN_IN -> if (authModel.getLastState() == AuthState.SIGN_IN) aToB else cToB
@@ -130,6 +136,7 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
         }
 
         authBackground.setImageDrawable(anim)
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         anim.start()
     }
 
@@ -149,7 +156,7 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
 
     private fun showRestoreMessage() {
         Toast.makeText(
-            context,
+            requireContext(),
             getString(R.string.msg_restore) + " ${authModel.getEmail()}",
             Toast.LENGTH_LONG
         ).show()

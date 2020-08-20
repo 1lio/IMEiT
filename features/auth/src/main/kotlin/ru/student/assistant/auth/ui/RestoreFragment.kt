@@ -23,7 +23,6 @@ class RestoreFragment : Fragment() {
     private lateinit var authModel: AuthViewModel
     private lateinit var viewModel: RestoreViewModel
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
