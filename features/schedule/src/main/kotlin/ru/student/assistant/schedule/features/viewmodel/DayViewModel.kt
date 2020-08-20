@@ -5,10 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import ru.student.core.entity.Schedule
 import ru.suhov.student.core.platform.BaseViewModel
-import ru.suhov.student.core.entity.Schedule
 import ru.suhov.student.features.gateway.ScheduleInteractorImpl
-import ru.suhov.student.core.extension.getDayAcronym
 
 class DayViewModel : BaseViewModel() {
 
@@ -19,10 +18,10 @@ class DayViewModel : BaseViewModel() {
 
     init {
         // При инициализации вытаскиваем текущий день недели
-        dayLiveData.postValue(getDayAcronym())
+     //   dayLiveData.postValue(getDayAcronym())
 
         // По умолчанию подключаемся к текущему дню
-        setSchedule(dayLiveData.value ?: getDayAcronym())
+     //   setSchedule(dayLiveData.value ?: getDayAcronym())
     }
 
     fun setDay(day: String) = dayLiveData.postValue(day)

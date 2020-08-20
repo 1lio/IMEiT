@@ -5,15 +5,14 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import io.reactivex.Single
-import ru.suhov.student.core.entity.Schedule
+import ru.student.core.Constants
+import ru.student.core.entity.Schedule
 import ru.suhov.student.features.interactor.ScheduleInteractor
 import ru.suhov.student.features.repository.FirebaseRealtimeRepository
 import ru.suhov.student.features.repository.LocalRepository
-import ru.suhov.student.features.Constants
 import java.lang.Exception
 
 class ScheduleInteractorImpl : ScheduleInteractor {
-
 
     private val instance: ScheduleInteractorImpl? = null
     private val localRepository = LocalRepository().getInstance()

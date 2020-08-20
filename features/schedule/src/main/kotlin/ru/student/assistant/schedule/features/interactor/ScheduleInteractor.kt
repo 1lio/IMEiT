@@ -2,7 +2,7 @@ package ru.suhov.student.features.interactor
 
 import io.reactivex.Observable
 import io.reactivex.Single
-import ru.suhov.student.core.entity.Schedule
+import ru.student.core.entity.Schedule
 
 interface ScheduleInteractor {
 

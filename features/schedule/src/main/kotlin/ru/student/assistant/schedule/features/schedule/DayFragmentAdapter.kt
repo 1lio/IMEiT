@@ -6,14 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import ru.student.core.entity.Schedule
 import ru.suhov.student.R
 import ru.suhov.student.core.platform.BaseAdapter
 import ru.suhov.student.core.platform.BaseViewHolder
-import ru.suhov.student.core.entity.CallPref
-import ru.suhov.student.core.entity.Schedule
-import ru.suhov.student.features.call.CallUtil
-import ru.suhov.student.core.extension.styleAppearance
-import ru.suhov.student.features.call.TimeData
 
 class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolder>() {
 
@@ -24,7 +20,7 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolde
         return DayViewHolder(LayoutInflater.from(p.context).inflate(R.layout.item_schedule, p, false))
     }
 
-    inner class DayViewHolder(v: View) : BaseViewHolder<Schedule>(v) {
+     class DayViewHolder(v: View) : BaseViewHolder<Schedule>(v) {
 
         val lesson: TextView = v.findViewById(R.id.text_lesson)
         val teacher: TextView = v.findViewById(R.id.text_lecturer)
@@ -54,14 +50,14 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolde
 
     override fun onBindViewHolder(holder: DayViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
-
+/*
         val listTime: List<TimeData> = CallUtil().getListTime()
         holder.time1.text = listTime[position].tex1
         holder.time2.text = listTime[position].tex2
         holder.time3.text = listTime[position].tex3
 
         val currentPair = CallUtil(CallPref()).getNumberCurrentPair().second
-        if (currentPair == position) decorateItem(holder)
+        if (currentPair == position) decorateItem(holder)*/
     }
 
     private fun decorateItem(holder: DayViewHolder) {
@@ -69,6 +65,6 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolde
 
         listOf(holder.lesson, holder.teacher, holder.type, holder.building, holder.lesson2,
                 holder.teacher2, holder.type2, holder.building2, holder.time1, holder.time2, holder.time3
-        ).forEach { it.styleAppearance() }
+        ).forEach {  }
     }
 }
