@@ -1,4 +1,4 @@
-package ru.suhov.student.features.schedule
+package ru.student.assistant.schedule.features.schedule
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import ru.student.assistant.schedule.R
 import ru.student.core.entity.Schedule
-import ru.suhov.student.R
 import ru.suhov.student.core.platform.BaseAdapter
 import ru.suhov.student.core.platform.BaseViewHolder
 

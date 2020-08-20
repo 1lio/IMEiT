@@ -1,17 +1,16 @@
-package ru.suhov.student.features.schedule
+package ru.student.assistant.schedule.features.schedule
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fr_recycler.*
-import ru.suhov.student.R
+import ru.student.assistant.schedule.R
 import ru.suhov.student.features.viewmodel.DayViewModel
 
 /** Фрагмент с расписанием для текущего дня*/

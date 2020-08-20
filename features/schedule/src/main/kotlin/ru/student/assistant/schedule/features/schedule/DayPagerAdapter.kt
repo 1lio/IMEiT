@@ -1,14 +1,15 @@
-package ru.suhov.student.features.schedule
+package ru.student.assistant.schedule.features.schedule
 
 import android.content.Context
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import ru.student.assistant.schedule.R
+import ru.student.assistant.schedule.features.schedule.FragmentDay
 import ru.student.core.Constants.FRI
 import ru.student.core.Constants.MON
 import ru.student.core.Constants.THU
 import ru.student.core.Constants.TUE
 import ru.student.core.Constants.WED
-import ru.suhov.student.R
 
 class DayPagerAdapter(fm: FragmentManager, private val context:Context) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

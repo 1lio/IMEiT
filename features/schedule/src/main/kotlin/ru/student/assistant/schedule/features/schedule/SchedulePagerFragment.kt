@@ -3,7 +3,8 @@ package ru.suhov.student.features.schedule
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.fr_tab.*
-import ru.suhov.student.core.platform.BasePagerFragment
+import ru.student.assistant.schedule.features.schedule.DayPagerAdapter
+import ru.student.assistant.schedule.platform.BasePagerFragment
 import java.util.*
 
 // Фрагмент с Pager-ом содержащим в себе расписание по дням недели.
