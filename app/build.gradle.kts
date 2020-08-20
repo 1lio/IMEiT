@@ -12,6 +12,6 @@ dependencies {
     implementation(Config.Libs.Androidx.appCompat)
     implementation(Config.Libs.Androidx.material)
 
-    // modules
+    implementation(project(":core"))
     implementation(project(":auth"))
 }
