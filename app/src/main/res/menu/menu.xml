@@ -8,8 +8,8 @@
             android:title="@string/nav_account" />
 
         <item
-            android:id="@+id/bells"
-            android:icon="@drawable/ic_beslls"
+            android:id="@+id/calls"
+            android:icon="@drawable/ic_calls"
             android:title="@string/nav_calls" />
         <item
             android:id="@+id/schedule"
