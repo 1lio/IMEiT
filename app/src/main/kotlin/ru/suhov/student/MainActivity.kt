@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), ActivityContract {
 
     override fun pushFragmentById(id: Int) {
 
+        // Тут может быть утечка
         val fragment = when (id) {
             FRAGMENT_AUTH -> AuthFragment()
             FRAGMENT_ACCOUNT -> AccountFragment()

@@ -50,6 +50,8 @@ open class AuthViewModel : AuthUI() {
         }
     }
 
+    fun isAuth(): Boolean = false
+
 
     fun setLastState(state: AuthState) {
         lastState.postValue(state)

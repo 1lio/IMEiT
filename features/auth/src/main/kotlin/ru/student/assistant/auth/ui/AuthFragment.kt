@@ -2,7 +2,9 @@ package ru.student.assistant.auth.ui
 
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
@@ -27,14 +29,29 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
+
+        // Мы должны чекнуть был ли авторизован, затем либо продолжить, либо перебросить
+        if (authModel.isAuth()) {
+
+            val contract: ActivityContract = activity as ActivityContract
+            contract.pushFragmentById(FRAGMENT_ACCOUNT)
+        }
+
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
+        super.onCreateView(inflater, group, state)
+        val v = inflater.inflate(R.layout.fr_auth, group, false)
 
         aToB = ContextCompat.getDrawable(requireContext(), R.drawable.a) as AnimatedVectorDrawable
         bToA = ContextCompat.getDrawable(requireContext(), R.drawable.b) as AnimatedVectorDrawable
         bToC = ContextCompat.getDrawable(requireContext(), R.drawable.c) as AnimatedVectorDrawable
         cToB = ContextCompat.getDrawable(requireContext(), R.drawable.d) as AnimatedVectorDrawable
 
-        authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+
+        return v
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

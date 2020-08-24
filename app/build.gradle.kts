@@ -1,4 +1,3 @@
-
 android {
     defaultConfig {
         applicationId = Config.applicationID

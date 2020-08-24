@@ -16,7 +16,6 @@ import ru.student.assistant.auth.viewmodel.enums.AuthState
 
 class SignInFragment : Fragment(R.layout.fr_sign_in) {
 
-    val state: AuthState = AuthState.SIGN_IN
     private var isValid = false
 
     private lateinit var viewModel: SignInViewModel
