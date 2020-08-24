@@ -12,5 +12,5 @@ dependencies {
     implementation(Androidx.material)
 
     // Modules
-    implementation(project(":core"))
+    api(project(":core"))
 }

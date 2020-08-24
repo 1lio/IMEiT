@@ -31,5 +31,5 @@ dependencies {
     implementation(Firebase.storage)
 
     // Modules
-    implementation(project(":core"))
+    api(project(":core"))
 }

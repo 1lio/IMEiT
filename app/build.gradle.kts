@@ -1,3 +1,4 @@
+
 android {
     defaultConfig {
         applicationId = Config.applicationID
@@ -12,6 +13,8 @@ dependencies {
     implementation(Config.Libs.Androidx.appCompat)
     implementation(Config.Libs.Androidx.material)
 
-    implementation(project(":core"))
     implementation(project(":auth"))
+    implementation(project(":account"))
+
+    api(project(":core"))
 }

@@ -29,5 +29,5 @@ dependencies {
     //Firebase
     implementation(Config.Libs.Firebase.database)
     // Modules
-    implementation(project(":core"))
+    api(project(":core"))
 }
