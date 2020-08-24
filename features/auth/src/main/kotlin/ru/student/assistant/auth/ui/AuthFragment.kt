@@ -22,6 +22,9 @@ import ru.student.core.base.ActivityContract
 class AuthFragment : Fragment(R.layout.fr_auth) {
 
     private lateinit var authModel: AuthViewModel
+    private lateinit var contract: ActivityContract
+
+    // В отдельное view
     private lateinit var aToB: AnimatedVectorDrawable
     private lateinit var bToA: AnimatedVectorDrawable
     private lateinit var bToC: AnimatedVectorDrawable
@@ -30,19 +33,14 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
+        contract = activity as ActivityContract
 
         // Мы должны чекнуть был ли авторизован, затем либо продолжить, либо перебросить
-        if (authModel.isAuth()) {
-
-            val contract: ActivityContract = activity as ActivityContract
-            contract.pushFragmentById(FRAGMENT_ACCOUNT)
-        }
-
+        if (authModel.isAuth()) contract.pushFragmentById(FRAGMENT_ACCOUNT)
     }
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
         super.onCreateView(inflater, group, state)
-        val v = inflater.inflate(R.layout.fr_auth, group, false)
 
         aToB = ContextCompat.getDrawable(requireContext(), R.drawable.a) as AnimatedVectorDrawable
         bToA = ContextCompat.getDrawable(requireContext(), R.drawable.b) as AnimatedVectorDrawable
@@ -51,7 +49,7 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
 
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
 
-        return v
+        return inflater.inflate(R.layout.fr_auth, group, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -178,5 +176,15 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
             getString(R.string.msg_restore) + " ${authModel.getEmail()}",
             Toast.LENGTH_LONG
         ).show()
+    }
+
+
+    private fun setActionName(state: Byte) {
+        val text: String = when (state) {
+            0.toByte() -> resources.getString(R.string.sign_in)
+            1.toByte() -> resources.getString(R.string.sign_up)
+            else -> resources.getString(R.string.restore)
+        }
+        action.text = text
     }
 }

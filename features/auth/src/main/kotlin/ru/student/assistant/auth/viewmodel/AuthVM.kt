@@ -5,18 +5,30 @@ import androidx.lifecycle.*
 class AuthVM : ViewModel() {
 
     private val state = MutableLiveData<Byte>()
-    private var isFirstRun = true
+    private val isEnabled = MutableLiveData<Boolean>()
+
+    private val login = MutableLiveData<String>()       // Login or email
+    private val pass = MutableLiveData<String>()
+    private val rePass = MutableLiveData<String>()
 
     init {
-
+        state.value = SIGN_IN
     }
 
-    fun observeState(owner: LifecycleOwner, observer: Observer<Byte>){
+
+    fun observeEnabled(owner: LifecycleOwner, observer: Observer<Boolean>){
+        isEnabled.observe(owner, observer)
+    }
+
+    fun observeState(owner: LifecycleOwner, observer: Observer<Byte>) {
         state.observe(owner, observer)
     }
 
-    fun setState(state: Byte){
+    fun setState(state: Byte) {
         this@AuthVM.state.value = state
+        login.value = ""
+        pass.value = ""
+        rePass.value = ""
     }
 
     companion object {
