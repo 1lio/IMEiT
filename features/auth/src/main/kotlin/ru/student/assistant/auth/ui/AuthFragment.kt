@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.fr_auth.*
 import ru.student.assistant.auth.R
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.enums.AuthState
+import ru.student.core.AppConstants.FRAGMENT_ACCOUNT
+import ru.student.core.base.ActivityContract
 
 class AuthFragment : Fragment(R.layout.fr_auth) {
 
@@ -82,7 +84,9 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
 
         // Настраиваем заголовки
         TabLayoutMediator(authTabLayout, authPager) { t, p ->
-            t.text = if (p == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up) }.attach()
+            t.text =
+                if (p == 0) resources.getText(R.string.sign_in) else resources.getText(R.string.sign_up)
+        }.attach()
 
         // Обрабатываем перелистывания
         authPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -134,8 +138,12 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
     }
 
     private fun signIn() {
-        authModel.signIn()
-        Toast.makeText(context, "SignIN", Toast.LENGTH_LONG).show()
+
+        //  authModel.signIn()
+        val contract: ActivityContract = activity as ActivityContract
+        contract.pushFragmentById(FRAGMENT_ACCOUNT)
+
+        //Toast.makeText(context, "SignIN", Toast.LENGTH_LONG).show()
     }
 
     private fun signUp() {
