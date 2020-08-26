@@ -135,7 +135,7 @@ class AuthFrBack : Fragment(R.layout.fr_auth) {
             else -> return
         }
 
-        authBackground.setImageDrawable(anim)
+    //    authBackground.setImageDrawable(anim)
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         anim.start()
     }

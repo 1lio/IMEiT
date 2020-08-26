@@ -62,13 +62,6 @@ open class AuthUI : ViewModel() {
 
         var result = true
 
-        if (result) {
-            // Оптравляем на новое окно
-        } else {
-
-        }
-
-
     }
 
     open fun signUp() {}
@@ -100,7 +93,9 @@ open class AuthUI : ViewModel() {
         actionName.value = name
     }
 
-    fun setEnableAction(e:Boolean) {enabledAction.value = e}
+    fun setEnableAction(e: Boolean) {
+        enabledAction.value = e
+    }
 
     // Наблюденеи
 

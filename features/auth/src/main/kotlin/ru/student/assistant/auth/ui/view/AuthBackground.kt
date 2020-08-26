@@ -1,59 +1,63 @@
 package ru.student.assistant.auth.ui.view
 
 import android.content.Context
-import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.*
 import android.util.AttributeSet
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import ru.student.assistant.auth.R
 
 class AuthBackground @JvmOverloads constructor(
     context: Context,
     attr: AttributeSet? = null,
-    defStyle: Int = 0
+    defStyle: Int = 0,
 ) : AppCompatImageView(context, attr, defStyle) {
 
+    private val aToB: Drawable?
+    private val bToA: Drawable?
+    private val bToC: Drawable?
+    private val cToB: Drawable?
+
     init {
+
         isFocusable = false
         isEnabled = false
         isClickable = false
 
-        setImageDrawable(ContextCompat.getDrawable(context, R.drawable.a))
+        aToB = ContextCompat.getDrawable(context, R.drawable.a)
+        bToA = ContextCompat.getDrawable(context, R.drawable.b)
+        bToC = ContextCompat.getDrawable(context, R.drawable.c)
+        cToB = ContextCompat.getDrawable(context, R.drawable.d)
 
-        setState(State.CENTER)
+        setImageDrawable(aToB)
+        setState(0)
     }
 
-    private var lastState = State.LEFT
+    private var lastState = 0.toByte()
 
-    fun setState(state: State) {
+    fun setState(state: Byte) {
 
-         val aToB = ContextCompat.getDrawable(context, R.drawable.a) as AnimationDrawable
-         val bToA = ContextCompat.getDrawable(context, R.drawable.b) as AnimationDrawable
-         val bToC = ContextCompat.getDrawable(context, R.drawable.c) as AnimationDrawable
-         val cToB = ContextCompat.getDrawable(context, R.drawable.d) as AnimationDrawable
+        /*var anim: AnimationDrawable = aToB!!
 
-        var anim: AnimationDrawable = aToB
         when (state) {
-            State.LEFT -> {
+            0.toByte() -> {
                 anim =
-                    if (lastState == State.CENTER) aToB else cToB
-                lastState = State.LEFT
+                    if (lastState == 1.toByte()) aToB!! else cToB!!
+                lastState = 0.toByte()
             }
-            State.CENTER -> {
-                anim = bToA
-                lastState = State.CENTER
+            1.toByte() -> {
+                anim = bToA!!
+                lastState = 1.toByte()
             }
-            State.RIGHT -> {
-                anim = bToC
-                lastState = State.RIGHT
+            2.toByte() -> {
+                anim = bToC!!
+                lastState = 2.toByte()
             }
         }
 
         setImageDrawable(anim)
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
-        anim.start()
+        anim.start()*/
     }
-
-    enum class State { LEFT, CENTER, RIGHT }
 }

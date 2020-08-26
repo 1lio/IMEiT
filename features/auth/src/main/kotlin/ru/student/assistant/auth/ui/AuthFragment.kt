@@ -1,12 +1,8 @@
 package ru.student.assistant.auth.ui
 
-import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -24,32 +20,10 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
     private lateinit var authModel: AuthViewModel
     private lateinit var contract: ActivityContract
 
-    // В отдельное view
-    private lateinit var aToB: AnimatedVectorDrawable
-    private lateinit var bToA: AnimatedVectorDrawable
-    private lateinit var bToC: AnimatedVectorDrawable
-    private lateinit var cToB: AnimatedVectorDrawable
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
         contract = activity as ActivityContract
-
-        // Мы должны чекнуть был ли авторизован, затем либо продолжить, либо перебросить
-        if (authModel.isAuth()) contract.pushFragmentById(FRAGMENT_ACCOUNT)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
-        super.onCreateView(inflater, group, state)
-
-        aToB = ContextCompat.getDrawable(requireContext(), R.drawable.a) as AnimatedVectorDrawable
-        bToA = ContextCompat.getDrawable(requireContext(), R.drawable.b) as AnimatedVectorDrawable
-        bToC = ContextCompat.getDrawable(requireContext(), R.drawable.c) as AnimatedVectorDrawable
-        cToB = ContextCompat.getDrawable(requireContext(), R.drawable.d) as AnimatedVectorDrawable
-
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
-
-        return inflater.inflate(R.layout.fr_auth, group, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -133,32 +107,10 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
 
     private fun updateAnimation(state: AuthState) {
 
-        val anim = when (state) {
-            AuthState.SIGN_IN -> if (authModel.getLastState() == AuthState.SIGN_IN) aToB else cToB
-
-            AuthState.SIGN_UP -> {
-                authModel.setLastState(AuthState.SIGN_IN)
-                bToA
-            }
-
-            AuthState.RESTORE -> {
-                authModel.setLastState(AuthState.RESTORE)
-                bToC
-            }
-            else -> return
-        }
-
-        authBackground.setImageDrawable(anim)
-        anim.start()
     }
 
     private fun signIn() {
-
-        //  authModel.signIn()
-        val contract: ActivityContract = activity as ActivityContract
         contract.pushFragmentById(FRAGMENT_ACCOUNT)
-
-        //Toast.makeText(context, "SignIN", Toast.LENGTH_LONG).show()
     }
 
     private fun signUp() {

@@ -15,7 +15,6 @@ import ru.student.assistant.auth.viewmodel.enums.AuthState
 
 class SignUpFragment : Fragment(R.layout.fr_sign_up) {
 
-    val state: AuthState = AuthState.SIGN_UP
     private lateinit var viewModel: SignUpViewModel
     private lateinit var authModel: AuthViewModel
 

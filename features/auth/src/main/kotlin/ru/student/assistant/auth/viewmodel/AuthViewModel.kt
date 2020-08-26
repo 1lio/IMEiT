@@ -44,8 +44,6 @@ open class AuthViewModel : AuthUI() {
         uiScope.launch {
 
             val result = interactor.signIn(getEmail(), getPass())
-
-
             setActionName(interactor.signIn(getEmail(), getPass()).toString())
         }
     }

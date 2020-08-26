@@ -12,7 +12,6 @@ import ru.student.assistant.auth.extensions.isValidEmail
 import ru.student.assistant.auth.extensions.isValidPass
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.SignInViewModel
-import ru.student.assistant.auth.viewmodel.enums.AuthState
 
 class SignInFragment : Fragment(R.layout.fr_sign_in) {
 
