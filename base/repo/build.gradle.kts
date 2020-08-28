@@ -23,7 +23,7 @@ android {
 
 dependencies {
 
-    implementation(Config.Libs.Kotlin.jdk8)
+
     implementation(Config.Libs.Androidx.appCompat)
     implementation(Config.Libs.Androidx.ktx)
 

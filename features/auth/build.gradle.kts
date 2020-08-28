@@ -6,8 +6,7 @@ apply(plugin = "com.google.gms.google-services")
 
 dependencies {
 
-    // Kotlin
-    implementation(Kotlin.jdk8)
+
 
     // Coroutines
     implementation(Kotlin.coroutinesCore)
