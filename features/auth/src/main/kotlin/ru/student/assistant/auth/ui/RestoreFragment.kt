@@ -1,20 +1,23 @@
 package ru.student.assistant.auth.ui
 
 import android.os.Bundle
+import android.util.Patterns.EMAIL_ADDRESS
+import android.view.KeyEvent
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fr_restore.*
 import ru.student.assistant.auth.R
-import ru.student.assistant.auth.extensions.BaseTextWatcher
 import ru.student.assistant.auth.extensions.isValidEmail
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.RestoreViewModel
 import ru.student.core.AppConstants.FRAGMENT_RESTORE
 import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
 import ru.student.core.base.BaseFragment
+import ru.student.core.base.BaseTextWatcher
+import ru.student.core.ext.showToast
 
 class RestoreFragment : BaseFragment(R.layout.fr_restore) {
+
     override var state: Byte = FRAGMENT_RESTORE
 
     private lateinit var authModel: AuthViewModel
@@ -36,19 +39,16 @@ class RestoreFragment : BaseFragment(R.layout.fr_restore) {
         isValid = edRestore.isValidEmail()
         viewModel.setValidForm(isValid)
 
-        viewModel.observeForm(this, {
-            authModel.setEnableAction(edRestore.isValidEmail())
-        })
+        viewModel.observeForm(this, { authModel.setEnableAction(edRestore.isValidEmail()) })
 
         back.setOnClickListener {
 
-            val frame: AppBarLayout = activity!!.findViewById(R.id.authAppBarLayout)
+            val frame: View = requireActivity().findViewById(R.id.authAppBarLayout)
 
             frame.visibility = View.VISIBLE
             authModel.setActionName(resources.getString(R.string.sign_in))
 
-            activity!!.supportFragmentManager.beginTransaction().remove(this).commit()
-
+            mainActivity!!.removeFragmentById(FRAGMENT_RESTORE)
             authModel.setState(FRAGMENT_SIGN_IN)
         }
 
@@ -66,10 +66,21 @@ class RestoreFragment : BaseFragment(R.layout.fr_restore) {
                 authModel.setEmail(edRestore.text.toString())
             }
         })
+
+
+        // edRestore.setImeActionLabel("SEND", KeyEvent.KEYCODE_ENTER)
+        edRestore.setOnKeyListener { _, i, keyEvent ->
+            if (keyEvent.action == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER) {
+                showToast("RESTORE!")
+                return@setOnKeyListener true
+            }
+
+            return@setOnKeyListener false
+        }
     }
 
-    private fun checkForm(text: String) =
-        !android.util.Patterns.EMAIL_ADDRESS.matcher(text).matches()
+
+    private fun checkForm(text: String) = !EMAIL_ADDRESS.matcher(text).matches()
 
     override fun onResume() {
         super.onResume()

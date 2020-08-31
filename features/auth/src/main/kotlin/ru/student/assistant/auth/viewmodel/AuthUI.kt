@@ -5,13 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.delay
-import ru.student.assistant.auth.viewmodel.enums.AuthAction
+import ru.student.core.AppConstants.FRAGMENT_RESTORE
+import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
+import ru.student.core.AppConstants.FRAGMENT_SIGN_UP
 
 // Поведение View в AuthFragment
 open class AuthUI : ViewModel() {
 
     // Главная кнопка отражающая действие /Логин/Регистрация/Восстановление
-    private val action = MutableLiveData<AuthAction>()
     private val actionName = MutableLiveData<String>()
 
     // Поля в окнах
@@ -29,15 +30,13 @@ open class AuthUI : ViewModel() {
     // Ошибка
     private val errorMsg = MutableLiveData<String>()
 
-
     init {
-
         enabledAction.value = false
         tapAction.value = false
         loader.value = false
     }
 
-    suspend fun sendAction(action: AuthAction) {
+    suspend fun sendAction(action: Byte) {
         tapAction.value = true            // Кнопка нажата
         enabledAction.value = false       // Блочим кнопку
         loader.value = true               // Выводим лоадер
@@ -47,9 +46,9 @@ open class AuthUI : ViewModel() {
         // Обрабатываем
 
         when (action) {
-            AuthAction.SIGN_IN -> signIn()
-            AuthAction.SIGN_UP -> signUp()
-            AuthAction.RESTORE -> restore()
+            FRAGMENT_SIGN_IN -> signIn()
+            FRAGMENT_SIGN_UP -> signUp()
+            FRAGMENT_RESTORE -> restore()
             else -> return
         }
     }
@@ -67,7 +66,6 @@ open class AuthUI : ViewModel() {
     open fun signUp() {}
 
     open fun restore() {}
-
 
     // Получение полей
 

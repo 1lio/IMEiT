@@ -9,7 +9,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fr_auth.*
 import ru.student.assistant.auth.R
 import ru.student.assistant.auth.viewmodel.AuthViewModel
-import ru.student.core.AppConstants.FRAGMENT_ACCOUNT
 import ru.student.core.AppConstants.FRAGMENT_AUTH
 import ru.student.core.AppConstants.FRAGMENT_RESTORE
 import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
@@ -18,23 +17,21 @@ import ru.student.core.base.BaseFragment
 import ru.student.core.ext.showToast
 
 class AuthFragment : BaseFragment(R.layout.fr_auth) {
+
     override val state: Byte = FRAGMENT_AUTH
 
     private lateinit var authModel: AuthViewModel
 
-    private var colorAccent: Int = 0
-    private var colorGray: Int = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         authModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
-
-        colorAccent = ContextCompat.getColor(requireContext(), R.color.colorAccent)
-        colorGray = ContextCompat.getColor(requireContext(), R.color.gray)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val colorAccent = ContextCompat.getColor(requireContext(), R.color.colorAccent)
+        val colorGray = ContextCompat.getColor(requireContext(), R.color.gray)
 
         val activity = requireActivity()
 
@@ -76,10 +73,10 @@ class AuthFragment : BaseFragment(R.layout.fr_auth) {
 
     private fun connectViewPager() {
 
-        authPager.adapter = AuthPagerAdapter(requireFragmentManager(), lifecycle)
-
         val signInStr = resources.getText(R.string.sign_in)
         val signUpStr = resources.getText(R.string.sign_up)
+
+        authPager.adapter = AuthPagerAdapter(requireFragmentManager(), lifecycle)
 
         // Настраиваем заголовки
         TabLayoutMediator(authTabLayout, authPager) { t, p ->
@@ -115,7 +112,7 @@ class AuthFragment : BaseFragment(R.layout.fr_auth) {
     }
 
     private fun signIn() {
-        mainActivity!!.pushFragmentById(FRAGMENT_ACCOUNT)
+      //  mainActivity!!.pushFragmentById(FRAGMENT_ACCOUNT)
     }
 
     private fun signUp() {
@@ -123,6 +120,7 @@ class AuthFragment : BaseFragment(R.layout.fr_auth) {
     }
 
     private fun restore() {
+        authModel.restore()
         showToast(getString(R.string.msg_restore) + " ${authModel.getEmail()}")
 
         mainActivity!!.removeFragmentById(FRAGMENT_RESTORE)

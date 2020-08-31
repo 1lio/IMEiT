@@ -68,6 +68,10 @@ open class AuthViewModel : AuthUI() {
     }
 
 
+    override fun restore() {
+        interactor.restore(getEmail())
+    }
+
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()

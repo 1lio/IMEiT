@@ -79,6 +79,10 @@ class AccountInteractor : Auth {
         return false
     }
 
+    override fun restore(email: String) {
+       auth.sendPasswordResetEmail(email)
+    }
+
     override fun getCurrentUserID(): String? {
         return ""
     }

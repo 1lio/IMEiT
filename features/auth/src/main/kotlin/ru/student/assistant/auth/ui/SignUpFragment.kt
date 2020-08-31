@@ -5,7 +5,6 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fr_sign_up.*
 import ru.student.assistant.auth.R
-import ru.student.assistant.auth.extensions.BaseTextWatcher
 import ru.student.assistant.auth.extensions.isValidEmail
 import ru.student.assistant.auth.extensions.isValidPass
 import ru.student.assistant.auth.viewmodel.AuthViewModel
@@ -13,8 +12,10 @@ import ru.student.assistant.auth.viewmodel.SignUpViewModel
 import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
 import ru.student.core.AppConstants.FRAGMENT_SIGN_UP
 import ru.student.core.base.BaseFragment
+import ru.student.core.base.BaseTextWatcher
 
 class SignUpFragment : BaseFragment(R.layout.fr_sign_up) {
+
     override var state: Byte = FRAGMENT_SIGN_UP
 
     private lateinit var viewModel: SignUpViewModel
