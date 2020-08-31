@@ -7,7 +7,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import ru.student.assistant.auth.gateway.AccountInteractor
+import ru.student.assistant.auth.gateway.AuthInteractor
 import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
 import ru.student.core.entity.AuthData
 import ru.student.core.entity.User
@@ -17,7 +17,7 @@ open class AuthViewModel : AuthUI() {
     private val state = MutableLiveData<Byte>()
     private val lastState = MutableLiveData<Byte>()
 
-    private val interactor = AccountInteractor()
+    private val interactor = AuthInteractor.getInstance()
 
     private val tryAuthData = MutableLiveData<Boolean>() // Попытка авторизации
     private val userData = MutableLiveData<User>()       // Сам пользователь
@@ -34,7 +34,6 @@ open class AuthViewModel : AuthUI() {
     }
 
     // Авторизация
-
     override fun signIn() {
         super.signIn()
 
@@ -42,7 +41,6 @@ open class AuthViewModel : AuthUI() {
 
         // Coroutine
         uiScope.launch {
-
             val result = interactor.signIn(getEmail(), getPass())
             setActionName(interactor.signIn(getEmail(), getPass()).toString())
         }
@@ -69,7 +67,9 @@ open class AuthViewModel : AuthUI() {
 
 
     override fun restore() {
-        interactor.restore(getEmail())
+        uiScope.launch {
+            interactor.restore(getEmail())
+        }
     }
 
     override fun onCleared() {

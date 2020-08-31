@@ -16,6 +16,7 @@ import ru.student.core.base.BaseFragment
 import ru.student.core.base.BaseTextWatcher
 
 class SignInFragment : BaseFragment(R.layout.fr_sign_in) {
+
     override val state: Byte = FRAGMENT_SIGN_IN
 
     private lateinit var viewModel: SignInViewModel
@@ -34,12 +35,11 @@ class SignInFragment : BaseFragment(R.layout.fr_sign_in) {
 
         isValid = (edSignEmail.isValidEmail() && edSignPass.isValidPass())
         viewModel.setValidForm(isValid)
-
         viewModel.observeForm(this, { authViewModel.setEnableAction(isValid) })
 
         authRestore.setOnClickListener {
 
-            val frame: AppBarLayout = activity!!.findViewById(R.id.authAppBarLayout)
+            val frame: AppBarLayout = requireActivity().findViewById(R.id.authAppBarLayout)
             frame.visibility = View.INVISIBLE
 
             mainActivity!!.pushFragmentById(FRAGMENT_RESTORE, R.id.frameLayout)
