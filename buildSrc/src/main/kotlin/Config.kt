@@ -52,7 +52,7 @@ object Config {
 
         object Firebase {
 
-            private const val authVer = "19.3.1"
+            private const val authVer = "19.3.2"
             private const val dbVer = "19.3.0"
             private const val storageVer = "19.1.1"
 
@@ -66,7 +66,7 @@ object Config {
         }
 
         object Google {
-            const val auth = "com.google.android.gms:play-services-auth:18.0.0"
+            const val auth = "com.google.android.gms:play-services-auth:18.1.0"
             const val maps = "com.google.android.gms:play-services-maps:17.0.0"
         }
 
