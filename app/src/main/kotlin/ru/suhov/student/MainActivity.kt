@@ -28,22 +28,23 @@ class MainActivity : AppCompatActivity(), ActivityContract {
     override fun pushFragmentById(id: Byte, container: Int) {
 
         val fragment = getFragment(id)
+        val tag = fragment::class.java.name
 
         fragmentManager
             .beginTransaction()
             .addToBackStack(null)
-            .replace(container, fragment, fragment::class.java.name)
+            .replace(container, fragment, tag)
             .commit()
     }
 
     override fun removeFragmentById(id: Byte) {
 
-        val fragment = fragmentManager.findFragmentByTag(getFragment(id)::class.java.name)
+        val fragmentByTag = fragmentManager.findFragmentByTag(getFragment(id)::class.java.name)
 
-        if (fragment != null) {
+        if (fragmentByTag != null) {
             fragmentManager
                 .beginTransaction()
-                .remove(fragment)
+                .remove(fragmentByTag)
                 .commit()
         }
     }
