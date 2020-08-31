@@ -1,6 +1,7 @@
 import Config.Libs.Androidx
 import Config.Libs.Firebase
 import Config.Libs.Kotlin
+import Config.Libs.Google
 
 apply(plugin = "com.google.gms.google-services")
 
@@ -21,7 +22,6 @@ dependencies {
     implementation(Androidx.vectorAnimation)
 
     // Firebase
-    implementation(Firebase.auth)
     implementation(Firebase.authKtx)
     implementation(Firebase.database)
     implementation(Firebase.databaseKtx)
