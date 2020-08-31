@@ -2,6 +2,7 @@ package ru.suhov.student
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import ru.student.assistant.account.AccountFragment
 import ru.student.assistant.auth.ui.AuthFragment
@@ -21,12 +22,7 @@ class MainActivity : AppCompatActivity(), ActivityContract {
 
     override fun pushFragmentById(id: Byte) {
 
-        // Тут может быть утечка
-        val fragment = when (id) {
-            FRAGMENT_AUTH -> AuthFragment()
-            FRAGMENT_ACCOUNT -> AccountFragment()
-            else -> return
-        }
+        val fragment = getFragment(id)
 
         this@MainActivity.supportFragmentManager
             .beginTransaction()
@@ -34,4 +30,25 @@ class MainActivity : AppCompatActivity(), ActivityContract {
             .replace(CONTAINER_ID, fragment)
             .commit()
     }
+
+    override fun removeFragmentById(id: Byte) {
+
+        val fragment = getFragment(id)
+
+        this@MainActivity.supportFragmentManager
+            .beginTransaction()
+            .remove(fragment)
+            .commit()
+    }
+
+    private fun getFragment(id: Byte): Fragment {
+
+        return when (id) {
+            FRAGMENT_AUTH -> AuthFragment()
+            FRAGMENT_ACCOUNT -> AccountFragment()
+            else -> Fragment()
+        }
+
+    }
+
 }
