@@ -6,8 +6,6 @@ apply(plugin = "com.google.gms.google-services")
 
 dependencies {
 
-
-
     // Coroutines
     implementation(Kotlin.coroutinesCore)
     implementation(Kotlin.coroutinesAndroid)
@@ -29,6 +27,5 @@ dependencies {
     implementation(Firebase.databaseKtx)
     implementation(Firebase.storage)
 
-    // Modules
     api(project(":core"))
 }
