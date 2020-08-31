@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
             android:hint="@string/user_login"
+            android:imeOptions="actionGo"
             android:importantForAutofill="noExcludeDescendants"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
