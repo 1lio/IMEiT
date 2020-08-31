@@ -1,7 +1,4 @@
-import org.gradle.kotlin.dsl.DependencyHandlerScope
-
 object Modules {
-
     const val CORE = "core"
     const val REPO = "repo"
     const val NETWORK = "network"
@@ -11,7 +8,4 @@ object Modules {
     const val CALLS = "calls"
     const val SCHEDULE = "schedule"
     const val MAPS = "maps"
-
-
 }
-
