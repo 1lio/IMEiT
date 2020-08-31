@@ -13,6 +13,7 @@ import ru.student.core.AppConstants.CONTAINER_ID
 import ru.student.core.AppConstants
 import ru.student.core.base.ActivityContract
 
+// Fragments communicate in Activity through Contract
 class MainActivity : AppCompatActivity(), ActivityContract {
 
     private val fragmentManager = this.supportFragmentManager
@@ -47,6 +48,8 @@ class MainActivity : AppCompatActivity(), ActivityContract {
         }
     }
 
+    // Activity know all fragments in modules
+    // This project numbers ~20 fragments
     private fun getFragment(id: Byte): Fragment {
         return when (id) {
             // Auth
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity(), ActivityContract {
             AppConstants.FRAGMENT_SIGN_UP -> SignUpFragment()
             // Account
             AppConstants.FRAGMENT_ACCOUNT -> AccountFragment()
+            //...
             else -> Fragment()
         }
 
