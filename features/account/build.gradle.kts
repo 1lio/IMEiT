@@ -8,5 +8,6 @@ dependencies {
     implementation(Androidx.material)
 
     // Modules
+    api(project(":auth")) // Used interactor
     api(project(":core"))
 }
