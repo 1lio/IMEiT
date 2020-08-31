@@ -3,8 +3,9 @@ package ru.student.assistant.auth.gateway
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import ru.student.core.contract.Auth
 
-class AccountInteractor : Auth {
+class AuthInteractor : Auth {
 
     private val auth = Firebase.auth
 
@@ -13,23 +14,27 @@ class AccountInteractor : Auth {
 
         var result = false
 
-     /*   auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
-            result = when {
-                it.isSuccessful -> {
-                    true
-                }
-                it.isComplete -> {
-                    true
-                }
-                it.isCanceled -> {
-                    false
-                }
-                else -> false
-            }
-        }*/
+        /*   auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+               result = when {
+                   it.isSuccessful -> {
+                       true
+                   }
+                   it.isComplete -> {
+                       true
+                   }
+                   it.isCanceled -> {
+                       false
+                   }
+                   else -> false
+               }
+           }*/
 
 
         return result
+    }
+
+    override suspend fun signUp(email: String, pass: String): Boolean {
+        TODO("Not yet implemented")
     }
 
 /*
@@ -71,25 +76,22 @@ class AccountInteractor : Auth {
       }*/
 
 
-    override suspend fun signOut(): Boolean {
-        return false
-    }
-
     override suspend fun isSigned(): Boolean {
         return false
     }
 
-    override fun restore(email: String) {
-       auth.sendPasswordResetEmail(email)
+    override suspend fun restore(email: String): Boolean {
+        auth.sendPasswordResetEmail(email)
+        return true
     }
 
-    override fun getCurrentUserID(): String? {
+    fun getCurrentUserID(): String? {
         return ""
     }
 
-
-    private companion object {
-        const val LOG_TAG = "AccountInteractor"
+    override suspend fun signOut(): Boolean {
+        auth.signOut()
+        return true
     }
 }
 
