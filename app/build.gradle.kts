@@ -13,6 +13,7 @@ dependencies {
 
     implementation(project(":auth"))
     implementation(project(":account"))
+    implementation(project(":maps"))
 
     api(project(":core"))
 }
