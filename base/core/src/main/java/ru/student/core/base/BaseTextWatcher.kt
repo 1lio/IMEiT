@@ -1,4 +1,4 @@
-package ru.student.assistant.auth.extensions
+package ru.student.core.base
 
 import android.text.Editable
 import android.text.TextWatcher
