@@ -15,7 +15,7 @@ object Constants {
     const val KEY_USER = "key_user"
     const val DEF_SIGN_IN = false
 
-    const val DEF_INSTITUTE = "ИМЕиТ"
+    const val DEF_INSTITUTE = "ИМЕиТ"  
     const val DEF_FACULTY = "ФизМат"
 
     const val NOT_SELECT = "Не выбрано"
