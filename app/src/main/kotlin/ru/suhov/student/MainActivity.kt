@@ -11,7 +11,7 @@ import ru.student.assistant.auth.ui.SignInFragment
 import ru.student.assistant.auth.ui.SignUpFragment
 import ru.student.core.AppConstants.CONTAINER_ID
 import ru.student.core.AppConstants
-import ru.student.core.base.ActivityContract
+import ru.student.core.contract.ActivityContract
 
 // Fragments communicate in Activity through Contract
 class MainActivity : AppCompatActivity(), ActivityContract {
