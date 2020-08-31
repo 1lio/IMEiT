@@ -1,10 +1,7 @@
 package ru.student.assistant.auth.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fr_restore.*
@@ -13,26 +10,24 @@ import ru.student.assistant.auth.extensions.BaseTextWatcher
 import ru.student.assistant.auth.extensions.isValidEmail
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.RestoreViewModel
-import ru.student.assistant.auth.viewmodel.enums.AuthState
+import ru.student.core.AppConstants.FRAGMENT_RESTORE
+import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
+import ru.student.core.base.BaseFragment
 
-class RestoreFragment : Fragment() {
-
-    val state: AuthState = AuthState.RESTORE
-    private var isValid = false
+class RestoreFragment : BaseFragment(R.layout.fr_restore) {
+    override var state: Byte = FRAGMENT_RESTORE
 
     private lateinit var authModel: AuthViewModel
     private lateinit var viewModel: RestoreViewModel
 
+    private var isValid = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         authModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
-        authModel.setState(state)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
-        super.onCreateView(inflater, group, state)
         viewModel = ViewModelProvider(activity!!)[RestoreViewModel::class.java]
-        return inflater.inflate(R.layout.fr_restore, group, false)
+
+        authModel.setState(state)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,7 +49,7 @@ class RestoreFragment : Fragment() {
 
             activity!!.supportFragmentManager.beginTransaction().remove(this).commit()
 
-            authModel.setState(AuthState.SIGN_IN)
+            authModel.setState(FRAGMENT_SIGN_IN)
         }
 
         edRestore.setText(authModel.getEmail())
@@ -67,7 +62,7 @@ class RestoreFragment : Fragment() {
 
                 isValid = edRestore.isValidEmail()
                 viewModel.setValidForm(isValid)
-                authModel.setEnableAction(isValid && (authModel.getState() == AuthState.RESTORE))
+                authModel.setEnableAction(isValid && (authModel.getState() == FRAGMENT_RESTORE))
                 authModel.setEmail(edRestore.text.toString())
             }
         })

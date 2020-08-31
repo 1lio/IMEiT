@@ -8,14 +8,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import ru.student.assistant.auth.gateway.AccountInteractor
-import ru.student.assistant.auth.viewmodel.enums.AuthState
+import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
 import ru.student.core.entity.AuthData
 import ru.student.core.entity.User
 
 open class AuthViewModel : AuthUI() {
 
-    private val state = MutableLiveData<AuthState>()
-    private val lastState = MutableLiveData<AuthState>()
+    private val state = MutableLiveData<Byte>()
+    private val lastState = MutableLiveData<Byte>()
 
     private val interactor = AccountInteractor()
 
@@ -30,7 +30,7 @@ open class AuthViewModel : AuthUI() {
     private val userAuth = AuthData()                    // данные для регистрации
 
     init {
-        state.value = AuthState.SIGN_IN
+        state.value = FRAGMENT_SIGN_IN
     }
 
     // Авторизация
@@ -51,19 +51,19 @@ open class AuthViewModel : AuthUI() {
     fun isAuth(): Boolean = false
 
 
-    fun setLastState(state: AuthState) {
+    fun setLastState(state: Byte) {
         lastState.postValue(state)
     }
 
     fun getLastState() = lastState.value
 
-    fun setState(state: AuthState) {
+    fun setState(state: Byte) {
         this.state.value = state
     }
 
     fun getState() = state.value
 
-    fun observeState(owner: LifecycleOwner, observer: Observer<AuthState>) {
+    fun observeState(owner: LifecycleOwner, observer: Observer<Byte>) {
         state.observe(owner, observer)
     }
 

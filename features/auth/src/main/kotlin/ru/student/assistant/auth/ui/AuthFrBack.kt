@@ -1,3 +1,4 @@
+/*
 package ru.student.assistant.auth.ui
 
 
@@ -162,3 +163,4 @@ class AuthFrBack : Fragment(R.layout.fr_auth) {
         ).show()
     }
 }
+*/

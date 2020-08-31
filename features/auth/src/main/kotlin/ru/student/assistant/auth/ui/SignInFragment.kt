@@ -2,7 +2,6 @@ package ru.student.assistant.auth.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fr_sign_in.*
@@ -12,19 +11,22 @@ import ru.student.assistant.auth.extensions.isValidEmail
 import ru.student.assistant.auth.extensions.isValidPass
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.SignInViewModel
+import ru.student.core.AppConstants.FRAGMENT_RESTORE
+import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
+import ru.student.core.base.BaseFragment
 
-class SignInFragment : Fragment(R.layout.fr_sign_in) {
-
-    private var isValid = false
+class SignInFragment : BaseFragment(R.layout.fr_sign_in) {
+    override val state: Byte = FRAGMENT_SIGN_IN
 
     private lateinit var viewModel: SignInViewModel
     private lateinit var authViewModel: AuthViewModel
+
+    private var isValid = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[SignInViewModel::class.java]
         authViewModel = ViewModelProvider(activity!!)[AuthViewModel::class.java]
-
     }
 
     override fun onViewCreated(view: View, instance: Bundle?) {
@@ -40,11 +42,8 @@ class SignInFragment : Fragment(R.layout.fr_sign_in) {
             val frame: AppBarLayout = activity!!.findViewById(R.id.authAppBarLayout)
             frame.visibility = View.INVISIBLE
 
-            val fm = activity!!.supportFragmentManager
-            fm.beginTransaction().replace(R.id.frameLayout, RestoreFragment()).commit()
+            mainActivity!!.pushFragmentById(FRAGMENT_RESTORE, R.id.frameLayout)
         }
-
-        // authViewModel.observeEmail(this, Observer { edSignEmail.setText(it) })
 
         edSignEmail.setText(authViewModel.getEmail())
 
@@ -74,6 +73,5 @@ class SignInFragment : Fragment(R.layout.fr_sign_in) {
     private fun sendFormData() {
         authViewModel.setEmail(edSignEmail.text.toString())
         authViewModel.setPass(edSignPass.text.toString())
-        //     authViewModel.setTap(false)
     }
 }

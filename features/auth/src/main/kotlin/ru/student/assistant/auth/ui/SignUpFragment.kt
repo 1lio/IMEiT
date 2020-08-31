@@ -2,7 +2,6 @@ package ru.student.assistant.auth.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fr_sign_up.*
 import ru.student.assistant.auth.R
@@ -11,9 +10,12 @@ import ru.student.assistant.auth.extensions.isValidEmail
 import ru.student.assistant.auth.extensions.isValidPass
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.SignUpViewModel
-import ru.student.assistant.auth.viewmodel.enums.AuthState
+import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
+import ru.student.core.AppConstants.FRAGMENT_SIGN_UP
+import ru.student.core.base.BaseFragment
 
-class SignUpFragment : Fragment(R.layout.fr_sign_up) {
+class SignUpFragment : BaseFragment(R.layout.fr_sign_up) {
+    override var state: Byte = FRAGMENT_SIGN_UP
 
     private lateinit var viewModel: SignUpViewModel
     private lateinit var authModel: AuthViewModel
@@ -47,8 +49,8 @@ class SignUpFragment : Fragment(R.layout.fr_sign_up) {
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (it == edLogin) edLogin.isValidEmail() else edPass.isValidPass(edPass2)
                     viewModel.setValidForm(isValid)
-                    authModel.setEnableAction(isValid && (authModel.getState() == AuthState.SIGN_UP))
-                  //  updateSignInData()
+                    authModel.setEnableAction(isValid && (authModel.getState() == FRAGMENT_SIGN_IN))
+                    //  updateSignInData()
                 }
             })
         }
