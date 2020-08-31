@@ -1,16 +1,17 @@
 package ru.suhov.student
 
 import android.os.Bundle
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainerView
 import ru.student.assistant.account.AccountFragment
 import ru.student.assistant.auth.ui.AuthFragment
 import ru.student.assistant.auth.ui.RestoreFragment
 import ru.student.assistant.auth.ui.SignInFragment
 import ru.student.assistant.auth.ui.SignUpFragment
-import ru.student.core.AppConstants.CONTAINER_ID
+import ru.student.assistant.maps.MapsFragment
 import ru.student.core.AppConstants
+import ru.student.core.AppConstants.CONTAINER_ID
 import ru.student.core.base.ActivityContract
 
 // Fragments communicate in Activity through Contract
@@ -20,9 +21,9 @@ class MainActivity : AppCompatActivity(), ActivityContract {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(FragmentContainerView(this@MainActivity).apply { id = CONTAINER_ID })
+        setContentView(FrameLayout(this@MainActivity).apply { id = CONTAINER_ID })
 
-        pushFragmentById(AppConstants.FRAGMENT_AUTH)
+        pushFragmentById(AppConstants.FRAGMENT_MAPS)
     }
 
     override fun pushFragmentById(id: Byte, container: Int) {
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity(), ActivityContract {
             .addToBackStack(null)
             .replace(container, fragment, tag)
             .commit()
+
+        if (id != AppConstants.FRAGMENT_AUTH && id != AppConstants.FRAGMENT_RESTORE) {
+        //...
+        }
     }
 
     override fun removeFragmentById(id: Byte) {
@@ -60,6 +65,8 @@ class MainActivity : AppCompatActivity(), ActivityContract {
             AppConstants.FRAGMENT_SIGN_UP -> SignUpFragment()
             // Account
             AppConstants.FRAGMENT_ACCOUNT -> AccountFragment()
+            //Maps
+            AppConstants.FRAGMENT_MAPS -> MapsFragment()
             //...
             else -> Fragment()
         }
