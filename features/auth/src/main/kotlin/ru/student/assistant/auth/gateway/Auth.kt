@@ -8,7 +8,7 @@ interface Auth {
 
     suspend fun isSigned(): Boolean
 
-    suspend fun restore(email: String)
+     fun restore(email: String)
 
     fun getCurrentUserID(): String?
 
