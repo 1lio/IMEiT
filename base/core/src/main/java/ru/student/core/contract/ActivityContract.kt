@@ -1,4 +1,4 @@
-package ru.student.core.base
+package ru.student.core.contract
 
 import ru.student.core.AppConstants
 
