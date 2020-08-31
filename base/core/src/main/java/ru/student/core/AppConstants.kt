@@ -5,6 +5,11 @@ object AppConstants {
     const val CONTAINER_ID: Int = 1
 
     const val FRAGMENT_AUTH: Byte = 1
+
+    const val FRAGMENT_SIGN_IN: Byte = 11
+    const val FRAGMENT_SIGN_UP: Byte = 12
+    const val FRAGMENT_RESTORE: Byte = 13
+
     const val FRAGMENT_ACCOUNT: Byte = 2
     const val FRAGMENT_EMPTY_SCHEDULE: Byte = 3
     const val FRAGMENT_SCHEDULE: Byte = 4
