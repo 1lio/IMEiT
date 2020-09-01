@@ -1,4 +1,4 @@
-package ru.suhov.student.features.map
+package ru.student.assistant.maps
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,8 +12,6 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import ru.student.assistant.maps.LocationViewModel
-import ru.student.assistant.maps.R
 
 // Фрагмент с картой
 class MapsMapFragment : Fragment(), OnMapReadyCallback {
@@ -44,8 +42,7 @@ class MapsMapFragment : Fragment(), OnMapReadyCallback {
             while (i < list.size) {
 
                 val point = list[i].coordinate
-                val latLong =
-                    point.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                val latLong = point.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                 val latitude = java.lang.Double.parseDouble(latLong[0])
                 val longitude = java.lang.Double.parseDouble(latLong[1])
                 val location = LatLng(latitude, longitude)

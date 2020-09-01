@@ -1,14 +1,16 @@
-package ru.suhov.student.features.map
+package ru.student.assistant.maps
 
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import ru.student.assistant.maps.MapsListFragment
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class MapPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class MapPagerAdapter(fm: FragmentManager, l: Lifecycle) : FragmentStateAdapter(fm, l) {
 
-    override fun getItem(position: Int) = if (position == 0) MapsMapFragment() else MapsListFragment()
+    private companion object {
+        const val ITEM_COUNT: Int = 2
+    }
 
-    override fun getCount() = 2
+    override fun createFragment(p: Int) = if (p == 0) MapsMapFragment() else MapsListFragment()
 
-    override fun getPageTitle(position: Int) = if (position == 0) "Корпуса" else "Список"
+    override fun getItemCount() = ITEM_COUNT
 }
