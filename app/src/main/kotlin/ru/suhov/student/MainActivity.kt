@@ -37,9 +37,10 @@ class MainActivity : AppCompatActivity(), ActivityContract {
             .replace(container, fragment, tag)
             .commit()
 
-        if (id != AppConstants.FRAGMENT_AUTH && id != AppConstants.FRAGMENT_RESTORE) {
-            //...
-        }
+        val containerFragment: ContainerView = findViewById(CONTAINER_ID)
+
+        containerFragment.isVisibleAppBar =
+            id != AppConstants.FRAGMENT_AUTH && id != AppConstants.FRAGMENT_RESTORE
     }
 
     override fun removeFragmentById(id: Byte) {
@@ -71,5 +72,4 @@ class MainActivity : AppCompatActivity(), ActivityContract {
             else -> Fragment()
         }
     }
-
 }
