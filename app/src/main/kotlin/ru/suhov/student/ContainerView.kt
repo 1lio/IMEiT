@@ -10,6 +10,8 @@ class ContainerView(context: Context) : FrameLayout(context) {
     private val fragmentContainer: FrameLayout = FrameLayout(context)
     private val appBar: BottomAppBar = BottomAppBar(context)
 
+    var isVisibleAppBar: Boolean = false
+
     init {
 
         configureContainer()
@@ -35,6 +37,7 @@ class ContainerView(context: Context) : FrameLayout(context) {
     private fun configureAppBar() {
         with(appBar) {
             id = APP_BAR_ID
+            setAppBarMenu()
         }
     }
 
