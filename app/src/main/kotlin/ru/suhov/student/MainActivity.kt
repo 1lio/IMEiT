@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), ActivityContract {
             .commit()
 
         if (id != AppConstants.FRAGMENT_AUTH && id != AppConstants.FRAGMENT_RESTORE) {
-        //...
+            //...
         }
     }
 
@@ -46,12 +46,12 @@ class MainActivity : AppCompatActivity(), ActivityContract {
 
         val fragmentByTag = fragmentManager.findFragmentByTag(getFragment(id)::class.java.name)
 
-        if (fragmentByTag != null) {
+        fragmentByTag?.let {
             fragmentManager
                 .beginTransaction()
                 .remove(fragmentByTag)
                 .commit()
-        }
+        } ?: return
     }
 
     // Activity know all fragments in modules
@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity(), ActivityContract {
             //...
             else -> Fragment()
         }
-
     }
 
 }

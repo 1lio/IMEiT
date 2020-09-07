@@ -23,7 +23,6 @@ class ContainerView(context: Context) : FrameLayout(context) {
 
     private fun configureContainer() {
         id = CONTAINER_ID
-
     }
 
     private fun configureFragmentContainer() {
