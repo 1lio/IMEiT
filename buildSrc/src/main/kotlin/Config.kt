@@ -11,7 +11,7 @@ object Config {
     const val testDir = "src/test/kotlin"
     const val androidTestDir = "src/androidTest/kotlin"
 
-    private const val kotlinVersion = "1.4.0"
+    private const val kotlinVersion = "1.4.10"
 
     object SdkVersions {
         const val compile = 30
