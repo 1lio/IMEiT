@@ -29,8 +29,6 @@ object Config {
 
         object Kotlin {
             private const val ver = "1.3.9"
-
-            const val jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
             const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
             const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver"
             const val coroutinesPS = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
@@ -41,7 +39,7 @@ object Config {
             const val ktx = "androidx.core:core-ktx:1.3.2"
             const val ktxCollection = "androidx.collection:collection-ktx:1.1.0"
             const val ktxFragment = "androidx.fragment:fragment-ktx:1.2.5"
-            const val constraint = "androidx.constraintlayout:constraintlayout:2.02"
+            const val constraint = "androidx.constraintlayout:constraintlayout:2.0.2"
             const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
             const val viewpager = "androidx.viewpager:viewpager:1.0.0"
             const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
