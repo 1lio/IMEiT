@@ -22,7 +22,7 @@ object Config {
     object Plugins {
         const val gradleAndroid = "com.android.tools.build:gradle:4.0.2"
         const val gradleKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        const val googleServices = "com.google.gms:google-services:4.3.3"
+        const val googleServices = "com.google.gms:google-services:4.3.4"
     }
 
     object Libs {
@@ -39,10 +39,10 @@ object Config {
 
         object Androidx {
             const val appCompat = "androidx.appcompat:appcompat:1.2.0"
-            const val ktx = "androidx.core:core-ktx:1.3.1"
+            const val ktx = "androidx.core:core-ktx:1.3.2"
             const val ktxCollection = "androidx.collection:collection-ktx:1.1.0"
             const val ktxFragment = "androidx.fragment:fragment-ktx:1.2.5"
-            const val constraint = "androidx.constraintlayout:constraintlayout:1.1.3"
+            const val constraint = "androidx.constraintlayout:constraintlayout:2.02"
             const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
             const val viewpager = "androidx.viewpager:viewpager:1.0.0"
             const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
