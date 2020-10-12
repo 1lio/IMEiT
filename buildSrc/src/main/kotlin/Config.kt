@@ -43,15 +43,15 @@ object Config {
             const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
             const val viewpager = "androidx.viewpager:viewpager:1.0.0"
             const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
-            const val material = "com.google.android.material:material:1.2.0"
+            const val material = "com.google.android.material:material:1.2.1"
             const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
         }
 
         object Firebase {
 
-            private const val authVer = "19.3.2"
-            private const val dbVer = "19.3.0"
-            private const val storageVer = "19.1.1"
+            private const val authVer = "19.4.0"
+            private const val dbVer = "19.5.0"
+            private const val storageVer = "19.5.0"
 
             const val auth = "com.google.firebase:firebase-auth:$authVer"
             const val database = "com.google.firebase:firebase-database:$dbVer"
