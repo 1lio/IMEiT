@@ -51,7 +51,7 @@ object Config {
 
             private const val authVer = "19.4.0"
             private const val dbVer = "19.5.0"
-            private const val storageVer = "19.5.0"
+            private const val storageVer = "19.2.0"
 
             const val auth = "com.google.firebase:firebase-auth:$authVer"
             const val database = "com.google.firebase:firebase-database:$dbVer"
