@@ -33,8 +33,7 @@ object Config {
             const val jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
             const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
             const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver"
-            const val coroutinesPlayServices =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
+            const val coroutinesPS = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
         }
 
         object Androidx {
