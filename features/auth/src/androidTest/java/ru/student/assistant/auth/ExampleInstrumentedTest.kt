@@ -1,4 +1,4 @@
-package ru.student.assistaint.auth
+package ru.student.assistant.auth
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

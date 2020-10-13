@@ -1,11 +1,15 @@
-package ru.suhov.student
+package ru.student.assistant
 
 import android.content.Context
+import android.util.AttributeSet
 import android.widget.FrameLayout
 import com.google.android.material.bottomappbar.BottomAppBar
 import ru.student.core.AppConstants.CONTAINER_ID
 
-class ContainerView(context: Context) : FrameLayout(context) {
+class ContainerView : FrameLayout {
+
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val fragmentContainer: FrameLayout = FrameLayout(context)
     private val appBar: BottomAppBar = BottomAppBar(context)
@@ -31,13 +35,11 @@ class ContainerView(context: Context) : FrameLayout(context) {
         with(fragmentContainer) {
             id = CONTAINER_FRAGMENT_ID
         }
-
     }
 
     private fun configureAppBar() {
         with(appBar) {
             id = APP_BAR_ID
-            setAppBarMenu()
         }
     }
 
