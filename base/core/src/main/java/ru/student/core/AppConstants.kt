@@ -16,6 +16,8 @@ object AppConstants {
     const val FRAGMENT_CALLS_PREF: Byte = 6
     const val FRAGMENT_MAPS: Byte = 7
 
+    const val FRAGMENT_CHAT: Byte = 8
+
     const val DIALOG_GROUP: Byte = 10
     const val DIALOG_EXIT: Byte = 127
 
