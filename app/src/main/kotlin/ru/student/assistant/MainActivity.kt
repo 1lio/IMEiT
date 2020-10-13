@@ -57,4 +57,5 @@ class MainActivity : AppCompatActivity(), ActivityContract {
         FRAGMENT_MAPS -> MapsFragment()
         else -> Fragment()
     }
+
 }
