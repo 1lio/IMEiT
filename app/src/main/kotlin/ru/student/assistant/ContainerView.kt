@@ -2,6 +2,7 @@ package ru.student.assistant
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.FrameLayout
 import com.google.android.material.bottomappbar.BottomAppBar
 import ru.student.core.AppConstants.CONTAINER_ID
@@ -40,9 +41,9 @@ class ContainerView : FrameLayout {
     private fun configureAppBar() {
         with(appBar) {
             id = APP_BAR_ID
+            visibility = View.GONE
         }
     }
-
 
     private fun merge() {
         addView(fragmentContainer)
