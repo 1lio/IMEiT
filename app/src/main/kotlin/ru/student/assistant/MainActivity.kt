@@ -9,8 +9,10 @@ import ru.student.assistant.maps.MapsFragment
 import ru.student.core.AppConstants.CONTAINER_ID
 import ru.student.core.AppConstants.FRAGMENT_ACCOUNT
 import ru.student.core.AppConstants.FRAGMENT_AUTH
+import ru.student.core.AppConstants.FRAGMENT_CALLS
 import ru.student.core.AppConstants.FRAGMENT_MAPS
 import ru.student.core.AppConstants.FRAGMENT_RESTORE
+import ru.student.core.AppConstants.FRAGMENT_SCHEDULE
 import ru.student.core.contract.ActivityContract
 
 // Fragments communicate in Activity through Contract
@@ -53,8 +55,11 @@ class MainActivity : AppCompatActivity(), ActivityContract {
     // Activity know all main fragments in modules
     private fun getFragment(id: Byte) = when (id) {
         FRAGMENT_AUTH -> AuthFragment()
-        FRAGMENT_ACCOUNT -> AccountFragment()
-        FRAGMENT_MAPS -> MapsFragment()
+     // FRAGMENT_ACCOUNT -> AccountFragment()
+     // FRAGMENT_MAPS -> MapsFragment()
+     // FRAGMENT_SCHEDULE ->
+     // FRAGMENT_CALLS ->
+
         else -> Fragment()
     }
 
