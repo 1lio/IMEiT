@@ -71,6 +71,6 @@ class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolde
 
         listOf(holder.lesson, holder.teacher, holder.type, holder.building, holder.lesson2,
                 holder.teacher2, holder.type2, holder.building2, holder.time1, holder.time2, holder.time3
-        ).forEach { it.styleAppearance(context) }
+        ).forEach { it.styleAppearance() }
     }
 }
