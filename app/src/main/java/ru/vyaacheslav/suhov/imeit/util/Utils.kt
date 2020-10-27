@@ -18,8 +18,8 @@ import java.util.*
 // В данном файле хранятся функции которые могут быть вызваны когда-либо мне зависимости от класса
 
 // Стиль текста подсвеченого item например: номер текущей пары или локация
-fun TextView.styleAppearance(context: Context) {
-    if (Build.VERSION.SDK_INT < 23) this.setTextAppearance(context, R.style.TextCurrentPair)
+fun TextView.styleAppearance() {
+    if (Build.VERSION.SDK_INT < 23) this.setTextAppearance(R.style.TextCurrentPair)
     else this.setTextAppearance(R.style.TextCurrentPair)
 }
 
