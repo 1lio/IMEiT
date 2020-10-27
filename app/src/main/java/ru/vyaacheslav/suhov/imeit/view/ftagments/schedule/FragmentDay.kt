@@ -15,7 +15,7 @@ import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.view.adapters.DayFragmentAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.DayViewModel
 
-/** Фрагмент с расписанием для текущего дня*/
+// Фрагмент с расписанием для текущего дня
 class FragmentDay(private val day: String) : BaseFragment() {
 
     private lateinit var model: DayViewModel

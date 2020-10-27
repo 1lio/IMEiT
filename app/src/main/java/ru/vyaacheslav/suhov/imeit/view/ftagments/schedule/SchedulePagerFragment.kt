@@ -10,7 +10,7 @@ import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.view.adapters.DayPagerAdapter
 import java.util.*
 
-/** Фрагмент с Pager-ом содержащим в себе расписание по дням недели. */
+// Фрагмент с Pager-ом содержащим в себе расписание по дням недели.
 class SchedulePagerFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

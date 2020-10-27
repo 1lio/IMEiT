@@ -15,15 +15,15 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.TUE
 import ru.vyaacheslav.suhov.imeit.util.Constants.WED
 import java.util.*
 
-/** В данном файле хранятся функции которые могут быть вызваны когда-либо мне зависимости от класса*/
+// В данном файле хранятся функции которые могут быть вызваны когда-либо мне зависимости от класса
 
-/** @return Стиль текста подсвеченого item например: номер текущей пары или локация */
+// Стиль текста подсвеченого item например: номер текущей пары или локация
 fun TextView.styleAppearance(context: Context) {
     if (Build.VERSION.SDK_INT < 23) this.setTextAppearance(context, R.style.TextCurrentPair)
     else this.setTextAppearance(R.style.TextCurrentPair)
 }
 
-/** @return Функция-расширение возвращает строку в 24-часовом формате <00:00> */
+// Функция-расширение возвращает строку в 24-часовом формате <00:00>
 fun Int.timeFormat(): String {
     // Получим остаток от текущего значения
     val hour = if ((this / 60) > 24) (this / 60) - 24 else this / 60   // Часы
@@ -46,7 +46,7 @@ fun Int.remainedTimeFormat(): String {
     return "$hh:$mm"
 }
 
-/** @return Вернется строка вида "mon" соответсвующая текущему дню кроме выходных(тогда"mon"). */
+// Вернется строка вида "mon" соответсвующая текущему дню кроме выходных(тогда"mon")
 fun getDayAcronym(): String = when (Calendar.getInstance().get(Calendar.DAY_OF_WEEK)) {
     Calendar.TUESDAY -> TUE
     Calendar.WEDNESDAY -> WED

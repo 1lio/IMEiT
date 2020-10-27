@@ -1,6 +1,5 @@
 package ru.vyaacheslav.suhov.imeit.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -10,7 +9,6 @@ import ru.vyaacheslav.suhov.imeit.base.BaseViewModel
 import ru.vyaacheslav.suhov.imeit.entity.AuthData
 import ru.vyaacheslav.suhov.imeit.entity.User
 import ru.vyaacheslav.suhov.imeit.gateway.AccountInteractorImpl
-import ru.vyaacheslav.suhov.imeit.util.AppConstants.LOG_ACCOUNT
 import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_CREATE_ACCOUNT
 import ru.vyaacheslav.suhov.imeit.util.ErrorEvent.ERROR_LOGIN
@@ -37,7 +35,6 @@ class AuthViewModel : BaseViewModel() {
         if (localRepository.isAuth) getUser()
     }
 
-    /** Авторизация */
     fun signIn() {
         tryAuthData.value = true // Флаг, попытка авторизации
 
@@ -54,7 +51,7 @@ class AuthViewModel : BaseViewModel() {
                 .apply { compositeDisposable.add(this) }
     }
 
-    /** Регистрация*/
+
     fun signUp() {
         tryAuthData.value = true
 
@@ -67,7 +64,7 @@ class AuthViewModel : BaseViewModel() {
                 .apply { compositeDisposable.add(this) }
     }
 
-    /** Выход из приложения */
+
     fun signOut() {
         // Данную задачу можно кинуть на фон
         interactor.signOut()
@@ -80,7 +77,7 @@ class AuthViewModel : BaseViewModel() {
                 .apply { compositeDisposable.add(this) }
     }
 
-    /** Установить статус авториззации */
+
     private fun setAuth(auth: Boolean) {
 
         // Так как postValue выполянется в отдельном потоке, а затем публикует в основной
@@ -98,7 +95,6 @@ class AuthViewModel : BaseViewModel() {
         isAuthData.postValue(auth)
     }
 
-    /** Пользовательские данные */
     private fun getUser() {
         interactor
                 .getAccount(localRepository.userId)
@@ -108,48 +104,38 @@ class AuthViewModel : BaseViewModel() {
                 .apply { compositeDisposable.add(this) }
     }
 
-    /** Проверка на авторизацию */
     fun isSigned(): Boolean = isAuthData.value ?: false
 
-    /** Передача пользовательских данных*/
     fun setUserData(user: User) {
         userAuth.user = user
     }
 
-    /** Передача email и пароля для входа*/
     fun setSignInLogin(email: String, pass: String) {
         emailData.postValue(email)
         passData.postValue(pass)
-        Log.d(LOG_ACCOUNT, "$email $pass")
     }
 
-    /** Передача email и пароля для регистрации*/
     fun setSignUpLogin(email: String, pass: String) {
         userAuth.email = email
         userAuth.pass = pass
     }
 
-    /** Наблюдение за авторизацией*/
     fun observeAuth(owner: LifecycleOwner, observer: Observer<Boolean>) {
         isAuthData.observe(owner, observer)
     }
 
-    /** Наблюдение за попыткой авторизации*/
     fun observeTryAuth(owner: LifecycleOwner, observer: Observer<Boolean>) {
         tryAuthData.observe(owner, observer)
     }
 
-    /** Наблюдение за пользовательскими данными*/
     fun observeUser(owner: LifecycleOwner, observer: Observer<User>) {
         userData.observe(owner, observer)
     }
 
-    /** наблюдение за ошибками */
     fun observeAuthErrorsMsg(owner: LifecycleOwner, observer: Observer<Byte>) {
         authErrors.observe(owner, observer)
     }
 
-    /** Установить ошибку*/
     private fun setErrorMsg(msgId: Byte) {
         authErrors.postValue(msgId)
         tryAuthData.postValue(false)

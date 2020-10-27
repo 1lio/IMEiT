@@ -16,7 +16,6 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.viewmodel.LocationViewModel
 
-/** Фрагмент с картой */
 class MapsMapFragment : BaseFragment(), OnMapReadyCallback {
 
     private lateinit var model: LocationViewModel

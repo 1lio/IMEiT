@@ -15,7 +15,7 @@ import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LESSON
 import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LUNCH
 import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 
-/** View отображающее информацию о текущем времени и остаток времени до конца занятия, перемены и пр.*/
+// View отображающее информацию о текущем времени и остаток времени до конца занятия, перемены и пр.*/
 class TimeView : LinearLayout {
 
     constructor(context: Context) : super(context)

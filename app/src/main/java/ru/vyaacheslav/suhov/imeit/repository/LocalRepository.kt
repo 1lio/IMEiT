@@ -18,7 +18,7 @@ import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_SIGN_IN
 import ru.vyaacheslav.suhov.imeit.util.Constants.KEY_USER
 import ru.vyaacheslav.suhov.imeit.util.Constants.NOT_SELECT
 
-/** Здесь храним локальные данные */
+// Здесь храним локальные данные
 class LocalRepository {
     private val instance: LocalRepository? = null
 

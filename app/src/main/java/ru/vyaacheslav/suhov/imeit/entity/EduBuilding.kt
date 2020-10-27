@@ -1,6 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.entity
 
-/** Данные Локации*/
+// Данные Локации
 data class EduBuilding(
         var id: Int = 0,
         var name: String = "",

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProviders
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.ControlViewModel
 
-/** Базовый фрагмент для работы с авторизацией */
+// Базовый фрагмент для работы с авторизацией
 abstract class BaseLoginFragment : Fragment() {
 
     lateinit var accountModel: AuthViewModel

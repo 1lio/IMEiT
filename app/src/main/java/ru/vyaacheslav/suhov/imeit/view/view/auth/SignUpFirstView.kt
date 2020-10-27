@@ -14,7 +14,7 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpFirstStepModel
 
-/** View с первым шагом регистрации*/
+// View с первым шагом регистрации
 class SignUpFirstView : ConstraintLayout {
 
     constructor(context: Context) : super(context)

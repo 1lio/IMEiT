@@ -9,7 +9,7 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_EMPTY_SCHEDULE
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SCHEDULE
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_IN
 
-/** Вью модель поведения в активити*/
+// Вью модель поведения в активити
 class ControlViewModel : ViewModel() {
 
     private val localRepository = LocalRepository().getInstance()

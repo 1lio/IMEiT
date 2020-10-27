@@ -11,7 +11,7 @@ import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 
-/** View - Header с минимальной информацией о пользователе*/
+// View - Header с минимальной информацией о пользователе
 class UserHeader : FrameLayout {
 
     constructor(context: Context) : super(context)

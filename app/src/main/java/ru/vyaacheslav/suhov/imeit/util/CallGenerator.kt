@@ -3,13 +3,13 @@ package ru.vyaacheslav.suhov.imeit.util
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 import ru.vyaacheslav.suhov.imeit.entity.CallPref
 
-/** Данный класс генерирует лист с расписанием звонков
- *  @param pref - настроки для расписания из класса [CallPref]*/
+// Данный класс генерирует лист с расписанием звонков
+//  pref - настроки для расписания из класса
 
 class CallGenerator(private val pref: CallPref) {
 
-    /** @see getCallsList - Функция конвертирует входящие данные
-     * @return  возвращается лист с расписанием звонков*/
+    //Функция конвертирует входящие данные
+    // и возвращается лист с расписанием звонков
     fun getCallsList(): ArrayList<CallItem> {
 
         val list: ArrayList<CallItem> = arrayListOf()
@@ -41,6 +41,6 @@ class CallGenerator(private val pref: CallPref) {
         return list
     }
 
-    /** @see toTimeFormat - Функция-свойство форматирует строку <10:15 - 11:00> */
+    //Функция-свойство форматирует строку <10:15 - 11:00>
     val toTimeFormat = { t: Int -> "${t.timeFormat()} - ${(t + pref.lengthLesson).timeFormat()}" }
 }

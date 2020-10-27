@@ -15,11 +15,10 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.v_sign_up_last.view.*
 import ru.vyaacheslav.suhov.imeit.view.MainActivity
 import ru.vyaacheslav.suhov.imeit.R
-import ru.vyaacheslav.suhov.imeit.util.AppConstants.LOG_ACCOUNT
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignUpLastStepModel
 
-/** View - Второй шаг регистрации */
+// View - Второй шаг регистрации
 class SignUpLastView : ConstraintLayout {
 
     constructor(context: Context) : super(context)
@@ -47,7 +46,6 @@ class SignUpLastView : ConstraintLayout {
                 if (isValidName()) {
                     model.setUserName(s.toString())
                     authModel.setUserData(model.getUser())
-                    Log.d(LOG_ACCOUNT, model.getUser().toString())
                 }
             }
         })

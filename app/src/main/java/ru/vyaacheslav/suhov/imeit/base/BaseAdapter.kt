@@ -2,7 +2,7 @@ package ru.vyaacheslav.suhov.imeit.base
 
 import androidx.recyclerview.widget.RecyclerView
 
-/** Базовый адаптер для списков*/
+// Базовый адаптер для списков
 abstract class BaseAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>() {
 
      var list: List<T> = ArrayList()

@@ -15,7 +15,7 @@ import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.view.adapters.MapsListAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.LocationViewModel
 
-/** Фрагмент список с положением всех корпусов */
+// Фрагмент список с положением всех корпусов
 class MapsListFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

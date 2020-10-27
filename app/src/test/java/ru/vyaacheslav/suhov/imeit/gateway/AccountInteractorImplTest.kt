@@ -13,7 +13,7 @@ import ru.vyaacheslav.suhov.imeit.entity.AuthData
 import ru.vyaacheslav.suhov.imeit.entity.User
 import ru.vyaacheslav.suhov.imeit.interactor.AccountInteractor
 
-/** Т.к. в Kotlin все final использовал библиотку MockK - https://mockk.io */
+// Т.к. в Kotlin все final использовал библиотку MockK - https://mockk.io
 
 class AccountInteractorImplTest {
 

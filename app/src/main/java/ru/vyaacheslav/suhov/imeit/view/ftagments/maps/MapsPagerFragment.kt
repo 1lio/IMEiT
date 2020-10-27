@@ -9,7 +9,7 @@ import ru.vyaacheslav.suhov.imeit.R
 import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.view.adapters.MapPagerAdapter
 
-/** Главный фрагмент карт, содержит в себе viewPager и позволяет листать два фрагмента */
+//Главный фрагмент карт, содержит в себе viewPager и позволяет листать два фрагмента
 class MapsPagerFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

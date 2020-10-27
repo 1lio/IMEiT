@@ -9,18 +9,13 @@ import ru.vyaacheslav.suhov.imeit.util.EducationEvent.LUNCH
 import ru.vyaacheslav.suhov.imeit.view.adapters.entity.TimeData
 import java.util.*
 
-/** Данный класс работает обрабатывает дополнительные возможности при созданнии списка
- *  @param pref Вы должны передать настроки */
-
+// Данный класс работает обрабатывает дополнительные возможности при созданнии списка
 class CallUtil(private val pref: CallPref = CallPref()) {
 
 
-    /** @see getCurrentTime текущее время*/
     private val calendar = GregorianCalendar.getInstance()
     private val getCurrentTime: Int = (calendar.get(Calendar.HOUR_OF_DAY) * 60 + calendar.get(Calendar.MINUTE))
 
-    /** @see generateListsRange - Функция создает два листа с диапазонами пар и перемен
-     *  @return Pair<<List<Занятия>,List<Перемены>>*/
     private fun generateListsRange(): Pair<List<IntRange>, List<IntRange>> {
 
         val list: MutableList<IntRange> = mutableListOf()   // Лист с уроками
@@ -50,8 +45,7 @@ class CallUtil(private val pref: CallPref = CallPref()) {
         return Pair(list, pause)
     }
 
-    /** @see getNumberCurrentPair - Функция проверяет входит ли текущее время в диапазоны пар или перемен
-     *  @return Pair<тип, номер> */
+    // Функция проверяет входит ли текущее время в диапазоны пар или перемен
     fun getNumberCurrentPair(): Pair<Byte, Int> {
 
         var number = 0  // Номер пары
@@ -70,7 +64,7 @@ class CallUtil(private val pref: CallPref = CallPref()) {
 
             type = when {
                 number == pref.lunchStart -> LUNCH
-                getCurrentTime > generateListsRange().first[pref.count - 1].endInclusive -> END
+                getCurrentTime > generateListsRange().first[pref.count - 1].last -> END
                 else -> BREAK
             }
 
@@ -86,14 +80,15 @@ class CallUtil(private val pref: CallPref = CallPref()) {
     fun getResidueTime(): String {
         return if (getNumberCurrentPair().first == LESSON) {
             // Вернем время до окончания пар
-            ((generateListsRange().first[getNumberCurrentPair().second].endInclusive) - getCurrentTime).remainedTimeFormat()
+            ((generateListsRange().first[getNumberCurrentPair().second].last) - getCurrentTime).remainedTimeFormat()
         } else {
-            (1440 - getCurrentTime + pref.start).remainedTimeFormat() // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
+            // Если пары закончились возьмем время до 00, получим текущее и отнимем до начала и вернем его
+            (1440 - getCurrentTime + pref.start).remainedTimeFormat()
         }
 
     }
 
-    /** @return Список отформатированный под TimeData*/
+    // Список отформатированный под TimeData
     fun getListTime(): List<TimeData> {
 
         val list: MutableList<TimeData> = mutableListOf()
@@ -111,6 +106,7 @@ class CallUtil(private val pref: CallPref = CallPref()) {
             list.add(TimeData(hour, minText, text.timeFormat()))
 
             time = (time + pref.lengthBreak + (pref.lengthLesson * 2) + pref.lengthBreakPair)
+
             // Большая перемена
             if (x == pref.lunchStart) time = (time + pref.lengthLunch - pref.lengthBreakPair)
         }

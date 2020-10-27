@@ -17,7 +17,7 @@ import ru.vyaacheslav.suhov.imeit.util.visible
 import ru.vyaacheslav.suhov.imeit.viewmodel.AuthViewModel
 import ru.vyaacheslav.suhov.imeit.viewmodel.view.SignInViewModel
 
-/** View авторизации*/
+// View авторизации
 class SignInView : LinearLayout {
 
     constructor(context: Context) : super(context)

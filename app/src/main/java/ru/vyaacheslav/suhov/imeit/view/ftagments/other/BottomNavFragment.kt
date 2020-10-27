@@ -14,7 +14,7 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_MAPS
 import ru.vyaacheslav.suhov.imeit.view.view.auth.UserHeader
 import ru.vyaacheslav.suhov.imeit.viewmodel.ControlViewModel
 
-/** Фрагмент с менюшкой навигации */
+// Фрагмент с менюшкой навигации
 class BottomNavFragment : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

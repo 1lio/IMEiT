@@ -14,7 +14,7 @@ import ru.vyaacheslav.suhov.imeit.view.adapters.entity.CallItem
 import ru.vyaacheslav.suhov.imeit.view.ftagments.calls.CallFragment
 import ru.vyaacheslav.suhov.imeit.view.view.TimeView
 
-/** Данную вью модель используют [CallFragment] и [TimeView]*/
+// Данную вью модель используют [CallFragment] и [TimeView]
 class CallTimeViewModel : BaseViewModel() {
 
     private val interactor = TimeCallInteractorImpl().getInstance()

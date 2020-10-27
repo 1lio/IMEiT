@@ -9,7 +9,6 @@ import ru.vyaacheslav.suhov.imeit.base.BaseLoginFragment
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_FIRST
 import ru.vyaacheslav.suhov.imeit.view.view.auth.SignInView
 
-/** Фрагмент авторизации */
 class SignInFragment : BaseLoginFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

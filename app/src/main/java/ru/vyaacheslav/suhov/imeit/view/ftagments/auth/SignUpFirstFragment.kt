@@ -10,7 +10,6 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_IN
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_SECOND
 import ru.vyaacheslav.suhov.imeit.view.view.auth.SignUpFirstView
 
-/** Первый фрагмент регистрации */
 class SignUpFirstFragment : BaseLoginFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

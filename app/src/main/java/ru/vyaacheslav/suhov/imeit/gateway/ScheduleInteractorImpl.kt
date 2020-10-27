@@ -20,7 +20,7 @@ class ScheduleInteractorImpl : ScheduleInteractor {
     private val group = localRepository.group
 
     private val repository = FirebaseRealtimeRepository().getInstance()
-    /** @return - Список всех институтов*/
+
     override fun getListInstitutes(): Observable<ArrayList<String>> {
         return Observable.create {
             repository.getRefInstitutes()
@@ -38,8 +38,6 @@ class ScheduleInteractorImpl : ScheduleInteractor {
         }
     }
 
-    /** @param institute - необходимо указать родительский институт
-     *  @return - Список всех факультетов данного института */
     override fun getListFaculty(institute: String): Observable<ArrayList<String>> {
         return Observable.create {
             repository.getRefFaculty(institute)
@@ -58,7 +56,6 @@ class ScheduleInteractorImpl : ScheduleInteractor {
         }
     }
 
-    /** @return - Список всех групп */
     override fun getListGroups(institute: String, faculty: String): Observable<ArrayList<String>> {
         return Observable.create {
             repository.getRefListGroups(institute, faculty)
@@ -77,7 +74,6 @@ class ScheduleInteractorImpl : ScheduleInteractor {
         }
     }
 
-    /** @return - Список в парами к текущему дню */
     override fun getScheduleDay(day: String): Observable<ArrayList<Schedule>> {
         return Observable.create {
             repository.getRefListSchedule(institute, faculty, group, day)

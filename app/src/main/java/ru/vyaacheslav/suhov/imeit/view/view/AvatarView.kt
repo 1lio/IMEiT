@@ -10,8 +10,6 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import ru.vyaacheslav.suhov.imeit.R
 
-/** Custom view - User Avatar */
-
 class AvatarView : AppCompatImageView {
 
     // Дефолтные значения

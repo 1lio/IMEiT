@@ -23,7 +23,7 @@ import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
-/** Фрагмент настройки времени звонков */
+// Фрагмент настройки времени звонков
 class CallSetupFragment : BaseFragment(), View.OnClickListener {
 
     private lateinit var viewModelSetup: CallTimeViewModel

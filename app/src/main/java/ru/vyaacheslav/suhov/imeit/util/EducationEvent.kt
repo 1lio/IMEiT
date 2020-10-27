@@ -1,7 +1,6 @@
 package ru.vyaacheslav.suhov.imeit.util
 
-/** Типы состояния учебного процесса */
-
+// Типы состояния учебного процесса
 object EducationEvent {
     const val LESSON: Byte = 0
     const val BREAK: Byte = 1

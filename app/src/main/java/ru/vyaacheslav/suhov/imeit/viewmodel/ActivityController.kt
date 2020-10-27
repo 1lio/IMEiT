@@ -20,7 +20,6 @@ import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SCHEDULE
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_IN
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_FIRST
 import ru.vyaacheslav.suhov.imeit.util.AppConstants.FRAGMENT_SIGN_UP_SECOND
-import ru.vyaacheslav.suhov.imeit.util.AppConstants.LOG_DEBUG
 import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignInFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignUpFirstFragment
 import ru.vyaacheslav.suhov.imeit.view.ftagments.auth.SignUpSecondFragment
@@ -72,7 +71,7 @@ class ActivityController(private val activity: AppCompatActivity) {
             if (it == FRAGMENT_NAVIGATION) showNavigationFragment()
 
             fragment?.pushFragment(activity.supportFragmentManager)
-                    ?: Log.e(LOG_DEBUG, "Not fragment")
+                    ?: Log.e("LOG_DEBUG", "Not fragment")
         })
 
     }
@@ -87,7 +86,7 @@ class ActivityController(private val activity: AppCompatActivity) {
                 else -> null
             }
 
-            dialog?.show() ?: Log.e(LOG_DEBUG, "Not dialog")
+            dialog?.show() ?: Log.e("LOG_DEBUG", "Not dialog")
         })
     }
 
@@ -130,7 +129,7 @@ class ActivityController(private val activity: AppCompatActivity) {
                 controlModel.setVisibleUI(visibility = true)
                 controlModel.setFragmentId(controlModel.getFragmentSchedule())
             } else {
-             //   navigation.dismiss()
+                //   navigation.dismiss()
                 controlModel.setFragmentId(FRAGMENT_SIGN_IN)
                 controlModel.setVisibleUI(visibility = false)
             }
@@ -158,7 +157,7 @@ class ActivityController(private val activity: AppCompatActivity) {
                 ErrorEvent.ERROR_CREATE_ACCOUNT -> R.string.error_create_account
                 else -> 0
             }
-            toast(context = activity, msg =  msg)
+            toast(context = activity, msg = msg)
         })
     }
 }

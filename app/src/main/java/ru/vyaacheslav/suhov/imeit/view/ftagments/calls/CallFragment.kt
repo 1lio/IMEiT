@@ -15,7 +15,7 @@ import ru.vyaacheslav.suhov.imeit.base.BaseFragment
 import ru.vyaacheslav.suhov.imeit.view.adapters.CallListFragmentAdapter
 import ru.vyaacheslav.suhov.imeit.viewmodel.CallTimeViewModel
 
-/** Фрагмент показывающий список с расписанием звонков и также View с информацией о текущем времени*/
+// Фрагмент показывающий список с расписанием звонков и также View с информацией о текущем времени
 class CallFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
