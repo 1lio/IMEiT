@@ -1,9 +1,6 @@
 import Config.Libs.Androidx
-import Config.Libs.Kotlin
 
 dependencies {
-
-
 
     // AndroidX
     implementation(Androidx.appCompat)
