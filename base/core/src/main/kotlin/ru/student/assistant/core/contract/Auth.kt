@@ -1,4 +1,4 @@
-package ru.student.core.contract
+package ru.student.assistant.core.contract
 
 interface Auth {
 

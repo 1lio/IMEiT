@@ -1,4 +1,4 @@
-package ru.student.core.entity
+package ru.student.assistant.core.entity
 
 data class CallPref(
     var count: Int = 6,             // Колличество пар

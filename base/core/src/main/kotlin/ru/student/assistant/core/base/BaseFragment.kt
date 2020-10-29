@@ -1,8 +1,8 @@
-package ru.student.core.base
+package ru.student.assistant.core.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import ru.student.core.contract.ActivityContract
+import ru.student.assistant.core.contract.ActivityContract
 
 abstract class BaseFragment(layout: Int) : Fragment(layout) {
 

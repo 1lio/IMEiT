@@ -1,4 +1,4 @@
-package ru.student.core.entity
+package ru.student.assistant.core.entity
 
 data class PointLocation(
     var id: Int = 0,

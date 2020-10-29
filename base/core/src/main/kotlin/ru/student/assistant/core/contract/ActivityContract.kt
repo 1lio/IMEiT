@@ -1,6 +1,6 @@
-package ru.student.core.contract
+package ru.student.assistant.core.contract
 
-import ru.student.core.AppConstants
+import ru.student.assistant.core.AppConstants
 
 interface ActivityContract {
 

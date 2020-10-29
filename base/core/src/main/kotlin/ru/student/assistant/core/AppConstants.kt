@@ -1,4 +1,4 @@
-package ru.student.core
+package ru.student.assistant.core
 
 object AppConstants {
 

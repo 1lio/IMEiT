@@ -1,8 +1,8 @@
-package ru.student.assistant.auth.gateway
+package ru.student.assistant.repo.auth
 
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import ru.student.core.contract.Auth
+import ru.student.assistant.core.contract.Auth
 
 class AuthInteractor : Auth {
 

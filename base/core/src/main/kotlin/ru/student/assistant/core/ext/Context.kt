@@ -1,4 +1,4 @@
-package ru.student.core.ext
+package ru.student.assistant.core.ext
 
 import android.content.Context
 import android.graphics.drawable.Drawable

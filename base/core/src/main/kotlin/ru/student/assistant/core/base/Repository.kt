@@ -1,4 +1,4 @@
-package ru.student.core.base
+package ru.student.assistant.core.base
 
 abstract class Repository {
 

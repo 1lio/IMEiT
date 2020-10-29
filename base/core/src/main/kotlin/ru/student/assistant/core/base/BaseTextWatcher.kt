@@ -1,4 +1,4 @@
-package ru.student.core.base
+package ru.student.assistant.core.base
 
 import android.text.Editable
 import android.text.TextWatcher
