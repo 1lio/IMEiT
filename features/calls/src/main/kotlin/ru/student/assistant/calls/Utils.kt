@@ -6,11 +6,11 @@ import android.os.Build
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import ru.student.core.Constants.FRI
-import ru.student.core.Constants.MON
-import ru.student.core.Constants.THU
-import ru.student.core.Constants.TUE
-import ru.student.core.Constants.WED
+import ru.student.assistant.core.Constants.FRI
+import ru.student.assistant.core.Constants.MON
+import ru.student.assistant.core.Constants.THU
+import ru.student.assistant.core.Constants.TUE
+import ru.student.assistant.core.Constants.WED
 import java.util.*
 
 /** В данном файле хранятся функции которые могут быть вызваны когда-либо мне зависимости от класса*/
