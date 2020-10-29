@@ -1,4 +1,4 @@
-package ru.suhov.student.core.platform
+package ru.student.assistant.schedule.platform
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

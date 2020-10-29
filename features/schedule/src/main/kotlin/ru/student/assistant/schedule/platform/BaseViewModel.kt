@@ -1,8 +1,8 @@
-package ru.suhov.student.core.platform
+package ru.student.assistant.schedule.platform
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
-import ru.suhov.student.features.repository.LocalRepository
+import ru.student.assistant.repo.schedule.LocalRepository
 
 abstract class BaseViewModel : ViewModel() {
 

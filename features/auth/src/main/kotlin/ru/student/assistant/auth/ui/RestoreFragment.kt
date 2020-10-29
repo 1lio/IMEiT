@@ -10,11 +10,11 @@ import ru.student.assistant.auth.R
 import ru.student.assistant.auth.extensions.isValidEmail
 import ru.student.assistant.auth.viewmodel.AuthViewModel
 import ru.student.assistant.auth.viewmodel.RestoreViewModel
-import ru.student.core.AppConstants.FRAGMENT_RESTORE
-import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
-import ru.student.core.base.BaseFragment
-import ru.student.core.base.BaseTextWatcher
-import ru.student.core.ext.showToast
+import ru.student.assistant.core.AppConstants.FRAGMENT_RESTORE
+import ru.student.assistant.core.AppConstants.FRAGMENT_SIGN_IN
+import ru.student.assistant.core.base.BaseFragment
+import ru.student.assistant.core.base.BaseTextWatcher
+import ru.student.assistant.core.ext.showToast
 
 class RestoreFragment : BaseFragment(R.layout.fr_restore) {
 

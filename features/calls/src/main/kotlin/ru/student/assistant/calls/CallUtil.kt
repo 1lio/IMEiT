@@ -5,7 +5,7 @@ import ru.student.assistant.calls.EducationEvent.END
 import ru.student.assistant.calls.EducationEvent.LESSON
 import ru.student.assistant.calls.EducationEvent.LUNCH
 import ru.student.assistant.calls.repository.LocalRepository
-import ru.student.core.entity.CallPref
+import ru.student.assistant.core.entity.CallPref
 
 import java.util.*
 import kotlin.collections.ArrayList

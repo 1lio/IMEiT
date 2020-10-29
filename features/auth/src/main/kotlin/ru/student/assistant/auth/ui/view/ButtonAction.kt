@@ -23,6 +23,4 @@ class ButtonAction : AppCompatTextView {
         setTextColor(if (isEnabled) colorAccent else colorGray)
 
     }
-
-
 }

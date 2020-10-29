@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import com.google.android.material.bottomappbar.BottomAppBar
-import ru.student.core.AppConstants.CONTAINER_ID
+import ru.student.assistant.core.AppConstants.CONTAINER_ID
 
 class ContainerView : FrameLayout {
 

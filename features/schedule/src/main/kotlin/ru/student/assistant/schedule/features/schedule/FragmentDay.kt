@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fr_recycler.*
 import ru.student.assistant.schedule.R
-import ru.suhov.student.features.viewmodel.DayViewModel
+import ru.student.assistant.schedule.features.viewmodel.DayViewModel
 
 /** Фрагмент с расписанием для текущего дня*/
 class FragmentDay(private val day: String) : Fragment() {

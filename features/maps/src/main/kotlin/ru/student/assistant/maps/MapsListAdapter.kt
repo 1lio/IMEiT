@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import ru.student.core.entity.EduLocation
+import ru.student.assistant.core.entity.EduLocation
 import ru.suhov.student.core.platform.BaseViewHolder
 
 class MapsListAdapter : BaseAdapter<EduLocation, MapsListAdapter.ViewHolder>() {

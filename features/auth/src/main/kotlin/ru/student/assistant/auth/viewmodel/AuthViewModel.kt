@@ -3,28 +3,24 @@ package ru.student.assistant.auth.viewmodel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
-import ru.student.assistant.auth.gateway.AuthInteractor
-import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
-import ru.student.core.entity.AuthData
-import ru.student.core.entity.User
+import ru.student.assistant.core.AppConstants.FRAGMENT_SIGN_IN
+import ru.student.assistant.core.entity.AuthData
+import ru.student.assistant.core.entity.User
+import ru.student.assistant.repo.auth.AuthInteractor
 
 open class AuthViewModel : AuthUI() {
 
     private val state = MutableLiveData<Byte>()
     private val lastState = MutableLiveData<Byte>()
 
-    private val interactor = AuthInteractor.getInstance()
+//    private val interactor = AuthInteractor.getInstance()
 
     private val tryAuthData = MutableLiveData<Boolean>() // Попытка авторизации
     private val userData = MutableLiveData<User>()       // Сам пользователь
 
     // Coroutine
-    private val viewModelJob = SupervisorJob()
-    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
+    // private val viewModelJob = SupervisorJob()
+    // private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     //SignUp
     private val userAuth = AuthData()                    // данные для регистрации
@@ -39,11 +35,11 @@ open class AuthViewModel : AuthUI() {
 
         tryAuthData.value = true // Флаг, попытка авторизации
 
-        // Coroutine
+      /*  // Coroutine
         uiScope.launch {
             val result = interactor.signIn(getEmail(), getPass())
             setActionName(interactor.signIn(getEmail(), getPass()).toString())
-        }
+        }*/
     }
 
     fun isAuth(): Boolean = false
@@ -67,14 +63,14 @@ open class AuthViewModel : AuthUI() {
 
 
     override fun restore() {
-        uiScope.launch {
-            interactor.restore(getEmail())
-        }
+   //     uiScope.launch {
+         //   interactor.restore(getEmail())
+     //   }
     }
 
     override fun onCleared() {
         super.onCleared()
-        viewModelJob.cancel()
+    //    viewModelJob.cancel()
     }
 
 }

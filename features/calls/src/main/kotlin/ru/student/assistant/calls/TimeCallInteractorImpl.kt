@@ -7,10 +7,10 @@ import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import io.reactivex.Single
 import ru.student.assistant.calls.repository.FirebaseRealtimeRepository
-import ru.student.core.AppConstants.LOG_CALLS
-import ru.student.core.Constants.CALL_REFERENCE
-import ru.student.core.Constants.DEFAULT
-import ru.student.core.entity.CallPref
+import ru.student.assistant.core.AppConstants.LOG_CALLS
+import ru.student.assistant.core.Constants.CALL_REFERENCE
+import ru.student.assistant.core.Constants.DEFAULT
+import ru.student.assistant.core.entity.CallPref
 
 class TimeCallInteractorImpl : TimeCallInteractor {
 

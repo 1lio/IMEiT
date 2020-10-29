@@ -2,12 +2,12 @@ package ru.suhov.student.features.repository
 
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import ru.student.core.Constants.CALL_REFERENCE
-import ru.student.core.Constants.FACULTY
-import ru.student.core.Constants.GROUPS
-import ru.student.core.Constants.INSTITUTES
-import ru.student.core.Constants.MAP_REFERENCE
-import ru.student.core.Constants.USER_REFERENCE
+import ru.student.assistant.core.Constants.CALL_REFERENCE
+import ru.student.assistant.core.Constants.FACULTY
+import ru.student.assistant.core.Constants.GROUPS
+import ru.student.assistant.core.Constants.INSTITUTES
+import ru.student.assistant.core.Constants.MAP_REFERENCE
+import ru.student.assistant.core.Constants.USER_REFERENCE
 
 
 class FirebaseRealtimeRepository {

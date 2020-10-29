@@ -12,7 +12,7 @@ import ru.student.assistant.calls.CallItem
 import ru.student.assistant.calls.CallUtil
 import ru.student.assistant.calls.TimeCallInteractorImpl
 import ru.student.assistant.calls.repository.LocalRepository
-import ru.student.core.entity.CallPref
+import ru.student.assistant.core.entity.CallPref
 
 /** Данную вью модель используют [CallFragment] и [TimeView]*/
 class CallTimeViewModel : ViewModel() {

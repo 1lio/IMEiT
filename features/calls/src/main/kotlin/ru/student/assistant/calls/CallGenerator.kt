@@ -1,6 +1,6 @@
 package ru.student.assistant.calls
 
-import ru.student.core.entity.CallPref
+import ru.student.assistant.core.entity.CallPref
 
 /** Данный класс генерирует лист с расписанием звонков
  *  @param pref - настроки для расписания из класса [CallPref]*/

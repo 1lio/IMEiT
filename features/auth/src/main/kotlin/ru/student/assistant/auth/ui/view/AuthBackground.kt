@@ -3,10 +3,8 @@ package ru.student.assistant.auth.ui.view
 import android.content.Context
 import android.graphics.drawable.*
 import android.util.AttributeSet
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import ru.student.assistant.auth.R
 
 class AuthBackground @JvmOverloads constructor(

@@ -25,7 +25,6 @@ class SignUpViewModel : ViewModel() {
 
     fun getCheck() = checkBox.value ?: false
 
-
     fun setValidForm(b: Boolean) {
         isValidForms.postValue(b)
     }
@@ -33,4 +32,5 @@ class SignUpViewModel : ViewModel() {
     fun setCheck(b: Boolean) {
         checkBox.value = b
     }
+
 }

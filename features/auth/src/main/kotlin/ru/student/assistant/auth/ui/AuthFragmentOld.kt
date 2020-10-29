@@ -1,3 +1,4 @@
+/*
 package ru.student.assistant.auth.ui
 
 import android.os.Bundle
@@ -9,52 +10,59 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fr_auth.*
 import ru.student.assistant.auth.R
 import ru.student.assistant.auth.viewmodel.AuthViewModel
-import ru.student.core.AppConstants.FRAGMENT_AUTH
-import ru.student.core.AppConstants.FRAGMENT_RESTORE
-import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
-import ru.student.core.AppConstants.FRAGMENT_SIGN_UP
-import ru.student.core.base.BaseFragment
-import ru.student.core.ext.showToast
+import ru.student.assistant.core.AppConstants.FRAGMENT_AUTH
+import ru.student.assistant.core.AppConstants.FRAGMENT_RESTORE
+import ru.student.assistant.core.AppConstants.FRAGMENT_SIGN_IN
+import ru.student.assistant.core.AppConstants.FRAGMENT_SIGN_UP
+import ru.student.assistant.core.base.BaseFragment
+import ru.student.assistant.core.ext.showToast
 
 class AuthFragmentOld : BaseFragment(R.layout.fr_auth) {
 
     override val state: Byte = FRAGMENT_AUTH
 
-    private lateinit var authModel: AuthViewModel
+  //  private lateinit var authModel: AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        authModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
+
+     //   authModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val colorAccent = ContextCompat.getColor(requireContext(), R.color.colorAccent)
-        val colorGray = ContextCompat.getColor(requireContext(), R.color.gray)
+      //  val colorAccent = ContextCompat.getColor(requireContext(), R.color.colorAccent)
+       // val colorGray = ContextCompat.getColor(requireContext(), R.color.gray)
 
-        val activity = requireActivity()
+     //   val activity = requireActivity()
 
         // Подлючаем ViewPager
         connectViewPager()
 
         // Наблюдаем за назавние Action
-        authModel.observeActionName(activity, {
+    */
+/*    authModel.observeActionName(activity, {
             action.text = it
-        })
+        })*//*
+
 
         // Поведение кнопки Action
-        authModel.observeActionEnabled(activity, {
+*/
+/*        authModel.observeActionEnabled(activity, {
             action.isEnabled = it
             action.setTextColor(if (it) colorAccent else colorGray)
-        })
+        })*//*
+
 
         // Смотрим за состоянием state
-        authModel.observeState(activity, {
+*/
+/*        authModel.observeState(activity, {
             updateActionName(it)                // Обновляем имя
             processAction(it)                   // Обновляем обработчик
             authModel.setEnableAction(false)    // Сбрасываем доступность кнопки
-        })
+        })*//*
+
 
     }
 
@@ -88,13 +96,15 @@ class AuthFragmentOld : BaseFragment(R.layout.fr_auth) {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
 
-                if (position == 0) {
+     */
+/*           if (position == 0) {
                     authModel.setActionName(resources.getString(R.string.sign_in))
                     authModel.setState(FRAGMENT_SIGN_IN)
                 } else {
                     authModel.setActionName(resources.getString(R.string.sign_up))
                     authModel.setState(FRAGMENT_SIGN_UP)
-                }
+                }*//*
+
 
             }
         })
@@ -110,7 +120,7 @@ class AuthFragmentOld : BaseFragment(R.layout.fr_auth) {
             else -> return
         }
 
-        authModel.setActionName(name)
+   //     authModel.setActionName(name)
     }
 
     private fun signIn() {
@@ -122,11 +132,11 @@ class AuthFragmentOld : BaseFragment(R.layout.fr_auth) {
     }
 
     private fun restore() {
-        authModel.restore()
-        showToast(getString(R.string.msg_restore) + " ${authModel.getEmail()}")
+       // authModel.restore()
+      //  showToast(getString(R.string.msg_restore) + " ${authModel.getEmail()}")
 
         mainActivity!!.removeFragmentById(FRAGMENT_RESTORE)
         authAppBarLayout.visibility = View.VISIBLE
-        authModel.setState(FRAGMENT_SIGN_IN)
+      //  authModel.setState(FRAGMENT_SIGN_IN)
     }
-}
+}*/

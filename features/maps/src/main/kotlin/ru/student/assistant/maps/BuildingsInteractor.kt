@@ -2,7 +2,7 @@ package ru.suhov.student.features.interactor
 
 import io.reactivex.Observable
 import io.reactivex.Single
-import ru.student.core.entity.EduLocation
+import ru.student.assistant.core.entity.EduLocation
 
 interface BuildingsInteractor {
 

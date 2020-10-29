@@ -4,10 +4,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.delay
-import ru.student.core.AppConstants.FRAGMENT_RESTORE
-import ru.student.core.AppConstants.FRAGMENT_SIGN_IN
-import ru.student.core.AppConstants.FRAGMENT_SIGN_UP
+import ru.student.assistant.core.AppConstants.FRAGMENT_RESTORE
+import ru.student.assistant.core.AppConstants.FRAGMENT_SIGN_IN
+import ru.student.assistant.core.AppConstants.FRAGMENT_SIGN_UP
 
 // Поведение View в AuthFragment
 open class AuthUI : ViewModel() {
@@ -40,7 +39,6 @@ open class AuthUI : ViewModel() {
         tapAction.value = true            // Кнопка нажата
         enabledAction.value = false       // Блочим кнопку
         loader.value = true               // Выводим лоадер
-        delay(100)              // задержка
         tapAction.postValue(false)  // Отжимаем
 
         // Обрабатываем

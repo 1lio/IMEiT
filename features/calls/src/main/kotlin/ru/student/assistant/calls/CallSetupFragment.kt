@@ -15,7 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fr_call_setup.*
 import ru.student.assistant.calls.repository.LocalRepository
 import ru.student.assistant.calls.viewmodel.CallTimeViewModel
-import ru.student.core.entity.CallPref
+import ru.student.assistant.core.entity.CallPref
 import java.util.*
 import kotlin.collections.ArrayList
 

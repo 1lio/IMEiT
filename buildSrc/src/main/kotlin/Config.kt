@@ -41,7 +41,9 @@ object Config {
             const val ktxFragment = "androidx.fragment:fragment-ktx:1.2.5"
             const val constraint = "androidx.constraintlayout:constraintlayout:2.0.2"
             const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
             const val viewpager = "androidx.viewpager:viewpager:1.0.0"
+            const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
             const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
             const val material = "com.google.android.material:material:1.2.1"
             const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"

@@ -68,6 +68,7 @@
                 android:id="@+id/authPager"
                 android:layout_width="match_parent"
                 android:layout_height="280dp" />
+
         </com.google.android.material.appbar.AppBarLayout>
 
     </FrameLayout>

@@ -1,9 +1,6 @@
 import Config.Libs.Androidx
-import Config.Libs.Kotlin
 
 dependencies {
-
-
 
     // AndroidX
     implementation(Androidx.appCompat)
@@ -26,7 +23,9 @@ dependencies {
     implementation(Config.Libs.Misc.hawk)
 
     //Firebase
+    implementation(platform(Config.Libs.Firebase.bom))
     implementation(Config.Libs.Firebase.database)
+
     // Modules
     api(project(":core"))
 }

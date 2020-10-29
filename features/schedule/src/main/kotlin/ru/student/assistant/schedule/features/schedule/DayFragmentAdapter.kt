@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import ru.student.assistant.schedule.R
-import ru.student.core.entity.Schedule
-import ru.suhov.student.core.platform.BaseAdapter
-import ru.suhov.student.core.platform.BaseViewHolder
+import ru.student.assistant.core.entity.Schedule
+import ru.student.assistant.schedule.platform.BaseAdapter
+import ru.student.assistant.schedule.platform.BaseViewHolder
 
 class DayFragmentAdapter : BaseAdapter<Schedule, DayFragmentAdapter.DayViewHolder>() {
 

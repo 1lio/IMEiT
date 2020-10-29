@@ -5,7 +5,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import io.reactivex.Observable
 import io.reactivex.Single
-import ru.student.core.entity.EduLocation
+import ru.student.assistant.core.entity.EduLocation
 import ru.suhov.student.features.interactor.BuildingsInteractor
 import ru.suhov.student.features.repository.FirebaseRealtimeRepository
 

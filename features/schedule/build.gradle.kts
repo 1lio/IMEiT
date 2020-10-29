@@ -19,11 +19,7 @@ dependencies {
     // PlayServices
     implementation(Config.Libs.Google.maps)
 
-    // Библиотека для хранения примитивных типов
-    implementation(Config.Libs.Misc.hawk)
-
-    //Firebase
-    implementation(Config.Libs.Firebase.database)
     // Modules
     api(project(":core"))
+    api(project(":repo"))
 }
