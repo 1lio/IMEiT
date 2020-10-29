@@ -1,10 +1,10 @@
 object Config {
 
     // app
-    const val appVersionName = "3.0"
-    const val appVersionCode = 24
+    const val appVersionName = "3.0.1"
+    const val appVersionCode = 25
     const val buildTools = "30.0.2"
-    const val applicationID = "ru.suhov.student"
+    const val applicationID = "ru.student.assistant"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
 
     const val mainDir = "src/main/kotlin"
@@ -28,10 +28,10 @@ object Config {
     object Libs {
 
         object Kotlin {
-            private const val ver = "1.3.9"
+            private const val ver = "1.4.0"
             const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ver"
             const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ver"
-            const val coroutinesPS = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
+            const val coroutinesPlayServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$ver"
         }
 
         object Androidx {
@@ -48,18 +48,12 @@ object Config {
         }
 
         object Firebase {
+            private const val bomVer = "26.0.0"
 
-            private const val authVer = "19.4.0"
-            private const val dbVer = "19.5.0"
-            private const val storageVer = "19.2.0"
-
-            const val auth = "com.google.firebase:firebase-auth:$authVer"
-            const val database = "com.google.firebase:firebase-database:$dbVer"
-            const val storage = "com.google.firebase:firebase-storage:$storageVer"
-
-            // const val databaseKtx = "com.google.firebase:firebase-database-ktx:$authVer"
-            const val authKtx = "com.google.firebase:firebase-auth-ktx:$authVer"
-            const val databaseKtx = "com.google.firebase:firebase-database-ktx:$dbVer"
+            const val bom = "com.google.firebase:firebase-bom:$bomVer"
+            const val auth = "com.google.firebase:firebase-auth-ktx"
+            const val database = "com.google.firebase:firebase-database-ktx"
+            const val storage = "com.google.firebase:firebase-storage-ktx"
         }
 
         object Google {
@@ -78,7 +72,6 @@ object Config {
             const val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
             const val rxJava = "io.reactivex.rxjava2:rxjava:2.2.19"
         }
-
 
         object Misc {
             const val hawk = "com.orhanobut:hawk:2.0.1"
@@ -99,12 +92,5 @@ object Config {
     object BuildType {
         const val release = "release"
         const val debug = "debug"
-    }
-
-    object Features {
-        object Auth {
-            const val versionName = "auth"
-            const val versionCode = 1
-        }
     }
 }
