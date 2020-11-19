@@ -4,14 +4,24 @@ object Config {
     const val appVersionName = "3.0.1"
     const val appVersionCode = 25
     const val buildTools = "30.0.2"
-    const val applicationID = "ru.student.assistant"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
-
     const val mainDir = "src/main/kotlin"
     const val testDir = "src/test/kotlin"
     const val androidTestDir = "src/androidTest/kotlin"
 
     private const val kotlinVersion = "1.4.10"
+
+    // flavors
+    const val applicationID = "ru.assistant"
+
+    object Flavors {
+        const val appTeacherID = ".teacher"
+        const val versionTeacherCode = "-teacher"
+
+        const val appStudentID = ".student"
+        const val versionStudentCode = "-student"
+    }
+
 
     object SdkVersions {
         const val compile = 30
@@ -20,7 +30,7 @@ object Config {
     }
 
     object Plugins {
-        const val gradleAndroid = "com.android.tools.build:gradle:4.1.0"
+        const val gradleAndroid = "com.android.tools.build:gradle:4.1.1"
         const val gradleKotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         const val googleServices = "com.google.gms:google-services:4.3.4"
     }
@@ -35,18 +45,25 @@ object Config {
         }
 
         object Androidx {
+            private const val livedataVer = "2.2.0"
+
             const val appCompat = "androidx.appcompat:appcompat:1.2.0"
             const val ktx = "androidx.core:core-ktx:1.3.2"
             const val ktxCollection = "androidx.collection:collection-ktx:1.1.0"
             const val ktxFragment = "androidx.fragment:fragment-ktx:1.2.5"
-            const val constraint = "androidx.constraintlayout:constraintlayout:2.0.2"
-            const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+            const val constraint = "androidx.constraintlayout:constraintlayout:2.0.4"
+
+            const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:$livedataVer"
+            const val lifecycle = "androidx.lifecycle:lifecycle-livedata-ktx:$livedataVer"
+            const val livedata = "androidx.lifecycle:lifecycle-viewmodel-ktx:$livedataVer"
 
             const val viewpager = "androidx.viewpager:viewpager:1.0.0"
             const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
             const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
             const val material = "com.google.android.material:material:1.2.1"
             const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
+
+
         }
 
         object Firebase {
@@ -67,7 +84,10 @@ object Config {
             private const val retrofitVer = "2.9.0"
             const val retrofit2 = "com.squareup.retrofit2:retrofit:$retrofitVer"
             const val converterGson = "com.squareup.retrofit2:converter-gson:$retrofitVer"
+
             const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:4.8.1"
+            const val okhttp =  "com.squareup.okhttp3:okhttp:4.5.0"
+            const val websocket =  "org.java-websocket:Java-WebSocket:1.5.1"
         }
 
         object Rx {
@@ -82,7 +102,7 @@ object Config {
         object Test {
             const val junit = "junit:junit:4.13"
             const val testRunner = "androidx.test:runner:1.2.0"
-            const val espresso = "androidx.test.espresso:espresso-core:3.2.0"
+            const val espresso = "androidx.test.espresso:espresso-core:3.3.0"
         }
     }
 
