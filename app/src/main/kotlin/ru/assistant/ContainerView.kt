@@ -1,4 +1,4 @@
-package ru.student.assistant
+package ru.assistant
 
 import android.content.Context
 import android.util.AttributeSet
