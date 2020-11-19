@@ -39,13 +39,28 @@ fun Project.configureAndroid() {
         buildToolsVersion = Config.buildTools
 
         defaultConfig {
-
             minSdkVersion(Config.SdkVersions.min)
             targetSdkVersion(Config.SdkVersions.target)
+            consumerProguardFiles("consumer-rules.pro")
+
             vectorDrawables.useSupportLibrary = true
+            multiDexEnabled = true
 
             testInstrumentationRunner = Config.testRunner
-            consumerProguardFiles("consumer-rules.pro")
+        }
+
+        buildTypes {
+
+            getByName("release") {
+                isMinifyEnabled = true
+                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            }
+
+            getByName("debug") {
+                isMinifyEnabled = false
+                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            }
+
         }
 
         compileOptions {
