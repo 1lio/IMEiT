@@ -73,7 +73,7 @@
 
     </FrameLayout>
 
-    <ru.student.assistant.auth.ui.view.ButtonAction
+    <ru.assistant.auth.ui.view.ButtonAction
         android:id="@+id/action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

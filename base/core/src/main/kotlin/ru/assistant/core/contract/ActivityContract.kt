@@ -1,0 +1,10 @@
+package ru.assistant.core.contract
+
+import ru.assistant.core.AppConstants
+
+interface ActivityContract {
+
+    fun pushFragmentById(id: Byte, container:Int = AppConstants.CONTAINER_ID, now:Boolean = false)
+
+    fun removeFragmentById(id: Byte)
+}
