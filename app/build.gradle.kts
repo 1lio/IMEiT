@@ -1,8 +1,39 @@
+android {
+    defaultConfig {
+        applicationId = Config.applicationID
+
+        versionCode = Config.appVersionCode
+        versionName = Config.appVersionName
+    }
+
+    // ProductFlavors - ползеная фича чтобы создать несколько версий приложения
+    // В данном случае 2 версии, для студентов и преподователей
+
+    flavorDimensions("googlePlay")
+    productFlavors {
+        create("teacher") {
+            dimension = "googlePlay"
+            applicationId = Config.Flavors.appTeacherID
+            versionName = Config.Flavors.versionTeacherCode
+        }
+
+        create("student") {
+            dimension = "googlePlay"
+            applicationIdSuffix = Config.Flavors.appStudentID
+            versionNameSuffix = Config.Flavors.versionStudentCode
+        }
+    }
+
+}
+
 dependencies {
 
+    // Libs
     implementation(Config.Libs.Androidx.appCompat)
-    implementation(Config.Libs.Androidx.material)
 
-    implementation(project(":auth"))
+    // Base
     api(project(":core"))
+
+    // Modules
+    implementation(project(":auth"))
 }
