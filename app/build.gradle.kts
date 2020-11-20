@@ -13,13 +13,13 @@ android {
     productFlavors {
         create("teacher") {
             dimension = "googlePlay"
-            applicationId = Config.Flavors.appTeacherID
-            versionName = Config.Flavors.versionTeacherCode
+            applicationId += Config.Flavors.appTeacherID
+            versionNameSuffix = Config.Flavors.versionTeacherCode
         }
 
         create("student") {
             dimension = "googlePlay"
-            applicationIdSuffix = Config.Flavors.appStudentID
+            applicationId += Config.Flavors.appStudentID
             versionNameSuffix = Config.Flavors.versionStudentCode
         }
     }

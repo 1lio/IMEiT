@@ -2,8 +2,8 @@ package ru.assistant.ui
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.FrameLayout
-import com.google.android.material.bottomappbar.BottomAppBar
 import ru.assistant.core.AppConstants.CONTAINER_ID
 
 class ContainerView : FrameLayout {
@@ -12,7 +12,7 @@ class ContainerView : FrameLayout {
     constructor(context: Context, attr: AttributeSet) : super(context, attr)
 
     private val fragmentContainer: FrameLayout = FrameLayout(context)
-    private val appBar: BottomAppBar = BottomAppBar(context)
+    // private val appBar: BottomAppBar = BottomAppBar(context)
 
     var isVisibleAppBar: Boolean = false
 
@@ -38,15 +38,15 @@ class ContainerView : FrameLayout {
     }
 
     private fun configureAppBar() {
-        with(appBar) {
+     /*   with(appBar) {
             id = APP_BAR_ID
             visibility = View.GONE
-        }
+        }*/
     }
 
     private fun merge() {
         addView(fragmentContainer)
-        addView(appBar)
+    //    addView(appBar)
     }
 
     private companion object {
