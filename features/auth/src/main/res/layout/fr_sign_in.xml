@@ -14,7 +14,7 @@
         android:background="#00FFFFFF"
         app:startIconDrawable="@drawable/ic_account">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/edSignEmail"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
         android:background="#00FFFFFF"
         app:startIconDrawable="@drawable/ic_key">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/edSignPass"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"

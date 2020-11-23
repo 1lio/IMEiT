@@ -35,7 +35,7 @@
         android:background="#00FFFFFF"
         app:startIconDrawable="@drawable/ic_account">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/edRestore"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"

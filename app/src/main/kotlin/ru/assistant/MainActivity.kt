@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity(), ActivityContract {
         super.onCreate(savedInstanceState)
         setContentView(ContainerView(this@MainActivity))
 
-        pushFragmentById(FRAGMENT_AUTH, now = true)
+        pushFragmentById(FRAGMENT_AUTH)
     }
 
     private val fragmentManager = supportFragmentManager
