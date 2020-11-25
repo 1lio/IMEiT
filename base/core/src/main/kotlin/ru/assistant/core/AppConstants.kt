@@ -2,7 +2,8 @@ package ru.assistant.core
 
 object AppConstants {
 
-    const val CONTAINER_ID: Int = 1
+    const val CONTAINER_ID: Int = 101
+
     const val FRAGMENT_AUTH: Byte = 1
 
     const val FRAGMENT_SIGN_IN: Byte = 11

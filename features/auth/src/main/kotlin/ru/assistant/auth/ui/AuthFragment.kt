@@ -13,11 +13,11 @@ import ru.student.assistant.auth.R
 
 class AuthFragment : Fragment(R.layout.fr_auth) {
 
-    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View {
         super.onCreateView(inflater, group, state)
-
         val v: View = inflater.inflate(R.layout.fr_auth, group, false)
 
+    /*
         val authPager: ViewPager2 = v.findViewById(R.id.authPager)
         val action: TextView = v.findViewById(R.id.action)
         val authTabLayout: TabLayout = v.findViewById(R.id.authTabLayout)
@@ -47,8 +47,12 @@ class AuthFragment : Fragment(R.layout.fr_auth) {
                 }
             }
         })
-
+*/
         return v
+    }
+
+    companion object {
+        fun newInstance() = AuthFragment()
     }
 
 }

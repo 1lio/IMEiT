@@ -2,16 +2,16 @@ package ru.assistant.core.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import ru.assistant.core.contract.ActivityContract
+import ru.assistant.core.contract.AppNavigation
 
 abstract class BaseFragment(layout: Int) : Fragment(layout) {
 
-    var mainActivity: ActivityContract? = null
+    var mainActivity: AppNavigation? = null
     abstract val state: Byte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainActivity = activity as ActivityContract
+        mainActivity = activity as AppNavigation
     }
 
 }

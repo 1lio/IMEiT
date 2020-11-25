@@ -5,7 +5,6 @@ import android.util.Patterns.EMAIL_ADDRESS
 import android.view.KeyEvent
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fr_restore.*
 import ru.student.assistant.auth.R
 import ru.assistant.auth.extensions.isValidEmail
 import ru.assistant.auth.viewmodel.AuthViewModel
@@ -36,12 +35,12 @@ class RestoreFragment : BaseFragment(R.layout.fr_restore) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        isValid = edRestore.isValidEmail()
+       // isValid = edRestore.isValidEmail()
         viewModel.setValidForm(isValid)
 
-        viewModel.observeForm(this, { authModel.setEnableAction(edRestore.isValidEmail()) })
+    //    viewModel.observeForm(this, { authModel.setEnableAction(edRestore.isValidEmail()) })
 
-        back.setOnClickListener {
+    /*    back.setOnClickListener {
 
             val frame: View = requireActivity().findViewById(R.id.authAppBarLayout)
 
@@ -76,7 +75,7 @@ class RestoreFragment : BaseFragment(R.layout.fr_restore) {
             }
 
             return@setOnKeyListener false
-        }
+        }*/
     }
 
 

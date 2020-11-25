@@ -48,7 +48,7 @@ object Config {
             private const val livedataVer = "2.2.0"
 
             const val appCompat = "androidx.appcompat:appcompat:1.2.0"
-            const val ktx = "androidx.core:core-ktx:1.3.2"
+            const val core = "androidx.core:core-ktx:1.3.2"
             const val ktxCollection = "androidx.collection:collection-ktx:1.1.0"
             const val ktxFragment = "androidx.fragment:fragment-ktx:1.2.5"
             const val constraint = "androidx.constraintlayout:constraintlayout:2.0.4"

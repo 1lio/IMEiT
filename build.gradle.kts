@@ -31,7 +31,6 @@ fun Project.configureAndroid() {
     // Base plugins
     apply(plugin = "com.android.$type")
     apply(plugin = "org.jetbrains.kotlin.android")
-    apply(plugin = "org.jetbrains.kotlin.android.extensions")
 
     configure<com.android.build.gradle.BaseExtension> {
 

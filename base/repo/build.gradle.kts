@@ -3,7 +3,7 @@
 dependencies {
 
     implementation(Config.Libs.Androidx.appCompat)
-    implementation(Config.Libs.Androidx.ktx)
+    implementation(Config.Libs.Androidx.core)
 
     // Firebase repo impl
     implementation(platform(Config.Libs.Firebase.bom))

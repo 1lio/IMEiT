@@ -33,11 +33,12 @@
 Сертификат [OTUS](https://otus.ru/certificate/5fb781ba05b8418a986cc5dfc34d48a5/) полученный после защиты проекта. 
 
 <p align="center">
-  <img src="https://github.com/1lio/IMEiT/blob/master/art/screen-cert.png" />
+  <img src="https://github.cdom/1lio/IMEiT/blob/master/art/screen-cert.png" />
 </p>
 
 В конце 2020 решил полностью и в последний раз переписать приложение. В данном проекте
-отображена большая часть моих знаний в Android-разработке на момент данного коммита. 
+отображена большая часть моих знаний в Android-разработке на момент данного коммита.
+Мой CV(https://otus.ru/certificate/5fb781ba05b8418a986cc5dfc34d48a5/)
 
 ### License
 ```

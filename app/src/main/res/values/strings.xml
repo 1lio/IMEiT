@@ -7,5 +7,7 @@
     <string name="nav_schedule">Schedule</string>
     <string name="nav_maps">Maps</string>
     <string name="nav_chat">Chat</string>
+    <string name="nav_find_teacher">Find Teacher</string>
+    <string name="nav_day_x">Day X</string>
 
 </resources>

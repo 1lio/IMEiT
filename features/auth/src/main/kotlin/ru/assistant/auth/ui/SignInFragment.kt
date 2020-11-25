@@ -3,10 +3,7 @@ package ru.assistant.auth.ui
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.appbar.AppBarLayout
-import kotlinx.android.synthetic.main.fr_sign_in.*
 import ru.student.assistant.auth.R
-import ru.assistant.auth.extensions.isValidEmail
-import ru.assistant.auth.extensions.isValidPass
 import ru.assistant.core.AppConstants.FRAGMENT_RESTORE
 import ru.assistant.core.AppConstants.FRAGMENT_SIGN_IN
 import ru.assistant.core.base.BaseFragment
@@ -31,7 +28,7 @@ class SignInFragment : BaseFragment(R.layout.fr_sign_in) {
     override fun onViewCreated(view: View, instance: Bundle?) {
         super.onViewCreated(view, instance)
 
-        isValid = (edSignEmail.isValidEmail() && edSignPass.isValidPass())
+      /*  isValid = (edSignEmail.isValidEmail() && edSignPass.isValidPass())
     //    viewModel.setValidForm(isValid)
     //    viewModel.observeForm(this, { authViewModel.setEnableAction(isValid) })
 
@@ -56,7 +53,7 @@ class SignInFragment : BaseFragment(R.layout.fr_sign_in) {
                 }
             })
 
-        }
+        }*/
 
       //  authViewModel.observeTap(activity!!, { if (it) sendFormData() })
     }

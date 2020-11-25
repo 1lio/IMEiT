@@ -6,4 +6,6 @@
     <string name="nav_schedule">Расписание</string>
     <string name="nav_maps">Корпуса</string>
     <string name="nav_chat">Чат</string>
+    <string name="nav_find_teacher">Найти преподователя</string>
+    <string name="nav_day_x">День Х</string>
 </resources>
