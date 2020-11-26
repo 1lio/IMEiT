@@ -3,19 +3,27 @@ package ru.assistant.navigation
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import ru.assistant.MainActivity
 import ru.assistant.auth.ui.AuthFragment
 import ru.assistant.core.AppConstants
 import ru.assistant.core.AppConstants.FRAGMENT_AUTH
-import ru.assistant.core.AppConstants.FRAGMENT_RESTORE
 import ru.assistant.core.contract.AppNavigation
 import ru.assistant.debug.FragmentEmpty
 import ru.assistant.ui.ContainerView
+import ru.assistant.ui.ContainerViewModel
 
 class FragmentNavigation(private val activity: AppCompatActivity) : AppNavigation {
+
+    private lateinit var containerViewModel: ContainerViewModel
 
     private val fragmentManager = activity.supportFragmentManager
 
     override fun pushFragmentById(id: Byte, container: Int, now: Boolean) {
+
+        containerViewModel =
+            ViewModelProvider(activity as MainActivity)[ContainerViewModel::class.java]
+
         val fragment = getFragment(id)
         val tag = fragment::class.java.name
 
@@ -31,14 +39,14 @@ class FragmentNavigation(private val activity: AppCompatActivity) : AppNavigatio
                 .commit()
         }
 
-
         val containerView = activity.findViewById<ContainerView>(AppConstants.CONTAINER_ID)
-        //containerView.isVisibleAppBar =  (id != FRAGMENT_AUTH && id != FRAGMENT_RESTORE)
 
-        Toast.makeText(activity, (containerView ).toString(), Toast.LENGTH_SHORT).show()
+        containerViewModel.setVisibleAppBar(true)
+        containerViewModel.setVisibleFAB(false)
 
-
-
+        containerView.setFabAction {
+            containerViewModel.setVisibleAppBar(false)
+        }
     }
 
     override fun removeFragmentById(id: Byte) {

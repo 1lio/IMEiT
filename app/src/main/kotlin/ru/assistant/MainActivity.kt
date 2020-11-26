@@ -2,6 +2,7 @@ package ru.assistant
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ru.assistant.core.AppConstants.CONTAINER_ID
 import ru.assistant.navigation.FragmentNavigation
 import ru.assistant.core.AppConstants.FRAGMENT_AUTH
 import ru.assistant.core.contract.AppNavigation
@@ -15,9 +16,9 @@ class MainActivity : AppCompatActivity(), AppNavigation {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(ContainerView(this@MainActivity))
+        setContentView(ContainerView(this@MainActivity).apply { id = CONTAINER_ID })
 
-        if (savedInstanceState == null) pushFragmentById(17, now = true)
+        if (savedInstanceState == null) pushFragmentById(FRAGMENT_AUTH, now = true)
     }
 
     override fun pushFragmentById(id: Byte, container: Int, now: Boolean) {
