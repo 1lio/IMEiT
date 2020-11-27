@@ -10,7 +10,9 @@ import android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM
 import android.view.MenuItem.SHOW_AS_ACTION_NEVER
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
@@ -19,6 +21,7 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomappbar.BottomAppBar.FAB_ALIGNMENT_MODE_END
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.student.assistant.R
+
 
 /* == ContainerView ==
 
@@ -37,14 +40,24 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
     private val appBar: BottomAppBar = BottomAppBar(context)
     private val fab: FloatingActionButton = FloatingActionButton(context)
 
-    private var isVisibleFab: Boolean = true
-    private var isVisibleAppBar: Boolean = true
+    var isVisibleFab: Boolean
+    var isVisibleAppBar: Boolean
 
     init {
-        configureFragmentContainer()
-        configureAppBar()
-        configureFab()
-        merge()
+        val a = context.theme.obtainStyledAttributes(attr, R.styleable.ContainerView, 0, 0)
+        try {
+
+            isVisibleAppBar = a.getBoolean(R.styleable.ContainerView_isVisible, false)
+            isVisibleFab = a.getBoolean(R.styleable.ContainerView_isVisibleFab, true)
+
+            configureFragmentContainer()
+            configureAppBar()
+            configureFab()
+            merge()
+
+        } finally {
+            a.recycle()
+        }
     }
 
     // ParentContainer
@@ -60,7 +73,6 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
         }
     }
 
-
     // AppBar
     private fun configureAppBar() {
 
@@ -73,12 +85,15 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
 
         val appBarHeight = resources.getDimensionPixelSize(R.dimen.toolbar_size)
 
-        val appBarParams = CoordinatorLayout.LayoutParams(MATCH_PARENT, appBarHeight).apply {
+        val appBarParams = CoordinatorLayout.LayoutParams(
+            MATCH_PARENT, appBarHeight
+        ).apply {
             gravity = Gravity.BOTTOM
         }
 
         appBar.apply {
             id = APP_BAR_ID
+            visibility = isVisibleAppBar.toVisibility()
             fabAlignmentMode = FAB_ALIGNMENT_MODE_END
             layoutParams = appBarParams
             overflowIcon!!.colorFilter =
@@ -86,22 +101,28 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
                     ContextCompat.getColor(context, R.color.white), BlendModeCompat.SRC_ATOP
                 )
             backgroundTint = ContextCompat.getColorStateList(context, R.color.colorPrimary)
-            // navigationIcon = ContextCompat.getDrawable(context, R.drawable.ic_baseline_menu_24)
             menu.addMenu()
         }
     }
 
     private fun configureFab() {
 
-        val fabParams =
-            CoordinatorLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+        val fabSize = resources.getDimensionPixelSize(R.dimen.fab_size)
+
+        val fabParams = CoordinatorLayout.LayoutParams(fabSize, fabSize)
                 .apply {
-                    anchorId = if (isVisibleFab) APP_BAR_ID else NO_ID
+                    anchorId = if (isVisibleFab) {
+                        APP_BAR_ID
+                    } else {
+                        NO_ID
+                    }
+                  //  gravity = Gravity.CENTER
+                    setMargins(16,16,16,16)
                 }
 
         fab.apply {
-            visibility = if (isVisibleAppBar) View.VISIBLE else View.GONE
             id = FAB_ID
+            visibility = isVisibleFab.toVisibility()
             setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_account))
             setColorFilter(Color.WHITE)
             backgroundTintList =
@@ -112,9 +133,9 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
 
     private fun merge() {
         addView(fragmentContainer)
+        addView(fab)
         addView(coordinatorLayout.apply {
             addView(appBar)
-            addView(fab)
         })
     }
 
@@ -153,14 +174,6 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
         fab.setOnClickListener(action)
     }
 
-    fun setVisibleFab(isVisible: Boolean) {
-        isVisibleFab = isVisible
-    }
-
-    fun setVisibleAppBar(isVisible: Boolean) {
-        isVisibleAppBar = isVisible
-    }
-
     // APPBAR
     fun ContainerView.showAppBar() {
     }
@@ -176,6 +189,11 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
 
     fun ContainerView.hideFab() {
         fab.hide()
+    }
+
+
+    private fun Boolean.toVisibility(): Int {
+        return if (this) View.VISIBLE else View.GONE
     }
 
     private companion object {

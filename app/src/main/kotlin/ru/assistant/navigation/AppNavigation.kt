@@ -1,28 +1,17 @@
 package ru.assistant.navigation
 
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import ru.assistant.MainActivity
 import ru.assistant.auth.ui.AuthFragment
-import ru.assistant.core.AppConstants
 import ru.assistant.core.AppConstants.FRAGMENT_AUTH
 import ru.assistant.core.contract.AppNavigation
 import ru.assistant.debug.FragmentEmpty
-import ru.assistant.ui.ContainerView
-import ru.assistant.ui.ContainerViewModel
 
-class FragmentNavigation(private val activity: AppCompatActivity) : AppNavigation {
-
-    private lateinit var containerViewModel: ContainerViewModel
+class AppNavigation(private val activity: MainActivity) : AppNavigation {
 
     private val fragmentManager = activity.supportFragmentManager
 
     override fun pushFragmentById(id: Byte, container: Int, now: Boolean) {
-
-        containerViewModel =
-            ViewModelProvider(activity as MainActivity)[ContainerViewModel::class.java]
 
         val fragment = getFragment(id)
         val tag = fragment::class.java.name
@@ -38,15 +27,6 @@ class FragmentNavigation(private val activity: AppCompatActivity) : AppNavigatio
                 .replace(container, fragment, tag)
                 .commit()
         }
-
-        val containerView = activity.findViewById<ContainerView>(AppConstants.CONTAINER_ID)
-
-        containerViewModel.setVisibleAppBar(true)
-        containerViewModel.setVisibleFAB(false)
-
-        containerView.setFabAction {
-            containerViewModel.setVisibleAppBar(false)
-        }
     }
 
     override fun removeFragmentById(id: Byte) {
@@ -60,7 +40,6 @@ class FragmentNavigation(private val activity: AppCompatActivity) : AppNavigatio
     }
 
     override fun showLoader(isShow: Boolean) {
-        TODO("Not yet implemented")
     }
 
     // Activity know all main fragments in modules
