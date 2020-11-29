@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
-import android.widget.LinearLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.BlendModeColorFilterCompat
@@ -21,7 +20,6 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomappbar.BottomAppBar.FAB_ALIGNMENT_MODE_END
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.student.assistant.R
-
 
 /* == ContainerView ==
 
@@ -45,10 +43,11 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
 
     init {
         val a = context.theme.obtainStyledAttributes(attr, R.styleable.ContainerView, 0, 0)
+
         try {
 
             isVisibleAppBar = a.getBoolean(R.styleable.ContainerView_isVisible, false)
-            isVisibleFab = a.getBoolean(R.styleable.ContainerView_isVisibleFab, true)
+            isVisibleFab = a.getBoolean(R.styleable.ContainerView_isVisibleFab, false)
 
             configureFragmentContainer()
             configureAppBar()
@@ -76,17 +75,20 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
     // AppBar
     private fun configureAppBar() {
 
-        coordinatorLayout.layoutParams = CoordinatorLayout.LayoutParams(
+        val params = if (isVisibleAppBar) CoordinatorLayout.LayoutParams(
             CoordinatorLayout.LayoutParams.MATCH_PARENT,
             CoordinatorLayout.LayoutParams.MATCH_PARENT
         ).apply {
             id = COORDINATOR_ID
+        } else LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
+            gravity = Gravity.END or Gravity.BOTTOM
         }
+
+        coordinatorLayout.layoutParams = params
 
         val appBarHeight = resources.getDimensionPixelSize(R.dimen.toolbar_size)
 
-        val appBarParams = CoordinatorLayout.LayoutParams(
-            MATCH_PARENT, appBarHeight
+        val appBarParams = CoordinatorLayout.LayoutParams(MATCH_PARENT, appBarHeight
         ).apply {
             gravity = Gravity.BOTTOM
         }
@@ -110,15 +112,11 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
         val fabSize = resources.getDimensionPixelSize(R.dimen.fab_size)
 
         val fabParams = CoordinatorLayout.LayoutParams(fabSize, fabSize)
-                .apply {
-                    anchorId = if (isVisibleFab) {
-                        APP_BAR_ID
-                    } else {
-                        NO_ID
-                    }
-                  //  gravity = Gravity.CENTER
-                    setMargins(16,16,16,16)
-                }
+            .apply {
+                anchorId = if (isVisibleFab) APP_BAR_ID else NO_ID
+                setMargins(16, 16, 16, 16)
+            }
+
 
         fab.apply {
             id = FAB_ID
@@ -129,14 +127,16 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
                 ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorAccent))
             layoutParams = fabParams
         }
+
     }
 
     private fun merge() {
         addView(fragmentContainer)
-        addView(fab)
         addView(coordinatorLayout.apply {
             addView(appBar)
+            addView(fab)
         })
+
     }
 
     private fun Menu.addMenu() {
@@ -191,10 +191,7 @@ class ContainerView @JvmOverloads constructor(context: Context, attr: AttributeS
         fab.hide()
     }
 
-
-    private fun Boolean.toVisibility(): Int {
-        return if (this) View.VISIBLE else View.GONE
-    }
+    private fun Boolean.toVisibility(): Int = if (this) View.VISIBLE else View.GONE
 
     private companion object {
         const val CONTAINER_FRAGMENT_ID = 101
