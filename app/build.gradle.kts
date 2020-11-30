@@ -32,6 +32,7 @@ dependencies {
     implementation(Config.Libs.Androidx.appCompat)
     implementation(Config.Libs.Androidx.core)
     implementation(Config.Libs.Androidx.material)
+    implementation(Config.Libs.Androidx.vectorAnimation)
 
     // Base
     api(project(":core"))
