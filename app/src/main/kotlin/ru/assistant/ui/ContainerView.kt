@@ -29,12 +29,6 @@ FrameLayout
 - FloatingActionButton
  */
 
-// В текущем кейсе есть баг, когда нам нужно отобразить только fab, то он отрывается от appBar
-// и съезжает на центр со смещением (проблема из-за привязки).
-// Просто закастить Coordinator к Linear и отобразить только fab нельзя.
-
-// (Отложенно) В данном проекте нет кейсов когда fab лежит отдельно без связки с appBar
-
 class ContainerView(context: Context) : FrameLayout(context) {
 
     private val fragmentContainer: FrameLayout = FrameLayout(context)
