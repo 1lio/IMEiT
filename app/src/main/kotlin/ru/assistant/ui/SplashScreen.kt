@@ -17,7 +17,7 @@ class SplashScreen : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
 
         Thread {
-            TimeUnit.MILLISECONDS.sleep(2000)
+            TimeUnit.MILLISECONDS.sleep(1000)
             startActivity(intent)
             finish()
         }.start()
