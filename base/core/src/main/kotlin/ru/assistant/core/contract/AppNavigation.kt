@@ -8,6 +8,6 @@ interface AppNavigation {
 
     fun removeFragmentById(id: Byte)
 
-    fun showLoader(isShow: Boolean)
+    fun showLoader(isShow: Boolean, message: String = "${0x2026.toChar()}")
 
 }
