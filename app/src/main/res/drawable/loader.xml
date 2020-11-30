@@ -1,0 +1,94 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="200dp"
+            android:height="200dp"
+            android:viewportWidth="512"
+            android:viewportHeight="512">
+            <path
+                android:name="b"
+                android:fillColor="#E8BEC6CE"
+                android:pathData="M0,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
+            <path
+                android:name="c"
+                android:fillColor="#E8BEC6CE"
+                android:pathData="M64,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
+            <path
+                android:name="e"
+                android:fillColor="#A3B8C7"
+                android:pathData="M128,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
+            <path
+                android:name="d"
+                android:fillColor="#A3B8C7"
+                android:pathData="M192,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
+            <path
+                android:name="a"
+                android:fillColor="#CB2C5E7F"
+                android:pathData="M256,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
+        </vector>
+    </aapt:attr>
+
+    <target android:name="b">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="2500"
+                android:propertyName="pathData"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="M192,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueTo="M256,180.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="c">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="2500"
+                android:propertyName="pathData"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="M64,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueTo="M0,180.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+    <target android:name="d">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="2500"
+                android:propertyName="pathData"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="M36,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueTo="M12,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+    <target android:name="e">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="2500"
+                android:propertyName="pathData"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="M216,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueTo="M240,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="a">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="2500"
+                android:propertyName="pathData"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="M128,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueTo="M128,256.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+</animated-vector>
