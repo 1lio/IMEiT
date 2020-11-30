@@ -19,13 +19,18 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <activity
-            android:name="ru.assistant.MainActivity"
+            android:name="ru.assistant.ui.SplashScreen"
+            android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="ru.assistant.MainActivity"
+            android:windowSoftInputMode="adjustPan"/>
 
     </application>
 

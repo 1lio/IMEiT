@@ -1,0 +1,86 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="200dp"
+            android:height="200dp"
+            android:viewportWidth="512"
+            android:viewportHeight="512">
+            <path
+                android:name="a"
+                android:fillColor="#CB2C5E7F"
+                android:pathData="M207.58,256.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z" />
+            <path
+                android:name="b"
+                android:fillColor="#CB2C5E7F"
+                android:pathData="M207.58,512.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z" />
+            <path
+                android:name="c"
+                android:fillColor="#E8BEC6CE"
+                android:pathData="M352.58,384.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z" />
+            <path
+                android:name="d"
+                android:fillColor="#E8BEC6CE"
+                android:pathData="M62.58,385.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z" />
+            <path
+                android:name="e"
+                android:fillColor="#E6CAD6DE"
+                android:pathData="M207.58,384.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z" />
+        </vector>
+    </aapt:attr>
+
+
+    <target android:name="a">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="1500"
+                android:propertyName="pathData"
+                android:valueFrom="M207.58,256.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueTo="M156.58,256.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+    <target android:name="b">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="1500"
+                android:propertyName="pathData"
+                android:valueFrom="M207.58,512.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueTo="M256.58,512.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="c">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="1500"
+                android:propertyName="pathData"
+                android:valueFrom="M352.58,384.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueTo="M256.58,256.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="d">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="1500"
+                android:propertyName="pathData"
+                android:valueFrom="M62.58,385.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueTo="M158.58,512.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+
+    <target android:name="e">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="1500"
+                android:propertyName="pathData"
+                android:valueFrom="M207.58,384.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueTo="M207.58,384.5l-48.42,-128l48.42,-128l96.84,0l48.42,128l-48.42,128z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+</animated-vector>

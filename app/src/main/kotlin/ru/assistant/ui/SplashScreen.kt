@@ -1,17 +1,26 @@
 package ru.assistant.ui
 
-import android.content.Context
-import android.util.AttributeSet
-import android.view.View
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import ru.assistant.MainActivity
+import ru.student.assistant.R
+import java.util.concurrent.TimeUnit
 
-class SplashScreen : View {
+class SplashScreen : AppCompatActivity() {
 
-    constructor(context: Context): super(context)
-    constructor(context: Context, attr: AttributeSet): super(context)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setTheme(R.style.AppTheme)
+        setContentView(SplashView(this))
 
-    init {
+        val intent = Intent(this, MainActivity::class.java)
 
-
+        Thread {
+            TimeUnit.MILLISECONDS.sleep(2000)
+            startActivity(intent)
+            finish()
+        }.start()
     }
 
 }
