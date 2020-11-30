@@ -7,15 +7,15 @@
             android:viewportWidth="512"
             android:viewportHeight="512">
             <path
-                android:name="b"
+                android:name="a"
                 android:fillColor="#E8BEC6CE"
                 android:pathData="M0,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
             <path
-                android:name="c"
+                android:name="b"
                 android:fillColor="#E8BEC6CE"
                 android:pathData="M64,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
             <path
-                android:name="e"
+                android:name="c"
                 android:fillColor="#A3B8C7"
                 android:pathData="M128,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
             <path
@@ -23,13 +23,13 @@
                 android:fillColor="#A3B8C7"
                 android:pathData="M192,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
             <path
-                android:name="a"
+                android:name="e"
                 android:fillColor="#CB2C5E7F"
                 android:pathData="M256,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z" />
         </vector>
     </aapt:attr>
 
-    <target android:name="b">
+    <target android:name="a">
         <aapt:attr name="android:animation">
             <objectAnimator
                 android:duration="2500"
@@ -42,7 +42,7 @@
         </aapt:attr>
     </target>
 
-    <target android:name="c">
+    <target android:name="b">
         <aapt:attr name="android:animation">
             <objectAnimator
                 android:duration="2500"
@@ -51,6 +51,18 @@
                 android:repeatMode="reverse"
                 android:valueFrom="M64,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
                 android:valueTo="M0,180.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+    <target android:name="c">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="2500"
+                android:propertyName="pathData"
+                android:repeatCount="infinite"
+                android:repeatMode="reverse"
+                android:valueFrom="M216,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
+                android:valueTo="M240,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
                 android:valueType="pathType" />
         </aapt:attr>
     </target>
@@ -67,19 +79,6 @@
         </aapt:attr>
     </target>
     <target android:name="e">
-        <aapt:attr name="android:animation">
-            <objectAnimator
-                android:duration="2500"
-                android:propertyName="pathData"
-                android:repeatCount="infinite"
-                android:repeatMode="reverse"
-                android:valueFrom="M216,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
-                android:valueTo="M240,208.1l128,-48.4l128,48.4l0,96.8l-128,48.4l-128,-48.4z"
-                android:valueType="pathType" />
-        </aapt:attr>
-    </target>
-
-    <target android:name="a">
         <aapt:attr name="android:animation">
             <objectAnimator
                 android:duration="2500"
