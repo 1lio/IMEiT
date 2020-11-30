@@ -2,50 +2,59 @@ package ru.assistant.ui
 
 import android.content.Context
 import android.graphics.drawable.AnimatedVectorDrawable
-import android.os.Handler
 import android.view.Gravity
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import ru.student.assistant.R
-import java.util.concurrent.Executor
+
+/** == SplashView ==
+
+LinearLayout
+- ImageView(Logo)
+ */
 
 class SplashView(context: Context) : LinearLayout(context) {
 
-    private var animVector: AnimatedVectorDrawable
-    private var vectorImage: ImageView
+    private lateinit var logo: ImageView
 
     init {
+        configureRoot()
+        configureLogo()
+        merge()
+    }
 
+    private fun configureRoot() {
+
+        // Включаем поддержку векторных ресурсов
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+
+        // По умолчанию тема центрует без учета статус бара, делаем сдвиг снизу
+        val margin = context.resources.getDimensionPixelOffset(R.dimen.margin_form)
         orientation = VERTICAL
         gravity = Gravity.CENTER
 
-        vectorImage = ImageView(context)
-        val margin = context.resources.getDimensionPixelOffset(R.dimen.margin_form)
-        vectorImage.layoutParams =
-            LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
-                setMargins(0, 0, 0, margin)
-            }
+        layoutParams = LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
+            setMargins(0, 0, 0, margin)
+        }
 
-
-        // Векторная анимация | Установим картинку по умолчанию
-        animVector =
-            ContextCompat.getDrawable(context, R.drawable.vector_splash) as AnimatedVectorDrawable
-
-        vectorImage.setImageDrawable(animVector)
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
-
-        addView(vectorImage)
-
-        // Запуск анимаций с задержкой, чтобы показать анимацию после открытия окна
-        startAnimation()
     }
 
-    private fun startAnimation() {
-        Handler().postDelayed({
-            animVector.start()
-        }, 1500)
+    private fun configureLogo() {
+        val animVector =
+            ContextCompat.getDrawable(context, R.drawable.splash) as AnimatedVectorDrawable
+
+        logo = ImageView(context).apply {
+            setImageDrawable(animVector)
+        }
+
+        animVector.start()
+    }
+
+    private fun merge() {
+        addView(logo)
     }
 
 }
