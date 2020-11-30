@@ -4,9 +4,9 @@ import android.content.Context
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.view.Gravity
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import ru.student.assistant.R
 
@@ -18,7 +18,7 @@ LinearLayout
 
 class SplashView(context: Context) : LinearLayout(context) {
 
-    private lateinit var logo: ImageView
+    private lateinit var logo: AppCompatImageView
 
     init {
         configureRoot()
@@ -46,7 +46,7 @@ class SplashView(context: Context) : LinearLayout(context) {
         val animVector =
             ContextCompat.getDrawable(context, R.drawable.splash) as AnimatedVectorDrawable
 
-        logo = ImageView(context).apply {
+        logo = AppCompatImageView(context).apply {
             setImageDrawable(animVector)
         }
 
