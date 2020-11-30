@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ru.assistant.auth.ui.AuthFragment
 import ru.assistant.core.AppConstants.FRAGMENT_AUTH
+import ru.assistant.core.AppConstants.LOADER_ID
 import ru.assistant.core.contract.AppNavigation
 import ru.assistant.ui.ContainerView
+import ru.assistant.ui.LoaderView
 
 // Навигация в приложении происходит через AppNavigation который реализует активити. Стараюсь не
 // тащить посторонние либы в проект
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity(), AppNavigation {
         val fragment = getFragment(id)
         val tag = fragment::class.java.name
 
+        showLoader(true)
+
         if (now) {
             fragmentManager
                 .beginTransaction()
@@ -43,27 +47,7 @@ class MainActivity : AppCompatActivity(), AppNavigation {
                 .commit()
         }
 
-        when (id) {
-
-            /*  17.toByte() -> {
-                  containerView.isVisibleAppBar = false
-                  containerView.isVisibleFab = false
-              }
-              18.toByte() -> {
-                  containerView.isVisibleAppBar = false
-                  containerView.isVisibleFab = true
-              }
-              19.toByte() -> {
-                  containerView.isVisibleAppBar = true
-                  containerView.isVisibleFab = true
-              }
-              20.toByte() -> {
-                  containerView.isVisibleAppBar = true
-                  containerView.isVisibleFab = false
-              }*/
-
-
-        }
+        showLoader(false)
     }
 
     override fun removeFragmentById(id: Byte) {
@@ -76,8 +60,22 @@ class MainActivity : AppCompatActivity(), AppNavigation {
             } ?: return
     }
 
-    override fun showLoader(isShow: Boolean) {}
+    override fun showLoader(isShow: Boolean, message: String) {
 
+        val loaderView: LoaderView?
+
+        if (isShow) {
+
+            loaderView = findViewById(LOADER_ID) ?: LoaderView(this)
+
+            if (findViewById<LoaderView>(LOADER_ID) == null) {
+                containerView.addView(loaderView)
+            }
+
+            loaderView.setText(message)
+        } else containerView.removeView(findViewById(LOADER_ID))
+
+    }
 
     // Activity know all main fragments in modules
     private fun getFragment(id: Byte) = when (id) {
