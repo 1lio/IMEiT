@@ -20,8 +20,7 @@
 
         <activity
             android:name="ru.assistant.ui.activities.SplashScreen"
-            android:theme="@style/SplashTheme"
-            android:windowSoftInputMode="adjustPan">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,7 +29,7 @@
 
         <activity
             android:name="ru.assistant.ui.activities.MainActivity"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
 
     </application>
 
