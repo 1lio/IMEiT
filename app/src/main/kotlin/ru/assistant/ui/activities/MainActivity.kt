@@ -44,6 +44,14 @@ class MainActivity : AppCompatActivity(), AppNavigation {
                 .commit()
         }
 
+        if (id != FRAGMENT_AUTH) {
+            containerView.run {
+                isVisibleAppBar = true
+                isVisibleFab = true
+            }
+        }
+
+
         showLoader(false)
     }
 
