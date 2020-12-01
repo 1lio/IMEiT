@@ -72,6 +72,16 @@ fun Project.configureAndroid() {
             getByName("main").java.srcDirs(Config.mainDir)
             getByName("test").java.srcDirs(Config.testDir)
         }
+
+        testOptions {
+
+            animationsDisabled = true
+
+            unitTests {
+                isIncludeAndroidResources = true
+                isReturnDefaultValues = true
+            }
+        }
     }
 
 }
