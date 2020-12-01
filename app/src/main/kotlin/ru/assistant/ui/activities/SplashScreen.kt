@@ -1,4 +1,4 @@
-package ru.assistant.ui.activites
+package ru.assistant.ui.activities
 
 import android.content.Intent
 import android.os.Bundle

@@ -19,7 +19,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <activity
-            android:name="ru.assistant.ui.activites.SplashScreen"
+            android:name="ru.assistant.ui.activities.SplashScreen"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -29,7 +29,7 @@
         </activity>
 
         <activity
-            android:name="ru.assistant.ui.activites.MainActivity"
+            android:name="ru.assistant.ui.activities.MainActivity"
             android:windowSoftInputMode="adjustPan"/>
 
     </application>
