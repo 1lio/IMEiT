@@ -9,7 +9,7 @@ android {
     // ProductFlavors - ползеная фича чтобы создать несколько версий приложения
     // В данном случае 2 версии, для студентов и преподователей
 
-    flavorDimensions("googlePlay")
+  /*  flavorDimensions("googlePlay")
     productFlavors {
         create("teacher") {
             dimension = "googlePlay"
@@ -22,7 +22,7 @@ android {
             applicationId += Config.Flavors.appStudentID
             versionNameSuffix = Config.Flavors.versionStudentCode
         }
-    }
+    }*/
 
 }
 
@@ -33,6 +33,16 @@ dependencies {
     implementation(Config.Libs.Androidx.core)
     implementation(Config.Libs.Androidx.material)
     implementation(Config.Libs.Androidx.vectorAnimation)
+
+    // Tests
+    testImplementation(Config.Libs.Test.junit)
+    androidTestImplementation(Config.Libs.Test.junitExt)
+    androidTestImplementation(Config.Libs.Test.testJunitKtx)
+    androidTestImplementation(Config.Libs.Test.testRunner)
+    androidTestImplementation(Config.Libs.Test.testRules)
+    androidTestImplementation(Config.Libs.Test.testMonitor)
+    androidTestImplementation(Config.Libs.Test.espresso)
+    androidTestImplementation(Config.Libs.Test.espressoIntents)
 
     // Base
     api(project(":core"))

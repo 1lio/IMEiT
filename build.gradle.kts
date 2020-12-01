@@ -43,21 +43,23 @@ fun Project.configureAndroid() {
             consumerProguardFiles("consumer-rules.pro")
 
             vectorDrawables.useSupportLibrary = true
-            multiDexEnabled = true
+            multiDexEnabled = false
 
             testInstrumentationRunner = Config.testRunner
+            testInstrumentationRunnerArguments += ("clearPackageData" to "true")
         }
 
         buildTypes {
 
             getByName("release") {
                 isMinifyEnabled = true
+                if (name == "app") isShrinkResources = true
                 proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
             }
 
             getByName("debug") {
                 isMinifyEnabled = false
-                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+                isTestCoverageEnabled = true
             }
 
         }

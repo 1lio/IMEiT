@@ -62,8 +62,6 @@ object Config {
             const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
             const val material = "com.google.android.material:material:1.2.1"
             const val vectorAnimation = "androidx.vectordrawable:vectordrawable-animated:1.1.0"
-
-
         }
 
         object Firebase {
@@ -100,9 +98,20 @@ object Config {
         }
 
         object Test {
-            const val junit = "junit:junit:4.13"
-            const val testRunner = "androidx.test:runner:1.2.0"
+            const val testRunner = "androidx.test:runner:1.3.0"
+            const val testRules = "androidx.test:rules:1.3.0"
+            const val testMonitor = "androidx.test:rules:1.3.0"
+            const val testJunitKtx = "androidx.test.ext:junit-ktx:1.1.2"
+            const val testCoreKtx = "androidx.test:core-ktx:1.3.0"
+
+            const val junit = "junit:junit:4.13.1"
+
+            const val junitExt = "androidx.test.ext:junit:1.1.2"
             const val espresso = "androidx.test.espresso:espresso-core:3.3.0"
+            const val espressoIntents = "androidx.test.espresso:espresso-intents:3.3.0"
+            const val mockk = "io.mockk:mockk:1.10.2"
+            const val robolectric = "org.robolectric:robolectric:4.4"
+        //    const val supportRunner = "com.android.support.test:runner:1.0.2"
         }
     }
 
