@@ -134,13 +134,15 @@ class ContainerView(context: Context) : FrameLayout(context) {
     var isVisibleFab: Boolean = false
         set(value) {
             field = value
-            updateUI()
+            fab.visibility = false.toVisibility()
             fab.visibility = value.toVisibility()
+            updateUI()
         }
 
     var isVisibleAppBar: Boolean = false
         set(value) {
             field = value
+            appBar.visibility = false.toVisibility()
             appBar.visibility = value.toVisibility()
             updateUI()
         }

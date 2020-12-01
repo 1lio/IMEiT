@@ -45,10 +45,8 @@ class MainActivity : AppCompatActivity(), AppNavigation {
         }
 
         if (id != FRAGMENT_AUTH) {
-            containerView.run {
-                isVisibleAppBar = true
-                isVisibleFab = true
-            }
+            containerView.isVisibleAppBar = true
+            containerView.isVisibleFab = true
         }
 
 
