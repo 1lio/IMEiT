@@ -1,9 +1,9 @@
-package ru.assistant.ui
+package ru.assistant.ui.activites
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ru.assistant.MainActivity
+import ru.assistant.ui.views.SplashView
 import ru.student.assistant.R
 import java.util.concurrent.TimeUnit
 

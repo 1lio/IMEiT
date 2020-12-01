@@ -1,4 +1,4 @@
-package ru.assistant
+package ru.assistant.ui.activites
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,8 @@ import ru.assistant.auth.ui.AuthFragment
 import ru.assistant.core.AppConstants.FRAGMENT_AUTH
 import ru.assistant.core.AppConstants.LOADER_ID
 import ru.assistant.core.contract.AppNavigation
-import ru.assistant.ui.ContainerView
-import ru.assistant.ui.LoaderView
+import ru.assistant.ui.views.ContainerView
+import ru.assistant.ui.views.LoaderView
 
 // Навигация в приложении происходит через AppNavigation который реализует активити. Стараюсь не
 // тащить посторонние либы в проект
@@ -18,11 +18,8 @@ class MainActivity : AppCompatActivity(), AppNavigation {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         containerView = ContainerView(this@MainActivity)
-
         setContentView(containerView)
-
         if (savedInstanceState == null) pushFragmentById(FRAGMENT_AUTH, now = true)
     }
 
@@ -77,7 +74,6 @@ class MainActivity : AppCompatActivity(), AppNavigation {
 
     }
 
-    // Activity know all main fragments in modules
     private fun getFragment(id: Byte) = when (id) {
         FRAGMENT_AUTH -> AuthFragment.newInstance()
         // FRAGMENT_ACCOUNT -> AccountFragment()

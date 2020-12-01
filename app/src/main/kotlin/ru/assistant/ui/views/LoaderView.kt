@@ -1,4 +1,4 @@
-package ru.assistant.ui
+package ru.assistant.ui.views
 
 import android.content.Context
 import android.graphics.drawable.AnimatedVectorDrawable
