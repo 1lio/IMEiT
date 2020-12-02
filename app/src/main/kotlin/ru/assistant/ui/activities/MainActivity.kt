@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ru.assistant.auth.ui.AuthFragment
 import ru.assistant.core.AppConstants.FRAGMENT_AUTH
+import ru.assistant.core.AppConstants.FRAGMENT_ID_KEY
 import ru.assistant.core.AppConstants.LOADER_ID
 import ru.assistant.core.contract.AppNavigation
 import ru.assistant.ui.views.ContainerView
@@ -15,12 +16,24 @@ import ru.assistant.ui.views.LoaderView
 class MainActivity : AppCompatActivity(), AppNavigation {
 
     private lateinit var containerView: ContainerView
+    private var fragmentId: Byte = DEFAULT_FRAGMENT
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         containerView = ContainerView(this@MainActivity)
         setContentView(containerView)
         if (savedInstanceState == null) pushFragmentById(FRAGMENT_AUTH, now = true)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        fragmentId = savedInstanceState.getByte(FRAGMENT_ID_KEY)
+        pushFragmentById(fragmentId)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        pushFragmentById(fragmentId)
     }
 
     private val fragmentManager = supportFragmentManager
@@ -45,8 +58,10 @@ class MainActivity : AppCompatActivity(), AppNavigation {
         }
 
         if (id != FRAGMENT_AUTH) {
-            containerView.isVisibleAppBar = true
-            containerView.isVisibleFab = true
+            containerView.run {
+                isVisibleAppBar = true
+                isVisibleFab = true
+            }
         }
 
 
@@ -88,6 +103,10 @@ class MainActivity : AppCompatActivity(), AppNavigation {
         // FRAGMENT_CALLS ->
 
         else -> Fragment()
+    }
+
+    private companion object {
+        const val DEFAULT_FRAGMENT: Byte = FRAGMENT_AUTH
     }
 
 }

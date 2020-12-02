@@ -7,6 +7,8 @@ object AppConstants {
     const val LOADER_ID: Int = 102
 
     // Fragments
+
+    const val FRAGMENT_ID_KEY: String = "Fragment_Key"
     const val FRAGMENT_AUTH: Byte = 1
 
     const val FRAGMENT_SIGN_IN: Byte = 11
