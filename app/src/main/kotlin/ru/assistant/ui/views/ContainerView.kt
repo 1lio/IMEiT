@@ -47,11 +47,11 @@ class ContainerView(context: Context) : FrameLayout(context) {
         configureFab()
 
         // строим дерево view
-        merge()
+        addViews()
     }
 
-    // Разметка
 
+    // Разметка
     private fun configureRoot() {
         id = CONTAINER_ID
         layoutParams = LayoutParams(MATCH_PARENT, MATCH_PARENT)
@@ -121,7 +121,7 @@ class ContainerView(context: Context) : FrameLayout(context) {
 
     }
 
-    private fun merge() {
+    private fun addViews() {
         addView(fragmentContainer)
         addView(coordinatorLayout.apply {
             addView(appBar)
@@ -145,6 +145,7 @@ class ContainerView(context: Context) : FrameLayout(context) {
             appBar.visibility = false.toVisibility()
             appBar.visibility = value.toVisibility()
             updateUI()
+            invalidate()
         }
 
     fun setFabAction(action: OnClickListener) {
