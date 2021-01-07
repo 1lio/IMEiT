@@ -9,7 +9,7 @@ object Config {
     const val testDir = "src/test/kotlin"
     const val androidTestDir = "src/androidTest/kotlin"
 
-    private const val kotlinVersion = "1.4.20"
+    private const val kotlinVersion = "1.4.21"
 
     // flavors
     const val applicationID = "ru.assistant"
