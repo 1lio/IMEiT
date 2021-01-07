@@ -11,8 +11,7 @@ import ru.assistant.core.contract.AppNavigation
 import ru.assistant.ui.views.ContainerView
 import ru.assistant.ui.views.LoaderView
 
-// Навигация в приложении происходит через AppNavigation который реализует активити. Стараюсь не
-// тащить посторонние либы в проект
+// Навигация в приложении происходит через AppNavigation который реализует активити.
 class MainActivity : AppCompatActivity(), AppNavigation {
 
     private lateinit var containerView: ContainerView
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity(), AppNavigation {
         super.onCreate(savedInstanceState)
         containerView = ContainerView(this@MainActivity)
         setContentView(containerView)
-        if (savedInstanceState == null) pushFragmentById(FRAGMENT_AUTH, now = true)
+        if (savedInstanceState == null) pushFragmentById(FRAGMENT_AUTH, isPushNow = true)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -38,23 +37,24 @@ class MainActivity : AppCompatActivity(), AppNavigation {
 
     private val fragmentManager = supportFragmentManager
 
-    override fun pushFragmentById(id: Byte, container: Int, now: Boolean) {
+    override fun pushFragmentById(id: Byte, container: Int, isPushNow: Boolean) {
 
         val fragment = getFragment(id)
         val tag = fragment::class.java.name
 
         showLoader(true)
-
-        if (now) {
+        
+        if (isPushNow) {
             fragmentManager
-                .beginTransaction()
-                .replace(container, fragment, tag)
-                .commitNow()
+                    .beginTransaction()
+                    .replace(container, fragment, tag)
+                    .commitNow()
         } else {
-            fragmentManager.beginTransaction()
-                .addToBackStack(null)
-                .replace(container, fragment, tag)
-                .commit()
+            fragmentManager
+                    .beginTransaction()
+                    .addToBackStack(null)
+                    .replace(container, fragment, tag)
+                    .commit()
         }
 
         if (id != FRAGMENT_AUTH) {
@@ -64,18 +64,17 @@ class MainActivity : AppCompatActivity(), AppNavigation {
             }
         }
 
-
         showLoader(false)
     }
 
     override fun removeFragmentById(id: Byte) {
         fragmentManager.findFragmentByTag(getFragment(id)::class.java.name)
-            ?.let {
-                fragmentManager
-                    .beginTransaction()
-                    .remove(it)
-                    .commit()
-            } ?: return
+                ?.let {
+                    fragmentManager
+                            .beginTransaction()
+                            .remove(it)
+                            .commit()
+                } ?: return
     }
 
     override fun showLoader(isShow: Boolean, message: String) {
